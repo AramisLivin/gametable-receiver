@@ -1,8 +1,10 @@
 const NAMESPACE = 'urn:x-cast:com.dezesar.gametable';
 
-const VERSION = '20261102191458';
+const VERSION = '20261102195137';
 
-const DEV = new URLSearchParams(location.search).has('dev') || typeof cast === 'undefined';
+const SEARCH = new URLSearchParams(location.search);
+
+const DEV = SEARCH.has('dev') || SEARCH.has('local') || typeof cast === 'undefined';
 
 const context = DEV ? devContext() : cast.framework.CastReceiverContext.getInstance();
 
