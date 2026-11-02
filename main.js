@@ -103,6 +103,26 @@ function received(address, data) {
     if (seat) deliver(engine.receive(seat, JSON.stringify(msg)));
 }
 
+function report(event) {
+    if (DEV) return;
+    const screen = document.querySelector('.screen.on');
+    const box = screen ? screen.getBoundingClientRect() : {};
+    context.sendCustomMessage(NAMESPACE, undefined, {
+        type: 'debug',
+        event: event,
+        version: VERSION,
+        screen: screen ? screen.id : null,
+        size: `${box.width}x${box.height}`,
+        window: `${innerWidth}x${innerHeight}`,
+        hub: hub.sender,
+        guests: hub.conns.size,
+        players: players,
+        agent: navigator.userAgent
+    });
+}
+
+addEventListener('error', (e => report(`error: ${e.message} at ${e.filename}:${e.lineno}`)));
+
 context.addCustomMessageListener(NAMESPACE, (event => {
     let msg = event.data;
     try {
@@ -110,7 +130,12 @@ context.addCustomMessageListener(NAMESPACE, (event => {
     } catch {
         return;
     }
-    if (msg && typeof msg.type === 'string' && msg.type.startsWith('hub')) fromHub(event.senderId, msg); else received(event.senderId, msg);
+    try {
+        if (msg && typeof msg.type === 'string' && msg.type.startsWith('hub')) fromHub(event.senderId, msg); else received(event.senderId, msg);
+        report(`after ${msg && msg.type} from ${event.senderId}`);
+    } catch (e) {
+        report(`failed on ${msg && msg.type}: ${e.message}`);
+    }
 }));
 
 const EMPTY_TABLE_MS = 10 * 60 * 1e3;
