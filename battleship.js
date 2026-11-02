@@ -1,32 +1,197 @@
 const CELL_CLASS = {
     '.': 'cell',
+    S: 'cell ship',
     o: 'cell miss',
     x: 'cell hit',
     '#': 'cell sunk'
 };
 
-function drawBattleship(state) {
-    const view = state.view, root = $('battleship');
-    const name = id => (state.players.find((p => p.id === id)) || {}).name || '?';
-    root.textContent = '';
-    root.appendChild(div('turn', view.winner ? word('won', '{name} won!').replace('{name}', name(view.winner)) : word('shoots', '{name} shoots').replace('{name}', name(view.turn))));
-    const seas = div('seas');
-    for (const owner of Object.keys(view.boards)) {
-        const wrap = div('sea-wrap' + (!view.winner && owner === view.turn ? ' waiting' : ''));
-        wrap.appendChild(div('sea-name', word('sea_of', 'Sea of {name}').replace('{name}', name(owner))));
-        const sea = div('sea');
-        sea.dataset.owner = owner;
-        view.boards[owner].forEach(((row, y) => [ ...row ].forEach(((mark, x) => {
+let seenBoards = null;
+
+let seenWinner = null;
+
+function sunkSizes(rows) {
+    const left = new Set;
+    rows.forEach(((row, y) => [ ...row ].forEach(((mark, x) => {
+        if (mark === '#') left.add(y * 10 + x);
+    }))));
+    const sizes = [];
+    while (left.size) {
+        const stack = [ left.values().next().value ];
+        left.delete(stack[0]);
+        let size = 0;
+        while (stack.length) {
+            const cell = stack.pop();
+            size++;
+            const neighbours = [ cell - 10, cell + 10 ];
+            if (cell % 10 > 0) neighbours.push(cell - 1);
+            if (cell % 10 < 9) neighbours.push(cell + 1);
+            for (const next of neighbours) if (left.delete(next)) stack.push(next);
+        }
+        sizes.push(size);
+    }
+    return sizes;
+}
+
+function drawTally(fleet, rows) {
+    const sunk = sunkSizes(rows);
+    const tally = div('tally');
+    for (const size of fleet) {
+        const at = sunk.indexOf(size);
+        if (at >= 0) sunk.splice(at, 1);
+        const ship = div('tally-ship' + (at >= 0 ? ' gone' : ''));
+        for (let i = 0; i < size; i++) ship.appendChild(document.createElement('i'));
+        tally.appendChild(ship);
+    }
+    return tally;
+}
+
+function drawTableSea(owner, rows, before, last) {
+    const sea = div('sea');
+    sea.dataset.owner = owner;
+    const letters = word('letters', 'ABCDEFGHIJ');
+    sea.appendChild(div('mark'));
+    for (const letter of letters) sea.appendChild(div('mark', letter));
+    let sinking = 0;
+    rows.forEach(((row, y) => {
+        sea.appendChild(div('mark', String(y + 1)));
+        [ ...row ].forEach(((mark, x) => {
             const cell = div(CELL_CLASS[mark]);
             cell.dataset.x = x;
             cell.dataset.y = y;
             cell.appendChild(document.createElement('i'));
-            if (view.last && owner !== view.last.by && view.last.x === x && view.last.y === y) cell.classList.add('last');
+            const was = before && before[y][x];
+            if (was && was !== mark) {
+                if (mark === 'S') cell.classList.add('revealed'); else if (mark === '#') {
+                    cell.classList.add('fx-sunk');
+                    cell.style.animationDelay = `${sinking++ * 80}ms`;
+                } else if (mark === 'x') cell.classList.add('fx-hit'); else if (last && last.result === 'sunk') {
+                    cell.classList.add('fx-clear');
+                    cell.style.animationDelay = `${300 + (x + y) * 20}ms`;
+                } else cell.classList.add('fx-miss');
+            }
             sea.appendChild(cell);
-        }))));
-        wrap.appendChild(sea);
+        }));
+    }));
+    if (before && last && last.result !== 'miss' && rows.join() !== before.join()) sea.classList.add('shake');
+    return sea;
+}
+
+function drawVictory(root, state, name) {
+    const view = state.view;
+    const box = div('victory');
+    const inner = div('victory-card');
+    inner.appendChild(div('victory-note', word('fired', 'Shots fired: {n}').replace('{n}', view.fired[view.winner])));
+    box.appendChild(inner);
+    const colors = [ '#f2c14e', '#f6efdc', '#ff6a3d', '#7fb7d8' ];
+    for (let i = 0; i < 36; i++) {
+        const piece = document.createElement('i');
+        piece.className = 'confetti';
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.background = colors[i % colors.length];
+        piece.style.animationDelay = `${Math.random() * 1200}ms`;
+        piece.style.animationDuration = `${2200 + Math.random() * 1800}ms`;
+        box.appendChild(piece);
+    }
+    root.appendChild(box);
+}
+
+let seenPlacing = null;
+
+function drawPlacing(state) {
+    const view = state.view, root = $('battleship');
+    const name = id => (state.players.find((p => p.id === id)) || {}).name || '?';
+    root.textContent = '';
+    root.appendChild(div('turn', word('placing', 'Fleets are setting out')));
+    const docks = div('docks');
+    let landed = 0, readied = false;
+    for (const owner of Object.keys(view.placing)) {
+        const now = view.placing[owner];
+        const before = seenPlacing && seenPlacing[owner];
+        const dock = div('dock' + (now.ready ? ' done' : ''));
+        dock.appendChild(div('dock-name', name(owner)));
+        const water = div('dock-water');
+        const given = {};
+        for (const size of view.fleet) {
+            const nth = given[size] = (given[size] || 0) + 1;
+            const count = placed => placed.filter((s => s === size)).length;
+            const on = nth <= count(now.placed);
+            const isNew = on && (!before || nth > count(before.placed));
+            const ship = div('dock-ship' + (on ? ' on' : '') + (isNew && before ? ' landing' : ''));
+            if (isNew && before) ship.style.animationDelay = `${landed * 70}ms`;
+            if (isNew && before) landed++;
+            for (let i = 0; i < size; i++) ship.appendChild(document.createElement('i'));
+            if (isNew && before) {
+                const splash = div('splash');
+                splash.style.animationDelay = `${(landed - 1) * 70 + 220}ms`;
+                ship.appendChild(splash);
+            }
+            water.appendChild(ship);
+        }
+        dock.appendChild(water);
+        if (now.ready) {
+            const fresh = before && !before.ready;
+            if (fresh) readied = true;
+            dock.appendChild(div('dock-ready' + (fresh ? ' stamp' : ''), word('ready', 'Fleet ready')));
+        } else {
+            dock.appendChild(div('dock-count', `${now.placed.length} / ${view.fleet.length}`));
+        }
+        docks.appendChild(dock);
+    }
+    root.appendChild(docks);
+    if (landed) playSound('place');
+    if (readied) playSound('ready');
+    seenPlacing = view.placing;
+    seenBoards = null;
+    seenWinner = null;
+    show('battleship');
+}
+
+function drawBattleship(state) {
+    const view = state.view, root = $('battleship');
+    if (view.phase === 'placing') {
+        drawPlacing(state);
+        return;
+    }
+    const battleBegins = !!seenPlacing;
+    seenPlacing = null;
+    const name = id => (state.players.find((p => p.id === id)) || {}).name || '?';
+    const owners = Object.keys(view.boards);
+    const before = view.last ? seenBoards : null;
+    const changed = before && owners.some((o => view.boards[o].join() !== before[o].join()));
+    root.textContent = '';
+    const banner = div('turn' + (view.winner ? ' over' : ''));
+    banner.textContent = view.winner ? word('won', '{name} won!').replace('{name}', name(view.winner)) : word('shoots', '{name} shoots').replace('{name}', name(view.turn));
+    root.appendChild(banner);
+    const seas = div('seas');
+    for (const owner of owners) {
+        const wrap = div('sea-wrap' + (view.winner ? '' : owner === view.turn ? ' resting' : ' under-fire'));
+        wrap.appendChild(div('sea-glow'));
+        wrap.appendChild(div('sea-name', word('sea_of', 'Sea of {name}').replace('{name}', name(owner))));
+        const shot = view.last && owner !== view.last.by ? view.last : null;
+        wrap.appendChild(drawTableSea(owner, view.boards[owner], before && before[owner], shot));
+        wrap.appendChild(drawTally(view.fleet, view.boards[owner]));
         seas.appendChild(wrap);
     }
     root.appendChild(seas);
+    if (battleBegins) {
+        root.appendChild(div('callout callout-sunk', word('battle', 'Battle!')));
+        playSound('win');
+    }
+    if (changed && !view.winner) {
+        const result = view.last.result;
+        root.appendChild(div('callout callout-' + result, word(result, {
+            hit: 'Hit!',
+            miss: 'Miss',
+            sunk: 'Ship sunk!'
+        }[result])));
+        playSound(result);
+    }
+    if (view.winner) {
+        if (!seenWinner) playSound('win');
+        drawVictory(root, state, name);
+    }
+    seenBoards = view.boards;
+    seenWinner = view.winner;
     show('battleship');
 }

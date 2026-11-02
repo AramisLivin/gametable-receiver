@@ -10,8 +10,44 @@ let seatsGiven = 0;
 
 let players = 0;
 
+const HUB_PREFIX = 'hub:';
+
+const hub = {
+    sender: null,
+    conns: new Set
+};
+
 function sendTo(address, message) {
-    if (relay.owns(address)) relay.send(address, message); else context.sendCustomMessage(NAMESPACE, address, message);
+    if (relay.owns(address)) relay.send(address, message); else if (address.startsWith(HUB_PREFIX)) {
+        context.sendCustomMessage(NAMESPACE, hub.sender, {
+            type: 'hub-to',
+            conn: address.slice(HUB_PREFIX.length),
+            data: message
+        });
+    } else context.sendCustomMessage(NAMESPACE, address, message);
+}
+
+function hubGone(conn) {
+    hub.conns.delete(conn);
+    senderGone(HUB_PREFIX + conn);
+}
+
+function fromHub(sender, msg) {
+    if (msg.type === 'hub') {
+        if (hub.sender && hub.sender !== sender) return;
+        hub.sender = sender;
+        [ ...hub.conns ].forEach(hubGone);
+        showJoin(msg.url, msg.room);
+    } else if (sender === hub.sender) {
+        if (msg.type === 'hub-connected') {
+            hub.conns.add(msg.conn);
+            clearTimeout(closing);
+        } else if (msg.type === 'hub-from') {
+            received(HUB_PREFIX + msg.conn, msg.data);
+        } else if (msg.type === 'hub-gone') {
+            hubGone(msg.conn);
+        }
+    }
 }
 
 function deliver(json) {
@@ -67,25 +103,40 @@ function received(address, data) {
     if (seat) deliver(engine.receive(seat, JSON.stringify(msg)));
 }
 
-context.addCustomMessageListener(NAMESPACE, (event => received(event.senderId, event.data)));
+context.addCustomMessageListener(NAMESPACE, (event => {
+    let msg = event.data;
+    try {
+        if (typeof msg === 'string') msg = JSON.parse(msg);
+    } catch {
+        return;
+    }
+    if (msg && typeof msg.type === 'string' && msg.type.startsWith('hub')) fromHub(event.senderId, msg); else received(event.senderId, msg);
+}));
 
 const EMPTY_TABLE_MS = 10 * 60 * 1e3;
 
 let closing = null;
 
 function senderGone(address) {
+    if (address === hub.sender) {
+        hub.sender = null;
+        [ ...hub.conns ].forEach(hubGone);
+        $('join').classList.remove('on');
+        context.sendCustomMessage(NAMESPACE, undefined, {
+            type: 'need-hub'
+        });
+    }
     const seat = seatOf.get(address);
     seatOf.delete(address);
     if (seat && addressOf.get(seat) === address) {
         addressOf.delete(seat);
         deliver(engine.offline(seat));
     }
-    if (context.getSenders().length || relay.count()) return;
+    if (context.getSenders().length || relay.count() || hub.conns.size) return;
     if (!players) context.stop(); else closing = setTimeout((() => context.stop()), EMPTY_TABLE_MS);
 }
 
-function showRoom(room) {
-    const url = `${PLAYER_URL}?room=${room}`;
+function showJoin(url, room) {
     const qr = qrcode(0, 'M');
     qr.addData(url);
     qr.make();
@@ -100,7 +151,7 @@ function showRoom(room) {
 show('home');
 
 relay.start({
-    onRoom: showRoom,
+    onRoom: room => showJoin(`${PLAYER_URL}?room=${room}`, room),
     onConnected: () => clearTimeout(closing),
     onMessage: received,
     onGone: senderGone
