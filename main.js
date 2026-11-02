@@ -157,7 +157,7 @@ function senderGone(address) {
         addressOf.delete(seat);
         deliver(engine.offline(seat));
     }
-    if (context.getSenders().length || relay.count() || hub.conns.size) return;
+    if (addressOf.size || relay.count() || hub.conns.size) return;
     if (!players) context.stop(); else closing = setTimeout((() => context.stop()), EMPTY_TABLE_MS);
 }
 
