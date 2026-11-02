@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>GameTable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+<script src="https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+<link rel="stylesheet" href="style.css?v=20261102191458">
+</head>
+<body>
+<div id="home" class="screen">
+  <h1>GameTable</h1>
+  <p id="waiting">Open the app on your phone</p>
+</div>
+<div id="lobby" class="screen">
+  <h1 id="lobby-title"></h1>
+  <div id="seats"></div>
+  <p id="lobby-hint"></p>
+</div>
+<div id="battleship" class="screen"></div>
+<script src="engine.js?v=20261102191458"></script>
+<script src="common.js?v=20261102191458"></script>
+<script src="battleship.js?v=20261102191458"></script>
+<script src="main.js?v=20261102191458"></script>
+</body>
+</html>
