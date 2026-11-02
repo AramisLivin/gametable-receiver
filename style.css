@@ -32,12 +32,18 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 
 .turn { font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 5.4vh; line-height: 1.1; margin-bottom: 2.4vh;
   padding: 1.2vh 4vh; border-radius: 2vh; background: var(--gold); color: #17302a; }
-.seas { display: flex; justify-content: center; }
-.sea-wrap { position: relative; margin: 0 2.4vw; transition: opacity .4s; }
-.sea-wrap.resting { opacity: .42; }
-.sea-glow { position: absolute; left: -7vh; right: -7vh; top: -7vh; bottom: -7vh; opacity: 0; transition: opacity .5s;
-  background: radial-gradient(ellipse at center, rgba(242, 193, 78, .3), rgba(242, 193, 78, 0) 70%); }
-.under-fire .sea-glow { opacity: 1; }
+.half { position: absolute; top: 0; width: 50%; height: 100%; display: none; }
+.playing .half { display: block; }
+.half-left { left: 0; background: #3a1a22; }
+.half-right { left: 50%; background: #0f3f37; box-shadow: -.25vh 0 0 var(--gold); }
+.half::after { content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .5s;
+  background: radial-gradient(ellipse at 50% 55%, rgba(242, 193, 78, .3), rgba(242, 193, 78, 0) 72%); }
+.half.lit::after { opacity: 1; }
+
+.seas { display: flex; width: 100%; }
+.sea-wrap { position: relative; flex: 0 0 50%; display: flex; flex-direction: column; align-items: center; transition: opacity .4s; }
+.sea-wrap.resting { opacity: .5; }
+.sea-glow { display: none; }
 .sea-name { position: relative; font-size: 3vh; margin-bottom: 1vh; text-align: center; }
 .sea { position: relative; display: grid; grid-template-columns: 2.6vh repeat(10, 5.7vh); grid-template-rows: 2.6vh repeat(10, 5.7vh); gap: .3vh; }
 .mark { display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 1.9vh; }
@@ -46,10 +52,22 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 .cell.ship { background: #e9dcb9; }
 .cell.ship.revealed { animation: rise .6s ease-out both; }
 .cell.miss i { width: 1.4vh; height: 1.4vh; background: var(--line); }
-.cell.hit { background: #6b2f22; }
-.cell.hit i { width: 3.1vh; height: 3.1vh; background: var(--flame); }
+.cell.hit { background: #5a2a20; }
 .cell.sunk { background: #33201b; }
-.cell.sunk i { width: 4vh; height: .9vh; border-radius: .5vh; background: var(--flame); transform: rotate(45deg); }
+.cell.hit i, .cell.sunk i { position: relative; width: 4.4vh; height: 4.4vh; border-radius: 0; }
+.cell.hit i::before, .cell.hit i::after, .cell.sunk i::before, .cell.sunk i::after { content: ''; position: absolute; left: 50%; bottom: 12%; border-radius: 0 50% 50% 50%; }
+.cell.hit i::before, .cell.sunk i::before { width: 2.9vh; height: 2.9vh; margin-left: -1.45vh; background: var(--flame); box-shadow: 0 0 1vh rgba(255, 106, 61, .8); }
+.cell.hit i::after, .cell.sunk i::after { width: 1.5vh; height: 1.5vh; margin-left: -.75vh; background: #ffd23f; }
+.cell.hit i::before { animation: flame .62s ease-in-out infinite alternate; }
+.cell.hit i::after { animation: flame-heart .41s ease-in-out infinite alternate; }
+.cell.sunk i::before { background: #c9472a; box-shadow: 0 0 .7vh rgba(201, 71, 42, .7); animation: smoulder 1.5s ease-in-out infinite alternate; }
+.cell.sunk i::after { background: #ff9d3d; animation: smoulder 1.1s ease-in-out infinite alternate; }
+.cell:nth-child(3n) i::before { animation-delay: -.2s; }
+.cell:nth-child(5n) i::before { animation-delay: -.4s; }
+.cell:nth-child(2n) i::after { animation-delay: -.15s; }
+@keyframes flame { from { transform: rotate(45deg) scale(.9); opacity: .92; } to { transform: rotate(38deg) scale(1.12, 1.2) translate(-3%, -5%); opacity: 1; } }
+@keyframes flame-heart { from { transform: rotate(45deg) scale(.8); } to { transform: rotate(52deg) scale(1.15); } }
+@keyframes smoulder { from { transform: rotate(45deg) scale(.55); opacity: .55; } to { transform: rotate(40deg) scale(.72); opacity: .9; } }
 
 .tally { position: relative; display: flex; flex-wrap: wrap; justify-content: center; margin-top: 1.6vh; }
 .tally-ship { display: flex; margin: 0 .7vh; }
@@ -68,7 +86,7 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 .fx-clear { animation: settle .4s ease-out both; }
 
 .docks { display: flex; justify-content: center; margin-top: 1vh; }
-.dock { position: relative; width: 40vw; margin: 0 2vw; text-align: center; }
+.dock { position: relative; width: 42vw; margin: 0 4vw; text-align: center; }
 .dock-name { font-size: 4.2vh; margin-bottom: 1.6vh; }
 .dock.done .dock-name { color: var(--gold); }
 .dock-water { display: flex; flex-wrap: wrap; align-content: center; justify-content: center; min-height: 34vh; padding: 3vh 1.5vw; border-radius: 2vh; background: var(--water); }
@@ -109,4 +127,5 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 @media (prefers-reduced-motion: reduce) {
   .shake, .fx-miss i, .fx-hit i, .fx-sunk, .fx-clear, .cell.ship.revealed, .victory-card, .dock-ship.landing, .dock-ready.stamp { animation: none; }
   .fx-miss::after, .fx-hit::after, .fx-sunk::after, .confetti, .splash { display: none; }
+  .cell.hit i::before, .cell.hit i::after, .cell.sunk i::before, .cell.sunk i::after { animation: none; transform: rotate(45deg); }
 }

@@ -96,6 +96,10 @@ function drawVictory(root, state, name) {
     root.appendChild(box);
 }
 
+function lightHalf(index) {
+    document.querySelectorAll('.half').forEach(((half, i) => half.classList.toggle('lit', i === index)));
+}
+
 let seenPlacing = null;
 
 function drawPlacing(state) {
@@ -139,6 +143,7 @@ function drawPlacing(state) {
         docks.appendChild(dock);
     }
     root.appendChild(docks);
+    lightHalf(-1);
     if (landed) playSound('place');
     if (readied) playSound('ready');
     seenPlacing = view.placing;
@@ -174,9 +179,10 @@ function drawBattleship(state) {
         seas.appendChild(wrap);
     }
     root.appendChild(seas);
+    lightHalf(view.winner ? owners.indexOf(view.winner) : owners.findIndex((owner => owner !== view.turn)));
     if (battleBegins) {
         root.appendChild(div('callout callout-sunk', word('battle', 'Battle!')));
-        playSound('win');
+        playSound('battle');
     }
     if (changed && !view.winner) {
         const result = view.last.result;
