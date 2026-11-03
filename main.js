@@ -137,7 +137,7 @@ function senderGone(address) {
 }
 
 function showJoin(url, room) {
-    const qr = qrcode(0, 'H');
+    const qr = qrcode(0, 'M');
     qr.addData(url);
     qr.make();
     $('join-qr').innerHTML = qr.createSvgTag({
