@@ -10,6 +10,8 @@ let seenBoards = null;
 
 let seenWinner = null;
 
+const SINK_STEP_MS = 320;
+
 function sunkSizes(rows) {
     const left = new Set;
     rows.forEach(((row, y) => [ ...row ].forEach(((mark, x) => {
@@ -33,6 +35,14 @@ function sunkSizes(rows) {
     return sizes;
 }
 
+function blastOn(index, sunk) {
+    const half = document.querySelectorAll('.half')[index];
+    if (!half) return;
+    const light = div('blast' + (sunk ? ' blast-sunk' : ''));
+    light.addEventListener('animationend', (() => light.remove()));
+    half.appendChild(light);
+}
+
 function drawTally(fleet, rows) {
     const sunk = sunkSizes(rows);
     const tally = div('tally');
@@ -52,7 +62,11 @@ function drawTableSea(owner, rows, before, last) {
     const letters = word('letters', 'ABCDEFGHIJ');
     sea.appendChild(div('mark'));
     for (const letter of letters) sea.appendChild(div('mark', letter));
-    let sinking = 0;
+    const sinking = last && last.result === 'sunk';
+    let shipDown = 0;
+    if (before && sinking) rows.forEach(((row, y) => [ ...row ].forEach(((mark, x) => {
+        if (mark === '#' && before[y][x] !== '#') shipDown = Math.max(shipDown, Math.abs(x - last.x) + Math.abs(y - last.y) + 1);
+    }))));
     rows.forEach(((row, y) => {
         sea.appendChild(div('mark', String(y + 1)));
         [ ...row ].forEach(((mark, x) => {
@@ -64,12 +78,14 @@ function drawTableSea(owner, rows, before, last) {
             if (was && was !== mark) {
                 if (mark === 'S') cell.classList.add('revealed'); else if (mark === '#') {
                     cell.classList.add('fx-sunk');
-                    cell.style.animationDelay = `${sinking++ * 80}ms`;
-                } else if (mark === 'x') cell.classList.add('fx-hit'); else if (last && last.result === 'sunk') {
+                    cell.style.setProperty('--wait', `${(Math.abs(x - last.x) + Math.abs(y - last.y)) * SINK_STEP_MS}ms`);
+                    cell.appendChild(div('smoke'));
+                } else if (mark === 'x') cell.classList.add('fx-hit'); else if (sinking) {
                     cell.classList.add('fx-clear');
-                    cell.style.animationDelay = `${300 + (x + y) * 20}ms`;
+                    cell.style.setProperty('--wait', `${shipDown * SINK_STEP_MS + (x + y) * 20}ms`);
                 } else cell.classList.add('fx-miss');
             }
+            if (last && last.x === x && last.y === y) cell.appendChild(div('reticle'));
             sea.appendChild(cell);
         }));
     }));
@@ -184,6 +200,7 @@ function drawBattleship(state) {
         root.appendChild(div('callout callout-sunk', word('battle', 'Battle!')));
         playSound('battle');
     }
+    if (changed && view.last.result !== 'miss') blastOn(owners.findIndex((owner => owner !== view.last.by)), view.last.result === 'sunk');
     if (changed && !view.winner) {
         const result = view.last.result;
         root.appendChild(div('callout callout-' + result, word(result, {

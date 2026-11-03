@@ -1,11 +1,11 @@
 :root {
-  --felt: #12372f;
-  --felt-light: #1c4d42;
+  --felt: #0c2748;
+  --felt-light: rgba(246, 239, 220, .12);
   --ink: #f6efdc;
-  --dim: #a9bfb2;
+  --dim: #b4c2d0;
   --gold: #f2c14e;
   --flame: #ff6a3d;
-  --water: #1b3a57;
+  --water: #21507a;
   --line: #5d8aaa;
 }
 * { box-sizing: border-box; margin: 0; }
@@ -32,20 +32,33 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 
 .turn { font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 5.4vh; line-height: 1.1; margin-bottom: 2.4vh;
   padding: 1.2vh 4vh; border-radius: 2vh; background: var(--gold); color: #17302a; }
-.half { position: absolute; top: 0; width: 50%; height: 100%; display: none; }
-.playing .half { display: block; }
-.half-left { left: 0; background: #3a1a22; }
-.half-right { left: 50%; background: #0f3f37; box-shadow: -.25vh 0 0 var(--gold); }
+.half { position: absolute; z-index: 0; top: 0; width: 50%; height: 100%; overflow: hidden; }
+.half-left { left: 0; background: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px) 0 0 / 6vh 6vh, linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px) 0 0 / 6vh 6vh, repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 17.8vh, rgba(255, 255, 255, .05) 17.8vh, rgba(255, 255, 255, .05) 18vh), radial-gradient(ellipse at 50% 50%, #123f78, #0a2344 55%, #051326); }
+.half-right { left: 50%; background: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px) 0 0 / 6vh 6vh, linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px) 0 0 / 6vh 6vh, repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 17.8vh, rgba(255, 255, 255, .05) 17.8vh, rgba(255, 255, 255, .05) 18vh), radial-gradient(ellipse at 50% 50%, #6a1a2a, #3a0f1b 55%, #1c060c); }
+.half-right::before { content: ''; position: absolute; z-index: 1; left: 0; top: 0; width: .25vh; height: 100%; background: var(--gold); }
+.sweep { position: absolute; left: 50%; top: 50%; width: 170vh; height: 170vh; margin: -85vh 0 0 -85vh; border-radius: 50%; will-change: transform;
+  background: conic-gradient(rgba(255, 255, 255, 0) 0deg, rgba(255, 255, 255, 0) 290deg, rgba(255, 255, 255, .09) 360deg); animation: sweep 14s linear infinite; }
+.half-right .sweep { animation-delay: -7s; }
+.fog { position: absolute; left: -15%; top: 15%; width: 130%; height: 70%; will-change: transform;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 70%); animation: drift 37s ease-in-out infinite alternate; }
+.half-right .fog { animation-delay: -18s; }
+@keyframes sweep { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes drift { from { transform: translate3d(-18%, 7%, 0); } to { transform: translate3d(18%, -7%, 0); } }
+.blast { position: absolute; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 55%, rgba(255, 140, 61, .75), rgba(255, 106, 61, 0) 75%); animation: blast-light .7s ease-out both; }
+.blast-sunk { animation: blast-light-long 1.7s ease-out both; }
+@keyframes blast-light { 0% { opacity: 0; } 12% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes blast-light-long { 0% { opacity: 0; } 8% { opacity: 1; } 30% { opacity: .45; } 42% { opacity: .95; } 62% { opacity: .35; } 72% { opacity: .7; } 100% { opacity: 0; } }
 .half::after { content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .5s;
   background: radial-gradient(ellipse at 50% 55%, rgba(242, 193, 78, .3), rgba(242, 193, 78, 0) 72%); }
 .half.lit::after { opacity: 1; }
 
 .seas { display: flex; width: 100%; }
 .sea-wrap { position: relative; flex: 0 0 50%; display: flex; flex-direction: column; align-items: center; transition: opacity .4s; }
-.sea-wrap.resting { opacity: .5; }
+.sea-wrap.resting { opacity: .7; }
 .sea-glow { display: none; }
 .sea-name { position: relative; font-size: 3vh; margin-bottom: 1vh; text-align: center; }
-.sea { position: relative; display: grid; grid-template-columns: 2.6vh repeat(10, 5.7vh); grid-template-rows: 2.6vh repeat(10, 5.7vh); gap: .3vh; }
+.sea { position: relative; padding: .8vh; border-radius: 1.2vh; background: rgba(3, 9, 20, .5); display: grid; grid-template-columns: 2.6vh repeat(10, 5.7vh); grid-template-rows: 2.6vh repeat(10, 5.7vh); gap: .3vh; }
 .mark { display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 1.9vh; }
 .cell { position: relative; background: var(--water); border-radius: .6vh; display: flex; align-items: center; justify-content: center; }
 .cell i { display: block; border-radius: 50%; }
@@ -81,9 +94,15 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 .fx-hit { z-index: 2; }
 .fx-hit i { animation: blast .45s cubic-bezier(.2, 1.6, .4, 1) both; }
 .fx-hit::after { background: var(--gold); animation: flash .55s ease-out; }
-.fx-sunk { z-index: 2; animation: sink .7s ease-out both; }
-.fx-sunk::after { background: var(--flame); animation: flash .7s ease-out; }
-.fx-clear { animation: settle .4s ease-out both; }
+.fx-sunk { z-index: 2; animation: sink .7s ease-out both; animation-delay: var(--wait, 0ms); }
+.fx-sunk::before { content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: inherit; background: linear-gradient(#ffb057, #d9401f);
+  animation: burn-out .75s ease-in both; animation-delay: var(--wait, 0ms); }
+.fx-sunk i { animation: flare .75s ease-in both; animation-delay: var(--wait, 0ms); }
+.fx-sunk::after { background: var(--flame); animation: flash .7s ease-out; animation-delay: var(--wait, 0ms); }
+.smoke { position: absolute; z-index: 1; left: 5%; top: -5%; width: 90%; height: 90%; border-radius: 50%; background: radial-gradient(circle, rgba(29, 32, 41, .95) 25%, rgba(29, 32, 41, 0) 70%); opacity: 0;
+  animation: smoke 1.5s ease-out both; animation-delay: calc(var(--wait, 0ms) + .2s); }
+.reticle { position: absolute; z-index: 1; left: -.35vh; top: -.35vh; right: -.35vh; bottom: -.35vh; border: .35vh solid var(--gold); border-radius: .9vh; animation: reticle 1.4s ease-in-out infinite; }
+.fx-clear i { animation: settle .4s ease-out both; animation-delay: var(--wait, 0ms); }
 
 .docks { display: flex; justify-content: center; margin-top: 1vh; }
 .dock { position: relative; width: 42vw; margin: 0 4vw; text-align: center; }
@@ -119,13 +138,18 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 @keyframes ripple { 0% { opacity: .9; transform: scale(.3); } 100% { opacity: 0; transform: scale(1.9); } }
 @keyframes blast { from { transform: scale(.2); } to { transform: none; } }
 @keyframes flash { 0% { opacity: .95; transform: scale(.4); } 100% { opacity: 0; transform: scale(2.8); } }
-@keyframes sink { 0% { transform: scale(1.25); } 100% { transform: none; } }
+@keyframes sink { 0% { transform: none; } 30% { transform: scale(1.22); } 100% { transform: none; } }
+@keyframes burn-out { 0%, 30% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes flare { 0%, 30% { transform: scale(1.5); } 100% { transform: none; } }
+@keyframes smoke { 0% { opacity: 0; transform: scale(.4); } 25% { opacity: .85; } 100% { opacity: 0; transform: translateY(-220%) scale(2.4); } }
+@keyframes reticle { 0%, 100% { opacity: 1; transform: none; } 50% { opacity: .45; transform: scale(1.1); } }
 @keyframes settle { from { opacity: 0; } to { opacity: 1; } }
 @keyframes call { 0% { opacity: 0; transform: scale(.6); } 18% { opacity: 1; transform: scale(1.05); } 30% { transform: scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: scale(1.03); } }
 @keyframes fall { from { transform: translateY(0) rotate(0); opacity: 1; } 85% { opacity: 1; } to { transform: translateY(106vh) rotate(620deg); opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .shake, .fx-miss i, .fx-hit i, .fx-sunk, .fx-clear, .cell.ship.revealed, .victory-card, .dock-ship.landing, .dock-ready.stamp { animation: none; }
-  .fx-miss::after, .fx-hit::after, .fx-sunk::after, .confetti, .splash { display: none; }
+  .shake, .fx-miss i, .fx-hit i, .fx-sunk, .cell.ship.revealed, .victory-card, .dock-ship.landing, .dock-ready.stamp { animation: none; }
+  .fx-miss::after, .fx-hit::after, .fx-sunk::after, .fx-sunk::before, .confetti, .splash, .smoke, .blast { display: none; }
+  .sweep, .fog, .reticle, .fx-sunk i, .fx-clear i { animation: none; }
   .cell.hit i::before, .cell.hit i::after, .cell.sunk i::before, .cell.sunk i::after { animation: none; transform: rotate(45deg); }
 }
