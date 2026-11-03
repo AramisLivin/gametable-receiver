@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&family=Russo+One&display=swap" rel="stylesheet">
 <script src="https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
-<link rel="stylesheet" href="style.css?v=20261103093234">
+<link rel="stylesheet" href="style.css?v=20261103093557">
 </head>
 <body>
 <div class="half half-left"><i class="fog"></i><i class="sweep"></i></div>
@@ -23,15 +23,24 @@
 </div>
 <div id="battleship" class="screen"></div>
 <div id="join">
-  <div id="join-qr"></div>
+  <div id="join-art">
+    <div id="join-qr"></div>
+    <svg id="join-logo" viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="4" y="4" width="92" height="92" rx="22" fill="#0c2748"/>
+      <path d="M50 4H74A22 22 0 0 1 96 26V74A22 22 0 0 1 74 96H50Z" fill="#4b1622"/>
+      <circle cx="50" cy="50" r="27" fill="none" stroke="#f2c14e" stroke-width="7"/>
+      <path d="M50 12V34M50 66V88M12 50H34M66 50H88" stroke="#f2c14e" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="7" fill="#f2c14e"/>
+    </svg>
+  </div>
   <div id="join-code"></div>
 </div>
-<script src="engine.js?v=20261103093234"></script>
-<script src="qrcode.js?v=20261103093234"></script>
-<script src="common.js?v=20261103093234"></script>
-<script src="relay.js?v=20261103093234"></script>
-<script src="sound.js?v=20261103093234"></script>
-<script src="battleship.js?v=20261103093234"></script>
-<script src="main.js?v=20261103093234"></script>
+<script src="engine.js?v=20261103093557"></script>
+<script src="qrcode.js?v=20261103093557"></script>
+<script src="common.js?v=20261103093557"></script>
+<script src="relay.js?v=20261103093557"></script>
+<script src="sound.js?v=20261103093557"></script>
+<script src="battleship.js?v=20261103093557"></script>
+<script src="main.js?v=20261103093557"></script>
 </body>
 </html>
