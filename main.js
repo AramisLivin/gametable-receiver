@@ -97,6 +97,7 @@ function received(address, data) {
         if (msg.texts && !Object.keys(texts).length) {
             texts = msg.texts;
             $('waiting').textContent = word('waiting', $('waiting').textContent);
+            writeJoinWords();
         }
     }
     const seat = seatOf.get(address);
@@ -136,15 +137,38 @@ function senderGone(address) {
     if (!players) context.stop(); else closing = setTimeout((() => context.stop()), EMPTY_TABLE_MS);
 }
 
+function softQrSvg(qr, soft = .42, finderSoft = .15) {
+    const size = qr.getModuleCount();
+    const dark = (y, x) => y >= 0 && x >= 0 && y < size && x < size && qr.isDark(y, x);
+    const inFinder = (y, x) => y < 7 && x < 7 || y < 7 && x >= size - 7 || y >= size - 7 && x < 7;
+    const arc = (x, y) => `A${soft} ${soft} 0 0 1 ${x} ${y}`;
+    let cells = '';
+    for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            if (!dark(y, x) || inFinder(y, x)) continue;
+            const up = dark(y - 1, x), down = dark(y + 1, x), left = dark(y, x - 1), right = dark(y, x + 1);
+            const tl = !up && !left ? soft : 0, tr = !up && !right ? soft : 0, br = !down && !right ? soft : 0, bl = !down && !left ? soft : 0;
+            cells += `M${x + tl} ${y}H${x + 1 - tr}${tr ? arc(x + 1, y + tr) : ''}V${y + 1 - br}${br ? arc(x + 1 - br, y + 1) : ''}H${x + bl}${bl ? arc(x, y + 1 - bl) : ''}V${y + tl}${tl ? arc(x + tl, y) : ''}Z`;
+        }
+    }
+    const box = (x, y, side, r) => `M${x + r} ${y}H${x + side - r}A${r} ${r} 0 0 1 ${x + side} ${y + r}V${y + side - r}A${r} ${r} 0 0 1 ${x + side - r} ${y + side}H${x + r}A${r} ${r} 0 0 1 ${x} ${y + side - r}V${y + r}A${r} ${r} 0 0 1 ${x + r} ${y}Z`;
+    const finder = (x, y) => box(x, y, 7, finderSoft) + box(x + 1, y + 1, 5, finderSoft * .55) + box(x + 2, y + 2, 3, finderSoft * .5);
+    const paths = cells + finder(0, 0) + finder(size - 7, 0) + finder(0, size - 7);
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"><path d="${paths}" fill="#0c2748" fill-rule="evenodd" stroke="#0c2748" stroke-width=".03"/></svg>`;
+}
+
+function writeJoinWords() {
+    $('join-caption').textContent = word('board', 'Come aboard');
+    $('join-code-label').textContent = word('table_code', 'Table code');
+}
+
 function showJoin(url, room) {
     const qr = qrcode(0, 'M');
     qr.addData(url);
     qr.make();
-    $('join-qr').innerHTML = qr.createSvgTag({
-        scalable: true,
-        margin: 0
-    });
+    $('join-qr').innerHTML = softQrSvg(qr);
     $('join-code').textContent = room;
+    writeJoinWords();
     $('join').classList.add('on');
 }
 
