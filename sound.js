@@ -130,6 +130,8 @@ const BAR = BEAT * 4;
 const CHORDS = [ [ 50, 53, 57 ], [ 46, 50, 53 ], [ 43, 50, 55 ], [ 45, 49, 52 ] ];
 
 const DUCK_SECONDS = {
+    launch: .5,
+    thud: .9,
     place: .5,
     ready: .8,
     miss: .9,
@@ -266,6 +268,14 @@ const SOUNDS = {
     fire() {
         noise(0, .05, .14, 'bandpass', 3600, 1500);
         thump(0, 210, 130, .05, .12);
+    },
+    launch() {
+        noise(0, .16, 1.1, 'lowpass', 2600, 500);
+        thump(0, 130, 48, .28, 1.1);
+    },
+    thud() {
+        noise(0, .28, 1.5, 'lowpass', 1400, 240);
+        thump(0, 120, 42, .3, 1.2);
     },
     place() {
         noise(0, .4, 1.2, 'bandpass', 1500, 350);

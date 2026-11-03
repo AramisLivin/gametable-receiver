@@ -66,10 +66,14 @@ const GAME_SCREENS = {
     dice: {
         draw: drawDice,
         stop: stopDice
+    },
+    artillery: {
+        draw: drawArtillery,
+        stop: stopArtillery
     }
 };
 
-const BATTLE_MUSIC = [ 'battleship', 'siege' ];
+const BATTLE_MUSIC = [ 'battleship', 'siege', 'artillery' ];
 
 function deliver(json) {
     for (const {to: to, message: message} of JSON.parse(json)) {

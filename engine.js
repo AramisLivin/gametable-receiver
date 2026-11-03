@@ -127,26 +127,26 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(Comparator, 'Comparator');
     initMetadataForObject(Unit, 'Unit');
     initMetadataForClass(AbstractCollection, 'AbstractCollection', VOID, VOID, [ Collection ]);
-    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ Collection, MutableIterable ]);
+    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ MutableIterable, Collection ]);
     initMetadataForClass(IteratorImpl, 'IteratorImpl');
     initMetadataForClass(ListIteratorImpl, 'ListIteratorImpl', VOID, IteratorImpl);
-    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ KtList, MutableIterable, Collection ]);
+    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ MutableIterable, KtList, Collection ]);
     initMetadataForClass(AbstractMap, 'AbstractMap', VOID, VOID, [ KtMap ]);
     initMetadataForClass(AbstractMutableMap, 'AbstractMutableMap', VOID, AbstractMap, [ KtMutableMap ]);
-    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ KtSet, MutableIterable, Collection ]);
+    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ MutableIterable, KtSet, Collection ]);
     initMetadataForCompanion(Companion_2);
     initMetadataForInterface(RandomAccess, 'RandomAccess');
-    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ KtList, MutableIterable, Collection, RandomAccess ]);
+    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ MutableIterable, KtList, Collection, RandomAccess ]);
     initMetadataForClass(HashMap, 'HashMap', HashMap_init_$Create$, AbstractMutableMap, [ KtMutableMap ]);
-    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ KtSet, MutableIterable, Collection ]);
-    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ Collection, MutableIterable ]);
-    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ KtSet, MutableIterable, Collection ]);
+    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ MutableIterable, Collection ]);
+    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
     initMetadataForClass(HashMapEntrySet, 'HashMapEntrySet', VOID, HashMapEntrySetBase);
     initMetadataForClass(HashMapKeysDefault$iterator$1);
     initMetadataForClass(HashMapKeysDefault, 'HashMapKeysDefault', VOID, AbstractMutableSet);
     initMetadataForClass(HashMapValuesDefault$iterator$1);
     initMetadataForClass(HashMapValuesDefault, 'HashMapValuesDefault', VOID, AbstractMutableCollection);
-    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ KtSet, MutableIterable, Collection ]);
+    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
     initMetadataForCompanion(Companion_3);
     initMetadataForClass(Itr, 'Itr');
     initMetadataForClass(KeysItr, 'KeysItr', VOID, Itr);
@@ -158,7 +158,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp;
             if (isInterface(m, Collection)) {
-                tmp = m.k();
+                tmp = m.p();
             } else {
                 tmp = false;
             }
@@ -172,7 +172,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var entry = element;
                 var tmp_0;
                 if (!(entry == null) ? isInterface(entry, Entry) : false) {
-                    tmp_0 = this.b7(entry);
+                    tmp_0 = this.a7(entry);
                 } else {
                     tmp_0 = false;
                 }
@@ -188,7 +188,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(InternalMap, 'InternalMap');
     initMetadataForClass(InternalHashMap, 'InternalHashMap', InternalHashMap_init_$Create$, VOID, [ InternalMap ]);
     initMetadataForClass(LinkedHashMap, 'LinkedHashMap', LinkedHashMap_init_$Create$, HashMap, [ KtMutableMap ]);
-    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ KtSet, MutableIterable, Collection ]);
+    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ MutableIterable, KtSet, Collection ]);
     initMetadataForInterface(Continuation, 'Continuation');
     initMetadataForClass(InterceptedCoroutine, 'InterceptedCoroutine', VOID, VOID, [ Continuation ]);
     initMetadataForClass(CoroutineImpl, 'CoroutineImpl', VOID, InterceptedCoroutine, [ Continuation ]);
@@ -241,7 +241,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForClass(FilteringSequence$iterator$1);
     initMetadataForClass(FilteringSequence, 'FilteringSequence', VOID, VOID, [ Sequence ]);
     initMetadataForObject(EmptySet, 'EmptySet', VOID, VOID, [ KtSet ]);
-    initMetadataForObject(NaturalOrderComparator, 'NaturalOrderComparator', VOID, VOID, [ Comparator ]);
     initMetadataForObject(Key, 'Key');
     function releaseInterceptedContinuation(continuation) {}
     initMetadataForInterface(ContinuationInterceptor, 'ContinuationInterceptor');
@@ -254,7 +253,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForCompanion(Companion_8);
     initMetadataForClass(IntProgression, 'IntProgression');
     function contains(value) {
-        return compareTo(value, this.ec()) >= 0 && compareTo(value, this.fc()) <= 0;
+        return compareTo(value, this.cc()) >= 0 && compareTo(value, this.dc()) <= 0;
     }
     initMetadataForInterface(ClosedRange, 'ClosedRange');
     initMetadataForClass(IntRange, 'IntRange', VOID, IntProgression, [ ClosedRange ]);
@@ -286,7 +285,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForClass(Result, 'Result');
     initMetadataForClass(NotImplementedError, 'NotImplementedError', NotImplementedError, Error_0);
     initMetadataForClass(Pair, 'Pair');
-    initMetadataForClass(Triple, 'Triple');
     initMetadataForCompanion(Companion_15);
     initMetadataForClass(Uuid, 'Uuid', VOID, VOID, [ Comparable ]);
     initMetadataForCompanion(Companion_16);
@@ -345,7 +343,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForClass(PolymorphicKind, 'PolymorphicKind', VOID, SerialKind);
     initMetadataForObject(SEALED, 'SEALED', VOID, PolymorphicKind);
     function decodeSerializableValue(deserializer) {
-        return deserializer.tg(this);
+        return deserializer.jg(this);
     }
     initMetadataForInterface(Decoder, 'Decoder');
     function decodeSequentially() {
@@ -356,7 +354,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function decodeSerializableElement$default(descriptor, index, deserializer, previousValue, $super) {
         previousValue = previousValue === VOID ? null : previousValue;
-        return $super === VOID ? this.kj(descriptor, index, deserializer, previousValue) : $super.kj.call(this, descriptor, index, deserializer, previousValue);
+        return $super === VOID ? this.aj(descriptor, index, deserializer, previousValue) : $super.aj.call(this, descriptor, index, deserializer, previousValue);
     }
     initMetadataForInterface(CompositeDecoder, 'CompositeDecoder');
     initMetadataForClass(AbstractDecoder, 'AbstractDecoder', VOID, VOID, [ Decoder, CompositeDecoder ]);
@@ -497,8 +495,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForObject(CharMappings, 'CharMappings');
     initMetadataForClass(StringJsonLexer, 'StringJsonLexer', VOID, AbstractJsonLexer);
     initMetadataForClass(StringJsonLexerWithComments, 'StringJsonLexerWithComments', VOID, StringJsonLexer);
-    initMetadataForClass(Ship, 'Ship');
+    initMetadataForClass(Crate, 'Crate');
+    initMetadataForClass(Blast, 'Blast');
+    initMetadataForClass(Landing, 'Landing');
+    initMetadataForClass(Flight, 'Flight');
+    initMetadataForClass(BlastStyle, 'BlastStyle');
     initMetadataForCompanion(Companion_25);
+    initMetadataForClass(sam$kotlin_Comparator$0_0, 'sam$kotlin_Comparator$0', VOID, VOID, [ Comparator, FunctionAdapter ]);
     function tick() {
         return false;
     }
@@ -506,30 +509,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Frame_NONE_getInstance();
     }
     initMetadataForInterface(Game, 'Game');
+    initMetadataForClass(ArtilleryGame, 'ArtilleryGame', VOID, VOID, [ Game ]);
+    initMetadataForObject(Artillery, 'Artillery');
+    initMetadataForClass(Ship, 'Ship');
+    initMetadataForCompanion(Companion_26);
     initMetadataForClass(BattleshipGame, 'BattleshipGame', VOID, VOID, [ Game ]);
     initMetadataForObject(Battleship, 'Battleship');
-    initMetadataForClass(Figure, 'Figure');
-    initMetadataForClass(Seat, 'Seat');
-    initMetadataForCompanion(Companion_26);
-    initMetadataForClass(sam$kotlin_Comparator$0_0, 'sam$kotlin_Comparator$0', VOID, VOID, [ Comparator, FunctionAdapter ]);
-    initMetadataForClass(CrowdGame, 'CrowdGame', VOID, VOID, [ Game ]);
-    initMetadataForObject(Crowd, 'Crowd');
-    initMetadataForCompanion(Companion_27);
-    initMetadataForClass(DiceGame, 'DiceGame', VOID, VOID, [ Game ]);
-    initMetadataForObject(Dice, 'Dice');
     initMetadataForClass(Frame, 'Frame', VOID, Enum);
     initMetadataForClass(ComingGame, 'ComingGame');
-    initMetadataForClass(Card, 'Card');
-    initMetadataForClass(Squad, 'Squad');
-    initMetadataForCompanion(Companion_28);
-    initMetadataForClass(SiegeGame, 'SiegeGame', VOID, VOID, [ Game ]);
-    initMetadataForObject(Siege, 'Siege');
-    initMetadataForCompanion(Companion_29);
-    initMetadataForClass(SubmarineGame, 'SubmarineGame', VOID, VOID, [ Game ]);
-    initMetadataForObject(Submarine, 'Submarine');
     initMetadataForClass(Delivery, 'Delivery');
     initMetadataForClass(Player, 'Player');
-    initMetadataForCompanion(Companion_30);
+    initMetadataForCompanion(Companion_27);
     initMetadataForClass(Table, 'Table', Table);
     initMetadataForClass(Engine, 'Engine', Engine);
     function CharSequence() {}
@@ -562,73 +552,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return -1;
     }
-    function contains_0(_this__u8e3s4, element) {
-        return indexOf_0(_this__u8e3s4, element) >= 0;
-    }
-    function contains_1(_this__u8e3s4, element) {
-        return indexOf_1(_this__u8e3s4, element) >= 0;
-    }
-    function contains_2(_this__u8e3s4, element) {
-        return indexOf_2(_this__u8e3s4, element) >= 0;
-    }
-    function contains_3(_this__u8e3s4, element) {
-        return indexOf_3(_this__u8e3s4, element) >= 0;
-    }
     function get_lastIndex(_this__u8e3s4) {
         return _this__u8e3s4.length - 1 | 0;
     }
-    function indexOf_0(_this__u8e3s4, element) {
-        var inductionVariable = 0;
-        var last = _this__u8e3s4.length - 1 | 0;
-        if (inductionVariable <= last) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            if (element === _this__u8e3s4[index]) {
-                return index;
-            }
-        } while (inductionVariable <= last);
-        return -1;
-    }
-    function indexOf_1(_this__u8e3s4, element) {
-        var inductionVariable = 0;
-        var last = _this__u8e3s4.length - 1 | 0;
-        if (inductionVariable <= last) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            if (element === _this__u8e3s4[index]) {
-                return index;
-            }
-        } while (inductionVariable <= last);
-        return -1;
-    }
-    function indexOf_2(_this__u8e3s4, element) {
-        var inductionVariable = 0;
-        var last = _this__u8e3s4.length - 1 | 0;
-        if (inductionVariable <= last) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            if (equalsLong(element, _this__u8e3s4[index])) {
-                return index;
-            }
-        } while (inductionVariable <= last);
-        return -1;
-    }
-    function indexOf_3(_this__u8e3s4, element) {
-        var inductionVariable = 0;
-        var last = _this__u8e3s4.length - 1 | 0;
-        if (inductionVariable <= last) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            if (element === _this__u8e3s4[index]) {
-                return index;
-            }
-        } while (inductionVariable <= last);
-        return -1;
-    }
     function get_lastIndex_0(_this__u8e3s4) {
-        return _this__u8e3s4.length - 1 | 0;
-    }
-    function get_lastIndex_1(_this__u8e3s4) {
         return _this__u8e3s4.length - 1 | 0;
     }
     function joinToString(_this__u8e3s4, separator, prefix, postfix, limit, truncated, transform) {
@@ -669,7 +596,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return buffer;
     }
     function get_indices_0(_this__u8e3s4) {
-        return new IntRange(0, get_lastIndex_2(_this__u8e3s4));
+        return new IntRange(0, get_lastIndex_1(_this__u8e3s4));
     }
     function toList(_this__u8e3s4) {
         var tmp;
@@ -692,30 +619,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function withIndex(_this__u8e3s4) {
         return new IndexingIterable(withIndex$lambda(_this__u8e3s4));
     }
-    function maxOrNull(_this__u8e3s4) {
-        if (_this__u8e3s4.length === 0) return null;
-        var max = _this__u8e3s4[0];
-        var inductionVariable = 1;
-        var last = get_lastIndex_0(_this__u8e3s4);
-        if (inductionVariable <= last) do {
-            var i = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var e = _this__u8e3s4[i];
-            if (max < e) max = e;
-        } while (!(i === last));
-        return max;
-    }
-    function sum(_this__u8e3s4) {
-        var sum = 0;
-        var inductionVariable = 0;
-        var last = _this__u8e3s4.length;
-        while (inductionVariable < last) {
-            var element = _this__u8e3s4[inductionVariable];
-            inductionVariable = inductionVariable + 1 | 0;
-            sum = sum + element | 0;
-        }
-        return sum;
-    }
     function toSet(_this__u8e3s4) {
         switch (_this__u8e3s4.length) {
           case 0:
@@ -725,10 +628,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return setOf(_this__u8e3s4[0]);
 
           default:
-            return toCollection(_this__u8e3s4, LinkedHashSet_init_$Create$_1(mapCapacity(_this__u8e3s4.length)));
+            return toCollection(_this__u8e3s4, LinkedHashSet_init_$Create$_0(mapCapacity(_this__u8e3s4.length)));
         }
     }
-    function get_lastIndex_2(_this__u8e3s4) {
+    function get_lastIndex_1(_this__u8e3s4) {
         return _this__u8e3s4.length - 1 | 0;
     }
     function toCollection(_this__u8e3s4, destination) {
@@ -811,9 +714,78 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return result;
     }
+    function toList_0(_this__u8e3s4) {
+        if (isInterface(_this__u8e3s4, Collection)) {
+            var tmp;
+            switch (_this__u8e3s4.j()) {
+              case 0:
+                tmp = emptyList();
+                break;
+
+              case 1:
+                var tmp_0;
+                if (isInterface(_this__u8e3s4, KtList)) {
+                    tmp_0 = _this__u8e3s4.k(0);
+                } else {
+                    tmp_0 = _this__u8e3s4.g().i();
+                }
+                tmp = listOf(tmp_0);
+                break;
+
+              default:
+                tmp = toMutableList(_this__u8e3s4);
+                break;
+            }
+            return tmp;
+        }
+        return optimizeReadOnlyList(toMutableList_0(_this__u8e3s4));
+    }
+    function maxOrNull(_this__u8e3s4) {
+        var iterator = _this__u8e3s4.g();
+        if (!iterator.h()) return null;
+        var max = iterator.i();
+        while (iterator.h()) {
+            var e = iterator.i();
+            var a = max;
+            max = Math.max(a, e);
+        }
+        return max;
+    }
+    function plus(_this__u8e3s4, elements) {
+        if (isInterface(elements, Collection)) {
+            var result = ArrayList_init_$Create$_0(_this__u8e3s4.j() + elements.j() | 0);
+            result.o(_this__u8e3s4);
+            result.o(elements);
+            return result;
+        } else {
+            var result_0 = ArrayList_init_$Create$_1(_this__u8e3s4);
+            addAll(result_0, elements);
+            return result_0;
+        }
+    }
+    function max(_this__u8e3s4) {
+        var iterator = _this__u8e3s4.g();
+        if (!iterator.h()) throw NoSuchElementException_init_$Create$();
+        var max = iterator.i();
+        while (iterator.h()) {
+            var e = iterator.i();
+            var a = max;
+            max = Math.max(a, e);
+        }
+        return max;
+    }
+    function plus_0(_this__u8e3s4, element) {
+        var result = ArrayList_init_$Create$_0(_this__u8e3s4.j() + 1 | 0);
+        result.o(_this__u8e3s4);
+        result.f(element);
+        return result;
+    }
+    function toMutableList(_this__u8e3s4) {
+        return ArrayList_init_$Create$_1(_this__u8e3s4);
+    }
     function random(_this__u8e3s4, random) {
-        if (_this__u8e3s4.k()) throw NoSuchElementException_init_$Create$_0('Collection is empty.');
-        return elementAt(_this__u8e3s4, random.l(_this__u8e3s4.j()));
+        if (_this__u8e3s4.p()) throw NoSuchElementException_init_$Create$_0('Collection is empty.');
+        return elementAt(_this__u8e3s4, random.q(_this__u8e3s4.j()));
     }
     function minus(_this__u8e3s4, element) {
         var result = ArrayList_init_$Create$_0(collectionSizeOrDefault(_this__u8e3s4, 10));
@@ -845,7 +817,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
               case 1:
                 var tmp_0;
                 if (isInterface(_this__u8e3s4, KtList)) {
-                    tmp_0 = _this__u8e3s4.m(0);
+                    tmp_0 = _this__u8e3s4.k(0);
                 } else {
                     tmp_0 = _this__u8e3s4.g().i();
                 }
@@ -853,118 +825,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 break;
 
               default:
-                tmp = toCollection_0(_this__u8e3s4, LinkedHashSet_init_$Create$_1(mapCapacity(_this__u8e3s4.j())));
+                tmp = toCollection_0(_this__u8e3s4, LinkedHashSet_init_$Create$_0(mapCapacity(_this__u8e3s4.j())));
                 break;
             }
             return tmp;
         }
         return optimizeReadOnlySet(toCollection_0(_this__u8e3s4, LinkedHashSet_init_$Create$()));
     }
-    function toMutableList(_this__u8e3s4) {
-        return ArrayList_init_$Create$_1(_this__u8e3s4);
-    }
     function asSequence(_this__u8e3s4) {
         return new asSequence$$inlined$Sequence$1(_this__u8e3s4);
     }
-    function withIndex_0(_this__u8e3s4) {
-        return new IndexingIterable(withIndex$lambda_0(_this__u8e3s4));
-    }
-    function single_0(_this__u8e3s4) {
-        if (isInterface(_this__u8e3s4, KtList)) return single_1(_this__u8e3s4); else {
-            var iterator = _this__u8e3s4.g();
-            if (!iterator.h()) throw NoSuchElementException_init_$Create$_0('Collection is empty.');
-            var single = iterator.i();
-            if (iterator.h()) throw IllegalArgumentException_init_$Create$_0('Collection has more than one element.');
-            return single;
-        }
-    }
     function first(_this__u8e3s4) {
-        if (_this__u8e3s4.k()) throw NoSuchElementException_init_$Create$_0('List is empty.');
-        return _this__u8e3s4.m(0);
-    }
-    function sum_0(_this__u8e3s4) {
-        var sum = 0;
-        var _iterator__ex2g4s = _this__u8e3s4.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            sum = sum + element | 0;
-        }
-        return sum;
-    }
-    function singleOrNull(_this__u8e3s4) {
-        if (isInterface(_this__u8e3s4, KtList)) return _this__u8e3s4.j() === 1 ? _this__u8e3s4.m(0) : null; else {
-            var iterator = _this__u8e3s4.g();
-            if (!iterator.h()) return null;
-            var single = iterator.i();
-            if (iterator.h()) return null;
-            return single;
-        }
-    }
-    function randomOrNull(_this__u8e3s4, random) {
-        if (_this__u8e3s4.k()) return null;
-        return elementAt(_this__u8e3s4, random.l(_this__u8e3s4.j()));
-    }
-    function firstOrNull(_this__u8e3s4) {
-        return _this__u8e3s4.k() ? null : _this__u8e3s4.m(0);
-    }
-    function plus(_this__u8e3s4, elements) {
-        if (isInterface(elements, Collection)) {
-            var result = ArrayList_init_$Create$_0(_this__u8e3s4.j() + elements.j() | 0);
-            result.q(_this__u8e3s4);
-            result.q(elements);
-            return result;
-        } else {
-            var result_0 = ArrayList_init_$Create$_1(_this__u8e3s4);
-            addAll(result_0, elements);
-            return result_0;
-        }
-    }
-    function toMutableSet(_this__u8e3s4) {
-        var tmp;
-        if (isInterface(_this__u8e3s4, Collection)) {
-            tmp = LinkedHashSet_init_$Create$_0(_this__u8e3s4);
-        } else {
-            tmp = toCollection_0(_this__u8e3s4, LinkedHashSet_init_$Create$());
-        }
-        return tmp;
-    }
-    function sorted(_this__u8e3s4) {
-        if (isInterface(_this__u8e3s4, Collection)) {
-            if (_this__u8e3s4.j() <= 1) return toList_0(_this__u8e3s4);
-            var tmp = copyToArray(_this__u8e3s4);
-            var this_0 = isArray(tmp) ? tmp : THROW_CCE();
-            sort(this_0);
-            return asList(this_0);
-        }
-        var this_1 = toMutableList_0(_this__u8e3s4);
-        sort_0(this_1);
-        return this_1;
-    }
-    function takeLast(_this__u8e3s4, n) {
-        if (!(n >= 0)) {
-            var message = 'Requested element count ' + n + ' is less than zero.';
-            throw IllegalArgumentException_init_$Create$_0(toString_1(message));
-        }
-        if (n === 0) return emptyList();
-        var size = _this__u8e3s4.j();
-        if (n >= size) return toList_0(_this__u8e3s4);
-        if (n === 1) return listOf(last(_this__u8e3s4));
-        var list = ArrayList_init_$Create$_0(n);
-        if (isInterface(_this__u8e3s4, RandomAccess)) {
-            var inductionVariable = size - n | 0;
-            if (inductionVariable < size) do {
-                var index = inductionVariable;
-                inductionVariable = inductionVariable + 1 | 0;
-                list.f(_this__u8e3s4.m(index));
-            } while (inductionVariable < size);
-        } else {
-            var _iterator__ex2g4s = _this__u8e3s4.r(size - n | 0);
-            while (_iterator__ex2g4s.h()) {
-                var item = _iterator__ex2g4s.i();
-                list.f(item);
-            }
-        }
-        return list;
+        if (_this__u8e3s4.p()) throw NoSuchElementException_init_$Create$_0('List is empty.');
+        return _this__u8e3s4.k(0);
     }
     function take(_this__u8e3s4, n) {
         if (!(n >= 0)) {
@@ -987,43 +860,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return optimizeReadOnlyList(list);
     }
-    function toList_0(_this__u8e3s4) {
-        if (isInterface(_this__u8e3s4, Collection)) {
-            var tmp;
-            switch (_this__u8e3s4.j()) {
-              case 0:
-                tmp = emptyList();
-                break;
-
-              case 1:
-                var tmp_0;
-                if (isInterface(_this__u8e3s4, KtList)) {
-                    tmp_0 = _this__u8e3s4.m(0);
-                } else {
-                    tmp_0 = _this__u8e3s4.g().i();
-                }
-                tmp = listOf(tmp_0);
-                break;
-
-              default:
-                tmp = toMutableList(_this__u8e3s4);
-                break;
-            }
-            return tmp;
-        }
-        return optimizeReadOnlyList(toMutableList_0(_this__u8e3s4));
-    }
     function toMutableList_0(_this__u8e3s4) {
         if (isInterface(_this__u8e3s4, Collection)) return toMutableList(_this__u8e3s4);
         return toCollection_0(_this__u8e3s4, ArrayList_init_$Create$());
     }
     function shuffle(_this__u8e3s4, random) {
-        var inductionVariable = get_lastIndex_3(_this__u8e3s4);
+        var inductionVariable = get_lastIndex_2(_this__u8e3s4);
         if (1 <= inductionVariable) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + -1 | 0;
-            var j = random.l(i + 1 | 0);
-            _this__u8e3s4.s(j, _this__u8e3s4.s(i, _this__u8e3s4.m(j)));
+            var j = random.q(i + 1 | 0);
+            _this__u8e3s4.r(j, _this__u8e3s4.r(i, _this__u8e3s4.k(j)));
         } while (1 <= inductionVariable);
     }
     function toCollection_0(_this__u8e3s4, destination) {
@@ -1033,10 +880,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination.f(item);
         }
         return destination;
-    }
-    function elementAt(_this__u8e3s4, index) {
-        if (isInterface(_this__u8e3s4, KtList)) return _this__u8e3s4.m(index);
-        return elementAtOrElse(_this__u8e3s4, index, elementAt$lambda(index));
     }
     function sortedWith(_this__u8e3s4, comparator) {
         if (isInterface(_this__u8e3s4, Collection)) {
@@ -1050,24 +893,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         sortWith_0(this_1, comparator);
         return this_1;
     }
-    function single_1(_this__u8e3s4) {
-        var tmp;
-        switch (_this__u8e3s4.j()) {
-          case 0:
-            throw NoSuchElementException_init_$Create$_0('List is empty.');
-
-          case 1:
-            tmp = _this__u8e3s4.m(0);
-            break;
-
-          default:
-            throw IllegalArgumentException_init_$Create$_0('List has more than one element.');
-        }
-        return tmp;
+    function elementAt(_this__u8e3s4, index) {
+        if (isInterface(_this__u8e3s4, KtList)) return _this__u8e3s4.k(index);
+        return elementAtOrElse(_this__u8e3s4, index, elementAt$lambda(index));
     }
     function last(_this__u8e3s4) {
-        if (_this__u8e3s4.k()) throw NoSuchElementException_init_$Create$_0('List is empty.');
-        return _this__u8e3s4.m(get_lastIndex_3(_this__u8e3s4));
+        if (_this__u8e3s4.p()) throw NoSuchElementException_init_$Create$_0('List is empty.');
+        return _this__u8e3s4.k(get_lastIndex_2(_this__u8e3s4));
     }
     function first_0(_this__u8e3s4) {
         if (isInterface(_this__u8e3s4, KtList)) return first(_this__u8e3s4); else {
@@ -1078,7 +910,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function elementAtOrElse(_this__u8e3s4, index, defaultValue) {
         if (isInterface(_this__u8e3s4, KtList)) {
-            return (0 <= index ? index < _this__u8e3s4.j() : false) ? _this__u8e3s4.m(index) : defaultValue(index);
+            return (0 <= index ? index < _this__u8e3s4.j() : false) ? _this__u8e3s4.k(index) : defaultValue(index);
         }
         if (index < 0) return defaultValue(index);
         var iterator = _this__u8e3s4.g();
@@ -1091,11 +923,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return defaultValue(index);
     }
-    function singleOrNull_0(_this__u8e3s4) {
-        return _this__u8e3s4.j() === 1 ? _this__u8e3s4.m(0) : null;
+    function singleOrNull(_this__u8e3s4) {
+        return _this__u8e3s4.j() === 1 ? _this__u8e3s4.k(0) : null;
     }
     function lastOrNull(_this__u8e3s4) {
-        return _this__u8e3s4.k() ? null : _this__u8e3s4.m(_this__u8e3s4.j() - 1 | 0);
+        return _this__u8e3s4.p() ? null : _this__u8e3s4.k(_this__u8e3s4.j() - 1 | 0);
     }
     function minOrNull(_this__u8e3s4) {
         var iterator = _this__u8e3s4.g();
@@ -1108,27 +940,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return min;
     }
     function asSequence$$inlined$Sequence$1($this_asSequence) {
-        this.t_1 = $this_asSequence;
+        this.s_1 = $this_asSequence;
     }
     protoOf(asSequence$$inlined$Sequence$1).g = function() {
-        return this.t_1.g();
+        return this.s_1.g();
     };
-    function withIndex$lambda_0($this_withIndex) {
-        return function() {
-            return $this_withIndex.g();
-        };
-    }
     function elementAt$lambda($index) {
         return function(it) {
             throw IndexOutOfBoundsException_init_$Create$_0("Collection doesn't contain element at index " + $index + '.');
         };
     }
     function until(_this__u8e3s4, to) {
-        if (to <= -2147483648) return Companion_getInstance_8().u_1;
+        if (to <= -2147483648) return Companion_getInstance_8().t_1;
         return numberRangeToNumber(_this__u8e3s4, to - 1 | 0);
     }
     function downTo(_this__u8e3s4, to) {
-        return Companion_instance_9.v(_this__u8e3s4, to, -1);
+        return Companion_instance_9.u(_this__u8e3s4, to, -1);
     }
     function coerceAtMost(_this__u8e3s4, maximumValue) {
         return _this__u8e3s4 > maximumValue ? maximumValue : _this__u8e3s4;
@@ -1138,7 +965,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function step(_this__u8e3s4, step) {
         checkStepIsPositive(step > 0, step);
-        return Companion_instance_9.v(_this__u8e3s4.w_1, _this__u8e3s4.x_1, _this__u8e3s4.y_1 > 0 ? step : -step | 0);
+        return Companion_instance_9.u(_this__u8e3s4.v_1, _this__u8e3s4.w_1, _this__u8e3s4.x_1 > 0 ? step : -step | 0);
     }
     function coerceIn(_this__u8e3s4, minimumValue, maximumValue) {
         if (minimumValue > maximumValue) throw IllegalArgumentException_init_$Create$_0('Cannot coerce value to an empty range: maximum ' + maximumValue + ' is less than minimum ' + minimumValue + '.');
@@ -1147,12 +974,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return _this__u8e3s4;
     }
     function coerceIn_0(_this__u8e3s4, minimumValue, maximumValue) {
-        if (minimumValue > maximumValue) throw IllegalArgumentException_init_$Create$_0('Cannot coerce value to an empty range: maximum ' + maximumValue + ' is less than minimum ' + minimumValue + '.');
-        if (_this__u8e3s4 < minimumValue) return minimumValue;
-        if (_this__u8e3s4 > maximumValue) return maximumValue;
-        return _this__u8e3s4;
-    }
-    function coerceIn_1(_this__u8e3s4, minimumValue, maximumValue) {
         if (compare(minimumValue, maximumValue) > 0) throw IllegalArgumentException_init_$Create$_0('Cannot coerce value to an empty range: maximum ' + maximumValue.toString() + ' is less than minimum ' + minimumValue.toString() + '.');
         if (compare(_this__u8e3s4, minimumValue) < 0) return minimumValue;
         if (compare(_this__u8e3s4, maximumValue) > 0) return maximumValue;
@@ -1164,9 +985,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function coerceAtMost_0(_this__u8e3s4, maximumValue) {
         return compare(_this__u8e3s4, maximumValue) > 0 ? maximumValue : _this__u8e3s4;
     }
-    function contains_4(_this__u8e3s4, value) {
+    function contains_0(_this__u8e3s4, value) {
         var it = toIntExactOrNull(value);
-        return !(it == null) ? _this__u8e3s4.z(it) : false;
+        return !(it == null) ? _this__u8e3s4.y(it) : false;
     }
     function toIntExactOrNull(_this__u8e3s4) {
         return (compare(new Long(-2147483648, -1), _this__u8e3s4) <= 0 ? compare(_this__u8e3s4, new Long(2147483647, 0)) <= 0 : false) ? convertToInt(_this__u8e3s4) : null;
@@ -1174,7 +995,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function mapNotNull(_this__u8e3s4, transform) {
         return filterNotNull(new TransformingSequence(_this__u8e3s4, transform));
     }
-    function firstOrNull_0(_this__u8e3s4) {
+    function firstOrNull(_this__u8e3s4) {
         var iterator = _this__u8e3s4.g();
         if (!iterator.h()) return null;
         return iterator.i();
@@ -1208,7 +1029,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return substring(_this__u8e3s4, 0, coerceAtMost(n, _this__u8e3s4.length));
     }
-    function single_2(_this__u8e3s4) {
+    function single_0(_this__u8e3s4) {
         var tmp;
         switch (charSequenceLength(_this__u8e3s4)) {
           case 0:
@@ -1244,7 +1065,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return _get_value__a43j40($this) - _get_value__a43j40(other) | 0;
     }
     function Char__compareTo_impl_ypi4mb_0($this, other) {
-        return Char__compareTo_impl_ypi4mb($this.a1_1, other instanceof Char ? other.a1_1 : THROW_CCE());
+        return Char__compareTo_impl_ypi4mb($this.z_1, other instanceof Char ? other.z_1 : THROW_CCE());
     }
     function Char__minus_impl_a2frrh($this, other) {
         return _get_value__a43j40($this) - _get_value__a43j40(other) | 0;
@@ -1257,23 +1078,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Char__equals_impl_x6719k($this, other) {
         if (!(other instanceof Char)) return false;
-        return _get_value__a43j40($this) === _get_value__a43j40(other.a1_1);
+        return _get_value__a43j40($this) === _get_value__a43j40(other.z_1);
     }
     function Char__hashCode_impl_otmys($this) {
         return _get_value__a43j40($this);
     }
     function Companion() {
         Companion_instance = this;
-        this.b1_1 = _Char___init__impl__6a9atx(0);
-        this.c1_1 = _Char___init__impl__6a9atx(65535);
-        this.d1_1 = _Char___init__impl__6a9atx(55296);
-        this.e1_1 = _Char___init__impl__6a9atx(56319);
-        this.f1_1 = _Char___init__impl__6a9atx(56320);
-        this.g1_1 = _Char___init__impl__6a9atx(57343);
-        this.h1_1 = _Char___init__impl__6a9atx(55296);
-        this.i1_1 = _Char___init__impl__6a9atx(57343);
-        this.j1_1 = 2;
-        this.k1_1 = 16;
+        this.a1_1 = _Char___init__impl__6a9atx(0);
+        this.b1_1 = _Char___init__impl__6a9atx(65535);
+        this.c1_1 = _Char___init__impl__6a9atx(55296);
+        this.d1_1 = _Char___init__impl__6a9atx(56319);
+        this.e1_1 = _Char___init__impl__6a9atx(56320);
+        this.f1_1 = _Char___init__impl__6a9atx(57343);
+        this.g1_1 = _Char___init__impl__6a9atx(55296);
+        this.h1_1 = _Char___init__impl__6a9atx(57343);
+        this.i1_1 = 2;
+        this.j1_1 = 16;
     }
     var Companion_instance;
     function Companion_getInstance() {
@@ -1282,22 +1103,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Char(value) {
         Companion_getInstance();
-        this.a1_1 = value;
+        this.z_1 = value;
     }
-    protoOf(Char).l1 = function(other) {
-        return Char__compareTo_impl_ypi4mb(this.a1_1, other);
+    protoOf(Char).k1 = function(other) {
+        return Char__compareTo_impl_ypi4mb(this.z_1, other);
     };
     protoOf(Char).d = function(other) {
         return Char__compareTo_impl_ypi4mb_0(this, other);
     };
     protoOf(Char).toString = function() {
-        return toString(this.a1_1);
+        return toString(this.z_1);
     };
     protoOf(Char).equals = function(other) {
-        return Char__equals_impl_x6719k(this.a1_1, other);
+        return Char__equals_impl_x6719k(this.z_1, other);
     };
     protoOf(Char).hashCode = function() {
-        return Char__hashCode_impl_otmys(this.a1_1);
+        return Char__hashCode_impl_otmys(this.z_1);
     };
     function Collection() {}
     function KtSet() {}
@@ -1312,14 +1133,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_0;
     }
     function Enum(name, ordinal) {
-        this.b2_1 = name;
-        this.c2_1 = ordinal;
+        this.z1_1 = name;
+        this.a2_1 = ordinal;
     }
-    protoOf(Enum).d2 = function(other) {
-        return compareTo(this.c2_1, other.c2_1);
+    protoOf(Enum).b2 = function(other) {
+        return compareTo(this.a2_1, other.a2_1);
     };
     protoOf(Enum).d = function(other) {
-        return this.d2(other instanceof Enum ? other : THROW_CCE());
+        return this.b2(other instanceof Enum ? other : THROW_CCE());
     };
     protoOf(Enum).equals = function(other) {
         return this === other;
@@ -1328,23 +1149,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return identityHashCode(this);
     };
     protoOf(Enum).toString = function() {
-        return this.b2_1;
+        return this.z1_1;
     };
     function toString_0(_this__u8e3s4) {
         var tmp1_elvis_lhs = _this__u8e3s4 == null ? null : toString_1(_this__u8e3s4);
         return tmp1_elvis_lhs == null ? 'null' : tmp1_elvis_lhs;
     }
-    function plus_0(_this__u8e3s4, other) {
+    function plus_1(_this__u8e3s4, other) {
         var tmp = _this__u8e3s4 == null ? 'null' : _this__u8e3s4;
         var tmp2_elvis_lhs = other == null ? null : toString_1(other);
         return tmp + (tmp2_elvis_lhs == null ? 'null' : tmp2_elvis_lhs);
     }
     function Companion_1() {
         Companion_instance_1 = this;
-        this.e2_1 = new Long(0, -2147483648);
-        this.f2_1 = new Long(-1, 2147483647);
-        this.g2_1 = 8;
-        this.h2_1 = 64;
+        this.c2_1 = new Long(0, -2147483648);
+        this.d2_1 = new Long(-1, 2147483647);
+        this.e2_1 = 8;
+        this.f2_1 = 64;
     }
     var Companion_instance_1;
     function Companion_getInstance_1() {
@@ -1354,14 +1175,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function Long(low, high) {
         Companion_getInstance_1();
         Number_0.call(this);
-        this.i2_1 = low;
-        this.j2_1 = high;
+        this.g2_1 = low;
+        this.h2_1 = high;
     }
-    protoOf(Long).k2 = function(other) {
+    protoOf(Long).i2 = function(other) {
         return compare(this, other);
     };
     protoOf(Long).d = function(other) {
-        return this.k2(other instanceof Long ? other : THROW_CCE());
+        return this.i2(other instanceof Long ? other : THROW_CCE());
     };
     protoOf(Long).toString = function() {
         return toStringImpl(this, 10);
@@ -1429,20 +1250,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return array;
     }
     function arrayIterator$1($array) {
-        this.n2_1 = $array;
-        this.m2_1 = 0;
+        this.l2_1 = $array;
+        this.k2_1 = 0;
     }
     protoOf(arrayIterator$1).h = function() {
-        return !(this.m2_1 === this.n2_1.length);
+        return !(this.k2_1 === this.l2_1.length);
     };
     protoOf(arrayIterator$1).i = function() {
         var tmp;
-        if (!(this.m2_1 === this.n2_1.length)) {
-            var _unary__edvuaz = this.m2_1;
-            this.m2_1 = _unary__edvuaz + 1 | 0;
-            tmp = this.n2_1[_unary__edvuaz];
+        if (!(this.k2_1 === this.l2_1.length)) {
+            var _unary__edvuaz = this.k2_1;
+            this.k2_1 = _unary__edvuaz + 1 | 0;
+            tmp = this.l2_1[_unary__edvuaz];
         } else {
-            throw NoSuchElementException_init_$Create$_0('' + this.m2_1);
+            throw NoSuchElementException_init_$Create$_0('' + this.k2_1);
         }
         return tmp;
     };
@@ -1474,8 +1295,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     var highIndex;
     function doubleFromBits(value) {
         _init_properties_bitUtils_kt__nfcg4k();
-        get_bufInt32()[get_lowIndex()] = value.i2_1;
-        get_bufInt32()[get_highIndex()] = value.j2_1;
+        get_bufInt32()[get_lowIndex()] = value.g2_1;
+        get_bufInt32()[get_highIndex()] = value.h2_1;
         return get_bufFloat64()[0];
     }
     function doubleToRawBits(value) {
@@ -1546,19 +1367,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function convertToByte(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return toByte(_this__u8e3s4.i2_1);
+        return toByte(_this__u8e3s4.g2_1);
     }
     function convertToShort(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return toShort(_this__u8e3s4.i2_1);
+        return toShort(_this__u8e3s4.g2_1);
     }
     function convertToInt(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return _this__u8e3s4.i2_1;
+        return _this__u8e3s4.g2_1;
     }
     function toNumber(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return _this__u8e3s4.j2_1 * 4294967296 + getLowBitsUnsigned(_this__u8e3s4);
+        return _this__u8e3s4.h2_1 * 4294967296 + getLowBitsUnsigned(_this__u8e3s4);
     }
     function toStringImpl(_this__u8e3s4, radix) {
         _init_properties_boxedLong_kt__v24qrw();
@@ -1597,11 +1418,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function equalsLong(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
-        return _this__u8e3s4.j2_1 === other.j2_1 && _this__u8e3s4.i2_1 === other.i2_1;
+        return _this__u8e3s4.h2_1 === other.h2_1 && _this__u8e3s4.g2_1 === other.g2_1;
     }
     function hashCode(l) {
         _init_properties_boxedLong_kt__v24qrw();
-        return l.i2_1 ^ l.j2_1;
+        return l.g2_1 ^ l.h2_1;
     }
     function fromInt(value) {
         _init_properties_boxedLong_kt__v24qrw();
@@ -1609,7 +1430,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function isNegative(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return _this__u8e3s4.j2_1 < 0;
+        return _this__u8e3s4.h2_1 < 0;
     }
     function subtract(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
@@ -1617,11 +1438,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function getLowBitsUnsigned(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return _this__u8e3s4.i2_1 >= 0 ? _this__u8e3s4.i2_1 : 4294967296 + _this__u8e3s4.i2_1;
+        return _this__u8e3s4.g2_1 >= 0 ? _this__u8e3s4.g2_1 : 4294967296 + _this__u8e3s4.g2_1;
     }
     function isZero(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return _this__u8e3s4.j2_1 === 0 && _this__u8e3s4.i2_1 === 0;
+        return _this__u8e3s4.h2_1 === 0 && _this__u8e3s4.g2_1 === 0;
     }
     function multiply(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
@@ -1649,14 +1470,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (lessThan(_this__u8e3s4, get_TWO_PWR_24_()) && lessThan(other, get_TWO_PWR_24_())) {
             return fromNumber(toNumber(_this__u8e3s4) * toNumber(other));
         }
-        var a48 = _this__u8e3s4.j2_1 >>> 16 | 0;
-        var a32 = _this__u8e3s4.j2_1 & 65535;
-        var a16 = _this__u8e3s4.i2_1 >>> 16 | 0;
-        var a00 = _this__u8e3s4.i2_1 & 65535;
-        var b48 = other.j2_1 >>> 16 | 0;
-        var b32 = other.j2_1 & 65535;
-        var b16 = other.i2_1 >>> 16 | 0;
-        var b00 = other.i2_1 & 65535;
+        var a48 = _this__u8e3s4.h2_1 >>> 16 | 0;
+        var a32 = _this__u8e3s4.h2_1 & 65535;
+        var a16 = _this__u8e3s4.g2_1 >>> 16 | 0;
+        var a00 = _this__u8e3s4.g2_1 & 65535;
+        var b48 = other.h2_1 >>> 16 | 0;
+        var b32 = other.h2_1 & 65535;
+        var b16 = other.g2_1 >>> 16 | 0;
+        var b00 = other.g2_1 & 65535;
         var c48 = 0;
         var c32 = 0;
         var c16 = 0;
@@ -1706,14 +1527,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function add(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
-        var a48 = _this__u8e3s4.j2_1 >>> 16 | 0;
-        var a32 = _this__u8e3s4.j2_1 & 65535;
-        var a16 = _this__u8e3s4.i2_1 >>> 16 | 0;
-        var a00 = _this__u8e3s4.i2_1 & 65535;
-        var b48 = other.j2_1 >>> 16 | 0;
-        var b32 = other.j2_1 & 65535;
-        var b16 = other.i2_1 >>> 16 | 0;
-        var b00 = other.i2_1 & 65535;
+        var a48 = _this__u8e3s4.h2_1 >>> 16 | 0;
+        var a32 = _this__u8e3s4.h2_1 & 65535;
+        var a16 = _this__u8e3s4.g2_1 >>> 16 | 0;
+        var a00 = _this__u8e3s4.g2_1 & 65535;
+        var b48 = other.h2_1 >>> 16 | 0;
+        var b32 = other.h2_1 & 65535;
+        var b16 = other.g2_1 >>> 16 | 0;
+        var b00 = other.g2_1 & 65535;
         var c48 = 0;
         var c32 = 0;
         var c16 = 0;
@@ -1733,7 +1554,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function isOdd(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return (_this__u8e3s4.i2_1 & 1) === 1;
+        return (_this__u8e3s4.g2_1 & 1) === 1;
     }
     function lessThan(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
@@ -1741,7 +1562,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function invert(_this__u8e3s4) {
         _init_properties_boxedLong_kt__v24qrw();
-        return new Long(~_this__u8e3s4.i2_1, ~_this__u8e3s4.j2_1);
+        return new Long(~_this__u8e3s4.g2_1, ~_this__u8e3s4.h2_1);
     }
     function divide(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
@@ -1808,9 +1629,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return _this__u8e3s4;
         } else {
             if (numBits_0 < 32) {
-                return new Long(_this__u8e3s4.i2_1 >>> numBits_0 | 0 | _this__u8e3s4.j2_1 << (32 - numBits_0 | 0), _this__u8e3s4.j2_1 >> numBits_0);
+                return new Long(_this__u8e3s4.g2_1 >>> numBits_0 | 0 | _this__u8e3s4.h2_1 << (32 - numBits_0 | 0), _this__u8e3s4.h2_1 >> numBits_0);
             } else {
-                return new Long(_this__u8e3s4.j2_1 >> (numBits_0 - 32 | 0), _this__u8e3s4.j2_1 >= 0 ? 0 : -1);
+                return new Long(_this__u8e3s4.h2_1 >> (numBits_0 - 32 | 0), _this__u8e3s4.h2_1 >= 0 ? 0 : -1);
             }
         }
     }
@@ -1821,9 +1642,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return _this__u8e3s4;
         } else {
             if (numBits_0 < 32) {
-                return new Long(_this__u8e3s4.i2_1 << numBits_0, _this__u8e3s4.j2_1 << numBits_0 | (_this__u8e3s4.i2_1 >>> (32 - numBits_0 | 0) | 0));
+                return new Long(_this__u8e3s4.g2_1 << numBits_0, _this__u8e3s4.h2_1 << numBits_0 | (_this__u8e3s4.g2_1 >>> (32 - numBits_0 | 0) | 0));
             } else {
-                return new Long(0, _this__u8e3s4.i2_1 << (numBits_0 - 32 | 0));
+                return new Long(0, _this__u8e3s4.g2_1 << (numBits_0 - 32 | 0));
             }
         }
     }
@@ -1841,15 +1662,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function bitwiseAnd(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
-        return new Long(_this__u8e3s4.i2_1 & other.i2_1, _this__u8e3s4.j2_1 & other.j2_1);
+        return new Long(_this__u8e3s4.g2_1 & other.g2_1, _this__u8e3s4.h2_1 & other.h2_1);
     }
     function bitwiseOr(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
-        return new Long(_this__u8e3s4.i2_1 | other.i2_1, _this__u8e3s4.j2_1 | other.j2_1);
+        return new Long(_this__u8e3s4.g2_1 | other.g2_1, _this__u8e3s4.h2_1 | other.h2_1);
     }
     function bitwiseXor(_this__u8e3s4, other) {
         _init_properties_boxedLong_kt__v24qrw();
-        return new Long(_this__u8e3s4.i2_1 ^ other.i2_1, _this__u8e3s4.j2_1 ^ other.j2_1);
+        return new Long(_this__u8e3s4.g2_1 ^ other.g2_1, _this__u8e3s4.h2_1 ^ other.h2_1);
     }
     function shiftRightUnsigned(_this__u8e3s4, numBits) {
         _init_properties_boxedLong_kt__v24qrw();
@@ -1858,13 +1679,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return _this__u8e3s4;
         } else {
             if (numBits_0 < 32) {
-                return new Long(_this__u8e3s4.i2_1 >>> numBits_0 | 0 | _this__u8e3s4.j2_1 << (32 - numBits_0 | 0), _this__u8e3s4.j2_1 >>> numBits_0 | 0);
+                return new Long(_this__u8e3s4.g2_1 >>> numBits_0 | 0 | _this__u8e3s4.h2_1 << (32 - numBits_0 | 0), _this__u8e3s4.h2_1 >>> numBits_0 | 0);
             } else {
                 var tmp;
                 if (numBits_0 === 32) {
-                    tmp = new Long(_this__u8e3s4.j2_1, 0);
+                    tmp = new Long(_this__u8e3s4.h2_1, 0);
                 } else {
-                    tmp = new Long(_this__u8e3s4.j2_1 >>> (numBits_0 - 32 | 0) | 0, 0);
+                    tmp = new Long(_this__u8e3s4.h2_1 >>> (numBits_0 - 32 | 0) | 0, 0);
                 }
                 return tmp;
             }
@@ -2418,16 +2239,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.SIZE_BYTES = 1;
         this.SIZE_BITS = 8;
     }
-    protoOf(ByteCompanionObject).o2 = function() {
+    protoOf(ByteCompanionObject).m2 = function() {
         return this.MIN_VALUE;
     };
-    protoOf(ByteCompanionObject).p2 = function() {
+    protoOf(ByteCompanionObject).n2 = function() {
         return this.MAX_VALUE;
     };
-    protoOf(ByteCompanionObject).q2 = function() {
+    protoOf(ByteCompanionObject).o2 = function() {
         return this.SIZE_BYTES;
     };
-    protoOf(ByteCompanionObject).r2 = function() {
+    protoOf(ByteCompanionObject).p2 = function() {
         return this.SIZE_BITS;
     };
     var ByteCompanionObject_instance;
@@ -2440,16 +2261,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.SIZE_BYTES = 2;
         this.SIZE_BITS = 16;
     }
-    protoOf(ShortCompanionObject).o2 = function() {
+    protoOf(ShortCompanionObject).m2 = function() {
         return this.MIN_VALUE;
     };
-    protoOf(ShortCompanionObject).p2 = function() {
+    protoOf(ShortCompanionObject).n2 = function() {
         return this.MAX_VALUE;
     };
-    protoOf(ShortCompanionObject).q2 = function() {
+    protoOf(ShortCompanionObject).o2 = function() {
         return this.SIZE_BYTES;
     };
-    protoOf(ShortCompanionObject).r2 = function() {
+    protoOf(ShortCompanionObject).p2 = function() {
         return this.SIZE_BITS;
     };
     var ShortCompanionObject_instance;
@@ -2462,16 +2283,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.SIZE_BYTES = 4;
         this.SIZE_BITS = 32;
     }
-    protoOf(IntCompanionObject).o2 = function() {
+    protoOf(IntCompanionObject).m2 = function() {
         return this.MIN_VALUE;
     };
-    protoOf(IntCompanionObject).p2 = function() {
+    protoOf(IntCompanionObject).n2 = function() {
         return this.MAX_VALUE;
     };
-    protoOf(IntCompanionObject).q2 = function() {
+    protoOf(IntCompanionObject).o2 = function() {
         return this.SIZE_BYTES;
     };
-    protoOf(IntCompanionObject).r2 = function() {
+    protoOf(IntCompanionObject).p2 = function() {
         return this.SIZE_BITS;
     };
     var IntCompanionObject_instance;
@@ -2487,25 +2308,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.SIZE_BYTES = 4;
         this.SIZE_BITS = 32;
     }
-    protoOf(FloatCompanionObject).o2 = function() {
+    protoOf(FloatCompanionObject).m2 = function() {
         return this.MIN_VALUE;
     };
-    protoOf(FloatCompanionObject).p2 = function() {
+    protoOf(FloatCompanionObject).n2 = function() {
         return this.MAX_VALUE;
     };
-    protoOf(FloatCompanionObject).s2 = function() {
+    protoOf(FloatCompanionObject).q2 = function() {
         return this.POSITIVE_INFINITY;
     };
-    protoOf(FloatCompanionObject).t2 = function() {
+    protoOf(FloatCompanionObject).r2 = function() {
         return this.NEGATIVE_INFINITY;
     };
-    protoOf(FloatCompanionObject).u2 = function() {
+    protoOf(FloatCompanionObject).s2 = function() {
         return this.NaN;
     };
-    protoOf(FloatCompanionObject).q2 = function() {
+    protoOf(FloatCompanionObject).o2 = function() {
         return this.SIZE_BYTES;
     };
-    protoOf(FloatCompanionObject).r2 = function() {
+    protoOf(FloatCompanionObject).p2 = function() {
         return this.SIZE_BITS;
     };
     var FloatCompanionObject_instance;
@@ -2521,25 +2342,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.SIZE_BYTES = 8;
         this.SIZE_BITS = 64;
     }
-    protoOf(DoubleCompanionObject).o2 = function() {
+    protoOf(DoubleCompanionObject).m2 = function() {
         return this.MIN_VALUE;
     };
-    protoOf(DoubleCompanionObject).p2 = function() {
+    protoOf(DoubleCompanionObject).n2 = function() {
         return this.MAX_VALUE;
     };
-    protoOf(DoubleCompanionObject).s2 = function() {
+    protoOf(DoubleCompanionObject).q2 = function() {
         return this.POSITIVE_INFINITY;
     };
-    protoOf(DoubleCompanionObject).t2 = function() {
+    protoOf(DoubleCompanionObject).r2 = function() {
         return this.NEGATIVE_INFINITY;
     };
-    protoOf(DoubleCompanionObject).u2 = function() {
+    protoOf(DoubleCompanionObject).s2 = function() {
         return this.NaN;
     };
-    protoOf(DoubleCompanionObject).q2 = function() {
+    protoOf(DoubleCompanionObject).o2 = function() {
         return this.SIZE_BYTES;
     };
-    protoOf(DoubleCompanionObject).r2 = function() {
+    protoOf(DoubleCompanionObject).p2 = function() {
         return this.SIZE_BITS;
     };
     var DoubleCompanionObject_instance;
@@ -2867,17 +2688,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
         array.$type$ = tmp0;
         return array;
     }
-    function fill(_this__u8e3s4, element, fromIndex, toIndex) {
-        fromIndex = fromIndex === VOID ? 0 : fromIndex;
-        toIndex = toIndex === VOID ? _this__u8e3s4.length : toIndex;
-        Companion_instance_4.w2(fromIndex, toIndex, _this__u8e3s4.length);
-        _this__u8e3s4.fill(element, fromIndex, toIndex);
-    }
-    function sort(_this__u8e3s4) {
-        if (_this__u8e3s4.length > 1) {
-            sortArray(_this__u8e3s4);
-        }
-    }
     function sortWith(_this__u8e3s4, comparator) {
         if (_this__u8e3s4.length > 1) {
             sortArrayWith(_this__u8e3s4, comparator);
@@ -2885,8 +2695,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function digitToIntImpl(_this__u8e3s4) {
         var ch = Char__toInt_impl_vasixd(_this__u8e3s4);
-        var index = binarySearchRange(Digit_getInstance().x2_1, ch);
-        var diff = ch - Digit_getInstance().x2_1[index] | 0;
+        var index = binarySearchRange(Digit_getInstance().t2_1, ch);
+        var diff = ch - Digit_getInstance().t2_1[index] | 0;
         return diff < 10 ? diff : -1;
     }
     function binarySearchRange(array, needle) {
@@ -2904,7 +2714,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function Digit() {
         Digit_instance = this;
         var tmp = this;
-        tmp.x2_1 = new Int32Array([ 48, 1632, 1776, 1984, 2406, 2534, 2662, 2790, 2918, 3046, 3174, 3302, 3430, 3558, 3664, 3792, 3872, 4160, 4240, 6112, 6160, 6470, 6608, 6784, 6800, 6992, 7088, 7232, 7248, 42528, 43216, 43264, 43472, 43504, 43600, 44016, 65296 ]);
+        tmp.t2_1 = new Int32Array([ 48, 1632, 1776, 1984, 2406, 2534, 2662, 2790, 2918, 3046, 3174, 3302, 3430, 3558, 3664, 3792, 3872, 4160, 4240, 6112, 6160, 6470, 6608, 6784, 6800, 6992, 7088, 7232, 7248, 42528, 43216, 43264, 43472, 43504, 43600, 44016, 65296 ]);
     }
     var Digit_instance;
     function Digit_getInstance() {
@@ -2938,10 +2748,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return doubleToRawBits(_this__u8e3s4);
     }
     function countLeadingZeroBits(_this__u8e3s4) {
-        var high = _this__u8e3s4.j2_1;
+        var high = _this__u8e3s4.h2_1;
         var tmp;
         if (high === 0) {
-            var this_0 = _this__u8e3s4.i2_1;
+            var this_0 = _this__u8e3s4.g2_1;
             tmp = 32 + clz32(this_0) | 0;
         } else {
             tmp = clz32(high);
@@ -2952,8 +2762,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return !isInfinite_0(_this__u8e3s4) && !isNaN_1(_this__u8e3s4);
     }
     function countTrailingZeroBits(_this__u8e3s4) {
-        var low = _this__u8e3s4.i2_1;
-        return low === 0 ? 32 + countTrailingZeroBits_0(_this__u8e3s4.j2_1) | 0 : countTrailingZeroBits_0(low);
+        var low = _this__u8e3s4.g2_1;
+        return low === 0 ? 32 + countTrailingZeroBits_0(_this__u8e3s4.h2_1) | 0 : countTrailingZeroBits_0(low);
     }
     function isInfinite_0(_this__u8e3s4) {
         return _this__u8e3s4 === Infinity || _this__u8e3s4 === -Infinity;
@@ -2988,7 +2798,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function ulongCompare(v1, v2) {
-        return bitwiseXor(v1, new Long(0, -2147483648)).k2(bitwiseXor(v2, new Long(0, -2147483648)));
+        return bitwiseXor(v1, new Long(0, -2147483648)).i2(bitwiseXor(v2, new Long(0, -2147483648)));
     }
     function uintDivide(v1, v2) {
         var tmp = _UInt___get_data__impl__f0vqqw(v1) >>> 0;
@@ -3056,9 +2866,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return index;
     }
     function arrayCopy(source, destination, destinationOffset, startIndex, endIndex) {
-        Companion_instance_4.w2(startIndex, endIndex, source.length);
+        Companion_instance_4.v2(startIndex, endIndex, source.length);
         var rangeSize = endIndex - startIndex | 0;
-        Companion_instance_4.w2(destinationOffset, destinationOffset + rangeSize | 0, destination.length);
+        Companion_instance_4.v2(destinationOffset, destinationOffset + rangeSize | 0, destination.length);
         if (isView(destination) && isView(source)) {
             var subrange = source.subarray(startIndex, endIndex);
             destination.set(subrange, destinationOffset);
@@ -3083,9 +2893,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function collectionToArray(collection) {
         return collectionToArrayCommonImpl(collection);
     }
-    function sort_0(_this__u8e3s4) {
-        collectionsSort(_this__u8e3s4, naturalOrder());
-    }
     function listOf(element) {
         var tmp$ret$0 = [ element ];
         return new ArrayList(tmp$ret$0);
@@ -3099,12 +2906,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function setOf(element) {
         return hashSetOf([ element ]);
     }
-    function checkCountOverflow(count) {
-        if (count < 0) {
-            throwCountOverflow();
-        }
-        return count;
-    }
     function sortWith_0(_this__u8e3s4, comparator) {
         collectionsSort(_this__u8e3s4, comparator);
     }
@@ -3117,25 +2918,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (inductionVariable < last) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            list.s(i, array[i]);
+            list.r(i, array[i]);
         } while (inductionVariable < last);
     }
     function AbstractMutableCollection() {
         AbstractCollection.call(this);
     }
-    protoOf(AbstractMutableCollection).y2 = function(element) {
-        this.z2();
+    protoOf(AbstractMutableCollection).w2 = function(element) {
+        this.x2();
         var iterator = this.g();
         while (iterator.h()) {
             if (equals(iterator.i(), element)) {
-                iterator.a3();
+                iterator.y2();
                 return true;
             }
         }
         return false;
     };
-    protoOf(AbstractMutableCollection).q = function(elements) {
-        this.z2();
+    protoOf(AbstractMutableCollection).o = function(elements) {
+        this.x2();
         var modified = false;
         var _iterator__ex2g4s = elements.g();
         while (_iterator__ex2g4s.h()) {
@@ -3144,78 +2945,61 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return modified;
     };
-    protoOf(AbstractMutableCollection).a2 = function() {
-        this.z2();
-        var iterator = this.g();
-        while (iterator.h()) {
-            iterator.i();
-            iterator.a3();
-        }
-    };
     protoOf(AbstractMutableCollection).toJSON = function() {
         return this.toArray();
     };
-    protoOf(AbstractMutableCollection).z2 = function() {};
+    protoOf(AbstractMutableCollection).x2 = function() {};
     function IteratorImpl($outer) {
-        this.d3_1 = $outer;
-        this.b3_1 = 0;
-        this.c3_1 = -1;
+        this.b3_1 = $outer;
+        this.z2_1 = 0;
+        this.a3_1 = -1;
     }
     protoOf(IteratorImpl).h = function() {
-        return this.b3_1 < this.d3_1.j();
+        return this.z2_1 < this.b3_1.j();
     };
     protoOf(IteratorImpl).i = function() {
         if (!this.h()) throw NoSuchElementException_init_$Create$();
         var tmp = this;
-        var _unary__edvuaz = this.b3_1;
-        this.b3_1 = _unary__edvuaz + 1 | 0;
-        tmp.c3_1 = _unary__edvuaz;
-        return this.d3_1.m(this.c3_1);
+        var _unary__edvuaz = this.z2_1;
+        this.z2_1 = _unary__edvuaz + 1 | 0;
+        tmp.a3_1 = _unary__edvuaz;
+        return this.b3_1.k(this.a3_1);
     };
-    protoOf(IteratorImpl).a3 = function() {
-        if (!!(this.c3_1 === -1)) {
+    protoOf(IteratorImpl).y2 = function() {
+        if (!!(this.a3_1 === -1)) {
             var message = 'Call next() or previous() before removing element from the iterator.';
             throw IllegalStateException_init_$Create$_0(toString_1(message));
         }
-        this.d3_1.f3(this.c3_1);
-        this.b3_1 = this.c3_1;
-        this.c3_1 = -1;
+        this.b3_1.d3(this.a3_1);
+        this.z2_1 = this.a3_1;
+        this.a3_1 = -1;
     };
     function ListIteratorImpl($outer, index) {
-        this.j3_1 = $outer;
+        this.h3_1 = $outer;
         IteratorImpl.call(this, $outer);
-        Companion_instance_4.k3(index, this.j3_1.j());
-        this.b3_1 = index;
-    }
-    function AbstractMutableList$removeAll$lambda($elements) {
-        return function(it) {
-            return $elements.m1(it);
-        };
+        Companion_instance_4.i3(index, this.h3_1.j());
+        this.z2_1 = index;
     }
     function AbstractMutableList() {
         AbstractMutableCollection.call(this);
-        this.e3_1 = 0;
+        this.c3_1 = 0;
     }
     protoOf(AbstractMutableList).f = function(element) {
-        this.z2();
-        this.l3(this.j(), element);
+        this.x2();
+        this.j3(this.j(), element);
         return true;
     };
-    protoOf(AbstractMutableList).a2 = function() {
-        this.z2();
-        this.m3(0, this.j());
-    };
-    protoOf(AbstractMutableList).n3 = function(elements) {
-        this.z2();
-        return removeAll(this, AbstractMutableList$removeAll$lambda(elements));
+    protoOf(AbstractMutableList).k3 = function() {
+        this.x2();
+        this.l3(0, this.j());
     };
     protoOf(AbstractMutableList).g = function() {
         return new IteratorImpl(this);
     };
-    protoOf(AbstractMutableList).m1 = function(element) {
-        return this.o1(element) >= 0;
+    protoOf(AbstractMutableList).l1 = function(element) {
+        return this.n1(element) >= 0;
     };
-    protoOf(AbstractMutableList).o1 = function(element) {
+    protoOf(AbstractMutableList).n1 = function(element) {
         var tmp$ret$0;
         $l$block: {
             var index = 0;
@@ -3232,38 +3016,50 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractMutableList).r = function(index) {
+    protoOf(AbstractMutableList).m3 = function(index) {
         return new ListIteratorImpl(this, index);
     };
-    protoOf(AbstractMutableList).m3 = function(fromIndex, toIndex) {
-        var iterator = this.r(fromIndex);
+    protoOf(AbstractMutableList).l3 = function(fromIndex, toIndex) {
+        var iterator = this.m3(fromIndex);
         var times = toIndex - fromIndex | 0;
         var inductionVariable = 0;
         if (inductionVariable < times) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             iterator.i();
-            iterator.a3();
+            iterator.y2();
         } while (inductionVariable < times);
     };
     protoOf(AbstractMutableList).equals = function(other) {
         if (other === this) return true;
         if (!(!(other == null) ? isInterface(other, KtList) : false)) return false;
-        return Companion_instance_4.o3(this, other);
+        return Companion_instance_4.n3(this, other);
     };
     protoOf(AbstractMutableList).hashCode = function() {
-        return Companion_instance_4.p3(this);
+        return Companion_instance_4.o3(this);
     };
     function AbstractMutableMap() {
         AbstractMap.call(this);
+        this.r3_1 = null;
         this.s3_1 = null;
-        this.t3_1 = null;
     }
-    protoOf(AbstractMutableMap).u3 = function() {
+    protoOf(AbstractMutableMap).t3 = function() {
         return new HashMapKeysDefault(this);
     };
-    protoOf(AbstractMutableMap).v3 = function() {
+    protoOf(AbstractMutableMap).u3 = function() {
         return new HashMapValuesDefault(this);
+    };
+    protoOf(AbstractMutableMap).t1 = function() {
+        var tmp0_elvis_lhs = this.r3_1;
+        var tmp;
+        if (tmp0_elvis_lhs == null) {
+            var this_0 = this.t3();
+            this.r3_1 = this_0;
+            tmp = this_0;
+        } else {
+            tmp = tmp0_elvis_lhs;
+        }
+        return tmp;
     };
     protoOf(AbstractMutableMap).u1 = function() {
         var tmp0_elvis_lhs = this.s3_1;
@@ -3277,46 +3073,31 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     };
-    protoOf(AbstractMutableMap).v1 = function() {
-        var tmp0_elvis_lhs = this.t3_1;
-        var tmp;
-        if (tmp0_elvis_lhs == null) {
-            var this_0 = this.v3();
-            this.t3_1 = this_0;
-            tmp = this_0;
-        } else {
-            tmp = tmp0_elvis_lhs;
-        }
-        return tmp;
-    };
-    protoOf(AbstractMutableMap).a2 = function() {
-        this.w1().a2();
-    };
-    protoOf(AbstractMutableMap).y1 = function(key) {
-        this.z2();
-        var iter = this.w1().g();
+    protoOf(AbstractMutableMap).x1 = function(key) {
+        this.x2();
+        var iter = this.v1().g();
         while (iter.h()) {
             var entry = iter.i();
-            var k = entry.p1();
+            var k = entry.o1();
             if (equals(key, k)) {
-                var value = entry.q1();
-                iter.a3();
+                var value = entry.p1();
+                iter.y2();
                 return value;
             }
         }
         return null;
     };
-    protoOf(AbstractMutableMap).z2 = function() {};
+    protoOf(AbstractMutableMap).x2 = function() {};
     function AbstractMutableSet() {
         AbstractMutableCollection.call(this);
     }
     protoOf(AbstractMutableSet).equals = function(other) {
         if (other === this) return true;
         if (!(!(other == null) ? isInterface(other, KtSet) : false)) return false;
-        return Companion_instance_6.z3(this, other);
+        return Companion_instance_6.y3(this, other);
     };
     protoOf(AbstractMutableSet).hashCode = function() {
-        return Companion_instance_6.a4(this);
+        return Companion_instance_6.z3(this);
     };
     function arrayOfUninitializedElements(capacity) {
         if (!(capacity >= 0)) {
@@ -3338,8 +3119,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_instance_2 = this;
         var tmp = this;
         var this_0 = ArrayList_init_$Create$_0(0);
-        this_0.p_1 = true;
-        tmp.b4_1 = this_0;
+        this_0.n_1 = true;
+        tmp.a4_1 = this_0;
     }
     var Companion_instance_2;
     function Companion_getInstance_2() {
@@ -3376,56 +3157,56 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function increaseLength($this, amount) {
         var previous = $this.j();
-        $this.o_1.length = $this.j() + amount | 0;
+        $this.m_1.length = $this.j() + amount | 0;
         return previous;
     }
     function rangeCheck($this, index) {
-        Companion_instance_4.c4(index, $this.j());
+        Companion_instance_4.b4(index, $this.j());
         return index;
     }
     function insertionRangeCheck($this, index) {
-        Companion_instance_4.k3(index, $this.j());
+        Companion_instance_4.i3(index, $this.j());
         return index;
     }
     function ArrayList(array) {
         Companion_getInstance_2();
         AbstractMutableList.call(this);
-        this.o_1 = array;
-        this.p_1 = false;
+        this.m_1 = array;
+        this.n_1 = false;
     }
-    protoOf(ArrayList).d4 = function() {
-        this.z2();
-        this.p_1 = true;
-        return this.j() > 0 ? this : Companion_getInstance_2().b4_1;
+    protoOf(ArrayList).c4 = function() {
+        this.x2();
+        this.n_1 = true;
+        return this.j() > 0 ? this : Companion_getInstance_2().a4_1;
     };
-    protoOf(ArrayList).e4 = function(minCapacity) {};
+    protoOf(ArrayList).d4 = function(minCapacity) {};
     protoOf(ArrayList).j = function() {
-        return this.o_1.length;
+        return this.m_1.length;
     };
-    protoOf(ArrayList).m = function(index) {
-        return this.o_1[rangeCheck(this, index)];
+    protoOf(ArrayList).k = function(index) {
+        return this.m_1[rangeCheck(this, index)];
     };
-    protoOf(ArrayList).s = function(index, element) {
-        this.z2();
+    protoOf(ArrayList).r = function(index, element) {
+        this.x2();
         rangeCheck(this, index);
-        var this_0 = this.o_1[index];
-        this.o_1[index] = element;
+        var this_0 = this.m_1[index];
+        this.m_1[index] = element;
         return this_0;
     };
     protoOf(ArrayList).f = function(element) {
-        this.z2();
-        this.o_1.push(element);
-        this.e3_1 = this.e3_1 + 1 | 0;
+        this.x2();
+        this.m_1.push(element);
+        this.c3_1 = this.c3_1 + 1 | 0;
         return true;
     };
-    protoOf(ArrayList).l3 = function(index, element) {
-        this.z2();
-        this.o_1.splice(insertionRangeCheck(this, index), 0, element);
-        this.e3_1 = this.e3_1 + 1 | 0;
+    protoOf(ArrayList).j3 = function(index, element) {
+        this.x2();
+        this.m_1.splice(insertionRangeCheck(this, index), 0, element);
+        this.c3_1 = this.c3_1 + 1 | 0;
     };
-    protoOf(ArrayList).q = function(elements) {
-        this.z2();
-        if (elements.k()) return false;
+    protoOf(ArrayList).o = function(elements) {
+        this.x2();
+        if (elements.p()) return false;
         var offset = increaseLength(this, elements.j());
         var index = 0;
         var _iterator__ex2g4s = elements.g();
@@ -3434,63 +3215,63 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _unary__edvuaz = index;
             index = _unary__edvuaz + 1 | 0;
             var index_0 = checkIndexOverflow(_unary__edvuaz);
-            this.o_1[offset + index_0 | 0] = item;
+            this.m_1[offset + index_0 | 0] = item;
         }
-        this.e3_1 = this.e3_1 + 1 | 0;
+        this.c3_1 = this.c3_1 + 1 | 0;
         return true;
     };
-    protoOf(ArrayList).f3 = function(index) {
-        this.z2();
+    protoOf(ArrayList).d3 = function(index) {
+        this.x2();
         rangeCheck(this, index);
-        this.e3_1 = this.e3_1 + 1 | 0;
+        this.c3_1 = this.c3_1 + 1 | 0;
         var tmp;
-        if (index === get_lastIndex_3(this)) {
-            tmp = this.o_1.pop();
+        if (index === get_lastIndex_2(this)) {
+            tmp = this.m_1.pop();
         } else {
-            tmp = this.o_1.splice(index, 1)[0];
+            tmp = this.m_1.splice(index, 1)[0];
         }
         return tmp;
     };
-    protoOf(ArrayList).y2 = function(element) {
-        this.z2();
+    protoOf(ArrayList).w2 = function(element) {
+        this.x2();
         var inductionVariable = 0;
-        var last = this.o_1.length - 1 | 0;
+        var last = this.m_1.length - 1 | 0;
         if (inductionVariable <= last) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            if (equals(this.o_1[index], element)) {
-                this.o_1.splice(index, 1);
-                this.e3_1 = this.e3_1 + 1 | 0;
+            if (equals(this.m_1[index], element)) {
+                this.m_1.splice(index, 1);
+                this.c3_1 = this.c3_1 + 1 | 0;
                 return true;
             }
         } while (inductionVariable <= last);
         return false;
     };
-    protoOf(ArrayList).m3 = function(fromIndex, toIndex) {
-        this.z2();
-        this.e3_1 = this.e3_1 + 1 | 0;
-        this.o_1.splice(fromIndex, toIndex - fromIndex | 0);
+    protoOf(ArrayList).l3 = function(fromIndex, toIndex) {
+        this.x2();
+        this.c3_1 = this.c3_1 + 1 | 0;
+        this.m_1.splice(fromIndex, toIndex - fromIndex | 0);
     };
-    protoOf(ArrayList).a2 = function() {
-        this.z2();
+    protoOf(ArrayList).k3 = function() {
+        this.x2();
         var tmp = this;
-        tmp.o_1 = [];
-        this.e3_1 = this.e3_1 + 1 | 0;
+        tmp.m_1 = [];
+        this.c3_1 = this.c3_1 + 1 | 0;
     };
-    protoOf(ArrayList).o1 = function(element) {
-        return indexOf(this.o_1, element);
+    protoOf(ArrayList).n1 = function(element) {
+        return indexOf(this.m_1, element);
     };
     protoOf(ArrayList).toString = function() {
-        return arrayToString(this.o_1);
+        return arrayToString(this.m_1);
     };
-    protoOf(ArrayList).f4 = function() {
-        return [].slice.call(this.o_1);
+    protoOf(ArrayList).e4 = function() {
+        return [].slice.call(this.m_1);
     };
     protoOf(ArrayList).toArray = function() {
-        return this.f4();
+        return this.e4();
     };
-    protoOf(ArrayList).z2 = function() {
-        if (this.p_1) throw UnsupportedOperationException_init_$Create$();
+    protoOf(ArrayList).x2 = function() {
+        if (this.n_1) throw UnsupportedOperationException_init_$Create$();
     };
     var _stableSortingIsSupported;
     function sortArrayWith(array, comparator) {
@@ -3499,14 +3280,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
             array.sort(comparison);
         } else {
             mergeSort(array, 0, get_lastIndex(array), comparator);
-        }
-    }
-    function sortArray(array) {
-        if (getStableSortingIsSupported()) {
-            var comparison = sortArray$lambda;
-            array.sort(comparison);
-        } else {
-            mergeSort(array, 0, get_lastIndex(array), naturalOrder());
         }
     }
     function getStableSortingIsSupported() {
@@ -3588,16 +3361,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return $comparator.compare(a, b);
         };
     }
-    function sortArray$lambda(a, b) {
-        return compareTo(a, b);
-    }
     function getStableSortingIsSupported$lambda(a, b) {
         return (a & 3) - (b & 3) | 0;
     }
     function HashMap_init_$Init$(internalMap, $this) {
         AbstractMutableMap.call($this);
         HashMap.call($this);
-        $this.k4_1 = internalMap;
+        $this.j4_1 = internalMap;
         return $this;
     }
     function HashMap_init_$Init$_0($this) {
@@ -3608,7 +3378,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return HashMap_init_$Init$_0(objectCreate(protoOf(HashMap)));
     }
     function HashMap_init_$Init$_1(initialCapacity, loadFactor, $this) {
-        HashMap_init_$Init$(InternalHashMap_init_$Create$_2(initialCapacity, loadFactor), $this);
+        HashMap_init_$Init$(InternalHashMap_init_$Create$_1(initialCapacity, loadFactor), $this);
         return $this;
     }
     function HashMap_init_$Init$_2(initialCapacity, $this) {
@@ -3619,265 +3389,253 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return HashMap_init_$Init$_2(initialCapacity, objectCreate(protoOf(HashMap)));
     }
     function HashMap_init_$Init$_3(original, $this) {
-        HashMap_init_$Init$(InternalHashMap_init_$Create$_1(original), $this);
+        HashMap_init_$Init$(InternalHashMap_init_$Create$_0(original), $this);
         return $this;
     }
-    protoOf(HashMap).a2 = function() {
-        this.k4_1.a2();
+    protoOf(HashMap).q1 = function(key) {
+        return this.j4_1.l4(key);
     };
-    protoOf(HashMap).r1 = function(key) {
-        return this.k4_1.m4(key);
+    protoOf(HashMap).r1 = function(value) {
+        return this.j4_1.r1(value);
     };
-    protoOf(HashMap).s1 = function(value) {
-        return this.k4_1.s1(value);
+    protoOf(HashMap).t3 = function() {
+        return new HashMapKeys(this.j4_1);
     };
     protoOf(HashMap).u3 = function() {
-        return new HashMapKeys(this.k4_1);
+        return new HashMapValues(this.j4_1);
     };
-    protoOf(HashMap).v3 = function() {
-        return new HashMapValues(this.k4_1);
-    };
-    protoOf(HashMap).w1 = function() {
-        var tmp0_elvis_lhs = this.l4_1;
+    protoOf(HashMap).v1 = function() {
+        var tmp0_elvis_lhs = this.k4_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
-            var this_0 = new HashMapEntrySet(this.k4_1);
-            this.l4_1 = this_0;
+            var this_0 = new HashMapEntrySet(this.j4_1);
+            this.k4_1 = this_0;
             tmp = this_0;
         } else {
             tmp = tmp0_elvis_lhs;
         }
         return tmp;
     };
-    protoOf(HashMap).t1 = function(key) {
-        return this.k4_1.t1(key);
+    protoOf(HashMap).s1 = function(key) {
+        return this.j4_1.s1(key);
     };
-    protoOf(HashMap).x1 = function(key, value) {
-        return this.k4_1.x1(key, value);
+    protoOf(HashMap).w1 = function(key, value) {
+        return this.j4_1.w1(key, value);
     };
-    protoOf(HashMap).y1 = function(key) {
-        return this.k4_1.y1(key);
+    protoOf(HashMap).x1 = function(key) {
+        return this.j4_1.x1(key);
     };
     protoOf(HashMap).j = function() {
-        return this.k4_1.j();
+        return this.j4_1.j();
     };
-    protoOf(HashMap).z1 = function(from) {
-        return this.k4_1.z1(from);
+    protoOf(HashMap).y1 = function(from) {
+        return this.j4_1.y1(from);
     };
     function HashMap() {
-        this.l4_1 = null;
+        this.k4_1 = null;
     }
     function HashMapKeys(backing) {
         AbstractMutableSet.call(this);
-        this.n4_1 = backing;
+        this.m4_1 = backing;
     }
     protoOf(HashMapKeys).j = function() {
-        return this.n4_1.j();
+        return this.m4_1.j();
     };
-    protoOf(HashMapKeys).k = function() {
-        return this.n4_1.j() === 0;
+    protoOf(HashMapKeys).p = function() {
+        return this.m4_1.j() === 0;
     };
-    protoOf(HashMapKeys).m1 = function(element) {
-        return this.n4_1.m4(element);
-    };
-    protoOf(HashMapKeys).a2 = function() {
-        return this.n4_1.a2();
+    protoOf(HashMapKeys).l1 = function(element) {
+        return this.m4_1.l4(element);
     };
     protoOf(HashMapKeys).f = function(element) {
         throw UnsupportedOperationException_init_$Create$();
     };
-    protoOf(HashMapKeys).q = function(elements) {
+    protoOf(HashMapKeys).o = function(elements) {
         throw UnsupportedOperationException_init_$Create$();
     };
-    protoOf(HashMapKeys).y2 = function(element) {
-        return this.n4_1.o4(element);
+    protoOf(HashMapKeys).w2 = function(element) {
+        return this.m4_1.n4(element);
     };
     protoOf(HashMapKeys).g = function() {
-        return this.n4_1.p4();
+        return this.m4_1.o4();
     };
-    protoOf(HashMapKeys).z2 = function() {
-        return this.n4_1.q4();
+    protoOf(HashMapKeys).x2 = function() {
+        return this.m4_1.p4();
     };
     function HashMapValues(backing) {
         AbstractMutableCollection.call(this);
-        this.r4_1 = backing;
+        this.q4_1 = backing;
     }
     protoOf(HashMapValues).j = function() {
-        return this.r4_1.j();
+        return this.q4_1.j();
     };
-    protoOf(HashMapValues).k = function() {
-        return this.r4_1.j() === 0;
+    protoOf(HashMapValues).p = function() {
+        return this.q4_1.j() === 0;
+    };
+    protoOf(HashMapValues).r4 = function(element) {
+        return this.q4_1.r1(element);
+    };
+    protoOf(HashMapValues).l1 = function(element) {
+        if (!true) return false;
+        return this.r4(element);
     };
     protoOf(HashMapValues).s4 = function(element) {
-        return this.r4_1.s1(element);
-    };
-    protoOf(HashMapValues).m1 = function(element) {
-        if (!true) return false;
-        return this.s4(element);
-    };
-    protoOf(HashMapValues).t4 = function(element) {
         throw UnsupportedOperationException_init_$Create$();
     };
     protoOf(HashMapValues).f = function(element) {
-        return this.t4(element);
+        return this.s4(element);
     };
-    protoOf(HashMapValues).u4 = function(elements) {
+    protoOf(HashMapValues).t4 = function(elements) {
         throw UnsupportedOperationException_init_$Create$();
     };
-    protoOf(HashMapValues).q = function(elements) {
-        return this.u4(elements);
+    protoOf(HashMapValues).o = function(elements) {
+        return this.t4(elements);
     };
     protoOf(HashMapValues).g = function() {
-        return this.r4_1.v4();
+        return this.q4_1.u4();
     };
-    protoOf(HashMapValues).z2 = function() {
-        return this.r4_1.q4();
+    protoOf(HashMapValues).x2 = function() {
+        return this.q4_1.p4();
     };
     function HashMapEntrySet(backing) {
         HashMapEntrySetBase.call(this, backing);
     }
     protoOf(HashMapEntrySet).g = function() {
-        return this.x4_1.y4();
+        return this.w4_1.x4();
     };
     function HashMapEntrySetBase(backing) {
         AbstractMutableSet.call(this);
-        this.x4_1 = backing;
+        this.w4_1 = backing;
     }
     protoOf(HashMapEntrySetBase).j = function() {
-        return this.x4_1.j();
+        return this.w4_1.j();
     };
-    protoOf(HashMapEntrySetBase).k = function() {
-        return this.x4_1.j() === 0;
+    protoOf(HashMapEntrySetBase).p = function() {
+        return this.w4_1.j() === 0;
+    };
+    protoOf(HashMapEntrySetBase).y4 = function(element) {
+        return this.w4_1.b5(element);
+    };
+    protoOf(HashMapEntrySetBase).l1 = function(element) {
+        if (!(!(element == null) ? isInterface(element, Entry) : false)) return false;
+        return this.y4((!(element == null) ? isInterface(element, Entry) : false) ? element : THROW_CCE());
     };
     protoOf(HashMapEntrySetBase).z4 = function(element) {
-        return this.x4_1.c5(element);
-    };
-    protoOf(HashMapEntrySetBase).m1 = function(element) {
-        if (!(!(element == null) ? isInterface(element, Entry) : false)) return false;
-        return this.z4((!(element == null) ? isInterface(element, Entry) : false) ? element : THROW_CCE());
-    };
-    protoOf(HashMapEntrySetBase).a2 = function() {
-        return this.x4_1.a2();
-    };
-    protoOf(HashMapEntrySetBase).a5 = function(element) {
         throw UnsupportedOperationException_init_$Create$();
     };
     protoOf(HashMapEntrySetBase).f = function(element) {
-        return this.a5((!(element == null) ? isInterface(element, Entry) : false) ? element : THROW_CCE());
+        return this.z4((!(element == null) ? isInterface(element, Entry) : false) ? element : THROW_CCE());
     };
-    protoOf(HashMapEntrySetBase).q = function(elements) {
+    protoOf(HashMapEntrySetBase).o = function(elements) {
         throw UnsupportedOperationException_init_$Create$();
     };
-    protoOf(HashMapEntrySetBase).b5 = function(element) {
-        return this.x4_1.d5(element);
+    protoOf(HashMapEntrySetBase).a5 = function(element) {
+        return this.w4_1.c5(element);
     };
-    protoOf(HashMapEntrySetBase).y2 = function(element) {
+    protoOf(HashMapEntrySetBase).w2 = function(element) {
         if (!(!(element == null) ? isInterface(element, Entry) : false)) return false;
-        return this.b5((!(element == null) ? isInterface(element, Entry) : false) ? element : THROW_CCE());
+        return this.a5((!(element == null) ? isInterface(element, Entry) : false) ? element : THROW_CCE());
     };
-    protoOf(HashMapEntrySetBase).n1 = function(elements) {
-        return this.x4_1.e5(elements);
+    protoOf(HashMapEntrySetBase).m1 = function(elements) {
+        return this.w4_1.d5(elements);
     };
-    protoOf(HashMapEntrySetBase).z2 = function() {
-        return this.x4_1.q4();
+    protoOf(HashMapEntrySetBase).x2 = function() {
+        return this.w4_1.p4();
     };
     function HashMapKeysDefault$iterator$1($entryIterator) {
-        this.f5_1 = $entryIterator;
+        this.e5_1 = $entryIterator;
     }
     protoOf(HashMapKeysDefault$iterator$1).h = function() {
-        return this.f5_1.h();
+        return this.e5_1.h();
     };
     protoOf(HashMapKeysDefault$iterator$1).i = function() {
-        return this.f5_1.i().p1();
+        return this.e5_1.i().o1();
     };
-    protoOf(HashMapKeysDefault$iterator$1).a3 = function() {
-        return this.f5_1.a3();
+    protoOf(HashMapKeysDefault$iterator$1).y2 = function() {
+        return this.e5_1.y2();
     };
     function HashMapKeysDefault(backingMap) {
         AbstractMutableSet.call(this);
-        this.g5_1 = backingMap;
+        this.f5_1 = backingMap;
     }
-    protoOf(HashMapKeysDefault).h5 = function(element) {
+    protoOf(HashMapKeysDefault).g5 = function(element) {
         throw UnsupportedOperationException_init_$Create$_0('Add is not supported on keys');
     };
     protoOf(HashMapKeysDefault).f = function(element) {
-        return this.h5(element);
+        return this.g5(element);
     };
-    protoOf(HashMapKeysDefault).a2 = function() {
-        return this.g5_1.a2();
+    protoOf(HashMapKeysDefault).l4 = function(element) {
+        return this.f5_1.q1(element);
     };
-    protoOf(HashMapKeysDefault).m4 = function(element) {
-        return this.g5_1.r1(element);
-    };
-    protoOf(HashMapKeysDefault).m1 = function(element) {
+    protoOf(HashMapKeysDefault).l1 = function(element) {
         if (!true) return false;
-        return this.m4(element);
+        return this.l4(element);
     };
     protoOf(HashMapKeysDefault).g = function() {
-        var entryIterator = this.g5_1.w1().g();
+        var entryIterator = this.f5_1.v1().g();
         return new HashMapKeysDefault$iterator$1(entryIterator);
     };
-    protoOf(HashMapKeysDefault).y1 = function(element) {
-        this.z2();
-        if (this.g5_1.r1(element)) {
-            this.g5_1.y1(element);
+    protoOf(HashMapKeysDefault).x1 = function(element) {
+        this.x2();
+        if (this.f5_1.q1(element)) {
+            this.f5_1.x1(element);
             return true;
         }
         return false;
     };
-    protoOf(HashMapKeysDefault).y2 = function(element) {
+    protoOf(HashMapKeysDefault).w2 = function(element) {
         if (!true) return false;
-        return this.y1(element);
+        return this.x1(element);
     };
     protoOf(HashMapKeysDefault).j = function() {
-        return this.g5_1.j();
+        return this.f5_1.j();
     };
-    protoOf(HashMapKeysDefault).z2 = function() {
-        return this.g5_1.z2();
+    protoOf(HashMapKeysDefault).x2 = function() {
+        return this.f5_1.x2();
     };
     function HashMapValuesDefault$iterator$1($entryIterator) {
-        this.i5_1 = $entryIterator;
+        this.h5_1 = $entryIterator;
     }
     protoOf(HashMapValuesDefault$iterator$1).h = function() {
-        return this.i5_1.h();
+        return this.h5_1.h();
     };
     protoOf(HashMapValuesDefault$iterator$1).i = function() {
-        return this.i5_1.i().q1();
+        return this.h5_1.i().p1();
     };
-    protoOf(HashMapValuesDefault$iterator$1).a3 = function() {
-        return this.i5_1.a3();
+    protoOf(HashMapValuesDefault$iterator$1).y2 = function() {
+        return this.h5_1.y2();
     };
     function HashMapValuesDefault(backingMap) {
         AbstractMutableCollection.call(this);
-        this.j5_1 = backingMap;
+        this.i5_1 = backingMap;
     }
-    protoOf(HashMapValuesDefault).t4 = function(element) {
+    protoOf(HashMapValuesDefault).s4 = function(element) {
         throw UnsupportedOperationException_init_$Create$_0('Add is not supported on values');
     };
     protoOf(HashMapValuesDefault).f = function(element) {
-        return this.t4(element);
-    };
-    protoOf(HashMapValuesDefault).s4 = function(element) {
-        return this.j5_1.s1(element);
-    };
-    protoOf(HashMapValuesDefault).m1 = function(element) {
-        if (!true) return false;
         return this.s4(element);
     };
+    protoOf(HashMapValuesDefault).r4 = function(element) {
+        return this.i5_1.r1(element);
+    };
+    protoOf(HashMapValuesDefault).l1 = function(element) {
+        if (!true) return false;
+        return this.r4(element);
+    };
     protoOf(HashMapValuesDefault).g = function() {
-        var entryIterator = this.j5_1.w1().g();
+        var entryIterator = this.i5_1.v1().g();
         return new HashMapValuesDefault$iterator$1(entryIterator);
     };
     protoOf(HashMapValuesDefault).j = function() {
-        return this.j5_1.j();
+        return this.i5_1.j();
     };
-    protoOf(HashMapValuesDefault).z2 = function() {
-        return this.j5_1.z2();
+    protoOf(HashMapValuesDefault).x2 = function() {
+        return this.i5_1.x2();
     };
     function HashSet_init_$Init$(map, $this) {
         AbstractMutableSet.call($this);
         HashSet.call($this);
-        $this.k5_1 = map;
+        $this.j5_1 = map;
         return $this;
     }
     function HashSet_init_$Init$_0($this) {
@@ -3887,46 +3645,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function HashSet_init_$Create$() {
         return HashSet_init_$Init$_0(objectCreate(protoOf(HashSet)));
     }
-    function HashSet_init_$Init$_1(elements, $this) {
-        HashSet_init_$Init$(InternalHashMap_init_$Create$_0(elements.j()), $this);
-        var _iterator__ex2g4s = elements.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            $this.k5_1.x1(element, true);
-        }
+    function HashSet_init_$Init$_1(initialCapacity, loadFactor, $this) {
+        HashSet_init_$Init$(InternalHashMap_init_$Create$_1(initialCapacity, loadFactor), $this);
         return $this;
     }
-    function HashSet_init_$Init$_2(initialCapacity, loadFactor, $this) {
-        HashSet_init_$Init$(InternalHashMap_init_$Create$_2(initialCapacity, loadFactor), $this);
-        return $this;
-    }
-    function HashSet_init_$Init$_3(initialCapacity, $this) {
-        HashSet_init_$Init$_2(initialCapacity, 1, $this);
+    function HashSet_init_$Init$_2(initialCapacity, $this) {
+        HashSet_init_$Init$_1(initialCapacity, 1, $this);
         return $this;
     }
     function HashSet_init_$Create$_0(initialCapacity) {
-        return HashSet_init_$Init$_3(initialCapacity, objectCreate(protoOf(HashSet)));
+        return HashSet_init_$Init$_2(initialCapacity, objectCreate(protoOf(HashSet)));
     }
     protoOf(HashSet).f = function(element) {
-        return this.k5_1.x1(element, true) == null;
+        return this.j5_1.w1(element, true) == null;
     };
-    protoOf(HashSet).a2 = function() {
-        this.k5_1.a2();
+    protoOf(HashSet).l1 = function(element) {
+        return this.j5_1.l4(element);
     };
-    protoOf(HashSet).m1 = function(element) {
-        return this.k5_1.m4(element);
-    };
-    protoOf(HashSet).k = function() {
-        return this.k5_1.j() === 0;
+    protoOf(HashSet).p = function() {
+        return this.j5_1.j() === 0;
     };
     protoOf(HashSet).g = function() {
-        return this.k5_1.p4();
+        return this.j5_1.o4();
     };
-    protoOf(HashSet).y2 = function(element) {
-        return !(this.k5_1.y1(element) == null);
+    protoOf(HashSet).w2 = function(element) {
+        return !(this.j5_1.x1(element) == null);
     };
     protoOf(HashSet).j = function() {
-        return this.k5_1.j();
+        return this.j5_1.j();
     };
     function HashSet() {}
     function computeHashSize($this, capacity) {
@@ -3936,7 +3682,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return clz32(hashSize) + 1 | 0;
     }
     function checkForComodification($this) {
-        if (!($this.v5_1.s5_1 === $this.x5_1)) throw ConcurrentModificationException_init_$Create$_0('The backing map has been modified after this entry was obtained.');
+        if (!($this.u5_1.r5_1 === $this.w5_1)) throw ConcurrentModificationException_init_$Create$_0('The backing map has been modified after this entry was obtained.');
     }
     function InternalHashMap_init_$Init$($this) {
         InternalHashMap_init_$Init$_0(8, $this);
@@ -3949,15 +3695,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         InternalHashMap.call($this, arrayOfUninitializedElements(initialCapacity), null, new Int32Array(initialCapacity), new Int32Array(computeHashSize(Companion_instance_3, initialCapacity)), 2, 0);
         return $this;
     }
-    function InternalHashMap_init_$Create$_0(initialCapacity) {
-        return InternalHashMap_init_$Init$_0(initialCapacity, objectCreate(protoOf(InternalHashMap)));
-    }
     function InternalHashMap_init_$Init$_1(original, $this) {
         InternalHashMap_init_$Init$_0(original.j(), $this);
-        $this.z1(original);
+        $this.y1(original);
         return $this;
     }
-    function InternalHashMap_init_$Create$_1(original) {
+    function InternalHashMap_init_$Create$_0(original) {
         return InternalHashMap_init_$Init$_1(original, objectCreate(protoOf(InternalHashMap)));
     }
     function InternalHashMap_init_$Init$_2(initialCapacity, loadFactor, $this) {
@@ -3968,39 +3711,39 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return $this;
     }
-    function InternalHashMap_init_$Create$_2(initialCapacity, loadFactor) {
+    function InternalHashMap_init_$Create$_1(initialCapacity, loadFactor) {
         return InternalHashMap_init_$Init$_2(initialCapacity, loadFactor, objectCreate(protoOf(InternalHashMap)));
     }
     function _get_capacity__a9k9f3($this) {
-        return $this.l5_1.length;
+        return $this.k5_1.length;
     }
     function _get_hashSize__tftcho($this) {
-        return $this.o5_1.length;
+        return $this.n5_1.length;
     }
     function registerModification($this) {
-        $this.s5_1 = $this.s5_1 + 1 | 0;
+        $this.r5_1 = $this.r5_1 + 1 | 0;
     }
     function ensureExtraCapacity($this, n) {
         if (shouldCompact($this, n)) {
             compact($this, true);
         } else {
-            ensureCapacity($this, $this.q5_1 + n | 0);
+            ensureCapacity($this, $this.p5_1 + n | 0);
         }
     }
     function shouldCompact($this, extraCapacity) {
-        var spareCapacity = _get_capacity__a9k9f3($this) - $this.q5_1 | 0;
-        var gaps = $this.q5_1 - $this.j() | 0;
+        var spareCapacity = _get_capacity__a9k9f3($this) - $this.p5_1 | 0;
+        var gaps = $this.p5_1 - $this.j() | 0;
         return spareCapacity < extraCapacity && (gaps + spareCapacity | 0) >= extraCapacity && gaps >= (_get_capacity__a9k9f3($this) / 4 | 0);
     }
     function ensureCapacity($this, minCapacity) {
         if (minCapacity < 0) throw RuntimeException_init_$Create$_0('too many elements');
         if (minCapacity > _get_capacity__a9k9f3($this)) {
-            var newSize = Companion_instance_4.y5(_get_capacity__a9k9f3($this), minCapacity);
-            $this.l5_1 = copyOfUninitializedElements($this.l5_1, newSize);
+            var newSize = Companion_instance_4.x5(_get_capacity__a9k9f3($this), minCapacity);
+            $this.k5_1 = copyOfUninitializedElements($this.k5_1, newSize);
             var tmp = $this;
-            var tmp0_safe_receiver = $this.m5_1;
-            tmp.m5_1 = tmp0_safe_receiver == null ? null : copyOfUninitializedElements(tmp0_safe_receiver, newSize);
-            $this.n5_1 = copyOf($this.n5_1, newSize);
+            var tmp0_safe_receiver = $this.l5_1;
+            tmp.l5_1 = tmp0_safe_receiver == null ? null : copyOfUninitializedElements(tmp0_safe_receiver, newSize);
+            $this.m5_1 = copyOf($this.m5_1, newSize);
             var newHashSize = computeHashSize(Companion_instance_3, newSize);
             if (newHashSize > _get_hashSize__tftcho($this)) {
                 rehash($this, newHashSize);
@@ -4008,49 +3751,49 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function allocateValuesArray($this) {
-        var curValuesArray = $this.m5_1;
+        var curValuesArray = $this.l5_1;
         if (!(curValuesArray == null)) return curValuesArray;
         var newValuesArray = arrayOfUninitializedElements(_get_capacity__a9k9f3($this));
-        $this.m5_1 = newValuesArray;
+        $this.l5_1 = newValuesArray;
         return newValuesArray;
     }
     function hash($this, key) {
-        return key == null ? 0 : imul(hashCode_0(key), -1640531527) >>> $this.r5_1 | 0;
+        return key == null ? 0 : imul(hashCode_0(key), -1640531527) >>> $this.q5_1 | 0;
     }
     function compact($this, updateHashArray) {
         var i = 0;
         var j = 0;
-        var valuesArray = $this.m5_1;
-        while (i < $this.q5_1) {
-            var hash = $this.n5_1[i];
+        var valuesArray = $this.l5_1;
+        while (i < $this.p5_1) {
+            var hash = $this.m5_1[i];
             if (hash >= 0) {
-                $this.l5_1[j] = $this.l5_1[i];
+                $this.k5_1[j] = $this.k5_1[i];
                 if (!(valuesArray == null)) {
                     valuesArray[j] = valuesArray[i];
                 }
                 if (updateHashArray) {
-                    $this.n5_1[j] = hash;
-                    $this.o5_1[hash] = j + 1 | 0;
+                    $this.m5_1[j] = hash;
+                    $this.n5_1[hash] = j + 1 | 0;
                 }
                 j = j + 1 | 0;
             }
             i = i + 1 | 0;
         }
-        resetRange($this.l5_1, j, $this.q5_1);
+        resetRange($this.k5_1, j, $this.p5_1);
         if (valuesArray == null) null; else {
-            resetRange(valuesArray, j, $this.q5_1);
+            resetRange(valuesArray, j, $this.p5_1);
         }
-        $this.q5_1 = j;
+        $this.p5_1 = j;
     }
     function rehash($this, newHashSize) {
         registerModification($this);
-        if ($this.q5_1 > $this.t5_1) {
+        if ($this.p5_1 > $this.s5_1) {
             compact($this, false);
         }
-        $this.o5_1 = new Int32Array(newHashSize);
-        $this.r5_1 = computeShift(Companion_instance_3, newHashSize);
+        $this.n5_1 = new Int32Array(newHashSize);
+        $this.q5_1 = computeShift(Companion_instance_3, newHashSize);
         var i = 0;
-        while (i < $this.q5_1) {
+        while (i < $this.p5_1) {
             var _unary__edvuaz = i;
             i = _unary__edvuaz + 1 | 0;
             if (!putRehash($this, _unary__edvuaz)) {
@@ -4059,13 +3802,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function putRehash($this, i) {
-        var hash_0 = hash($this, $this.l5_1[i]);
-        var probesLeft = $this.p5_1;
+        var hash_0 = hash($this, $this.k5_1[i]);
+        var probesLeft = $this.o5_1;
         while (true) {
-            var index = $this.o5_1[hash_0];
+            var index = $this.n5_1[hash_0];
             if (index === 0) {
-                $this.o5_1[hash_0] = i + 1 | 0;
-                $this.n5_1[i] = hash_0;
+                $this.n5_1[hash_0] = i + 1 | 0;
+                $this.m5_1[i] = hash_0;
                 return true;
             }
             probesLeft = probesLeft - 1 | 0;
@@ -4077,11 +3820,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function findKey($this, key) {
         var hash_0 = hash($this, key);
-        var probesLeft = $this.p5_1;
+        var probesLeft = $this.o5_1;
         while (true) {
-            var index = $this.o5_1[hash_0];
+            var index = $this.n5_1[hash_0];
             if (index === 0) return -1;
-            if (equals($this.l5_1[index - 1 | 0], key)) return index - 1 | 0;
+            if (equals($this.k5_1[index - 1 | 0], key)) return index - 1 | 0;
             probesLeft = probesLeft - 1 | 0;
             if (probesLeft < 0) return -1;
             var _unary__edvuaz = hash_0;
@@ -4090,41 +3833,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function findValue($this, value) {
-        var i = $this.q5_1;
+        var i = $this.p5_1;
         $l$loop: while (true) {
             i = i - 1 | 0;
             if (!(i >= 0)) {
                 break $l$loop;
             }
-            if ($this.n5_1[i] >= 0 && equals(ensureNotNull($this.m5_1)[i], value)) return i;
+            if ($this.m5_1[i] >= 0 && equals(ensureNotNull($this.l5_1)[i], value)) return i;
         }
         return -1;
     }
     function addKey($this, key) {
-        $this.q4();
+        $this.p4();
         retry: while (true) {
             var hash_0 = hash($this, key);
-            var tentativeMaxProbeDistance = coerceAtMost(imul($this.p5_1, 2), _get_hashSize__tftcho($this) / 2 | 0);
+            var tentativeMaxProbeDistance = coerceAtMost(imul($this.o5_1, 2), _get_hashSize__tftcho($this) / 2 | 0);
             var probeDistance = 0;
             while (true) {
-                var index = $this.o5_1[hash_0];
+                var index = $this.n5_1[hash_0];
                 if (index === 0) {
-                    if ($this.q5_1 >= _get_capacity__a9k9f3($this)) {
+                    if ($this.p5_1 >= _get_capacity__a9k9f3($this)) {
                         ensureExtraCapacity($this, 1);
                         continue retry;
                     }
-                    var _unary__edvuaz = $this.q5_1;
-                    $this.q5_1 = _unary__edvuaz + 1 | 0;
+                    var _unary__edvuaz = $this.p5_1;
+                    $this.p5_1 = _unary__edvuaz + 1 | 0;
                     var putIndex = _unary__edvuaz;
-                    $this.l5_1[putIndex] = key;
-                    $this.n5_1[putIndex] = hash_0;
-                    $this.o5_1[hash_0] = putIndex + 1 | 0;
-                    $this.t5_1 = $this.t5_1 + 1 | 0;
+                    $this.k5_1[putIndex] = key;
+                    $this.m5_1[putIndex] = hash_0;
+                    $this.n5_1[hash_0] = putIndex + 1 | 0;
+                    $this.s5_1 = $this.s5_1 + 1 | 0;
                     registerModification($this);
-                    if (probeDistance > $this.p5_1) $this.p5_1 = probeDistance;
+                    if (probeDistance > $this.o5_1) $this.o5_1 = probeDistance;
                     return putIndex;
                 }
-                if (equals($this.l5_1[index - 1 | 0], key)) {
+                if (equals($this.k5_1[index - 1 | 0], key)) {
                     return -index | 0;
                 }
                 probeDistance = probeDistance + 1 | 0;
@@ -4139,14 +3882,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function removeEntryAt($this, index) {
-        resetAt($this.l5_1, index);
-        var tmp0_safe_receiver = $this.m5_1;
+        resetAt($this.k5_1, index);
+        var tmp0_safe_receiver = $this.l5_1;
         if (tmp0_safe_receiver == null) null; else {
             resetAt(tmp0_safe_receiver, index);
         }
-        removeHashAt($this, $this.n5_1[index]);
-        $this.n5_1[index] = -1;
-        $this.t5_1 = $this.t5_1 - 1 | 0;
+        removeHashAt($this, $this.m5_1[index]);
+        $this.m5_1[index] = -1;
+        $this.s5_1 = $this.s5_1 - 1 | 0;
         registerModification($this);
     }
     function removeHashAt($this, removedHash) {
@@ -4157,44 +3900,44 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _unary__edvuaz = hash_0;
             hash_0 = _unary__edvuaz - 1 | 0;
             if (_unary__edvuaz === 0) hash_0 = _get_hashSize__tftcho($this) - 1 | 0;
-            var index = $this.o5_1[hash_0];
+            var index = $this.n5_1[hash_0];
             probeDistance = probeDistance + 1 | 0;
-            if (probeDistance > $this.p5_1) {
-                $this.o5_1[hole] = 0;
+            if (probeDistance > $this.o5_1) {
+                $this.n5_1[hole] = 0;
                 return Unit_instance;
             }
             if (index === 0) {
-                $this.o5_1[hole] = 0;
+                $this.n5_1[hole] = 0;
                 return Unit_instance;
             }
-            var otherHash = hash($this, $this.l5_1[index - 1 | 0]);
+            var otherHash = hash($this, $this.k5_1[index - 1 | 0]);
             if (((otherHash - hash_0 | 0) & (_get_hashSize__tftcho($this) - 1 | 0)) >= probeDistance) {
-                $this.o5_1[hole] = index;
-                $this.n5_1[index - 1 | 0] = hole;
+                $this.n5_1[hole] = index;
+                $this.m5_1[index - 1 | 0] = hole;
                 hole = hash_0;
                 probeDistance = 0;
             }
         }
     }
     function contentEquals_0($this, other) {
-        return $this.t5_1 === other.j() && $this.e5(other.w1());
+        return $this.s5_1 === other.j() && $this.d5(other.v1());
     }
     function putEntry($this, entry) {
-        var index = addKey($this, entry.p1());
+        var index = addKey($this, entry.o1());
         var valuesArray = allocateValuesArray($this);
         if (index >= 0) {
-            valuesArray[index] = entry.q1();
+            valuesArray[index] = entry.p1();
             return true;
         }
         var oldValue = valuesArray[(-index | 0) - 1 | 0];
-        if (!equals(entry.q1(), oldValue)) {
-            valuesArray[(-index | 0) - 1 | 0] = entry.q1();
+        if (!equals(entry.p1(), oldValue)) {
+            valuesArray[(-index | 0) - 1 | 0] = entry.p1();
             return true;
         }
         return false;
     }
     function putAllEntries($this, from) {
-        if (from.k()) return false;
+        if (from.p()) return false;
         ensureExtraCapacity($this, from.j());
         var it = from.g();
         var updated = false;
@@ -4204,180 +3947,180 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return updated;
     }
     function Companion_3() {
-        this.z5_1 = -1640531527;
-        this.a6_1 = 8;
-        this.b6_1 = 2;
-        this.c6_1 = -1;
+        this.y5_1 = -1640531527;
+        this.z5_1 = 8;
+        this.a6_1 = 2;
+        this.b6_1 = -1;
     }
     var Companion_instance_3;
     function Companion_getInstance_3() {
         return Companion_instance_3;
     }
     function Itr(map) {
-        this.d6_1 = map;
-        this.e6_1 = 0;
-        this.f6_1 = -1;
-        this.g6_1 = this.d6_1.s5_1;
-        this.h6();
+        this.c6_1 = map;
+        this.d6_1 = 0;
+        this.e6_1 = -1;
+        this.f6_1 = this.c6_1.r5_1;
+        this.g6();
     }
-    protoOf(Itr).h6 = function() {
-        while (this.e6_1 < this.d6_1.q5_1 && this.d6_1.n5_1[this.e6_1] < 0) {
-            this.e6_1 = this.e6_1 + 1 | 0;
+    protoOf(Itr).g6 = function() {
+        while (this.d6_1 < this.c6_1.p5_1 && this.c6_1.m5_1[this.d6_1] < 0) {
+            this.d6_1 = this.d6_1 + 1 | 0;
         }
     };
     protoOf(Itr).h = function() {
-        return this.e6_1 < this.d6_1.q5_1;
+        return this.d6_1 < this.c6_1.p5_1;
     };
-    protoOf(Itr).a3 = function() {
-        this.i6();
-        if (!!(this.f6_1 === -1)) {
+    protoOf(Itr).y2 = function() {
+        this.h6();
+        if (!!(this.e6_1 === -1)) {
             var message = 'Call next() before removing element from the iterator.';
             throw IllegalStateException_init_$Create$_0(toString_1(message));
         }
-        this.d6_1.q4();
-        removeEntryAt(this.d6_1, this.f6_1);
-        this.f6_1 = -1;
-        this.g6_1 = this.d6_1.s5_1;
+        this.c6_1.p4();
+        removeEntryAt(this.c6_1, this.e6_1);
+        this.e6_1 = -1;
+        this.f6_1 = this.c6_1.r5_1;
     };
-    protoOf(Itr).i6 = function() {
-        if (!(this.d6_1.s5_1 === this.g6_1)) throw ConcurrentModificationException_init_$Create$();
+    protoOf(Itr).h6 = function() {
+        if (!(this.c6_1.r5_1 === this.f6_1)) throw ConcurrentModificationException_init_$Create$();
     };
     function KeysItr(map) {
         Itr.call(this, map);
     }
     protoOf(KeysItr).i = function() {
-        this.i6();
-        if (this.e6_1 >= this.d6_1.q5_1) throw NoSuchElementException_init_$Create$();
-        var tmp = this;
-        var _unary__edvuaz = this.e6_1;
-        this.e6_1 = _unary__edvuaz + 1 | 0;
-        tmp.f6_1 = _unary__edvuaz;
-        var result = this.d6_1.l5_1[this.f6_1];
         this.h6();
+        if (this.d6_1 >= this.c6_1.p5_1) throw NoSuchElementException_init_$Create$();
+        var tmp = this;
+        var _unary__edvuaz = this.d6_1;
+        this.d6_1 = _unary__edvuaz + 1 | 0;
+        tmp.e6_1 = _unary__edvuaz;
+        var result = this.c6_1.k5_1[this.e6_1];
+        this.g6();
         return result;
     };
     function ValuesItr(map) {
         Itr.call(this, map);
     }
     protoOf(ValuesItr).i = function() {
-        this.i6();
-        if (this.e6_1 >= this.d6_1.q5_1) throw NoSuchElementException_init_$Create$();
-        var tmp = this;
-        var _unary__edvuaz = this.e6_1;
-        this.e6_1 = _unary__edvuaz + 1 | 0;
-        tmp.f6_1 = _unary__edvuaz;
-        var result = ensureNotNull(this.d6_1.m5_1)[this.f6_1];
         this.h6();
+        if (this.d6_1 >= this.c6_1.p5_1) throw NoSuchElementException_init_$Create$();
+        var tmp = this;
+        var _unary__edvuaz = this.d6_1;
+        this.d6_1 = _unary__edvuaz + 1 | 0;
+        tmp.e6_1 = _unary__edvuaz;
+        var result = ensureNotNull(this.c6_1.l5_1)[this.e6_1];
+        this.g6();
         return result;
     };
     function EntriesItr(map) {
         Itr.call(this, map);
     }
     protoOf(EntriesItr).i = function() {
-        this.i6();
-        if (this.e6_1 >= this.d6_1.q5_1) throw NoSuchElementException_init_$Create$();
-        var tmp = this;
-        var _unary__edvuaz = this.e6_1;
-        this.e6_1 = _unary__edvuaz + 1 | 0;
-        tmp.f6_1 = _unary__edvuaz;
-        var result = new EntryRef(this.d6_1, this.f6_1);
         this.h6();
+        if (this.d6_1 >= this.c6_1.p5_1) throw NoSuchElementException_init_$Create$();
+        var tmp = this;
+        var _unary__edvuaz = this.d6_1;
+        this.d6_1 = _unary__edvuaz + 1 | 0;
+        tmp.e6_1 = _unary__edvuaz;
+        var result = new EntryRef(this.c6_1, this.e6_1);
+        this.g6();
         return result;
     };
-    protoOf(EntriesItr).v6 = function() {
-        if (this.e6_1 >= this.d6_1.q5_1) throw NoSuchElementException_init_$Create$();
+    protoOf(EntriesItr).u6 = function() {
+        if (this.d6_1 >= this.c6_1.p5_1) throw NoSuchElementException_init_$Create$();
         var tmp = this;
-        var _unary__edvuaz = this.e6_1;
-        this.e6_1 = _unary__edvuaz + 1 | 0;
-        tmp.f6_1 = _unary__edvuaz;
-        var tmp0_safe_receiver = this.d6_1.l5_1[this.f6_1];
+        var _unary__edvuaz = this.d6_1;
+        this.d6_1 = _unary__edvuaz + 1 | 0;
+        tmp.e6_1 = _unary__edvuaz;
+        var tmp0_safe_receiver = this.c6_1.k5_1[this.e6_1];
         var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode_0(tmp0_safe_receiver);
         var tmp_0 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
-        var tmp0_safe_receiver_0 = ensureNotNull(this.d6_1.m5_1)[this.f6_1];
+        var tmp0_safe_receiver_0 = ensureNotNull(this.c6_1.l5_1)[this.e6_1];
         var tmp1_elvis_lhs_0 = tmp0_safe_receiver_0 == null ? null : hashCode_0(tmp0_safe_receiver_0);
         var result = tmp_0 ^ (tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0);
-        this.h6();
+        this.g6();
         return result;
     };
-    protoOf(EntriesItr).w6 = function(sb) {
-        if (this.e6_1 >= this.d6_1.q5_1) throw NoSuchElementException_init_$Create$();
+    protoOf(EntriesItr).v6 = function(sb) {
+        if (this.d6_1 >= this.c6_1.p5_1) throw NoSuchElementException_init_$Create$();
         var tmp = this;
-        var _unary__edvuaz = this.e6_1;
-        this.e6_1 = _unary__edvuaz + 1 | 0;
-        tmp.f6_1 = _unary__edvuaz;
-        var key = this.d6_1.l5_1[this.f6_1];
-        if (equals(key, this.d6_1)) sb.z6('(this Map)'); else sb.y6(key);
-        sb.a7(_Char___init__impl__6a9atx(61));
-        var value = ensureNotNull(this.d6_1.m5_1)[this.f6_1];
-        if (equals(value, this.d6_1)) sb.z6('(this Map)'); else sb.y6(value);
-        this.h6();
+        var _unary__edvuaz = this.d6_1;
+        this.d6_1 = _unary__edvuaz + 1 | 0;
+        tmp.e6_1 = _unary__edvuaz;
+        var key = this.c6_1.k5_1[this.e6_1];
+        if (equals(key, this.c6_1)) sb.y6('(this Map)'); else sb.x6(key);
+        sb.z6(_Char___init__impl__6a9atx(61));
+        var value = ensureNotNull(this.c6_1.l5_1)[this.e6_1];
+        if (equals(value, this.c6_1)) sb.y6('(this Map)'); else sb.x6(value);
+        this.g6();
     };
     function EntryRef(map, index) {
-        this.v5_1 = map;
-        this.w5_1 = index;
-        this.x5_1 = this.v5_1.s5_1;
+        this.u5_1 = map;
+        this.v5_1 = index;
+        this.w5_1 = this.u5_1.r5_1;
     }
+    protoOf(EntryRef).o1 = function() {
+        checkForComodification(this);
+        return this.u5_1.k5_1[this.v5_1];
+    };
     protoOf(EntryRef).p1 = function() {
         checkForComodification(this);
-        return this.v5_1.l5_1[this.w5_1];
-    };
-    protoOf(EntryRef).q1 = function() {
-        checkForComodification(this);
-        return ensureNotNull(this.v5_1.m5_1)[this.w5_1];
+        return ensureNotNull(this.u5_1.l5_1)[this.v5_1];
     };
     protoOf(EntryRef).equals = function(other) {
         var tmp;
         var tmp_0;
         if (!(other == null) ? isInterface(other, Entry) : false) {
-            tmp_0 = equals(other.p1(), this.p1());
+            tmp_0 = equals(other.o1(), this.o1());
         } else {
             tmp_0 = false;
         }
         if (tmp_0) {
-            tmp = equals(other.q1(), this.q1());
+            tmp = equals(other.p1(), this.p1());
         } else {
             tmp = false;
         }
         return tmp;
     };
     protoOf(EntryRef).hashCode = function() {
-        var tmp0_safe_receiver = this.p1();
+        var tmp0_safe_receiver = this.o1();
         var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode_0(tmp0_safe_receiver);
         var tmp = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
-        var tmp0_safe_receiver_0 = this.q1();
+        var tmp0_safe_receiver_0 = this.p1();
         var tmp1_elvis_lhs_0 = tmp0_safe_receiver_0 == null ? null : hashCode_0(tmp0_safe_receiver_0);
         return tmp ^ (tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0);
     };
     protoOf(EntryRef).toString = function() {
-        return toString_0(this.p1()) + '=' + toString_0(this.q1());
+        return toString_0(this.o1()) + '=' + toString_0(this.p1());
     };
     function InternalHashMap(keysArray, valuesArray, presenceArray, hashArray, maxProbeDistance, length) {
-        this.l5_1 = keysArray;
-        this.m5_1 = valuesArray;
-        this.n5_1 = presenceArray;
-        this.o5_1 = hashArray;
-        this.p5_1 = maxProbeDistance;
-        this.q5_1 = length;
-        this.r5_1 = computeShift(Companion_instance_3, _get_hashSize__tftcho(this));
+        this.k5_1 = keysArray;
+        this.l5_1 = valuesArray;
+        this.m5_1 = presenceArray;
+        this.n5_1 = hashArray;
+        this.o5_1 = maxProbeDistance;
+        this.p5_1 = length;
+        this.q5_1 = computeShift(Companion_instance_3, _get_hashSize__tftcho(this));
+        this.r5_1 = 0;
         this.s5_1 = 0;
-        this.t5_1 = 0;
-        this.u5_1 = false;
+        this.t5_1 = false;
     }
     protoOf(InternalHashMap).j = function() {
-        return this.t5_1;
+        return this.s5_1;
     };
-    protoOf(InternalHashMap).s1 = function(value) {
+    protoOf(InternalHashMap).r1 = function(value) {
         return findValue(this, value) >= 0;
     };
-    protoOf(InternalHashMap).t1 = function(key) {
+    protoOf(InternalHashMap).s1 = function(key) {
         var index = findKey(this, key);
         if (index < 0) return null;
-        return ensureNotNull(this.m5_1)[index];
+        return ensureNotNull(this.l5_1)[index];
     };
-    protoOf(InternalHashMap).m4 = function(key) {
+    protoOf(InternalHashMap).l4 = function(key) {
         return findKey(this, key) >= 0;
     };
-    protoOf(InternalHashMap).x1 = function(key, value) {
+    protoOf(InternalHashMap).w1 = function(key, value) {
         var index = addKey(this, key);
         var valuesArray = allocateValuesArray(this);
         if (index < 0) {
@@ -4389,39 +4132,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return null;
         }
     };
-    protoOf(InternalHashMap).z1 = function(from) {
-        this.q4();
-        putAllEntries(this, from.w1());
+    protoOf(InternalHashMap).y1 = function(from) {
+        this.p4();
+        putAllEntries(this, from.v1());
     };
-    protoOf(InternalHashMap).y1 = function(key) {
-        this.q4();
+    protoOf(InternalHashMap).x1 = function(key) {
+        this.p4();
         var index = findKey(this, key);
         if (index < 0) return null;
-        var oldValue = ensureNotNull(this.m5_1)[index];
+        var oldValue = ensureNotNull(this.l5_1)[index];
         removeEntryAt(this, index);
         return oldValue;
-    };
-    protoOf(InternalHashMap).a2 = function() {
-        this.q4();
-        var inductionVariable = 0;
-        var last = this.q5_1 - 1 | 0;
-        if (inductionVariable <= last) do {
-            var i = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var hash = this.n5_1[i];
-            if (hash >= 0) {
-                this.o5_1[hash] = 0;
-                this.n5_1[i] = -1;
-            }
-        } while (!(i === last));
-        resetRange(this.l5_1, 0, this.q5_1);
-        var tmp0_safe_receiver = this.m5_1;
-        if (tmp0_safe_receiver == null) null; else {
-            resetRange(tmp0_safe_receiver, 0, this.q5_1);
-        }
-        this.t5_1 = 0;
-        this.q5_1 = 0;
-        registerModification(this);
     };
     protoOf(InternalHashMap).equals = function(other) {
         var tmp;
@@ -4440,60 +4161,60 @@ if (typeof String.prototype.startsWith === 'undefined') {
     };
     protoOf(InternalHashMap).hashCode = function() {
         var result = 0;
-        var it = this.y4();
+        var it = this.x4();
         while (it.h()) {
-            result = result + it.v6() | 0;
+            result = result + it.u6() | 0;
         }
         return result;
     };
     protoOf(InternalHashMap).toString = function() {
-        var sb = StringBuilder_init_$Create$(2 + imul(this.t5_1, 3) | 0);
-        sb.z6('{');
+        var sb = StringBuilder_init_$Create$(2 + imul(this.s5_1, 3) | 0);
+        sb.y6('{');
         var i = 0;
-        var it = this.y4();
+        var it = this.x4();
         while (it.h()) {
             if (i > 0) {
-                sb.z6(', ');
+                sb.y6(', ');
             }
-            it.w6(sb);
+            it.v6(sb);
             i = i + 1 | 0;
         }
-        sb.z6('}');
+        sb.y6('}');
         return sb.toString();
     };
-    protoOf(InternalHashMap).q4 = function() {
-        if (this.u5_1) throw UnsupportedOperationException_init_$Create$();
+    protoOf(InternalHashMap).p4 = function() {
+        if (this.t5_1) throw UnsupportedOperationException_init_$Create$();
     };
-    protoOf(InternalHashMap).o4 = function(key) {
-        this.q4();
+    protoOf(InternalHashMap).n4 = function(key) {
+        this.p4();
         var index = findKey(this, key);
         if (index < 0) return false;
         removeEntryAt(this, index);
         return true;
     };
+    protoOf(InternalHashMap).b5 = function(entry) {
+        var index = findKey(this, entry.o1());
+        if (index < 0) return false;
+        return equals(ensureNotNull(this.l5_1)[index], entry.p1());
+    };
+    protoOf(InternalHashMap).a7 = function(entry) {
+        return this.b5(isInterface(entry, Entry) ? entry : THROW_CCE());
+    };
     protoOf(InternalHashMap).c5 = function(entry) {
-        var index = findKey(this, entry.p1());
+        this.p4();
+        var index = findKey(this, entry.o1());
         if (index < 0) return false;
-        return equals(ensureNotNull(this.m5_1)[index], entry.q1());
-    };
-    protoOf(InternalHashMap).b7 = function(entry) {
-        return this.c5(isInterface(entry, Entry) ? entry : THROW_CCE());
-    };
-    protoOf(InternalHashMap).d5 = function(entry) {
-        this.q4();
-        var index = findKey(this, entry.p1());
-        if (index < 0) return false;
-        if (!equals(ensureNotNull(this.m5_1)[index], entry.q1())) return false;
+        if (!equals(ensureNotNull(this.l5_1)[index], entry.p1())) return false;
         removeEntryAt(this, index);
         return true;
     };
-    protoOf(InternalHashMap).p4 = function() {
+    protoOf(InternalHashMap).o4 = function() {
         return new KeysItr(this);
     };
-    protoOf(InternalHashMap).v4 = function() {
+    protoOf(InternalHashMap).u4 = function() {
         return new ValuesItr(this);
     };
-    protoOf(InternalHashMap).y4 = function() {
+    protoOf(InternalHashMap).x4 = function() {
         return new EntriesItr(this);
     };
     function InternalMap() {}
@@ -4521,8 +4242,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function LinkedHashMap_init_$Create$_1(original) {
         return LinkedHashMap_init_$Init$_1(original, objectCreate(protoOf(LinkedHashMap)));
     }
-    protoOf(LinkedHashMap).z2 = function() {
-        return this.k4_1.q4();
+    protoOf(LinkedHashMap).x2 = function() {
+        return this.j4_1.p4();
     };
     function LinkedHashMap() {}
     function LinkedHashSet_init_$Init$($this) {
@@ -4533,60 +4254,52 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function LinkedHashSet_init_$Create$() {
         return LinkedHashSet_init_$Init$(objectCreate(protoOf(LinkedHashSet)));
     }
-    function LinkedHashSet_init_$Init$_0(elements, $this) {
-        HashSet_init_$Init$_1(elements, $this);
+    function LinkedHashSet_init_$Init$_0(initialCapacity, loadFactor, $this) {
+        HashSet_init_$Init$_1(initialCapacity, loadFactor, $this);
         LinkedHashSet.call($this);
         return $this;
     }
-    function LinkedHashSet_init_$Create$_0(elements) {
-        return LinkedHashSet_init_$Init$_0(elements, objectCreate(protoOf(LinkedHashSet)));
-    }
-    function LinkedHashSet_init_$Init$_1(initialCapacity, loadFactor, $this) {
-        HashSet_init_$Init$_2(initialCapacity, loadFactor, $this);
-        LinkedHashSet.call($this);
+    function LinkedHashSet_init_$Init$_1(initialCapacity, $this) {
+        LinkedHashSet_init_$Init$_0(initialCapacity, 1, $this);
         return $this;
     }
-    function LinkedHashSet_init_$Init$_2(initialCapacity, $this) {
-        LinkedHashSet_init_$Init$_1(initialCapacity, 1, $this);
-        return $this;
+    function LinkedHashSet_init_$Create$_0(initialCapacity) {
+        return LinkedHashSet_init_$Init$_1(initialCapacity, objectCreate(protoOf(LinkedHashSet)));
     }
-    function LinkedHashSet_init_$Create$_1(initialCapacity) {
-        return LinkedHashSet_init_$Init$_2(initialCapacity, objectCreate(protoOf(LinkedHashSet)));
-    }
-    protoOf(LinkedHashSet).z2 = function() {
-        return this.k5_1.q4();
+    protoOf(LinkedHashSet).x2 = function() {
+        return this.j5_1.p4();
     };
     function LinkedHashSet() {}
     function RandomAccess() {}
     function CoroutineImpl(resultContinuation) {
         InterceptedCoroutine.call(this);
-        this.k7_1 = resultContinuation;
+        this.j7_1 = resultContinuation;
+        this.k7_1 = 0;
         this.l7_1 = 0;
-        this.m7_1 = 0;
+        this.m7_1 = null;
         this.n7_1 = null;
         this.o7_1 = null;
-        this.p7_1 = null;
         var tmp = this;
-        var tmp0_safe_receiver = this.k7_1;
-        tmp.q7_1 = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.r7();
+        var tmp0_safe_receiver = this.j7_1;
+        tmp.p7_1 = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.q7();
     }
-    protoOf(CoroutineImpl).r7 = function() {
-        return ensureNotNull(this.q7_1);
+    protoOf(CoroutineImpl).q7 = function() {
+        return ensureNotNull(this.p7_1);
     };
-    protoOf(CoroutineImpl).s7 = function(result) {
+    protoOf(CoroutineImpl).r7 = function(result) {
         var current = this;
         var currentResult = _Result___get_isFailure__impl__jpiriv(result) ? null : _Result___get_value__impl__bjfvqg(result);
         var currentException = Result__exceptionOrNull_impl_p6xea9(result);
         while (true) {
             var $this$with = current;
             if (currentException == null) {
-                $this$with.n7_1 = currentResult;
+                $this$with.m7_1 = currentResult;
             } else {
-                $this$with.l7_1 = $this$with.m7_1;
-                $this$with.o7_1 = currentException;
+                $this$with.k7_1 = $this$with.l7_1;
+                $this$with.n7_1 = currentException;
             }
             try {
-                var outcome = $this$with.t7();
+                var outcome = $this$with.s7();
                 if (outcome === get_COROUTINE_SUSPENDED()) return Unit_instance;
                 currentResult = outcome;
                 currentException = null;
@@ -4595,38 +4308,38 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 currentResult = null;
                 currentException = exception;
             }
-            $this$with.v7();
-            var completion = ensureNotNull($this$with.k7_1);
+            $this$with.u7();
+            var completion = ensureNotNull($this$with.j7_1);
             if (completion instanceof CoroutineImpl) {
                 current = completion;
             } else {
                 if (!(currentException == null)) {
                     var exception_0 = currentException;
                     var tmp$ret$5 = _Result___init__impl__xyqfz8(createFailure(exception_0));
-                    completion.w7(tmp$ret$5);
+                    completion.v7(tmp$ret$5);
                 } else {
                     var value = currentResult;
                     var tmp$ret$7 = _Result___init__impl__xyqfz8(value);
-                    completion.w7(tmp$ret$7);
+                    completion.v7(tmp$ret$7);
                 }
                 return Unit_instance;
             }
         }
     };
-    protoOf(CoroutineImpl).w7 = function(result) {
-        return this.s7(result);
+    protoOf(CoroutineImpl).v7 = function(result) {
+        return this.r7(result);
     };
     function CompletedContinuation() {}
-    protoOf(CompletedContinuation).r7 = function() {
+    protoOf(CompletedContinuation).q7 = function() {
         var message = 'This continuation is already complete';
         throw IllegalStateException_init_$Create$_0(toString_1(message));
     };
-    protoOf(CompletedContinuation).s7 = function(result) {
+    protoOf(CompletedContinuation).r7 = function(result) {
         var message = 'This continuation is already complete';
         throw IllegalStateException_init_$Create$_0(toString_1(message));
     };
-    protoOf(CompletedContinuation).w7 = function(result) {
-        return this.s7(result);
+    protoOf(CompletedContinuation).v7 = function(result) {
+        return this.r7(result);
     };
     protoOf(CompletedContinuation).toString = function() {
         return 'This continuation is already complete';
@@ -4636,14 +4349,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return CompletedContinuation_instance;
     }
     function InterceptedCoroutine() {
-        this.u7_1 = null;
+        this.t7_1 = null;
     }
-    protoOf(InterceptedCoroutine).v7 = function() {
-        var intercepted = this.u7_1;
+    protoOf(InterceptedCoroutine).u7 = function() {
+        var intercepted = this.t7_1;
         if (!(intercepted == null) && !(intercepted === this)) {
-            ensureNotNull(this.r7().x7(Key_instance)).y7(intercepted);
+            ensureNotNull(this.q7().w7(Key_instance)).x7(intercepted);
         }
-        this.u7_1 = CompletedContinuation_instance;
+        this.t7_1 = CompletedContinuation_instance;
     };
     function startCoroutineUninterceptedOrReturnNonGeneratorVersion(_this__u8e3s4, receiver, param, completion) {
         var tmp;
@@ -4654,7 +4367,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var wrappedCompletion = tmp;
         var a = _this__u8e3s4;
-        return typeof a === 'function' ? a(receiver, param, wrappedCompletion) : _this__u8e3s4.z7(receiver, param, wrappedCompletion);
+        return typeof a === 'function' ? a(receiver, param, wrappedCompletion) : _this__u8e3s4.y7(receiver, param, wrappedCompletion);
     }
     function createSimpleCoroutineForSuspendFunction(completion) {
         return new createSimpleCoroutineForSuspendFunction$1(completion);
@@ -4665,9 +4378,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function createSimpleCoroutineForSuspendFunction$1($completion) {
         CoroutineImpl.call(this, isInterface($completion, Continuation) ? $completion : THROW_CCE());
     }
-    protoOf(createSimpleCoroutineForSuspendFunction$1).t7 = function() {
-        if (this.o7_1 != null) throw this.o7_1;
-        return this.n7_1;
+    protoOf(createSimpleCoroutineForSuspendFunction$1).s7 = function() {
+        if (this.n7_1 != null) throw this.n7_1;
+        return this.m7_1;
     };
     function UnsupportedOperationException_init_$Init$($this) {
         RuntimeException_init_$Init$($this);
@@ -5040,16 +4753,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function lazy_0(initializer) {
         return new UnsafeLazyImpl(initializer);
     }
-    function round(x) {
-        if (!(x % .5 === 0)) {
-            return Math.round(x);
-        }
-        var floor = Math.floor(x);
+    function roundToInt(_this__u8e3s4) {
         var tmp;
-        if (floor % 2 === 0) {
-            tmp = floor;
+        if (isNaN_0(_this__u8e3s4)) {
+            throw IllegalArgumentException_init_$Create$_0('Cannot round NaN value.');
+        } else if (_this__u8e3s4 > 2147483647) {
+            tmp = 2147483647;
+        } else if (_this__u8e3s4 < -2147483648) {
+            tmp = -2147483648;
         } else {
-            tmp = Math.ceil(x);
+            tmp = numberToInt(Math.round(_this__u8e3s4));
         }
         return tmp;
     }
@@ -5119,15 +4832,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function KClass() {}
     function PrimitiveKClassImpl(jClass, simpleName, isInstanceFunction) {
         KClassImpl.call(this);
-        this.l8_1 = jClass;
-        this.m8_1 = simpleName;
-        this.n8_1 = isInstanceFunction;
+        this.k8_1 = jClass;
+        this.l8_1 = simpleName;
+        this.m8_1 = isInstanceFunction;
     }
-    protoOf(PrimitiveKClassImpl).o8 = function() {
-        return this.l8_1;
+    protoOf(PrimitiveKClassImpl).n8 = function() {
+        return this.k8_1;
     };
-    protoOf(PrimitiveKClassImpl).k8 = function() {
-        return this.m8_1;
+    protoOf(PrimitiveKClassImpl).j8 = function() {
+        return this.l8_1;
     };
     function KClassImpl() {}
     protoOf(KClassImpl).equals = function(other) {
@@ -5136,7 +4849,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = false;
         } else {
             if (other instanceof KClassImpl) {
-                tmp = equals(this.o8(), other.o8()) && this.k8() == other.k8();
+                tmp = equals(this.n8(), other.n8()) && this.j8() == other.j8();
             } else {
                 tmp = false;
             }
@@ -5144,22 +4857,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     };
     protoOf(KClassImpl).hashCode = function() {
-        var tmp0_safe_receiver = this.k8();
+        var tmp0_safe_receiver = this.j8();
         var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : getStringHashCode(tmp0_safe_receiver);
         return tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
     };
     protoOf(KClassImpl).toString = function() {
-        return 'class ' + this.k8();
+        return 'class ' + this.j8();
     };
     function NothingKClassImpl() {
         NothingKClassImpl_instance = this;
         KClassImpl.call(this);
-        this.p8_1 = 'Nothing';
+        this.o8_1 = 'Nothing';
     }
-    protoOf(NothingKClassImpl).k8 = function() {
-        return this.p8_1;
+    protoOf(NothingKClassImpl).j8 = function() {
+        return this.o8_1;
     };
-    protoOf(NothingKClassImpl).o8 = function() {
+    protoOf(NothingKClassImpl).n8 = function() {
         throw UnsupportedOperationException_init_$Create$_0("There's no native JS class for Nothing type");
     };
     protoOf(NothingKClassImpl).equals = function(other) {
@@ -5175,16 +4888,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function SimpleKClassImpl(jClass) {
         KClassImpl.call(this);
-        this.q8_1 = jClass;
+        this.p8_1 = jClass;
         var tmp = this;
-        var tmp0_safe_receiver = this.q8_1.$metadata$;
-        tmp.r8_1 = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.simpleName;
+        var tmp0_safe_receiver = this.p8_1.$metadata$;
+        tmp.q8_1 = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.simpleName;
     }
-    protoOf(SimpleKClassImpl).o8 = function() {
-        return this.q8_1;
+    protoOf(SimpleKClassImpl).n8 = function() {
+        return this.p8_1;
     };
-    protoOf(SimpleKClassImpl).k8 = function() {
-        return this.r8_1;
+    protoOf(SimpleKClassImpl).j8 = function() {
+        return this.q8_1;
     };
     function KProperty1() {}
     function get_functionClasses() {
@@ -5333,70 +5046,70 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp_40 = Float64Array;
         tmp_39.doubleArrayClass = new PrimitiveKClassImpl(tmp_40, 'DoubleArray', PrimitiveClasses$doubleArrayClass$lambda);
     }
-    protoOf(PrimitiveClasses).s8 = function() {
+    protoOf(PrimitiveClasses).r8 = function() {
         return this.anyClass;
     };
-    protoOf(PrimitiveClasses).t8 = function() {
+    protoOf(PrimitiveClasses).s8 = function() {
         return this.numberClass;
     };
-    protoOf(PrimitiveClasses).u8 = function() {
+    protoOf(PrimitiveClasses).t8 = function() {
         return this.nothingClass;
     };
-    protoOf(PrimitiveClasses).v8 = function() {
+    protoOf(PrimitiveClasses).u8 = function() {
         return this.booleanClass;
     };
-    protoOf(PrimitiveClasses).w8 = function() {
+    protoOf(PrimitiveClasses).v8 = function() {
         return this.byteClass;
     };
-    protoOf(PrimitiveClasses).x8 = function() {
+    protoOf(PrimitiveClasses).w8 = function() {
         return this.shortClass;
     };
-    protoOf(PrimitiveClasses).y8 = function() {
+    protoOf(PrimitiveClasses).x8 = function() {
         return this.intClass;
     };
-    protoOf(PrimitiveClasses).z8 = function() {
+    protoOf(PrimitiveClasses).y8 = function() {
         return this.longClass;
     };
-    protoOf(PrimitiveClasses).a9 = function() {
+    protoOf(PrimitiveClasses).z8 = function() {
         return this.floatClass;
     };
-    protoOf(PrimitiveClasses).b9 = function() {
+    protoOf(PrimitiveClasses).a9 = function() {
         return this.doubleClass;
     };
-    protoOf(PrimitiveClasses).c9 = function() {
+    protoOf(PrimitiveClasses).b9 = function() {
         return this.arrayClass;
     };
-    protoOf(PrimitiveClasses).d9 = function() {
+    protoOf(PrimitiveClasses).c9 = function() {
         return this.stringClass;
     };
-    protoOf(PrimitiveClasses).e9 = function() {
+    protoOf(PrimitiveClasses).d9 = function() {
         return this.throwableClass;
     };
-    protoOf(PrimitiveClasses).f9 = function() {
+    protoOf(PrimitiveClasses).e9 = function() {
         return this.booleanArrayClass;
     };
-    protoOf(PrimitiveClasses).g9 = function() {
+    protoOf(PrimitiveClasses).f9 = function() {
         return this.charArrayClass;
     };
-    protoOf(PrimitiveClasses).h9 = function() {
+    protoOf(PrimitiveClasses).g9 = function() {
         return this.byteArrayClass;
     };
-    protoOf(PrimitiveClasses).i9 = function() {
+    protoOf(PrimitiveClasses).h9 = function() {
         return this.shortArrayClass;
     };
-    protoOf(PrimitiveClasses).j9 = function() {
+    protoOf(PrimitiveClasses).i9 = function() {
         return this.intArrayClass;
     };
-    protoOf(PrimitiveClasses).k9 = function() {
+    protoOf(PrimitiveClasses).j9 = function() {
         return this.bigIntClass;
     };
-    protoOf(PrimitiveClasses).l9 = function() {
+    protoOf(PrimitiveClasses).k9 = function() {
         return this.longArrayClass;
     };
-    protoOf(PrimitiveClasses).m9 = function() {
+    protoOf(PrimitiveClasses).l9 = function() {
         return this.floatArrayClass;
     };
-    protoOf(PrimitiveClasses).n9 = function() {
+    protoOf(PrimitiveClasses).m9 = function() {
         return this.doubleArrayClass;
     };
     protoOf(PrimitiveClasses).functionClass = function(arity) {
@@ -5494,7 +5207,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                                 tmp_2 = PrimitiveClasses_getInstance().intArrayClass;
                             } else {
                                 if (isLongArray(e)) {
-                                    tmp_2 = PrimitiveClasses_getInstance().l9();
+                                    tmp_2 = PrimitiveClasses_getInstance().k9();
                                 } else {
                                     if (isFloatArray(e)) {
                                         tmp_2 = PrimitiveClasses_getInstance().floatArrayClass;
@@ -5562,13 +5275,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return StringBuilder_init_$Init$_0(objectCreate(protoOf(StringBuilder)));
     }
     function StringBuilder(content) {
-        this.x6_1 = content;
+        this.w6_1 = content;
     }
     protoOf(StringBuilder).a = function() {
-        return this.x6_1.length;
+        return this.w6_1.length;
     };
     protoOf(StringBuilder).b = function(index) {
-        var this_0 = this.x6_1;
+        var this_0 = this.w6_1;
         var tmp;
         if (0 <= index ? index <= (charSequenceLength(this_0) - 1 | 0) : false) {
             tmp = charSequenceGet(this_0, index);
@@ -5578,67 +5291,67 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     };
     protoOf(StringBuilder).c = function(startIndex, endIndex) {
-        return substring(this.x6_1, startIndex, endIndex);
+        return substring(this.w6_1, startIndex, endIndex);
     };
-    protoOf(StringBuilder).a7 = function(value) {
-        this.x6_1 = this.x6_1 + toString(value);
+    protoOf(StringBuilder).z6 = function(value) {
+        this.w6_1 = this.w6_1 + toString(value);
         return this;
     };
     protoOf(StringBuilder).e = function(value) {
-        this.x6_1 = this.x6_1 + toString_0(value);
+        this.w6_1 = this.w6_1 + toString_0(value);
         return this;
     };
-    protoOf(StringBuilder).o9 = function(value, startIndex, endIndex) {
-        return this.p9(value == null ? 'null' : value, startIndex, endIndex);
+    protoOf(StringBuilder).n9 = function(value, startIndex, endIndex) {
+        return this.o9(value == null ? 'null' : value, startIndex, endIndex);
     };
-    protoOf(StringBuilder).y6 = function(value) {
-        this.x6_1 = this.x6_1 + toString_0(value);
+    protoOf(StringBuilder).x6 = function(value) {
+        this.w6_1 = this.w6_1 + toString_0(value);
         return this;
+    };
+    protoOf(StringBuilder).p9 = function(value) {
+        return this.y6(value.toString());
     };
     protoOf(StringBuilder).q9 = function(value) {
-        return this.z6(value.toString());
+        return this.y6(value.toString());
     };
-    protoOf(StringBuilder).r9 = function(value) {
-        return this.z6(value.toString());
-    };
-    protoOf(StringBuilder).z6 = function(value) {
+    protoOf(StringBuilder).y6 = function(value) {
         var tmp = this;
-        var tmp_0 = this.x6_1;
-        tmp.x6_1 = tmp_0 + (value == null ? 'null' : value);
+        var tmp_0 = this.w6_1;
+        tmp.w6_1 = tmp_0 + (value == null ? 'null' : value);
         return this;
     };
-    protoOf(StringBuilder).s9 = function(index, value) {
-        Companion_instance_4.k3(index, this.a());
-        this.x6_1 = substring(this.x6_1, 0, index) + toString(value) + substring_0(this.x6_1, index);
+    protoOf(StringBuilder).r9 = function(index, value) {
+        Companion_instance_4.i3(index, this.a());
+        this.w6_1 = substring(this.w6_1, 0, index) + toString(value) + substring_0(this.w6_1, index);
         return this;
     };
-    protoOf(StringBuilder).t9 = function(newLength) {
+    protoOf(StringBuilder).s9 = function(newLength) {
         if (newLength < 0) {
             throw IllegalArgumentException_init_$Create$_0('Negative new length: ' + newLength + '.');
         }
         if (newLength <= this.a()) {
-            this.x6_1 = substring(this.x6_1, 0, newLength);
+            this.w6_1 = substring(this.w6_1, 0, newLength);
         } else {
             var inductionVariable = this.a();
             if (inductionVariable < newLength) do {
                 var i = inductionVariable;
                 inductionVariable = inductionVariable + 1 | 0;
-                this.x6_1 = this.x6_1 + toString(_Char___init__impl__6a9atx(0));
+                this.w6_1 = this.w6_1 + toString(_Char___init__impl__6a9atx(0));
             } while (inductionVariable < newLength);
         }
     };
     protoOf(StringBuilder).toString = function() {
-        return this.x6_1;
+        return this.w6_1;
     };
-    protoOf(StringBuilder).u9 = function(index) {
-        Companion_instance_4.c4(index, this.a());
-        this.x6_1 = substring(this.x6_1, 0, index) + substring_0(this.x6_1, index + 1 | 0);
+    protoOf(StringBuilder).t9 = function(index) {
+        Companion_instance_4.b4(index, this.a());
+        this.w6_1 = substring(this.w6_1, 0, index) + substring_0(this.w6_1, index + 1 | 0);
         return this;
     };
-    protoOf(StringBuilder).p9 = function(value, startIndex, endIndex) {
+    protoOf(StringBuilder).o9 = function(value, startIndex, endIndex) {
         var stringCsq = toString_1(value);
-        Companion_instance_4.v9(startIndex, endIndex, stringCsq.length);
-        this.x6_1 = this.x6_1 + substring(stringCsq, startIndex, endIndex);
+        Companion_instance_4.u9(startIndex, endIndex, stringCsq.length);
+        this.w6_1 = this.w6_1 + substring(stringCsq, startIndex, endIndex);
         return this;
     };
     function uppercaseChar(_this__u8e3s4) {
@@ -5678,6 +5391,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
           default:
             return false;
         }
+    }
+    function toDoubleOrNull(_this__u8e3s4) {
+        var this_0 = +_this__u8e3s4;
+        var tmp;
+        if (!(isNaN_0(this_0) && !isNaN_2(_this__u8e3s4) || this_0 === 0 && isBlank(_this__u8e3s4))) {
+            tmp = this_0;
+        } else {
+            tmp = null;
+        }
+        return tmp;
     }
     function toInt(_this__u8e3s4) {
         var tmp0_elvis_lhs = toIntOrNull(_this__u8e3s4);
@@ -5755,23 +5478,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return decodeUtf8(_this__u8e3s4, 0, _this__u8e3s4.length, false);
     }
     function sam$kotlin_Comparator$0(function_0) {
-        this.w9_1 = function_0;
+        this.v9_1 = function_0;
     }
-    protoOf(sam$kotlin_Comparator$0).x9 = function(a, b) {
-        return this.w9_1(a, b);
+    protoOf(sam$kotlin_Comparator$0).w9 = function(a, b) {
+        return this.v9_1(a, b);
     };
     protoOf(sam$kotlin_Comparator$0).compare = function(a, b) {
-        return this.x9(a, b);
+        return this.w9(a, b);
     };
-    protoOf(sam$kotlin_Comparator$0).l2 = function() {
-        return this.w9_1;
+    protoOf(sam$kotlin_Comparator$0).j2 = function() {
+        return this.v9_1;
     };
     protoOf(sam$kotlin_Comparator$0).equals = function(other) {
         var tmp;
         if (!(other == null) ? isInterface(other, Comparator) : false) {
             var tmp_0;
             if (!(other == null) ? isInterface(other, FunctionAdapter) : false) {
-                tmp_0 = equals(this.l2(), other.l2());
+                tmp_0 = equals(this.j2(), other.j2());
             } else {
                 tmp_0 = false;
             }
@@ -5782,7 +5505,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     };
     protoOf(sam$kotlin_Comparator$0).hashCode = function() {
-        return hashCode_0(this.l2());
+        return hashCode_0(this.j2());
     };
     function STRING_CASE_INSENSITIVE_ORDER$lambda(a, b) {
         _init_properties_stringJs_kt__bg7zye();
@@ -5838,39 +5561,39 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _unary__edvuaz = byteIndex;
             byteIndex = _unary__edvuaz + 1 | 0;
             var byte = bytes[_unary__edvuaz];
-            if (byte >= 0) stringBuilder.a7(numberToChar(byte)); else if (byte >> 5 === -2) {
+            if (byte >= 0) stringBuilder.z6(numberToChar(byte)); else if (byte >> 5 === -2) {
                 var code = codePointFrom2(bytes, byte, byteIndex, endIndex, throwOnMalformed);
                 if (code <= 0) {
-                    stringBuilder.a7(_Char___init__impl__6a9atx(65533));
+                    stringBuilder.z6(_Char___init__impl__6a9atx(65533));
                     byteIndex = byteIndex + (-code | 0) | 0;
                 } else {
-                    stringBuilder.a7(numberToChar(code));
+                    stringBuilder.z6(numberToChar(code));
                     byteIndex = byteIndex + 1 | 0;
                 }
             } else if (byte >> 4 === -2) {
                 var code_0 = codePointFrom3(bytes, byte, byteIndex, endIndex, throwOnMalformed);
                 if (code_0 <= 0) {
-                    stringBuilder.a7(_Char___init__impl__6a9atx(65533));
+                    stringBuilder.z6(_Char___init__impl__6a9atx(65533));
                     byteIndex = byteIndex + (-code_0 | 0) | 0;
                 } else {
-                    stringBuilder.a7(numberToChar(code_0));
+                    stringBuilder.z6(numberToChar(code_0));
                     byteIndex = byteIndex + 2 | 0;
                 }
             } else if (byte >> 3 === -2) {
                 var code_1 = codePointFrom4(bytes, byte, byteIndex, endIndex, throwOnMalformed);
                 if (code_1 <= 0) {
-                    stringBuilder.a7(_Char___init__impl__6a9atx(65533));
+                    stringBuilder.z6(_Char___init__impl__6a9atx(65533));
                     byteIndex = byteIndex + (-code_1 | 0) | 0;
                 } else {
                     var high = (code_1 - 65536 | 0) >> 10 | 55296;
                     var low = code_1 & 1023 | 56320;
-                    stringBuilder.a7(numberToChar(high));
-                    stringBuilder.a7(numberToChar(low));
+                    stringBuilder.z6(numberToChar(high));
+                    stringBuilder.z6(numberToChar(low));
                     byteIndex = byteIndex + 3 | 0;
                 }
             } else {
                 malformed(0, byteIndex, throwOnMalformed);
-                stringBuilder.a7(_Char___init__impl__6a9atx(65533));
+                stringBuilder.z6(_Char___init__impl__6a9atx(65533));
             }
         }
         return stringBuilder.toString();
@@ -5981,25 +5704,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
     var DurationUnit_DAYS_instance;
     function DurationUnit(name, ordinal, scale) {
         Enum.call(this, name, ordinal);
-        this.aa_1 = scale;
+        this.z9_1 = scale;
     }
     function convertDurationUnit(value, sourceUnit, targetUnit) {
-        var sourceCompareTarget = compareTo(sourceUnit.aa_1, targetUnit.aa_1);
+        var sourceCompareTarget = compareTo(sourceUnit.z9_1, targetUnit.z9_1);
         var tmp;
         if (sourceCompareTarget > 0) {
-            var scale = numberToLong(sourceUnit.aa_1 / targetUnit.aa_1);
+            var scale = numberToLong(sourceUnit.z9_1 / targetUnit.z9_1);
             var result = multiply(value, scale);
             tmp = equalsLong(divide(result, scale), value) ? result : compare(value, new Long(0, 0)) > 0 ? new Long(-1, 2147483647) : new Long(0, -2147483648);
         } else if (sourceCompareTarget < 0) {
-            tmp = divide(value, numberToLong(targetUnit.aa_1 / sourceUnit.aa_1));
+            tmp = divide(value, numberToLong(targetUnit.z9_1 / sourceUnit.z9_1));
         } else {
             tmp = value;
         }
         return tmp;
     }
     function convertDurationUnitOverflow(value, sourceUnit, targetUnit) {
-        var sourceCompareTarget = compareTo(sourceUnit.aa_1, targetUnit.aa_1);
-        return sourceCompareTarget > 0 ? multiply(value, numberToLong(sourceUnit.aa_1 / targetUnit.aa_1)) : sourceCompareTarget < 0 ? divide(value, numberToLong(targetUnit.aa_1 / sourceUnit.aa_1)) : value;
+        var sourceCompareTarget = compareTo(sourceUnit.z9_1, targetUnit.z9_1);
+        return sourceCompareTarget > 0 ? multiply(value, numberToLong(sourceUnit.z9_1 / targetUnit.z9_1)) : sourceCompareTarget < 0 ? divide(value, numberToLong(targetUnit.z9_1 / sourceUnit.z9_1)) : value;
     }
     function DurationUnit_NANOSECONDS_getInstance() {
         static_init();
@@ -6032,10 +5755,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function formatBytesInto(_this__u8e3s4, dst, dstOffset, startIndex, endIndex) {
         var dstIndex = dstOffset;
         if (startIndex < 4) {
-            dstIndex = formatBytesInto_0(_this__u8e3s4.j2_1, dst, dstIndex, startIndex, coerceAtMost(endIndex, 4));
+            dstIndex = formatBytesInto_0(_this__u8e3s4.h2_1, dst, dstIndex, startIndex, coerceAtMost(endIndex, 4));
         }
         if (endIndex > 4) {
-            formatBytesInto_0(_this__u8e3s4.i2_1, dst, dstIndex, coerceAtLeast(startIndex - 4 | 0, 0), endIndex - 4 | 0);
+            formatBytesInto_0(_this__u8e3s4.g2_1, dst, dstIndex, coerceAtLeast(startIndex - 4 | 0, 0), endIndex - 4 | 0);
         }
     }
     function uuidParseHexDash(hexDashString) {
@@ -6174,7 +5897,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var msb = new Long(tmp0_low, part1);
         var tmp1_high = part4 << 16 | part5a;
         var lsb = new Long(part5b, tmp1_high);
-        return Companion_getInstance_15().ea(msb, lsb);
+        return Companion_getInstance_15().da(msb, lsb);
     }
     function uuidParseHex(hexString) {
         var result = 0;
@@ -6259,7 +5982,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         } while (inductionVariable_2 < 32);
         var tmp3_low = result_2;
         var lsb = new Long(tmp3_low, tmp2_high);
-        return Companion_getInstance_15().ea(msb, lsb);
+        return Companion_getInstance_15().da(msb, lsb);
     }
     function formatBytesInto_0(_this__u8e3s4, dst, dstOffset, startIndex, endIndex) {
         var dstIndex = dstOffset;
@@ -6286,12 +6009,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         };
     }
     function AbstractCollection() {}
-    protoOf(AbstractCollection).m1 = function(element) {
+    protoOf(AbstractCollection).l1 = function(element) {
         var tmp$ret$0;
         $l$block_0: {
             var tmp;
             if (isInterface(this, Collection)) {
-                tmp = this.k();
+                tmp = this.p();
             } else {
                 tmp = false;
             }
@@ -6311,12 +6034,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractCollection).n1 = function(elements) {
+    protoOf(AbstractCollection).m1 = function(elements) {
         var tmp$ret$0;
         $l$block_0: {
             var tmp;
             if (isInterface(elements, Collection)) {
-                tmp = elements.k();
+                tmp = elements.p();
             } else {
                 tmp = false;
             }
@@ -6327,7 +6050,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = elements.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (!this.m1(element)) {
+                if (!this.l1(element)) {
                     tmp$ret$0 = false;
                     break $l$block_0;
                 }
@@ -6336,7 +6059,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractCollection).k = function() {
+    protoOf(AbstractCollection).p = function() {
         return this.j() === 0;
     };
     protoOf(AbstractCollection).toString = function() {
@@ -6346,19 +6069,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return collectionToArray(this);
     };
     function Companion_4() {
-        this.v2_1 = 2147483639;
+        this.u2_1 = 2147483639;
     }
-    protoOf(Companion_4).c4 = function(index, size) {
+    protoOf(Companion_4).b4 = function(index, size) {
         if (index < 0 || index >= size) {
             throw IndexOutOfBoundsException_init_$Create$_0('index: ' + index + ', size: ' + size);
         }
     };
-    protoOf(Companion_4).k3 = function(index, size) {
+    protoOf(Companion_4).i3 = function(index, size) {
         if (index < 0 || index > size) {
             throw IndexOutOfBoundsException_init_$Create$_0('index: ' + index + ', size: ' + size);
         }
     };
-    protoOf(Companion_4).w2 = function(fromIndex, toIndex, size) {
+    protoOf(Companion_4).v2 = function(fromIndex, toIndex, size) {
         if (fromIndex < 0 || toIndex > size) {
             throw IndexOutOfBoundsException_init_$Create$_0('fromIndex: ' + fromIndex + ', toIndex: ' + toIndex + ', size: ' + size);
         }
@@ -6366,7 +6089,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             throw IllegalArgumentException_init_$Create$_0('fromIndex: ' + fromIndex + ' > toIndex: ' + toIndex);
         }
     };
-    protoOf(Companion_4).v9 = function(startIndex, endIndex, size) {
+    protoOf(Companion_4).u9 = function(startIndex, endIndex, size) {
         if (startIndex < 0 || endIndex > size) {
             throw IndexOutOfBoundsException_init_$Create$_0('startIndex: ' + startIndex + ', endIndex: ' + endIndex + ', size: ' + size);
         }
@@ -6374,13 +6097,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             throw IllegalArgumentException_init_$Create$_0('startIndex: ' + startIndex + ' > endIndex: ' + endIndex);
         }
     };
-    protoOf(Companion_4).y5 = function(oldCapacity, minCapacity) {
+    protoOf(Companion_4).x5 = function(oldCapacity, minCapacity) {
         var newCapacity = oldCapacity + (oldCapacity >> 1) | 0;
         if ((newCapacity - minCapacity | 0) < 0) newCapacity = minCapacity;
         if ((newCapacity - 2147483639 | 0) > 0) newCapacity = minCapacity > 2147483639 ? 2147483647 : 2147483639;
         return newCapacity;
     };
-    protoOf(Companion_4).p3 = function(c) {
+    protoOf(Companion_4).o3 = function(c) {
         var hashCode = 1;
         var _iterator__ex2g4s = c.g();
         while (_iterator__ex2g4s.h()) {
@@ -6391,7 +6114,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return hashCode;
     };
-    protoOf(Companion_4).o3 = function(c, other) {
+    protoOf(Companion_4).n3 = function(c, other) {
         if (!(c.j() === other.j())) return false;
         var otherIterator = other.g();
         var _iterator__ex2g4s = c.g();
@@ -6409,37 +6132,37 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_4;
     }
     function AbstractMap$keys$1$iterator$1($entryIterator) {
-        this.fa_1 = $entryIterator;
+        this.ea_1 = $entryIterator;
     }
     protoOf(AbstractMap$keys$1$iterator$1).h = function() {
-        return this.fa_1.h();
+        return this.ea_1.h();
     };
     protoOf(AbstractMap$keys$1$iterator$1).i = function() {
-        return this.fa_1.i().p1();
+        return this.ea_1.i().o1();
     };
     function AbstractMap$values$1$iterator$1($entryIterator) {
-        this.ga_1 = $entryIterator;
+        this.fa_1 = $entryIterator;
     }
     protoOf(AbstractMap$values$1$iterator$1).h = function() {
-        return this.ga_1.h();
+        return this.fa_1.h();
     };
     protoOf(AbstractMap$values$1$iterator$1).i = function() {
-        return this.ga_1.i().q1();
+        return this.fa_1.i().p1();
     };
     function toString_3($this, entry) {
-        return toString_4($this, entry.p1()) + '=' + toString_4($this, entry.q1());
+        return toString_4($this, entry.o1()) + '=' + toString_4($this, entry.p1());
     }
     function toString_4($this, o) {
         return o === $this ? '(this Map)' : toString_0(o);
     }
     function implFindEntry($this, key) {
-        var tmp0 = $this.w1();
+        var tmp0 = $this.v1();
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (equals(element.p1(), key)) {
+                if (equals(element.o1(), key)) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -6454,22 +6177,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_5;
     }
     function AbstractMap$keys$1(this$0) {
-        this.ha_1 = this$0;
+        this.ga_1 = this$0;
         AbstractSet.call(this);
     }
-    protoOf(AbstractMap$keys$1).m4 = function(element) {
-        return this.ha_1.r1(element);
+    protoOf(AbstractMap$keys$1).l4 = function(element) {
+        return this.ga_1.q1(element);
     };
-    protoOf(AbstractMap$keys$1).m1 = function(element) {
+    protoOf(AbstractMap$keys$1).l1 = function(element) {
         if (!true) return false;
-        return this.m4(element);
+        return this.l4(element);
     };
     protoOf(AbstractMap$keys$1).g = function() {
-        var entryIterator = this.ha_1.w1().g();
+        var entryIterator = this.ga_1.v1().g();
         return new AbstractMap$keys$1$iterator$1(entryIterator);
     };
     protoOf(AbstractMap$keys$1).j = function() {
-        return this.ha_1.j();
+        return this.ga_1.j();
     };
     function AbstractMap$toString$lambda(this$0) {
         return function(it) {
@@ -6477,37 +6200,37 @@ if (typeof String.prototype.startsWith === 'undefined') {
         };
     }
     function AbstractMap$values$1(this$0) {
-        this.ia_1 = this$0;
+        this.ha_1 = this$0;
         AbstractCollection.call(this);
     }
-    protoOf(AbstractMap$values$1).s4 = function(element) {
-        return this.ia_1.s1(element);
+    protoOf(AbstractMap$values$1).r4 = function(element) {
+        return this.ha_1.r1(element);
     };
-    protoOf(AbstractMap$values$1).m1 = function(element) {
+    protoOf(AbstractMap$values$1).l1 = function(element) {
         if (!true) return false;
-        return this.s4(element);
+        return this.r4(element);
     };
     protoOf(AbstractMap$values$1).g = function() {
-        var entryIterator = this.ia_1.w1().g();
+        var entryIterator = this.ha_1.v1().g();
         return new AbstractMap$values$1$iterator$1(entryIterator);
     };
     protoOf(AbstractMap$values$1).j = function() {
-        return this.ia_1.j();
+        return this.ha_1.j();
     };
     function AbstractMap() {
+        this.v3_1 = null;
         this.w3_1 = null;
-        this.x3_1 = null;
     }
-    protoOf(AbstractMap).r1 = function(key) {
+    protoOf(AbstractMap).q1 = function(key) {
         return !(implFindEntry(this, key) == null);
     };
-    protoOf(AbstractMap).s1 = function(value) {
-        var tmp0 = this.w1();
+    protoOf(AbstractMap).r1 = function(value) {
+        var tmp0 = this.v1();
         var tmp$ret$0;
         $l$block_0: {
             var tmp;
             if (isInterface(tmp0, Collection)) {
-                tmp = tmp0.k();
+                tmp = tmp0.p();
             } else {
                 tmp = false;
             }
@@ -6518,7 +6241,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (equals(element.q1(), value)) {
+                if (equals(element.p1(), value)) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -6527,17 +6250,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractMap).y3 = function(entry) {
+    protoOf(AbstractMap).x3 = function(entry) {
         if (!(!(entry == null) ? isInterface(entry, Entry) : false)) return false;
-        var key = entry.p1();
-        var value = entry.q1();
-        var ourValue = (isInterface(this, KtMap) ? this : THROW_CCE()).t1(key);
+        var key = entry.o1();
+        var value = entry.p1();
+        var ourValue = (isInterface(this, KtMap) ? this : THROW_CCE()).s1(key);
         if (!equals(value, ourValue)) {
             return false;
         }
         var tmp;
         if (ourValue == null) {
-            tmp = !(isInterface(this, KtMap) ? this : THROW_CCE()).r1(key);
+            tmp = !(isInterface(this, KtMap) ? this : THROW_CCE()).q1(key);
         } else {
             tmp = false;
         }
@@ -6550,12 +6273,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (other === this) return true;
         if (!(!(other == null) ? isInterface(other, KtMap) : false)) return false;
         if (!(this.j() === other.j())) return false;
-        var tmp0 = other.w1();
+        var tmp0 = other.v1();
         var tmp$ret$0;
         $l$block_0: {
             var tmp;
             if (isInterface(tmp0, Collection)) {
-                tmp = tmp0.k();
+                tmp = tmp0.p();
             } else {
                 tmp = false;
             }
@@ -6566,7 +6289,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (!this.y3(element)) {
+                if (!this.x3(element)) {
                     tmp$ret$0 = false;
                     break $l$block_0;
                 }
@@ -6575,39 +6298,39 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractMap).t1 = function(key) {
+    protoOf(AbstractMap).s1 = function(key) {
         var tmp0_safe_receiver = implFindEntry(this, key);
-        return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.q1();
+        return tmp0_safe_receiver == null ? null : tmp0_safe_receiver.p1();
     };
     protoOf(AbstractMap).hashCode = function() {
-        return hashCode_0(this.w1());
+        return hashCode_0(this.v1());
     };
-    protoOf(AbstractMap).k = function() {
+    protoOf(AbstractMap).p = function() {
         return this.j() === 0;
     };
     protoOf(AbstractMap).j = function() {
-        return this.w1().j();
+        return this.v1().j();
+    };
+    protoOf(AbstractMap).t1 = function() {
+        if (this.v3_1 == null) {
+            var tmp = this;
+            tmp.v3_1 = new AbstractMap$keys$1(this);
+        }
+        return ensureNotNull(this.v3_1);
+    };
+    protoOf(AbstractMap).toString = function() {
+        var tmp = this.v1();
+        return joinToString_0(tmp, ', ', '{', '}', VOID, VOID, AbstractMap$toString$lambda(this));
     };
     protoOf(AbstractMap).u1 = function() {
         if (this.w3_1 == null) {
             var tmp = this;
-            tmp.w3_1 = new AbstractMap$keys$1(this);
+            tmp.w3_1 = new AbstractMap$values$1(this);
         }
         return ensureNotNull(this.w3_1);
     };
-    protoOf(AbstractMap).toString = function() {
-        var tmp = this.w1();
-        return joinToString_0(tmp, ', ', '{', '}', VOID, VOID, AbstractMap$toString$lambda(this));
-    };
-    protoOf(AbstractMap).v1 = function() {
-        if (this.x3_1 == null) {
-            var tmp = this;
-            tmp.x3_1 = new AbstractMap$values$1(this);
-        }
-        return ensureNotNull(this.x3_1);
-    };
     function Companion_6() {}
-    protoOf(Companion_6).a4 = function(c) {
+    protoOf(Companion_6).z3 = function(c) {
         var hashCode = 0;
         var _iterator__ex2g4s = c.g();
         while (_iterator__ex2g4s.h()) {
@@ -6618,9 +6341,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return hashCode;
     };
-    protoOf(Companion_6).z3 = function(c, other) {
+    protoOf(Companion_6).y3 = function(c, other) {
         if (!(c.j() === other.j())) return false;
-        return c.n1(other);
+        return c.m1(other);
     };
     var Companion_instance_6;
     function Companion_getInstance_6() {
@@ -6632,19 +6355,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(AbstractSet).equals = function(other) {
         if (other === this) return true;
         if (!(!(other == null) ? isInterface(other, KtSet) : false)) return false;
-        return Companion_instance_6.z3(this, other);
+        return Companion_instance_6.y3(this, other);
     };
     protoOf(AbstractSet).hashCode = function() {
-        return Companion_instance_6.a4(this);
+        return Companion_instance_6.z3(this);
     };
-    function get_lastIndex_3(_this__u8e3s4) {
+    function get_lastIndex_2(_this__u8e3s4) {
         return _this__u8e3s4.j() - 1 | 0;
     }
     function throwIndexOverflow() {
         throw ArithmeticException_init_$Create$_0('Index overflow has happened.');
     }
     function collectionToArrayCommonImpl(collection) {
-        if (collection.k()) {
+        if (collection.p()) {
             return [];
         }
         var size = collection.j();
@@ -6661,25 +6384,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function emptyList() {
         return EmptyList_getInstance();
     }
+    function mutableListOf(elements) {
+        var tmp;
+        if (elements.length === 0) {
+            tmp = ArrayList_init_$Create$();
+        } else {
+            tmp = new ArrayList(elements);
+        }
+        return tmp;
+    }
+    function listOfNotNull(element) {
+        return !(element == null) ? listOf(element) : emptyList();
+    }
+    function listOf_0(elements) {
+        return elements.length > 0 ? asList(elements) : emptyList();
+    }
     function shuffled(_this__u8e3s4, random) {
         var this_0 = toMutableList_0(_this__u8e3s4);
         shuffle(this_0, random);
         return this_0;
     }
-    function listOf_0(elements) {
-        return elements.length > 0 ? asList(elements) : emptyList();
-    }
-    function listOfNotNull(element) {
-        return !(element == null) ? listOf(element) : emptyList();
-    }
     function EmptyList() {
         EmptyList_instance = this;
-        this.ja_1 = new Long(-1478467534, -1720727600);
+        this.ia_1 = new Long(-1478467534, -1720727600);
     }
     protoOf(EmptyList).equals = function(other) {
         var tmp;
         if (!(other == null) ? isInterface(other, KtList) : false) {
-            tmp = other.k();
+            tmp = other.p();
         } else {
             tmp = false;
         }
@@ -6694,14 +6426,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptyList).j = function() {
         return 0;
     };
-    protoOf(EmptyList).k = function() {
+    protoOf(EmptyList).p = function() {
         return true;
     };
-    protoOf(EmptyList).ka = function(element) {
+    protoOf(EmptyList).ja = function(element) {
         return false;
     };
-    protoOf(EmptyList).m1 = function(element) {
+    protoOf(EmptyList).l1 = function(element) {
         if (!false) return false;
+        var tmp;
+        if (false) {
+            tmp = element;
+        } else {
+            tmp = THROW_CCE();
+        }
+        return this.ja(tmp);
+    };
+    protoOf(EmptyList).k = function(index) {
+        throw IndexOutOfBoundsException_init_$Create$_0("Empty list doesn't contain element at index " + index + '.');
+    };
+    protoOf(EmptyList).ka = function(element) {
+        return -1;
+    };
+    protoOf(EmptyList).n1 = function(element) {
+        if (!false) return -1;
         var tmp;
         if (false) {
             tmp = element;
@@ -6710,27 +6458,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return this.ka(tmp);
     };
-    protoOf(EmptyList).m = function(index) {
-        throw IndexOutOfBoundsException_init_$Create$_0("Empty list doesn't contain element at index " + index + '.');
-    };
-    protoOf(EmptyList).la = function(element) {
-        return -1;
-    };
-    protoOf(EmptyList).o1 = function(element) {
-        if (!false) return -1;
-        var tmp;
-        if (false) {
-            tmp = element;
-        } else {
-            tmp = THROW_CCE();
-        }
-        return this.la(tmp);
-    };
     protoOf(EmptyList).g = function() {
-        return EmptyIterator_instance;
-    };
-    protoOf(EmptyList).r = function(index) {
-        if (!(index === 0)) throw IndexOutOfBoundsException_init_$Create$_0('Index: ' + index);
         return EmptyIterator_instance;
     };
     var EmptyList_instance;
@@ -6755,54 +6483,36 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return emptyList();
 
           case 1:
-            return listOf(_this__u8e3s4.m(0));
+            return listOf(_this__u8e3s4.k(0));
 
           default:
             return _this__u8e3s4;
         }
     }
-    function throwCountOverflow() {
-        throw ArithmeticException_init_$Create$_0('Count overflow has happened.');
-    }
     function IndexedValue(index, value) {
-        this.ma_1 = index;
-        this.na_1 = value;
+        this.la_1 = index;
+        this.ma_1 = value;
     }
-    protoOf(IndexedValue).oa = function() {
-        return this.ma_1;
-    };
-    protoOf(IndexedValue).pa = function() {
-        return this.na_1;
-    };
     protoOf(IndexedValue).toString = function() {
-        return 'IndexedValue(index=' + this.ma_1 + ', value=' + toString_0(this.na_1) + ')';
+        return 'IndexedValue(index=' + this.la_1 + ', value=' + toString_0(this.ma_1) + ')';
     };
     protoOf(IndexedValue).hashCode = function() {
-        var result = this.ma_1;
-        result = imul(result, 31) + (this.na_1 == null ? 0 : hashCode_0(this.na_1)) | 0;
+        var result = this.la_1;
+        result = imul(result, 31) + (this.ma_1 == null ? 0 : hashCode_0(this.ma_1)) | 0;
         return result;
     };
     protoOf(IndexedValue).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof IndexedValue)) return false;
-        if (!(this.ma_1 === other.ma_1)) return false;
-        if (!equals(this.na_1, other.na_1)) return false;
+        if (!(this.la_1 === other.la_1)) return false;
+        if (!equals(this.ma_1, other.ma_1)) return false;
         return true;
     };
-    function flatten(_this__u8e3s4) {
-        var result = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = _this__u8e3s4.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            addAll(result, element);
-        }
-        return result;
-    }
     function IndexingIterable(iteratorFactory) {
-        this.qa_1 = iteratorFactory;
+        this.na_1 = iteratorFactory;
     }
     protoOf(IndexingIterable).g = function() {
-        return new IndexingIterator(this.qa_1());
+        return new IndexingIterator(this.na_1());
     };
     function collectionSizeOrDefault(_this__u8e3s4, default_0) {
         var tmp;
@@ -6814,23 +6524,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function IndexingIterator(iterator) {
-        this.ra_1 = iterator;
-        this.sa_1 = 0;
+        this.oa_1 = iterator;
+        this.pa_1 = 0;
     }
     protoOf(IndexingIterator).h = function() {
-        return this.ra_1.h();
+        return this.oa_1.h();
     };
     protoOf(IndexingIterator).i = function() {
-        var _unary__edvuaz = this.sa_1;
-        this.sa_1 = _unary__edvuaz + 1 | 0;
-        return new IndexedValue(checkIndexOverflow(_unary__edvuaz), this.ra_1.i());
+        var _unary__edvuaz = this.pa_1;
+        this.pa_1 = _unary__edvuaz + 1 | 0;
+        return new IndexedValue(checkIndexOverflow(_unary__edvuaz), this.oa_1.i());
     };
     function getOrImplicitDefault(_this__u8e3s4, key) {
-        if (isInterface(_this__u8e3s4, MapWithDefault)) return _this__u8e3s4.ta(key);
+        if (isInterface(_this__u8e3s4, MapWithDefault)) return _this__u8e3s4.qa(key);
         var tmp$ret$0;
         $l$block_0: {
-            var value = _this__u8e3s4.t1(key);
-            if (value == null && !_this__u8e3s4.r1(key)) {
+            var value = _this__u8e3s4.s1(key);
+            if (value == null && !_this__u8e3s4.q1(key)) {
                 throw NoSuchElementException_init_$Create$_0('Key ' + toString_0(key) + ' is missing in the map.');
             } else {
                 tmp$ret$0 = value;
@@ -6861,7 +6571,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
               case 1:
                 var tmp_0;
                 if (isInterface(_this__u8e3s4, KtList)) {
-                    tmp_0 = _this__u8e3s4.m(0);
+                    tmp_0 = _this__u8e3s4.k(0);
                 } else {
                     tmp_0 = _this__u8e3s4.g().i();
                 }
@@ -6879,9 +6589,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function toMutableMap(_this__u8e3s4) {
         return LinkedHashMap_init_$Create$_1(_this__u8e3s4);
     }
-    function plus_1(_this__u8e3s4, pairs) {
+    function plus_2(_this__u8e3s4, pairs) {
         var tmp;
-        if (_this__u8e3s4.k()) {
+        if (_this__u8e3s4.p()) {
             tmp = toMap(pairs);
         } else {
             var this_0 = LinkedHashMap_init_$Create$_1(_this__u8e3s4);
@@ -6890,25 +6600,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     }
-    function plus_2(_this__u8e3s4, pair) {
+    function plus_3(_this__u8e3s4, pair) {
         var tmp;
-        if (_this__u8e3s4.k()) {
+        if (_this__u8e3s4.p()) {
             tmp = mapOf(pair);
         } else {
             var this_0 = LinkedHashMap_init_$Create$_1(_this__u8e3s4);
-            this_0.x1(pair.ua_1, pair.va_1);
+            this_0.w1(pair.ra_1, pair.sa_1);
             tmp = this_0;
         }
         return tmp;
     }
     function EmptyMap() {
         EmptyMap_instance = this;
-        this.wa_1 = new Long(-888910638, 1920087921);
+        this.ta_1 = new Long(-888910638, 1920087921);
     }
     protoOf(EmptyMap).equals = function(other) {
         var tmp;
         if (!(other == null) ? isInterface(other, KtMap) : false) {
-            tmp = other.k();
+            tmp = other.p();
         } else {
             tmp = false;
         }
@@ -6923,30 +6633,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptyMap).j = function() {
         return 0;
     };
-    protoOf(EmptyMap).k = function() {
+    protoOf(EmptyMap).p = function() {
         return true;
     };
-    protoOf(EmptyMap).xa = function(key) {
+    protoOf(EmptyMap).ua = function(key) {
         return false;
     };
-    protoOf(EmptyMap).r1 = function(key) {
+    protoOf(EmptyMap).q1 = function(key) {
         if (!true) return false;
-        return this.xa(key);
+        return this.ua(key);
     };
-    protoOf(EmptyMap).ya = function(key) {
+    protoOf(EmptyMap).va = function(key) {
         return null;
     };
-    protoOf(EmptyMap).t1 = function(key) {
+    protoOf(EmptyMap).s1 = function(key) {
         if (!true) return null;
-        return this.ya(key);
+        return this.va(key);
     };
-    protoOf(EmptyMap).w1 = function() {
+    protoOf(EmptyMap).v1 = function() {
+        return EmptySet_getInstance();
+    };
+    protoOf(EmptyMap).t1 = function() {
         return EmptySet_getInstance();
     };
     protoOf(EmptyMap).u1 = function() {
-        return EmptySet_getInstance();
-    };
-    protoOf(EmptyMap).v1 = function() {
         return EmptyList_getInstance();
     };
     var EmptyMap_instance;
@@ -6983,9 +6693,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = pairs.g();
         while (_iterator__ex2g4s.h()) {
             var _destruct__k2r9zo = _iterator__ex2g4s.i();
-            var key = _destruct__k2r9zo.oa();
-            var value = _destruct__k2r9zo.pa();
-            _this__u8e3s4.x1(key, value);
+            var key = _destruct__k2r9zo.wa();
+            var value = _destruct__k2r9zo.xa();
+            _this__u8e3s4.w1(key, value);
         }
     }
     function putAll_0(_this__u8e3s4, pairs) {
@@ -6994,9 +6704,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (inductionVariable < last) {
             var _destruct__k2r9zo = pairs[inductionVariable];
             inductionVariable = inductionVariable + 1 | 0;
-            var key = _destruct__k2r9zo.oa();
-            var value = _destruct__k2r9zo.pa();
-            _this__u8e3s4.x1(key, value);
+            var key = _destruct__k2r9zo.wa();
+            var value = _destruct__k2r9zo.xa();
+            _this__u8e3s4.w1(key, value);
         }
     }
     function hashMapOf(pairs) {
@@ -7007,33 +6717,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function removeAll(_this__u8e3s4, predicate) {
         return filterInPlace(_this__u8e3s4, predicate, true);
     }
-    function removeAll_0(_this__u8e3s4, predicate) {
-        return filterInPlace_0(_this__u8e3s4, predicate, true);
-    }
     function filterInPlace(_this__u8e3s4, predicate, predicateResultToRemove) {
         if (!isInterface(_this__u8e3s4, RandomAccess)) {
             return filterInPlace_0(isInterface(_this__u8e3s4, MutableIterable) ? _this__u8e3s4 : THROW_CCE(), predicate, predicateResultToRemove);
         }
         var writeIndex = 0;
         var inductionVariable = 0;
-        var last = get_lastIndex_3(_this__u8e3s4);
+        var last = get_lastIndex_2(_this__u8e3s4);
         if (inductionVariable <= last) $l$loop: do {
             var readIndex = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            var element = _this__u8e3s4.m(readIndex);
+            var element = _this__u8e3s4.k(readIndex);
             if (predicate(element) === predicateResultToRemove) continue $l$loop;
             if (!(writeIndex === readIndex)) {
-                _this__u8e3s4.s(writeIndex, element);
+                _this__u8e3s4.r(writeIndex, element);
             }
             writeIndex = writeIndex + 1 | 0;
         } while (!(readIndex === last));
         if (writeIndex < _this__u8e3s4.j()) {
-            var inductionVariable_0 = get_lastIndex_3(_this__u8e3s4);
+            var inductionVariable_0 = get_lastIndex_2(_this__u8e3s4);
             var last_0 = writeIndex;
             if (last_0 <= inductionVariable_0) do {
                 var removeIndex = inductionVariable_0;
                 inductionVariable_0 = inductionVariable_0 + -1 | 0;
-                _this__u8e3s4.f3(removeIndex);
+                _this__u8e3s4.d3(removeIndex);
             } while (!(removeIndex === last_0));
             return true;
         } else {
@@ -7044,25 +6751,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var result = false;
         var $this$with = _this__u8e3s4.g();
         while ($this$with.h()) if (predicate($this$with.i()) === predicateResultToRemove) {
-            $this$with.a3();
+            $this$with.y2();
             result = true;
         }
         return result;
     }
     function removeLast(_this__u8e3s4) {
         var tmp;
-        if (_this__u8e3s4.k()) {
+        if (_this__u8e3s4.p()) {
             throw NoSuchElementException_init_$Create$_0('List is empty.');
         } else {
-            tmp = _this__u8e3s4.f3(get_lastIndex_3(_this__u8e3s4));
+            tmp = _this__u8e3s4.d3(get_lastIndex_2(_this__u8e3s4));
         }
         return tmp;
     }
-    function retainAll(_this__u8e3s4, predicate) {
-        return filterInPlace_0(_this__u8e3s4, predicate, false);
-    }
     function addAll(_this__u8e3s4, elements) {
-        if (isInterface(elements, Collection)) return _this__u8e3s4.q(elements); else {
+        if (isInterface(elements, Collection)) return _this__u8e3s4.o(elements); else {
             var result = false;
             var _iterator__ex2g4s = elements.g();
             while (_iterator__ex2g4s.h()) {
@@ -7074,64 +6778,64 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function IntIterator() {}
     protoOf(IntIterator).i = function() {
-        return this.za();
+        return this.ya();
     };
     function Sequence() {}
     function TransformingSequence$iterator$1(this$0) {
-        this.bb_1 = this$0;
-        this.ab_1 = this$0.cb_1.g();
+        this.ab_1 = this$0;
+        this.za_1 = this$0.bb_1.g();
     }
     protoOf(TransformingSequence$iterator$1).i = function() {
-        return this.bb_1.db_1(this.ab_1.i());
+        return this.ab_1.cb_1(this.za_1.i());
     };
     protoOf(TransformingSequence$iterator$1).h = function() {
-        return this.ab_1.h();
+        return this.za_1.h();
     };
     function TransformingSequence(sequence, transformer) {
-        this.cb_1 = sequence;
-        this.db_1 = transformer;
+        this.bb_1 = sequence;
+        this.cb_1 = transformer;
     }
     protoOf(TransformingSequence).g = function() {
         return new TransformingSequence$iterator$1(this);
     };
     function calcNext($this) {
-        while ($this.eb_1.h()) {
-            var item = $this.eb_1.i();
-            if ($this.hb_1.kb_1(item) === $this.hb_1.jb_1) {
-                $this.gb_1 = item;
-                $this.fb_1 = 1;
+        while ($this.db_1.h()) {
+            var item = $this.db_1.i();
+            if ($this.gb_1.jb_1(item) === $this.gb_1.ib_1) {
+                $this.fb_1 = item;
+                $this.eb_1 = 1;
                 return Unit_instance;
             }
         }
-        $this.fb_1 = 0;
+        $this.eb_1 = 0;
     }
     function FilteringSequence$iterator$1(this$0) {
-        this.hb_1 = this$0;
-        this.eb_1 = this$0.ib_1.g();
-        this.fb_1 = -1;
-        this.gb_1 = null;
+        this.gb_1 = this$0;
+        this.db_1 = this$0.hb_1.g();
+        this.eb_1 = -1;
+        this.fb_1 = null;
     }
     protoOf(FilteringSequence$iterator$1).i = function() {
-        if (this.fb_1 === -1) {
+        if (this.eb_1 === -1) {
             calcNext(this);
         }
-        if (this.fb_1 === 0) throw NoSuchElementException_init_$Create$();
-        var result = this.gb_1;
-        this.gb_1 = null;
-        this.fb_1 = -1;
+        if (this.eb_1 === 0) throw NoSuchElementException_init_$Create$();
+        var result = this.fb_1;
+        this.fb_1 = null;
+        this.eb_1 = -1;
         return result;
     };
     protoOf(FilteringSequence$iterator$1).h = function() {
-        if (this.fb_1 === -1) {
+        if (this.eb_1 === -1) {
             calcNext(this);
         }
-        return this.fb_1 === 1;
+        return this.eb_1 === 1;
     };
     function FilteringSequence(sequence, sendWhen, predicate) {
         sendWhen = sendWhen === VOID ? true : sendWhen;
-        this.ib_1 = sequence;
-        this.jb_1 = sendWhen;
-        this.kb_1 = predicate;
+        this.hb_1 = sequence;
+        this.ib_1 = sendWhen;
+        this.jb_1 = predicate;
     }
     protoOf(FilteringSequence).g = function() {
         return new FilteringSequence$iterator$1(this);
@@ -7144,12 +6848,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function EmptySet() {
         EmptySet_instance = this;
-        this.lb_1 = new Long(1993859828, 793161749);
+        this.kb_1 = new Long(1993859828, 793161749);
     }
     protoOf(EmptySet).equals = function(other) {
         var tmp;
         if (!(other == null) ? isInterface(other, KtSet) : false) {
-            tmp = other.k();
+            tmp = other.p();
         } else {
             tmp = false;
         }
@@ -7164,13 +6868,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptySet).j = function() {
         return 0;
     };
-    protoOf(EmptySet).k = function() {
+    protoOf(EmptySet).p = function() {
         return true;
     };
-    protoOf(EmptySet).ka = function(element) {
+    protoOf(EmptySet).ja = function(element) {
         return false;
     };
-    protoOf(EmptySet).m1 = function(element) {
+    protoOf(EmptySet).l1 = function(element) {
         if (!false) return false;
         var tmp;
         if (false) {
@@ -7178,13 +6882,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         } else {
             tmp = THROW_CCE();
         }
-        return this.ka(tmp);
+        return this.ja(tmp);
     };
-    protoOf(EmptySet).mb = function(elements) {
-        return elements.k();
+    protoOf(EmptySet).lb = function(elements) {
+        return elements.p();
     };
-    protoOf(EmptySet).n1 = function(elements) {
-        return this.mb(elements);
+    protoOf(EmptySet).m1 = function(elements) {
+        return this.lb(elements);
     };
     protoOf(EmptySet).g = function() {
         return EmptyIterator_instance;
@@ -7214,22 +6918,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (b == null) return 1;
         return compareTo((!(a == null) ? isComparable(a) : false) ? a : THROW_CCE(), b);
     }
-    function naturalOrder() {
-        var tmp = NaturalOrderComparator_instance;
-        return isInterface(tmp, Comparator) ? tmp : THROW_CCE();
-    }
-    function NaturalOrderComparator() {}
-    protoOf(NaturalOrderComparator).nb = function(a, b) {
-        return compareTo(a, b);
-    };
-    protoOf(NaturalOrderComparator).compare = function(a, b) {
-        var tmp = (!(a == null) ? isComparable(a) : false) ? a : THROW_CCE();
-        return this.nb(tmp, (!(b == null) ? isComparable(b) : false) ? b : THROW_CCE());
-    };
-    var NaturalOrderComparator_instance;
-    function NaturalOrderComparator_getInstance() {
-        return NaturalOrderComparator_instance;
-    }
     function Continuation() {}
     function Key() {}
     var Key_instance;
@@ -7239,9 +6927,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function ContinuationInterceptor() {}
     function EmptyCoroutineContext() {
         EmptyCoroutineContext_instance = this;
-        this.ob_1 = new Long(0, 0);
+        this.mb_1 = new Long(0, 0);
     }
-    protoOf(EmptyCoroutineContext).x7 = function(key) {
+    protoOf(EmptyCoroutineContext).w7 = function(key) {
         return null;
     };
     protoOf(EmptyCoroutineContext).hashCode = function() {
@@ -7297,25 +6985,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function Default() {
         Default_instance = this;
         Random.call(this);
-        this.pb_1 = defaultPlatformRandom();
+        this.nb_1 = defaultPlatformRandom();
     }
-    protoOf(Default).qb = function(bitCount) {
-        return this.pb_1.qb(bitCount);
+    protoOf(Default).ob = function(bitCount) {
+        return this.nb_1.ob(bitCount);
     };
-    protoOf(Default).za = function() {
-        return this.pb_1.za();
+    protoOf(Default).ya = function() {
+        return this.nb_1.ya();
     };
-    protoOf(Default).l = function(until) {
-        return this.pb_1.l(until);
+    protoOf(Default).q = function(until) {
+        return this.nb_1.q(until);
+    };
+    protoOf(Default).pb = function(from, until) {
+        return this.nb_1.pb(from, until);
+    };
+    protoOf(Default).qb = function() {
+        return this.nb_1.qb();
     };
     protoOf(Default).rb = function(from, until) {
-        return this.pb_1.rb(from, until);
-    };
-    protoOf(Default).sb = function() {
-        return this.pb_1.sb();
-    };
-    protoOf(Default).tb = function(from, until) {
-        return this.pb_1.tb(from, until);
+        return this.nb_1.rb(from, until);
     };
     var Default_instance;
     function Default_getInstance() {
@@ -7325,24 +7013,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function Random() {
         Default_getInstance();
     }
-    protoOf(Random).za = function() {
-        return this.qb(32);
+    protoOf(Random).ya = function() {
+        return this.ob(32);
     };
-    protoOf(Random).l = function(until) {
-        return this.rb(0, until);
+    protoOf(Random).q = function(until) {
+        return this.pb(0, until);
     };
-    protoOf(Random).rb = function(from, until) {
+    protoOf(Random).pb = function(from, until) {
         checkRangeBounds(from, until);
         var n = until - from | 0;
         if (n > 0 || n === -2147483648) {
             var tmp;
             if ((n & (-n | 0)) === n) {
                 var bitCount = fastLog2(n);
-                tmp = this.qb(bitCount);
+                tmp = this.ob(bitCount);
             } else {
                 var v;
                 do {
-                    var bits = this.za() >>> 1 | 0;
+                    var bits = this.ya() >>> 1 | 0;
                     v = bits % n | 0;
                 } while (((bits - v | 0) + (n - 1 | 0) | 0) < 0);
                 tmp = v;
@@ -7351,23 +7039,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return from + rnd | 0;
         } else {
             while (true) {
-                var rnd_0 = this.za();
+                var rnd_0 = this.ya();
                 if (from <= rnd_0 ? rnd_0 < until : false) return rnd_0;
             }
         }
     };
-    protoOf(Random).sb = function() {
-        return doubleFromParts(this.qb(26), this.qb(27));
+    protoOf(Random).qb = function() {
+        return doubleFromParts(this.ob(26), this.ob(27));
     };
-    protoOf(Random).tb = function(from, until) {
+    protoOf(Random).rb = function(from, until) {
         checkRangeBounds_0(from, until);
         var size = until - from;
         var tmp;
         if (isInfinite(size) && isFinite(from) && isFinite(until)) {
-            var r1 = this.sb() * (until / 2 - from / 2);
+            var r1 = this.qb() * (until / 2 - from / 2);
             tmp = from + r1 + r1;
         } else {
-            tmp = from + this.sb() * size;
+            tmp = from + this.qb() * size;
         }
         var r = tmp;
         return r >= until ? nextDown(until) : r;
@@ -7406,14 +7094,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return XorWowRandom_init_$Init$(seed1, seed2, objectCreate(protoOf(XorWowRandom)));
     }
     function checkInvariants($this) {
-        if (!!(($this.ub_1 | $this.vb_1 | $this.wb_1 | $this.xb_1 | $this.yb_1) === 0)) {
+        if (!!(($this.sb_1 | $this.tb_1 | $this.ub_1 | $this.vb_1 | $this.wb_1) === 0)) {
             var message = 'Initial state must have at least one non-zero element.';
             throw IllegalArgumentException_init_$Create$_0(toString_1(message));
         }
     }
     function Companion_7() {
         Companion_instance_7 = this;
-        this.ac_1 = new Long(0, 0);
+        this.yb_1 = new Long(0, 0);
     }
     var Companion_instance_7;
     function Companion_getInstance_7() {
@@ -7426,39 +7114,39 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function XorWowRandom(x, y, z, w, v, addend) {
         Companion_getInstance_7();
         Random.call(this);
-        this.ub_1 = x;
-        this.vb_1 = y;
-        this.wb_1 = z;
-        this.xb_1 = w;
-        this.yb_1 = v;
-        this.zb_1 = addend;
+        this.sb_1 = x;
+        this.tb_1 = y;
+        this.ub_1 = z;
+        this.vb_1 = w;
+        this.wb_1 = v;
+        this.xb_1 = addend;
         checkInvariants(this);
         var inductionVariable = 0;
         if (inductionVariable < 64) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            this.za();
+            this.ya();
         } while (inductionVariable < 64);
     }
-    protoOf(XorWowRandom).za = function() {
-        var t = this.ub_1;
+    protoOf(XorWowRandom).ya = function() {
+        var t = this.sb_1;
         t = t ^ (t >>> 2 | 0);
+        this.sb_1 = this.tb_1;
+        this.tb_1 = this.ub_1;
         this.ub_1 = this.vb_1;
-        this.vb_1 = this.wb_1;
-        this.wb_1 = this.xb_1;
-        var v0 = this.yb_1;
-        this.xb_1 = v0;
+        var v0 = this.wb_1;
+        this.vb_1 = v0;
         t = t ^ t << 1 ^ v0 ^ v0 << 4;
-        this.yb_1 = t;
-        this.zb_1 = this.zb_1 + 362437 | 0;
-        return t + this.zb_1 | 0;
+        this.wb_1 = t;
+        this.xb_1 = this.xb_1 + 362437 | 0;
+        return t + this.xb_1 | 0;
     };
-    protoOf(XorWowRandom).qb = function(bitCount) {
-        return takeUpperBits(this.za(), bitCount);
+    protoOf(XorWowRandom).ob = function(bitCount) {
+        return takeUpperBits(this.ya(), bitCount);
     };
     function Companion_8() {
         Companion_instance_8 = this;
-        this.u_1 = new IntRange(1, 0);
+        this.t_1 = new IntRange(1, 0);
     }
     var Companion_instance_8;
     function Companion_getInstance_8() {
@@ -7472,58 +7160,58 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_getInstance_8();
         IntProgression.call(this, start, endInclusive, 1);
     }
-    protoOf(IntRange).ec = function() {
+    protoOf(IntRange).cc = function() {
+        return this.v_1;
+    };
+    protoOf(IntRange).dc = function() {
         return this.w_1;
     };
-    protoOf(IntRange).fc = function() {
-        return this.x_1;
+    protoOf(IntRange).ec = function(value) {
+        return this.v_1 <= value && value <= this.w_1;
     };
-    protoOf(IntRange).gc = function(value) {
-        return this.w_1 <= value && value <= this.x_1;
+    protoOf(IntRange).y = function(value) {
+        return this.ec(typeof value === 'number' ? value : THROW_CCE());
     };
-    protoOf(IntRange).z = function(value) {
-        return this.gc(typeof value === 'number' ? value : THROW_CCE());
-    };
-    protoOf(IntRange).k = function() {
-        return this.w_1 > this.x_1;
+    protoOf(IntRange).p = function() {
+        return this.v_1 > this.w_1;
     };
     protoOf(IntRange).equals = function(other) {
         var tmp;
         if (other instanceof IntRange) {
-            tmp = this.k() && other.k() || this.w_1 === other.w_1 && this.x_1 === other.x_1;
+            tmp = this.p() && other.p() || this.v_1 === other.v_1 && this.w_1 === other.w_1;
         } else {
             tmp = false;
         }
         return tmp;
     };
     protoOf(IntRange).hashCode = function() {
-        return this.k() ? -1 : imul(31, this.w_1) + this.x_1 | 0;
+        return this.p() ? -1 : imul(31, this.v_1) + this.w_1 | 0;
     };
     protoOf(IntRange).toString = function() {
-        return '' + this.w_1 + '..' + this.x_1;
+        return '' + this.v_1 + '..' + this.w_1;
     };
     function IntProgressionIterator(first, last, step) {
         IntIterator.call(this);
-        this.hc_1 = step;
-        this.ic_1 = last;
-        this.jc_1 = this.hc_1 > 0 ? first <= last : first >= last;
-        this.kc_1 = this.jc_1 ? first : this.ic_1;
+        this.fc_1 = step;
+        this.gc_1 = last;
+        this.hc_1 = this.fc_1 > 0 ? first <= last : first >= last;
+        this.ic_1 = this.hc_1 ? first : this.gc_1;
     }
     protoOf(IntProgressionIterator).h = function() {
-        return this.jc_1;
+        return this.hc_1;
     };
-    protoOf(IntProgressionIterator).za = function() {
-        var value = this.kc_1;
-        if (value === this.ic_1) {
-            if (!this.jc_1) throw NoSuchElementException_init_$Create$();
-            this.jc_1 = false;
+    protoOf(IntProgressionIterator).ya = function() {
+        var value = this.ic_1;
+        if (value === this.gc_1) {
+            if (!this.hc_1) throw NoSuchElementException_init_$Create$();
+            this.hc_1 = false;
         } else {
-            this.kc_1 = this.kc_1 + this.hc_1 | 0;
+            this.ic_1 = this.ic_1 + this.fc_1 | 0;
         }
         return value;
     };
     function Companion_9() {}
-    protoOf(Companion_9).v = function(rangeStart, rangeEnd, step) {
+    protoOf(Companion_9).u = function(rangeStart, rangeEnd, step) {
         return new IntProgression(rangeStart, rangeEnd, step);
     };
     var Companion_instance_9;
@@ -7533,30 +7221,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function IntProgression(start, endInclusive, step) {
         if (step === 0) throw IllegalArgumentException_init_$Create$_0('Step must be non-zero.');
         if (step === -2147483648) throw IllegalArgumentException_init_$Create$_0('Step must be greater than Int.MIN_VALUE to avoid overflow on negation.');
-        this.w_1 = start;
-        this.x_1 = getProgressionLastElement(start, endInclusive, step);
-        this.y_1 = step;
+        this.v_1 = start;
+        this.w_1 = getProgressionLastElement(start, endInclusive, step);
+        this.x_1 = step;
     }
     protoOf(IntProgression).g = function() {
-        return new IntProgressionIterator(this.w_1, this.x_1, this.y_1);
+        return new IntProgressionIterator(this.v_1, this.w_1, this.x_1);
     };
-    protoOf(IntProgression).k = function() {
-        return this.y_1 > 0 ? this.w_1 > this.x_1 : this.w_1 < this.x_1;
+    protoOf(IntProgression).p = function() {
+        return this.x_1 > 0 ? this.v_1 > this.w_1 : this.v_1 < this.w_1;
     };
     protoOf(IntProgression).equals = function(other) {
         var tmp;
         if (other instanceof IntProgression) {
-            tmp = this.k() && other.k() || this.w_1 === other.w_1 && this.x_1 === other.x_1 && this.y_1 === other.y_1;
+            tmp = this.p() && other.p() || this.v_1 === other.v_1 && this.w_1 === other.w_1 && this.x_1 === other.x_1;
         } else {
             tmp = false;
         }
         return tmp;
     };
     protoOf(IntProgression).hashCode = function() {
-        return this.k() ? -1 : imul(31, imul(31, this.w_1) + this.x_1 | 0) + this.y_1 | 0;
+        return this.p() ? -1 : imul(31, imul(31, this.v_1) + this.w_1 | 0) + this.x_1 | 0;
     };
     protoOf(IntProgression).toString = function() {
-        return this.y_1 > 0 ? '' + this.w_1 + '..' + this.x_1 + ' step ' + this.y_1 : '' + this.w_1 + ' downTo ' + this.x_1 + ' step ' + (-this.y_1 | 0);
+        return this.x_1 > 0 ? '' + this.v_1 + '..' + this.w_1 + ' step ' + this.x_1 : '' + this.v_1 + ' downTo ' + this.w_1 + ' step ' + (-this.x_1 | 0);
     };
     function ClosedRange() {}
     function checkStepIsPositive(isPositive, step) {
@@ -7565,7 +7253,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function appendElement(_this__u8e3s4, element, transform) {
         if (!(transform == null)) _this__u8e3s4.e(transform(element)); else {
             if (element == null ? true : isCharSequence(element)) _this__u8e3s4.e(element); else {
-                if (element instanceof Char) _this__u8e3s4.a7(element.a1_1); else {
+                if (element instanceof Char) _this__u8e3s4.z6(element.z_1); else {
                     _this__u8e3s4.e(toString_1(element));
                 }
             }
@@ -7710,7 +7398,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var minCommonIndent = tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs;
         var tmp2 = _this__u8e3s4.length + imul(newIndent.length, lines_0.j()) | 0;
         var indentAddFunction = getIndentFunction(newIndent);
-        var lastIndex = get_lastIndex_3(lines_0);
+        var lastIndex = get_lastIndex_2(lines_0);
         var destination_1 = ArrayList_init_$Create$();
         var index = 0;
         var _iterator__ex2g4s_1 = lines_0.g();
@@ -7834,7 +7522,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         padChar = padChar === VOID ? _Char___init__impl__6a9atx(32) : padChar;
         return toString_1(padStart_0(isCharSequence(_this__u8e3s4) ? _this__u8e3s4 : THROW_CCE(), length, padChar));
     }
-    function get_lastIndex_4(_this__u8e3s4) {
+    function get_lastIndex_3(_this__u8e3s4) {
         return charSequenceLength(_this__u8e3s4) - 1 | 0;
     }
     function isBlank(_this__u8e3s4) {
@@ -7879,7 +7567,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (inductionVariable <= last) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            sb.a7(padChar);
+            sb.z6(padChar);
         } while (!(i === last));
         sb.e(_this__u8e3s4);
         return sb;
@@ -7896,7 +7584,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         } while (inductionVariable < length);
         return true;
     }
-    function indexOf_4(_this__u8e3s4, char, startIndex, ignoreCase) {
+    function indexOf_0(_this__u8e3s4, char, startIndex, ignoreCase) {
         startIndex = startIndex === VOID ? 0 : startIndex;
         ignoreCase = ignoreCase === VOID ? false : ignoreCase;
         var tmp;
@@ -7915,18 +7603,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     }
-    function contains_5(_this__u8e3s4, other, ignoreCase) {
+    function contains_1(_this__u8e3s4, other, ignoreCase) {
         ignoreCase = ignoreCase === VOID ? false : ignoreCase;
         var tmp;
         if (typeof other === 'string') {
-            tmp = indexOf_5(_this__u8e3s4, other, VOID, ignoreCase) >= 0;
+            tmp = indexOf_1(_this__u8e3s4, other, VOID, ignoreCase) >= 0;
         } else {
-            tmp = indexOf_6(_this__u8e3s4, other, 0, charSequenceLength(_this__u8e3s4), ignoreCase) >= 0;
+            tmp = indexOf_2(_this__u8e3s4, other, 0, charSequenceLength(_this__u8e3s4), ignoreCase) >= 0;
         }
         return tmp;
     }
     function lastIndexOf(_this__u8e3s4, string, startIndex, ignoreCase) {
-        startIndex = startIndex === VOID ? get_lastIndex_4(_this__u8e3s4) : startIndex;
+        startIndex = startIndex === VOID ? get_lastIndex_3(_this__u8e3s4) : startIndex;
         ignoreCase = ignoreCase === VOID ? false : ignoreCase;
         var tmp;
         var tmp_0;
@@ -7936,13 +7624,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = !(typeof _this__u8e3s4 === 'string');
         }
         if (tmp_0) {
-            tmp = indexOf_6(_this__u8e3s4, string, startIndex, 0, ignoreCase, true);
+            tmp = indexOf_2(_this__u8e3s4, string, startIndex, 0, ignoreCase, true);
         } else {
             tmp = _this__u8e3s4.lastIndexOf(string, startIndex);
         }
         return tmp;
     }
-    function indexOf_5(_this__u8e3s4, string, startIndex, ignoreCase) {
+    function indexOf_1(_this__u8e3s4, string, startIndex, ignoreCase) {
         startIndex = startIndex === VOID ? 0 : startIndex;
         ignoreCase = ignoreCase === VOID ? false : ignoreCase;
         var tmp;
@@ -7953,7 +7641,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = !(typeof _this__u8e3s4 === 'string');
         }
         if (tmp_0) {
-            tmp = indexOf_6(_this__u8e3s4, string, startIndex, charSequenceLength(_this__u8e3s4), ignoreCase);
+            tmp = indexOf_2(_this__u8e3s4, string, startIndex, charSequenceLength(_this__u8e3s4), ignoreCase);
         } else {
             tmp = _this__u8e3s4.indexOf(string, startIndex);
         }
@@ -7974,7 +7662,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return _this__u8e3s4.indexOf(str, startIndex);
         }
         var inductionVariable = coerceAtLeast(startIndex, 0);
-        var last = get_lastIndex_4(_this__u8e3s4);
+        var last = get_lastIndex_3(_this__u8e3s4);
         if (inductionVariable <= last) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
@@ -7997,9 +7685,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         } while (!(index === last));
         return -1;
     }
-    function indexOf_6(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last) {
+    function indexOf_2(_this__u8e3s4, other, startIndex, endIndex, ignoreCase, last) {
         last = last === VOID ? false : last;
-        var indices = !last ? numberRangeToNumber(coerceAtLeast(startIndex, 0), coerceAtMost(endIndex, charSequenceLength(_this__u8e3s4))) : downTo(coerceAtMost(startIndex, get_lastIndex_4(_this__u8e3s4)), coerceAtLeast(endIndex, 0));
+        var indices = !last ? numberRangeToNumber(coerceAtLeast(startIndex, 0), coerceAtMost(endIndex, charSequenceLength(_this__u8e3s4))) : downTo(coerceAtMost(startIndex, get_lastIndex_3(_this__u8e3s4)), coerceAtLeast(endIndex, 0));
         var tmp;
         if (typeof _this__u8e3s4 === 'string') {
             tmp = typeof other === 'string';
@@ -8007,18 +7695,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = false;
         }
         if (tmp) {
-            var inductionVariable = indices.w_1;
-            var last_0 = indices.x_1;
-            var step = indices.y_1;
+            var inductionVariable = indices.v_1;
+            var last_0 = indices.w_1;
+            var step = indices.x_1;
             if (step > 0 && inductionVariable <= last_0 || step < 0 && last_0 <= inductionVariable) do {
                 var index = inductionVariable;
                 inductionVariable = inductionVariable + step | 0;
                 if (regionMatches(other, 0, _this__u8e3s4, index, other.length, ignoreCase)) return index;
             } while (!(index === last_0));
         } else {
-            var inductionVariable_0 = indices.w_1;
-            var last_1 = indices.x_1;
-            var step_0 = indices.y_1;
+            var inductionVariable_0 = indices.v_1;
+            var last_1 = indices.w_1;
+            var step_0 = indices.x_1;
             if (step_0 > 0 && inductionVariable_0 <= last_1 || step_0 < 0 && last_1 <= inductionVariable_0) do {
                 var index_0 = inductionVariable_0;
                 inductionVariable_0 = inductionVariable_0 + step_0 | 0;
@@ -8034,64 +7722,64 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new lineSequence$$inlined$Sequence$1(_this__u8e3s4);
     }
     function State() {
-        this.lc_1 = 0;
-        this.mc_1 = 1;
-        this.nc_1 = 2;
+        this.jc_1 = 0;
+        this.kc_1 = 1;
+        this.lc_1 = 2;
     }
     var State_instance;
     function State_getInstance() {
         return State_instance;
     }
     function LinesIterator(string) {
-        this.oc_1 = string;
+        this.mc_1 = string;
+        this.nc_1 = 0;
+        this.oc_1 = 0;
         this.pc_1 = 0;
         this.qc_1 = 0;
-        this.rc_1 = 0;
-        this.sc_1 = 0;
     }
     protoOf(LinesIterator).h = function() {
-        if (!(this.pc_1 === 0)) {
-            return this.pc_1 === 1;
+        if (!(this.nc_1 === 0)) {
+            return this.nc_1 === 1;
         }
-        if (this.sc_1 < 0) {
-            this.pc_1 = 2;
+        if (this.qc_1 < 0) {
+            this.nc_1 = 2;
             return false;
         }
         var _delimiterLength = -1;
-        var _delimiterStartIndex = charSequenceLength(this.oc_1);
-        var inductionVariable = this.qc_1;
-        var last = charSequenceLength(this.oc_1);
+        var _delimiterStartIndex = charSequenceLength(this.mc_1);
+        var inductionVariable = this.oc_1;
+        var last = charSequenceLength(this.mc_1);
         if (inductionVariable < last) $l$loop: do {
             var idx = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            var c = charSequenceGet(this.oc_1, idx);
+            var c = charSequenceGet(this.mc_1, idx);
             if (c === _Char___init__impl__6a9atx(10) || c === _Char___init__impl__6a9atx(13)) {
-                _delimiterLength = c === _Char___init__impl__6a9atx(13) && (idx + 1 | 0) < charSequenceLength(this.oc_1) && charSequenceGet(this.oc_1, idx + 1 | 0) === _Char___init__impl__6a9atx(10) ? 2 : 1;
+                _delimiterLength = c === _Char___init__impl__6a9atx(13) && (idx + 1 | 0) < charSequenceLength(this.mc_1) && charSequenceGet(this.mc_1, idx + 1 | 0) === _Char___init__impl__6a9atx(10) ? 2 : 1;
                 _delimiterStartIndex = idx;
                 break $l$loop;
             }
         } while (inductionVariable < last);
-        this.pc_1 = 1;
-        this.sc_1 = _delimiterLength;
-        this.rc_1 = _delimiterStartIndex;
+        this.nc_1 = 1;
+        this.qc_1 = _delimiterLength;
+        this.pc_1 = _delimiterStartIndex;
         return true;
     };
     protoOf(LinesIterator).i = function() {
         if (!this.h()) {
             throw NoSuchElementException_init_$Create$();
         }
-        this.pc_1 = 0;
-        var lastIndex = this.rc_1;
-        var firstIndex = this.qc_1;
-        this.qc_1 = this.rc_1 + this.sc_1 | 0;
-        var this_0 = this.oc_1;
+        this.nc_1 = 0;
+        var lastIndex = this.pc_1;
+        var firstIndex = this.oc_1;
+        this.oc_1 = this.pc_1 + this.qc_1 | 0;
+        var this_0 = this.mc_1;
         return toString_1(charSequenceSubSequence(this_0, firstIndex, lastIndex));
     };
     function lineSequence$$inlined$Sequence$1($this_lineSequence) {
-        this.tc_1 = $this_lineSequence;
+        this.rc_1 = $this_lineSequence;
     }
     protoOf(lineSequence$$inlined$Sequence$1).g = function() {
-        return new LinesIterator(this.tc_1);
+        return new LinesIterator(this.rc_1);
     };
     function _Duration___init__impl__kdtzql(rawValue) {
         return rawValue;
@@ -8113,15 +7801,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_10() {
         Companion_instance_10 = this;
-        this.uc_1 = _Duration___init__impl__kdtzql(new Long(0, 0));
-        this.vc_1 = durationOfMillis(new Long(-1, 1073741823));
-        this.wc_1 = durationOfMillis(new Long(1, -1073741824));
-        this.xc_1 = new Long(-16162, 2147483647);
-        this.yc_1 = _Duration___init__impl__kdtzql(new Long(-16162, 2147483647));
+        this.sc_1 = _Duration___init__impl__kdtzql(new Long(0, 0));
+        this.tc_1 = durationOfMillis(new Long(-1, 1073741823));
+        this.uc_1 = durationOfMillis(new Long(1, -1073741824));
+        this.vc_1 = new Long(-16162, 2147483647);
+        this.wc_1 = _Duration___init__impl__kdtzql(new Long(-16162, 2147483647));
     }
-    protoOf(Companion_10).zc = function(rawValue) {
+    protoOf(Companion_10).xc = function(rawValue) {
         var this_0 = new Duration(_Duration___init__impl__kdtzql(rawValue));
-        var $this$apply = this_0.ad_1;
+        var $this$apply = this_0.yc_1;
         if (true) {
             if (isInNanos($this$apply)) {
                 var containsArg = _get_value__a43j40_0($this$apply);
@@ -8140,18 +7828,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 if (compare(new Long(1108857478, -1074), containsArg_0) <= 0 ? compare(containsArg_0, new Long(-1108857478, 1073)) <= 0 : false) throw AssertionError_init_$Create$_0(_get_value__a43j40_0($this$apply).toString() + ' ms is denormalized');
             }
         }
-        return this_0.ad_1;
+        return this_0.yc_1;
     };
-    protoOf(Companion_10).bd = function(value) {
+    protoOf(Companion_10).zc = function(value) {
         var tmp;
         try {
             var this_0 = new Duration(parseDuration(value, true));
-            var $this$apply = this_0.ad_1;
-            if (!!equals(new Duration($this$apply), new Duration(Companion_getInstance_10().yc_1))) {
+            var $this$apply = this_0.yc_1;
+            if (!!equals(new Duration($this$apply), new Duration(Companion_getInstance_10().wc_1))) {
                 var message = 'invariant failed';
                 throw IllegalStateException_init_$Create$_0(toString_1(message));
             }
-            tmp = this_0.ad_1;
+            tmp = this_0.yc_1;
         } catch ($p) {
             var tmp_0;
             if ($p instanceof IllegalArgumentException) {
@@ -8220,20 +7908,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return compare(_get_rawValue__5zfu4e($this), new Long(0, 0)) < 0;
     }
     function Duration__isInfinite_impl_tsn9y3($this) {
-        return equalsLong(_get_rawValue__5zfu4e($this), _get_rawValue__5zfu4e(Companion_getInstance_10().vc_1)) || equalsLong(_get_rawValue__5zfu4e($this), _get_rawValue__5zfu4e(Companion_getInstance_10().wc_1));
+        return equalsLong(_get_rawValue__5zfu4e($this), _get_rawValue__5zfu4e(Companion_getInstance_10().tc_1)) || equalsLong(_get_rawValue__5zfu4e($this), _get_rawValue__5zfu4e(Companion_getInstance_10().uc_1));
     }
     function _Duration___get_absoluteValue__impl__vr7i6w($this) {
         return Duration__isNegative_impl_pbysfa($this) ? Duration__unaryMinus_impl_x2k1y0($this) : $this;
     }
     function Duration__compareTo_impl_pchp0f($this, other) {
         var compareBits = bitwiseXor(_get_rawValue__5zfu4e($this), _get_rawValue__5zfu4e(other));
-        if (compare(compareBits, new Long(0, 0)) < 0 || (convertToInt(compareBits) & 1) === 0) return _get_rawValue__5zfu4e($this).k2(_get_rawValue__5zfu4e(other));
+        if (compare(compareBits, new Long(0, 0)) < 0 || (convertToInt(compareBits) & 1) === 0) return _get_rawValue__5zfu4e($this).i2(_get_rawValue__5zfu4e(other));
         var tmp = convertToInt(_get_rawValue__5zfu4e($this)) & 1;
         var r = tmp - (convertToInt(_get_rawValue__5zfu4e(other)) & 1) | 0;
         return Duration__isNegative_impl_pbysfa($this) ? -r | 0 : r;
     }
     function Duration__compareTo_impl_pchp0f_0($this, other) {
-        return Duration__compareTo_impl_pchp0f($this.ad_1, other instanceof Duration ? other.ad_1 : THROW_CCE());
+        return Duration__compareTo_impl_pchp0f($this.yc_1, other instanceof Duration ? other.yc_1 : THROW_CCE());
     }
     function _Duration___get_hoursComponent__impl__7hllxa($this) {
         var tmp;
@@ -8286,7 +7974,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Duration__toLong_impl_shr43i($this, unit) {
         var tmp0_subject = _get_rawValue__5zfu4e($this);
-        return equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().vc_1)) ? new Long(-1, 2147483647) : equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().wc_1)) ? new Long(0, -2147483648) : convertDurationUnit(_get_value__a43j40_0($this), _get_storageUnit__szjgha($this), unit);
+        return equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().tc_1)) ? new Long(-1, 2147483647) : equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().uc_1)) ? new Long(0, -2147483648) : convertDurationUnit(_get_value__a43j40_0($this), _get_storageUnit__szjgha($this), unit);
     }
     function _Duration___get_inWholeDays__impl__7bvpxz($this) {
         return Duration__toLong_impl_shr43i($this, DurationUnit_DAYS_getInstance());
@@ -8305,15 +7993,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp;
         if (equalsLong(tmp0_subject, new Long(0, 0))) {
             tmp = '0s';
-        } else if (equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().vc_1))) {
+        } else if (equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().tc_1))) {
             tmp = 'Infinity';
-        } else if (equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().wc_1))) {
+        } else if (equalsLong(tmp0_subject, _get_rawValue__5zfu4e(Companion_getInstance_10().uc_1))) {
             tmp = '-Infinity';
         } else {
             var isNegative = Duration__isNegative_impl_pbysfa($this);
             var this_0 = StringBuilder_init_$Create$_0();
             if (isNegative) {
-                this_0.a7(_Char___init__impl__6a9atx(45));
+                this_0.z6(_Char___init__impl__6a9atx(45));
             }
             var this_1 = _Duration___get_absoluteValue__impl__vr7i6w($this);
             var tmp0 = _Duration___get_inWholeDays__impl__7bvpxz(this_1);
@@ -8327,30 +8015,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var hasSeconds = !(tmp6 === 0) || !(nanoseconds === 0);
             var components = 0;
             if (hasDays) {
-                this_0.r9(tmp0).a7(_Char___init__impl__6a9atx(100));
+                this_0.q9(tmp0).z6(_Char___init__impl__6a9atx(100));
                 components = components + 1 | 0;
             }
             if (hasHours || hasDays && (hasMinutes || hasSeconds)) {
                 var _unary__edvuaz = components;
                 components = _unary__edvuaz + 1 | 0;
                 if (_unary__edvuaz > 0) {
-                    this_0.a7(_Char___init__impl__6a9atx(32));
+                    this_0.z6(_Char___init__impl__6a9atx(32));
                 }
-                this_0.q9(tmp2).a7(_Char___init__impl__6a9atx(104));
+                this_0.p9(tmp2).z6(_Char___init__impl__6a9atx(104));
             }
             if (hasMinutes || hasSeconds && (hasHours || hasDays)) {
                 var _unary__edvuaz_0 = components;
                 components = _unary__edvuaz_0 + 1 | 0;
                 if (_unary__edvuaz_0 > 0) {
-                    this_0.a7(_Char___init__impl__6a9atx(32));
+                    this_0.z6(_Char___init__impl__6a9atx(32));
                 }
-                this_0.q9(tmp4).a7(_Char___init__impl__6a9atx(109));
+                this_0.p9(tmp4).z6(_Char___init__impl__6a9atx(109));
             }
             if (hasSeconds) {
                 var _unary__edvuaz_1 = components;
                 components = _unary__edvuaz_1 + 1 | 0;
                 if (_unary__edvuaz_1 > 0) {
-                    this_0.a7(_Char___init__impl__6a9atx(32));
+                    this_0.z6(_Char___init__impl__6a9atx(32));
                 }
                 if (!(tmp6 === 0) || hasDays || hasHours || hasMinutes) {
                     appendFractional($this, this_0, tmp6, nanoseconds, 9, 's', false);
@@ -8358,19 +8046,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     appendFractional($this, this_0, nanoseconds / 1e6 | 0, nanoseconds % 1e6 | 0, 6, 'ms', false);
                 } else if (nanoseconds >= 1e3) {
                     appendFractional($this, this_0, nanoseconds / 1e3 | 0, nanoseconds % 1e3 | 0, 3, 'us', false);
-                } else this_0.q9(nanoseconds).z6('ns');
+                } else this_0.p9(nanoseconds).y6('ns');
             }
             if (isNegative && components > 1) {
-                this_0.s9(1, _Char___init__impl__6a9atx(40)).a7(_Char___init__impl__6a9atx(41));
+                this_0.r9(1, _Char___init__impl__6a9atx(40)).z6(_Char___init__impl__6a9atx(41));
             }
             tmp = this_0.toString();
         }
         return tmp;
     }
     function appendFractional($this, $receiver, whole, fractional, fractionalSize, unit, isoZeroes) {
-        $receiver.q9(whole);
+        $receiver.p9(whole);
         if (!(fractional === 0)) {
-            $receiver.a7(_Char___init__impl__6a9atx(46));
+            $receiver.z6(_Char___init__impl__6a9atx(46));
             var fracString = padStart(fractional.toString(), fractionalSize, _Char___init__impl__6a9atx(48));
             var tmp$ret$0;
             $l$block: {
@@ -8387,60 +8075,60 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             var nonZeroDigits = tmp$ret$0 + 1 | 0;
             if (!isoZeroes && nonZeroDigits < 3) {
-                $receiver.p9(fracString, 0, nonZeroDigits);
+                $receiver.o9(fracString, 0, nonZeroDigits);
             } else {
                 var endIndex = imul((nonZeroDigits + 2 | 0) / 3 | 0, 3);
-                $receiver.p9(fracString, 0, endIndex);
+                $receiver.o9(fracString, 0, endIndex);
             }
         }
-        $receiver.z6(unit);
+        $receiver.y6(unit);
     }
     function Duration__hashCode_impl_u4exz6($this) {
         return $this.hashCode();
     }
     function Duration__equals_impl_ygj6w6($this, other) {
         if (!(other instanceof Duration)) return false;
-        var tmp0_other_with_cast = other.ad_1;
+        var tmp0_other_with_cast = other.yc_1;
         if (!equalsLong($this, tmp0_other_with_cast)) return false;
         return true;
     }
     function Duration(rawValue) {
         Companion_getInstance_10();
-        this.ad_1 = rawValue;
+        this.yc_1 = rawValue;
     }
-    protoOf(Duration).cd = function(other) {
-        return Duration__compareTo_impl_pchp0f(this.ad_1, other);
+    protoOf(Duration).ad = function(other) {
+        return Duration__compareTo_impl_pchp0f(this.yc_1, other);
     };
     protoOf(Duration).d = function(other) {
         return Duration__compareTo_impl_pchp0f_0(this, other);
     };
     protoOf(Duration).toString = function() {
-        return Duration__toString_impl_8d916b(this.ad_1);
+        return Duration__toString_impl_8d916b(this.yc_1);
     };
     protoOf(Duration).hashCode = function() {
-        return Duration__hashCode_impl_u4exz6(this.ad_1);
+        return Duration__hashCode_impl_u4exz6(this.yc_1);
     };
     protoOf(Duration).equals = function(other) {
-        return Duration__equals_impl_ygj6w6(this.ad_1, other);
+        return Duration__equals_impl_ygj6w6(this.yc_1, other);
     };
     function durationOfMillis(normalMillis) {
         var tmp = Companion_getInstance_10();
         var this_0 = shiftLeft(normalMillis, 1);
         var tmp$ret$0 = add(this_0, fromInt(1));
-        return tmp.zc(tmp$ret$0);
+        return tmp.xc(tmp$ret$0);
     }
     function toDuration(_this__u8e3s4, unit) {
         var maxNsInUnit = convertDurationUnitOverflow(new Long(-387905, 1073741823), DurationUnit_NANOSECONDS_getInstance(), unit);
         var tmp;
         if (compare(negate(maxNsInUnit), _this__u8e3s4) <= 0 ? compare(_this__u8e3s4, maxNsInUnit) <= 0 : false) {
             tmp = durationOfNanos(convertDurationUnitOverflow(_this__u8e3s4, unit, DurationUnit_NANOSECONDS_getInstance()));
-        } else if (unit.d2(DurationUnit_MILLISECONDS_getInstance()) >= 0) {
+        } else if (unit.b2(DurationUnit_MILLISECONDS_getInstance()) >= 0) {
             var tmp_0 = get_sign(_this__u8e3s4);
             var this_0 = new Long(0, -2147483648);
             var tmp$ret$0 = add(this_0, fromInt(1));
             tmp = durationOfMillis(multiply(numberToLong(tmp_0), convertDurationUnitToMilliseconds(abs_1(coerceAtLeast_0(_this__u8e3s4, tmp$ret$0)), unit)));
         } else {
-            tmp = durationOfMillis(coerceIn_1(convertDurationUnit(_this__u8e3s4, unit, DurationUnit_MILLISECONDS_getInstance()), new Long(1, -1073741824), new Long(-1, 1073741823)));
+            tmp = durationOfMillis(coerceIn_0(convertDurationUnit(_this__u8e3s4, unit, DurationUnit_MILLISECONDS_getInstance()), new Long(1, -1073741824), new Long(-1, 1073741823)));
         }
         return tmp;
     }
@@ -8449,7 +8137,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (charSequenceLength(value) === 0) {
             var message = 'The string is empty';
             if (throwException) throw IllegalArgumentException_init_$Create$_0(message);
-            return Companion_getInstance_10().yc_1;
+            return Companion_getInstance_10().wc_1;
         }
         var index = 0;
         var firstChar = charCodeAt(value, index);
@@ -8465,20 +8153,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (value.length <= index) {
             var message_0 = 'No components';
             if (throwException) throw IllegalArgumentException_init_$Create$_0(message_0);
-            return Companion_getInstance_10().yc_1;
+            return Companion_getInstance_10().wc_1;
         } else {
             if (charCodeAt(value, index) === _Char___init__impl__6a9atx(80)) {
                 tmp = parseIsoStringFormat(value, index + 1 | 0, throwException);
             } else {
                 if (strictIso) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 } else {
                     var tmp_0 = index;
                     var a = value.length - index | 0;
                     var tmp$ret$4 = Math.max(a, 8);
                     if (regionMatches(value, tmp_0, 'Infinity', 0, tmp$ret$4, true)) {
-                        tmp = Companion_getInstance_10().vc_1;
+                        tmp = Companion_getInstance_10().tc_1;
                     } else {
                         tmp = parseDefaultStringFormat(value, index, hasSign, throwException);
                     }
@@ -8486,13 +8174,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
         }
         var result = tmp;
-        return isNegative && !equals(new Duration(result), new Duration(Companion_getInstance_10().yc_1)) ? Duration__unaryMinus_impl_x2k1y0(result) : result;
+        return isNegative && !equals(new Duration(result), new Duration(Companion_getInstance_10().wc_1)) ? Duration__unaryMinus_impl_x2k1y0(result) : result;
     }
     function durationOf(normalValue, unitDiscriminator) {
         var tmp = Companion_getInstance_10();
         var this_0 = shiftLeft(normalValue, 1);
         var tmp$ret$0 = add(this_0, fromInt(unitDiscriminator));
-        return tmp.zc(tmp$ret$0);
+        return tmp.xc(tmp$ret$0);
     }
     function durationOfNanosNormalized(nanos) {
         var tmp;
@@ -8523,7 +8211,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (equalsLong(other, new Long(-1, 1073741823)) || equalsLong(other, new Long(1, -1073741824))) {
                 tmp = other;
             } else {
-                tmp = coerceIn_1(add(_this__u8e3s4, other), new Long(1, -1073741824), new Long(-1, 1073741823));
+                tmp = coerceIn_0(add(_this__u8e3s4, other), new Long(1, -1073741824), new Long(-1, 1073741823));
             }
         }
         return tmp;
@@ -8533,7 +8221,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (compare(new Long(1108857478, -1074), millis) <= 0 ? compare(millis, new Long(-1108857478, 1073)) <= 0 : false) {
             tmp = durationOfNanos(millisToNanos(millis));
         } else {
-            tmp = durationOfMillis(coerceIn_1(millis, new Long(1, -1073741824), new Long(-1, 1073741823)));
+            tmp = durationOfMillis(coerceIn_0(millis, new Long(1, -1073741824), new Long(-1, 1073741823)));
         }
         return tmp;
     }
@@ -8544,13 +8232,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return multiply(millis, fromInt(1e6));
     }
     function durationOfNanos(normalNanos) {
-        return Companion_getInstance_10().zc(shiftLeft(normalNanos, 1));
+        return Companion_getInstance_10().xc(shiftLeft(normalNanos, 1));
     }
     function parseIsoStringFormat(value, startIndex, throwException) {
         var index = startIndex;
         if (index === value.length) {
             if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-            return Companion_getInstance_10().yc_1;
+            return Companion_getInstance_10().wc_1;
         }
         var totalMillis = new Long(0, 0);
         var totalNanos = new Long(0, 0);
@@ -8568,14 +8256,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 }
                 if (tmp) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 isTimeComponent = true;
                 continue $l$loop;
             }
             var longStartIndex = index;
             var sign;
-            var tmp0 = Companion_getInstance_11().dd_1;
+            var tmp0 = Companion_getInstance_11().bd_1;
             var tmp4 = index;
             var tmp$ret$2;
             $l$block: {
@@ -8630,7 +8318,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                         index = tmp0_0;
                         if (index === value.length || index === (longStartIndex + (ch === _Char___init__impl__6a9atx(45) || ch === _Char___init__impl__6a9atx(43) ? 1 : 0) | 0)) {
                             if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                            return Companion_getInstance_10().yc_1;
+                            return Companion_getInstance_10().wc_1;
                         }
                         sign = localSign;
                         tmp$ret$2 = access$_get_overflowLimit__t4uhig(tmp0);
@@ -8646,7 +8334,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 index = tmp0_1;
                 if (index === value.length || index === (longStartIndex + (ch === _Char___init__impl__6a9atx(45) || ch === _Char___init__impl__6a9atx(43) ? 1 : 0) | 0)) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 sign = localSign_0;
                 tmp$ret$2 = result;
@@ -8719,7 +8407,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var fractionEndIndex = index_1;
                 if (fractionEndIndex === index || fractionEndIndex === value.length || !(charCodeAt(value, fractionEndIndex) === _Char___init__impl__6a9atx(83))) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 index = fractionEndIndex;
                 var tmp0_4 = fromInt(highPrecisionDigits);
@@ -8733,32 +8421,32 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (tmp0_elvis_lhs == null) {
                 var message = 'Unknown duration unit short name: ' + toString(charCodeAt(value, index));
                 if (throwException) throw IllegalArgumentException_init_$Create$_0(message);
-                return Companion_getInstance_10().yc_1;
+                return Companion_getInstance_10().wc_1;
             } else {
                 tmp_3 = tmp0_elvis_lhs;
             }
             var unit = tmp_3;
-            if (!(prevUnit == null) && prevUnit.d2(unit) <= 0) {
+            if (!(prevUnit == null) && prevUnit.b2(unit) <= 0) {
                 var message_0 = 'Unexpected order of duration components';
                 if (throwException) throw IllegalArgumentException_init_$Create$_0(message_0);
-                return Companion_getInstance_10().yc_1;
+                return Companion_getInstance_10().wc_1;
             }
             prevUnit = unit;
             if (unit.equals(DurationUnit_DAYS_getInstance())) {
                 if (isTimeComponent) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 totalMillis = multiply(numberToLong(sign), convertDurationUnitToMilliseconds(longValue, unit));
             } else {
                 if (!isTimeComponent) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 var this_7 = addMillisWithoutOverflow(totalMillis, multiply(numberToLong(sign), convertDurationUnitToMilliseconds(longValue, unit)));
                 if (equalsLong(this_7, new Long(-16162, 2147483647))) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 totalMillis = this_7;
             }
@@ -8777,7 +8465,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (index === length) {
                 var message = 'No components';
                 if (throwException) throw IllegalArgumentException_init_$Create$_0(message);
-                return Companion_getInstance_10().yc_1;
+                return Companion_getInstance_10().wc_1;
             }
         }
         var totalMillis = new Long(0, 0);
@@ -8803,7 +8491,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             isFirstComponent = false;
             var longStartIndex = index;
-            var tmp0 = Companion_getInstance_11().ed_1;
+            var tmp0 = Companion_getInstance_11().cd_1;
             var tmp4 = index;
             var tmp$ret$3;
             $l$block: {
@@ -8856,7 +8544,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                         var tmp0_0 = index_0;
                         if (tmp0_0 === longStartIndex || tmp0_0 === length || true) {
                             if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                            return Companion_getInstance_10().yc_1;
+                            return Companion_getInstance_10().wc_1;
                         }
                         index = tmp0_0;
                         tmp$ret$3 = access$_get_overflowLimit__t4uhig(tmp0);
@@ -8870,7 +8558,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var tmp0_1 = index_0;
                 if (tmp0_1 === longStartIndex || tmp0_1 === length || false) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 index = tmp0_1;
                 tmp$ret$3 = result;
@@ -8947,7 +8635,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var fractionEndIndex = index_1;
                 if (fractionEndIndex === index || fractionEndIndex === length) {
                     if (throwException) throw IllegalArgumentException_init_$Create$_0('');
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
                 index = fractionEndIndex;
                 var tmp0_4 = fromInt(highPrecisionDigits);
@@ -8963,18 +8651,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (tmp0_elvis_lhs == null) {
                 var message_0 = 'Unknown duration unit short name: ' + toString(charCodeAt(value, index));
                 if (throwException) throw IllegalArgumentException_init_$Create$_0(message_0);
-                return Companion_getInstance_10().yc_1;
+                return Companion_getInstance_10().wc_1;
             } else {
                 tmp_3 = tmp0_elvis_lhs;
             }
             var unit = tmp_3;
-            if (!(prevUnit == null) && prevUnit.d2(unit) <= 0) {
+            if (!(prevUnit == null) && prevUnit.b2(unit) <= 0) {
                 var message_1 = 'Unexpected order of duration components';
                 if (throwException) throw IllegalArgumentException_init_$Create$_0(message_1);
-                return Companion_getInstance_10().yc_1;
+                return Companion_getInstance_10().wc_1;
             }
             prevUnit = unit;
-            switch (unit.c2_1) {
+            switch (unit.a2_1) {
               case 1:
                 totalMillis = add(totalMillis, divide(longValue, new Long(1e3, 0)));
                 var tmp_4 = totalMillis;
@@ -9003,17 +8691,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 if (index < length) {
                     var message_2 = 'Fractional component must be last';
                     if (throwException) throw IllegalArgumentException_init_$Create$_0(message_2);
-                    return Companion_getInstance_10().yc_1;
+                    return Companion_getInstance_10().wc_1;
                 }
-                totalNanos = add(totalNanos, unit.d2(DurationUnit_MINUTES_getInstance()) >= 0 && (index - fractionStartIndex | 0) > 15 ? parseFractionFallback(value, fractionStartIndex, index - get_shortNameLength(unit) | 0, unit) : fractionDigitsToNanos(fractionValue, unit));
+                totalNanos = add(totalNanos, unit.b2(DurationUnit_MINUTES_getInstance()) >= 0 && (index - fractionStartIndex | 0) > 15 ? parseFractionFallback(value, fractionStartIndex, index - get_shortNameLength(unit) | 0, unit) : fractionDigitsToNanos(fractionValue, unit));
             }
         }
         return Duration__plus_impl_yu9v8f(toDuration(totalMillis, DurationUnit_MILLISECONDS_getInstance()), toDuration(totalNanos, DurationUnit_NANOSECONDS_getInstance()));
     }
     function Companion_11() {
         Companion_instance_11 = this;
-        this.dd_1 = new LongParser(new Long(-1, 1073741823), true);
-        this.ed_1 = new LongParser(new Long(-1, 2147483647), false);
+        this.bd_1 = new LongParser(new Long(-1, 1073741823), true);
+        this.cd_1 = new LongParser(new Long(-1, 2147483647), false);
     }
     var Companion_instance_11;
     function Companion_getInstance_11() {
@@ -9021,27 +8709,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_11;
     }
     function access$_get_overflowLimit__t4uhig($this) {
-        return $this.fd_1;
+        return $this.dd_1;
     }
     function access$_get_allowSign__e988q3($this) {
-        return $this.gd_1;
+        return $this.ed_1;
     }
     function access$_get_overflowThreshold__7yqffs($this) {
-        return $this.hd_1;
+        return $this.fd_1;
     }
     function access$_get_lastDigitMax__85wg2($this) {
-        return $this.id_1;
+        return $this.gd_1;
     }
     function LongParser(overflowLimit, allowSign) {
         Companion_getInstance_11();
-        this.fd_1 = overflowLimit;
-        this.gd_1 = allowSign;
+        this.dd_1 = overflowLimit;
+        this.ed_1 = allowSign;
         var tmp = this;
-        var this_0 = this.fd_1;
-        tmp.hd_1 = divide(this_0, fromInt(10));
+        var this_0 = this.dd_1;
+        tmp.fd_1 = divide(this_0, fromInt(10));
         var tmp_0 = this;
-        var this_1 = this.fd_1;
-        tmp_0.id_1 = modulo(this_1, fromInt(10));
+        var this_1 = this.dd_1;
+        tmp_0.gd_1 = modulo(this_1, fromInt(10));
     }
     function FractionalParser() {}
     var FractionalParser_instance;
@@ -9059,11 +8747,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function defaultDurationUnitByShortNameOrNull(_this__u8e3s4, start) {
         var first = charCodeAt(_this__u8e3s4, start);
-        var second = start < get_lastIndex_4(_this__u8e3s4) ? charCodeAt(_this__u8e3s4, start + 1 | 0) : _Char___init__impl__6a9atx(0);
+        var second = start < get_lastIndex_3(_this__u8e3s4) ? charCodeAt(_this__u8e3s4, start + 1 | 0) : _Char___init__impl__6a9atx(0);
         return first === _Char___init__impl__6a9atx(100) ? DurationUnit_DAYS_getInstance() : first === _Char___init__impl__6a9atx(104) ? DurationUnit_HOURS_getInstance() : first === _Char___init__impl__6a9atx(115) ? DurationUnit_SECONDS_getInstance() : first === _Char___init__impl__6a9atx(109) ? second === _Char___init__impl__6a9atx(115) ? DurationUnit_MILLISECONDS_getInstance() : DurationUnit_MINUTES_getInstance() : first === _Char___init__impl__6a9atx(117) ? second === _Char___init__impl__6a9atx(115) ? DurationUnit_MICROSECONDS_getInstance() : null : first === _Char___init__impl__6a9atx(110) ? second === _Char___init__impl__6a9atx(115) ? DurationUnit_NANOSECONDS_getInstance() : null : null;
     }
     function get_shortNameLength(_this__u8e3s4) {
-        switch (_this__u8e3s4.c2_1) {
+        switch (_this__u8e3s4.a2_1) {
           case 2:
           case 1:
           case 0:
@@ -9078,7 +8766,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function get_fractionMultiplier(_this__u8e3s4) {
         var tmp;
-        switch (_this__u8e3s4.c2_1) {
+        switch (_this__u8e3s4.a2_1) {
           case 0:
             tmp = 1e-15;
             break;
@@ -9115,7 +8803,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function get_fallbackFractionMultiplier(_this__u8e3s4) {
         var tmp;
-        switch (_this__u8e3s4.c2_1) {
+        switch (_this__u8e3s4.a2_1) {
           case 4:
             tmp = new Long(-129542144, 13);
             break;
@@ -9153,7 +8841,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function get_millisMultiplier(_this__u8e3s4) {
         var tmp;
-        switch (_this__u8e3s4.c2_1) {
+        switch (_this__u8e3s4.a2_1) {
           case 6:
             tmp = new Long(864e5, 0);
             break;
@@ -9202,10 +8890,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     var asciiDigitsInIsoOffsetString;
     function Companion_12() {
         Companion_instance_12 = this;
-        this.jd_1 = new Instant(new Long(342103040, -7347440), 0);
-        this.kd_1 = new Instant(new Long(-90867457, 7347410), 999999999);
+        this.hd_1 = new Instant(new Long(342103040, -7347440), 0);
+        this.id_1 = new Instant(new Long(-90867457, 7347410), 999999999);
     }
-    protoOf(Companion_12).ld = function(epochSeconds, nanosecondAdjustment) {
+    protoOf(Companion_12).jd = function(epochSeconds, nanosecondAdjustment) {
         var other = new Long(1e9, 0);
         var q = divide(nanosecondAdjustment, other);
         if (compare(bitwiseXor(nanosecondAdjustment, other), new Long(0, 0)) < 0 && !equalsLong(multiply(q, other), nanosecondAdjustment)) {
@@ -9215,14 +8903,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var b = q;
         var sum = add(epochSeconds, b);
         if (compare(bitwiseXor(epochSeconds, sum), new Long(0, 0)) < 0 && compare(bitwiseXor(epochSeconds, b), new Long(0, 0)) >= 0) {
-            return compare(epochSeconds, new Long(0, 0)) > 0 ? Companion_getInstance_12().kd_1 : Companion_getInstance_12().jd_1;
+            return compare(epochSeconds, new Long(0, 0)) > 0 ? Companion_getInstance_12().id_1 : Companion_getInstance_12().hd_1;
         }
         var seconds = sum;
         var tmp;
         if (compare(seconds, new Long(342103040, -7347440)) < 0) {
-            tmp = this.jd_1;
+            tmp = this.hd_1;
         } else if (compare(seconds, new Long(-90867457, 7347410)) > 0) {
-            tmp = this.kd_1;
+            tmp = this.id_1;
         } else {
             var other_0 = new Long(1e9, 0);
             var r = modulo(nanosecondAdjustment, other_0);
@@ -9232,11 +8920,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     };
-    protoOf(Companion_12).md = function(epochSeconds, nanosecondAdjustment) {
-        return this.ld(epochSeconds, fromInt(nanosecondAdjustment));
+    protoOf(Companion_12).kd = function(epochSeconds, nanosecondAdjustment) {
+        return this.jd(epochSeconds, fromInt(nanosecondAdjustment));
     };
-    protoOf(Companion_12).nd = function(input) {
-        return parseIso(input).od();
+    protoOf(Companion_12).ld = function(input) {
+        return parseIso(input).md();
     };
     var Companion_instance_12;
     function Companion_getInstance_12() {
@@ -9245,23 +8933,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Instant(epochSeconds, nanosecondsOfSecond) {
         Companion_getInstance_12();
-        this.pd_1 = epochSeconds;
-        this.qd_1 = nanosecondsOfSecond;
-        var containsArg = this.pd_1;
+        this.nd_1 = epochSeconds;
+        this.od_1 = nanosecondsOfSecond;
+        var containsArg = this.nd_1;
         if (!(compare(new Long(342103040, -7347440), containsArg) <= 0 ? compare(containsArg, new Long(-90867457, 7347410)) <= 0 : false)) {
             var message = 'Instant exceeds minimum or maximum instant';
             throw IllegalArgumentException_init_$Create$_0(toString_1(message));
         }
     }
-    protoOf(Instant).rd = function(other) {
-        var s = this.pd_1.k2(other.pd_1);
+    protoOf(Instant).pd = function(other) {
+        var s = this.nd_1.i2(other.nd_1);
         if (!(s === 0)) {
             return s;
         }
-        return compareTo(this.qd_1, other.qd_1);
+        return compareTo(this.od_1, other.od_1);
     };
     protoOf(Instant).d = function(other) {
-        return this.rd(other instanceof Instant ? other : THROW_CCE());
+        return this.pd(other instanceof Instant ? other : THROW_CCE());
     };
     protoOf(Instant).equals = function(other) {
         var tmp;
@@ -9271,12 +8959,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var tmp_0;
             var tmp_1;
             if (other instanceof Instant) {
-                tmp_1 = equalsLong(this.pd_1, other.pd_1);
+                tmp_1 = equalsLong(this.nd_1, other.nd_1);
             } else {
                 tmp_1 = false;
             }
             if (tmp_1) {
-                tmp_0 = this.qd_1 === other.qd_1;
+                tmp_0 = this.od_1 === other.od_1;
             } else {
                 tmp_0 = false;
             }
@@ -9285,7 +8973,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     };
     protoOf(Instant).hashCode = function() {
-        return this.pd_1.hashCode() + imul(51, this.qd_1) | 0;
+        return this.nd_1.hashCode() + imul(51, this.od_1) | 0;
     };
     protoOf(Instant).toString = function() {
         return formatIso(this);
@@ -9293,59 +8981,59 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function formatIso(instant) {
         _init_properties_Instant_kt__2myitt();
         var this_0 = StringBuilder_init_$Create$_0();
-        var ldt = Companion_instance_13.sd(instant);
-        var number = ldt.td_1;
+        var ldt = Companion_instance_13.qd(instant);
+        var number = ldt.rd_1;
         if (abs_0(number) < 1e3) {
             var innerBuilder = StringBuilder_init_$Create$_0();
             if (number >= 0) {
-                innerBuilder.q9(number + 1e4 | 0).u9(0);
+                innerBuilder.p9(number + 1e4 | 0).t9(0);
             } else {
-                innerBuilder.q9(number - 1e4 | 0).u9(1);
+                innerBuilder.p9(number - 1e4 | 0).t9(1);
             }
             this_0.e(innerBuilder);
         } else {
             if (number >= 1e4) {
-                this_0.a7(_Char___init__impl__6a9atx(43));
+                this_0.z6(_Char___init__impl__6a9atx(43));
             }
-            this_0.q9(number);
+            this_0.p9(number);
         }
-        this_0.a7(_Char___init__impl__6a9atx(45));
+        this_0.z6(_Char___init__impl__6a9atx(45));
+        formatIso$appendTwoDigits(this_0, this_0, ldt.sd_1);
+        this_0.z6(_Char___init__impl__6a9atx(45));
+        formatIso$appendTwoDigits(this_0, this_0, ldt.td_1);
+        this_0.z6(_Char___init__impl__6a9atx(84));
         formatIso$appendTwoDigits(this_0, this_0, ldt.ud_1);
-        this_0.a7(_Char___init__impl__6a9atx(45));
+        this_0.z6(_Char___init__impl__6a9atx(58));
         formatIso$appendTwoDigits(this_0, this_0, ldt.vd_1);
-        this_0.a7(_Char___init__impl__6a9atx(84));
+        this_0.z6(_Char___init__impl__6a9atx(58));
         formatIso$appendTwoDigits(this_0, this_0, ldt.wd_1);
-        this_0.a7(_Char___init__impl__6a9atx(58));
-        formatIso$appendTwoDigits(this_0, this_0, ldt.xd_1);
-        this_0.a7(_Char___init__impl__6a9atx(58));
-        formatIso$appendTwoDigits(this_0, this_0, ldt.yd_1);
-        if (!(ldt.zd_1 === 0)) {
-            this_0.a7(_Char___init__impl__6a9atx(46));
+        if (!(ldt.xd_1 === 0)) {
+            this_0.z6(_Char___init__impl__6a9atx(46));
             var zerosToStrip = 0;
-            while ((ldt.zd_1 % get_POWERS_OF_TEN()[zerosToStrip + 1 | 0] | 0) === 0) {
+            while ((ldt.xd_1 % get_POWERS_OF_TEN()[zerosToStrip + 1 | 0] | 0) === 0) {
                 zerosToStrip = zerosToStrip + 1 | 0;
             }
             zerosToStrip = zerosToStrip - (zerosToStrip % 3 | 0) | 0;
-            var numberToOutput = ldt.zd_1 / get_POWERS_OF_TEN()[zerosToStrip] | 0;
-            this_0.z6(substring_0((numberToOutput + get_POWERS_OF_TEN()[9 - zerosToStrip | 0] | 0).toString(), 1));
+            var numberToOutput = ldt.xd_1 / get_POWERS_OF_TEN()[zerosToStrip] | 0;
+            this_0.y6(substring_0((numberToOutput + get_POWERS_OF_TEN()[9 - zerosToStrip | 0] | 0).toString(), 1));
         }
-        this_0.a7(_Char___init__impl__6a9atx(90));
+        this_0.z6(_Char___init__impl__6a9atx(90));
         return this_0.toString();
     }
     function Success(epochSeconds, nanosecondsOfSecond) {
-        this.ae_1 = epochSeconds;
-        this.be_1 = nanosecondsOfSecond;
+        this.yd_1 = epochSeconds;
+        this.zd_1 = nanosecondsOfSecond;
     }
-    protoOf(Success).od = function() {
-        if (compare(this.ae_1, Companion_getInstance_12().jd_1.pd_1) < 0 || compare(this.ae_1, Companion_getInstance_12().kd_1.pd_1) > 0) throw new InstantFormatException('The parsed date is outside the range representable by Instant (Unix epoch second ' + this.ae_1.toString() + ')');
-        return Companion_getInstance_12().md(this.ae_1, this.be_1);
+    protoOf(Success).md = function() {
+        if (compare(this.yd_1, Companion_getInstance_12().hd_1.nd_1) < 0 || compare(this.yd_1, Companion_getInstance_12().id_1.nd_1) > 0) throw new InstantFormatException('The parsed date is outside the range representable by Instant (Unix epoch second ' + this.yd_1.toString() + ')');
+        return Companion_getInstance_12().kd(this.yd_1, this.zd_1);
     };
     function Failure(error, input) {
-        this.ce_1 = error;
-        this.de_1 = input;
+        this.ae_1 = error;
+        this.be_1 = input;
     }
-    protoOf(Failure).od = function() {
-        throw new InstantFormatException(this.ce_1 + ' when parsing an Instant from "' + truncateForErrorMessage(this.de_1, 64) + '"');
+    protoOf(Failure).md = function() {
+        throw new InstantFormatException(this.ae_1 + ' when parsing an Instant from "' + truncateForErrorMessage(this.be_1, 64) + '"');
     };
     function parseIso(isoString) {
         _init_properties_Instant_kt__2myitt();
@@ -9568,7 +9256,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return parseIso$parseFailure(isoString, 'Expected second-of-minute in 0..59, got ' + second);
         }
         var this_0 = new UnboundLocalDateTime(year, month, day, hour, minute, second, nanosecond);
-        var y = fromInt(this_0.td_1);
+        var y = fromInt(this_0.rd_1);
         var total = multiply(numberToLong(365), y);
         if (compare(y, new Long(0, 0)) >= 0) {
             var tmp_15 = total;
@@ -9589,31 +9277,31 @@ if (typeof String.prototype.startsWith === 'undefined') {
             total = subtract(tmp_18, add(tmp_20, tmp$ret$29));
         }
         var tmp0 = total;
-        var other = (imul(367, this_0.ud_1) - 362 | 0) / 12 | 0;
+        var other = (imul(367, this_0.sd_1) - 362 | 0) / 12 | 0;
         total = add(tmp0, fromInt(other));
         var tmp0_0 = total;
-        var other_0 = this_0.vd_1 - 1 | 0;
+        var other_0 = this_0.td_1 - 1 | 0;
         total = add(tmp0_0, fromInt(other_0));
-        if (this_0.ud_1 > 2) {
+        if (this_0.sd_1 > 2) {
             var _unary__edvuaz = total;
             total = subtract(_unary__edvuaz, get_ONE());
-            if (!isLeapYear(this_0.td_1)) {
+            if (!isLeapYear(this_0.rd_1)) {
                 var _unary__edvuaz_0 = total;
                 total = subtract(_unary__edvuaz_0, get_ONE());
             }
         }
         var this_4 = total;
         var epochDays = subtract(this_4, fromInt(719528));
-        var daySeconds = (imul(this_0.wd_1, 3600) + imul(this_0.xd_1, 60) | 0) + this_0.yd_1 | 0;
+        var daySeconds = (imul(this_0.ud_1, 3600) + imul(this_0.vd_1, 60) | 0) + this_0.wd_1 | 0;
         var this_5 = multiply(epochDays, fromInt(86400));
         var this_6 = add(this_5, fromInt(daySeconds));
         var epochSeconds = subtract(this_6, fromInt(offsetSeconds));
-        var p1 = this_0.zd_1;
+        var p1 = this_0.xd_1;
         return new Success(epochSeconds, p1);
     }
     function Companion_13() {}
-    protoOf(Companion_13).sd = function(instant) {
-        var localSecond = instant.pd_1;
+    protoOf(Companion_13).qd = function(instant) {
+        var localSecond = instant.nd_1;
         var other = new Long(86400, 0);
         var q = divide(localSecond, other);
         if (compare(bitwiseXor(localSecond, other), new Long(0, 0)) < 0 && !equalsLong(multiply(q, other), localSecond)) {
@@ -9685,23 +9373,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var secondWithoutHours = secsOfDay - imul(hours, 3600) | 0;
         var minutes = secondWithoutHours / 60 | 0;
         var second = secondWithoutHours - imul(minutes, 60) | 0;
-        return new UnboundLocalDateTime(year, month, day, hours, minutes, second, instant.qd_1);
+        return new UnboundLocalDateTime(year, month, day, hours, minutes, second, instant.od_1);
     };
     var Companion_instance_13;
     function Companion_getInstance_13() {
         return Companion_instance_13;
     }
     function UnboundLocalDateTime(year, month, day, hour, minute, second, nanosecond) {
-        this.td_1 = year;
-        this.ud_1 = month;
-        this.vd_1 = day;
-        this.wd_1 = hour;
-        this.xd_1 = minute;
-        this.yd_1 = second;
-        this.zd_1 = nanosecond;
+        this.rd_1 = year;
+        this.sd_1 = month;
+        this.td_1 = day;
+        this.ud_1 = hour;
+        this.vd_1 = minute;
+        this.wd_1 = second;
+        this.xd_1 = nanosecond;
     }
     protoOf(UnboundLocalDateTime).toString = function() {
-        return 'UnboundLocalDateTime(' + this.td_1 + '-' + this.ud_1 + '-' + this.vd_1 + ' ' + this.wd_1 + ':' + this.xd_1 + ':' + this.yd_1 + '.' + this.zd_1 + ')';
+        return 'UnboundLocalDateTime(' + this.rd_1 + '-' + this.sd_1 + '-' + this.td_1 + ' ' + this.ud_1 + ':' + this.vd_1 + ':' + this.wd_1 + '.' + this.xd_1 + ')';
     };
     function InstantFormatException(message) {
         IllegalArgumentException_init_$Init$_0(message, this);
@@ -9739,9 +9427,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function formatIso$appendTwoDigits(_this__u8e3s4, $this_buildString, number) {
         if (number < 10) {
-            _this__u8e3s4.a7(_Char___init__impl__6a9atx(48));
+            _this__u8e3s4.z6(_Char___init__impl__6a9atx(48));
         }
-        $this_buildString.q9(number);
+        $this_buildString.p9(number);
     }
     function parseIso$parseFailure($isoString, error) {
         return new Failure(error + ' when parsing an Instant from "' + truncateForErrorMessage($isoString, 64) + '"', $isoString);
@@ -9778,7 +9466,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function parseIso$lambda_4(it) {
         _init_properties_Instant_kt__2myitt();
-        var containsArg = it.a1_1;
+        var containsArg = it.z_1;
         return _Char___init__impl__6a9atx(48) <= containsArg ? containsArg <= _Char___init__impl__6a9atx(57) : false;
     }
     function parseIso$twoDigitNumber(s, index) {
@@ -9802,40 +9490,40 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function DeepRecursiveScope() {}
     function invoke(_this__u8e3s4, value) {
         _init_properties_DeepRecursive_kt__zbwcac();
-        return new DeepRecursiveScopeImpl(_this__u8e3s4.fe_1, value).ke();
+        return new DeepRecursiveScopeImpl(_this__u8e3s4.de_1, value).ie();
     }
     function DeepRecursiveFunction(block) {
-        this.fe_1 = block;
+        this.de_1 = block;
     }
     function DeepRecursiveScopeImpl(block, value) {
         DeepRecursiveScope.call(this);
         var tmp = this;
-        tmp.ge_1 = isSuspendFunction(block, 2) ? block : THROW_CCE();
-        this.he_1 = value;
+        tmp.ee_1 = isSuspendFunction(block, 2) ? block : THROW_CCE();
+        this.fe_1 = value;
         var tmp_0 = this;
-        tmp_0.ie_1 = isInterface(this, Continuation) ? this : THROW_CCE();
-        this.je_1 = get_UNDEFINED_RESULT();
+        tmp_0.ge_1 = isInterface(this, Continuation) ? this : THROW_CCE();
+        this.he_1 = get_UNDEFINED_RESULT();
     }
-    protoOf(DeepRecursiveScopeImpl).r7 = function() {
+    protoOf(DeepRecursiveScopeImpl).q7 = function() {
         return EmptyCoroutineContext_getInstance();
     };
-    protoOf(DeepRecursiveScopeImpl).le = function(result) {
-        this.ie_1 = null;
-        this.je_1 = result;
+    protoOf(DeepRecursiveScopeImpl).je = function(result) {
+        this.ge_1 = null;
+        this.he_1 = result;
     };
-    protoOf(DeepRecursiveScopeImpl).w7 = function(result) {
-        return this.le(result);
+    protoOf(DeepRecursiveScopeImpl).v7 = function(result) {
+        return this.je(result);
     };
-    protoOf(DeepRecursiveScopeImpl).ee = function(value, $completion) {
+    protoOf(DeepRecursiveScopeImpl).ce = function(value, $completion) {
         var tmp = this;
-        tmp.ie_1 = isInterface($completion, Continuation) ? $completion : THROW_CCE();
-        this.he_1 = value;
+        tmp.ge_1 = isInterface($completion, Continuation) ? $completion : THROW_CCE();
+        this.fe_1 = value;
         return get_COROUTINE_SUSPENDED();
     };
-    protoOf(DeepRecursiveScopeImpl).ke = function() {
+    protoOf(DeepRecursiveScopeImpl).ie = function() {
         $l$loop: while (true) {
-            var result = this.je_1;
-            var tmp0_elvis_lhs = this.ie_1;
+            var result = this.he_1;
+            var tmp0_elvis_lhs = this.ge_1;
             var tmp;
             if (tmp0_elvis_lhs == null) {
                 var this_0 = new Result(result) instanceof Result ? result : THROW_CCE();
@@ -9848,15 +9536,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (equals(new Result(get_UNDEFINED_RESULT()), new Result(result))) {
                 var tmp_0;
                 try {
-                    var tmp0 = this.ge_1;
-                    var param = this.he_1;
+                    var tmp0 = this.ee_1;
+                    var param = this.fe_1;
                     tmp_0 = startCoroutineUninterceptedOrReturnNonGeneratorVersion(tmp0, this, param, cont);
                 } catch ($p) {
                     var tmp_1;
                     if ($p instanceof Error) {
                         var e = $p;
                         var tmp$ret$3 = _Result___init__impl__xyqfz8(createFailure(e));
-                        cont.w7(tmp$ret$3);
+                        cont.v7(tmp$ret$3);
                         continue $l$loop;
                     } else {
                         throw $p;
@@ -9865,11 +9553,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var r = tmp_0;
                 if (!(r === get_COROUTINE_SUSPENDED())) {
                     var tmp$ret$5 = _Result___init__impl__xyqfz8(r);
-                    cont.w7(tmp$ret$5);
+                    cont.v7(tmp$ret$5);
                 }
             } else {
-                this.je_1 = get_UNDEFINED_RESULT();
-                cont.w7(result);
+                this.he_1 = get_UNDEFINED_RESULT();
+                cont.v7(result);
             }
         }
     };
@@ -9896,21 +9584,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Enum.call(this, name, ordinal);
     }
     function UnsafeLazyImpl(initializer) {
-        this.me_1 = initializer;
-        this.ne_1 = UNINITIALIZED_VALUE_instance;
+        this.ke_1 = initializer;
+        this.le_1 = UNINITIALIZED_VALUE_instance;
     }
-    protoOf(UnsafeLazyImpl).q1 = function() {
-        if (this.ne_1 === UNINITIALIZED_VALUE_instance) {
-            this.ne_1 = ensureNotNull(this.me_1)();
-            this.me_1 = null;
+    protoOf(UnsafeLazyImpl).p1 = function() {
+        if (this.le_1 === UNINITIALIZED_VALUE_instance) {
+            this.le_1 = ensureNotNull(this.ke_1)();
+            this.ke_1 = null;
         }
-        return this.ne_1;
+        return this.le_1;
     };
-    protoOf(UnsafeLazyImpl).oe = function() {
-        return !(this.ne_1 === UNINITIALIZED_VALUE_instance);
+    protoOf(UnsafeLazyImpl).me = function() {
+        return !(this.le_1 === UNINITIALIZED_VALUE_instance);
     };
     protoOf(UnsafeLazyImpl).toString = function() {
-        return this.oe() ? toString_0(this.q1()) : 'Lazy value not initialized yet.';
+        return this.me() ? toString_0(this.p1()) : 'Lazy value not initialized yet.';
     };
     function UNINITIALIZED_VALUE() {}
     var UNINITIALIZED_VALUE_instance;
@@ -9934,7 +9622,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function Result__exceptionOrNull_impl_p6xea9($this) {
         var tmp;
         if (_Result___get_value__impl__bjfvqg($this) instanceof Failure_0) {
-            tmp = _Result___get_value__impl__bjfvqg($this).pe_1;
+            tmp = _Result___get_value__impl__bjfvqg($this).ne_1;
         } else {
             tmp = null;
         }
@@ -9955,47 +9643,47 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_14;
     }
     function Failure_0(exception) {
-        this.pe_1 = exception;
+        this.ne_1 = exception;
     }
     protoOf(Failure_0).equals = function(other) {
         var tmp;
         if (other instanceof Failure_0) {
-            tmp = equals(this.pe_1, other.pe_1);
+            tmp = equals(this.ne_1, other.ne_1);
         } else {
             tmp = false;
         }
         return tmp;
     };
     protoOf(Failure_0).hashCode = function() {
-        return hashCode_0(this.pe_1);
+        return hashCode_0(this.ne_1);
     };
     protoOf(Failure_0).toString = function() {
-        return 'Failure(' + this.pe_1.toString() + ')';
+        return 'Failure(' + this.ne_1.toString() + ')';
     };
     function Result__hashCode_impl_d2zufp($this) {
         return $this == null ? 0 : hashCode_0($this);
     }
     function Result__equals_impl_bxgmep($this, other) {
         if (!(other instanceof Result)) return false;
-        var tmp0_other_with_cast = other.qe_1;
+        var tmp0_other_with_cast = other.oe_1;
         if (!equals($this, tmp0_other_with_cast)) return false;
         return true;
     }
     function Result(value) {
-        this.qe_1 = value;
+        this.oe_1 = value;
     }
     protoOf(Result).toString = function() {
-        return Result__toString_impl_yu5r8k(this.qe_1);
+        return Result__toString_impl_yu5r8k(this.oe_1);
     };
     protoOf(Result).hashCode = function() {
-        return Result__hashCode_impl_d2zufp(this.qe_1);
+        return Result__hashCode_impl_d2zufp(this.oe_1);
     };
     protoOf(Result).equals = function(other) {
-        return Result__equals_impl_bxgmep(this.qe_1, other);
+        return Result__equals_impl_bxgmep(this.oe_1, other);
     };
     function throwOnFailure(_this__u8e3s4) {
         var tmp = _Result___get_value__impl__bjfvqg(_this__u8e3s4);
-        if (tmp instanceof Failure_0) throw _Result___get_value__impl__bjfvqg(_this__u8e3s4).pe_1;
+        if (tmp instanceof Failure_0) throw _Result___get_value__impl__bjfvqg(_this__u8e3s4).ne_1;
     }
     function createFailure(exception) {
         return new Failure_0(exception);
@@ -10006,80 +9694,49 @@ if (typeof String.prototype.startsWith === 'undefined') {
         captureStack(this, NotImplementedError);
     }
     function Pair(first, second) {
-        this.ua_1 = first;
-        this.va_1 = second;
+        this.ra_1 = first;
+        this.sa_1 = second;
     }
     protoOf(Pair).toString = function() {
-        return '(' + toString_0(this.ua_1) + ', ' + toString_0(this.va_1) + ')';
+        return '(' + toString_0(this.ra_1) + ', ' + toString_0(this.sa_1) + ')';
     };
-    protoOf(Pair).oa = function() {
-        return this.ua_1;
+    protoOf(Pair).wa = function() {
+        return this.ra_1;
     };
-    protoOf(Pair).pa = function() {
-        return this.va_1;
+    protoOf(Pair).xa = function() {
+        return this.sa_1;
     };
     protoOf(Pair).hashCode = function() {
-        var result = this.ua_1 == null ? 0 : hashCode_0(this.ua_1);
-        result = imul(result, 31) + (this.va_1 == null ? 0 : hashCode_0(this.va_1)) | 0;
+        var result = this.ra_1 == null ? 0 : hashCode_0(this.ra_1);
+        result = imul(result, 31) + (this.sa_1 == null ? 0 : hashCode_0(this.sa_1)) | 0;
         return result;
     };
     protoOf(Pair).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof Pair)) return false;
-        if (!equals(this.ua_1, other.ua_1)) return false;
-        if (!equals(this.va_1, other.va_1)) return false;
+        if (!equals(this.ra_1, other.ra_1)) return false;
+        if (!equals(this.sa_1, other.sa_1)) return false;
         return true;
     };
     function to(_this__u8e3s4, that) {
         return new Pair(_this__u8e3s4, that);
     }
-    function Triple(first, second, third) {
-        this.re_1 = first;
-        this.se_1 = second;
-        this.te_1 = third;
-    }
-    protoOf(Triple).toString = function() {
-        return '(' + toString_0(this.re_1) + ', ' + toString_0(this.se_1) + ', ' + toString_0(this.te_1) + ')';
-    };
-    protoOf(Triple).oa = function() {
-        return this.re_1;
-    };
-    protoOf(Triple).pa = function() {
-        return this.se_1;
-    };
-    protoOf(Triple).ue = function() {
-        return this.te_1;
-    };
-    protoOf(Triple).hashCode = function() {
-        var result = this.re_1 == null ? 0 : hashCode_0(this.re_1);
-        result = imul(result, 31) + (this.se_1 == null ? 0 : hashCode_0(this.se_1)) | 0;
-        result = imul(result, 31) + (this.te_1 == null ? 0 : hashCode_0(this.te_1)) | 0;
-        return result;
-    };
-    protoOf(Triple).equals = function(other) {
-        if (this === other) return true;
-        if (!(other instanceof Triple)) return false;
-        if (!equals(this.re_1, other.re_1)) return false;
-        if (!equals(this.se_1, other.se_1)) return false;
-        if (!equals(this.te_1, other.te_1)) return false;
-        return true;
-    };
     function Companion_15() {
         Companion_instance_15 = this;
-        this.ba_1 = new Uuid(new Long(0, 0), new Long(0, 0));
-        this.ca_1 = 16;
-        this.da_1 = 128;
+        this.aa_1 = new Uuid(new Long(0, 0), new Long(0, 0));
+        this.ba_1 = 16;
+        this.ca_1 = 128;
     }
-    protoOf(Companion_15).ea = function(mostSignificantBits, leastSignificantBits) {
+    protoOf(Companion_15).da = function(mostSignificantBits, leastSignificantBits) {
         var tmp;
         if (equalsLong(mostSignificantBits, new Long(0, 0)) && equalsLong(leastSignificantBits, new Long(0, 0))) {
-            tmp = this.ba_1;
+            tmp = this.aa_1;
         } else {
             tmp = new Uuid(mostSignificantBits, leastSignificantBits);
         }
         return tmp;
     };
-    protoOf(Companion_15).ve = function(uuidString) {
+    protoOf(Companion_15).pe = function(uuidString) {
         var tmp;
         switch (uuidString.length) {
           case 36:
@@ -10102,60 +9759,60 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Uuid(mostSignificantBits, leastSignificantBits) {
         Companion_getInstance_15();
-        this.we_1 = mostSignificantBits;
-        this.xe_1 = leastSignificantBits;
+        this.qe_1 = mostSignificantBits;
+        this.re_1 = leastSignificantBits;
     }
     protoOf(Uuid).toString = function() {
-        return this.ye();
+        return this.se();
     };
-    protoOf(Uuid).ye = function() {
+    protoOf(Uuid).se = function() {
         var bytes = new Int8Array(36);
-        formatBytesInto(this.we_1, bytes, 0, 0, 4);
+        formatBytesInto(this.qe_1, bytes, 0, 0, 4);
         var this_0 = _Char___init__impl__6a9atx(45);
         var tmp$ret$0 = Char__toInt_impl_vasixd(this_0);
         bytes[8] = toByte(tmp$ret$0);
-        formatBytesInto(this.we_1, bytes, 9, 4, 6);
+        formatBytesInto(this.qe_1, bytes, 9, 4, 6);
         var this_1 = _Char___init__impl__6a9atx(45);
         var tmp$ret$1 = Char__toInt_impl_vasixd(this_1);
         bytes[13] = toByte(tmp$ret$1);
-        formatBytesInto(this.we_1, bytes, 14, 6, 8);
+        formatBytesInto(this.qe_1, bytes, 14, 6, 8);
         var this_2 = _Char___init__impl__6a9atx(45);
         var tmp$ret$2 = Char__toInt_impl_vasixd(this_2);
         bytes[18] = toByte(tmp$ret$2);
-        formatBytesInto(this.xe_1, bytes, 19, 0, 2);
+        formatBytesInto(this.re_1, bytes, 19, 0, 2);
         var this_3 = _Char___init__impl__6a9atx(45);
         var tmp$ret$3 = Char__toInt_impl_vasixd(this_3);
         bytes[23] = toByte(tmp$ret$3);
-        formatBytesInto(this.xe_1, bytes, 24, 2, 8);
+        formatBytesInto(this.re_1, bytes, 24, 2, 8);
         return decodeToString(bytes);
     };
     protoOf(Uuid).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof Uuid)) return false;
-        return equalsLong(this.we_1, other.we_1) && equalsLong(this.xe_1, other.xe_1);
+        return equalsLong(this.qe_1, other.qe_1) && equalsLong(this.re_1, other.re_1);
     };
-    protoOf(Uuid).ze = function(other) {
+    protoOf(Uuid).te = function(other) {
         var tmp;
-        if (!equalsLong(this.we_1, other.we_1)) {
-            var this_0 = this.we_1;
+        if (!equalsLong(this.qe_1, other.qe_1)) {
+            var this_0 = this.qe_1;
             var tmp0 = _ULong___init__impl__c78o9k(this_0);
-            var this_1 = other.we_1;
+            var this_1 = other.qe_1;
             var other_0 = _ULong___init__impl__c78o9k(this_1);
             tmp = ulongCompare(_ULong___get_data__impl__fggpzb(tmp0), _ULong___get_data__impl__fggpzb(other_0));
         } else {
-            var this_2 = this.xe_1;
+            var this_2 = this.re_1;
             var tmp0_0 = _ULong___init__impl__c78o9k(this_2);
-            var this_3 = other.xe_1;
+            var this_3 = other.re_1;
             var other_1 = _ULong___init__impl__c78o9k(this_3);
             tmp = ulongCompare(_ULong___get_data__impl__fggpzb(tmp0_0), _ULong___get_data__impl__fggpzb(other_1));
         }
         return tmp;
     };
     protoOf(Uuid).d = function(other) {
-        return this.ze(other instanceof Uuid ? other : THROW_CCE());
+        return this.te(other instanceof Uuid ? other : THROW_CCE());
     };
     protoOf(Uuid).hashCode = function() {
-        return bitwiseXor(this.we_1, this.xe_1).hashCode();
+        return bitwiseXor(this.qe_1, this.re_1).hashCode();
     };
     function truncateForErrorMessage_0(_this__u8e3s4, maxLength) {
         return _this__u8e3s4.length <= maxLength ? _this__u8e3s4 : substring(_this__u8e3s4, 0, maxLength) + '...';
@@ -10171,10 +9828,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_16() {
         Companion_instance_16 = this;
-        this.af_1 = _UByte___init__impl__g9hnc4(0);
-        this.bf_1 = _UByte___init__impl__g9hnc4(-1);
-        this.cf_1 = 1;
-        this.df_1 = 8;
+        this.ue_1 = _UByte___init__impl__g9hnc4(0);
+        this.ve_1 = _UByte___init__impl__g9hnc4(-1);
+        this.we_1 = 1;
+        this.xe_1 = 8;
     }
     var Companion_instance_16;
     function Companion_getInstance_16() {
@@ -10187,7 +9844,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return compareTo(tmp, tmp$ret$1);
     }
     function UByte__compareTo_impl_5w5192_0($this, other) {
-        return UByte__compareTo_impl_5w5192($this.ef_1, other instanceof UByte ? other.ef_1 : THROW_CCE());
+        return UByte__compareTo_impl_5w5192($this.ye_1, other instanceof UByte ? other.ye_1 : THROW_CCE());
     }
     function UByte__toString_impl_v72jg($this) {
         return (_UByte___get_data__impl__jof9qr($this) & 255).toString();
@@ -10197,27 +9854,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UByte__equals_impl_nvqtsf($this, other) {
         if (!(other instanceof UByte)) return false;
-        if (!($this === other.ef_1)) return false;
+        if (!($this === other.ye_1)) return false;
         return true;
     }
     function UByte(data) {
         Companion_getInstance_16();
-        this.ef_1 = data;
+        this.ye_1 = data;
     }
-    protoOf(UByte).ff = function(other) {
-        return UByte__compareTo_impl_5w5192(this.ef_1, other);
+    protoOf(UByte).ze = function(other) {
+        return UByte__compareTo_impl_5w5192(this.ye_1, other);
     };
     protoOf(UByte).d = function(other) {
         return UByte__compareTo_impl_5w5192_0(this, other);
     };
     protoOf(UByte).toString = function() {
-        return UByte__toString_impl_v72jg(this.ef_1);
+        return UByte__toString_impl_v72jg(this.ye_1);
     };
     protoOf(UByte).hashCode = function() {
-        return UByte__hashCode_impl_mmczcb(this.ef_1);
+        return UByte__hashCode_impl_mmczcb(this.ye_1);
     };
     protoOf(UByte).equals = function(other) {
-        return UByte__equals_impl_nvqtsf(this.ef_1, other);
+        return UByte__equals_impl_nvqtsf(this.ye_1, other);
     };
     function _UByteArray___init__impl__ip4y9n(storage) {
         return storage;
@@ -10239,36 +9896,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new Iterator(_UByteArray___get_storage__impl__d4kctt($this));
     }
     function Iterator(array) {
-        this.gf_1 = array;
-        this.hf_1 = 0;
+        this.af_1 = array;
+        this.bf_1 = 0;
     }
     protoOf(Iterator).h = function() {
-        return this.hf_1 < this.gf_1.length;
+        return this.bf_1 < this.af_1.length;
     };
-    protoOf(Iterator).if = function() {
+    protoOf(Iterator).cf = function() {
         var tmp;
-        if (this.hf_1 < this.gf_1.length) {
-            var _unary__edvuaz = this.hf_1;
-            this.hf_1 = _unary__edvuaz + 1 | 0;
-            var this_0 = this.gf_1[_unary__edvuaz];
+        if (this.bf_1 < this.af_1.length) {
+            var _unary__edvuaz = this.bf_1;
+            this.bf_1 = _unary__edvuaz + 1 | 0;
+            var this_0 = this.af_1[_unary__edvuaz];
             tmp = _UByte___init__impl__g9hnc4(this_0);
         } else {
-            throw NoSuchElementException_init_$Create$_0(this.hf_1.toString());
+            throw NoSuchElementException_init_$Create$_0(this.bf_1.toString());
         }
         return tmp;
     };
     protoOf(Iterator).i = function() {
-        return new UByte(this.if());
+        return new UByte(this.cf());
     };
-    function UByteArray__contains_impl_njh19q($this, element) {
-        var tmp = _UByteArray___get_storage__impl__d4kctt($this);
-        var tmp$ret$0 = _UByte___get_data__impl__jof9qr(element);
-        return contains_0(tmp, tmp$ret$0);
-    }
-    function UByteArray__contains_impl_njh19q_0($this, element) {
-        if (!(element instanceof UByte)) return false;
-        return UByteArray__contains_impl_njh19q($this.jf_1, element instanceof UByte ? element.ef_1 : THROW_CCE());
-    }
     function UByteArray__isEmpty_impl_nbfqsa($this) {
         return _UByteArray___get_storage__impl__d4kctt($this).length === 0;
     }
@@ -10280,36 +9928,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UByteArray__equals_impl_roka4u($this, other) {
         if (!(other instanceof UByteArray)) return false;
-        var tmp0_other_with_cast = other.jf_1;
+        var tmp0_other_with_cast = other.df_1;
         if (!equals($this, tmp0_other_with_cast)) return false;
         return true;
     }
     function UByteArray(storage) {
-        this.jf_1 = storage;
+        this.df_1 = storage;
     }
     protoOf(UByteArray).j = function() {
-        return _UByteArray___get_size__impl__h6pkdv(this.jf_1);
+        return _UByteArray___get_size__impl__h6pkdv(this.df_1);
     };
     protoOf(UByteArray).g = function() {
-        return UByteArray__iterator_impl_509y1p(this.jf_1);
+        return UByteArray__iterator_impl_509y1p(this.df_1);
     };
-    protoOf(UByteArray).kf = function(element) {
-        return UByteArray__contains_impl_njh19q(this.jf_1, element);
-    };
-    protoOf(UByteArray).m1 = function(element) {
-        return UByteArray__contains_impl_njh19q_0(this, element);
-    };
-    protoOf(UByteArray).k = function() {
-        return UByteArray__isEmpty_impl_nbfqsa(this.jf_1);
+    protoOf(UByteArray).p = function() {
+        return UByteArray__isEmpty_impl_nbfqsa(this.df_1);
     };
     protoOf(UByteArray).toString = function() {
-        return UByteArray__toString_impl_ukpl97(this.jf_1);
+        return UByteArray__toString_impl_ukpl97(this.df_1);
     };
     protoOf(UByteArray).hashCode = function() {
-        return UByteArray__hashCode_impl_ip8jx2(this.jf_1);
+        return UByteArray__hashCode_impl_ip8jx2(this.df_1);
     };
     protoOf(UByteArray).equals = function(other) {
-        return UByteArray__equals_impl_roka4u(this.jf_1, other);
+        return UByteArray__equals_impl_roka4u(this.df_1, other);
     };
     function _UInt___init__impl__l7qpdl(data) {
         return data;
@@ -10319,10 +9961,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_17() {
         Companion_instance_17 = this;
-        this.lf_1 = _UInt___init__impl__l7qpdl(0);
-        this.mf_1 = _UInt___init__impl__l7qpdl(-1);
-        this.nf_1 = 4;
-        this.of_1 = 32;
+        this.ef_1 = _UInt___init__impl__l7qpdl(0);
+        this.ff_1 = _UInt___init__impl__l7qpdl(-1);
+        this.gf_1 = 4;
+        this.hf_1 = 32;
     }
     var Companion_instance_17;
     function Companion_getInstance_17() {
@@ -10333,7 +9975,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return uintCompare(_UInt___get_data__impl__f0vqqw($this), _UInt___get_data__impl__f0vqqw(other));
     }
     function UInt__compareTo_impl_yacclj_0($this, other) {
-        return UInt__compareTo_impl_yacclj($this.pf_1, other instanceof UInt ? other.pf_1 : THROW_CCE());
+        return UInt__compareTo_impl_yacclj($this.if_1, other instanceof UInt ? other.if_1 : THROW_CCE());
     }
     function UInt__toString_impl_dbgl21($this) {
         return (_UInt___get_data__impl__f0vqqw($this) >>> 0).toString();
@@ -10343,27 +9985,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UInt__equals_impl_ffdoxg($this, other) {
         if (!(other instanceof UInt)) return false;
-        if (!($this === other.pf_1)) return false;
+        if (!($this === other.if_1)) return false;
         return true;
     }
     function UInt(data) {
         Companion_getInstance_17();
-        this.pf_1 = data;
+        this.if_1 = data;
     }
-    protoOf(UInt).qf = function(other) {
-        return UInt__compareTo_impl_yacclj(this.pf_1, other);
+    protoOf(UInt).jf = function(other) {
+        return UInt__compareTo_impl_yacclj(this.if_1, other);
     };
     protoOf(UInt).d = function(other) {
         return UInt__compareTo_impl_yacclj_0(this, other);
     };
     protoOf(UInt).toString = function() {
-        return UInt__toString_impl_dbgl21(this.pf_1);
+        return UInt__toString_impl_dbgl21(this.if_1);
     };
     protoOf(UInt).hashCode = function() {
-        return UInt__hashCode_impl_z2mhuw(this.pf_1);
+        return UInt__hashCode_impl_z2mhuw(this.if_1);
     };
     protoOf(UInt).equals = function(other) {
-        return UInt__equals_impl_ffdoxg(this.pf_1, other);
+        return UInt__equals_impl_ffdoxg(this.if_1, other);
     };
     function _UIntArray___init__impl__ghjpc6(storage) {
         return storage;
@@ -10385,36 +10027,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new Iterator_0(_UIntArray___get_storage__impl__92a0v0($this));
     }
     function Iterator_0(array) {
-        this.rf_1 = array;
-        this.sf_1 = 0;
+        this.kf_1 = array;
+        this.lf_1 = 0;
     }
     protoOf(Iterator_0).h = function() {
-        return this.sf_1 < this.rf_1.length;
+        return this.lf_1 < this.kf_1.length;
     };
-    protoOf(Iterator_0).tf = function() {
+    protoOf(Iterator_0).mf = function() {
         var tmp;
-        if (this.sf_1 < this.rf_1.length) {
-            var _unary__edvuaz = this.sf_1;
-            this.sf_1 = _unary__edvuaz + 1 | 0;
-            var this_0 = this.rf_1[_unary__edvuaz];
+        if (this.lf_1 < this.kf_1.length) {
+            var _unary__edvuaz = this.lf_1;
+            this.lf_1 = _unary__edvuaz + 1 | 0;
+            var this_0 = this.kf_1[_unary__edvuaz];
             tmp = _UInt___init__impl__l7qpdl(this_0);
         } else {
-            throw NoSuchElementException_init_$Create$_0(this.sf_1.toString());
+            throw NoSuchElementException_init_$Create$_0(this.lf_1.toString());
         }
         return tmp;
     };
     protoOf(Iterator_0).i = function() {
-        return new UInt(this.tf());
+        return new UInt(this.mf());
     };
-    function UIntArray__contains_impl_b16rzj($this, element) {
-        var tmp = _UIntArray___get_storage__impl__92a0v0($this);
-        var tmp$ret$0 = _UInt___get_data__impl__f0vqqw(element);
-        return contains_1(tmp, tmp$ret$0);
-    }
-    function UIntArray__contains_impl_b16rzj_0($this, element) {
-        if (!(element instanceof UInt)) return false;
-        return UIntArray__contains_impl_b16rzj($this.uf_1, element instanceof UInt ? element.pf_1 : THROW_CCE());
-    }
     function UIntArray__isEmpty_impl_vd8j4n($this) {
         return _UIntArray___get_storage__impl__92a0v0($this).length === 0;
     }
@@ -10426,36 +10059,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UIntArray__equals_impl_flcmof($this, other) {
         if (!(other instanceof UIntArray)) return false;
-        var tmp0_other_with_cast = other.uf_1;
+        var tmp0_other_with_cast = other.nf_1;
         if (!equals($this, tmp0_other_with_cast)) return false;
         return true;
     }
     function UIntArray(storage) {
-        this.uf_1 = storage;
+        this.nf_1 = storage;
     }
     protoOf(UIntArray).j = function() {
-        return _UIntArray___get_size__impl__r6l8ci(this.uf_1);
+        return _UIntArray___get_size__impl__r6l8ci(this.nf_1);
     };
     protoOf(UIntArray).g = function() {
-        return UIntArray__iterator_impl_tkdv7k(this.uf_1);
+        return UIntArray__iterator_impl_tkdv7k(this.nf_1);
     };
-    protoOf(UIntArray).vf = function(element) {
-        return UIntArray__contains_impl_b16rzj(this.uf_1, element);
-    };
-    protoOf(UIntArray).m1 = function(element) {
-        return UIntArray__contains_impl_b16rzj_0(this, element);
-    };
-    protoOf(UIntArray).k = function() {
-        return UIntArray__isEmpty_impl_vd8j4n(this.uf_1);
+    protoOf(UIntArray).p = function() {
+        return UIntArray__isEmpty_impl_vd8j4n(this.nf_1);
     };
     protoOf(UIntArray).toString = function() {
-        return UIntArray__toString_impl_3zy802(this.uf_1);
+        return UIntArray__toString_impl_3zy802(this.nf_1);
     };
     protoOf(UIntArray).hashCode = function() {
-        return UIntArray__hashCode_impl_hr7ost(this.uf_1);
+        return UIntArray__hashCode_impl_hr7ost(this.nf_1);
     };
     protoOf(UIntArray).equals = function(other) {
-        return UIntArray__equals_impl_flcmof(this.uf_1, other);
+        return UIntArray__equals_impl_flcmof(this.nf_1, other);
     };
     function _ULong___init__impl__c78o9k(data) {
         return data;
@@ -10465,10 +10092,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_18() {
         Companion_instance_18 = this;
-        this.wf_1 = _ULong___init__impl__c78o9k(new Long(0, 0));
-        this.xf_1 = _ULong___init__impl__c78o9k(new Long(-1, -1));
-        this.yf_1 = 8;
-        this.zf_1 = 64;
+        this.of_1 = _ULong___init__impl__c78o9k(new Long(0, 0));
+        this.pf_1 = _ULong___init__impl__c78o9k(new Long(-1, -1));
+        this.qf_1 = 8;
+        this.rf_1 = 64;
     }
     var Companion_instance_18;
     function Companion_getInstance_18() {
@@ -10479,7 +10106,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return ulongCompare(_ULong___get_data__impl__fggpzb($this), _ULong___get_data__impl__fggpzb(other));
     }
     function ULong__compareTo_impl_38i7tu_0($this, other) {
-        return ULong__compareTo_impl_38i7tu($this.ag_1, other instanceof ULong ? other.ag_1 : THROW_CCE());
+        return ULong__compareTo_impl_38i7tu($this.sf_1, other instanceof ULong ? other.sf_1 : THROW_CCE());
     }
     function ULong__toString_impl_f9au7k($this) {
         var value = _ULong___get_data__impl__fggpzb($this);
@@ -10490,28 +10117,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ULong__equals_impl_o0gnyb($this, other) {
         if (!(other instanceof ULong)) return false;
-        var tmp0_other_with_cast = other.ag_1;
+        var tmp0_other_with_cast = other.sf_1;
         if (!equalsLong($this, tmp0_other_with_cast)) return false;
         return true;
     }
     function ULong(data) {
         Companion_getInstance_18();
-        this.ag_1 = data;
+        this.sf_1 = data;
     }
-    protoOf(ULong).bg = function(other) {
-        return ULong__compareTo_impl_38i7tu(this.ag_1, other);
+    protoOf(ULong).tf = function(other) {
+        return ULong__compareTo_impl_38i7tu(this.sf_1, other);
     };
     protoOf(ULong).d = function(other) {
         return ULong__compareTo_impl_38i7tu_0(this, other);
     };
     protoOf(ULong).toString = function() {
-        return ULong__toString_impl_f9au7k(this.ag_1);
+        return ULong__toString_impl_f9au7k(this.sf_1);
     };
     protoOf(ULong).hashCode = function() {
-        return ULong__hashCode_impl_6hv2lb(this.ag_1);
+        return ULong__hashCode_impl_6hv2lb(this.sf_1);
     };
     protoOf(ULong).equals = function(other) {
-        return ULong__equals_impl_o0gnyb(this.ag_1, other);
+        return ULong__equals_impl_o0gnyb(this.sf_1, other);
     };
     function _ULongArray___init__impl__twm1l3(storage) {
         return storage;
@@ -10533,36 +10160,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new Iterator_1(_ULongArray___get_storage__impl__28e64j($this));
     }
     function Iterator_1(array) {
-        this.cg_1 = array;
-        this.dg_1 = 0;
+        this.uf_1 = array;
+        this.vf_1 = 0;
     }
     protoOf(Iterator_1).h = function() {
-        return this.dg_1 < this.cg_1.length;
+        return this.vf_1 < this.uf_1.length;
     };
-    protoOf(Iterator_1).eg = function() {
+    protoOf(Iterator_1).wf = function() {
         var tmp;
-        if (this.dg_1 < this.cg_1.length) {
-            var _unary__edvuaz = this.dg_1;
-            this.dg_1 = _unary__edvuaz + 1 | 0;
-            var this_0 = this.cg_1[_unary__edvuaz];
+        if (this.vf_1 < this.uf_1.length) {
+            var _unary__edvuaz = this.vf_1;
+            this.vf_1 = _unary__edvuaz + 1 | 0;
+            var this_0 = this.uf_1[_unary__edvuaz];
             tmp = _ULong___init__impl__c78o9k(this_0);
         } else {
-            throw NoSuchElementException_init_$Create$_0(this.dg_1.toString());
+            throw NoSuchElementException_init_$Create$_0(this.vf_1.toString());
         }
         return tmp;
     };
     protoOf(Iterator_1).i = function() {
-        return new ULong(this.eg());
+        return new ULong(this.wf());
     };
-    function ULongArray__contains_impl_v9bgai($this, element) {
-        var tmp = _ULongArray___get_storage__impl__28e64j($this);
-        var tmp$ret$0 = _ULong___get_data__impl__fggpzb(element);
-        return contains_2(tmp, tmp$ret$0);
-    }
-    function ULongArray__contains_impl_v9bgai_0($this, element) {
-        if (!(element instanceof ULong)) return false;
-        return ULongArray__contains_impl_v9bgai($this.fg_1, element instanceof ULong ? element.ag_1 : THROW_CCE());
-    }
     function ULongArray__isEmpty_impl_c3yngu($this) {
         return _ULongArray___get_storage__impl__28e64j($this).length === 0;
     }
@@ -10574,36 +10192,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ULongArray__equals_impl_vwitwa($this, other) {
         if (!(other instanceof ULongArray)) return false;
-        var tmp0_other_with_cast = other.fg_1;
+        var tmp0_other_with_cast = other.xf_1;
         if (!equals($this, tmp0_other_with_cast)) return false;
         return true;
     }
     function ULongArray(storage) {
-        this.fg_1 = storage;
+        this.xf_1 = storage;
     }
     protoOf(ULongArray).j = function() {
-        return _ULongArray___get_size__impl__ju6dtr(this.fg_1);
+        return _ULongArray___get_size__impl__ju6dtr(this.xf_1);
     };
     protoOf(ULongArray).g = function() {
-        return ULongArray__iterator_impl_cq4d2h(this.fg_1);
+        return ULongArray__iterator_impl_cq4d2h(this.xf_1);
     };
-    protoOf(ULongArray).gg = function(element) {
-        return ULongArray__contains_impl_v9bgai(this.fg_1, element);
-    };
-    protoOf(ULongArray).m1 = function(element) {
-        return ULongArray__contains_impl_v9bgai_0(this, element);
-    };
-    protoOf(ULongArray).k = function() {
-        return ULongArray__isEmpty_impl_c3yngu(this.fg_1);
+    protoOf(ULongArray).p = function() {
+        return ULongArray__isEmpty_impl_c3yngu(this.xf_1);
     };
     protoOf(ULongArray).toString = function() {
-        return ULongArray__toString_impl_wqk1p5(this.fg_1);
+        return ULongArray__toString_impl_wqk1p5(this.xf_1);
     };
     protoOf(ULongArray).hashCode = function() {
-        return ULongArray__hashCode_impl_aze4wa(this.fg_1);
+        return ULongArray__hashCode_impl_aze4wa(this.xf_1);
     };
     protoOf(ULongArray).equals = function(other) {
-        return ULongArray__equals_impl_vwitwa(this.fg_1, other);
+        return ULongArray__equals_impl_vwitwa(this.xf_1, other);
     };
     function _UShort___init__impl__jigrne(data) {
         return data;
@@ -10613,10 +10225,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_19() {
         Companion_instance_19 = this;
-        this.hg_1 = _UShort___init__impl__jigrne(0);
-        this.ig_1 = _UShort___init__impl__jigrne(-1);
-        this.jg_1 = 2;
-        this.kg_1 = 16;
+        this.yf_1 = _UShort___init__impl__jigrne(0);
+        this.zf_1 = _UShort___init__impl__jigrne(-1);
+        this.ag_1 = 2;
+        this.bg_1 = 16;
     }
     var Companion_instance_19;
     function Companion_getInstance_19() {
@@ -10629,7 +10241,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return compareTo(tmp, tmp$ret$1);
     }
     function UShort__compareTo_impl_1pfgyc_0($this, other) {
-        return UShort__compareTo_impl_1pfgyc($this.lg_1, other instanceof UShort ? other.lg_1 : THROW_CCE());
+        return UShort__compareTo_impl_1pfgyc($this.cg_1, other instanceof UShort ? other.cg_1 : THROW_CCE());
     }
     function UShort__toString_impl_edaoee($this) {
         return (_UShort___get_data__impl__g0245($this) & 65535).toString();
@@ -10639,27 +10251,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UShort__equals_impl_7t9pdz($this, other) {
         if (!(other instanceof UShort)) return false;
-        if (!($this === other.lg_1)) return false;
+        if (!($this === other.cg_1)) return false;
         return true;
     }
     function UShort(data) {
         Companion_getInstance_19();
-        this.lg_1 = data;
+        this.cg_1 = data;
     }
-    protoOf(UShort).mg = function(other) {
-        return UShort__compareTo_impl_1pfgyc(this.lg_1, other);
+    protoOf(UShort).dg = function(other) {
+        return UShort__compareTo_impl_1pfgyc(this.cg_1, other);
     };
     protoOf(UShort).d = function(other) {
         return UShort__compareTo_impl_1pfgyc_0(this, other);
     };
     protoOf(UShort).toString = function() {
-        return UShort__toString_impl_edaoee(this.lg_1);
+        return UShort__toString_impl_edaoee(this.cg_1);
     };
     protoOf(UShort).hashCode = function() {
-        return UShort__hashCode_impl_ywngrv(this.lg_1);
+        return UShort__hashCode_impl_ywngrv(this.cg_1);
     };
     protoOf(UShort).equals = function(other) {
-        return UShort__equals_impl_7t9pdz(this.lg_1, other);
+        return UShort__equals_impl_7t9pdz(this.cg_1, other);
     };
     function _UShortArray___init__impl__9b26ef(storage) {
         return storage;
@@ -10681,36 +10293,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new Iterator_2(_UShortArray___get_storage__impl__t2jpv5($this));
     }
     function Iterator_2(array) {
-        this.ng_1 = array;
-        this.og_1 = 0;
+        this.eg_1 = array;
+        this.fg_1 = 0;
     }
     protoOf(Iterator_2).h = function() {
-        return this.og_1 < this.ng_1.length;
+        return this.fg_1 < this.eg_1.length;
     };
-    protoOf(Iterator_2).pg = function() {
+    protoOf(Iterator_2).gg = function() {
         var tmp;
-        if (this.og_1 < this.ng_1.length) {
-            var _unary__edvuaz = this.og_1;
-            this.og_1 = _unary__edvuaz + 1 | 0;
-            var this_0 = this.ng_1[_unary__edvuaz];
+        if (this.fg_1 < this.eg_1.length) {
+            var _unary__edvuaz = this.fg_1;
+            this.fg_1 = _unary__edvuaz + 1 | 0;
+            var this_0 = this.eg_1[_unary__edvuaz];
             tmp = _UShort___init__impl__jigrne(this_0);
         } else {
-            throw NoSuchElementException_init_$Create$_0(this.og_1.toString());
+            throw NoSuchElementException_init_$Create$_0(this.fg_1.toString());
         }
         return tmp;
     };
     protoOf(Iterator_2).i = function() {
-        return new UShort(this.pg());
+        return new UShort(this.gg());
     };
-    function UShortArray__contains_impl_vo7k3g($this, element) {
-        var tmp = _UShortArray___get_storage__impl__t2jpv5($this);
-        var tmp$ret$0 = _UShort___get_data__impl__g0245(element);
-        return contains_3(tmp, tmp$ret$0);
-    }
-    function UShortArray__contains_impl_vo7k3g_0($this, element) {
-        if (!(element instanceof UShort)) return false;
-        return UShortArray__contains_impl_vo7k3g($this.qg_1, element instanceof UShort ? element.lg_1 : THROW_CCE());
-    }
     function UShortArray__isEmpty_impl_cdd9l0($this) {
         return _UShortArray___get_storage__impl__t2jpv5($this).length === 0;
     }
@@ -10722,36 +10325,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UShortArray__equals_impl_tyc3mk($this, other) {
         if (!(other instanceof UShortArray)) return false;
-        var tmp0_other_with_cast = other.qg_1;
+        var tmp0_other_with_cast = other.hg_1;
         if (!equals($this, tmp0_other_with_cast)) return false;
         return true;
     }
     function UShortArray(storage) {
-        this.qg_1 = storage;
+        this.hg_1 = storage;
     }
     protoOf(UShortArray).j = function() {
-        return _UShortArray___get_size__impl__jqto1b(this.qg_1);
+        return _UShortArray___get_size__impl__jqto1b(this.hg_1);
     };
     protoOf(UShortArray).g = function() {
-        return UShortArray__iterator_impl_ktpenn(this.qg_1);
+        return UShortArray__iterator_impl_ktpenn(this.hg_1);
     };
-    protoOf(UShortArray).rg = function(element) {
-        return UShortArray__contains_impl_vo7k3g(this.qg_1, element);
-    };
-    protoOf(UShortArray).m1 = function(element) {
-        return UShortArray__contains_impl_vo7k3g_0(this, element);
-    };
-    protoOf(UShortArray).k = function() {
-        return UShortArray__isEmpty_impl_cdd9l0(this.qg_1);
+    protoOf(UShortArray).p = function() {
+        return UShortArray__isEmpty_impl_cdd9l0(this.hg_1);
     };
     protoOf(UShortArray).toString = function() {
-        return UShortArray__toString_impl_omz03z(this.qg_1);
+        return UShortArray__toString_impl_omz03z(this.hg_1);
     };
     protoOf(UShortArray).hashCode = function() {
-        return UShortArray__hashCode_impl_2vt3b4(this.qg_1);
+        return UShortArray__hashCode_impl_2vt3b4(this.hg_1);
     };
     protoOf(UShortArray).equals = function(other) {
-        return UShortArray__equals_impl_tyc3mk(this.qg_1, other);
+        return UShortArray__equals_impl_tyc3mk(this.hg_1, other);
     };
     function toULongOrNull(_this__u8e3s4) {
         return toULongOrNull_0(_this__u8e3s4, 10);
@@ -10973,11 +10570,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function MissingFieldException(message, cause, missingFields, serialName) {
         SerializationException_init_$Init$_1(message, cause, this);
         captureStack(this, MissingFieldException);
-        this.ug_1 = missingFields;
-        this.vg_1 = serialName;
+        this.kg_1 = missingFields;
+        this.lg_1 = serialName;
     }
-    protoOf(MissingFieldException).wg = function(newMessage) {
-        return new MissingFieldException(newMessage, this, this.ug_1, this.vg_1);
+    protoOf(MissingFieldException).mg = function(newMessage) {
+        return new MissingFieldException(newMessage, this, this.kg_1, this.lg_1);
     };
     function serializer(_this__u8e3s4) {
         return StringSerializer_getInstance();
@@ -11082,18 +10679,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (tmp0_safe_receiver == null) {
             tmp = null;
         } else {
-            var tmp0_safe_receiver_0 = _this__u8e3s4.xg(tmp0_safe_receiver);
-            tmp = tmp0_safe_receiver_0 == null ? null : tmp0_safe_receiver_0.sg();
+            var tmp0_safe_receiver_0 = _this__u8e3s4.ng(tmp0_safe_receiver);
+            tmp = tmp0_safe_receiver_0 == null ? null : tmp0_safe_receiver_0.ig();
         }
         return tmp;
     }
     function get_capturedKClass(_this__u8e3s4) {
         var tmp;
         if (_this__u8e3s4 instanceof ContextDescriptor) {
-            tmp = _this__u8e3s4.zg_1;
+            tmp = _this__u8e3s4.pg_1;
         } else {
             if (_this__u8e3s4 instanceof SerialDescriptorForNullable) {
-                tmp = get_capturedKClass(_this__u8e3s4.yg_1);
+                tmp = get_capturedKClass(_this__u8e3s4.og_1);
             } else {
                 tmp = null;
             }
@@ -11105,23 +10702,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new elementDescriptors$$inlined$Iterable$1(_this__u8e3s4);
     }
     function elementDescriptors$1($this_elementDescriptors) {
-        this.mh_1 = $this_elementDescriptors;
-        this.lh_1 = $this_elementDescriptors.eh();
+        this.ch_1 = $this_elementDescriptors;
+        this.bh_1 = $this_elementDescriptors.ug();
     }
     protoOf(elementDescriptors$1).h = function() {
-        return this.lh_1 > 0;
+        return this.bh_1 > 0;
     };
     protoOf(elementDescriptors$1).i = function() {
-        var tmp = this.mh_1.eh();
-        var _unary__edvuaz = this.lh_1;
-        this.lh_1 = _unary__edvuaz - 1 | 0;
-        return this.mh_1.jh(tmp - _unary__edvuaz | 0);
+        var tmp = this.ch_1.ug();
+        var _unary__edvuaz = this.bh_1;
+        this.bh_1 = _unary__edvuaz - 1 | 0;
+        return this.ch_1.zg(tmp - _unary__edvuaz | 0);
     };
     function elementDescriptors$$inlined$Iterable$1($this_elementDescriptors) {
-        this.nh_1 = $this_elementDescriptors;
+        this.dh_1 = $this_elementDescriptors;
     }
     protoOf(elementDescriptors$$inlined$Iterable$1).g = function() {
-        return new elementDescriptors$1(this.nh_1);
+        return new elementDescriptors$1(this.dh_1);
     };
     function buildSerialDescriptor(serialName, kind, typeParameters, builder) {
         var tmp;
@@ -11141,49 +10738,49 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var sdBuilder = new ClassSerialDescriptorBuilder(serialName);
         builder(sdBuilder);
-        return new SerialDescriptorImpl(serialName, kind, sdBuilder.rh_1.j(), toList(typeParameters), sdBuilder);
+        return new SerialDescriptorImpl(serialName, kind, sdBuilder.hh_1.j(), toList(typeParameters), sdBuilder);
     }
     function ClassSerialDescriptorBuilder(serialName) {
-        this.oh_1 = serialName;
-        this.ph_1 = false;
-        this.qh_1 = emptyList();
-        this.rh_1 = ArrayList_init_$Create$();
-        this.sh_1 = HashSet_init_$Create$();
-        this.th_1 = ArrayList_init_$Create$();
-        this.uh_1 = ArrayList_init_$Create$();
-        this.vh_1 = ArrayList_init_$Create$();
+        this.eh_1 = serialName;
+        this.fh_1 = false;
+        this.gh_1 = emptyList();
+        this.hh_1 = ArrayList_init_$Create$();
+        this.ih_1 = HashSet_init_$Create$();
+        this.jh_1 = ArrayList_init_$Create$();
+        this.kh_1 = ArrayList_init_$Create$();
+        this.lh_1 = ArrayList_init_$Create$();
     }
-    protoOf(ClassSerialDescriptorBuilder).wh = function(elementName, descriptor, annotations, isOptional) {
-        if (!this.sh_1.f(elementName)) {
-            var message = "Element with name '" + elementName + "' is already registered in " + this.oh_1;
+    protoOf(ClassSerialDescriptorBuilder).mh = function(elementName, descriptor, annotations, isOptional) {
+        if (!this.ih_1.f(elementName)) {
+            var message = "Element with name '" + elementName + "' is already registered in " + this.eh_1;
             throw IllegalArgumentException_init_$Create$_0(toString_1(message));
         }
-        this.rh_1.f(elementName);
-        this.th_1.f(descriptor);
-        this.uh_1.f(annotations);
-        this.vh_1.f(isOptional);
+        this.hh_1.f(elementName);
+        this.jh_1.f(descriptor);
+        this.kh_1.f(annotations);
+        this.lh_1.f(isOptional);
     };
-    protoOf(ClassSerialDescriptorBuilder).xh = function(elementName, descriptor, annotations, isOptional, $super) {
+    protoOf(ClassSerialDescriptorBuilder).nh = function(elementName, descriptor, annotations, isOptional, $super) {
         annotations = annotations === VOID ? emptyList() : annotations;
         isOptional = isOptional === VOID ? false : isOptional;
         var tmp;
         if ($super === VOID) {
-            this.wh(elementName, descriptor, annotations, isOptional);
+            this.mh(elementName, descriptor, annotations, isOptional);
             tmp = Unit_instance;
         } else {
-            tmp = $super.wh.call(this, elementName, descriptor, annotations, isOptional);
+            tmp = $super.mh.call(this, elementName, descriptor, annotations, isOptional);
         }
         return tmp;
     };
     function _get__hashCode__tgwhef($this) {
-        var tmp0 = $this.ji_1;
+        var tmp0 = $this.zh_1;
         var tmp = KProperty1;
         getPropertyCallableRef('_hashCode', 1, tmp, SerialDescriptorImpl$_get__hashCode_$ref_2v7wzp(), null);
-        return tmp0.q1();
+        return tmp0.p1();
     }
     function SerialDescriptorImpl$_hashCode$delegate$lambda(this$0) {
         return function() {
-            return hashCodeImpl(this$0, this$0.ii_1);
+            return hashCodeImpl(this$0, this$0.yh_1);
         };
     }
     function SerialDescriptorImpl$_get__hashCode_$ref_2v7wzp() {
@@ -11192,60 +10789,60 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }), 1, 0, 0);
     }
     function SerialDescriptorImpl(serialName, kind, elementsCount, typeParameters, builder) {
-        this.yh_1 = serialName;
-        this.zh_1 = kind;
-        this.ai_1 = elementsCount;
-        this.bi_1 = builder.qh_1;
-        this.ci_1 = toHashSet(builder.rh_1);
+        this.oh_1 = serialName;
+        this.ph_1 = kind;
+        this.qh_1 = elementsCount;
+        this.rh_1 = builder.gh_1;
+        this.sh_1 = toHashSet(builder.hh_1);
         var tmp = this;
-        var this_0 = builder.rh_1;
-        tmp.di_1 = copyToArray(this_0);
-        this.ei_1 = compactArray(builder.th_1);
+        var this_0 = builder.hh_1;
+        tmp.th_1 = copyToArray(this_0);
+        this.uh_1 = compactArray(builder.jh_1);
         var tmp_0 = this;
-        var this_1 = builder.uh_1;
-        tmp_0.fi_1 = copyToArray(this_1);
-        this.gi_1 = toBooleanArray(builder.vh_1);
+        var this_1 = builder.kh_1;
+        tmp_0.vh_1 = copyToArray(this_1);
+        this.wh_1 = toBooleanArray(builder.lh_1);
         var tmp_1 = this;
-        var this_2 = withIndex(this.di_1);
+        var this_2 = withIndex(this.th_1);
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_2, 10));
         var _iterator__ex2g4s = this_2.g();
         while (_iterator__ex2g4s.h()) {
             var item = _iterator__ex2g4s.i();
-            var tmp$ret$4 = to(item.na_1, item.ma_1);
+            var tmp$ret$4 = to(item.ma_1, item.la_1);
             destination.f(tmp$ret$4);
         }
-        tmp_1.hi_1 = toMap(destination);
-        this.ii_1 = compactArray(typeParameters);
+        tmp_1.xh_1 = toMap(destination);
+        this.yh_1 = compactArray(typeParameters);
         var tmp_2 = this;
-        tmp_2.ji_1 = lazy_0(SerialDescriptorImpl$_hashCode$delegate$lambda(this));
+        tmp_2.zh_1 = lazy_0(SerialDescriptorImpl$_hashCode$delegate$lambda(this));
     }
-    protoOf(SerialDescriptorImpl).ah = function() {
-        return this.yh_1;
+    protoOf(SerialDescriptorImpl).qg = function() {
+        return this.oh_1;
     };
-    protoOf(SerialDescriptorImpl).bh = function() {
-        return this.zh_1;
+    protoOf(SerialDescriptorImpl).rg = function() {
+        return this.ph_1;
     };
-    protoOf(SerialDescriptorImpl).eh = function() {
-        return this.ai_1;
+    protoOf(SerialDescriptorImpl).ug = function() {
+        return this.qh_1;
     };
-    protoOf(SerialDescriptorImpl).fh = function() {
-        return this.bi_1;
+    protoOf(SerialDescriptorImpl).vg = function() {
+        return this.rh_1;
     };
-    protoOf(SerialDescriptorImpl).gh = function(index) {
-        return getChecked(this.di_1, index);
+    protoOf(SerialDescriptorImpl).wg = function(index) {
+        return getChecked(this.th_1, index);
     };
-    protoOf(SerialDescriptorImpl).hh = function(name) {
-        var tmp0_elvis_lhs = this.hi_1.t1(name);
+    protoOf(SerialDescriptorImpl).xg = function(name) {
+        var tmp0_elvis_lhs = this.xh_1.s1(name);
         return tmp0_elvis_lhs == null ? -3 : tmp0_elvis_lhs;
     };
-    protoOf(SerialDescriptorImpl).ih = function(index) {
-        return getChecked(this.fi_1, index);
+    protoOf(SerialDescriptorImpl).yg = function(index) {
+        return getChecked(this.vh_1, index);
     };
-    protoOf(SerialDescriptorImpl).jh = function(index) {
-        return getChecked(this.ei_1, index);
+    protoOf(SerialDescriptorImpl).zg = function(index) {
+        return getChecked(this.uh_1, index);
     };
-    protoOf(SerialDescriptorImpl).kh = function(index) {
-        return getChecked_0(this.gi_1, index);
+    protoOf(SerialDescriptorImpl).ah = function(index) {
+        return getChecked_0(this.wh_1, index);
     };
     protoOf(SerialDescriptorImpl).equals = function(other) {
         var tmp$ret$0;
@@ -11258,28 +10855,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!(this.ah() === other.ah())) {
+            if (!(this.qg() === other.qg())) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!contentEquals(this.ii_1, other.ii_1)) {
+            if (!contentEquals(this.yh_1, other.yh_1)) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!(this.eh() === other.eh())) {
+            if (!(this.ug() === other.ug())) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
             var inductionVariable = 0;
-            var last = this.eh();
+            var last = this.ug();
             if (inductionVariable < last) do {
                 var index = inductionVariable;
                 inductionVariable = inductionVariable + 1 | 0;
-                if (!(this.jh(index).ah() === other.jh(index).ah())) {
+                if (!(this.zg(index).qg() === other.zg(index).qg())) {
                     tmp$ret$0 = false;
                     break $l$block_5;
                 }
-                if (!equals(this.jh(index).bh(), other.jh(index).bh())) {
+                if (!equals(this.zg(index).rg(), other.zg(index).rg())) {
                     tmp$ret$0 = false;
                     break $l$block_5;
                 }
@@ -11324,7 +10921,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function SerialKind() {}
     protoOf(SerialKind).toString = function() {
-        return ensureNotNull(getKClassFromExpression(this).k8());
+        return ensureNotNull(getKClassFromExpression(this).j8());
     };
     protoOf(SerialKind).hashCode = function() {
         return getStringHashCode(this.toString());
@@ -11465,105 +11062,105 @@ if (typeof String.prototype.startsWith === 'undefined') {
         SerialKind.call(this);
     }
     function AbstractDecoder() {}
-    protoOf(AbstractDecoder).ki = function() {
+    protoOf(AbstractDecoder).ai = function() {
         throw SerializationException_init_$Create$_0(toString_1(getKClassFromExpression(this)) + " can't retrieve untyped values");
     };
-    protoOf(AbstractDecoder).li = function() {
+    protoOf(AbstractDecoder).bi = function() {
         return true;
     };
-    protoOf(AbstractDecoder).mi = function() {
+    protoOf(AbstractDecoder).ci = function() {
         return null;
     };
-    protoOf(AbstractDecoder).ni = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).di = function() {
+        var tmp = this.ai();
         return typeof tmp === 'boolean' ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).oi = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).ei = function() {
+        var tmp = this.ai();
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).pi = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).fi = function() {
+        var tmp = this.ai();
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).qi = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).gi = function() {
+        var tmp = this.ai();
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).ri = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).hi = function() {
+        var tmp = this.ai();
         return tmp instanceof Long ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).si = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).ii = function() {
+        var tmp = this.ai();
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).ti = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).ji = function() {
+        var tmp = this.ai();
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).ui = function() {
-        var tmp = this.ki();
-        return tmp instanceof Char ? tmp.a1_1 : THROW_CCE();
+    protoOf(AbstractDecoder).ki = function() {
+        var tmp = this.ai();
+        return tmp instanceof Char ? tmp.z_1 : THROW_CCE();
     };
-    protoOf(AbstractDecoder).vi = function() {
-        var tmp = this.ki();
+    protoOf(AbstractDecoder).li = function() {
+        var tmp = this.ai();
         return typeof tmp === 'string' ? tmp : THROW_CCE();
     };
-    protoOf(AbstractDecoder).wi = function(descriptor) {
+    protoOf(AbstractDecoder).mi = function(descriptor) {
         return this;
     };
-    protoOf(AbstractDecoder).xi = function(deserializer, previousValue) {
-        return this.yi(deserializer);
+    protoOf(AbstractDecoder).ni = function(deserializer, previousValue) {
+        return this.oi(deserializer);
     };
-    protoOf(AbstractDecoder).zi = function(descriptor) {
+    protoOf(AbstractDecoder).pi = function(descriptor) {
         return this;
     };
-    protoOf(AbstractDecoder).aj = function(descriptor) {};
-    protoOf(AbstractDecoder).bj = function(descriptor, index) {
-        return this.ni();
+    protoOf(AbstractDecoder).qi = function(descriptor) {};
+    protoOf(AbstractDecoder).ri = function(descriptor, index) {
+        return this.di();
     };
-    protoOf(AbstractDecoder).cj = function(descriptor, index) {
-        return this.oi();
+    protoOf(AbstractDecoder).si = function(descriptor, index) {
+        return this.ei();
     };
-    protoOf(AbstractDecoder).dj = function(descriptor, index) {
-        return this.pi();
+    protoOf(AbstractDecoder).ti = function(descriptor, index) {
+        return this.fi();
     };
-    protoOf(AbstractDecoder).ej = function(descriptor, index) {
-        return this.qi();
+    protoOf(AbstractDecoder).ui = function(descriptor, index) {
+        return this.gi();
     };
-    protoOf(AbstractDecoder).fj = function(descriptor, index) {
-        return this.ri();
+    protoOf(AbstractDecoder).vi = function(descriptor, index) {
+        return this.hi();
     };
-    protoOf(AbstractDecoder).gj = function(descriptor, index) {
-        return this.si();
+    protoOf(AbstractDecoder).wi = function(descriptor, index) {
+        return this.ii();
     };
-    protoOf(AbstractDecoder).hj = function(descriptor, index) {
-        return this.ti();
+    protoOf(AbstractDecoder).xi = function(descriptor, index) {
+        return this.ji();
     };
-    protoOf(AbstractDecoder).ij = function(descriptor, index) {
-        return this.ui();
+    protoOf(AbstractDecoder).yi = function(descriptor, index) {
+        return this.ki();
     };
-    protoOf(AbstractDecoder).jj = function(descriptor, index) {
-        return this.wi(descriptor.jh(index));
+    protoOf(AbstractDecoder).zi = function(descriptor, index) {
+        return this.mi(descriptor.zg(index));
     };
-    protoOf(AbstractDecoder).kj = function(descriptor, index, deserializer, previousValue) {
-        return this.xi(deserializer, previousValue);
+    protoOf(AbstractDecoder).aj = function(descriptor, index, deserializer, previousValue) {
+        return this.ni(deserializer, previousValue);
     };
     function Decoder() {}
     function CompositeDecoder() {}
     function AbstractPolymorphicSerializer() {}
-    protoOf(AbstractPolymorphicSerializer).rj = function(decoder, klassName) {
-        return decoder.mj().sj(this.qj(), klassName);
+    protoOf(AbstractPolymorphicSerializer).hj = function(decoder, klassName) {
+        return decoder.cj().ij(this.gj(), klassName);
     };
     function NothingSerializer_0() {
         NothingSerializer_instance = this;
-        this.tj_1 = NothingSerialDescriptor_getInstance();
+        this.jj_1 = NothingSerialDescriptor_getInstance();
     }
-    protoOf(NothingSerializer_0).sg = function() {
-        return this.tj_1;
+    protoOf(NothingSerializer_0).ig = function() {
+        return this.jj_1;
     };
-    protoOf(NothingSerializer_0).tg = function(decoder) {
+    protoOf(NothingSerializer_0).jg = function(decoder) {
         throw SerializationException_init_$Create$_0("'kotlin.Nothing' does not have instances");
     };
     var NothingSerializer_instance;
@@ -11573,16 +11170,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function DurationSerializer() {
         DurationSerializer_instance = this;
-        this.uj_1 = new PrimitiveSerialDescriptor_0('kotlin.time.Duration', STRING_getInstance());
+        this.kj_1 = new PrimitiveSerialDescriptor_0('kotlin.time.Duration', STRING_getInstance());
     }
-    protoOf(DurationSerializer).sg = function() {
-        return this.uj_1;
+    protoOf(DurationSerializer).ig = function() {
+        return this.kj_1;
     };
-    protoOf(DurationSerializer).vj = function(decoder) {
-        return Companion_getInstance_10().bd(decoder.vi());
+    protoOf(DurationSerializer).lj = function(decoder) {
+        return Companion_getInstance_10().zc(decoder.li());
     };
-    protoOf(DurationSerializer).tg = function(decoder) {
-        return new Duration(this.vj(decoder));
+    protoOf(DurationSerializer).jg = function(decoder) {
+        return new Duration(this.lj(decoder));
     };
     var DurationSerializer_instance;
     function DurationSerializer_getInstance() {
@@ -11591,13 +11188,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function InstantSerializer() {
         InstantSerializer_instance = this;
-        this.wj_1 = new PrimitiveSerialDescriptor_0('kotlin.time.Instant', STRING_getInstance());
+        this.mj_1 = new PrimitiveSerialDescriptor_0('kotlin.time.Instant', STRING_getInstance());
     }
-    protoOf(InstantSerializer).sg = function() {
-        return this.wj_1;
+    protoOf(InstantSerializer).ig = function() {
+        return this.mj_1;
     };
-    protoOf(InstantSerializer).tg = function(decoder) {
-        return Companion_getInstance_12().nd(decoder.vi());
+    protoOf(InstantSerializer).jg = function(decoder) {
+        return Companion_getInstance_12().ld(decoder.li());
     };
     var InstantSerializer_instance;
     function InstantSerializer_getInstance() {
@@ -11606,13 +11203,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UuidSerializer() {
         UuidSerializer_instance = this;
-        this.xj_1 = new PrimitiveSerialDescriptor_0('kotlin.uuid.Uuid', STRING_getInstance());
+        this.nj_1 = new PrimitiveSerialDescriptor_0('kotlin.uuid.Uuid', STRING_getInstance());
     }
-    protoOf(UuidSerializer).sg = function() {
-        return this.xj_1;
+    protoOf(UuidSerializer).ig = function() {
+        return this.nj_1;
     };
-    protoOf(UuidSerializer).tg = function(decoder) {
-        return Companion_getInstance_15().ve(decoder.vi());
+    protoOf(UuidSerializer).jg = function(decoder) {
+        return Companion_getInstance_15().pe(decoder.li());
     };
     var UuidSerializer_instance;
     function UuidSerializer_getInstance() {
@@ -11622,27 +11219,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function ArrayListClassDesc(elementDesc) {
         ListLikeDescriptor.call(this, elementDesc);
     }
-    protoOf(ArrayListClassDesc).ah = function() {
+    protoOf(ArrayListClassDesc).qg = function() {
         return 'kotlin.collections.ArrayList';
     };
     function LinkedHashMapClassDesc(keyDesc, valueDesc) {
         MapLikeDescriptor.call(this, 'kotlin.collections.LinkedHashMap', keyDesc, valueDesc);
     }
     function ListLikeDescriptor(elementDescriptor) {
-        this.ak_1 = elementDescriptor;
-        this.bk_1 = 1;
+        this.qj_1 = elementDescriptor;
+        this.rj_1 = 1;
     }
-    protoOf(ListLikeDescriptor).bh = function() {
+    protoOf(ListLikeDescriptor).rg = function() {
         return LIST_getInstance();
     };
-    protoOf(ListLikeDescriptor).eh = function() {
-        return this.bk_1;
+    protoOf(ListLikeDescriptor).ug = function() {
+        return this.rj_1;
     };
-    protoOf(ListLikeDescriptor).gh = function(index) {
-        requireNonNegativeIndex(index, this.ah());
+    protoOf(ListLikeDescriptor).wg = function(index) {
+        requireNonNegativeIndex(index, this.qg());
         return index.toString();
     };
-    protoOf(ListLikeDescriptor).hh = function(name) {
+    protoOf(ListLikeDescriptor).xg = function(name) {
         var tmp0_safe_receiver = toIntOrNull(name);
         var tmp;
         if (tmp0_safe_receiver == null) {
@@ -11659,50 +11256,50 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_elvis_lhs = tmp;
         return tmp1_elvis_lhs == null ? -3 : tmp1_elvis_lhs;
     };
-    protoOf(ListLikeDescriptor).kh = function(index) {
-        requireNonNegativeIndex(index, this.ah());
+    protoOf(ListLikeDescriptor).ah = function(index) {
+        requireNonNegativeIndex(index, this.qg());
         return false;
     };
-    protoOf(ListLikeDescriptor).ih = function(index) {
-        requireNonNegativeIndex(index, this.ah());
+    protoOf(ListLikeDescriptor).yg = function(index) {
+        requireNonNegativeIndex(index, this.qg());
         return emptyList();
     };
-    protoOf(ListLikeDescriptor).jh = function(index) {
-        requireNonNegativeIndex(index, this.ah());
-        return this.ak_1;
+    protoOf(ListLikeDescriptor).zg = function(index) {
+        requireNonNegativeIndex(index, this.qg());
+        return this.qj_1;
     };
     protoOf(ListLikeDescriptor).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof ListLikeDescriptor)) return false;
-        if (equals(this.ak_1, other.ak_1) && this.ah() === other.ah()) return true;
+        if (equals(this.qj_1, other.qj_1) && this.qg() === other.qg()) return true;
         return false;
     };
     protoOf(ListLikeDescriptor).hashCode = function() {
-        return imul(hashCode_0(this.ak_1), 31) + getStringHashCode(this.ah()) | 0;
+        return imul(hashCode_0(this.qj_1), 31) + getStringHashCode(this.qg()) | 0;
     };
     protoOf(ListLikeDescriptor).toString = function() {
-        return this.ah() + '(' + toString_1(this.ak_1) + ')';
+        return this.qg() + '(' + toString_1(this.qj_1) + ')';
     };
     function MapLikeDescriptor(serialName, keyDescriptor, valueDescriptor) {
-        this.ck_1 = serialName;
-        this.dk_1 = keyDescriptor;
-        this.ek_1 = valueDescriptor;
-        this.fk_1 = 2;
+        this.sj_1 = serialName;
+        this.tj_1 = keyDescriptor;
+        this.uj_1 = valueDescriptor;
+        this.vj_1 = 2;
     }
-    protoOf(MapLikeDescriptor).ah = function() {
-        return this.ck_1;
+    protoOf(MapLikeDescriptor).qg = function() {
+        return this.sj_1;
     };
-    protoOf(MapLikeDescriptor).bh = function() {
+    protoOf(MapLikeDescriptor).rg = function() {
         return MAP_getInstance();
     };
-    protoOf(MapLikeDescriptor).eh = function() {
-        return this.fk_1;
+    protoOf(MapLikeDescriptor).ug = function() {
+        return this.vj_1;
     };
-    protoOf(MapLikeDescriptor).gh = function(index) {
-        requireNonNegativeIndex(index, this.ah());
+    protoOf(MapLikeDescriptor).wg = function(index) {
+        requireNonNegativeIndex(index, this.qg());
         return index.toString();
     };
-    protoOf(MapLikeDescriptor).hh = function(name) {
+    protoOf(MapLikeDescriptor).xg = function(name) {
         var tmp0_safe_receiver = toIntOrNull(name);
         var tmp;
         if (tmp0_safe_receiver == null) {
@@ -11719,24 +11316,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_elvis_lhs = tmp;
         return tmp1_elvis_lhs == null ? -3 : tmp1_elvis_lhs;
     };
-    protoOf(MapLikeDescriptor).kh = function(index) {
-        requireNonNegativeIndex(index, this.ah());
+    protoOf(MapLikeDescriptor).ah = function(index) {
+        requireNonNegativeIndex(index, this.qg());
         return false;
     };
-    protoOf(MapLikeDescriptor).ih = function(index) {
-        requireNonNegativeIndex(index, this.ah());
+    protoOf(MapLikeDescriptor).yg = function(index) {
+        requireNonNegativeIndex(index, this.qg());
         return emptyList();
     };
-    protoOf(MapLikeDescriptor).jh = function(index) {
-        requireNonNegativeIndex(index, this.ah());
+    protoOf(MapLikeDescriptor).zg = function(index) {
+        requireNonNegativeIndex(index, this.qg());
         var tmp;
         switch (index % 2 | 0) {
           case 0:
-            tmp = this.dk_1;
+            tmp = this.tj_1;
             break;
 
           case 1:
-            tmp = this.ek_1;
+            tmp = this.uj_1;
             break;
 
           default:
@@ -11748,150 +11345,150 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(MapLikeDescriptor).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof MapLikeDescriptor)) return false;
-        if (!(this.ah() === other.ah())) return false;
-        if (!equals(this.dk_1, other.dk_1)) return false;
-        if (!equals(this.ek_1, other.ek_1)) return false;
+        if (!(this.qg() === other.qg())) return false;
+        if (!equals(this.tj_1, other.tj_1)) return false;
+        if (!equals(this.uj_1, other.uj_1)) return false;
         return true;
     };
     protoOf(MapLikeDescriptor).hashCode = function() {
-        var result = getStringHashCode(this.ah());
-        result = imul(31, result) + hashCode_0(this.dk_1) | 0;
-        result = imul(31, result) + hashCode_0(this.ek_1) | 0;
+        var result = getStringHashCode(this.qg());
+        result = imul(31, result) + hashCode_0(this.tj_1) | 0;
+        result = imul(31, result) + hashCode_0(this.uj_1) | 0;
         return result;
     };
     protoOf(MapLikeDescriptor).toString = function() {
-        return this.ah() + '(' + toString_1(this.dk_1) + ', ' + toString_1(this.ek_1) + ')';
+        return this.qg() + '(' + toString_1(this.tj_1) + ', ' + toString_1(this.uj_1) + ')';
     };
     function requireNonNegativeIndex(index, name) {
         if (index < 0) throw IndexOutOfBoundsException_init_$Create$_0('Illegal index ' + index + ', ' + name + ' expects only non-negative indices');
     }
     function PrimitiveArrayDescriptor(primitive) {
         ListLikeDescriptor.call(this, primitive);
-        this.ik_1 = primitive.ah() + 'Array';
+        this.yj_1 = primitive.qg() + 'Array';
     }
-    protoOf(PrimitiveArrayDescriptor).ah = function() {
-        return this.ik_1;
+    protoOf(PrimitiveArrayDescriptor).qg = function() {
+        return this.yj_1;
     };
     function ArrayListSerializer(element) {
         CollectionSerializer.call(this, element);
-        this.kk_1 = new ArrayListClassDesc(element.sg());
+        this.ak_1 = new ArrayListClassDesc(element.ig());
     }
-    protoOf(ArrayListSerializer).sg = function() {
-        return this.kk_1;
+    protoOf(ArrayListSerializer).ig = function() {
+        return this.ak_1;
     };
-    protoOf(ArrayListSerializer).lk = function(initialCapacityHint) {
+    protoOf(ArrayListSerializer).bk = function(initialCapacityHint) {
         if (initialCapacityHint === -1) {
             return ArrayList_init_$Create$();
         }
         return ArrayList_init_$Create$_0(initialCapacityHint);
     };
-    protoOf(ArrayListSerializer).mk = function(_this__u8e3s4) {
+    protoOf(ArrayListSerializer).ck = function(_this__u8e3s4) {
         return _this__u8e3s4.j();
     };
-    protoOf(ArrayListSerializer).nk = function(_this__u8e3s4) {
-        return this.mk(_this__u8e3s4 instanceof ArrayList ? _this__u8e3s4 : THROW_CCE());
+    protoOf(ArrayListSerializer).dk = function(_this__u8e3s4) {
+        return this.ck(_this__u8e3s4 instanceof ArrayList ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(ArrayListSerializer).ok = function(_this__u8e3s4) {
+    protoOf(ArrayListSerializer).ek = function(_this__u8e3s4) {
         return _this__u8e3s4;
     };
-    protoOf(ArrayListSerializer).pk = function(_this__u8e3s4) {
-        return this.ok(_this__u8e3s4 instanceof ArrayList ? _this__u8e3s4 : THROW_CCE());
+    protoOf(ArrayListSerializer).fk = function(_this__u8e3s4) {
+        return this.ek(_this__u8e3s4 instanceof ArrayList ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(ArrayListSerializer).qk = function(_this__u8e3s4, expectedSize) {
+    protoOf(ArrayListSerializer).gk = function(_this__u8e3s4, expectedSize) {
         if (_this__u8e3s4 instanceof ArrayList) {
-            _this__u8e3s4.e4(expectedSize);
+            _this__u8e3s4.d4(expectedSize);
             return _this__u8e3s4;
         }
         if (expectedSize === _this__u8e3s4.j()) return ArrayList_init_$Create$_1(_this__u8e3s4);
         var this_0 = ArrayList_init_$Create$_0(expectedSize);
-        this_0.q(_this__u8e3s4);
+        this_0.o(_this__u8e3s4);
         return this_0;
     };
-    protoOf(ArrayListSerializer).rk = function(_this__u8e3s4, expectedSize) {
-        return this.qk((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, KtList) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(ArrayListSerializer).hk = function(_this__u8e3s4, expectedSize) {
+        return this.gk((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, KtList) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(ArrayListSerializer).sk = function(_this__u8e3s4, index, element) {
-        _this__u8e3s4.l3(index, element);
+    protoOf(ArrayListSerializer).ik = function(_this__u8e3s4, index, element) {
+        _this__u8e3s4.j3(index, element);
     };
-    protoOf(ArrayListSerializer).tk = function(_this__u8e3s4, index, element) {
-        return this.sk(_this__u8e3s4 instanceof ArrayList ? _this__u8e3s4 : THROW_CCE(), index, element);
+    protoOf(ArrayListSerializer).jk = function(_this__u8e3s4, index, element) {
+        return this.ik(_this__u8e3s4 instanceof ArrayList ? _this__u8e3s4 : THROW_CCE(), index, element);
     };
     function LinkedHashMapSerializer(kSerializer, vSerializer) {
         MapLikeSerializer.call(this, kSerializer, vSerializer);
-        this.dl_1 = new LinkedHashMapClassDesc(kSerializer.sg(), vSerializer.sg());
+        this.tk_1 = new LinkedHashMapClassDesc(kSerializer.ig(), vSerializer.ig());
     }
-    protoOf(LinkedHashMapSerializer).sg = function() {
-        return this.dl_1;
+    protoOf(LinkedHashMapSerializer).ig = function() {
+        return this.tk_1;
     };
-    protoOf(LinkedHashMapSerializer).el = function(_this__u8e3s4) {
+    protoOf(LinkedHashMapSerializer).uk = function(_this__u8e3s4) {
         return _this__u8e3s4.j();
     };
-    protoOf(LinkedHashMapSerializer).fl = function(_this__u8e3s4) {
-        return this.el((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, KtMap) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(LinkedHashMapSerializer).vk = function(_this__u8e3s4) {
+        return this.uk((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, KtMap) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(LinkedHashMapSerializer).lk = function(initialCapacityHint) {
+    protoOf(LinkedHashMapSerializer).bk = function(initialCapacityHint) {
         if (initialCapacityHint === -1) return LinkedHashMap_init_$Create$();
         return newLinkedHashMap(initialCapacityHint);
     };
-    protoOf(LinkedHashMapSerializer).gl = function(_this__u8e3s4) {
+    protoOf(LinkedHashMapSerializer).wk = function(_this__u8e3s4) {
         return imul(_this__u8e3s4.j(), 2);
     };
-    protoOf(LinkedHashMapSerializer).nk = function(_this__u8e3s4) {
-        return this.gl(_this__u8e3s4 instanceof LinkedHashMap ? _this__u8e3s4 : THROW_CCE());
+    protoOf(LinkedHashMapSerializer).dk = function(_this__u8e3s4) {
+        return this.wk(_this__u8e3s4 instanceof LinkedHashMap ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(LinkedHashMapSerializer).hl = function(_this__u8e3s4) {
+    protoOf(LinkedHashMapSerializer).xk = function(_this__u8e3s4) {
         return _this__u8e3s4;
     };
-    protoOf(LinkedHashMapSerializer).pk = function(_this__u8e3s4) {
-        return this.hl(_this__u8e3s4 instanceof LinkedHashMap ? _this__u8e3s4 : THROW_CCE());
+    protoOf(LinkedHashMapSerializer).fk = function(_this__u8e3s4) {
+        return this.xk(_this__u8e3s4 instanceof LinkedHashMap ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(LinkedHashMapSerializer).il = function(_this__u8e3s4, expectedSize) {
+    protoOf(LinkedHashMapSerializer).yk = function(_this__u8e3s4, expectedSize) {
         if (_this__u8e3s4 instanceof LinkedHashMap) return _this__u8e3s4;
         if (expectedSize <= _this__u8e3s4.j()) return LinkedHashMap_init_$Create$_1(_this__u8e3s4);
         var this_0 = newLinkedHashMap(expectedSize);
-        this_0.z1(_this__u8e3s4);
+        this_0.y1(_this__u8e3s4);
         return this_0;
     };
-    protoOf(LinkedHashMapSerializer).rk = function(_this__u8e3s4, expectedSize) {
-        return this.il((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, KtMap) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(LinkedHashMapSerializer).hk = function(_this__u8e3s4, expectedSize) {
+        return this.yk((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, KtMap) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
     function CollectionSerializer(element) {
         CollectionLikeSerializer.call(this, element);
     }
-    protoOf(CollectionSerializer).vk = function(_this__u8e3s4) {
+    protoOf(CollectionSerializer).lk = function(_this__u8e3s4) {
         return _this__u8e3s4.j();
     };
-    protoOf(CollectionSerializer).fl = function(_this__u8e3s4) {
-        return this.vk((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, Collection) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(CollectionSerializer).vk = function(_this__u8e3s4) {
+        return this.lk((!(_this__u8e3s4 == null) ? isInterface(_this__u8e3s4, Collection) : false) ? _this__u8e3s4 : THROW_CCE());
     };
     function MapLikeSerializer(keySerializer, valueSerializer) {
         AbstractCollectionSerializer.call(this);
-        this.jl_1 = keySerializer;
-        this.kl_1 = valueSerializer;
+        this.zk_1 = keySerializer;
+        this.al_1 = valueSerializer;
     }
-    protoOf(MapLikeSerializer).ll = function(decoder, builder, startIndex, size) {
+    protoOf(MapLikeSerializer).bl = function(decoder, builder, startIndex, size) {
         if (!(size >= 0)) {
             var message = 'Size must be known in advance when using READ_ALL';
             throw IllegalArgumentException_init_$Create$_0(toString_1(message));
         }
         var progression = step(until(0, imul(size, 2)), 2);
-        var inductionVariable = progression.w_1;
-        var last = progression.x_1;
-        var step_0 = progression.y_1;
+        var inductionVariable = progression.v_1;
+        var last = progression.w_1;
+        var step_0 = progression.x_1;
         if (step_0 > 0 && inductionVariable <= last || step_0 < 0 && last <= inductionVariable) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + step_0 | 0;
-            this.ml(decoder, startIndex + index | 0, builder, false);
+            this.cl(decoder, startIndex + index | 0, builder, false);
         } while (!(index === last));
     };
-    protoOf(MapLikeSerializer).xk = function(decoder, builder, startIndex, size) {
-        return this.ll(decoder, (!(builder == null) ? isInterface(builder, KtMutableMap) : false) ? builder : THROW_CCE(), startIndex, size);
+    protoOf(MapLikeSerializer).nk = function(decoder, builder, startIndex, size) {
+        return this.bl(decoder, (!(builder == null) ? isInterface(builder, KtMutableMap) : false) ? builder : THROW_CCE(), startIndex, size);
     };
-    protoOf(MapLikeSerializer).ml = function(decoder, index, builder, checkIndex) {
-        var key = decoder.lj(this.sg(), index, this.jl_1);
+    protoOf(MapLikeSerializer).cl = function(decoder, index, builder, checkIndex) {
+        var key = decoder.bj(this.ig(), index, this.zk_1);
         var tmp;
         if (checkIndex) {
-            var this_0 = decoder.oj(this.sg());
+            var this_0 = decoder.ej(this.ig());
             if (!(this_0 === (index + 1 | 0))) {
                 var message = 'Value must follow key in a map, index for key: ' + index + ', returned index for value: ' + this_0;
                 throw IllegalArgumentException_init_$Create$_0(toString_1(message));
@@ -11903,22 +11500,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var vIndex = tmp;
         var tmp_0;
         var tmp_1;
-        if (builder.r1(key)) {
-            var tmp_2 = this.kl_1.sg().bh();
+        if (builder.q1(key)) {
+            var tmp_2 = this.al_1.ig().rg();
             tmp_1 = !(tmp_2 instanceof PrimitiveKind);
         } else {
             tmp_1 = false;
         }
         if (tmp_1) {
-            tmp_0 = decoder.kj(this.sg(), vIndex, this.kl_1, getValue(builder, key));
+            tmp_0 = decoder.aj(this.ig(), vIndex, this.al_1, getValue(builder, key));
         } else {
-            tmp_0 = decoder.lj(this.sg(), vIndex, this.kl_1);
+            tmp_0 = decoder.bj(this.ig(), vIndex, this.al_1);
         }
         var value = tmp_0;
-        builder.x1(key, value);
+        builder.w1(key, value);
     };
-    protoOf(MapLikeSerializer).yk = function(decoder, index, builder, checkIndex) {
-        return this.ml(decoder, index, (!(builder == null) ? isInterface(builder, KtMutableMap) : false) ? builder : THROW_CCE(), checkIndex);
+    protoOf(MapLikeSerializer).ok = function(decoder, index, builder, checkIndex) {
+        return this.cl(decoder, index, (!(builder == null) ? isInterface(builder, KtMutableMap) : false) ? builder : THROW_CCE(), checkIndex);
     };
     function newLinkedHashMap(expectedCapacity) {
         var capacity = estimateCapacityForHashMap(expectedCapacity);
@@ -11926,9 +11523,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function CollectionLikeSerializer(elementSerializer) {
         AbstractCollectionSerializer.call(this);
-        this.wk_1 = elementSerializer;
+        this.mk_1 = elementSerializer;
     }
-    protoOf(CollectionLikeSerializer).xk = function(decoder, builder, startIndex, size) {
+    protoOf(CollectionLikeSerializer).nk = function(decoder, builder, startIndex, size) {
         if (!(size >= 0)) {
             var message = 'Size must be known in advance when using READ_ALL';
             throw IllegalArgumentException_init_$Create$_0(toString_1(message));
@@ -11937,102 +11534,102 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (inductionVariable < size) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            this.yk(decoder, startIndex + index | 0, builder, false);
+            this.ok(decoder, startIndex + index | 0, builder, false);
         } while (inductionVariable < size);
     };
-    protoOf(CollectionLikeSerializer).yk = function(decoder, index, builder, checkIndex) {
-        this.tk(builder, index, decoder.lj(this.sg(), index, this.wk_1));
+    protoOf(CollectionLikeSerializer).ok = function(decoder, index, builder, checkIndex) {
+        this.jk(builder, index, decoder.bj(this.ig(), index, this.mk_1));
     };
     function AbstractCollectionSerializer() {}
-    protoOf(AbstractCollectionSerializer).al = function(decoder, previous) {
-        var compositeDecoder = decoder.zi(this.sg());
-        var expectedSize = compositeDecoder.pj(this.sg());
+    protoOf(AbstractCollectionSerializer).qk = function(decoder, previous) {
+        var compositeDecoder = decoder.pi(this.ig());
+        var expectedSize = compositeDecoder.fj(this.ig());
         if (!(expectedSize >= -1)) {
             var message = 'Decoded collection size should be either non-negative, or -1 (meaning, unknown). Was: ' + expectedSize;
             throw IllegalArgumentException_init_$Create$_0(toString_1(message));
         }
         var tmp;
         if (!(previous == null)) {
-            tmp = this.rk(previous, this.fl(previous) + coerceAtLeast(expectedSize, 0) | 0);
+            tmp = this.hk(previous, this.vk(previous) + coerceAtLeast(expectedSize, 0) | 0);
         } else {
-            tmp = this.lk(expectedSize);
+            tmp = this.bk(expectedSize);
         }
         var builder = tmp;
-        var startIndex = this.nk(builder);
-        if (compositeDecoder.nj()) {
-            this.xk(compositeDecoder, builder, startIndex, expectedSize);
+        var startIndex = this.dk(builder);
+        if (compositeDecoder.dj()) {
+            this.nk(compositeDecoder, builder, startIndex, expectedSize);
         } else {
             $l$loop: while (true) {
-                var index = compositeDecoder.oj(this.sg());
+                var index = compositeDecoder.ej(this.ig());
                 if (index === -1) break $l$loop;
-                this.zk(compositeDecoder, startIndex + index | 0, builder);
+                this.pk(compositeDecoder, startIndex + index | 0, builder);
             }
         }
-        compositeDecoder.aj(this.sg());
-        return this.pk(builder);
+        compositeDecoder.qi(this.ig());
+        return this.fk(builder);
     };
-    protoOf(AbstractCollectionSerializer).tg = function(decoder) {
-        return this.al(decoder, null);
+    protoOf(AbstractCollectionSerializer).jg = function(decoder) {
+        return this.qk(decoder, null);
     };
-    protoOf(AbstractCollectionSerializer).zk = function(decoder, index, builder, checkIndex, $super) {
+    protoOf(AbstractCollectionSerializer).pk = function(decoder, index, builder, checkIndex, $super) {
         checkIndex = checkIndex === VOID ? true : checkIndex;
         var tmp;
         if ($super === VOID) {
-            this.yk(decoder, index, builder, checkIndex);
+            this.ok(decoder, index, builder, checkIndex);
             tmp = Unit_instance;
         } else {
-            tmp = $super.yk.call(this, decoder, index, builder, checkIndex);
+            tmp = $super.ok.call(this, decoder, index, builder, checkIndex);
         }
         return tmp;
     };
     function PrimitiveArraySerializer(primitiveSerializer) {
         CollectionLikeSerializer.call(this, primitiveSerializer);
-        this.ol_1 = new PrimitiveArrayDescriptor(primitiveSerializer.sg());
+        this.el_1 = new PrimitiveArrayDescriptor(primitiveSerializer.ig());
     }
-    protoOf(PrimitiveArraySerializer).sg = function() {
-        return this.ol_1;
+    protoOf(PrimitiveArraySerializer).ig = function() {
+        return this.el_1;
     };
-    protoOf(PrimitiveArraySerializer).pl = function(_this__u8e3s4) {
-        return _this__u8e3s4.ql();
+    protoOf(PrimitiveArraySerializer).fl = function(_this__u8e3s4) {
+        return _this__u8e3s4.gl();
     };
-    protoOf(PrimitiveArraySerializer).nk = function(_this__u8e3s4) {
-        return this.pl(_this__u8e3s4 instanceof PrimitiveArrayBuilder ? _this__u8e3s4 : THROW_CCE());
+    protoOf(PrimitiveArraySerializer).dk = function(_this__u8e3s4) {
+        return this.fl(_this__u8e3s4 instanceof PrimitiveArrayBuilder ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(PrimitiveArraySerializer).rl = function(_this__u8e3s4) {
-        return _this__u8e3s4.sl();
+    protoOf(PrimitiveArraySerializer).hl = function(_this__u8e3s4) {
+        return _this__u8e3s4.il();
     };
-    protoOf(PrimitiveArraySerializer).pk = function(_this__u8e3s4) {
-        return this.rl(_this__u8e3s4 instanceof PrimitiveArrayBuilder ? _this__u8e3s4 : THROW_CCE());
+    protoOf(PrimitiveArraySerializer).fk = function(_this__u8e3s4) {
+        return this.hl(_this__u8e3s4 instanceof PrimitiveArrayBuilder ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(PrimitiveArraySerializer).tl = function(_this__u8e3s4, index, element) {
+    protoOf(PrimitiveArraySerializer).jl = function(_this__u8e3s4, index, element) {
         var message = 'This method lead to boxing and must not be used, use Builder.append instead';
         throw IllegalStateException_init_$Create$_0(toString_1(message));
     };
-    protoOf(PrimitiveArraySerializer).tk = function(_this__u8e3s4, index, element) {
-        return this.tl(_this__u8e3s4 instanceof PrimitiveArrayBuilder ? _this__u8e3s4 : THROW_CCE(), index, element);
+    protoOf(PrimitiveArraySerializer).jk = function(_this__u8e3s4, index, element) {
+        return this.jl(_this__u8e3s4 instanceof PrimitiveArrayBuilder ? _this__u8e3s4 : THROW_CCE(), index, element);
     };
-    protoOf(PrimitiveArraySerializer).lk = function(initialCapacityHint) {
-        if (initialCapacityHint === -1) return this.ul();
-        return this.vl(initialCapacityHint);
+    protoOf(PrimitiveArraySerializer).bk = function(initialCapacityHint) {
+        if (initialCapacityHint === -1) return this.kl();
+        return this.ll(initialCapacityHint);
     };
-    protoOf(PrimitiveArraySerializer).tg = function(decoder) {
-        return this.al(decoder, null);
+    protoOf(PrimitiveArraySerializer).jg = function(decoder) {
+        return this.qk(decoder, null);
     };
     function PrimitiveArrayBuilder() {}
-    protoOf(PrimitiveArrayBuilder).yl = function(requiredCapacity, $super) {
-        requiredCapacity = requiredCapacity === VOID ? this.ql() + 1 | 0 : requiredCapacity;
+    protoOf(PrimitiveArrayBuilder).ol = function(requiredCapacity, $super) {
+        requiredCapacity = requiredCapacity === VOID ? this.gl() + 1 | 0 : requiredCapacity;
         var tmp;
         if ($super === VOID) {
-            this.xl(requiredCapacity);
+            this.nl(requiredCapacity);
             tmp = Unit_instance;
         } else {
-            tmp = $super.xl.call(this, requiredCapacity);
+            tmp = $super.nl.call(this, requiredCapacity);
         }
         return tmp;
     };
     function Companion_20() {
         Companion_instance_20 = this;
-        this.zl_1 = longArray(0);
+        this.pl_1 = longArray(0);
     }
     var Companion_instance_20;
     function Companion_getInstance_20() {
@@ -12044,41 +11641,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var elementsInLastSlot = elementsCount & 63;
         var highMarks = longArray(slotsCount);
         if (!(elementsInLastSlot === 0)) {
-            highMarks[get_lastIndex_1(highMarks)] = shiftLeft(new Long(-1, -1), elementsCount);
+            highMarks[get_lastIndex_0(highMarks)] = shiftLeft(new Long(-1, -1), elementsCount);
         }
         return highMarks;
     }
     function markHigh($this, index) {
         var slot = (index >>> 6 | 0) - 1 | 0;
         var offsetInSlot = index & 63;
-        $this.dm_1[slot] = bitwiseOr($this.dm_1[slot], shiftLeft(new Long(1, 0), offsetInSlot));
+        $this.tl_1[slot] = bitwiseOr($this.tl_1[slot], shiftLeft(new Long(1, 0), offsetInSlot));
     }
     function nextUnmarkedHighIndex($this) {
         var inductionVariable = 0;
-        var last = $this.dm_1.length - 1 | 0;
+        var last = $this.tl_1.length - 1 | 0;
         if (inductionVariable <= last) do {
             var slot = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var slotOffset = imul(slot + 1 | 0, 64);
-            var slotMarks = $this.dm_1[slot];
+            var slotMarks = $this.tl_1[slot];
             while (!equalsLong(slotMarks, new Long(-1, -1))) {
                 var indexInSlot = countTrailingZeroBits(invert(slotMarks));
                 slotMarks = bitwiseOr(slotMarks, shiftLeft(new Long(1, 0), indexInSlot));
                 var index = slotOffset + indexInSlot | 0;
-                if ($this.bm_1($this.am_1, index)) {
-                    $this.dm_1[slot] = slotMarks;
+                if ($this.rl_1($this.ql_1, index)) {
+                    $this.tl_1[slot] = slotMarks;
                     return index;
                 }
             }
-            $this.dm_1[slot] = slotMarks;
+            $this.tl_1[slot] = slotMarks;
         } while (inductionVariable <= last);
         return -1;
     }
     function ElementMarker(descriptor, readIfAbsent) {
         Companion_getInstance_20();
-        this.am_1 = descriptor;
-        this.bm_1 = readIfAbsent;
-        var elementsCount = this.am_1.eh();
+        this.ql_1 = descriptor;
+        this.rl_1 = readIfAbsent;
+        var elementsCount = this.ql_1.ug();
         if (elementsCount <= 64) {
             var tmp = this;
             var tmp_0;
@@ -12087,26 +11684,26 @@ if (typeof String.prototype.startsWith === 'undefined') {
             } else {
                 tmp_0 = shiftLeft(new Long(-1, -1), elementsCount);
             }
-            tmp.cm_1 = tmp_0;
-            this.dm_1 = Companion_getInstance_20().zl_1;
+            tmp.sl_1 = tmp_0;
+            this.tl_1 = Companion_getInstance_20().pl_1;
         } else {
-            this.cm_1 = new Long(0, 0);
-            this.dm_1 = prepareHighMarksArray(this, elementsCount);
+            this.sl_1 = new Long(0, 0);
+            this.tl_1 = prepareHighMarksArray(this, elementsCount);
         }
     }
-    protoOf(ElementMarker).em = function(index) {
+    protoOf(ElementMarker).ul = function(index) {
         if (index < 64) {
-            this.cm_1 = bitwiseOr(this.cm_1, shiftLeft(new Long(1, 0), index));
+            this.sl_1 = bitwiseOr(this.sl_1, shiftLeft(new Long(1, 0), index));
         } else {
             markHigh(this, index);
         }
     };
-    protoOf(ElementMarker).fm = function() {
-        var elementsCount = this.am_1.eh();
-        while (!equalsLong(this.cm_1, new Long(-1, -1))) {
-            var index = countTrailingZeroBits(invert(this.cm_1));
-            this.cm_1 = bitwiseOr(this.cm_1, shiftLeft(new Long(1, 0), index));
-            if (this.bm_1(this.am_1, index)) {
+    protoOf(ElementMarker).vl = function() {
+        var elementsCount = this.ql_1.ug();
+        while (!equalsLong(this.sl_1, new Long(-1, -1))) {
+            var index = countTrailingZeroBits(invert(this.sl_1));
+            this.sl_1 = bitwiseOr(this.sl_1, shiftLeft(new Long(1, 0), index));
+            if (this.rl_1(this.ql_1, index)) {
                 return index;
             }
         }
@@ -12120,10 +11717,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function InlineClassDescriptor(name, generatedSerializer) {
         PluginGeneratedSerialDescriptor.call(this, name, generatedSerializer, 1);
-        this.sm_1 = true;
+        this.im_1 = true;
     }
-    protoOf(InlineClassDescriptor).dh = function() {
-        return this.sm_1;
+    protoOf(InlineClassDescriptor).tg = function() {
+        return this.im_1;
     };
     protoOf(InlineClassDescriptor).hashCode = function() {
         return imul(protoOf(PluginGeneratedSerialDescriptor).hashCode.call(this), 31);
@@ -12139,28 +11736,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!(this.ah() === other.ah())) {
+            if (!(this.qg() === other.qg())) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!(other.sm_1 && contentEquals(this.fn(), other.fn()))) {
+            if (!(other.im_1 && contentEquals(this.vm(), other.vm()))) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!(this.eh() === other.eh())) {
+            if (!(this.ug() === other.ug())) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
             var inductionVariable = 0;
-            var last = this.eh();
+            var last = this.ug();
             if (inductionVariable < last) do {
                 var index = inductionVariable;
                 inductionVariable = inductionVariable + 1 | 0;
-                if (!(this.jh(index).ah() === other.jh(index).ah())) {
+                if (!(this.zg(index).qg() === other.zg(index).qg())) {
                     tmp$ret$0 = false;
                     break $l$block_5;
                 }
-                if (!equals(this.jh(index).bh(), other.jh(index).bh())) {
+                if (!equals(this.zg(index).rg(), other.zg(index).rg())) {
                     tmp$ret$0 = false;
                     break $l$block_5;
                 }
@@ -12170,52 +11767,52 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp$ret$0;
     };
     function InlinePrimitiveDescriptor$1($primitiveSerializer) {
-        this.gn_1 = $primitiveSerializer;
+        this.wm_1 = $primitiveSerializer;
     }
-    protoOf(InlinePrimitiveDescriptor$1).hn = function() {
-        return [ this.gn_1 ];
+    protoOf(InlinePrimitiveDescriptor$1).xm = function() {
+        return [ this.wm_1 ];
     };
-    protoOf(InlinePrimitiveDescriptor$1).sg = function() {
+    protoOf(InlinePrimitiveDescriptor$1).ig = function() {
         var message = 'unsupported';
         throw IllegalStateException_init_$Create$_0(toString_1(message));
     };
-    protoOf(InlinePrimitiveDescriptor$1).tg = function(decoder) {
+    protoOf(InlinePrimitiveDescriptor$1).jg = function(decoder) {
         var message = 'unsupported';
         throw IllegalStateException_init_$Create$_0(toString_1(message));
     };
     function missingFieldExceptionWithNewMessage(exception, message) {
-        return exception.wg(message);
+        return exception.mg(message);
     }
     function error($this) {
         throw IllegalStateException_init_$Create$_0('Descriptor for type `kotlin.Nothing` does not have elements');
     }
     function NothingSerialDescriptor() {
         NothingSerialDescriptor_instance = this;
-        this.jn_1 = OBJECT_getInstance();
-        this.kn_1 = 'kotlin.Nothing';
+        this.zm_1 = OBJECT_getInstance();
+        this.an_1 = 'kotlin.Nothing';
     }
-    protoOf(NothingSerialDescriptor).bh = function() {
-        return this.jn_1;
+    protoOf(NothingSerialDescriptor).rg = function() {
+        return this.zm_1;
     };
-    protoOf(NothingSerialDescriptor).ah = function() {
-        return this.kn_1;
+    protoOf(NothingSerialDescriptor).qg = function() {
+        return this.an_1;
     };
-    protoOf(NothingSerialDescriptor).eh = function() {
+    protoOf(NothingSerialDescriptor).ug = function() {
         return 0;
     };
-    protoOf(NothingSerialDescriptor).gh = function(index) {
+    protoOf(NothingSerialDescriptor).wg = function(index) {
         error(this);
     };
-    protoOf(NothingSerialDescriptor).hh = function(name) {
+    protoOf(NothingSerialDescriptor).xg = function(name) {
         error(this);
     };
-    protoOf(NothingSerialDescriptor).kh = function(index) {
+    protoOf(NothingSerialDescriptor).ah = function(index) {
         error(this);
     };
-    protoOf(NothingSerialDescriptor).jh = function(index) {
+    protoOf(NothingSerialDescriptor).zg = function(index) {
         error(this);
     };
-    protoOf(NothingSerialDescriptor).ih = function(index) {
+    protoOf(NothingSerialDescriptor).yg = function(index) {
         error(this);
     };
     protoOf(NothingSerialDescriptor).toString = function() {
@@ -12225,7 +11822,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return this === other;
     };
     protoOf(NothingSerialDescriptor).hashCode = function() {
-        return getStringHashCode(this.kn_1) + imul(31, this.jn_1.hashCode()) | 0;
+        return getStringHashCode(this.an_1) + imul(31, this.zm_1.hashCode()) | 0;
     };
     var NothingSerialDescriptor_instance;
     function NothingSerialDescriptor_getInstance() {
@@ -12235,7 +11832,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function SerialDescriptorForNullable() {}
     function ObjectSerializer$descriptor$delegate$lambda$lambda(this$0) {
         return function($this$buildSerialDescriptor) {
-            $this$buildSerialDescriptor.qh_1 = this$0.mn_1;
+            $this$buildSerialDescriptor.gh_1 = this$0.cn_1;
             return Unit_instance;
         };
     }
@@ -12247,40 +11844,40 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ObjectSerializer$_get_descriptor_$ref_7z4xb6() {
         return constructCallableReference((function(p0) {
-            return p0.sg();
+            return p0.ig();
         }), 1, 0, 1);
     }
     function ObjectSerializer(serialName, objectInstance) {
-        this.ln_1 = objectInstance;
-        this.mn_1 = emptyList();
+        this.bn_1 = objectInstance;
+        this.cn_1 = emptyList();
         var tmp = this;
         var tmp_0 = LazyThreadSafetyMode_PUBLICATION_getInstance();
-        tmp.nn_1 = lazy(tmp_0, ObjectSerializer$descriptor$delegate$lambda(serialName, this));
+        tmp.dn_1 = lazy(tmp_0, ObjectSerializer$descriptor$delegate$lambda(serialName, this));
     }
-    protoOf(ObjectSerializer).sg = function() {
-        var tmp0 = this.nn_1;
+    protoOf(ObjectSerializer).ig = function() {
+        var tmp0 = this.dn_1;
         var tmp = KProperty1;
         getPropertyCallableRef('descriptor', 1, tmp, ObjectSerializer$_get_descriptor_$ref_7z4xb6(), null);
-        return tmp0.q1();
+        return tmp0.p1();
     };
-    protoOf(ObjectSerializer).tg = function(decoder) {
-        var descriptor = this.sg();
-        var composite = decoder.zi(descriptor);
+    protoOf(ObjectSerializer).jg = function(decoder) {
+        var descriptor = this.ig();
+        var composite = decoder.pi(descriptor);
         var tmp$ret$1;
         $l$block_0: {
-            if (composite.nj()) {
+            if (composite.dj()) {
                 tmp$ret$1 = Unit_instance;
                 break $l$block_0;
             }
-            var index = composite.oj(this.sg());
+            var index = composite.ej(this.ig());
             if (index === -1) {
                 tmp$ret$1 = Unit_instance;
                 break $l$block_0;
             } else throw SerializationException_init_$Create$_0('Unexpected index ' + index);
         }
         var result = tmp$ret$1;
-        composite.aj(descriptor);
-        return this.ln_1;
+        composite.qi(descriptor);
+        return this.bn_1;
     };
     function get_EMPTY_DESCRIPTOR_ARRAY() {
         _init_properties_Platform_common_kt__3qzecs();
@@ -12290,7 +11887,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function compactArray(_this__u8e3s4) {
         _init_properties_Platform_common_kt__3qzecs();
         var tmp;
-        if (!(_this__u8e3s4 == null || _this__u8e3s4.k())) {
+        if (!(_this__u8e3s4 == null || _this__u8e3s4.p())) {
             tmp = _this__u8e3s4;
         } else {
             tmp = null;
@@ -12313,21 +11910,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function _get_childSerializers__7vnyfa($this) {
-        var tmp0 = $this.cn_1;
+        var tmp0 = $this.sm_1;
         var tmp = KProperty1;
         getPropertyCallableRef('childSerializers', 1, tmp, PluginGeneratedSerialDescriptor$_get_childSerializers_$ref_e7suca(), null);
-        return tmp0.q1();
+        return tmp0.p1();
     }
     function _get__hashCode__tgwhef_0($this) {
-        var tmp0 = $this.en_1;
+        var tmp0 = $this.um_1;
         var tmp = KProperty1;
         getPropertyCallableRef('_hashCode', 1, tmp, PluginGeneratedSerialDescriptor$_get__hashCode_$ref_cmj4vz(), null);
-        return tmp0.q1();
+        return tmp0.p1();
     }
     function PluginGeneratedSerialDescriptor$childSerializers$delegate$lambda(this$0) {
         return function() {
-            var tmp0_safe_receiver = this$0.um_1;
-            var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.hn();
+            var tmp0_safe_receiver = this$0.km_1;
+            var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.xm();
             return tmp1_elvis_lhs == null ? get_EMPTY_SERIALIZER_ARRAY() : tmp1_elvis_lhs;
         };
     }
@@ -12338,8 +11935,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function PluginGeneratedSerialDescriptor$typeParameterDescriptors$delegate$lambda(this$0) {
         return function() {
-            var tmp0_safe_receiver = this$0.um_1;
-            var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.in();
+            var tmp0_safe_receiver = this$0.km_1;
+            var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.ym();
             var tmp;
             if (tmp1_safe_receiver == null) {
                 tmp = null;
@@ -12350,7 +11947,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 while (inductionVariable < last) {
                     var item = tmp1_safe_receiver[inductionVariable];
                     inductionVariable = inductionVariable + 1 | 0;
-                    var tmp$ret$2 = item.sg();
+                    var tmp$ret$2 = item.ig();
                     destination.f(tmp$ret$2);
                 }
                 tmp = destination;
@@ -12360,12 +11957,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function PluginGeneratedSerialDescriptor$_get_typeParameterDescriptors_$ref_jk3pka() {
         return constructCallableReference((function(p0) {
-            return p0.fn();
+            return p0.vm();
         }), 1, 0, 3);
     }
     function PluginGeneratedSerialDescriptor$_hashCode$delegate$lambda(this$0) {
         return function() {
-            return hashCodeImpl(this$0, this$0.fn());
+            return hashCodeImpl(this$0, this$0.vm());
         };
     }
     function PluginGeneratedSerialDescriptor$_get__hashCode_$ref_cmj4vz() {
@@ -12375,69 +11972,69 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function PluginGeneratedSerialDescriptor(serialName, generatedSerializer, elementsCount) {
         generatedSerializer = generatedSerializer === VOID ? null : generatedSerializer;
-        this.tm_1 = serialName;
-        this.um_1 = generatedSerializer;
-        this.vm_1 = elementsCount;
-        this.wm_1 = -1;
+        this.jm_1 = serialName;
+        this.km_1 = generatedSerializer;
+        this.lm_1 = elementsCount;
+        this.mm_1 = -1;
         var tmp = this;
         var tmp_0 = 0;
-        var tmp_1 = this.vm_1;
+        var tmp_1 = this.lm_1;
         var tmp_2 = Array(tmp_1);
         while (tmp_0 < tmp_1) {
             tmp_2[tmp_0] = '[UNINITIALIZED]';
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.xm_1 = tmp_2;
+        tmp.nm_1 = tmp_2;
         var tmp_3 = this;
-        var size = this.vm_1;
-        tmp_3.ym_1 = Array(size);
-        this.zm_1 = null;
-        this.an_1 = booleanArray(this.vm_1);
-        this.bn_1 = emptyMap();
+        var size = this.lm_1;
+        tmp_3.om_1 = Array(size);
+        this.pm_1 = null;
+        this.qm_1 = booleanArray(this.lm_1);
+        this.rm_1 = emptyMap();
         var tmp_4 = this;
         var tmp_5 = LazyThreadSafetyMode_PUBLICATION_getInstance();
-        tmp_4.cn_1 = lazy(tmp_5, PluginGeneratedSerialDescriptor$childSerializers$delegate$lambda(this));
+        tmp_4.sm_1 = lazy(tmp_5, PluginGeneratedSerialDescriptor$childSerializers$delegate$lambda(this));
         var tmp_6 = this;
         var tmp_7 = LazyThreadSafetyMode_PUBLICATION_getInstance();
-        tmp_6.dn_1 = lazy(tmp_7, PluginGeneratedSerialDescriptor$typeParameterDescriptors$delegate$lambda(this));
+        tmp_6.tm_1 = lazy(tmp_7, PluginGeneratedSerialDescriptor$typeParameterDescriptors$delegate$lambda(this));
         var tmp_8 = this;
         var tmp_9 = LazyThreadSafetyMode_PUBLICATION_getInstance();
-        tmp_8.en_1 = lazy(tmp_9, PluginGeneratedSerialDescriptor$_hashCode$delegate$lambda(this));
+        tmp_8.um_1 = lazy(tmp_9, PluginGeneratedSerialDescriptor$_hashCode$delegate$lambda(this));
     }
-    protoOf(PluginGeneratedSerialDescriptor).ah = function() {
-        return this.tm_1;
+    protoOf(PluginGeneratedSerialDescriptor).qg = function() {
+        return this.jm_1;
     };
-    protoOf(PluginGeneratedSerialDescriptor).eh = function() {
-        return this.vm_1;
+    protoOf(PluginGeneratedSerialDescriptor).ug = function() {
+        return this.lm_1;
     };
-    protoOf(PluginGeneratedSerialDescriptor).bh = function() {
+    protoOf(PluginGeneratedSerialDescriptor).rg = function() {
         return CLASS_getInstance();
     };
-    protoOf(PluginGeneratedSerialDescriptor).fh = function() {
-        var tmp0_elvis_lhs = this.zm_1;
+    protoOf(PluginGeneratedSerialDescriptor).vg = function() {
+        var tmp0_elvis_lhs = this.pm_1;
         return tmp0_elvis_lhs == null ? emptyList() : tmp0_elvis_lhs;
     };
-    protoOf(PluginGeneratedSerialDescriptor).fn = function() {
-        var tmp0 = this.dn_1;
+    protoOf(PluginGeneratedSerialDescriptor).vm = function() {
+        var tmp0 = this.tm_1;
         var tmp = KProperty1;
         getPropertyCallableRef('typeParameterDescriptors', 1, tmp, PluginGeneratedSerialDescriptor$_get_typeParameterDescriptors_$ref_jk3pka(), null);
-        return tmp0.q1();
+        return tmp0.p1();
     };
-    protoOf(PluginGeneratedSerialDescriptor).jh = function(index) {
-        return getChecked(_get_childSerializers__7vnyfa(this), index).sg();
+    protoOf(PluginGeneratedSerialDescriptor).zg = function(index) {
+        return getChecked(_get_childSerializers__7vnyfa(this), index).ig();
     };
-    protoOf(PluginGeneratedSerialDescriptor).kh = function(index) {
-        return getChecked_0(this.an_1, index);
+    protoOf(PluginGeneratedSerialDescriptor).ah = function(index) {
+        return getChecked_0(this.qm_1, index);
     };
-    protoOf(PluginGeneratedSerialDescriptor).ih = function(index) {
-        var tmp0_elvis_lhs = getChecked(this.ym_1, index);
+    protoOf(PluginGeneratedSerialDescriptor).yg = function(index) {
+        var tmp0_elvis_lhs = getChecked(this.om_1, index);
         return tmp0_elvis_lhs == null ? emptyList() : tmp0_elvis_lhs;
     };
-    protoOf(PluginGeneratedSerialDescriptor).gh = function(index) {
-        return getChecked(this.xm_1, index);
+    protoOf(PluginGeneratedSerialDescriptor).wg = function(index) {
+        return getChecked(this.nm_1, index);
     };
-    protoOf(PluginGeneratedSerialDescriptor).hh = function(name) {
-        var tmp0_elvis_lhs = this.bn_1.t1(name);
+    protoOf(PluginGeneratedSerialDescriptor).xg = function(name) {
+        var tmp0_elvis_lhs = this.rm_1.s1(name);
         return tmp0_elvis_lhs == null ? -3 : tmp0_elvis_lhs;
     };
     protoOf(PluginGeneratedSerialDescriptor).equals = function(other) {
@@ -12451,28 +12048,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!(this.ah() === other.ah())) {
+            if (!(this.qg() === other.qg())) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!contentEquals(this.fn(), other.fn())) {
+            if (!contentEquals(this.vm(), other.vm())) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
-            if (!(this.eh() === other.eh())) {
+            if (!(this.ug() === other.ug())) {
                 tmp$ret$0 = false;
                 break $l$block_5;
             }
             var inductionVariable = 0;
-            var last = this.eh();
+            var last = this.ug();
             if (inductionVariable < last) do {
                 var index = inductionVariable;
                 inductionVariable = inductionVariable + 1 | 0;
-                if (!(this.jh(index).ah() === other.jh(index).ah())) {
+                if (!(this.zg(index).qg() === other.zg(index).qg())) {
                     tmp$ret$0 = false;
                     break $l$block_5;
                 }
-                if (!equals(this.jh(index).bh(), other.jh(index).bh())) {
+                if (!equals(this.zg(index).rg(), other.zg(index).rg())) {
                     tmp$ret$0 = false;
                     break $l$block_5;
                 }
@@ -12488,7 +12085,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return toStringImpl_0(this);
     };
     function hashCodeImpl(_this__u8e3s4, typeParams) {
-        var result = getStringHashCode(_this__u8e3s4.ah());
+        var result = getStringHashCode(_this__u8e3s4.qg());
         result = imul(31, result) + contentHashCode(typeParams) | 0;
         var elementDescriptors = get_elementDescriptors(_this__u8e3s4);
         var accumulator = 1;
@@ -12497,7 +12094,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var element = _iterator__ex2g4s.i();
             var hash = accumulator;
             var tmp = imul(31, hash);
-            var tmp0_safe_receiver = element.ah();
+            var tmp0_safe_receiver = element.qg();
             var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : hashCode_0(tmp0_safe_receiver);
             accumulator = tmp + (tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs) | 0;
         }
@@ -12508,7 +12105,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var element_0 = _iterator__ex2g4s_0.i();
             var hash_0 = accumulator_0;
             var tmp_0 = imul(31, hash_0);
-            var tmp0_safe_receiver_0 = element_0.bh();
+            var tmp0_safe_receiver_0 = element_0.rg();
             var tmp1_elvis_lhs_0 = tmp0_safe_receiver_0 == null ? null : hashCode_0(tmp0_safe_receiver_0);
             accumulator_0 = tmp_0 + (tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0) | 0;
         }
@@ -12518,13 +12115,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return result;
     }
     function toStringImpl_0(_this__u8e3s4) {
-        var tmp = until(0, _this__u8e3s4.eh());
-        var tmp_0 = _this__u8e3s4.ah() + '(';
+        var tmp = until(0, _this__u8e3s4.ug());
+        var tmp_0 = _this__u8e3s4.qg() + '(';
         return joinToString_0(tmp, ', ', tmp_0, ')', VOID, VOID, toStringImpl$lambda(_this__u8e3s4));
     }
     function toStringImpl$lambda($this_toStringImpl) {
         return function(i) {
-            return $this_toStringImpl.gh(i) + ': ' + $this_toStringImpl.jh(i).ah();
+            return $this_toStringImpl.wg(i) + ': ' + $this_toStringImpl.zg(i).qg();
         };
     }
     function get_EMPTY_SERIALIZER_ARRAY() {
@@ -12544,33 +12141,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         CharArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_8(Companion_getInstance()));
     }
-    protoOf(CharArraySerializer_0).qn = function(_this__u8e3s4) {
+    protoOf(CharArraySerializer_0).gn = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(CharArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.qn((!(_this__u8e3s4 == null) ? isCharArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(CharArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.gn((!(_this__u8e3s4 == null) ? isCharArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(CharArraySerializer_0).rn = function(_this__u8e3s4, expectedSize) {
+    protoOf(CharArraySerializer_0).hn = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return CharArrayBuilder_init_$Create$(_this__u8e3s4);
         return new CharArrayBuilder(copyOf_1(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(CharArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.rn((!(_this__u8e3s4 == null) ? isCharArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(CharArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.hn((!(_this__u8e3s4 == null) ? isCharArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(CharArraySerializer_0).vl = function(size) {
+    protoOf(CharArraySerializer_0).ll = function(size) {
         return CharArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(CharArraySerializer_0).ul = function() {
+    protoOf(CharArraySerializer_0).kl = function() {
         return CharArrayBuilder_init_$Create$_1();
     };
-    protoOf(CharArraySerializer_0).sn = function(decoder, index, builder, checkIndex) {
-        builder.vn(decoder.ij(this.ol_1, index));
+    protoOf(CharArraySerializer_0).in = function(decoder, index, builder, checkIndex) {
+        builder.ln(decoder.yi(this.el_1, index));
     };
-    protoOf(CharArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.sn(decoder, index, builder instanceof CharArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(CharArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.in(decoder, index, builder instanceof CharArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(CharArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.sn(decoder, index, builder instanceof CharArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(CharArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.in(decoder, index, builder instanceof CharArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var CharArraySerializer_instance;
     function CharArraySerializer_getInstance() {
@@ -12581,33 +12178,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         DoubleArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_9(DoubleCompanionObject_instance));
     }
-    protoOf(DoubleArraySerializer_0).yn = function(_this__u8e3s4) {
+    protoOf(DoubleArraySerializer_0).on = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(DoubleArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.yn((!(_this__u8e3s4 == null) ? isDoubleArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(DoubleArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.on((!(_this__u8e3s4 == null) ? isDoubleArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(DoubleArraySerializer_0).zn = function(_this__u8e3s4, expectedSize) {
+    protoOf(DoubleArraySerializer_0).pn = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return DoubleArrayBuilder_init_$Create$(_this__u8e3s4);
         return new DoubleArrayBuilder(copyOf_2(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(DoubleArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.zn((!(_this__u8e3s4 == null) ? isDoubleArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(DoubleArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.pn((!(_this__u8e3s4 == null) ? isDoubleArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(DoubleArraySerializer_0).vl = function(size) {
+    protoOf(DoubleArraySerializer_0).ll = function(size) {
         return DoubleArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(DoubleArraySerializer_0).ul = function() {
+    protoOf(DoubleArraySerializer_0).kl = function() {
         return DoubleArrayBuilder_init_$Create$_1();
     };
-    protoOf(DoubleArraySerializer_0).ao = function(decoder, index, builder, checkIndex) {
-        builder.do(decoder.hj(this.ol_1, index));
+    protoOf(DoubleArraySerializer_0).qn = function(decoder, index, builder, checkIndex) {
+        builder.tn(decoder.xi(this.el_1, index));
     };
-    protoOf(DoubleArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.ao(decoder, index, builder instanceof DoubleArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(DoubleArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.qn(decoder, index, builder instanceof DoubleArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(DoubleArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.ao(decoder, index, builder instanceof DoubleArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(DoubleArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.qn(decoder, index, builder instanceof DoubleArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var DoubleArraySerializer_instance;
     function DoubleArraySerializer_getInstance() {
@@ -12618,33 +12215,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         FloatArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_10(FloatCompanionObject_instance));
     }
-    protoOf(FloatArraySerializer_0).go = function(_this__u8e3s4) {
+    protoOf(FloatArraySerializer_0).wn = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(FloatArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.go((!(_this__u8e3s4 == null) ? isFloatArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(FloatArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.wn((!(_this__u8e3s4 == null) ? isFloatArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(FloatArraySerializer_0).ho = function(_this__u8e3s4, expectedSize) {
+    protoOf(FloatArraySerializer_0).xn = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return FloatArrayBuilder_init_$Create$(_this__u8e3s4);
         return new FloatArrayBuilder(copyOf_3(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(FloatArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.ho((!(_this__u8e3s4 == null) ? isFloatArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(FloatArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.xn((!(_this__u8e3s4 == null) ? isFloatArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(FloatArraySerializer_0).vl = function(size) {
+    protoOf(FloatArraySerializer_0).ll = function(size) {
         return FloatArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(FloatArraySerializer_0).ul = function() {
+    protoOf(FloatArraySerializer_0).kl = function() {
         return FloatArrayBuilder_init_$Create$_1();
     };
-    protoOf(FloatArraySerializer_0).io = function(decoder, index, builder, checkIndex) {
-        builder.lo(decoder.gj(this.ol_1, index));
+    protoOf(FloatArraySerializer_0).yn = function(decoder, index, builder, checkIndex) {
+        builder.bo(decoder.wi(this.el_1, index));
     };
-    protoOf(FloatArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.io(decoder, index, builder instanceof FloatArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(FloatArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.yn(decoder, index, builder instanceof FloatArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(FloatArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.io(decoder, index, builder instanceof FloatArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(FloatArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.yn(decoder, index, builder instanceof FloatArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var FloatArraySerializer_instance;
     function FloatArraySerializer_getInstance() {
@@ -12655,33 +12252,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         LongArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_5(Companion_getInstance_1()));
     }
-    protoOf(LongArraySerializer_0).oo = function(_this__u8e3s4) {
+    protoOf(LongArraySerializer_0).eo = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(LongArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.oo((!(_this__u8e3s4 == null) ? isLongArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(LongArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.eo((!(_this__u8e3s4 == null) ? isLongArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(LongArraySerializer_0).po = function(_this__u8e3s4, expectedSize) {
+    protoOf(LongArraySerializer_0).fo = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return LongArrayBuilder_init_$Create$(_this__u8e3s4);
         return new LongArrayBuilder(copyOf_4(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(LongArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.po((!(_this__u8e3s4 == null) ? isLongArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(LongArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.fo((!(_this__u8e3s4 == null) ? isLongArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(LongArraySerializer_0).vl = function(size) {
+    protoOf(LongArraySerializer_0).ll = function(size) {
         return LongArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(LongArraySerializer_0).ul = function() {
+    protoOf(LongArraySerializer_0).kl = function() {
         return LongArrayBuilder_init_$Create$_1();
     };
-    protoOf(LongArraySerializer_0).qo = function(decoder, index, builder, checkIndex) {
-        builder.to(decoder.fj(this.ol_1, index));
+    protoOf(LongArraySerializer_0).go = function(decoder, index, builder, checkIndex) {
+        builder.jo(decoder.vi(this.el_1, index));
     };
-    protoOf(LongArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.qo(decoder, index, builder instanceof LongArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(LongArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.go(decoder, index, builder instanceof LongArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(LongArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.qo(decoder, index, builder instanceof LongArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(LongArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.go(decoder, index, builder instanceof LongArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var LongArraySerializer_instance;
     function LongArraySerializer_getInstance() {
@@ -12692,36 +12289,36 @@ if (typeof String.prototype.startsWith === 'undefined') {
         ULongArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_1(Companion_getInstance_18()));
     }
-    protoOf(ULongArraySerializer_0).wo = function(_this__u8e3s4) {
+    protoOf(ULongArraySerializer_0).mo = function(_this__u8e3s4) {
         return _ULongArray___get_size__impl__ju6dtr(_this__u8e3s4);
     };
-    protoOf(ULongArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.wo(_this__u8e3s4 instanceof ULongArray ? _this__u8e3s4.fg_1 : THROW_CCE());
+    protoOf(ULongArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.mo(_this__u8e3s4 instanceof ULongArray ? _this__u8e3s4.xf_1 : THROW_CCE());
     };
-    protoOf(ULongArraySerializer_0).xo = function(_this__u8e3s4, expectedSize) {
+    protoOf(ULongArraySerializer_0).no = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _ULongArray___get_size__impl__ju6dtr(_this__u8e3s4)) return ULongArrayBuilder_init_$Create$(_this__u8e3s4);
         var tmp$ret$0 = _ULongArray___init__impl__twm1l3(copyOf_4(_ULongArray___get_storage__impl__28e64j(_this__u8e3s4), expectedSize));
         return new ULongArrayBuilder(tmp$ret$0, _ULongArray___get_size__impl__ju6dtr(_this__u8e3s4));
     };
-    protoOf(ULongArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.xo(_this__u8e3s4 instanceof ULongArray ? _this__u8e3s4.fg_1 : THROW_CCE(), expectedSize);
+    protoOf(ULongArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.no(_this__u8e3s4 instanceof ULongArray ? _this__u8e3s4.xf_1 : THROW_CCE(), expectedSize);
     };
-    protoOf(ULongArraySerializer_0).vl = function(size) {
+    protoOf(ULongArraySerializer_0).ll = function(size) {
         return ULongArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(ULongArraySerializer_0).ul = function() {
+    protoOf(ULongArraySerializer_0).kl = function() {
         return ULongArrayBuilder_init_$Create$_1();
     };
-    protoOf(ULongArraySerializer_0).yo = function(decoder, index, builder, checkIndex) {
-        var this_0 = decoder.jj(this.ol_1, index).ri();
+    protoOf(ULongArraySerializer_0).oo = function(decoder, index, builder, checkIndex) {
+        var this_0 = decoder.zi(this.el_1, index).hi();
         var tmp$ret$0 = _ULong___init__impl__c78o9k(this_0);
-        builder.bp(tmp$ret$0);
+        builder.ro(tmp$ret$0);
     };
-    protoOf(ULongArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.yo(decoder, index, builder instanceof ULongArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(ULongArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.oo(decoder, index, builder instanceof ULongArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(ULongArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.yo(decoder, index, builder instanceof ULongArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(ULongArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.oo(decoder, index, builder instanceof ULongArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var ULongArraySerializer_instance;
     function ULongArraySerializer_getInstance() {
@@ -12732,33 +12329,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         IntArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_4(IntCompanionObject_instance));
     }
-    protoOf(IntArraySerializer_0).ep = function(_this__u8e3s4) {
+    protoOf(IntArraySerializer_0).uo = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(IntArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.ep((!(_this__u8e3s4 == null) ? isIntArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(IntArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.uo((!(_this__u8e3s4 == null) ? isIntArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(IntArraySerializer_0).fp = function(_this__u8e3s4, expectedSize) {
+    protoOf(IntArraySerializer_0).vo = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return IntArrayBuilder_init_$Create$(_this__u8e3s4);
         return new IntArrayBuilder(copyOf(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(IntArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.fp((!(_this__u8e3s4 == null) ? isIntArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(IntArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.vo((!(_this__u8e3s4 == null) ? isIntArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(IntArraySerializer_0).vl = function(size) {
+    protoOf(IntArraySerializer_0).ll = function(size) {
         return IntArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(IntArraySerializer_0).ul = function() {
+    protoOf(IntArraySerializer_0).kl = function() {
         return IntArrayBuilder_init_$Create$_1();
     };
-    protoOf(IntArraySerializer_0).gp = function(decoder, index, builder, checkIndex) {
-        builder.jp(decoder.ej(this.ol_1, index));
+    protoOf(IntArraySerializer_0).wo = function(decoder, index, builder, checkIndex) {
+        builder.zo(decoder.ui(this.el_1, index));
     };
-    protoOf(IntArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.gp(decoder, index, builder instanceof IntArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(IntArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.wo(decoder, index, builder instanceof IntArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(IntArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.gp(decoder, index, builder instanceof IntArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(IntArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.wo(decoder, index, builder instanceof IntArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var IntArraySerializer_instance;
     function IntArraySerializer_getInstance() {
@@ -12769,36 +12366,36 @@ if (typeof String.prototype.startsWith === 'undefined') {
         UIntArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_0(Companion_getInstance_17()));
     }
-    protoOf(UIntArraySerializer_0).mp = function(_this__u8e3s4) {
+    protoOf(UIntArraySerializer_0).cp = function(_this__u8e3s4) {
         return _UIntArray___get_size__impl__r6l8ci(_this__u8e3s4);
     };
-    protoOf(UIntArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.mp(_this__u8e3s4 instanceof UIntArray ? _this__u8e3s4.uf_1 : THROW_CCE());
+    protoOf(UIntArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.cp(_this__u8e3s4 instanceof UIntArray ? _this__u8e3s4.nf_1 : THROW_CCE());
     };
-    protoOf(UIntArraySerializer_0).np = function(_this__u8e3s4, expectedSize) {
+    protoOf(UIntArraySerializer_0).dp = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _UIntArray___get_size__impl__r6l8ci(_this__u8e3s4)) return UIntArrayBuilder_init_$Create$(_this__u8e3s4);
         var tmp$ret$0 = _UIntArray___init__impl__ghjpc6(copyOf(_UIntArray___get_storage__impl__92a0v0(_this__u8e3s4), expectedSize));
         return new UIntArrayBuilder(tmp$ret$0, _UIntArray___get_size__impl__r6l8ci(_this__u8e3s4));
     };
-    protoOf(UIntArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.np(_this__u8e3s4 instanceof UIntArray ? _this__u8e3s4.uf_1 : THROW_CCE(), expectedSize);
+    protoOf(UIntArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.dp(_this__u8e3s4 instanceof UIntArray ? _this__u8e3s4.nf_1 : THROW_CCE(), expectedSize);
     };
-    protoOf(UIntArraySerializer_0).vl = function(size) {
+    protoOf(UIntArraySerializer_0).ll = function(size) {
         return UIntArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(UIntArraySerializer_0).ul = function() {
+    protoOf(UIntArraySerializer_0).kl = function() {
         return UIntArrayBuilder_init_$Create$_1();
     };
-    protoOf(UIntArraySerializer_0).op = function(decoder, index, builder, checkIndex) {
-        var this_0 = decoder.jj(this.ol_1, index).qi();
+    protoOf(UIntArraySerializer_0).ep = function(decoder, index, builder, checkIndex) {
+        var this_0 = decoder.zi(this.el_1, index).gi();
         var tmp$ret$0 = _UInt___init__impl__l7qpdl(this_0);
-        builder.rp(tmp$ret$0);
+        builder.hp(tmp$ret$0);
     };
-    protoOf(UIntArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.op(decoder, index, builder instanceof UIntArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(UIntArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.ep(decoder, index, builder instanceof UIntArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(UIntArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.op(decoder, index, builder instanceof UIntArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(UIntArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.ep(decoder, index, builder instanceof UIntArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var UIntArraySerializer_instance;
     function UIntArraySerializer_getInstance() {
@@ -12809,33 +12406,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         ShortArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_7(ShortCompanionObject_instance));
     }
-    protoOf(ShortArraySerializer_0).up = function(_this__u8e3s4) {
+    protoOf(ShortArraySerializer_0).kp = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(ShortArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.up((!(_this__u8e3s4 == null) ? isShortArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(ShortArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.kp((!(_this__u8e3s4 == null) ? isShortArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(ShortArraySerializer_0).vp = function(_this__u8e3s4, expectedSize) {
+    protoOf(ShortArraySerializer_0).lp = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return ShortArrayBuilder_init_$Create$(_this__u8e3s4);
         return new ShortArrayBuilder(copyOf_5(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(ShortArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.vp((!(_this__u8e3s4 == null) ? isShortArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(ShortArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.lp((!(_this__u8e3s4 == null) ? isShortArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(ShortArraySerializer_0).vl = function(size) {
+    protoOf(ShortArraySerializer_0).ll = function(size) {
         return ShortArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(ShortArraySerializer_0).ul = function() {
+    protoOf(ShortArraySerializer_0).kl = function() {
         return ShortArrayBuilder_init_$Create$_1();
     };
-    protoOf(ShortArraySerializer_0).wp = function(decoder, index, builder, checkIndex) {
-        builder.zp(decoder.dj(this.ol_1, index));
+    protoOf(ShortArraySerializer_0).mp = function(decoder, index, builder, checkIndex) {
+        builder.pp(decoder.ti(this.el_1, index));
     };
-    protoOf(ShortArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.wp(decoder, index, builder instanceof ShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(ShortArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.mp(decoder, index, builder instanceof ShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(ShortArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.wp(decoder, index, builder instanceof ShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(ShortArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.mp(decoder, index, builder instanceof ShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var ShortArraySerializer_instance;
     function ShortArraySerializer_getInstance() {
@@ -12846,36 +12443,36 @@ if (typeof String.prototype.startsWith === 'undefined') {
         UShortArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_3(Companion_getInstance_19()));
     }
-    protoOf(UShortArraySerializer_0).cq = function(_this__u8e3s4) {
+    protoOf(UShortArraySerializer_0).sp = function(_this__u8e3s4) {
         return _UShortArray___get_size__impl__jqto1b(_this__u8e3s4);
     };
-    protoOf(UShortArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.cq(_this__u8e3s4 instanceof UShortArray ? _this__u8e3s4.qg_1 : THROW_CCE());
+    protoOf(UShortArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.sp(_this__u8e3s4 instanceof UShortArray ? _this__u8e3s4.hg_1 : THROW_CCE());
     };
-    protoOf(UShortArraySerializer_0).dq = function(_this__u8e3s4, expectedSize) {
+    protoOf(UShortArraySerializer_0).tp = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _UShortArray___get_size__impl__jqto1b(_this__u8e3s4)) return UShortArrayBuilder_init_$Create$(_this__u8e3s4);
         var tmp$ret$0 = _UShortArray___init__impl__9b26ef(copyOf_5(_UShortArray___get_storage__impl__t2jpv5(_this__u8e3s4), expectedSize));
         return new UShortArrayBuilder(tmp$ret$0, _UShortArray___get_size__impl__jqto1b(_this__u8e3s4));
     };
-    protoOf(UShortArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.dq(_this__u8e3s4 instanceof UShortArray ? _this__u8e3s4.qg_1 : THROW_CCE(), expectedSize);
+    protoOf(UShortArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.tp(_this__u8e3s4 instanceof UShortArray ? _this__u8e3s4.hg_1 : THROW_CCE(), expectedSize);
     };
-    protoOf(UShortArraySerializer_0).vl = function(size) {
+    protoOf(UShortArraySerializer_0).ll = function(size) {
         return UShortArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(UShortArraySerializer_0).ul = function() {
+    protoOf(UShortArraySerializer_0).kl = function() {
         return UShortArrayBuilder_init_$Create$_1();
     };
-    protoOf(UShortArraySerializer_0).eq = function(decoder, index, builder, checkIndex) {
-        var this_0 = decoder.jj(this.ol_1, index).pi();
+    protoOf(UShortArraySerializer_0).up = function(decoder, index, builder, checkIndex) {
+        var this_0 = decoder.zi(this.el_1, index).fi();
         var tmp$ret$0 = _UShort___init__impl__jigrne(this_0);
-        builder.hq(tmp$ret$0);
+        builder.xp(tmp$ret$0);
     };
-    protoOf(UShortArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.eq(decoder, index, builder instanceof UShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(UShortArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.up(decoder, index, builder instanceof UShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(UShortArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.eq(decoder, index, builder instanceof UShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(UShortArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.up(decoder, index, builder instanceof UShortArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var UShortArraySerializer_instance;
     function UShortArraySerializer_getInstance() {
@@ -12886,33 +12483,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         ByteArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_6(ByteCompanionObject_instance));
     }
-    protoOf(ByteArraySerializer_0).kq = function(_this__u8e3s4) {
+    protoOf(ByteArraySerializer_0).aq = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(ByteArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.kq((!(_this__u8e3s4 == null) ? isByteArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(ByteArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.aq((!(_this__u8e3s4 == null) ? isByteArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(ByteArraySerializer_0).lq = function(_this__u8e3s4, expectedSize) {
+    protoOf(ByteArraySerializer_0).bq = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return ByteArrayBuilder_init_$Create$(_this__u8e3s4);
         return new ByteArrayBuilder(copyOf_6(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(ByteArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.lq((!(_this__u8e3s4 == null) ? isByteArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(ByteArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.bq((!(_this__u8e3s4 == null) ? isByteArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(ByteArraySerializer_0).vl = function(size) {
+    protoOf(ByteArraySerializer_0).ll = function(size) {
         return ByteArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(ByteArraySerializer_0).ul = function() {
+    protoOf(ByteArraySerializer_0).kl = function() {
         return ByteArrayBuilder_init_$Create$_1();
     };
-    protoOf(ByteArraySerializer_0).mq = function(decoder, index, builder, checkIndex) {
-        builder.pq(decoder.cj(this.ol_1, index));
+    protoOf(ByteArraySerializer_0).cq = function(decoder, index, builder, checkIndex) {
+        builder.fq(decoder.si(this.el_1, index));
     };
-    protoOf(ByteArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.mq(decoder, index, builder instanceof ByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(ByteArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.cq(decoder, index, builder instanceof ByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(ByteArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.mq(decoder, index, builder instanceof ByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(ByteArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.cq(decoder, index, builder instanceof ByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var ByteArraySerializer_instance;
     function ByteArraySerializer_getInstance() {
@@ -12923,36 +12520,36 @@ if (typeof String.prototype.startsWith === 'undefined') {
         UByteArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_2(Companion_getInstance_16()));
     }
-    protoOf(UByteArraySerializer_0).sq = function(_this__u8e3s4) {
+    protoOf(UByteArraySerializer_0).iq = function(_this__u8e3s4) {
         return _UByteArray___get_size__impl__h6pkdv(_this__u8e3s4);
     };
-    protoOf(UByteArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.sq(_this__u8e3s4 instanceof UByteArray ? _this__u8e3s4.jf_1 : THROW_CCE());
+    protoOf(UByteArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.iq(_this__u8e3s4 instanceof UByteArray ? _this__u8e3s4.df_1 : THROW_CCE());
     };
-    protoOf(UByteArraySerializer_0).tq = function(_this__u8e3s4, expectedSize) {
+    protoOf(UByteArraySerializer_0).jq = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _UByteArray___get_size__impl__h6pkdv(_this__u8e3s4)) return UByteArrayBuilder_init_$Create$(_this__u8e3s4);
         var tmp$ret$0 = _UByteArray___init__impl__ip4y9n(copyOf_6(_UByteArray___get_storage__impl__d4kctt(_this__u8e3s4), expectedSize));
         return new UByteArrayBuilder(tmp$ret$0, _UByteArray___get_size__impl__h6pkdv(_this__u8e3s4));
     };
-    protoOf(UByteArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.tq(_this__u8e3s4 instanceof UByteArray ? _this__u8e3s4.jf_1 : THROW_CCE(), expectedSize);
+    protoOf(UByteArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.jq(_this__u8e3s4 instanceof UByteArray ? _this__u8e3s4.df_1 : THROW_CCE(), expectedSize);
     };
-    protoOf(UByteArraySerializer_0).vl = function(size) {
+    protoOf(UByteArraySerializer_0).ll = function(size) {
         return UByteArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(UByteArraySerializer_0).ul = function() {
+    protoOf(UByteArraySerializer_0).kl = function() {
         return UByteArrayBuilder_init_$Create$_1();
     };
-    protoOf(UByteArraySerializer_0).uq = function(decoder, index, builder, checkIndex) {
-        var this_0 = decoder.jj(this.ol_1, index).oi();
+    protoOf(UByteArraySerializer_0).kq = function(decoder, index, builder, checkIndex) {
+        var this_0 = decoder.zi(this.el_1, index).ei();
         var tmp$ret$0 = _UByte___init__impl__g9hnc4(this_0);
-        builder.xq(tmp$ret$0);
+        builder.nq(tmp$ret$0);
     };
-    protoOf(UByteArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.uq(decoder, index, builder instanceof UByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(UByteArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.kq(decoder, index, builder instanceof UByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(UByteArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.uq(decoder, index, builder instanceof UByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(UByteArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.kq(decoder, index, builder instanceof UByteArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var UByteArraySerializer_instance;
     function UByteArraySerializer_getInstance() {
@@ -12963,33 +12560,33 @@ if (typeof String.prototype.startsWith === 'undefined') {
         BooleanArraySerializer_instance = this;
         PrimitiveArraySerializer.call(this, serializer_11(BooleanCompanionObject_instance));
     }
-    protoOf(BooleanArraySerializer_0).ar = function(_this__u8e3s4) {
+    protoOf(BooleanArraySerializer_0).qq = function(_this__u8e3s4) {
         return _this__u8e3s4.length;
     };
-    protoOf(BooleanArraySerializer_0).fl = function(_this__u8e3s4) {
-        return this.ar((!(_this__u8e3s4 == null) ? isBooleanArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
+    protoOf(BooleanArraySerializer_0).vk = function(_this__u8e3s4) {
+        return this.qq((!(_this__u8e3s4 == null) ? isBooleanArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE());
     };
-    protoOf(BooleanArraySerializer_0).br = function(_this__u8e3s4, expectedSize) {
+    protoOf(BooleanArraySerializer_0).rq = function(_this__u8e3s4, expectedSize) {
         if (expectedSize === _this__u8e3s4.length) return BooleanArrayBuilder_init_$Create$(_this__u8e3s4);
         return new BooleanArrayBuilder(copyOf_7(_this__u8e3s4, expectedSize), _this__u8e3s4.length);
     };
-    protoOf(BooleanArraySerializer_0).rk = function(_this__u8e3s4, expectedSize) {
-        return this.br((!(_this__u8e3s4 == null) ? isBooleanArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
+    protoOf(BooleanArraySerializer_0).hk = function(_this__u8e3s4, expectedSize) {
+        return this.rq((!(_this__u8e3s4 == null) ? isBooleanArray(_this__u8e3s4) : false) ? _this__u8e3s4 : THROW_CCE(), expectedSize);
     };
-    protoOf(BooleanArraySerializer_0).vl = function(size) {
+    protoOf(BooleanArraySerializer_0).ll = function(size) {
         return BooleanArrayBuilder_init_$Create$_0(size);
     };
-    protoOf(BooleanArraySerializer_0).ul = function() {
+    protoOf(BooleanArraySerializer_0).kl = function() {
         return BooleanArrayBuilder_init_$Create$_1();
     };
-    protoOf(BooleanArraySerializer_0).cr = function(decoder, index, builder, checkIndex) {
-        builder.fr(decoder.bj(this.ol_1, index));
+    protoOf(BooleanArraySerializer_0).sq = function(decoder, index, builder, checkIndex) {
+        builder.vq(decoder.ri(this.el_1, index));
     };
-    protoOf(BooleanArraySerializer_0).yk = function(decoder, index, builder, checkIndex) {
-        return this.cr(decoder, index, builder instanceof BooleanArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(BooleanArraySerializer_0).ok = function(decoder, index, builder, checkIndex) {
+        return this.sq(decoder, index, builder instanceof BooleanArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
-    protoOf(BooleanArraySerializer_0).wl = function(decoder, index, builder, checkIndex) {
-        return this.cr(decoder, index, builder instanceof BooleanArrayBuilder ? builder : THROW_CCE(), checkIndex);
+    protoOf(BooleanArraySerializer_0).ml = function(decoder, index, builder, checkIndex) {
+        return this.sq(decoder, index, builder instanceof BooleanArrayBuilder ? builder : THROW_CCE(), checkIndex);
     };
     var BooleanArraySerializer_instance;
     function BooleanArraySerializer_getInstance() {
@@ -13019,24 +12616,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function CharArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.tn_1 = bufferWithData;
-        this.un_1 = initialPosition;
+        this.jn_1 = bufferWithData;
+        this.kn_1 = initialPosition;
     }
-    protoOf(CharArrayBuilder).ql = function() {
-        return this.un_1;
+    protoOf(CharArrayBuilder).gl = function() {
+        return this.kn_1;
     };
-    protoOf(CharArrayBuilder).xl = function(requiredCapacity) {
-        if (this.tn_1.length < requiredCapacity) this.tn_1 = copyOf_1(this.tn_1, coerceAtLeast(requiredCapacity, imul(this.tn_1.length, 2)));
+    protoOf(CharArrayBuilder).nl = function(requiredCapacity) {
+        if (this.jn_1.length < requiredCapacity) this.jn_1 = copyOf_1(this.jn_1, coerceAtLeast(requiredCapacity, imul(this.jn_1.length, 2)));
     };
-    protoOf(CharArrayBuilder).vn = function(c) {
-        this.yl();
-        var tmp = this.tn_1;
-        var _unary__edvuaz = this.un_1;
-        this.un_1 = _unary__edvuaz + 1 | 0;
+    protoOf(CharArrayBuilder).ln = function(c) {
+        this.ol();
+        var tmp = this.jn_1;
+        var _unary__edvuaz = this.kn_1;
+        this.kn_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(CharArrayBuilder).sl = function() {
-        return copyOf_1(this.tn_1, this.un_1);
+    protoOf(CharArrayBuilder).il = function() {
+        return copyOf_1(this.jn_1, this.kn_1);
     };
     function DoubleArrayBuilder_init_$Init$(bufferWithData, $this) {
         DoubleArrayBuilder.call($this, bufferWithData, bufferWithData.length);
@@ -13061,24 +12658,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function DoubleArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.bo_1 = bufferWithData;
-        this.co_1 = initialPosition;
+        this.rn_1 = bufferWithData;
+        this.sn_1 = initialPosition;
     }
-    protoOf(DoubleArrayBuilder).ql = function() {
-        return this.co_1;
+    protoOf(DoubleArrayBuilder).gl = function() {
+        return this.sn_1;
     };
-    protoOf(DoubleArrayBuilder).xl = function(requiredCapacity) {
-        if (this.bo_1.length < requiredCapacity) this.bo_1 = copyOf_2(this.bo_1, coerceAtLeast(requiredCapacity, imul(this.bo_1.length, 2)));
+    protoOf(DoubleArrayBuilder).nl = function(requiredCapacity) {
+        if (this.rn_1.length < requiredCapacity) this.rn_1 = copyOf_2(this.rn_1, coerceAtLeast(requiredCapacity, imul(this.rn_1.length, 2)));
     };
-    protoOf(DoubleArrayBuilder).do = function(c) {
-        this.yl();
-        var tmp = this.bo_1;
-        var _unary__edvuaz = this.co_1;
-        this.co_1 = _unary__edvuaz + 1 | 0;
+    protoOf(DoubleArrayBuilder).tn = function(c) {
+        this.ol();
+        var tmp = this.rn_1;
+        var _unary__edvuaz = this.sn_1;
+        this.sn_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(DoubleArrayBuilder).sl = function() {
-        return copyOf_2(this.bo_1, this.co_1);
+    protoOf(DoubleArrayBuilder).il = function() {
+        return copyOf_2(this.rn_1, this.sn_1);
     };
     function FloatArrayBuilder_init_$Init$(bufferWithData, $this) {
         FloatArrayBuilder.call($this, bufferWithData, bufferWithData.length);
@@ -13103,24 +12700,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function FloatArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.jo_1 = bufferWithData;
-        this.ko_1 = initialPosition;
+        this.zn_1 = bufferWithData;
+        this.ao_1 = initialPosition;
     }
-    protoOf(FloatArrayBuilder).ql = function() {
-        return this.ko_1;
+    protoOf(FloatArrayBuilder).gl = function() {
+        return this.ao_1;
     };
-    protoOf(FloatArrayBuilder).xl = function(requiredCapacity) {
-        if (this.jo_1.length < requiredCapacity) this.jo_1 = copyOf_3(this.jo_1, coerceAtLeast(requiredCapacity, imul(this.jo_1.length, 2)));
+    protoOf(FloatArrayBuilder).nl = function(requiredCapacity) {
+        if (this.zn_1.length < requiredCapacity) this.zn_1 = copyOf_3(this.zn_1, coerceAtLeast(requiredCapacity, imul(this.zn_1.length, 2)));
     };
-    protoOf(FloatArrayBuilder).lo = function(c) {
-        this.yl();
-        var tmp = this.jo_1;
-        var _unary__edvuaz = this.ko_1;
-        this.ko_1 = _unary__edvuaz + 1 | 0;
+    protoOf(FloatArrayBuilder).bo = function(c) {
+        this.ol();
+        var tmp = this.zn_1;
+        var _unary__edvuaz = this.ao_1;
+        this.ao_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(FloatArrayBuilder).sl = function() {
-        return copyOf_3(this.jo_1, this.ko_1);
+    protoOf(FloatArrayBuilder).il = function() {
+        return copyOf_3(this.zn_1, this.ao_1);
     };
     function LongArrayBuilder_init_$Init$(bufferWithData, $this) {
         LongArrayBuilder.call($this, bufferWithData, bufferWithData.length);
@@ -13145,24 +12742,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function LongArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.ro_1 = bufferWithData;
-        this.so_1 = initialPosition;
+        this.ho_1 = bufferWithData;
+        this.io_1 = initialPosition;
     }
-    protoOf(LongArrayBuilder).ql = function() {
-        return this.so_1;
+    protoOf(LongArrayBuilder).gl = function() {
+        return this.io_1;
     };
-    protoOf(LongArrayBuilder).xl = function(requiredCapacity) {
-        if (this.ro_1.length < requiredCapacity) this.ro_1 = copyOf_4(this.ro_1, coerceAtLeast(requiredCapacity, imul(this.ro_1.length, 2)));
+    protoOf(LongArrayBuilder).nl = function(requiredCapacity) {
+        if (this.ho_1.length < requiredCapacity) this.ho_1 = copyOf_4(this.ho_1, coerceAtLeast(requiredCapacity, imul(this.ho_1.length, 2)));
     };
-    protoOf(LongArrayBuilder).to = function(c) {
-        this.yl();
-        var tmp = this.ro_1;
-        var _unary__edvuaz = this.so_1;
-        this.so_1 = _unary__edvuaz + 1 | 0;
+    protoOf(LongArrayBuilder).jo = function(c) {
+        this.ol();
+        var tmp = this.ho_1;
+        var _unary__edvuaz = this.io_1;
+        this.io_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(LongArrayBuilder).sl = function() {
-        return copyOf_4(this.ro_1, this.so_1);
+    protoOf(LongArrayBuilder).il = function() {
+        return copyOf_4(this.ho_1, this.io_1);
     };
     function ULongArrayBuilder_init_$Init$(bufferWithData, $this) {
         ULongArrayBuilder.call($this, bufferWithData, _ULongArray___get_size__impl__ju6dtr(bufferWithData));
@@ -13187,34 +12784,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ULongArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.zo_1 = bufferWithData;
-        this.ap_1 = initialPosition;
+        this.po_1 = bufferWithData;
+        this.qo_1 = initialPosition;
     }
-    protoOf(ULongArrayBuilder).ql = function() {
-        return this.ap_1;
+    protoOf(ULongArrayBuilder).gl = function() {
+        return this.qo_1;
     };
-    protoOf(ULongArrayBuilder).xl = function(requiredCapacity) {
-        if (_ULongArray___get_size__impl__ju6dtr(this.zo_1) < requiredCapacity) {
+    protoOf(ULongArrayBuilder).nl = function(requiredCapacity) {
+        if (_ULongArray___get_size__impl__ju6dtr(this.po_1) < requiredCapacity) {
             var tmp = this;
-            var tmp0 = this.zo_1;
-            var newSize = coerceAtLeast(requiredCapacity, imul(_ULongArray___get_size__impl__ju6dtr(this.zo_1), 2));
-            tmp.zo_1 = _ULongArray___init__impl__twm1l3(copyOf_4(_ULongArray___get_storage__impl__28e64j(tmp0), newSize));
+            var tmp0 = this.po_1;
+            var newSize = coerceAtLeast(requiredCapacity, imul(_ULongArray___get_size__impl__ju6dtr(this.po_1), 2));
+            tmp.po_1 = _ULongArray___init__impl__twm1l3(copyOf_4(_ULongArray___get_storage__impl__28e64j(tmp0), newSize));
         }
     };
-    protoOf(ULongArrayBuilder).bp = function(c) {
-        this.yl();
-        var tmp = this.zo_1;
-        var _unary__edvuaz = this.ap_1;
-        this.ap_1 = _unary__edvuaz + 1 | 0;
+    protoOf(ULongArrayBuilder).ro = function(c) {
+        this.ol();
+        var tmp = this.po_1;
+        var _unary__edvuaz = this.qo_1;
+        this.qo_1 = _unary__edvuaz + 1 | 0;
         ULongArray__set_impl_z19mvh(tmp, _unary__edvuaz, c);
     };
-    protoOf(ULongArrayBuilder).gr = function() {
-        var tmp0 = this.zo_1;
-        var newSize = this.ap_1;
+    protoOf(ULongArrayBuilder).wq = function() {
+        var tmp0 = this.po_1;
+        var newSize = this.qo_1;
         return _ULongArray___init__impl__twm1l3(copyOf_4(_ULongArray___get_storage__impl__28e64j(tmp0), newSize));
     };
-    protoOf(ULongArrayBuilder).sl = function() {
-        return new ULongArray(this.gr());
+    protoOf(ULongArrayBuilder).il = function() {
+        return new ULongArray(this.wq());
     };
     function IntArrayBuilder_init_$Init$(bufferWithData, $this) {
         IntArrayBuilder.call($this, bufferWithData, bufferWithData.length);
@@ -13239,24 +12836,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function IntArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.hp_1 = bufferWithData;
-        this.ip_1 = initialPosition;
+        this.xo_1 = bufferWithData;
+        this.yo_1 = initialPosition;
     }
-    protoOf(IntArrayBuilder).ql = function() {
-        return this.ip_1;
+    protoOf(IntArrayBuilder).gl = function() {
+        return this.yo_1;
     };
-    protoOf(IntArrayBuilder).xl = function(requiredCapacity) {
-        if (this.hp_1.length < requiredCapacity) this.hp_1 = copyOf(this.hp_1, coerceAtLeast(requiredCapacity, imul(this.hp_1.length, 2)));
+    protoOf(IntArrayBuilder).nl = function(requiredCapacity) {
+        if (this.xo_1.length < requiredCapacity) this.xo_1 = copyOf(this.xo_1, coerceAtLeast(requiredCapacity, imul(this.xo_1.length, 2)));
     };
-    protoOf(IntArrayBuilder).jp = function(c) {
-        this.yl();
-        var tmp = this.hp_1;
-        var _unary__edvuaz = this.ip_1;
-        this.ip_1 = _unary__edvuaz + 1 | 0;
+    protoOf(IntArrayBuilder).zo = function(c) {
+        this.ol();
+        var tmp = this.xo_1;
+        var _unary__edvuaz = this.yo_1;
+        this.yo_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(IntArrayBuilder).sl = function() {
-        return copyOf(this.hp_1, this.ip_1);
+    protoOf(IntArrayBuilder).il = function() {
+        return copyOf(this.xo_1, this.yo_1);
     };
     function UIntArrayBuilder_init_$Init$(bufferWithData, $this) {
         UIntArrayBuilder.call($this, bufferWithData, _UIntArray___get_size__impl__r6l8ci(bufferWithData));
@@ -13281,34 +12878,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UIntArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.pp_1 = bufferWithData;
-        this.qp_1 = initialPosition;
+        this.fp_1 = bufferWithData;
+        this.gp_1 = initialPosition;
     }
-    protoOf(UIntArrayBuilder).ql = function() {
-        return this.qp_1;
+    protoOf(UIntArrayBuilder).gl = function() {
+        return this.gp_1;
     };
-    protoOf(UIntArrayBuilder).xl = function(requiredCapacity) {
-        if (_UIntArray___get_size__impl__r6l8ci(this.pp_1) < requiredCapacity) {
+    protoOf(UIntArrayBuilder).nl = function(requiredCapacity) {
+        if (_UIntArray___get_size__impl__r6l8ci(this.fp_1) < requiredCapacity) {
             var tmp = this;
-            var tmp0 = this.pp_1;
-            var newSize = coerceAtLeast(requiredCapacity, imul(_UIntArray___get_size__impl__r6l8ci(this.pp_1), 2));
-            tmp.pp_1 = _UIntArray___init__impl__ghjpc6(copyOf(_UIntArray___get_storage__impl__92a0v0(tmp0), newSize));
+            var tmp0 = this.fp_1;
+            var newSize = coerceAtLeast(requiredCapacity, imul(_UIntArray___get_size__impl__r6l8ci(this.fp_1), 2));
+            tmp.fp_1 = _UIntArray___init__impl__ghjpc6(copyOf(_UIntArray___get_storage__impl__92a0v0(tmp0), newSize));
         }
     };
-    protoOf(UIntArrayBuilder).rp = function(c) {
-        this.yl();
-        var tmp = this.pp_1;
-        var _unary__edvuaz = this.qp_1;
-        this.qp_1 = _unary__edvuaz + 1 | 0;
+    protoOf(UIntArrayBuilder).hp = function(c) {
+        this.ol();
+        var tmp = this.fp_1;
+        var _unary__edvuaz = this.gp_1;
+        this.gp_1 = _unary__edvuaz + 1 | 0;
         UIntArray__set_impl_7f2zu2(tmp, _unary__edvuaz, c);
     };
-    protoOf(UIntArrayBuilder).hr = function() {
-        var tmp0 = this.pp_1;
-        var newSize = this.qp_1;
+    protoOf(UIntArrayBuilder).xq = function() {
+        var tmp0 = this.fp_1;
+        var newSize = this.gp_1;
         return _UIntArray___init__impl__ghjpc6(copyOf(_UIntArray___get_storage__impl__92a0v0(tmp0), newSize));
     };
-    protoOf(UIntArrayBuilder).sl = function() {
-        return new UIntArray(this.hr());
+    protoOf(UIntArrayBuilder).il = function() {
+        return new UIntArray(this.xq());
     };
     function ShortArrayBuilder_init_$Init$(bufferWithData, $this) {
         ShortArrayBuilder.call($this, bufferWithData, bufferWithData.length);
@@ -13333,24 +12930,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ShortArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.xp_1 = bufferWithData;
-        this.yp_1 = initialPosition;
+        this.np_1 = bufferWithData;
+        this.op_1 = initialPosition;
     }
-    protoOf(ShortArrayBuilder).ql = function() {
-        return this.yp_1;
+    protoOf(ShortArrayBuilder).gl = function() {
+        return this.op_1;
     };
-    protoOf(ShortArrayBuilder).xl = function(requiredCapacity) {
-        if (this.xp_1.length < requiredCapacity) this.xp_1 = copyOf_5(this.xp_1, coerceAtLeast(requiredCapacity, imul(this.xp_1.length, 2)));
+    protoOf(ShortArrayBuilder).nl = function(requiredCapacity) {
+        if (this.np_1.length < requiredCapacity) this.np_1 = copyOf_5(this.np_1, coerceAtLeast(requiredCapacity, imul(this.np_1.length, 2)));
     };
-    protoOf(ShortArrayBuilder).zp = function(c) {
-        this.yl();
-        var tmp = this.xp_1;
-        var _unary__edvuaz = this.yp_1;
-        this.yp_1 = _unary__edvuaz + 1 | 0;
+    protoOf(ShortArrayBuilder).pp = function(c) {
+        this.ol();
+        var tmp = this.np_1;
+        var _unary__edvuaz = this.op_1;
+        this.op_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(ShortArrayBuilder).sl = function() {
-        return copyOf_5(this.xp_1, this.yp_1);
+    protoOf(ShortArrayBuilder).il = function() {
+        return copyOf_5(this.np_1, this.op_1);
     };
     function UShortArrayBuilder_init_$Init$(bufferWithData, $this) {
         UShortArrayBuilder.call($this, bufferWithData, _UShortArray___get_size__impl__jqto1b(bufferWithData));
@@ -13375,34 +12972,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UShortArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.fq_1 = bufferWithData;
-        this.gq_1 = initialPosition;
+        this.vp_1 = bufferWithData;
+        this.wp_1 = initialPosition;
     }
-    protoOf(UShortArrayBuilder).ql = function() {
-        return this.gq_1;
+    protoOf(UShortArrayBuilder).gl = function() {
+        return this.wp_1;
     };
-    protoOf(UShortArrayBuilder).xl = function(requiredCapacity) {
-        if (_UShortArray___get_size__impl__jqto1b(this.fq_1) < requiredCapacity) {
+    protoOf(UShortArrayBuilder).nl = function(requiredCapacity) {
+        if (_UShortArray___get_size__impl__jqto1b(this.vp_1) < requiredCapacity) {
             var tmp = this;
-            var tmp0 = this.fq_1;
-            var newSize = coerceAtLeast(requiredCapacity, imul(_UShortArray___get_size__impl__jqto1b(this.fq_1), 2));
-            tmp.fq_1 = _UShortArray___init__impl__9b26ef(copyOf_5(_UShortArray___get_storage__impl__t2jpv5(tmp0), newSize));
+            var tmp0 = this.vp_1;
+            var newSize = coerceAtLeast(requiredCapacity, imul(_UShortArray___get_size__impl__jqto1b(this.vp_1), 2));
+            tmp.vp_1 = _UShortArray___init__impl__9b26ef(copyOf_5(_UShortArray___get_storage__impl__t2jpv5(tmp0), newSize));
         }
     };
-    protoOf(UShortArrayBuilder).hq = function(c) {
-        this.yl();
-        var tmp = this.fq_1;
-        var _unary__edvuaz = this.gq_1;
-        this.gq_1 = _unary__edvuaz + 1 | 0;
+    protoOf(UShortArrayBuilder).xp = function(c) {
+        this.ol();
+        var tmp = this.vp_1;
+        var _unary__edvuaz = this.wp_1;
+        this.wp_1 = _unary__edvuaz + 1 | 0;
         UShortArray__set_impl_6d8whp(tmp, _unary__edvuaz, c);
     };
-    protoOf(UShortArrayBuilder).ir = function() {
-        var tmp0 = this.fq_1;
-        var newSize = this.gq_1;
+    protoOf(UShortArrayBuilder).yq = function() {
+        var tmp0 = this.vp_1;
+        var newSize = this.wp_1;
         return _UShortArray___init__impl__9b26ef(copyOf_5(_UShortArray___get_storage__impl__t2jpv5(tmp0), newSize));
     };
-    protoOf(UShortArrayBuilder).sl = function() {
-        return new UShortArray(this.ir());
+    protoOf(UShortArrayBuilder).il = function() {
+        return new UShortArray(this.yq());
     };
     function ByteArrayBuilder_init_$Init$(bufferWithData, $this) {
         ByteArrayBuilder.call($this, bufferWithData, bufferWithData.length);
@@ -13427,24 +13024,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ByteArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.nq_1 = bufferWithData;
-        this.oq_1 = initialPosition;
+        this.dq_1 = bufferWithData;
+        this.eq_1 = initialPosition;
     }
-    protoOf(ByteArrayBuilder).ql = function() {
-        return this.oq_1;
+    protoOf(ByteArrayBuilder).gl = function() {
+        return this.eq_1;
     };
-    protoOf(ByteArrayBuilder).xl = function(requiredCapacity) {
-        if (this.nq_1.length < requiredCapacity) this.nq_1 = copyOf_6(this.nq_1, coerceAtLeast(requiredCapacity, imul(this.nq_1.length, 2)));
+    protoOf(ByteArrayBuilder).nl = function(requiredCapacity) {
+        if (this.dq_1.length < requiredCapacity) this.dq_1 = copyOf_6(this.dq_1, coerceAtLeast(requiredCapacity, imul(this.dq_1.length, 2)));
     };
-    protoOf(ByteArrayBuilder).pq = function(c) {
-        this.yl();
-        var tmp = this.nq_1;
-        var _unary__edvuaz = this.oq_1;
-        this.oq_1 = _unary__edvuaz + 1 | 0;
+    protoOf(ByteArrayBuilder).fq = function(c) {
+        this.ol();
+        var tmp = this.dq_1;
+        var _unary__edvuaz = this.eq_1;
+        this.eq_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(ByteArrayBuilder).sl = function() {
-        return copyOf_6(this.nq_1, this.oq_1);
+    protoOf(ByteArrayBuilder).il = function() {
+        return copyOf_6(this.dq_1, this.eq_1);
     };
     function UByteArrayBuilder_init_$Init$(bufferWithData, $this) {
         UByteArrayBuilder.call($this, bufferWithData, _UByteArray___get_size__impl__h6pkdv(bufferWithData));
@@ -13469,34 +13066,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UByteArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.vq_1 = bufferWithData;
-        this.wq_1 = initialPosition;
+        this.lq_1 = bufferWithData;
+        this.mq_1 = initialPosition;
     }
-    protoOf(UByteArrayBuilder).ql = function() {
-        return this.wq_1;
+    protoOf(UByteArrayBuilder).gl = function() {
+        return this.mq_1;
     };
-    protoOf(UByteArrayBuilder).xl = function(requiredCapacity) {
-        if (_UByteArray___get_size__impl__h6pkdv(this.vq_1) < requiredCapacity) {
+    protoOf(UByteArrayBuilder).nl = function(requiredCapacity) {
+        if (_UByteArray___get_size__impl__h6pkdv(this.lq_1) < requiredCapacity) {
             var tmp = this;
-            var tmp0 = this.vq_1;
-            var newSize = coerceAtLeast(requiredCapacity, imul(_UByteArray___get_size__impl__h6pkdv(this.vq_1), 2));
-            tmp.vq_1 = _UByteArray___init__impl__ip4y9n(copyOf_6(_UByteArray___get_storage__impl__d4kctt(tmp0), newSize));
+            var tmp0 = this.lq_1;
+            var newSize = coerceAtLeast(requiredCapacity, imul(_UByteArray___get_size__impl__h6pkdv(this.lq_1), 2));
+            tmp.lq_1 = _UByteArray___init__impl__ip4y9n(copyOf_6(_UByteArray___get_storage__impl__d4kctt(tmp0), newSize));
         }
     };
-    protoOf(UByteArrayBuilder).xq = function(c) {
-        this.yl();
-        var tmp = this.vq_1;
-        var _unary__edvuaz = this.wq_1;
-        this.wq_1 = _unary__edvuaz + 1 | 0;
+    protoOf(UByteArrayBuilder).nq = function(c) {
+        this.ol();
+        var tmp = this.lq_1;
+        var _unary__edvuaz = this.mq_1;
+        this.mq_1 = _unary__edvuaz + 1 | 0;
         UByteArray__set_impl_jvcicn(tmp, _unary__edvuaz, c);
     };
-    protoOf(UByteArrayBuilder).jr = function() {
-        var tmp0 = this.vq_1;
-        var newSize = this.wq_1;
+    protoOf(UByteArrayBuilder).zq = function() {
+        var tmp0 = this.lq_1;
+        var newSize = this.mq_1;
         return _UByteArray___init__impl__ip4y9n(copyOf_6(_UByteArray___get_storage__impl__d4kctt(tmp0), newSize));
     };
-    protoOf(UByteArrayBuilder).sl = function() {
-        return new UByteArray(this.jr());
+    protoOf(UByteArrayBuilder).il = function() {
+        return new UByteArray(this.zq());
     };
     function BooleanArrayBuilder_init_$Init$(bufferWithData, $this) {
         BooleanArrayBuilder.call($this, bufferWithData, bufferWithData.length);
@@ -13521,24 +13118,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function BooleanArrayBuilder(bufferWithData, initialPosition) {
         PrimitiveArrayBuilder.call(this);
-        this.dr_1 = bufferWithData;
-        this.er_1 = initialPosition;
+        this.tq_1 = bufferWithData;
+        this.uq_1 = initialPosition;
     }
-    protoOf(BooleanArrayBuilder).ql = function() {
-        return this.er_1;
+    protoOf(BooleanArrayBuilder).gl = function() {
+        return this.uq_1;
     };
-    protoOf(BooleanArrayBuilder).xl = function(requiredCapacity) {
-        if (this.dr_1.length < requiredCapacity) this.dr_1 = copyOf_7(this.dr_1, coerceAtLeast(requiredCapacity, imul(this.dr_1.length, 2)));
+    protoOf(BooleanArrayBuilder).nl = function(requiredCapacity) {
+        if (this.tq_1.length < requiredCapacity) this.tq_1 = copyOf_7(this.tq_1, coerceAtLeast(requiredCapacity, imul(this.tq_1.length, 2)));
     };
-    protoOf(BooleanArrayBuilder).fr = function(c) {
-        this.yl();
-        var tmp = this.dr_1;
-        var _unary__edvuaz = this.er_1;
-        this.er_1 = _unary__edvuaz + 1 | 0;
+    protoOf(BooleanArrayBuilder).vq = function(c) {
+        this.ol();
+        var tmp = this.tq_1;
+        var _unary__edvuaz = this.uq_1;
+        this.uq_1 = _unary__edvuaz + 1 | 0;
         tmp[_unary__edvuaz] = c;
     };
-    protoOf(BooleanArrayBuilder).sl = function() {
-        return copyOf_7(this.dr_1, this.er_1);
+    protoOf(BooleanArrayBuilder).il = function() {
+        return copyOf_7(this.tq_1, this.uq_1);
     };
     function get_BUILTIN_SERIALIZERS() {
         _init_properties_Primitives_kt__k0eto4();
@@ -13547,13 +13144,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     var BUILTIN_SERIALIZERS;
     function StringSerializer() {
         StringSerializer_instance = this;
-        this.kr_1 = new PrimitiveSerialDescriptor_0('kotlin.String', STRING_getInstance());
+        this.ar_1 = new PrimitiveSerialDescriptor_0('kotlin.String', STRING_getInstance());
     }
-    protoOf(StringSerializer).sg = function() {
-        return this.kr_1;
+    protoOf(StringSerializer).ig = function() {
+        return this.ar_1;
     };
-    protoOf(StringSerializer).tg = function(decoder) {
-        return decoder.vi();
+    protoOf(StringSerializer).jg = function(decoder) {
+        return decoder.li();
     };
     var StringSerializer_instance;
     function StringSerializer_getInstance() {
@@ -13561,57 +13158,57 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return StringSerializer_instance;
     }
     function error_0($this) {
-        throw IllegalStateException_init_$Create$_0('Primitive descriptor ' + $this.lr_1 + ' does not have elements');
+        throw IllegalStateException_init_$Create$_0('Primitive descriptor ' + $this.br_1 + ' does not have elements');
     }
     function PrimitiveSerialDescriptor_0(serialName, kind) {
-        this.lr_1 = serialName;
-        this.mr_1 = kind;
+        this.br_1 = serialName;
+        this.cr_1 = kind;
     }
-    protoOf(PrimitiveSerialDescriptor_0).ah = function() {
-        return this.lr_1;
+    protoOf(PrimitiveSerialDescriptor_0).qg = function() {
+        return this.br_1;
     };
-    protoOf(PrimitiveSerialDescriptor_0).bh = function() {
-        return this.mr_1;
+    protoOf(PrimitiveSerialDescriptor_0).rg = function() {
+        return this.cr_1;
     };
-    protoOf(PrimitiveSerialDescriptor_0).eh = function() {
+    protoOf(PrimitiveSerialDescriptor_0).ug = function() {
         return 0;
     };
-    protoOf(PrimitiveSerialDescriptor_0).gh = function(index) {
+    protoOf(PrimitiveSerialDescriptor_0).wg = function(index) {
         error_0(this);
     };
-    protoOf(PrimitiveSerialDescriptor_0).hh = function(name) {
+    protoOf(PrimitiveSerialDescriptor_0).xg = function(name) {
         error_0(this);
     };
-    protoOf(PrimitiveSerialDescriptor_0).kh = function(index) {
+    protoOf(PrimitiveSerialDescriptor_0).ah = function(index) {
         error_0(this);
     };
-    protoOf(PrimitiveSerialDescriptor_0).jh = function(index) {
+    protoOf(PrimitiveSerialDescriptor_0).zg = function(index) {
         error_0(this);
     };
-    protoOf(PrimitiveSerialDescriptor_0).ih = function(index) {
+    protoOf(PrimitiveSerialDescriptor_0).yg = function(index) {
         error_0(this);
     };
     protoOf(PrimitiveSerialDescriptor_0).toString = function() {
-        return 'PrimitiveDescriptor(' + this.lr_1 + ')';
+        return 'PrimitiveDescriptor(' + this.br_1 + ')';
     };
     protoOf(PrimitiveSerialDescriptor_0).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof PrimitiveSerialDescriptor_0)) return false;
-        if (this.lr_1 === other.lr_1 && equals(this.mr_1, other.mr_1)) return true;
+        if (this.br_1 === other.br_1 && equals(this.cr_1, other.cr_1)) return true;
         return false;
     };
     protoOf(PrimitiveSerialDescriptor_0).hashCode = function() {
-        return getStringHashCode(this.lr_1) + imul(31, this.mr_1.hashCode()) | 0;
+        return getStringHashCode(this.br_1) + imul(31, this.cr_1.hashCode()) | 0;
     };
     function IntSerializer() {
         IntSerializer_instance = this;
-        this.nr_1 = new PrimitiveSerialDescriptor_0('kotlin.Int', INT_getInstance());
+        this.dr_1 = new PrimitiveSerialDescriptor_0('kotlin.Int', INT_getInstance());
     }
-    protoOf(IntSerializer).sg = function() {
-        return this.nr_1;
+    protoOf(IntSerializer).ig = function() {
+        return this.dr_1;
     };
-    protoOf(IntSerializer).tg = function(decoder) {
-        return decoder.qi();
+    protoOf(IntSerializer).jg = function(decoder) {
+        return decoder.gi();
     };
     var IntSerializer_instance;
     function IntSerializer_getInstance() {
@@ -13620,13 +13217,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function LongSerializer() {
         LongSerializer_instance = this;
-        this.or_1 = new PrimitiveSerialDescriptor_0('kotlin.Long', LONG_getInstance());
+        this.er_1 = new PrimitiveSerialDescriptor_0('kotlin.Long', LONG_getInstance());
     }
-    protoOf(LongSerializer).sg = function() {
-        return this.or_1;
+    protoOf(LongSerializer).ig = function() {
+        return this.er_1;
     };
-    protoOf(LongSerializer).tg = function(decoder) {
-        return decoder.ri();
+    protoOf(LongSerializer).jg = function(decoder) {
+        return decoder.hi();
     };
     var LongSerializer_instance;
     function LongSerializer_getInstance() {
@@ -13635,13 +13232,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ByteSerializer() {
         ByteSerializer_instance = this;
-        this.pr_1 = new PrimitiveSerialDescriptor_0('kotlin.Byte', BYTE_getInstance());
+        this.fr_1 = new PrimitiveSerialDescriptor_0('kotlin.Byte', BYTE_getInstance());
     }
-    protoOf(ByteSerializer).sg = function() {
-        return this.pr_1;
+    protoOf(ByteSerializer).ig = function() {
+        return this.fr_1;
     };
-    protoOf(ByteSerializer).tg = function(decoder) {
-        return decoder.oi();
+    protoOf(ByteSerializer).jg = function(decoder) {
+        return decoder.ei();
     };
     var ByteSerializer_instance;
     function ByteSerializer_getInstance() {
@@ -13650,13 +13247,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ShortSerializer() {
         ShortSerializer_instance = this;
-        this.qr_1 = new PrimitiveSerialDescriptor_0('kotlin.Short', SHORT_getInstance());
+        this.gr_1 = new PrimitiveSerialDescriptor_0('kotlin.Short', SHORT_getInstance());
     }
-    protoOf(ShortSerializer).sg = function() {
-        return this.qr_1;
+    protoOf(ShortSerializer).ig = function() {
+        return this.gr_1;
     };
-    protoOf(ShortSerializer).tg = function(decoder) {
-        return decoder.pi();
+    protoOf(ShortSerializer).jg = function(decoder) {
+        return decoder.fi();
     };
     var ShortSerializer_instance;
     function ShortSerializer_getInstance() {
@@ -13665,16 +13262,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function CharSerializer() {
         CharSerializer_instance = this;
-        this.rr_1 = new PrimitiveSerialDescriptor_0('kotlin.Char', CHAR_getInstance());
+        this.hr_1 = new PrimitiveSerialDescriptor_0('kotlin.Char', CHAR_getInstance());
     }
-    protoOf(CharSerializer).sg = function() {
-        return this.rr_1;
+    protoOf(CharSerializer).ig = function() {
+        return this.hr_1;
     };
-    protoOf(CharSerializer).sr = function(decoder) {
-        return decoder.ui();
+    protoOf(CharSerializer).ir = function(decoder) {
+        return decoder.ki();
     };
-    protoOf(CharSerializer).tg = function(decoder) {
-        return new Char(this.sr(decoder));
+    protoOf(CharSerializer).jg = function(decoder) {
+        return new Char(this.ir(decoder));
     };
     var CharSerializer_instance;
     function CharSerializer_getInstance() {
@@ -13683,13 +13280,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function DoubleSerializer() {
         DoubleSerializer_instance = this;
-        this.tr_1 = new PrimitiveSerialDescriptor_0('kotlin.Double', DOUBLE_getInstance());
+        this.jr_1 = new PrimitiveSerialDescriptor_0('kotlin.Double', DOUBLE_getInstance());
     }
-    protoOf(DoubleSerializer).sg = function() {
-        return this.tr_1;
+    protoOf(DoubleSerializer).ig = function() {
+        return this.jr_1;
     };
-    protoOf(DoubleSerializer).tg = function(decoder) {
-        return decoder.ti();
+    protoOf(DoubleSerializer).jg = function(decoder) {
+        return decoder.ji();
     };
     var DoubleSerializer_instance;
     function DoubleSerializer_getInstance() {
@@ -13698,13 +13295,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function FloatSerializer() {
         FloatSerializer_instance = this;
-        this.ur_1 = new PrimitiveSerialDescriptor_0('kotlin.Float', FLOAT_getInstance());
+        this.kr_1 = new PrimitiveSerialDescriptor_0('kotlin.Float', FLOAT_getInstance());
     }
-    protoOf(FloatSerializer).sg = function() {
-        return this.ur_1;
+    protoOf(FloatSerializer).ig = function() {
+        return this.kr_1;
     };
-    protoOf(FloatSerializer).tg = function(decoder) {
-        return decoder.si();
+    protoOf(FloatSerializer).jg = function(decoder) {
+        return decoder.ii();
     };
     var FloatSerializer_instance;
     function FloatSerializer_getInstance() {
@@ -13713,13 +13310,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function BooleanSerializer() {
         BooleanSerializer_instance = this;
-        this.vr_1 = new PrimitiveSerialDescriptor_0('kotlin.Boolean', BOOLEAN_getInstance());
+        this.lr_1 = new PrimitiveSerialDescriptor_0('kotlin.Boolean', BOOLEAN_getInstance());
     }
-    protoOf(BooleanSerializer).sg = function() {
-        return this.vr_1;
+    protoOf(BooleanSerializer).ig = function() {
+        return this.lr_1;
     };
-    protoOf(BooleanSerializer).tg = function(decoder) {
-        return decoder.ni();
+    protoOf(BooleanSerializer).jg = function(decoder) {
+        return decoder.di();
     };
     var BooleanSerializer_instance;
     function BooleanSerializer_getInstance() {
@@ -13728,16 +13325,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UnitSerializer() {
         UnitSerializer_instance = this;
-        this.wr_1 = new ObjectSerializer('kotlin.Unit', Unit_instance);
+        this.mr_1 = new ObjectSerializer('kotlin.Unit', Unit_instance);
     }
-    protoOf(UnitSerializer).sg = function() {
-        return this.wr_1.sg();
+    protoOf(UnitSerializer).ig = function() {
+        return this.mr_1.ig();
     };
-    protoOf(UnitSerializer).xr = function(decoder) {
-        this.wr_1.tg(decoder);
+    protoOf(UnitSerializer).nr = function(decoder) {
+        this.mr_1.jg(decoder);
     };
-    protoOf(UnitSerializer).tg = function(decoder) {
-        this.xr(decoder);
+    protoOf(UnitSerializer).jg = function(decoder) {
+        this.nr(decoder);
         return Unit_instance;
     };
     var UnitSerializer_instance;
@@ -13752,13 +13349,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function checkNameIsNotAPrimitive(serialName) {
         _init_properties_Primitives_kt__k0eto4();
-        var values = get_BUILTIN_SERIALIZERS().v1();
+        var values = get_BUILTIN_SERIALIZERS().u1();
         var _iterator__ex2g4s = values.g();
         while (_iterator__ex2g4s.h()) {
             var primitive = _iterator__ex2g4s.i();
-            var primitiveName = primitive.sg().ah();
+            var primitiveName = primitive.ig().qg();
             if (serialName === primitiveName) {
-                throw IllegalArgumentException_init_$Create$_0(trimIndent('\n                The name of serial descriptor should uniquely identify associated serializer.\n                For serial name ' + serialName + ' there already exists ' + getKClassFromExpression(primitive).k8() + '.\n                Please refer to SerialDescriptor documentation for additional information.\n            '));
+                throw IllegalArgumentException_init_$Create$_0(trimIndent('\n                The name of serial descriptor should uniquely identify associated serializer.\n                For serial name ' + serialName + ' there already exists ' + getKClassFromExpression(primitive).j8() + '.\n                Please refer to SerialDescriptor documentation for additional information.\n            '));
             }
         }
     }
@@ -13772,17 +13369,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function NamedValueDecoder() {
         TaggedDecoder.call(this);
     }
-    protoOf(NamedValueDecoder).as = function(_this__u8e3s4, index) {
-        return this.cs(this.bs(_this__u8e3s4, index));
+    protoOf(NamedValueDecoder).qr = function(_this__u8e3s4, index) {
+        return this.sr(this.rr(_this__u8e3s4, index));
     };
-    protoOf(NamedValueDecoder).cs = function(nestedName) {
-        var tmp0_elvis_lhs = this.fs();
-        return this.gs(tmp0_elvis_lhs == null ? '' : tmp0_elvis_lhs, nestedName);
+    protoOf(NamedValueDecoder).sr = function(nestedName) {
+        var tmp0_elvis_lhs = this.vr();
+        return this.wr(tmp0_elvis_lhs == null ? '' : tmp0_elvis_lhs, nestedName);
     };
-    protoOf(NamedValueDecoder).bs = function(descriptor, index) {
-        return descriptor.gh(index);
+    protoOf(NamedValueDecoder).rr = function(descriptor, index) {
+        return descriptor.wg(index);
     };
-    protoOf(NamedValueDecoder).gs = function(parentName, childName) {
+    protoOf(NamedValueDecoder).wr = function(parentName, childName) {
         var tmp;
         if (charSequenceLength(parentName) === 0) {
             tmp = childName;
@@ -13791,85 +13388,85 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     };
-    protoOf(NamedValueDecoder).hs = function() {
-        return this.ds_1.k() ? '$' : joinToString_0(this.ds_1, '.', '$.');
+    protoOf(NamedValueDecoder).xr = function() {
+        return this.tr_1.p() ? '$' : joinToString_0(this.tr_1, '.', '$.');
     };
     function tagBlock($this, tag, block) {
-        $this.us(tag);
+        $this.ks(tag);
         var r = block();
-        if (!$this.es_1) {
-            $this.vs();
+        if (!$this.ur_1) {
+            $this.ls();
         }
-        $this.es_1 = false;
+        $this.ur_1 = false;
         return r;
     }
     function TaggedDecoder$decodeSerializableElement$lambda(this$0, $deserializer, $previousValue) {
         return function() {
-            return this$0.xi($deserializer, $previousValue);
+            return this$0.ni($deserializer, $previousValue);
         };
     }
     function TaggedDecoder() {
         var tmp = this;
-        tmp.ds_1 = ArrayList_init_$Create$();
-        this.es_1 = false;
+        tmp.tr_1 = ArrayList_init_$Create$();
+        this.ur_1 = false;
     }
-    protoOf(TaggedDecoder).mj = function() {
+    protoOf(TaggedDecoder).cj = function() {
         return EmptySerializersModule_0();
     };
-    protoOf(TaggedDecoder).is = function(tag) {
+    protoOf(TaggedDecoder).yr = function(tag) {
         throw SerializationException_init_$Create$_0(toString_1(getKClassFromExpression(this)) + " can't retrieve untyped values");
     };
-    protoOf(TaggedDecoder).js = function(tag) {
+    protoOf(TaggedDecoder).zr = function(tag) {
         return true;
     };
-    protoOf(TaggedDecoder).ks = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).as = function(tag) {
+        var tmp = this.yr(tag);
         return typeof tmp === 'boolean' ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).ls = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).bs = function(tag) {
+        var tmp = this.yr(tag);
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).ms = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).cs = function(tag) {
+        var tmp = this.yr(tag);
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).ns = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).ds = function(tag) {
+        var tmp = this.yr(tag);
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).os = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).es = function(tag) {
+        var tmp = this.yr(tag);
         return tmp instanceof Long ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).ps = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).fs = function(tag) {
+        var tmp = this.yr(tag);
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).qs = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).gs = function(tag) {
+        var tmp = this.yr(tag);
         return typeof tmp === 'number' ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).rs = function(tag) {
-        var tmp = this.is(tag);
-        return tmp instanceof Char ? tmp.a1_1 : THROW_CCE();
+    protoOf(TaggedDecoder).hs = function(tag) {
+        var tmp = this.yr(tag);
+        return tmp instanceof Char ? tmp.z_1 : THROW_CCE();
     };
-    protoOf(TaggedDecoder).ss = function(tag) {
-        var tmp = this.is(tag);
+    protoOf(TaggedDecoder).is = function(tag) {
+        var tmp = this.yr(tag);
         return typeof tmp === 'string' ? tmp : THROW_CCE();
     };
-    protoOf(TaggedDecoder).ts = function(tag, inlineDescriptor) {
-        this.us(tag);
+    protoOf(TaggedDecoder).js = function(tag, inlineDescriptor) {
+        this.ks(tag);
         return this;
     };
-    protoOf(TaggedDecoder).xi = function(deserializer, previousValue) {
-        return this.yi(deserializer);
+    protoOf(TaggedDecoder).ni = function(deserializer, previousValue) {
+        return this.oi(deserializer);
     };
-    protoOf(TaggedDecoder).wi = function(descriptor) {
-        return this.ts(this.vs(), descriptor);
+    protoOf(TaggedDecoder).mi = function(descriptor) {
+        return this.js(this.ls(), descriptor);
     };
-    protoOf(TaggedDecoder).li = function() {
-        var tmp0_elvis_lhs = this.fs();
+    protoOf(TaggedDecoder).bi = function() {
+        var tmp0_elvis_lhs = this.vr();
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return false;
@@ -13877,97 +13474,97 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var currentTag = tmp;
-        return this.js(currentTag);
+        return this.zr(currentTag);
     };
-    protoOf(TaggedDecoder).mi = function() {
+    protoOf(TaggedDecoder).ci = function() {
         return null;
     };
-    protoOf(TaggedDecoder).ni = function() {
-        return this.ks(this.vs());
+    protoOf(TaggedDecoder).di = function() {
+        return this.as(this.ls());
     };
-    protoOf(TaggedDecoder).oi = function() {
-        return this.ls(this.vs());
+    protoOf(TaggedDecoder).ei = function() {
+        return this.bs(this.ls());
     };
-    protoOf(TaggedDecoder).pi = function() {
-        return this.ms(this.vs());
+    protoOf(TaggedDecoder).fi = function() {
+        return this.cs(this.ls());
     };
-    protoOf(TaggedDecoder).qi = function() {
-        return this.ns(this.vs());
+    protoOf(TaggedDecoder).gi = function() {
+        return this.ds(this.ls());
     };
-    protoOf(TaggedDecoder).ri = function() {
-        return this.os(this.vs());
+    protoOf(TaggedDecoder).hi = function() {
+        return this.es(this.ls());
     };
-    protoOf(TaggedDecoder).si = function() {
-        return this.ps(this.vs());
+    protoOf(TaggedDecoder).ii = function() {
+        return this.fs(this.ls());
     };
-    protoOf(TaggedDecoder).ti = function() {
-        return this.qs(this.vs());
+    protoOf(TaggedDecoder).ji = function() {
+        return this.gs(this.ls());
     };
-    protoOf(TaggedDecoder).ui = function() {
-        return this.rs(this.vs());
+    protoOf(TaggedDecoder).ki = function() {
+        return this.hs(this.ls());
     };
-    protoOf(TaggedDecoder).vi = function() {
-        return this.ss(this.vs());
+    protoOf(TaggedDecoder).li = function() {
+        return this.is(this.ls());
     };
-    protoOf(TaggedDecoder).zi = function(descriptor) {
+    protoOf(TaggedDecoder).pi = function(descriptor) {
         return this;
     };
-    protoOf(TaggedDecoder).aj = function(descriptor) {};
-    protoOf(TaggedDecoder).bj = function(descriptor, index) {
-        return this.ks(this.as(descriptor, index));
+    protoOf(TaggedDecoder).qi = function(descriptor) {};
+    protoOf(TaggedDecoder).ri = function(descriptor, index) {
+        return this.as(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).cj = function(descriptor, index) {
-        return this.ls(this.as(descriptor, index));
+    protoOf(TaggedDecoder).si = function(descriptor, index) {
+        return this.bs(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).dj = function(descriptor, index) {
-        return this.ms(this.as(descriptor, index));
+    protoOf(TaggedDecoder).ti = function(descriptor, index) {
+        return this.cs(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).ej = function(descriptor, index) {
-        return this.ns(this.as(descriptor, index));
+    protoOf(TaggedDecoder).ui = function(descriptor, index) {
+        return this.ds(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).fj = function(descriptor, index) {
-        return this.os(this.as(descriptor, index));
+    protoOf(TaggedDecoder).vi = function(descriptor, index) {
+        return this.es(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).gj = function(descriptor, index) {
-        return this.ps(this.as(descriptor, index));
+    protoOf(TaggedDecoder).wi = function(descriptor, index) {
+        return this.fs(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).hj = function(descriptor, index) {
-        return this.qs(this.as(descriptor, index));
+    protoOf(TaggedDecoder).xi = function(descriptor, index) {
+        return this.gs(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).ij = function(descriptor, index) {
-        return this.rs(this.as(descriptor, index));
+    protoOf(TaggedDecoder).yi = function(descriptor, index) {
+        return this.hs(this.qr(descriptor, index));
     };
-    protoOf(TaggedDecoder).jj = function(descriptor, index) {
-        return this.ts(this.as(descriptor, index), descriptor.jh(index));
+    protoOf(TaggedDecoder).zi = function(descriptor, index) {
+        return this.js(this.qr(descriptor, index), descriptor.zg(index));
     };
-    protoOf(TaggedDecoder).kj = function(descriptor, index, deserializer, previousValue) {
-        var tmp = this.as(descriptor, index);
+    protoOf(TaggedDecoder).aj = function(descriptor, index, deserializer, previousValue) {
+        var tmp = this.qr(descriptor, index);
         return tagBlock(this, tmp, TaggedDecoder$decodeSerializableElement$lambda(this, deserializer, previousValue));
     };
-    protoOf(TaggedDecoder).fs = function() {
-        return lastOrNull(this.ds_1);
+    protoOf(TaggedDecoder).vr = function() {
+        return lastOrNull(this.tr_1);
     };
-    protoOf(TaggedDecoder).us = function(name) {
-        this.ds_1.f(name);
+    protoOf(TaggedDecoder).ks = function(name) {
+        this.tr_1.f(name);
     };
-    protoOf(TaggedDecoder).vs = function() {
-        var r = this.ds_1.f3(get_lastIndex_3(this.ds_1));
-        this.es_1 = true;
+    protoOf(TaggedDecoder).ls = function() {
+        var r = this.tr_1.d3(get_lastIndex_2(this.tr_1));
+        this.ur_1 = true;
         return r;
     };
     function UIntSerializer() {
         UIntSerializer_instance = this;
-        this.ws_1 = InlinePrimitiveDescriptor('kotlin.UInt', serializer_4(IntCompanionObject_instance));
+        this.ms_1 = InlinePrimitiveDescriptor('kotlin.UInt', serializer_4(IntCompanionObject_instance));
     }
-    protoOf(UIntSerializer).sg = function() {
-        return this.ws_1;
+    protoOf(UIntSerializer).ig = function() {
+        return this.ms_1;
     };
-    protoOf(UIntSerializer).xs = function(decoder) {
-        var this_0 = decoder.wi(this.ws_1).qi();
+    protoOf(UIntSerializer).ns = function(decoder) {
+        var this_0 = decoder.mi(this.ms_1).gi();
         return _UInt___init__impl__l7qpdl(this_0);
     };
-    protoOf(UIntSerializer).tg = function(decoder) {
-        return new UInt(this.xs(decoder));
+    protoOf(UIntSerializer).jg = function(decoder) {
+        return new UInt(this.ns(decoder));
     };
     var UIntSerializer_instance;
     function UIntSerializer_getInstance() {
@@ -13976,17 +13573,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function ULongSerializer() {
         ULongSerializer_instance = this;
-        this.ys_1 = InlinePrimitiveDescriptor('kotlin.ULong', serializer_5(Companion_getInstance_1()));
+        this.os_1 = InlinePrimitiveDescriptor('kotlin.ULong', serializer_5(Companion_getInstance_1()));
     }
-    protoOf(ULongSerializer).sg = function() {
-        return this.ys_1;
+    protoOf(ULongSerializer).ig = function() {
+        return this.os_1;
     };
-    protoOf(ULongSerializer).zs = function(decoder) {
-        var this_0 = decoder.wi(this.ys_1).ri();
+    protoOf(ULongSerializer).ps = function(decoder) {
+        var this_0 = decoder.mi(this.os_1).hi();
         return _ULong___init__impl__c78o9k(this_0);
     };
-    protoOf(ULongSerializer).tg = function(decoder) {
-        return new ULong(this.zs(decoder));
+    protoOf(ULongSerializer).jg = function(decoder) {
+        return new ULong(this.ps(decoder));
     };
     var ULongSerializer_instance;
     function ULongSerializer_getInstance() {
@@ -13995,17 +13592,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UByteSerializer() {
         UByteSerializer_instance = this;
-        this.at_1 = InlinePrimitiveDescriptor('kotlin.UByte', serializer_6(ByteCompanionObject_instance));
+        this.qs_1 = InlinePrimitiveDescriptor('kotlin.UByte', serializer_6(ByteCompanionObject_instance));
     }
-    protoOf(UByteSerializer).sg = function() {
-        return this.at_1;
+    protoOf(UByteSerializer).ig = function() {
+        return this.qs_1;
     };
-    protoOf(UByteSerializer).bt = function(decoder) {
-        var this_0 = decoder.wi(this.at_1).oi();
+    protoOf(UByteSerializer).rs = function(decoder) {
+        var this_0 = decoder.mi(this.qs_1).ei();
         return _UByte___init__impl__g9hnc4(this_0);
     };
-    protoOf(UByteSerializer).tg = function(decoder) {
-        return new UByte(this.bt(decoder));
+    protoOf(UByteSerializer).jg = function(decoder) {
+        return new UByte(this.rs(decoder));
     };
     var UByteSerializer_instance;
     function UByteSerializer_getInstance() {
@@ -14014,17 +13611,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function UShortSerializer() {
         UShortSerializer_instance = this;
-        this.ct_1 = InlinePrimitiveDescriptor('kotlin.UShort', serializer_7(ShortCompanionObject_instance));
+        this.ss_1 = InlinePrimitiveDescriptor('kotlin.UShort', serializer_7(ShortCompanionObject_instance));
     }
-    protoOf(UShortSerializer).sg = function() {
-        return this.ct_1;
+    protoOf(UShortSerializer).ig = function() {
+        return this.ss_1;
     };
-    protoOf(UShortSerializer).dt = function(decoder) {
-        var this_0 = decoder.wi(this.ct_1).pi();
+    protoOf(UShortSerializer).ts = function(decoder) {
+        var this_0 = decoder.mi(this.ss_1).fi();
         return _UShort___init__impl__jigrne(this_0);
     };
-    protoOf(UShortSerializer).tg = function(decoder) {
-        return new UShort(this.dt(decoder));
+    protoOf(UShortSerializer).jg = function(decoder) {
+        return new UShort(this.ts(decoder));
     };
     var UShortSerializer_instance;
     function UShortSerializer_getInstance() {
@@ -14037,37 +13634,37 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     var EmptySerializersModule;
     function SerializersModule() {}
-    protoOf(SerializersModule).xg = function(kClass, typeArgumentsSerializers, $super) {
+    protoOf(SerializersModule).ng = function(kClass, typeArgumentsSerializers, $super) {
         typeArgumentsSerializers = typeArgumentsSerializers === VOID ? emptyList() : typeArgumentsSerializers;
-        return $super === VOID ? this.et(kClass, typeArgumentsSerializers) : $super.et.call(this, kClass, typeArgumentsSerializers);
+        return $super === VOID ? this.us(kClass, typeArgumentsSerializers) : $super.us.call(this, kClass, typeArgumentsSerializers);
     };
     function SerialModuleImpl(class2ContextualFactory, polyBase2Serializers, polyBase2DefaultSerializerProvider, polyBase2NamedSerializers, polyBase2DefaultDeserializerProvider, hasInterfaceContextualSerializers) {
         SerializersModule.call(this);
-        this.ft_1 = class2ContextualFactory;
-        this.gt_1 = polyBase2Serializers;
-        this.ht_1 = polyBase2DefaultSerializerProvider;
-        this.it_1 = polyBase2NamedSerializers;
-        this.jt_1 = polyBase2DefaultDeserializerProvider;
-        this.kt_1 = hasInterfaceContextualSerializers;
+        this.vs_1 = class2ContextualFactory;
+        this.ws_1 = polyBase2Serializers;
+        this.xs_1 = polyBase2DefaultSerializerProvider;
+        this.ys_1 = polyBase2NamedSerializers;
+        this.zs_1 = polyBase2DefaultDeserializerProvider;
+        this.at_1 = hasInterfaceContextualSerializers;
     }
-    protoOf(SerialModuleImpl).sj = function(baseClass, serializedClassName) {
-        var tmp0_safe_receiver = this.it_1.t1(baseClass);
+    protoOf(SerialModuleImpl).ij = function(baseClass, serializedClassName) {
+        var tmp0_safe_receiver = this.ys_1.s1(baseClass);
         var tmp;
         if (tmp0_safe_receiver == null) {
             tmp = null;
         } else {
-            tmp = (isInterface(tmp0_safe_receiver, KtMap) ? tmp0_safe_receiver : THROW_CCE()).t1(serializedClassName);
+            tmp = (isInterface(tmp0_safe_receiver, KtMap) ? tmp0_safe_receiver : THROW_CCE()).s1(serializedClassName);
         }
         var tmp_0 = tmp;
         var registered = (!(tmp_0 == null) ? isInterface(tmp_0, KSerializer) : false) ? tmp_0 : null;
         if (!(registered == null)) return registered;
-        var tmp_1 = this.jt_1.t1(baseClass);
+        var tmp_1 = this.zs_1.s1(baseClass);
         var tmp1_safe_receiver = (!(tmp_1 == null) ? typeof tmp_1 === 'function' : false) ? tmp_1 : null;
         return tmp1_safe_receiver == null ? null : tmp1_safe_receiver(serializedClassName);
     };
-    protoOf(SerialModuleImpl).et = function(kClass, typeArgumentsSerializers) {
-        var tmp0_safe_receiver = this.ft_1.t1(kClass);
-        var tmp = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.lt(typeArgumentsSerializers);
+    protoOf(SerialModuleImpl).us = function(kClass, typeArgumentsSerializers) {
+        var tmp0_safe_receiver = this.vs_1.s1(kClass);
+        var tmp = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.bt(typeArgumentsSerializers);
         return (tmp == null ? true : isInterface(tmp, KSerializer)) ? tmp : null;
     };
     var properties_initialized_SerializersModule_kt_fjigjn;
@@ -14090,7 +13687,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return _this__u8e3s4[index];
     }
     function initBuiltins() {
-        return mapOf_0([ to(PrimitiveClasses_getInstance().d9(), serializer(StringCompanionObject_instance)), to(getKClass(Char), serializer_8(Companion_getInstance())), to(PrimitiveClasses_getInstance().g9(), CharArraySerializer()), to(PrimitiveClasses_getInstance().b9(), serializer_9(DoubleCompanionObject_instance)), to(PrimitiveClasses_getInstance().n9(), DoubleArraySerializer()), to(PrimitiveClasses_getInstance().a9(), serializer_10(FloatCompanionObject_instance)), to(PrimitiveClasses_getInstance().m9(), FloatArraySerializer()), to(PrimitiveClasses_getInstance().z8(), serializer_5(Companion_getInstance_1())), to(PrimitiveClasses_getInstance().l9(), LongArraySerializer()), to(getKClass(ULong), serializer_1(Companion_getInstance_18())), to(getKClass(ULongArray), ULongArraySerializer()), to(PrimitiveClasses_getInstance().y8(), serializer_4(IntCompanionObject_instance)), to(PrimitiveClasses_getInstance().j9(), IntArraySerializer()), to(getKClass(UInt), serializer_0(Companion_getInstance_17())), to(getKClass(UIntArray), UIntArraySerializer()), to(PrimitiveClasses_getInstance().x8(), serializer_7(ShortCompanionObject_instance)), to(PrimitiveClasses_getInstance().i9(), ShortArraySerializer()), to(getKClass(UShort), serializer_3(Companion_getInstance_19())), to(getKClass(UShortArray), UShortArraySerializer()), to(PrimitiveClasses_getInstance().w8(), serializer_6(ByteCompanionObject_instance)), to(PrimitiveClasses_getInstance().h9(), ByteArraySerializer()), to(getKClass(UByte), serializer_2(Companion_getInstance_16())), to(getKClass(UByteArray), UByteArraySerializer()), to(PrimitiveClasses_getInstance().v8(), serializer_11(BooleanCompanionObject_instance)), to(PrimitiveClasses_getInstance().f9(), BooleanArraySerializer()), to(getKClass(Unit), serializer_12(Unit_instance)), to(PrimitiveClasses_getInstance().u8(), NothingSerializer()), to(getKClass(Duration), serializer_13(Companion_getInstance_10())), to(getKClass(Instant), serializer_14(Companion_getInstance_12())), to(getKClass(Uuid), serializer_15(Companion_getInstance_15())) ]);
+        return mapOf_0([ to(PrimitiveClasses_getInstance().c9(), serializer(StringCompanionObject_instance)), to(getKClass(Char), serializer_8(Companion_getInstance())), to(PrimitiveClasses_getInstance().f9(), CharArraySerializer()), to(PrimitiveClasses_getInstance().a9(), serializer_9(DoubleCompanionObject_instance)), to(PrimitiveClasses_getInstance().m9(), DoubleArraySerializer()), to(PrimitiveClasses_getInstance().z8(), serializer_10(FloatCompanionObject_instance)), to(PrimitiveClasses_getInstance().l9(), FloatArraySerializer()), to(PrimitiveClasses_getInstance().y8(), serializer_5(Companion_getInstance_1())), to(PrimitiveClasses_getInstance().k9(), LongArraySerializer()), to(getKClass(ULong), serializer_1(Companion_getInstance_18())), to(getKClass(ULongArray), ULongArraySerializer()), to(PrimitiveClasses_getInstance().x8(), serializer_4(IntCompanionObject_instance)), to(PrimitiveClasses_getInstance().i9(), IntArraySerializer()), to(getKClass(UInt), serializer_0(Companion_getInstance_17())), to(getKClass(UIntArray), UIntArraySerializer()), to(PrimitiveClasses_getInstance().w8(), serializer_7(ShortCompanionObject_instance)), to(PrimitiveClasses_getInstance().h9(), ShortArraySerializer()), to(getKClass(UShort), serializer_3(Companion_getInstance_19())), to(getKClass(UShortArray), UShortArraySerializer()), to(PrimitiveClasses_getInstance().v8(), serializer_6(ByteCompanionObject_instance)), to(PrimitiveClasses_getInstance().g9(), ByteArraySerializer()), to(getKClass(UByte), serializer_2(Companion_getInstance_16())), to(getKClass(UByteArray), UByteArraySerializer()), to(PrimitiveClasses_getInstance().u8(), serializer_11(BooleanCompanionObject_instance)), to(PrimitiveClasses_getInstance().e9(), BooleanArraySerializer()), to(getKClass(Unit), serializer_12(Unit_instance)), to(PrimitiveClasses_getInstance().t8(), NothingSerializer()), to(getKClass(Duration), serializer_13(Companion_getInstance_10())), to(getKClass(Instant), serializer_14(Companion_getInstance_12())), to(getKClass(Uuid), serializer_15(Companion_getInstance_15())) ]);
     }
     function estimateCapacityForHashMap(requiredCapacity) {
         return requiredCapacity;
@@ -14106,22 +13703,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Json(configuration, serializersModule) {
         Default_getInstance_0();
-        this.mt_1 = configuration;
-        this.nt_1 = serializersModule;
-        this.ot_1 = new DescriptorSchemaCache;
+        this.ct_1 = configuration;
+        this.dt_1 = serializersModule;
+        this.et_1 = new DescriptorSchemaCache;
     }
-    protoOf(Json).mj = function() {
-        return this.nt_1;
+    protoOf(Json).cj = function() {
+        return this.dt_1;
     };
-    protoOf(Json).pt = function(deserializer, string) {
+    protoOf(Json).ft = function(deserializer, string) {
         var lexer = StringJsonLexer_0(this, string);
-        var input = new StreamingJsonDecoder(this, LexerMode_OBJ_getInstance(), lexer, deserializer.sg(), null);
-        var result = input.yi(deserializer);
-        lexer.eu();
+        var input = new StreamingJsonDecoder(this, LexerMode_OBJ_getInstance(), lexer, deserializer.ig(), null);
+        var result = input.oi(deserializer);
+        lexer.ut();
         return result;
     };
-    protoOf(Json).qt = function(string) {
-        return this.pt(JsonElementSerializer_getInstance(), string);
+    protoOf(Json).gt = function(string) {
+        return this.ft(JsonElementSerializer_getInstance(), string);
     };
     function JsonClassDiscriminator() {}
     function JsonIgnoreUnknownKeys() {}
@@ -14146,28 +13743,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
         classDiscriminatorMode = classDiscriminatorMode === VOID ? ClassDiscriminatorMode_POLYMORPHIC_getInstance() : classDiscriminatorMode;
         exceptionsWithDebugInfo = exceptionsWithDebugInfo === VOID ? true : exceptionsWithDebugInfo;
         maxNestingDepth = maxNestingDepth === VOID ? 400 : maxNestingDepth;
-        this.fu_1 = encodeDefaults;
-        this.gu_1 = ignoreUnknownKeys;
-        this.hu_1 = isLenient;
-        this.iu_1 = allowStructuredMapKeys;
-        this.ju_1 = prettyPrint;
-        this.ku_1 = explicitNulls;
-        this.lu_1 = prettyPrintIndent;
-        this.mu_1 = coerceInputValues;
-        this.nu_1 = useArrayPolymorphism;
-        this.ou_1 = classDiscriminator;
-        this.pu_1 = allowSpecialFloatingPointValues;
-        this.qu_1 = useAlternativeNames;
-        this.ru_1 = namingStrategy;
-        this.su_1 = decodeEnumsCaseInsensitive;
-        this.tu_1 = allowTrailingComma;
-        this.uu_1 = allowComments;
-        this.vu_1 = classDiscriminatorMode;
-        this.wu_1 = exceptionsWithDebugInfo;
-        this.xu_1 = maxNestingDepth;
+        this.vt_1 = encodeDefaults;
+        this.wt_1 = ignoreUnknownKeys;
+        this.xt_1 = isLenient;
+        this.yt_1 = allowStructuredMapKeys;
+        this.zt_1 = prettyPrint;
+        this.au_1 = explicitNulls;
+        this.bu_1 = prettyPrintIndent;
+        this.cu_1 = coerceInputValues;
+        this.du_1 = useArrayPolymorphism;
+        this.eu_1 = classDiscriminator;
+        this.fu_1 = allowSpecialFloatingPointValues;
+        this.gu_1 = useAlternativeNames;
+        this.hu_1 = namingStrategy;
+        this.iu_1 = decodeEnumsCaseInsensitive;
+        this.ju_1 = allowTrailingComma;
+        this.ku_1 = allowComments;
+        this.lu_1 = classDiscriminatorMode;
+        this.mu_1 = exceptionsWithDebugInfo;
+        this.nu_1 = maxNestingDepth;
     }
     protoOf(JsonConfiguration).toString = function() {
-        return 'JsonConfiguration(encodeDefaults=' + this.fu_1 + ', ignoreUnknownKeys=' + this.gu_1 + ', isLenient=' + this.hu_1 + ', ' + ('allowStructuredMapKeys=' + this.iu_1 + ', prettyPrint=' + this.ju_1 + ', explicitNulls=' + this.ku_1 + ', ') + ("prettyPrintIndent='" + this.lu_1 + "', coerceInputValues=" + this.mu_1 + ', useArrayPolymorphism=' + this.nu_1 + ', ') + ("classDiscriminator='" + this.ou_1 + "', allowSpecialFloatingPointValues=" + this.pu_1 + ', ') + ('useAlternativeNames=' + this.qu_1 + ', namingStrategy=' + toString_0(this.ru_1) + ', decodeEnumsCaseInsensitive=' + this.su_1 + ', ') + ('allowTrailingComma=' + this.tu_1 + ', allowComments=' + this.uu_1 + ', classDiscriminatorMode=' + this.vu_1.toString() + ', ') + ('exceptionsWithDebugInfo=' + this.wu_1 + ', maxNestingDepth=' + this.xu_1 + ')');
+        return 'JsonConfiguration(encodeDefaults=' + this.vt_1 + ', ignoreUnknownKeys=' + this.wt_1 + ', isLenient=' + this.xt_1 + ', ' + ('allowStructuredMapKeys=' + this.yt_1 + ', prettyPrint=' + this.zt_1 + ', explicitNulls=' + this.au_1 + ', ') + ("prettyPrintIndent='" + this.bu_1 + "', coerceInputValues=" + this.cu_1 + ', useArrayPolymorphism=' + this.du_1 + ', ') + ("classDiscriminator='" + this.eu_1 + "', allowSpecialFloatingPointValues=" + this.fu_1 + ', ') + ('useAlternativeNames=' + this.gu_1 + ', namingStrategy=' + toString_0(this.hu_1) + ', decodeEnumsCaseInsensitive=' + this.iu_1 + ', ') + ('allowTrailingComma=' + this.ju_1 + ', allowComments=' + this.ku_1 + ', classDiscriminatorMode=' + this.lu_1.toString() + ', ') + ('exceptionsWithDebugInfo=' + this.mu_1 + ', maxNestingDepth=' + this.nu_1 + ')');
     };
     var static_init_called_2;
     function static_init_2() {
@@ -14195,56 +13792,56 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_21;
     }
     function JsonObject$toString$lambda(_destruct__k2r9zo) {
-        var k = _destruct__k2r9zo.p1();
-        var v = _destruct__k2r9zo.q1();
+        var k = _destruct__k2r9zo.o1();
+        var v = _destruct__k2r9zo.p1();
         var this_0 = StringBuilder_init_$Create$_0();
         printQuoted(this_0, k);
-        this_0.a7(_Char___init__impl__6a9atx(58));
-        this_0.y6(v);
+        this_0.z6(_Char___init__impl__6a9atx(58));
+        this_0.x6(v);
         return this_0.toString();
     }
     function JsonObject(content) {
         JsonElement.call(this);
-        this.av_1 = content;
+        this.qu_1 = content;
     }
     protoOf(JsonObject).equals = function(other) {
-        return equals(this.av_1, other);
+        return equals(this.qu_1, other);
     };
     protoOf(JsonObject).hashCode = function() {
-        return hashCode_0(this.av_1);
+        return hashCode_0(this.qu_1);
     };
     protoOf(JsonObject).toString = function() {
-        var tmp = this.av_1.w1();
+        var tmp = this.qu_1.v1();
         return joinToString_0(tmp, ',', '{', '}', VOID, VOID, JsonObject$toString$lambda);
     };
-    protoOf(JsonObject).k = function() {
-        return this.av_1.k();
+    protoOf(JsonObject).p = function() {
+        return this.qu_1.p();
     };
-    protoOf(JsonObject).bv = function(key) {
-        return this.av_1.r1(key);
+    protoOf(JsonObject).ru = function(key) {
+        return this.qu_1.q1(key);
     };
-    protoOf(JsonObject).r1 = function(key) {
+    protoOf(JsonObject).q1 = function(key) {
         if (!(!(key == null) ? typeof key === 'string' : false)) return false;
-        return this.bv((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+        return this.ru((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
     };
-    protoOf(JsonObject).cv = function(key) {
-        return this.av_1.t1(key);
+    protoOf(JsonObject).su = function(key) {
+        return this.qu_1.s1(key);
     };
-    protoOf(JsonObject).t1 = function(key) {
+    protoOf(JsonObject).s1 = function(key) {
         if (!(!(key == null) ? typeof key === 'string' : false)) return null;
-        return this.cv((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
+        return this.su((!(key == null) ? typeof key === 'string' : false) ? key : THROW_CCE());
     };
     protoOf(JsonObject).j = function() {
-        return this.av_1.j();
+        return this.qu_1.j();
+    };
+    protoOf(JsonObject).t1 = function() {
+        return this.qu_1.t1();
     };
     protoOf(JsonObject).u1 = function() {
-        return this.av_1.u1();
+        return this.qu_1.u1();
     };
     protoOf(JsonObject).v1 = function() {
-        return this.av_1.v1();
-    };
-    protoOf(JsonObject).w1 = function() {
-        return this.av_1.w1();
+        return this.qu_1.v1();
     };
     function Companion_22() {}
     var Companion_instance_22;
@@ -14255,7 +13852,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         JsonElement.call(this);
     }
     protoOf(JsonPrimitive).toString = function() {
-        return this.dv();
+        return this.tu();
     };
     function Companion_23() {}
     var Companion_instance_23;
@@ -14280,7 +13877,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (_this__u8e3s4 instanceof JsonNull) {
             tmp = null;
         } else {
-            tmp = _this__u8e3s4.dv();
+            tmp = _this__u8e3s4.tu();
         }
         return tmp;
     }
@@ -14308,12 +13905,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var result = tmp_1;
         var this_0 = numberRangeToNumber(-2147483648, 2147483647);
-        if (!contains_4(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) return null;
+        if (!contains_0(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) return null;
         return convertToInt(result);
     }
-    function get_booleanOrNull(_this__u8e3s4) {
+    function get_doubleOrNull(_this__u8e3s4) {
         _init_properties_JsonElement_kt__7cbdc2();
-        return toBooleanStrictOrNull(_this__u8e3s4.dv());
+        return toDoubleOrNull(_this__u8e3s4.tu());
     }
     function Companion_24() {}
     var Companion_instance_24;
@@ -14322,45 +13919,42 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonArray(content) {
         JsonElement.call(this);
-        this.ev_1 = content;
+        this.uu_1 = content;
     }
     protoOf(JsonArray).equals = function(other) {
-        return equals(this.ev_1, other);
+        return equals(this.uu_1, other);
     };
     protoOf(JsonArray).hashCode = function() {
-        return hashCode_0(this.ev_1);
+        return hashCode_0(this.uu_1);
     };
     protoOf(JsonArray).toString = function() {
-        return joinToString_0(this.ev_1, ',', '[', ']');
+        return joinToString_0(this.uu_1, ',', '[', ']');
     };
-    protoOf(JsonArray).k = function() {
-        return this.ev_1.k();
+    protoOf(JsonArray).p = function() {
+        return this.uu_1.p();
     };
-    protoOf(JsonArray).fv = function(element) {
-        return this.ev_1.m1(element);
+    protoOf(JsonArray).vu = function(element) {
+        return this.uu_1.l1(element);
     };
-    protoOf(JsonArray).m1 = function(element) {
+    protoOf(JsonArray).l1 = function(element) {
         if (!(element instanceof JsonElement)) return false;
-        return this.fv(element instanceof JsonElement ? element : THROW_CCE());
+        return this.vu(element instanceof JsonElement ? element : THROW_CCE());
     };
     protoOf(JsonArray).g = function() {
-        return this.ev_1.g();
+        return this.uu_1.g();
     };
-    protoOf(JsonArray).m = function(index) {
-        return this.ev_1.m(index);
+    protoOf(JsonArray).k = function(index) {
+        return this.uu_1.k(index);
     };
-    protoOf(JsonArray).gv = function(element) {
-        return this.ev_1.o1(element);
+    protoOf(JsonArray).wu = function(element) {
+        return this.uu_1.n1(element);
     };
-    protoOf(JsonArray).o1 = function(element) {
+    protoOf(JsonArray).n1 = function(element) {
         if (!(element instanceof JsonElement)) return -1;
-        return this.gv(element instanceof JsonElement ? element : THROW_CCE());
-    };
-    protoOf(JsonArray).r = function(index) {
-        return this.ev_1.r(index);
+        return this.wu(element instanceof JsonElement ? element : THROW_CCE());
     };
     protoOf(JsonArray).j = function() {
-        return this.ev_1.j();
+        return this.uu_1.j();
     };
     function JsonPrimitive_0(value) {
         _init_properties_JsonElement_kt__7cbdc2();
@@ -14370,10 +13964,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function JsonNull() {
         JsonNull_instance = this;
         JsonPrimitive.call(this);
-        this.hv_1 = 'null';
+        this.xu_1 = 'null';
     }
-    protoOf(JsonNull).dv = function() {
-        return this.hv_1;
+    protoOf(JsonNull).tu = function() {
+        return this.xu_1;
     };
     var JsonNull_instance;
     function JsonNull_getInstance() {
@@ -14384,6 +13978,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
         _init_properties_JsonElement_kt__7cbdc2();
         if (value == null) return JsonNull_getInstance();
         return new JsonLiteral(value, true);
+    }
+    function get_booleanOrNull(_this__u8e3s4) {
+        _init_properties_JsonElement_kt__7cbdc2();
+        return toBooleanStrictOrNull(_this__u8e3s4.tu());
     }
     function JsonPrimitive_2(value) {
         _init_properties_JsonElement_kt__7cbdc2();
@@ -14407,32 +14005,32 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function parseLongImpl(_this__u8e3s4) {
         _init_properties_JsonElement_kt__7cbdc2();
-        return StringJsonLexer_0(Default_getInstance_0(), _this__u8e3s4.dv()).iv();
+        return StringJsonLexer_0(Default_getInstance_0(), _this__u8e3s4.tu()).yu();
     }
     function JsonLiteral(body, isString, coerceToInlineType) {
         coerceToInlineType = coerceToInlineType === VOID ? null : coerceToInlineType;
         JsonPrimitive.call(this);
-        this.jv_1 = isString;
-        this.kv_1 = coerceToInlineType;
-        this.lv_1 = toString_1(body);
-        if (!(this.kv_1 == null)) {
-            if (!this.kv_1.dh()) {
+        this.zu_1 = isString;
+        this.av_1 = coerceToInlineType;
+        this.bv_1 = toString_1(body);
+        if (!(this.av_1 == null)) {
+            if (!this.av_1.tg()) {
                 var message = 'Failed requirement.';
                 throw IllegalArgumentException_init_$Create$_0(toString_1(message));
             }
         }
     }
-    protoOf(JsonLiteral).dv = function() {
-        return this.lv_1;
+    protoOf(JsonLiteral).tu = function() {
+        return this.bv_1;
     };
     protoOf(JsonLiteral).toString = function() {
         var tmp;
-        if (this.jv_1) {
+        if (this.zu_1) {
             var this_0 = StringBuilder_init_$Create$_0();
-            printQuoted(this_0, this.lv_1);
+            printQuoted(this_0, this.bv_1);
             tmp = this_0.toString();
         } else {
-            tmp = this.lv_1;
+            tmp = this.bv_1;
         }
         return tmp;
     };
@@ -14440,23 +14038,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (this === other) return true;
         if (other == null || !getKClassFromExpression(this).equals(getKClassFromExpression(other))) return false;
         if (!(other instanceof JsonLiteral)) THROW_CCE();
-        if (!(this.jv_1 === other.jv_1)) return false;
-        if (!(this.lv_1 === other.lv_1)) return false;
+        if (!(this.zu_1 === other.zu_1)) return false;
+        if (!(this.bv_1 === other.bv_1)) return false;
         return true;
     };
     protoOf(JsonLiteral).hashCode = function() {
-        var result = getBooleanHashCode(this.jv_1);
-        result = imul(31, result) + getStringHashCode(this.lv_1) | 0;
+        var result = getBooleanHashCode(this.zu_1);
+        result = imul(31, result) + getStringHashCode(this.bv_1) | 0;
         return result;
     };
     function get_float(_this__u8e3s4) {
         _init_properties_JsonElement_kt__7cbdc2();
-        var this_0 = _this__u8e3s4.dv();
+        var this_0 = _this__u8e3s4.tu();
         return toDouble(this_0);
     }
     function get_double(_this__u8e3s4) {
         _init_properties_JsonElement_kt__7cbdc2();
-        return toDouble(_this__u8e3s4.dv());
+        return toDouble(_this__u8e3s4.tu());
     }
     var properties_initialized_JsonElement_kt_abxy8s;
     function _init_properties_JsonElement_kt__7cbdc2() {
@@ -14467,60 +14065,60 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonObjectBuilder() {
         var tmp = this;
-        tmp.mv_1 = LinkedHashMap_init_$Create$();
+        tmp.cv_1 = LinkedHashMap_init_$Create$();
     }
-    protoOf(JsonObjectBuilder).nv = function(key, element) {
-        return this.mv_1.x1(key, element);
+    protoOf(JsonObjectBuilder).dv = function(key, element) {
+        return this.cv_1.w1(key, element);
     };
-    protoOf(JsonObjectBuilder).ov = function() {
-        return new JsonObject(this.mv_1);
+    protoOf(JsonObjectBuilder).ev = function() {
+        return new JsonObject(this.cv_1);
     };
     function put(_this__u8e3s4, key, value) {
-        return _this__u8e3s4.nv(key, JsonPrimitive_1(value));
+        return _this__u8e3s4.dv(key, JsonPrimitive_0(value));
     }
     function put_0(_this__u8e3s4, key, value) {
-        return _this__u8e3s4.nv(key, JsonPrimitive_0(value));
+        return _this__u8e3s4.dv(key, JsonPrimitive_1(value));
     }
     function put_1(_this__u8e3s4, key, value) {
-        return _this__u8e3s4.nv(key, JsonPrimitive_2(value));
+        return _this__u8e3s4.dv(key, JsonPrimitive_2(value));
     }
     function JsonObjectDescriptor() {
         JsonObjectDescriptor_instance = this;
-        this.pv_1 = MapSerializer(serializer(StringCompanionObject_instance), JsonElementSerializer_getInstance()).sg();
-        this.qv_1 = 'kotlinx.serialization.json.JsonObject';
+        this.fv_1 = MapSerializer(serializer(StringCompanionObject_instance), JsonElementSerializer_getInstance()).ig();
+        this.gv_1 = 'kotlinx.serialization.json.JsonObject';
     }
-    protoOf(JsonObjectDescriptor).ah = function() {
-        return this.qv_1;
+    protoOf(JsonObjectDescriptor).qg = function() {
+        return this.gv_1;
     };
-    protoOf(JsonObjectDescriptor).gh = function(index) {
-        return this.pv_1.gh(index);
+    protoOf(JsonObjectDescriptor).wg = function(index) {
+        return this.fv_1.wg(index);
     };
-    protoOf(JsonObjectDescriptor).hh = function(name) {
-        return this.pv_1.hh(name);
+    protoOf(JsonObjectDescriptor).xg = function(name) {
+        return this.fv_1.xg(name);
     };
-    protoOf(JsonObjectDescriptor).ih = function(index) {
-        return this.pv_1.ih(index);
+    protoOf(JsonObjectDescriptor).yg = function(index) {
+        return this.fv_1.yg(index);
     };
-    protoOf(JsonObjectDescriptor).jh = function(index) {
-        return this.pv_1.jh(index);
+    protoOf(JsonObjectDescriptor).zg = function(index) {
+        return this.fv_1.zg(index);
     };
-    protoOf(JsonObjectDescriptor).kh = function(index) {
-        return this.pv_1.kh(index);
+    protoOf(JsonObjectDescriptor).ah = function(index) {
+        return this.fv_1.ah(index);
     };
-    protoOf(JsonObjectDescriptor).bh = function() {
-        return this.pv_1.bh();
+    protoOf(JsonObjectDescriptor).rg = function() {
+        return this.fv_1.rg();
     };
-    protoOf(JsonObjectDescriptor).ch = function() {
-        return this.pv_1.ch();
+    protoOf(JsonObjectDescriptor).sg = function() {
+        return this.fv_1.sg();
     };
-    protoOf(JsonObjectDescriptor).dh = function() {
-        return this.pv_1.dh();
+    protoOf(JsonObjectDescriptor).tg = function() {
+        return this.fv_1.tg();
     };
-    protoOf(JsonObjectDescriptor).eh = function() {
-        return this.pv_1.eh();
+    protoOf(JsonObjectDescriptor).ug = function() {
+        return this.fv_1.ug();
     };
-    protoOf(JsonObjectDescriptor).fh = function() {
-        return this.pv_1.fh();
+    protoOf(JsonObjectDescriptor).vg = function() {
+        return this.fv_1.vg();
     };
     var JsonObjectDescriptor_instance;
     function JsonObjectDescriptor_getInstance() {
@@ -14529,14 +14127,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonObjectSerializer() {
         JsonObjectSerializer_instance = this;
-        this.rv_1 = JsonObjectDescriptor_getInstance();
+        this.hv_1 = JsonObjectDescriptor_getInstance();
     }
-    protoOf(JsonObjectSerializer).sg = function() {
-        return this.rv_1;
+    protoOf(JsonObjectSerializer).ig = function() {
+        return this.hv_1;
     };
-    protoOf(JsonObjectSerializer).tg = function(decoder) {
+    protoOf(JsonObjectSerializer).jg = function(decoder) {
         verify(decoder);
-        return new JsonObject(MapSerializer(serializer(StringCompanionObject_instance), JsonElementSerializer_getInstance()).tg(decoder));
+        return new JsonObject(MapSerializer(serializer(StringCompanionObject_instance), JsonElementSerializer_getInstance()).jg(decoder));
     };
     var JsonObjectSerializer_instance;
     function JsonObjectSerializer_getInstance() {
@@ -14545,18 +14143,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonPrimitiveSerializer() {
         JsonPrimitiveSerializer_instance = this;
-        this.sv_1 = buildSerialDescriptor('kotlinx.serialization.json.JsonPrimitive', STRING_getInstance(), []);
+        this.iv_1 = buildSerialDescriptor('kotlinx.serialization.json.JsonPrimitive', STRING_getInstance(), []);
     }
-    protoOf(JsonPrimitiveSerializer).sg = function() {
-        return this.sv_1;
+    protoOf(JsonPrimitiveSerializer).ig = function() {
+        return this.iv_1;
     };
-    protoOf(JsonPrimitiveSerializer).tg = function(decoder) {
+    protoOf(JsonPrimitiveSerializer).jg = function(decoder) {
         var jsonDecoder = asJsonDecoder(decoder);
-        var result = jsonDecoder.zu();
+        var result = jsonDecoder.pu();
         if (!(result instanceof JsonPrimitive)) {
             var shortMessage = 'Unexpected JSON element, expected JsonPrimitive, had ' + toString_1(getKClassFromExpression(result));
             var tmp;
-            if (jsonDecoder.yu().mt_1.wu_1) {
+            if (jsonDecoder.ou().ct_1.mu_1) {
                 var tmp$ret$3 = toString_1(result);
                 tmp = toString_1(minify(tmp$ret$3));
             } else {
@@ -14573,40 +14171,40 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return JsonPrimitiveSerializer_instance;
     }
     function JsonElementSerializer$descriptor$lambda($this$buildSerialDescriptor) {
-        $this$buildSerialDescriptor.xh('JsonPrimitive', defer(JsonElementSerializer$descriptor$lambda$lambda));
-        $this$buildSerialDescriptor.xh('JsonNull', defer(JsonElementSerializer$descriptor$lambda$lambda_0));
-        $this$buildSerialDescriptor.xh('JsonLiteral', defer(JsonElementSerializer$descriptor$lambda$lambda_1));
-        $this$buildSerialDescriptor.xh('JsonObject', defer(JsonElementSerializer$descriptor$lambda$lambda_2));
-        $this$buildSerialDescriptor.xh('JsonArray', defer(JsonElementSerializer$descriptor$lambda$lambda_3));
+        $this$buildSerialDescriptor.nh('JsonPrimitive', defer(JsonElementSerializer$descriptor$lambda$lambda));
+        $this$buildSerialDescriptor.nh('JsonNull', defer(JsonElementSerializer$descriptor$lambda$lambda_0));
+        $this$buildSerialDescriptor.nh('JsonLiteral', defer(JsonElementSerializer$descriptor$lambda$lambda_1));
+        $this$buildSerialDescriptor.nh('JsonObject', defer(JsonElementSerializer$descriptor$lambda$lambda_2));
+        $this$buildSerialDescriptor.nh('JsonArray', defer(JsonElementSerializer$descriptor$lambda$lambda_3));
         return Unit_instance;
     }
     function JsonElementSerializer$descriptor$lambda$lambda() {
-        return JsonPrimitiveSerializer_getInstance().sv_1;
+        return JsonPrimitiveSerializer_getInstance().iv_1;
     }
     function JsonElementSerializer$descriptor$lambda$lambda_0() {
-        return JsonNullSerializer_getInstance().tv_1;
+        return JsonNullSerializer_getInstance().jv_1;
     }
     function JsonElementSerializer$descriptor$lambda$lambda_1() {
-        return JsonLiteralSerializer_getInstance().uv_1;
+        return JsonLiteralSerializer_getInstance().kv_1;
     }
     function JsonElementSerializer$descriptor$lambda$lambda_2() {
-        return JsonObjectSerializer_getInstance().rv_1;
+        return JsonObjectSerializer_getInstance().hv_1;
     }
     function JsonElementSerializer$descriptor$lambda$lambda_3() {
-        return JsonArraySerializer_getInstance().vv_1;
+        return JsonArraySerializer_getInstance().lv_1;
     }
     function JsonElementSerializer() {
         JsonElementSerializer_instance = this;
         var tmp = this;
         var tmp_0 = SEALED_getInstance();
-        tmp.wv_1 = buildSerialDescriptor('kotlinx.serialization.json.JsonElement', tmp_0, [], JsonElementSerializer$descriptor$lambda);
+        tmp.mv_1 = buildSerialDescriptor('kotlinx.serialization.json.JsonElement', tmp_0, [], JsonElementSerializer$descriptor$lambda);
     }
-    protoOf(JsonElementSerializer).sg = function() {
-        return this.wv_1;
+    protoOf(JsonElementSerializer).ig = function() {
+        return this.mv_1;
     };
-    protoOf(JsonElementSerializer).tg = function(decoder) {
+    protoOf(JsonElementSerializer).jg = function(decoder) {
         var input = asJsonDecoder(decoder);
-        return input.zu();
+        return input.pu();
     };
     var JsonElementSerializer_instance;
     function JsonElementSerializer_getInstance() {
@@ -14615,41 +14213,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonArrayDescriptor() {
         JsonArrayDescriptor_instance = this;
-        this.xv_1 = ListSerializer(JsonElementSerializer_getInstance()).sg();
-        this.yv_1 = 'kotlinx.serialization.json.JsonArray';
+        this.nv_1 = ListSerializer(JsonElementSerializer_getInstance()).ig();
+        this.ov_1 = 'kotlinx.serialization.json.JsonArray';
     }
-    protoOf(JsonArrayDescriptor).ah = function() {
-        return this.yv_1;
+    protoOf(JsonArrayDescriptor).qg = function() {
+        return this.ov_1;
     };
-    protoOf(JsonArrayDescriptor).gh = function(index) {
-        return this.xv_1.gh(index);
+    protoOf(JsonArrayDescriptor).wg = function(index) {
+        return this.nv_1.wg(index);
     };
-    protoOf(JsonArrayDescriptor).hh = function(name) {
-        return this.xv_1.hh(name);
+    protoOf(JsonArrayDescriptor).xg = function(name) {
+        return this.nv_1.xg(name);
     };
-    protoOf(JsonArrayDescriptor).ih = function(index) {
-        return this.xv_1.ih(index);
+    protoOf(JsonArrayDescriptor).yg = function(index) {
+        return this.nv_1.yg(index);
     };
-    protoOf(JsonArrayDescriptor).jh = function(index) {
-        return this.xv_1.jh(index);
+    protoOf(JsonArrayDescriptor).zg = function(index) {
+        return this.nv_1.zg(index);
     };
-    protoOf(JsonArrayDescriptor).kh = function(index) {
-        return this.xv_1.kh(index);
+    protoOf(JsonArrayDescriptor).ah = function(index) {
+        return this.nv_1.ah(index);
     };
-    protoOf(JsonArrayDescriptor).bh = function() {
-        return this.xv_1.bh();
+    protoOf(JsonArrayDescriptor).rg = function() {
+        return this.nv_1.rg();
     };
-    protoOf(JsonArrayDescriptor).ch = function() {
-        return this.xv_1.ch();
+    protoOf(JsonArrayDescriptor).sg = function() {
+        return this.nv_1.sg();
     };
-    protoOf(JsonArrayDescriptor).dh = function() {
-        return this.xv_1.dh();
+    protoOf(JsonArrayDescriptor).tg = function() {
+        return this.nv_1.tg();
     };
-    protoOf(JsonArrayDescriptor).eh = function() {
-        return this.xv_1.eh();
+    protoOf(JsonArrayDescriptor).ug = function() {
+        return this.nv_1.ug();
     };
-    protoOf(JsonArrayDescriptor).fh = function() {
-        return this.xv_1.fh();
+    protoOf(JsonArrayDescriptor).vg = function() {
+        return this.nv_1.vg();
     };
     var JsonArrayDescriptor_instance;
     function JsonArrayDescriptor_getInstance() {
@@ -14658,14 +14256,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonArraySerializer() {
         JsonArraySerializer_instance = this;
-        this.vv_1 = JsonArrayDescriptor_getInstance();
+        this.lv_1 = JsonArrayDescriptor_getInstance();
     }
-    protoOf(JsonArraySerializer).sg = function() {
-        return this.vv_1;
+    protoOf(JsonArraySerializer).ig = function() {
+        return this.lv_1;
     };
-    protoOf(JsonArraySerializer).tg = function(decoder) {
+    protoOf(JsonArraySerializer).jg = function(decoder) {
         verify(decoder);
-        return new JsonArray(ListSerializer(JsonElementSerializer_getInstance()).tg(decoder));
+        return new JsonArray(ListSerializer(JsonElementSerializer_getInstance()).jg(decoder));
     };
     var JsonArraySerializer_instance;
     function JsonArraySerializer_getInstance() {
@@ -14674,17 +14272,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonNullSerializer() {
         JsonNullSerializer_instance = this;
-        this.tv_1 = buildSerialDescriptor('kotlinx.serialization.json.JsonNull', ENUM_getInstance(), []);
+        this.jv_1 = buildSerialDescriptor('kotlinx.serialization.json.JsonNull', ENUM_getInstance(), []);
     }
-    protoOf(JsonNullSerializer).sg = function() {
-        return this.tv_1;
+    protoOf(JsonNullSerializer).ig = function() {
+        return this.jv_1;
     };
-    protoOf(JsonNullSerializer).tg = function(decoder) {
+    protoOf(JsonNullSerializer).jg = function(decoder) {
         verify(decoder);
-        if (decoder.li()) {
+        if (decoder.bi()) {
             throw decodingExceptionOf("Expected 'null' literal");
         }
-        decoder.mi();
+        decoder.ci();
         return JsonNull_getInstance();
     };
     var JsonNullSerializer_instance;
@@ -14697,18 +14295,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonLiteralSerializer() {
         JsonLiteralSerializer_instance = this;
-        this.uv_1 = PrimitiveSerialDescriptor('kotlinx.serialization.json.JsonLiteral', STRING_getInstance());
+        this.kv_1 = PrimitiveSerialDescriptor('kotlinx.serialization.json.JsonLiteral', STRING_getInstance());
     }
-    protoOf(JsonLiteralSerializer).sg = function() {
-        return this.uv_1;
+    protoOf(JsonLiteralSerializer).ig = function() {
+        return this.kv_1;
     };
-    protoOf(JsonLiteralSerializer).tg = function(decoder) {
+    protoOf(JsonLiteralSerializer).jg = function(decoder) {
         var jsonDecoder = asJsonDecoder(decoder);
-        var result = jsonDecoder.zu();
+        var result = jsonDecoder.pu();
         if (!(result instanceof JsonLiteral)) {
             var shortMessage = 'Unexpected JSON element, expected JsonLiteral, had ' + toString_1(getKClassFromExpression(result));
             var tmp;
-            if (jsonDecoder.yu().mt_1.wu_1) {
+            if (jsonDecoder.ou().ct_1.mu_1) {
                 var tmp$ret$3 = toString_1(result);
                 tmp = toString_1(minify(tmp$ret$3));
             } else {
@@ -14738,10 +14336,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new defer$1(deferred);
     }
     function _get_original__l7ku1m($this) {
-        var tmp0 = $this.zv_1;
+        var tmp0 = $this.pv_1;
         var tmp = KProperty1;
         getPropertyCallableRef('original', 1, tmp, defer$o$_get_original_$ref_3cje7k(), null);
-        return tmp0.q1();
+        return tmp0.p1();
     }
     function defer$o$_get_original_$ref_3cje7k() {
         return constructCallableReference((function(p0) {
@@ -14749,50 +14347,50 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }), 1, 0, 5);
     }
     function defer$1($deferred) {
-        this.zv_1 = lazy_0($deferred);
+        this.pv_1 = lazy_0($deferred);
     }
-    protoOf(defer$1).ah = function() {
-        return _get_original__l7ku1m(this).ah();
+    protoOf(defer$1).qg = function() {
+        return _get_original__l7ku1m(this).qg();
     };
-    protoOf(defer$1).bh = function() {
-        return _get_original__l7ku1m(this).bh();
+    protoOf(defer$1).rg = function() {
+        return _get_original__l7ku1m(this).rg();
     };
-    protoOf(defer$1).eh = function() {
-        return _get_original__l7ku1m(this).eh();
+    protoOf(defer$1).ug = function() {
+        return _get_original__l7ku1m(this).ug();
     };
-    protoOf(defer$1).gh = function(index) {
-        return _get_original__l7ku1m(this).gh(index);
+    protoOf(defer$1).wg = function(index) {
+        return _get_original__l7ku1m(this).wg(index);
     };
-    protoOf(defer$1).hh = function(name) {
-        return _get_original__l7ku1m(this).hh(name);
+    protoOf(defer$1).xg = function(name) {
+        return _get_original__l7ku1m(this).xg(name);
     };
-    protoOf(defer$1).ih = function(index) {
-        return _get_original__l7ku1m(this).ih(index);
+    protoOf(defer$1).yg = function(index) {
+        return _get_original__l7ku1m(this).yg(index);
     };
-    protoOf(defer$1).jh = function(index) {
-        return _get_original__l7ku1m(this).jh(index);
+    protoOf(defer$1).zg = function(index) {
+        return _get_original__l7ku1m(this).zg(index);
     };
-    protoOf(defer$1).kh = function(index) {
-        return _get_original__l7ku1m(this).kh(index);
+    protoOf(defer$1).ah = function(index) {
+        return _get_original__l7ku1m(this).ah(index);
     };
     function JsonDecodingException(fullMessage, shortMessage, offset, path, input, hint, cause) {
         cause = cause === VOID ? null : cause;
         JsonException.call(this, fullMessage, cause);
         captureStack(this, JsonDecodingException);
-        this.bw_1 = shortMessage;
-        this.cw_1 = offset;
-        this.dw_1 = path;
-        this.ew_1 = input;
-        this.fw_1 = hint;
+        this.rv_1 = shortMessage;
+        this.sv_1 = offset;
+        this.tv_1 = path;
+        this.uv_1 = input;
+        this.vv_1 = hint;
     }
     function JsonException(message, cause) {
         SerializationException_init_$Init$_1(message, cause, this);
         captureStack(this, JsonException);
-        this.gw_1 = message;
+        this.wv_1 = message;
         delete this.message;
     }
-    protoOf(JsonException).i8 = function() {
-        return this.gw_1;
+    protoOf(JsonException).h8 = function() {
+        return this.wv_1;
     };
     function JsonEncodingException(shortMessage, classSerialName, hint, cause) {
         classSerialName = classSerialName === VOID ? null : classSerialName;
@@ -14800,13 +14398,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         cause = cause === VOID ? null : cause;
         JsonException.call(this, formatEncodingException(shortMessage, hint), cause);
         captureStack(this, JsonEncodingException);
-        this.iw_1 = shortMessage;
-        this.jw_1 = classSerialName;
-        this.kw_1 = hint;
+        this.yv_1 = shortMessage;
+        this.zv_1 = classSerialName;
+        this.aw_1 = hint;
     }
     function readIfAbsent($this, descriptor, index) {
-        $this.mw_1 = !descriptor.kh(index) && descriptor.jh(index).ch();
-        return $this.mw_1;
+        $this.cw_1 = !descriptor.ah(index) && descriptor.zg(index).sg();
+        return $this.cw_1;
     }
     function JsonElementMarker$readIfAbsent$ref(p0) {
         return constructCallableReference((function(p0_0, p1) {
@@ -14816,14 +14414,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function JsonElementMarker(descriptor) {
         var tmp = this;
-        tmp.lw_1 = new ElementMarker(descriptor, JsonElementMarker$readIfAbsent$ref(this));
-        this.mw_1 = false;
+        tmp.bw_1 = new ElementMarker(descriptor, JsonElementMarker$readIfAbsent$ref(this));
+        this.cw_1 = false;
     }
-    protoOf(JsonElementMarker).nw = function(index) {
-        this.lw_1.em(index);
+    protoOf(JsonElementMarker).dw = function(index) {
+        this.bw_1.ul(index);
     };
-    protoOf(JsonElementMarker).ow = function() {
-        return this.lw_1.fm();
+    protoOf(JsonElementMarker).ew = function() {
+        return this.bw_1.vl();
     };
     function minify(_this__u8e3s4, offset) {
         offset = offset === VOID ? -1 : offset;
@@ -14851,13 +14449,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function invalidTrailingComma(_this__u8e3s4, entity) {
         entity = entity === VOID ? 'object' : entity;
-        _this__u8e3s4.pw('Trailing comma before the end of JSON ' + entity, _this__u8e3s4.au_1 - 1 | 0, "Trailing commas are non-complaint JSON and not allowed by default. Use 'allowTrailingComma = true' in 'Json {}' builder to support them.");
+        _this__u8e3s4.fw('Trailing comma before the end of JSON ' + entity, _this__u8e3s4.qt_1 - 1 | 0, "Trailing commas are non-complaint JSON and not allowed by default. Use 'allowTrailingComma = true' in 'Json {}' builder to support them.");
     }
     function throwInvalidFloatingPointDecoded(_this__u8e3s4, result) {
-        _this__u8e3s4.qw(nonFiniteFpMessage(result, null), VOID, "It is possible to deserialize them using 'JsonBuilder.allowSpecialFloatingPointValues = true'");
+        _this__u8e3s4.gw(nonFiniteFpMessage(result, null), VOID, "It is possible to deserialize them using 'JsonBuilder.allowSpecialFloatingPointValues = true'");
     }
     function InvalidKeyKindException(keyDescriptor) {
-        return new JsonEncodingException("Value of type '" + keyDescriptor.ah() + "' can't be used in JSON as a key in the map. " + ("It should have either primitive or enum kind, but its kind is '" + keyDescriptor.bh().toString() + "'"), keyDescriptor.ah(), "Use 'allowStructuredMapKeys = true' in 'Json {}' builder to convert such maps to [key1, value1, key2, value2,...] arrays.");
+        return new JsonEncodingException("Value of type '" + keyDescriptor.qg() + "' can't be used in JSON as a key in the map. " + ("It should have either primitive or enum kind, but its kind is '" + keyDescriptor.rg().toString() + "'"), keyDescriptor.qg(), "Use 'allowStructuredMapKeys = true' in 'Json {}' builder to convert such maps to [key1, value1, key2, value2,...] arrays.");
     }
     function access$nonFiniteFpMessage$tJsonExceptionsKt(value, key) {
         return nonFiniteFpMessage(value, key);
@@ -14865,19 +14463,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function formatDecodingException(offset, shortMessage, path, hint, input) {
         var this_0 = StringBuilder_init_$Create$_0();
         if (offset >= 0) {
-            this_0.z6('Unexpected JSON token at offset ' + offset + ': ');
+            this_0.y6('Unexpected JSON token at offset ' + offset + ': ');
         }
-        this_0.z6(shortMessage);
+        this_0.y6(shortMessage);
         if (!(path == null || isBlank(path))) {
-            this_0.z6(' at path: ');
-            this_0.z6(path);
+            this_0.y6(' at path: ');
+            this_0.y6(path);
         }
         if (!(hint == null || isBlank(hint))) {
-            this_0.z6('\n' + hint);
+            this_0.y6('\n' + hint);
         }
         if (!(input == null)) {
-            this_0.z6('\nJSON input: ');
-            this_0.z6(input);
+            this_0.y6('\nJSON input: ');
+            this_0.y6(input);
         }
         return this_0.toString();
     }
@@ -14887,7 +14485,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function decodingExceptionOf_0(_this__u8e3s4, shortMessage, offset, path, hint, input, cause) {
         cause = cause === VOID ? null : cause;
         var tmp;
-        if (_this__u8e3s4.zt_1.wu_1) {
+        if (_this__u8e3s4.pt_1.mu_1) {
             tmp = toString_1(minify(input, offset));
         } else {
             tmp = null;
@@ -14913,15 +14511,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function ignoreUnknownKeys(_this__u8e3s4, json) {
         _init_properties_JsonNamesMap_kt__cbbp0k();
         var tmp;
-        if (json.mt_1.gu_1) {
+        if (json.ct_1.wt_1) {
             tmp = true;
         } else {
-            var tmp0 = _this__u8e3s4.fh();
+            var tmp0 = _this__u8e3s4.vg();
             var tmp$ret$0;
             $l$block_0: {
                 var tmp_0;
                 if (isInterface(tmp0, Collection)) {
-                    tmp_0 = tmp0.k();
+                    tmp_0 = tmp0.p();
                 } else {
                     tmp_0 = false;
                 }
@@ -14951,29 +14549,29 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var strategy = namingStrategy(_this__u8e3s4, json);
         if (!(strategy == null)) return getJsonNameIndexSlowPath(_this__u8e3s4, json, name);
-        var index = _this__u8e3s4.hh(name);
+        var index = _this__u8e3s4.xg(name);
         if (!(index === -3)) return index;
-        if (!json.mt_1.qu_1) return index;
+        if (!json.ct_1.gu_1) return index;
         return getJsonNameIndexSlowPath(_this__u8e3s4, json, name);
     }
     function decodeCaseInsensitive(_this__u8e3s4, descriptor) {
         _init_properties_JsonNamesMap_kt__cbbp0k();
-        return _this__u8e3s4.mt_1.su_1 && equals(descriptor.bh(), ENUM_getInstance());
+        return _this__u8e3s4.ct_1.iu_1 && equals(descriptor.rg(), ENUM_getInstance());
     }
     function getJsonNameIndexSlowPath(_this__u8e3s4, json, name) {
         _init_properties_JsonNamesMap_kt__cbbp0k();
-        var tmp0_elvis_lhs = deserializationNamesMap(json, _this__u8e3s4).t1(name);
+        var tmp0_elvis_lhs = deserializationNamesMap(json, _this__u8e3s4).s1(name);
         return tmp0_elvis_lhs == null ? -3 : tmp0_elvis_lhs;
     }
     function namingStrategy(_this__u8e3s4, json) {
         _init_properties_JsonNamesMap_kt__cbbp0k();
-        return equals(_this__u8e3s4.bh(), CLASS_getInstance()) ? json.mt_1.ru_1 : null;
+        return equals(_this__u8e3s4.rg(), CLASS_getInstance()) ? json.ct_1.hu_1 : null;
     }
     function deserializationNamesMap(_this__u8e3s4, descriptor) {
         _init_properties_JsonNamesMap_kt__cbbp0k();
         var tmp = get_schemaCache(_this__u8e3s4);
         var tmp_0 = get_JsonDeserializationNamesKey();
-        return tmp.sw(descriptor, tmp_0, deserializationNamesMap$lambda(descriptor, _this__u8e3s4));
+        return tmp.iw(descriptor, tmp_0, deserializationNamesMap$lambda(descriptor, _this__u8e3s4));
     }
     function buildDeserializationNamesMap(_this__u8e3s4, json) {
         _init_properties_JsonNamesMap_kt__cbbp0k();
@@ -14981,11 +14579,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var useLowercaseEnums = decodeCaseInsensitive(json, _this__u8e3s4);
         var strategyForClasses = namingStrategy(_this__u8e3s4, json);
         var inductionVariable = 0;
-        var last = _this__u8e3s4.eh();
+        var last = _this__u8e3s4.ug();
         if (inductionVariable < last) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            var tmp0 = _this__u8e3s4.ih(i);
+            var tmp0 = _this__u8e3s4.yg(i);
             var destination = ArrayList_init_$Create$();
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
@@ -14994,8 +14592,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     destination.f(element);
                 }
             }
-            var tmp0_safe_receiver = singleOrNull_0(destination);
-            var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.tw_1;
+            var tmp0_safe_receiver = singleOrNull(destination);
+            var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.jw_1;
             if (tmp1_safe_receiver == null) null; else {
                 var inductionVariable_0 = 0;
                 var last_0 = tmp1_safe_receiver.length;
@@ -15013,9 +14611,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             var tmp_0;
             if (useLowercaseEnums) {
-                tmp_0 = _this__u8e3s4.gh(i).toLowerCase();
+                tmp_0 = _this__u8e3s4.wg(i).toLowerCase();
             } else if (!(strategyForClasses == null)) {
-                tmp_0 = strategyForClasses.uw(_this__u8e3s4, i, _this__u8e3s4.gh(i));
+                tmp_0 = strategyForClasses.kw(_this__u8e3s4, i, _this__u8e3s4.wg(i));
             } else {
                 tmp_0 = null;
             }
@@ -15025,7 +14623,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
         } while (inductionVariable < last);
         var tmp_1;
-        if (builder.k()) {
+        if (builder.p()) {
             tmp_1 = emptyMap();
         } else {
             tmp_1 = builder;
@@ -15038,11 +14636,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         };
     }
     function buildDeserializationNamesMap$putOrThrow(_this__u8e3s4, $this_buildDeserializationNamesMap, name, index) {
-        var entity = equals($this_buildDeserializationNamesMap.bh(), ENUM_getInstance()) ? 'enum value' : 'property';
-        if ((isInterface(_this__u8e3s4, KtMap) ? _this__u8e3s4 : THROW_CCE()).r1(name)) {
-            throw decodingExceptionOf("The suggested name '" + name + "' for " + entity + ' ' + $this_buildDeserializationNamesMap.gh(index) + ' is already one of the names for ' + entity + ' ' + ($this_buildDeserializationNamesMap.gh(getValue(_this__u8e3s4, name)) + ' in ' + toString_1($this_buildDeserializationNamesMap)));
+        var entity = equals($this_buildDeserializationNamesMap.rg(), ENUM_getInstance()) ? 'enum value' : 'property';
+        if ((isInterface(_this__u8e3s4, KtMap) ? _this__u8e3s4 : THROW_CCE()).q1(name)) {
+            throw decodingExceptionOf("The suggested name '" + name + "' for " + entity + ' ' + $this_buildDeserializationNamesMap.wg(index) + ' is already one of the names for ' + entity + ' ' + ($this_buildDeserializationNamesMap.wg(getValue(_this__u8e3s4, name)) + ' in ' + toString_1($this_buildDeserializationNamesMap)));
         }
-        _this__u8e3s4.x1(name, index);
+        _this__u8e3s4.w1(name, index);
     }
     var properties_initialized_JsonNamesMap_kt_ljpf42;
     function _init_properties_JsonNamesMap_kt__cbbp0k() {
@@ -15063,8 +14661,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return RedactedKey_instance;
     }
     function resize($this) {
-        var newSize = imul($this.zw_1, 2);
-        $this.xw_1 = copyOf_0($this.xw_1, newSize);
+        var newSize = imul($this.pw_1, 2);
+        $this.nw_1 = copyOf_0($this.nw_1, newSize);
         var tmp = 0;
         var tmp_0 = new Int32Array(newSize);
         while (tmp < newSize) {
@@ -15072,17 +14670,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp + 1 | 0;
         }
         var newIndices = tmp_0;
-        var this_0 = $this.yw_1;
+        var this_0 = $this.ow_1;
         var endIndex = this_0.length;
         var tmp_1 = this_0;
         arrayCopy(tmp_1, newIndices, 0, 0, endIndex);
-        $this.yw_1 = newIndices;
+        $this.ow_1 = newIndices;
     }
     function JsonPath(configuration) {
-        this.vw_1 = configuration.xu_1;
-        this.ww_1 = configuration.wu_1;
+        this.lw_1 = configuration.nu_1;
+        this.mw_1 = configuration.mu_1;
         var tmp = this;
-        tmp.xw_1 = Array(8);
+        tmp.nw_1 = Array(8);
         var tmp_0 = this;
         var tmp_1 = 0;
         var tmp_2 = new Int32Array(8);
@@ -15090,85 +14688,85 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_2[tmp_1] = -1;
             tmp_1 = tmp_1 + 1 | 0;
         }
-        tmp_0.yw_1 = tmp_2;
-        this.zw_1 = -1;
+        tmp_0.ow_1 = tmp_2;
+        this.pw_1 = -1;
     }
-    protoOf(JsonPath).ax = function(sd) {
-        this.zw_1 = this.zw_1 + 1 | 0;
-        var depth = this.zw_1;
-        if (depth >= this.vw_1) {
-            jsonTooNested(this.vw_1);
+    protoOf(JsonPath).qw = function(sd) {
+        this.pw_1 = this.pw_1 + 1 | 0;
+        var depth = this.pw_1;
+        if (depth >= this.lw_1) {
+            jsonTooNested(this.lw_1);
         }
-        if (depth === this.xw_1.length) {
+        if (depth === this.nw_1.length) {
             resize(this);
         }
-        this.xw_1[depth] = sd;
+        this.nw_1[depth] = sd;
     };
-    protoOf(JsonPath).bx = function(index) {
-        this.yw_1[this.zw_1] = index;
+    protoOf(JsonPath).rw = function(index) {
+        this.ow_1[this.pw_1] = index;
     };
-    protoOf(JsonPath).cx = function(key) {
+    protoOf(JsonPath).sw = function(key) {
         var tmp;
-        if (!(this.yw_1[this.zw_1] === -2)) {
-            this.zw_1 = this.zw_1 + 1 | 0;
-            tmp = this.zw_1 === this.xw_1.length;
+        if (!(this.ow_1[this.pw_1] === -2)) {
+            this.pw_1 = this.pw_1 + 1 | 0;
+            tmp = this.pw_1 === this.nw_1.length;
         } else {
             tmp = false;
         }
         if (tmp) {
             resize(this);
         }
-        this.xw_1[this.zw_1] = this.ww_1 ? key : RedactedKey_instance;
-        this.yw_1[this.zw_1] = -2;
+        this.nw_1[this.pw_1] = this.mw_1 ? key : RedactedKey_instance;
+        this.ow_1[this.pw_1] = -2;
     };
-    protoOf(JsonPath).dx = function() {
-        if (this.yw_1[this.zw_1] === -2) {
-            this.xw_1[this.zw_1] = Tombstone_instance;
+    protoOf(JsonPath).tw = function() {
+        if (this.ow_1[this.pw_1] === -2) {
+            this.nw_1[this.pw_1] = Tombstone_instance;
         }
     };
-    protoOf(JsonPath).ex = function() {
-        var depth = this.zw_1;
-        if (this.yw_1[depth] === -2) {
-            this.yw_1[depth] = -1;
-            this.zw_1 = this.zw_1 - 1 | 0;
+    protoOf(JsonPath).uw = function() {
+        var depth = this.pw_1;
+        if (this.ow_1[depth] === -2) {
+            this.ow_1[depth] = -1;
+            this.pw_1 = this.pw_1 - 1 | 0;
         }
-        if (!(this.zw_1 === -1)) {
-            this.zw_1 = this.zw_1 - 1 | 0;
+        if (!(this.pw_1 === -1)) {
+            this.pw_1 = this.pw_1 - 1 | 0;
         }
     };
-    protoOf(JsonPath).fx = function() {
+    protoOf(JsonPath).vw = function() {
         var this_0 = StringBuilder_init_$Create$_0();
-        this_0.z6('$');
-        var times = this.zw_1 + 1 | 0;
+        this_0.y6('$');
+        var times = this.pw_1 + 1 | 0;
         var inductionVariable = 0;
         if (inductionVariable < times) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            var element = this.xw_1[index];
+            var element = this.nw_1[index];
             if (!(element == null) ? isInterface(element, SerialDescriptor) : false) {
-                if (equals(element.bh(), LIST_getInstance())) {
-                    if (!(this.yw_1[index] === -1)) {
-                        this_0.z6('[');
-                        this_0.q9(this.yw_1[index]);
-                        this_0.z6(']');
+                if (equals(element.rg(), LIST_getInstance())) {
+                    if (!(this.ow_1[index] === -1)) {
+                        this_0.y6('[');
+                        this_0.p9(this.ow_1[index]);
+                        this_0.y6(']');
                     }
                 } else {
-                    var idx = this.yw_1[index];
+                    var idx = this.ow_1[index];
                     if (idx >= 0) {
-                        this_0.z6('.');
-                        this_0.z6(element.gh(idx));
+                        this_0.y6('.');
+                        this_0.y6(element.wg(idx));
                     }
                 }
             } else {
                 if (element === RedactedKey_instance) {
-                    this_0.z6('[<debug info disabled>]');
+                    this_0.y6('[<debug info disabled>]');
                 } else {
                     if (!(element === Tombstone_instance)) {
-                        this_0.z6('[');
-                        this_0.z6("'");
-                        this_0.y6(element);
-                        this_0.z6("'");
-                        this_0.z6(']');
+                        this_0.y6('[');
+                        this_0.y6("'");
+                        this_0.x6(element);
+                        this_0.y6("'");
+                        this_0.y6(']');
                     }
                 }
             }
@@ -15176,95 +14774,95 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return this_0.toString();
     };
     protoOf(JsonPath).toString = function() {
-        return this.fx();
+        return this.vw();
     };
     function classDiscriminator(_this__u8e3s4, json) {
-        var _iterator__ex2g4s = _this__u8e3s4.fh().g();
+        var _iterator__ex2g4s = _this__u8e3s4.vg().g();
         while (_iterator__ex2g4s.h()) {
             var annotation = _iterator__ex2g4s.i();
-            if (annotation instanceof JsonClassDiscriminator) return annotation.gx_1;
+            if (annotation instanceof JsonClassDiscriminator) return annotation.ww_1;
         }
-        return json.mt_1.ou_1;
+        return json.ct_1.eu_1;
     }
     function subtypeNotRegisteredMessageJson(subClassName, baseClass) {
-        var scope = "in the polymorphic scope of '" + baseClass.k8() + "'";
+        var scope = "in the polymorphic scope of '" + baseClass.j8() + "'";
         var tmp;
         if (subClassName == null) {
             tmp = to('Class discriminator was missing and no default serializers were registered ' + scope, null);
         } else {
-            tmp = to("Serializer for subclass '" + subClassName + "' is not found " + scope, "Check if class with serial name '" + subClassName + "' exists and serializer is registered in a corresponding SerializersModule.\n" + ("To be registered automatically, class '" + subClassName + "' has to be '@Serializable', and the base class '" + baseClass.k8() + "' has to be sealed and '@Serializable'."));
+            tmp = to("Serializer for subclass '" + subClassName + "' is not found " + scope, "Check if class with serial name '" + subClassName + "' exists and serializer is registered in a corresponding SerializersModule.\n" + ("To be registered automatically, class '" + subClassName + "' has to be '@Serializable', and the base class '" + baseClass.j8() + "' has to be sealed and '@Serializable'."));
         }
         return tmp;
     }
     function readObject($this) {
-        var lastToken = $this.hx_1.mx(6);
-        if ($this.hx_1.nx() === 4) {
-            $this.hx_1.qw('Unexpected leading comma');
+        var lastToken = $this.xw_1.cx(6);
+        if ($this.xw_1.dx() === 4) {
+            $this.xw_1.gw('Unexpected leading comma');
         }
         var result = LinkedHashMap_init_$Create$();
-        $l$loop: while ($this.hx_1.ox()) {
-            var key = $this.ix_1 ? $this.hx_1.qx() : $this.hx_1.px();
-            $this.hx_1.mx(5);
-            var element = $this.rx();
-            result.x1(key, element);
-            lastToken = $this.hx_1.sx();
+        $l$loop: while ($this.xw_1.ex()) {
+            var key = $this.yw_1 ? $this.xw_1.gx() : $this.xw_1.fx();
+            $this.xw_1.cx(5);
+            var element = $this.hx();
+            result.w1(key, element);
+            lastToken = $this.xw_1.ix();
             var tmp0_subject = lastToken;
             if (tmp0_subject !== 4) if (tmp0_subject === 7) break $l$loop; else {
-                $this.hx_1.qw('Expected end of the object or comma');
+                $this.xw_1.gw('Expected end of the object or comma');
             }
         }
         if (lastToken === 6) {
-            $this.hx_1.mx(7);
+            $this.xw_1.cx(7);
         } else if (lastToken === 4) {
-            if (!$this.jx_1) {
-                invalidTrailingComma($this.hx_1);
+            if (!$this.zw_1) {
+                invalidTrailingComma($this.xw_1);
             }
-            $this.hx_1.mx(7);
+            $this.xw_1.cx(7);
         }
         return new JsonObject(result);
     }
     function readObject_0($this, $receiver, $completion) {
         var tmp = new $readObjectCOROUTINE$($this, $receiver, $completion);
-        tmp.n7_1 = Unit_instance;
-        tmp.o7_1 = null;
-        return tmp.t7();
+        tmp.m7_1 = Unit_instance;
+        tmp.n7_1 = null;
+        return tmp.s7();
     }
     function readArray($this) {
-        var lastToken = $this.hx_1.sx();
-        if ($this.hx_1.nx() === 4) {
-            $this.hx_1.qw('Unexpected leading comma');
+        var lastToken = $this.xw_1.ix();
+        if ($this.xw_1.dx() === 4) {
+            $this.xw_1.gw('Unexpected leading comma');
         }
         var result = ArrayList_init_$Create$();
-        while ($this.hx_1.ox()) {
-            var element = $this.rx();
+        while ($this.xw_1.ex()) {
+            var element = $this.hx();
             result.f(element);
-            lastToken = $this.hx_1.sx();
+            lastToken = $this.xw_1.ix();
             if (!(lastToken === 4)) {
-                var tmp0 = $this.hx_1;
+                var tmp0 = $this.xw_1;
                 var condition = lastToken === 9;
-                var position = tmp0.au_1;
+                var position = tmp0.qt_1;
                 if (!condition) {
                     var tmp$ret$2 = 'Expected end of the array or comma';
-                    tmp0.qw(tmp$ret$2, position);
+                    tmp0.gw(tmp$ret$2, position);
                 }
             }
         }
         if (lastToken === 8) {
-            $this.hx_1.mx(9);
+            $this.xw_1.cx(9);
         } else if (lastToken === 4) {
-            if (!$this.jx_1) {
-                invalidTrailingComma($this.hx_1, 'array');
+            if (!$this.zw_1) {
+                invalidTrailingComma($this.xw_1, 'array');
             }
-            $this.hx_1.mx(9);
+            $this.xw_1.cx(9);
         }
         return new JsonArray(result);
     }
     function readValue($this, isString) {
         var tmp;
-        if ($this.ix_1 || !isString) {
-            tmp = $this.hx_1.qx();
+        if ($this.yw_1 || !isString) {
+            tmp = $this.xw_1.gx();
         } else {
-            tmp = $this.hx_1.px();
+            tmp = $this.xw_1.fx();
         }
         var string = tmp;
         if (!isString && string === 'null') return JsonNull_getInstance();
@@ -15274,46 +14872,46 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return invoke(new DeepRecursiveFunction(JsonTreeReader$readDeepRecursive$slambda_0($this, null)), Unit_instance);
     }
     function JsonTreeReader$readDeepRecursive$slambda(this$0, resultContinuation) {
-        this.py_1 = this$0;
+        this.fy_1 = this$0;
         CoroutineImpl.call(this, resultContinuation);
     }
-    protoOf(JsonTreeReader$readDeepRecursive$slambda).uy = function($this$DeepRecursiveFunction, it, $completion) {
-        var tmp = this.vy($this$DeepRecursiveFunction, it, $completion);
-        tmp.n7_1 = Unit_instance;
-        tmp.o7_1 = null;
-        return tmp.t7();
+    protoOf(JsonTreeReader$readDeepRecursive$slambda).ky = function($this$DeepRecursiveFunction, it, $completion) {
+        var tmp = this.ly($this$DeepRecursiveFunction, it, $completion);
+        tmp.m7_1 = Unit_instance;
+        tmp.n7_1 = null;
+        return tmp.s7();
     };
-    protoOf(JsonTreeReader$readDeepRecursive$slambda).z7 = function(p1, p2, $completion) {
+    protoOf(JsonTreeReader$readDeepRecursive$slambda).y7 = function(p1, p2, $completion) {
         var tmp = p1 instanceof DeepRecursiveScope ? p1 : THROW_CCE();
-        return this.uy(tmp, p2 instanceof Unit ? p2 : THROW_CCE(), $completion);
+        return this.ky(tmp, p2 instanceof Unit ? p2 : THROW_CCE(), $completion);
     };
-    protoOf(JsonTreeReader$readDeepRecursive$slambda).t7 = function() {
-        var suspendResult = this.n7_1;
+    protoOf(JsonTreeReader$readDeepRecursive$slambda).s7 = function() {
+        var suspendResult = this.m7_1;
         $sm: do {
             try {
-                var tmp = this.l7_1;
+                var tmp = this.k7_1;
                 switch (tmp) {
                   case 0:
-                    this.m7_1 = 3;
-                    var tmp0_subject = this.py_1.hx_1.nx();
+                    this.l7_1 = 3;
+                    var tmp0_subject = this.fy_1.xw_1.dx();
                     if (tmp0_subject === 1) {
-                        this.sy_1 = readValue(this.py_1, true);
-                        this.l7_1 = 2;
+                        this.iy_1 = readValue(this.fy_1, true);
+                        this.k7_1 = 2;
                         continue $sm;
                     } else {
                         if (tmp0_subject === 0) {
-                            this.sy_1 = readValue(this.py_1, false);
-                            this.l7_1 = 2;
+                            this.iy_1 = readValue(this.fy_1, false);
+                            this.k7_1 = 2;
                             continue $sm;
                         } else {
                             if (tmp0_subject === 6) {
-                                this.ty_1 = this.py_1;
-                                this.ty_1.lx_1 = this.ty_1.lx_1 + 1 | 0;
-                                if (this.ty_1.lx_1 >= this.ty_1.kx_1) {
-                                    jsonTooNested(this.ty_1.kx_1);
+                                this.jy_1 = this.fy_1;
+                                this.jy_1.bx_1 = this.jy_1.bx_1 + 1 | 0;
+                                if (this.jy_1.bx_1 >= this.jy_1.ax_1) {
+                                    jsonTooNested(this.jy_1.ax_1);
                                 }
-                                this.l7_1 = 1;
-                                suspendResult = readObject_0(this.py_1, this.qy_1, this);
+                                this.k7_1 = 1;
+                                suspendResult = readObject_0(this.fy_1, this.gy_1, this);
                                 if (suspendResult === get_COROUTINE_SUSPENDED()) {
                                     return suspendResult;
                                 }
@@ -15321,19 +14919,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
                             } else {
                                 if (tmp0_subject === 8) {
                                     var tmp_0 = this;
-                                    var this_0 = this.py_1;
-                                    this_0.lx_1 = this_0.lx_1 + 1 | 0;
-                                    if (this_0.lx_1 >= this_0.kx_1) {
-                                        jsonTooNested(this_0.kx_1);
+                                    var this_0 = this.fy_1;
+                                    this_0.bx_1 = this_0.bx_1 + 1 | 0;
+                                    if (this_0.bx_1 >= this_0.ax_1) {
+                                        jsonTooNested(this_0.ax_1);
                                     }
-                                    var result = readArray(this.py_1);
-                                    this_0.lx_1 = this_0.lx_1 - 1 | 0;
-                                    tmp_0.sy_1 = result;
-                                    this.l7_1 = 2;
+                                    var result = readArray(this.fy_1);
+                                    this_0.bx_1 = this_0.bx_1 - 1 | 0;
+                                    tmp_0.iy_1 = result;
+                                    this.k7_1 = 2;
                                     continue $sm;
                                 } else {
                                     var tmp_1 = this;
-                                    this.py_1.hx_1.qw("Can't begin reading element, unexpected token");
+                                    this.fy_1.xw_1.gw("Can't begin reading element, unexpected token");
                                 }
                             }
                         }
@@ -15342,72 +14940,72 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
                   case 1:
                     var result_0 = suspendResult;
-                    this.ty_1.lx_1 = this.ty_1.lx_1 - 1 | 0;
-                    this.sy_1 = result_0;
-                    this.l7_1 = 2;
+                    this.jy_1.bx_1 = this.jy_1.bx_1 - 1 | 0;
+                    this.iy_1 = result_0;
+                    this.k7_1 = 2;
                     continue $sm;
 
                   case 2:
-                    return this.sy_1;
+                    return this.iy_1;
 
                   case 3:
-                    throw this.o7_1;
+                    throw this.n7_1;
                 }
             } catch ($p) {
                 var e = $p;
-                if (this.m7_1 === 3) {
+                if (this.l7_1 === 3) {
                     throw e;
                 } else {
-                    this.l7_1 = this.m7_1;
-                    this.o7_1 = e;
+                    this.k7_1 = this.l7_1;
+                    this.n7_1 = e;
                 }
             }
         } while (true);
     };
-    protoOf(JsonTreeReader$readDeepRecursive$slambda).vy = function($this$DeepRecursiveFunction, it, completion) {
-        var i = new JsonTreeReader$readDeepRecursive$slambda(this.py_1, completion);
-        i.qy_1 = $this$DeepRecursiveFunction;
-        i.ry_1 = it;
+    protoOf(JsonTreeReader$readDeepRecursive$slambda).ly = function($this$DeepRecursiveFunction, it, completion) {
+        var i = new JsonTreeReader$readDeepRecursive$slambda(this.fy_1, completion);
+        i.gy_1 = $this$DeepRecursiveFunction;
+        i.hy_1 = it;
         return i;
     };
     function JsonTreeReader$readDeepRecursive$slambda_0(this$0, resultContinuation) {
         var i = new JsonTreeReader$readDeepRecursive$slambda(this$0, resultContinuation);
         return constructCallableReference((function($this$DeepRecursiveFunction, it, $completion) {
-            return i.uy($this$DeepRecursiveFunction, it, $completion);
+            return i.ky($this$DeepRecursiveFunction, it, $completion);
         }), 2);
     }
     function $readObjectCOROUTINE$(_this__u8e3s4, _this__u8e3s4_0, resultContinuation) {
         CoroutineImpl.call(this, resultContinuation);
-        this.by_1 = _this__u8e3s4;
-        this.cy_1 = _this__u8e3s4_0;
+        this.rx_1 = _this__u8e3s4;
+        this.sx_1 = _this__u8e3s4_0;
     }
-    protoOf($readObjectCOROUTINE$).t7 = function() {
-        var suspendResult = this.n7_1;
+    protoOf($readObjectCOROUTINE$).s7 = function() {
+        var suspendResult = this.m7_1;
         $sm: do {
             try {
-                var tmp = this.l7_1;
+                var tmp = this.k7_1;
                 switch (tmp) {
                   case 0:
-                    this.m7_1 = 5;
-                    this.ey_1 = this.by_1;
-                    this.fy_1 = this.ey_1.hx_1.mx(6);
-                    if (this.ey_1.hx_1.nx() === 4) {
-                        this.ey_1.hx_1.qw('Unexpected leading comma');
+                    this.l7_1 = 5;
+                    this.ux_1 = this.rx_1;
+                    this.vx_1 = this.ux_1.xw_1.cx(6);
+                    if (this.ux_1.xw_1.dx() === 4) {
+                        this.ux_1.xw_1.gw('Unexpected leading comma');
                     }
                     var tmp_0 = this;
-                    tmp_0.dy_1 = LinkedHashMap_init_$Create$();
-                    this.l7_1 = 1;
+                    tmp_0.tx_1 = LinkedHashMap_init_$Create$();
+                    this.k7_1 = 1;
                     continue $sm;
 
                   case 1:
-                    if (!this.ey_1.hx_1.ox()) {
-                        this.l7_1 = 4;
+                    if (!this.ux_1.xw_1.ex()) {
+                        this.k7_1 = 4;
                         continue $sm;
                     }
-                    this.gy_1 = this.ey_1.ix_1 ? this.ey_1.hx_1.qx() : this.ey_1.hx_1.px();
-                    this.ey_1.hx_1.mx(5);
-                    this.l7_1 = 2;
-                    suspendResult = this.cy_1.ee(Unit_instance, this);
+                    this.wx_1 = this.ux_1.yw_1 ? this.ux_1.xw_1.gx() : this.ux_1.xw_1.fx();
+                    this.ux_1.xw_1.cx(5);
+                    this.k7_1 = 2;
+                    suspendResult = this.sx_1.ce(Unit_instance, this);
                     if (suspendResult === get_COROUTINE_SUSPENDED()) {
                         return suspendResult;
                     }
@@ -15415,91 +15013,91 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
                   case 2:
                     var element = suspendResult;
-                    var tmp0 = this.dy_1;
-                    var key = this.gy_1;
-                    tmp0.x1(key, element);
-                    this.fy_1 = this.ey_1.hx_1.sx();
-                    var tmp0_subject = this.fy_1;
+                    var tmp0 = this.tx_1;
+                    var key = this.wx_1;
+                    tmp0.w1(key, element);
+                    this.vx_1 = this.ux_1.xw_1.ix();
+                    var tmp0_subject = this.vx_1;
                     if (tmp0_subject === 4) {
-                        this.l7_1 = 3;
+                        this.k7_1 = 3;
                         continue $sm;
                     } else {
                         if (tmp0_subject === 7) {
-                            this.l7_1 = 4;
+                            this.k7_1 = 4;
                             continue $sm;
                         } else {
-                            this.ey_1.hx_1.qw('Expected end of the object or comma');
+                            this.ux_1.xw_1.gw('Expected end of the object or comma');
                         }
                     }
                     break;
 
                   case 3:
-                    this.l7_1 = 1;
+                    this.k7_1 = 1;
                     continue $sm;
 
                   case 4:
-                    if (this.fy_1 === 6) {
-                        this.ey_1.hx_1.mx(7);
-                    } else if (this.fy_1 === 4) {
-                        if (!this.ey_1.jx_1) {
-                            invalidTrailingComma(this.ey_1.hx_1);
+                    if (this.vx_1 === 6) {
+                        this.ux_1.xw_1.cx(7);
+                    } else if (this.vx_1 === 4) {
+                        if (!this.ux_1.zw_1) {
+                            invalidTrailingComma(this.ux_1.xw_1);
                         }
-                        this.ey_1.hx_1.mx(7);
+                        this.ux_1.xw_1.cx(7);
                     }
-                    return new JsonObject(this.dy_1);
+                    return new JsonObject(this.tx_1);
 
                   case 5:
-                    throw this.o7_1;
+                    throw this.n7_1;
                 }
             } catch ($p) {
                 var e = $p;
-                if (this.m7_1 === 5) {
+                if (this.l7_1 === 5) {
                     throw e;
                 } else {
-                    this.l7_1 = this.m7_1;
-                    this.o7_1 = e;
+                    this.k7_1 = this.l7_1;
+                    this.n7_1 = e;
                 }
             }
         } while (true);
     };
     function JsonTreeReader(configuration, lexer) {
-        this.hx_1 = lexer;
-        this.ix_1 = configuration.hu_1;
-        this.jx_1 = configuration.tu_1;
-        this.kx_1 = configuration.xu_1;
-        this.lx_1 = this.hx_1.bu_1.zw_1;
+        this.xw_1 = lexer;
+        this.yw_1 = configuration.xt_1;
+        this.zw_1 = configuration.ju_1;
+        this.ax_1 = configuration.nu_1;
+        this.bx_1 = this.xw_1.rt_1.pw_1;
     }
-    protoOf(JsonTreeReader).rx = function() {
-        var token = this.hx_1.nx();
+    protoOf(JsonTreeReader).hx = function() {
+        var token = this.xw_1.dx();
         var tmp;
         if (token === 1) {
             tmp = readValue(this, true);
         } else if (token === 0) {
             tmp = readValue(this, false);
         } else if (token === 6) {
-            this.lx_1 = this.lx_1 + 1 | 0;
-            if (this.lx_1 >= this.kx_1) {
-                jsonTooNested(this.kx_1);
+            this.bx_1 = this.bx_1 + 1 | 0;
+            if (this.bx_1 >= this.ax_1) {
+                jsonTooNested(this.ax_1);
             }
             var result;
-            if (this.lx_1 === 200) {
-                this.lx_1 = this.lx_1 - 1 | 0;
+            if (this.bx_1 === 200) {
+                this.bx_1 = this.bx_1 - 1 | 0;
                 result = readDeepRecursive(this);
             } else {
                 result = readObject(this);
-                this.lx_1 = this.lx_1 - 1 | 0;
+                this.bx_1 = this.bx_1 - 1 | 0;
             }
             tmp = result;
         } else if (token === 8) {
-            this.lx_1 = this.lx_1 + 1 | 0;
-            if (this.lx_1 >= this.kx_1) {
-                jsonTooNested(this.kx_1);
+            this.bx_1 = this.bx_1 + 1 | 0;
+            if (this.bx_1 >= this.ax_1) {
+                jsonTooNested(this.ax_1);
             }
             var result_0 = readArray(this);
-            this.lx_1 = this.lx_1 - 1 | 0;
+            this.bx_1 = this.bx_1 - 1 | 0;
             tmp = result_0;
         } else {
-            this.hx_1.qw('Cannot read Json element because of unexpected ' + tokenDescription(token));
+            this.xw_1.gw('Cannot read Json element because of unexpected ' + tokenDescription(token));
         }
         return tmp;
     };
@@ -15521,11 +15119,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     var LexerMode_POLY_OBJ_instance;
     function LexerMode(name, ordinal, begin, end) {
         Enum.call(this, name, ordinal);
-        this.yy_1 = begin;
-        this.zy_1 = end;
+        this.oy_1 = begin;
+        this.py_1 = end;
     }
     function modeFor(_this__u8e3s4, desc) {
-        var tmp0_subject = desc.bh();
+        var tmp0_subject = desc.rg();
         var tmp;
         if (tmp0_subject instanceof PolymorphicKind) {
             tmp = LexerMode_POLY_OBJ_getInstance();
@@ -15534,8 +15132,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp = LexerMode_LIST_getInstance();
             } else {
                 if (equals(tmp0_subject, MAP_getInstance())) {
-                    var keyDescriptor = carrierDescriptor(desc.jh(0), _this__u8e3s4.mj());
-                    var keyKind = keyDescriptor.bh();
+                    var keyDescriptor = carrierDescriptor(desc.zg(0), _this__u8e3s4.cj());
+                    var keyKind = keyDescriptor.rg();
                     var tmp_0;
                     var tmp_1;
                     if (keyKind instanceof PrimitiveKind) {
@@ -15546,7 +15144,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     if (tmp_1) {
                         tmp_0 = LexerMode_MAP_getInstance();
                     } else {
-                        if (_this__u8e3s4.mt_1.iu_1) {
+                        if (_this__u8e3s4.ct_1.yt_1) {
                             tmp_0 = LexerMode_LIST_getInstance();
                         } else {
                             throw InvalidKeyKindException(keyDescriptor);
@@ -15562,12 +15160,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function carrierDescriptor(_this__u8e3s4, module_0) {
         var tmp;
-        if (equals(_this__u8e3s4.bh(), CONTEXTUAL_getInstance())) {
+        if (equals(_this__u8e3s4.rg(), CONTEXTUAL_getInstance())) {
             var tmp0_safe_receiver = getContextualDescriptor(module_0, _this__u8e3s4);
             var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : carrierDescriptor(tmp0_safe_receiver, module_0);
             tmp = tmp1_elvis_lhs == null ? _this__u8e3s4 : tmp1_elvis_lhs;
-        } else if (_this__u8e3s4.dh()) {
-            tmp = carrierDescriptor(_this__u8e3s4.jh(0), module_0);
+        } else if (_this__u8e3s4.tg()) {
+            tmp = carrierDescriptor(_this__u8e3s4.zg(0), module_0);
         } else {
             tmp = _this__u8e3s4;
         }
@@ -15591,15 +15189,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Key_0() {}
     function DescriptorSchemaCache() {
-        this.rw_1 = createMapForCache(16);
+        this.hw_1 = createMapForCache(16);
     }
-    protoOf(DescriptorSchemaCache).az = function(descriptor, key, value) {
-        var this_0 = this.rw_1;
-        var value_0 = this_0.t1(descriptor);
+    protoOf(DescriptorSchemaCache).qy = function(descriptor, key, value) {
+        var this_0 = this.hw_1;
+        var value_0 = this_0.s1(descriptor);
         var tmp;
         if (value_0 == null) {
             var answer = createMapForCache(2);
-            this_0.x1(descriptor, answer);
+            this_0.w1(descriptor, answer);
             tmp = answer;
         } else {
             tmp = value_0;
@@ -15607,97 +15205,97 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp0 = tmp;
         var tmp2 = key instanceof Key_0 ? key : THROW_CCE();
         var value_1 = !(value == null) ? value : THROW_CCE();
-        tmp0.x1(tmp2, value_1);
+        tmp0.w1(tmp2, value_1);
     };
-    protoOf(DescriptorSchemaCache).sw = function(descriptor, key, defaultValue) {
-        var tmp0_safe_receiver = this.bz(descriptor, key);
+    protoOf(DescriptorSchemaCache).iw = function(descriptor, key, defaultValue) {
+        var tmp0_safe_receiver = this.ry(descriptor, key);
         if (tmp0_safe_receiver == null) null; else {
             return tmp0_safe_receiver;
         }
         var value = defaultValue();
-        this.az(descriptor, key, value);
+        this.qy(descriptor, key, value);
         return value;
     };
-    protoOf(DescriptorSchemaCache).bz = function(descriptor, key) {
-        var tmp0_safe_receiver = this.rw_1.t1(descriptor);
+    protoOf(DescriptorSchemaCache).ry = function(descriptor, key) {
+        var tmp0_safe_receiver = this.hw_1.s1(descriptor);
         var tmp;
         if (tmp0_safe_receiver == null) {
             tmp = null;
         } else {
-            tmp = tmp0_safe_receiver.t1(key instanceof Key_0 ? key : THROW_CCE());
+            tmp = tmp0_safe_receiver.s1(key instanceof Key_0 ? key : THROW_CCE());
         }
         var tmp_0 = tmp;
         return !(tmp_0 == null) ? tmp_0 : null;
     };
     function DiscriminatorHolder(discriminatorToSkip) {
-        this.cz_1 = discriminatorToSkip;
+        this.sy_1 = discriminatorToSkip;
     }
     function trySkip($this, $receiver, unknownKey) {
         if ($receiver == null) return false;
-        if ($receiver.cz_1 === unknownKey) {
-            $receiver.cz_1 = null;
+        if ($receiver.sy_1 === unknownKey) {
+            $receiver.sy_1 = null;
             return true;
         }
         return false;
     }
     function skipLeftoverElements($this, descriptor) {
-        while (!($this.oj(descriptor) === -1)) {}
+        while (!($this.ej(descriptor) === -1)) {}
     }
     function checkLeadingComma($this) {
-        if ($this.tt_1.nx() === 4) {
-            $this.tt_1.qw('Unexpected leading comma');
+        if ($this.jt_1.dx() === 4) {
+            $this.jt_1.gw('Unexpected leading comma');
         }
     }
     function decodeMapIndex($this) {
         var hasComma = false;
-        var decodingKey = !(($this.vt_1 % 2 | 0) === 0);
+        var decodingKey = !(($this.lt_1 % 2 | 0) === 0);
         if (decodingKey) {
-            if (!($this.vt_1 === -1)) {
-                hasComma = $this.tt_1.ez();
+            if (!($this.lt_1 === -1)) {
+                hasComma = $this.jt_1.uy();
             }
         } else {
-            $this.tt_1.dz(_Char___init__impl__6a9atx(58));
+            $this.jt_1.ty(_Char___init__impl__6a9atx(58));
         }
         var tmp;
-        if ($this.tt_1.ox()) {
+        if ($this.jt_1.ex()) {
             if (decodingKey) {
-                if ($this.vt_1 === -1) {
-                    var tmp0 = $this.tt_1;
+                if ($this.lt_1 === -1) {
+                    var tmp0 = $this.jt_1;
                     var condition = !hasComma;
-                    var position = tmp0.au_1;
+                    var position = tmp0.qt_1;
                     if (!condition) {
                         var tmp$ret$1 = 'Unexpected leading comma';
-                        tmp0.qw(tmp$ret$1, position);
+                        tmp0.gw(tmp$ret$1, position);
                     }
                 } else {
-                    var tmp0_0 = $this.tt_1;
+                    var tmp0_0 = $this.jt_1;
                     var condition_0 = hasComma;
-                    var position_0 = tmp0_0.au_1;
+                    var position_0 = tmp0_0.qt_1;
                     if (!condition_0) {
                         var tmp$ret$3 = 'Expected comma after the key-value pair';
-                        tmp0_0.qw(tmp$ret$3, position_0);
+                        tmp0_0.gw(tmp$ret$3, position_0);
                     }
                 }
             }
-            $this.vt_1 = $this.vt_1 + 1 | 0;
-            tmp = $this.vt_1;
+            $this.lt_1 = $this.lt_1 + 1 | 0;
+            tmp = $this.lt_1;
         } else {
-            if (hasComma && !$this.rt_1.mt_1.tu_1) {
-                invalidTrailingComma($this.tt_1);
+            if (hasComma && !$this.ht_1.ct_1.ju_1) {
+                invalidTrailingComma($this.jt_1);
             }
             tmp = -1;
         }
         return tmp;
     }
     function coerceInputValue($this, descriptor, index) {
-        var tmp0 = $this.rt_1;
+        var tmp0 = $this.ht_1;
         var tmp$ret$0;
         $l$block_2: {
-            var isOptional = descriptor.kh(index);
-            var elementDescriptor = descriptor.jh(index);
+            var isOptional = descriptor.ah(index);
+            var elementDescriptor = descriptor.zg(index);
             var tmp;
-            if (isOptional && !elementDescriptor.ch()) {
-                tmp = $this.tt_1.fz(true);
+            if (isOptional && !elementDescriptor.sg()) {
+                tmp = $this.jt_1.vy(true);
             } else {
                 tmp = false;
             }
@@ -15705,10 +15303,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$0 = true;
                 break $l$block_2;
             }
-            if (equals(elementDescriptor.bh(), ENUM_getInstance())) {
+            if (equals(elementDescriptor.rg(), ENUM_getInstance())) {
                 var tmp_0;
-                if (elementDescriptor.ch()) {
-                    tmp_0 = $this.tt_1.fz(false);
+                if (elementDescriptor.sg()) {
+                    tmp_0 = $this.jt_1.vy(false);
                 } else {
                     tmp_0 = false;
                 }
@@ -15716,7 +15314,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     tmp$ret$0 = false;
                     break $l$block_2;
                 }
-                var tmp0_elvis_lhs = $this.tt_1.gz($this.xt_1.hu_1);
+                var tmp0_elvis_lhs = $this.jt_1.wy($this.nt_1.xt_1);
                 var tmp_1;
                 if (tmp0_elvis_lhs == null) {
                     tmp$ret$0 = false;
@@ -15726,9 +15324,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 }
                 var enumValue = tmp_1;
                 var enumIndex = getJsonNameIndex(elementDescriptor, tmp0, enumValue);
-                var coerceToNull = !tmp0.mt_1.ku_1 && elementDescriptor.ch();
+                var coerceToNull = !tmp0.ct_1.au_1 && elementDescriptor.sg();
                 if (enumIndex === -3 && (isOptional || coerceToNull)) {
-                    $this.tt_1.px();
+                    $this.jt_1.fx();
                     tmp$ret$0 = true;
                     break $l$block_2;
                 }
@@ -15738,22 +15336,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp$ret$0;
     }
     function decodeObjectIndex($this, descriptor) {
-        var hasComma = $this.tt_1.ez();
-        while ($this.tt_1.ox()) {
+        var hasComma = $this.jt_1.uy();
+        while ($this.jt_1.ex()) {
             hasComma = false;
             var key = decodeStringKey($this);
-            $this.tt_1.dz(_Char___init__impl__6a9atx(58));
-            var index = getJsonNameIndex(descriptor, $this.rt_1, key);
+            $this.jt_1.ty(_Char___init__impl__6a9atx(58));
+            var index = getJsonNameIndex(descriptor, $this.ht_1, key);
             var tmp;
             if (!(index === -3)) {
                 var tmp_0;
-                if ($this.xt_1.mu_1 && coerceInputValue($this, descriptor, index)) {
-                    hasComma = $this.tt_1.ez();
+                if ($this.nt_1.cu_1 && coerceInputValue($this, descriptor, index)) {
+                    hasComma = $this.jt_1.uy();
                     tmp_0 = false;
                 } else {
-                    var tmp0_safe_receiver = $this.yt_1;
+                    var tmp0_safe_receiver = $this.ot_1;
                     if (tmp0_safe_receiver == null) null; else {
-                        tmp0_safe_receiver.nw(index);
+                        tmp0_safe_receiver.dw(index);
                     }
                     return index;
                 }
@@ -15766,34 +15364,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 hasComma = handleUnknown($this, descriptor, key);
             }
         }
-        if (hasComma && !$this.rt_1.mt_1.tu_1) {
-            invalidTrailingComma($this.tt_1);
+        if (hasComma && !$this.ht_1.ct_1.ju_1) {
+            invalidTrailingComma($this.jt_1);
         }
-        var tmp1_safe_receiver = $this.yt_1;
-        var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.ow();
+        var tmp1_safe_receiver = $this.ot_1;
+        var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.ew();
         return tmp2_elvis_lhs == null ? -1 : tmp2_elvis_lhs;
     }
     function handleUnknown($this, descriptor, key) {
-        if (ignoreUnknownKeys(descriptor, $this.rt_1) || trySkip($this, $this.wt_1, key)) {
-            $this.tt_1.iz($this.xt_1.hu_1);
+        if (ignoreUnknownKeys(descriptor, $this.ht_1) || trySkip($this, $this.mt_1, key)) {
+            $this.jt_1.yy($this.nt_1.xt_1);
         } else {
-            $this.tt_1.bu_1.ex();
-            $this.tt_1.hz(key);
+            $this.jt_1.rt_1.uw();
+            $this.jt_1.xy(key);
         }
-        return $this.tt_1.ez();
+        return $this.jt_1.uy();
     }
     function decodeListIndex($this) {
-        var hasComma = $this.tt_1.ez();
+        var hasComma = $this.jt_1.uy();
         var tmp;
-        if ($this.tt_1.ox()) {
-            if (!($this.vt_1 === -1) && !hasComma) {
-                $this.tt_1.qw('Expected end of the array or comma');
+        if ($this.jt_1.ex()) {
+            if (!($this.lt_1 === -1) && !hasComma) {
+                $this.jt_1.gw('Expected end of the array or comma');
             }
-            $this.vt_1 = $this.vt_1 + 1 | 0;
-            tmp = $this.vt_1;
+            $this.lt_1 = $this.lt_1 + 1 | 0;
+            tmp = $this.lt_1;
         } else {
-            if (hasComma && !$this.rt_1.mt_1.tu_1) {
-                invalidTrailingComma($this.tt_1, 'array');
+            if (hasComma && !$this.ht_1.ct_1.ju_1) {
+                invalidTrailingComma($this.jt_1, 'array');
             }
             tmp = -1;
         }
@@ -15801,49 +15399,49 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function decodeStringKey($this) {
         var tmp;
-        if ($this.xt_1.hu_1) {
-            tmp = $this.tt_1.kz();
+        if ($this.nt_1.xt_1) {
+            tmp = $this.jt_1.az();
         } else {
-            tmp = $this.tt_1.jz();
+            tmp = $this.jt_1.zy();
         }
         return tmp;
     }
     function StreamingJsonDecoder(json, mode, lexer, descriptor, discriminatorHolder) {
         AbstractDecoder.call(this);
-        this.rt_1 = json;
-        this.st_1 = mode;
-        this.tt_1 = lexer;
-        this.ut_1 = this.rt_1.mj();
-        this.vt_1 = -1;
-        this.wt_1 = discriminatorHolder;
-        this.xt_1 = this.rt_1.mt_1;
-        this.yt_1 = this.xt_1.ku_1 ? null : new JsonElementMarker(descriptor);
+        this.ht_1 = json;
+        this.it_1 = mode;
+        this.jt_1 = lexer;
+        this.kt_1 = this.ht_1.cj();
+        this.lt_1 = -1;
+        this.mt_1 = discriminatorHolder;
+        this.nt_1 = this.ht_1.ct_1;
+        this.ot_1 = this.nt_1.au_1 ? null : new JsonElementMarker(descriptor);
     }
-    protoOf(StreamingJsonDecoder).yu = function() {
-        return this.rt_1;
+    protoOf(StreamingJsonDecoder).ou = function() {
+        return this.ht_1;
     };
-    protoOf(StreamingJsonDecoder).mj = function() {
-        return this.ut_1;
+    protoOf(StreamingJsonDecoder).cj = function() {
+        return this.kt_1;
     };
-    protoOf(StreamingJsonDecoder).zu = function() {
-        return new JsonTreeReader(this.rt_1.mt_1, this.tt_1).rx();
+    protoOf(StreamingJsonDecoder).pu = function() {
+        return new JsonTreeReader(this.ht_1.ct_1, this.jt_1).hx();
     };
-    protoOf(StreamingJsonDecoder).yi = function(deserializer) {
-        var tmp2_withExceptionHandling_this = this.tt_1.bu_1;
-        var tmp3_withExceptionHandling_this = this.tt_1;
+    protoOf(StreamingJsonDecoder).oi = function(deserializer) {
+        var tmp2_withExceptionHandling_this = this.jt_1.rt_1;
+        var tmp3_withExceptionHandling_this = this.jt_1;
         var tmp;
         try {
             var tmp_0;
             if (!(deserializer instanceof AbstractPolymorphicSerializer)) {
                 tmp_0 = true;
             } else {
-                tmp_0 = this.rt_1.mt_1.nu_1;
+                tmp_0 = this.ht_1.ct_1.du_1;
             }
             if (tmp_0) {
-                return deserializer.tg(this);
+                return deserializer.jg(this);
             }
-            var discriminator = classDiscriminator(deserializer.sg(), this.rt_1);
-            var tmp0_elvis_lhs = this.tt_1.lz(discriminator, this.xt_1.hu_1);
+            var discriminator = classDiscriminator(deserializer.ig(), this.ht_1);
+            var tmp0_elvis_lhs = this.jt_1.bz(discriminator, this.nt_1.xt_1);
             var tmp_1;
             if (tmp0_elvis_lhs == null) {
                 var tmp2 = isInterface(deserializer, DeserializationStrategy) ? deserializer : THROW_CCE();
@@ -15853,20 +15451,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     if (!(tmp2 instanceof AbstractPolymorphicSerializer)) {
                         tmp_2 = true;
                     } else {
-                        tmp_2 = this.yu().mt_1.nu_1;
+                        tmp_2 = this.ou().ct_1.du_1;
                     }
                     if (tmp_2) {
-                        tmp$ret$2 = tmp2.tg(this);
+                        tmp$ret$2 = tmp2.jg(this);
                         break $l$block;
                     }
-                    var discriminator_0 = classDiscriminator(tmp2.sg(), this.yu());
-                    var tmp2_0 = this.zu();
-                    var serialName = tmp2.sg().ah();
+                    var discriminator_0 = classDiscriminator(tmp2.ig(), this.ou());
+                    var tmp2_0 = this.pu();
+                    var serialName = tmp2.ig().qg();
                     if (!(tmp2_0 instanceof JsonObject)) {
-                        var tmp2_1 = 'Expected ' + getKClass(JsonObject).k8() + ', but had ' + getKClassFromExpression(tmp2_0).k8() + ' as the serialized body of ' + serialName;
-                        var path = this.tt_1.bu_1.fx();
+                        var tmp2_1 = 'Expected ' + getKClass(JsonObject).j8() + ', but had ' + getKClassFromExpression(tmp2_0).j8() + ' as the serialized body of ' + serialName;
+                        var path = this.jt_1.rt_1.vw();
                         var tmp_3;
-                        if (this.yu().mt_1.wu_1) {
+                        if (this.ou().ct_1.mu_1) {
                             var tmp$ret$8 = toString_1(tmp2_0);
                             tmp_3 = toString_1(minify(tmp$ret$8));
                         } else {
@@ -15876,18 +15474,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
                         throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_1, path, null, inputValue), tmp2_1, -1, path, inputValue, null);
                     }
                     var jsonTree = tmp2_0;
-                    var tmp0_safe_receiver = jsonTree.cv(discriminator_0);
+                    var tmp0_safe_receiver = jsonTree.su(discriminator_0);
                     var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
                     var type = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
-                    var tmp_4 = tmp2.rj(this, type);
+                    var tmp_4 = tmp2.hj(this, type);
                     var actualSerializer = (!(tmp_4 == null) ? isInterface(tmp_4, DeserializationStrategy) : false) ? tmp_4 : null;
                     if (actualSerializer == null) {
-                        var _destruct__k2r9zo = subtypeNotRegisteredMessageJson(type, tmp2.qj());
-                        var message = _destruct__k2r9zo.oa();
-                        var hint = _destruct__k2r9zo.pa();
-                        var path_0 = this.tt_1.bu_1.fx();
+                        var _destruct__k2r9zo = subtypeNotRegisteredMessageJson(type, tmp2.gj());
+                        var message = _destruct__k2r9zo.wa();
+                        var hint = _destruct__k2r9zo.xa();
+                        var path_0 = this.jt_1.rt_1.vw();
                         var tmp_5;
-                        if (this.yu().mt_1.wu_1) {
+                        if (this.ou().ct_1.mu_1) {
                             var tmp$ret$13 = jsonTree.toString();
                             tmp_5 = toString_1(minify(tmp$ret$13));
                         } else {
@@ -15896,30 +15494,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
                         var inputValue_0 = tmp_5;
                         throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, message, path_0, hint, inputValue_0), message, -1, path_0, inputValue_0, hint);
                     }
-                    tmp$ret$2 = readPolymorphicJson(this.yu(), discriminator_0, jsonTree, actualSerializer);
+                    tmp$ret$2 = readPolymorphicJson(this.ou(), discriminator_0, jsonTree, actualSerializer);
                 }
                 return tmp$ret$2;
             } else {
                 tmp_1 = tmp0_elvis_lhs;
             }
             var type_0 = tmp_1;
-            var tmp_6 = deserializer.rj(this, type_0);
+            var tmp_6 = deserializer.hj(this, type_0);
             var actualSerializer_0 = (!(tmp_6 == null) ? isInterface(tmp_6, DeserializationStrategy) : false) ? tmp_6 : null;
             if (actualSerializer_0 == null) {
-                var _destruct__k2r9zo_0 = subtypeNotRegisteredMessageJson(type_0, deserializer.qj());
-                var message_0 = _destruct__k2r9zo_0.oa();
-                var hint_0 = _destruct__k2r9zo_0.pa();
-                this.tt_1.qw(message_0, VOID, hint_0);
+                var _destruct__k2r9zo_0 = subtypeNotRegisteredMessageJson(type_0, deserializer.gj());
+                var message_0 = _destruct__k2r9zo_0.wa();
+                var hint_0 = _destruct__k2r9zo_0.xa();
+                this.jt_1.gw(message_0, VOID, hint_0);
             }
-            this.wt_1 = new DiscriminatorHolder(discriminator);
-            tmp = actualSerializer_0.tg(this);
+            this.mt_1 = new DiscriminatorHolder(discriminator);
+            tmp = actualSerializer_0.jg(this);
         } catch ($p) {
             var tmp_7;
             if ($p instanceof MissingFieldException) {
                 var e = $p;
-                if (contains_5(ensureNotNull(e.message), 'at path')) throw e;
-                var tmp_8 = plus_0(e.message, ' at path: ');
-                var tmp$ret$14 = tmp2_withExceptionHandling_this.fx();
+                if (contains_1(ensureNotNull(e.message), 'at path')) throw e;
+                var tmp_8 = plus_1(e.message, ' at path: ');
+                var tmp$ret$14 = tmp2_withExceptionHandling_this.vw();
                 throw missingFieldExceptionWithNewMessage(e, tmp_8 + tmp$ret$14);
             } else {
                 if ($p instanceof SerializationException) {
@@ -15928,12 +15526,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 } else {
                     if ($p instanceof Exception) {
                         var e_1 = $p;
-                        var path_1 = tmp2_withExceptionHandling_this.fx();
+                        var path_1 = tmp2_withExceptionHandling_this.vw();
                         var causeMessage = e_1.message;
                         var shortMessage = 'Deserialization failed because of ' + (causeMessage == null ? 'an exception' : "'" + causeMessage + "' exception") + ' in the decoder';
                         var tmp_9;
-                        if (this.yu().mt_1.wu_1) {
-                            var tmp$ret$19 = tmp3_withExceptionHandling_this.mz();
+                        if (this.ou().ct_1.mu_1) {
+                            var tmp$ret$19 = tmp3_withExceptionHandling_this.cz();
                             tmp_9 = toString_1(minify(tmp$ret$19));
                         } else {
                             tmp_9 = null;
@@ -15948,69 +15546,69 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     };
-    protoOf(StreamingJsonDecoder).zi = function(descriptor) {
-        var newMode = modeFor(this.rt_1, descriptor);
-        this.tt_1.bu_1.ax(descriptor);
-        this.tt_1.dz(newMode.yy_1);
+    protoOf(StreamingJsonDecoder).pi = function(descriptor) {
+        var newMode = modeFor(this.ht_1, descriptor);
+        this.jt_1.rt_1.qw(descriptor);
+        this.jt_1.ty(newMode.oy_1);
         checkLeadingComma(this);
         var tmp;
-        switch (newMode.c2_1) {
+        switch (newMode.a2_1) {
           case 1:
           case 2:
           case 3:
-            tmp = new StreamingJsonDecoder(this.rt_1, newMode, this.tt_1, descriptor, this.wt_1);
+            tmp = new StreamingJsonDecoder(this.ht_1, newMode, this.jt_1, descriptor, this.mt_1);
             break;
 
           default:
             var tmp_0;
-            if (this.st_1.equals(newMode) && this.rt_1.mt_1.ku_1) {
+            if (this.it_1.equals(newMode) && this.ht_1.ct_1.au_1) {
                 tmp_0 = this;
             } else {
-                tmp_0 = new StreamingJsonDecoder(this.rt_1, newMode, this.tt_1, descriptor, this.wt_1);
+                tmp_0 = new StreamingJsonDecoder(this.ht_1, newMode, this.jt_1, descriptor, this.mt_1);
             }
             tmp = tmp_0;
             break;
         }
         return tmp;
     };
-    protoOf(StreamingJsonDecoder).aj = function(descriptor) {
-        if (descriptor.eh() === 0 && ignoreUnknownKeys(descriptor, this.rt_1)) {
+    protoOf(StreamingJsonDecoder).qi = function(descriptor) {
+        if (descriptor.ug() === 0 && ignoreUnknownKeys(descriptor, this.ht_1)) {
             skipLeftoverElements(this, descriptor);
         }
-        if (this.tt_1.ez() && !this.rt_1.mt_1.tu_1) {
-            invalidTrailingComma(this.tt_1, '');
+        if (this.jt_1.uy() && !this.ht_1.ct_1.ju_1) {
+            invalidTrailingComma(this.jt_1, '');
         }
-        this.tt_1.dz(this.st_1.zy_1);
-        this.tt_1.bu_1.ex();
+        this.jt_1.ty(this.it_1.py_1);
+        this.jt_1.rt_1.uw();
     };
-    protoOf(StreamingJsonDecoder).li = function() {
+    protoOf(StreamingJsonDecoder).bi = function() {
         var tmp;
-        var tmp0_safe_receiver = this.yt_1;
-        var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.mw_1;
+        var tmp0_safe_receiver = this.ot_1;
+        var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cw_1;
         if (!(tmp1_elvis_lhs == null ? false : tmp1_elvis_lhs)) {
-            tmp = !this.tt_1.nz();
+            tmp = !this.jt_1.dz();
         } else {
             tmp = false;
         }
         return tmp;
     };
-    protoOf(StreamingJsonDecoder).mi = function() {
+    protoOf(StreamingJsonDecoder).ci = function() {
         return null;
     };
-    protoOf(StreamingJsonDecoder).kj = function(descriptor, index, deserializer, previousValue) {
-        var isMapKey = this.st_1.equals(LexerMode_MAP_getInstance()) && (index & 1) === 0;
+    protoOf(StreamingJsonDecoder).aj = function(descriptor, index, deserializer, previousValue) {
+        var isMapKey = this.it_1.equals(LexerMode_MAP_getInstance()) && (index & 1) === 0;
         if (isMapKey) {
-            this.tt_1.bu_1.dx();
+            this.jt_1.rt_1.tw();
         }
-        var value = protoOf(AbstractDecoder).kj.call(this, descriptor, index, deserializer, previousValue);
+        var value = protoOf(AbstractDecoder).aj.call(this, descriptor, index, deserializer, previousValue);
         if (isMapKey) {
-            this.tt_1.bu_1.cx(value);
+            this.jt_1.rt_1.sw(value);
         }
         return value;
     };
-    protoOf(StreamingJsonDecoder).oj = function(descriptor) {
+    protoOf(StreamingJsonDecoder).ej = function(descriptor) {
         var index;
-        switch (this.st_1.c2_1) {
+        switch (this.it_1.a2_1) {
           case 0:
             index = decodeObjectIndex(this, descriptor);
             break;
@@ -16023,118 +15621,118 @@ if (typeof String.prototype.startsWith === 'undefined') {
             index = decodeListIndex(this);
             break;
         }
-        if (!this.st_1.equals(LexerMode_MAP_getInstance())) {
-            this.tt_1.bu_1.bx(index);
+        if (!this.it_1.equals(LexerMode_MAP_getInstance())) {
+            this.jt_1.rt_1.rw(index);
         }
         return index;
     };
-    protoOf(StreamingJsonDecoder).ni = function() {
-        return this.tt_1.oz();
+    protoOf(StreamingJsonDecoder).di = function() {
+        return this.jt_1.ez();
     };
-    protoOf(StreamingJsonDecoder).oi = function() {
-        var value = this.tt_1.pz();
+    protoOf(StreamingJsonDecoder).ei = function() {
+        var value = this.jt_1.fz();
         if (!equalsLong(value, fromInt(convertToByte(value)))) {
-            this.tt_1.qw("Failed to parse byte for input '" + value.toString() + "'");
+            this.jt_1.gw("Failed to parse byte for input '" + value.toString() + "'");
         }
         return convertToByte(value);
     };
-    protoOf(StreamingJsonDecoder).pi = function() {
-        var value = this.tt_1.pz();
+    protoOf(StreamingJsonDecoder).fi = function() {
+        var value = this.jt_1.fz();
         if (!equalsLong(value, fromInt(convertToShort(value)))) {
-            this.tt_1.qw("Failed to parse short for input '" + value.toString() + "'");
+            this.jt_1.gw("Failed to parse short for input '" + value.toString() + "'");
         }
         return convertToShort(value);
     };
-    protoOf(StreamingJsonDecoder).qi = function() {
-        var value = this.tt_1.pz();
+    protoOf(StreamingJsonDecoder).gi = function() {
+        var value = this.jt_1.fz();
         if (!equalsLong(value, fromInt(convertToInt(value)))) {
-            this.tt_1.qw("Failed to parse int for input '" + value.toString() + "'");
+            this.jt_1.gw("Failed to parse int for input '" + value.toString() + "'");
         }
         return convertToInt(value);
     };
-    protoOf(StreamingJsonDecoder).ri = function() {
-        return this.tt_1.pz();
+    protoOf(StreamingJsonDecoder).hi = function() {
+        return this.jt_1.fz();
     };
-    protoOf(StreamingJsonDecoder).si = function() {
-        var tmp0 = this.tt_1;
+    protoOf(StreamingJsonDecoder).ii = function() {
+        var tmp0 = this.jt_1;
         var tmp$ret$0;
         $l$block: {
-            var input = tmp0.qx();
+            var input = tmp0.gx();
             try {
                 tmp$ret$0 = toDouble(input);
                 break $l$block;
             } catch ($p) {
                 if ($p instanceof IllegalArgumentException) {
                     var e = $p;
-                    tmp0.qw("Failed to parse type '" + 'float' + "' for input '" + input + "'");
+                    tmp0.gw("Failed to parse type '" + 'float' + "' for input '" + input + "'");
                 } else {
                     throw $p;
                 }
             }
         }
         var result = tmp$ret$0;
-        var specialFp = this.rt_1.mt_1.pu_1;
+        var specialFp = this.ht_1.ct_1.fu_1;
         if (specialFp || isFinite_0(result)) return result;
-        throwInvalidFloatingPointDecoded(this.tt_1, result);
+        throwInvalidFloatingPointDecoded(this.jt_1, result);
     };
-    protoOf(StreamingJsonDecoder).ti = function() {
-        var tmp0 = this.tt_1;
+    protoOf(StreamingJsonDecoder).ji = function() {
+        var tmp0 = this.jt_1;
         var tmp$ret$0;
         $l$block: {
-            var input = tmp0.qx();
+            var input = tmp0.gx();
             try {
                 tmp$ret$0 = toDouble(input);
                 break $l$block;
             } catch ($p) {
                 if ($p instanceof IllegalArgumentException) {
                     var e = $p;
-                    tmp0.qw("Failed to parse type '" + 'double' + "' for input '" + input + "'");
+                    tmp0.gw("Failed to parse type '" + 'double' + "' for input '" + input + "'");
                 } else {
                     throw $p;
                 }
             }
         }
         var result = tmp$ret$0;
-        var specialFp = this.rt_1.mt_1.pu_1;
+        var specialFp = this.ht_1.ct_1.fu_1;
         if (specialFp || isFinite(result)) return result;
-        throwInvalidFloatingPointDecoded(this.tt_1, result);
+        throwInvalidFloatingPointDecoded(this.jt_1, result);
     };
-    protoOf(StreamingJsonDecoder).ui = function() {
-        var string = this.tt_1.qx();
+    protoOf(StreamingJsonDecoder).ki = function() {
+        var string = this.jt_1.gx();
         if (!(string.length === 1)) {
-            this.tt_1.qw("Expected single char, but got '" + string + "'");
+            this.jt_1.gw("Expected single char, but got '" + string + "'");
         }
         return charCodeAt(string, 0);
     };
-    protoOf(StreamingJsonDecoder).vi = function() {
+    protoOf(StreamingJsonDecoder).li = function() {
         var tmp;
-        if (this.xt_1.hu_1) {
-            tmp = this.tt_1.kz();
+        if (this.nt_1.xt_1) {
+            tmp = this.jt_1.az();
         } else {
-            tmp = this.tt_1.px();
+            tmp = this.jt_1.fx();
         }
         return tmp;
     };
-    protoOf(StreamingJsonDecoder).wi = function(descriptor) {
-        return get_isUnsignedNumber(descriptor) ? new JsonDecoderForUnsignedTypes(this.tt_1, this.rt_1) : protoOf(AbstractDecoder).wi.call(this, descriptor);
+    protoOf(StreamingJsonDecoder).mi = function(descriptor) {
+        return get_isUnsignedNumber(descriptor) ? new JsonDecoderForUnsignedTypes(this.jt_1, this.ht_1) : protoOf(AbstractDecoder).mi.call(this, descriptor);
     };
     function JsonDecoderForUnsignedTypes(lexer, json) {
         AbstractDecoder.call(this);
-        this.qz_1 = lexer;
-        this.rz_1 = json.mj();
+        this.gz_1 = lexer;
+        this.hz_1 = json.cj();
     }
-    protoOf(JsonDecoderForUnsignedTypes).mj = function() {
-        return this.rz_1;
+    protoOf(JsonDecoderForUnsignedTypes).cj = function() {
+        return this.hz_1;
     };
-    protoOf(JsonDecoderForUnsignedTypes).oj = function(descriptor) {
+    protoOf(JsonDecoderForUnsignedTypes).ej = function(descriptor) {
         var message = 'unsupported';
         throw IllegalStateException_init_$Create$_0(toString_1(message));
     };
-    protoOf(JsonDecoderForUnsignedTypes).qi = function() {
-        var tmp0 = this.qz_1;
+    protoOf(JsonDecoderForUnsignedTypes).gi = function() {
+        var tmp0 = this.gz_1;
         var tmp$ret$0;
         $l$block: {
-            var input = tmp0.qx();
+            var input = tmp0.gx();
             try {
                 var this_0 = toUInt(input);
                 tmp$ret$0 = _UInt___get_data__impl__f0vqqw(this_0);
@@ -16142,7 +15740,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             } catch ($p) {
                 if ($p instanceof IllegalArgumentException) {
                     var e = $p;
-                    tmp0.qw("Failed to parse type '" + 'UInt' + "' for input '" + input + "'");
+                    tmp0.gw("Failed to parse type '" + 'UInt' + "' for input '" + input + "'");
                 } else {
                     throw $p;
                 }
@@ -16150,11 +15748,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(JsonDecoderForUnsignedTypes).ri = function() {
-        var tmp0 = this.qz_1;
+    protoOf(JsonDecoderForUnsignedTypes).hi = function() {
+        var tmp0 = this.gz_1;
         var tmp$ret$0;
         $l$block: {
-            var input = tmp0.qx();
+            var input = tmp0.gx();
             try {
                 var this_0 = toULong(input);
                 tmp$ret$0 = _ULong___get_data__impl__fggpzb(this_0);
@@ -16162,7 +15760,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             } catch ($p) {
                 if ($p instanceof IllegalArgumentException) {
                     var e = $p;
-                    tmp0.qw("Failed to parse type '" + 'ULong' + "' for input '" + input + "'");
+                    tmp0.gw("Failed to parse type '" + 'ULong' + "' for input '" + input + "'");
                 } else {
                     throw $p;
                 }
@@ -16170,11 +15768,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(JsonDecoderForUnsignedTypes).oi = function() {
-        var tmp0 = this.qz_1;
+    protoOf(JsonDecoderForUnsignedTypes).ei = function() {
+        var tmp0 = this.gz_1;
         var tmp$ret$0;
         $l$block: {
-            var input = tmp0.qx();
+            var input = tmp0.gx();
             try {
                 var this_0 = toUByte(input);
                 tmp$ret$0 = _UByte___get_data__impl__jof9qr(this_0);
@@ -16182,7 +15780,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             } catch ($p) {
                 if ($p instanceof IllegalArgumentException) {
                     var e = $p;
-                    tmp0.qw("Failed to parse type '" + 'UByte' + "' for input '" + input + "'");
+                    tmp0.gw("Failed to parse type '" + 'UByte' + "' for input '" + input + "'");
                 } else {
                     throw $p;
                 }
@@ -16190,11 +15788,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(JsonDecoderForUnsignedTypes).pi = function() {
-        var tmp0 = this.qz_1;
+    protoOf(JsonDecoderForUnsignedTypes).fi = function() {
+        var tmp0 = this.gz_1;
         var tmp$ret$0;
         $l$block: {
-            var input = tmp0.qx();
+            var input = tmp0.gx();
             try {
                 var this_0 = toUShort(input);
                 tmp$ret$0 = _UShort___get_data__impl__g0245(this_0);
@@ -16202,7 +15800,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             } catch ($p) {
                 if ($p instanceof IllegalArgumentException) {
                     var e = $p;
-                    tmp0.qw("Failed to parse type '" + 'UShort' + "' for input '" + input + "'");
+                    tmp0.gw("Failed to parse type '" + 'UShort' + "' for input '" + input + "'");
                 } else {
                     throw $p;
                 }
@@ -16217,13 +15815,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     var unsignedNumberDescriptors;
     function get_isUnsignedNumber(_this__u8e3s4) {
         _init_properties_StreamingJsonEncoder_kt__pn1bsi();
-        return _this__u8e3s4.dh() && get_unsignedNumberDescriptors().m1(_this__u8e3s4);
+        return _this__u8e3s4.tg() && get_unsignedNumberDescriptors().l1(_this__u8e3s4);
     }
     var properties_initialized_StreamingJsonEncoder_kt_6ifwwk;
     function _init_properties_StreamingJsonEncoder_kt__pn1bsi() {
         if (!properties_initialized_StreamingJsonEncoder_kt_6ifwwk) {
             properties_initialized_StreamingJsonEncoder_kt_6ifwwk = true;
-            unsignedNumberDescriptors = setOf_0([ serializer_0(Companion_getInstance_17()).sg(), serializer_1(Companion_getInstance_18()).sg(), serializer_2(Companion_getInstance_16()).sg(), serializer_3(Companion_getInstance_19()).sg() ]);
+            unsignedNumberDescriptors = setOf_0([ serializer_0(Companion_getInstance_17()).ig(), serializer_1(Companion_getInstance_18()).ig(), serializer_2(Companion_getInstance_16()).ig(), serializer_3(Companion_getInstance_19()).ig() ]);
         }
     }
     function get_ESCAPE_STRINGS() {
@@ -16250,7 +15848,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function printQuoted(_this__u8e3s4, value) {
         _init_properties_StringOps_kt__fcy1db();
-        _this__u8e3s4.a7(_Char___init__impl__6a9atx(34));
+        _this__u8e3s4.z6(_Char___init__impl__6a9atx(34));
         var lastPos = 0;
         var inductionVariable = 0;
         var last = charSequenceLength(value) - 1 | 0;
@@ -16260,13 +15858,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var this_0 = charCodeAt(value, i);
             var c = Char__toInt_impl_vasixd(this_0);
             if (c < get_ESCAPE_STRINGS().length && !(get_ESCAPE_STRINGS()[c] == null)) {
-                _this__u8e3s4.o9(value, lastPos, i);
-                _this__u8e3s4.z6(get_ESCAPE_STRINGS()[c]);
+                _this__u8e3s4.n9(value, lastPos, i);
+                _this__u8e3s4.y6(get_ESCAPE_STRINGS()[c]);
                 lastPos = i + 1 | 0;
             }
         } while (inductionVariable <= last);
-        if (!(lastPos === 0)) _this__u8e3s4.o9(value, lastPos, value.length); else _this__u8e3s4.z6(value);
-        _this__u8e3s4.a7(_Char___init__impl__6a9atx(34));
+        if (!(lastPos === 0)) _this__u8e3s4.n9(value, lastPos, value.length); else _this__u8e3s4.y6(value);
+        _this__u8e3s4.z6(_Char___init__impl__6a9atx(34));
     }
     function toBooleanStrictOrNull(_this__u8e3s4) {
         _init_properties_StringOps_kt__fcy1db();
@@ -16345,16 +15943,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function readPolymorphicJson(_this__u8e3s4, discriminator, element, deserializer) {
-        var descriptor = deserializer.sg();
-        return new JsonTreeDecoder(_this__u8e3s4, element, descriptor, discriminator, descriptor).yi(deserializer);
+        var descriptor = deserializer.ig();
+        return new JsonTreeDecoder(_this__u8e3s4, element, descriptor, discriminator, descriptor).oi(deserializer);
     }
     function unparsedPrimitive($this, literal, primitive, tag) {
         var type = startsWith(primitive, 'i') ? 'an ' + primitive : 'a ' + primitive;
         var tmp2 = "Failed to parse literal '" + literal.toString() + "' as " + type + ' value';
-        var path = $this.yz(tag);
+        var path = $this.oz(tag);
         var tmp;
-        if ($this.yu().mt_1.wu_1) {
-            var tmp$ret$3 = toString_1($this.zz());
+        if ($this.ou().ct_1.mu_1) {
+            var tmp$ret$3 = toString_1($this.pz());
             tmp = toString_1(minify(tmp$ret$3));
         } else {
             tmp = null;
@@ -16365,39 +15963,39 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function AbstractJsonTreeDecoder(json, value, polymorphicDiscriminator) {
         polymorphicDiscriminator = polymorphicDiscriminator === VOID ? null : polymorphicDiscriminator;
         NamedValueDecoder.call(this);
-        this.uz_1 = json;
-        this.vz_1 = value;
-        this.wz_1 = polymorphicDiscriminator;
-        this.xz_1 = this.yu().mt_1;
+        this.kz_1 = json;
+        this.lz_1 = value;
+        this.mz_1 = polymorphicDiscriminator;
+        this.nz_1 = this.ou().ct_1;
     }
-    protoOf(AbstractJsonTreeDecoder).yu = function() {
-        return this.uz_1;
+    protoOf(AbstractJsonTreeDecoder).ou = function() {
+        return this.kz_1;
     };
-    protoOf(AbstractJsonTreeDecoder).q1 = function() {
-        return this.vz_1;
+    protoOf(AbstractJsonTreeDecoder).p1 = function() {
+        return this.lz_1;
     };
-    protoOf(AbstractJsonTreeDecoder).mj = function() {
-        return this.yu().mj();
+    protoOf(AbstractJsonTreeDecoder).cj = function() {
+        return this.ou().cj();
     };
-    protoOf(AbstractJsonTreeDecoder).zz = function() {
-        var tmp0_safe_receiver = this.fs();
+    protoOf(AbstractJsonTreeDecoder).pz = function() {
+        var tmp0_safe_receiver = this.vr();
         var tmp;
         if (tmp0_safe_receiver == null) {
             tmp = null;
         } else {
-            tmp = this.a10(tmp0_safe_receiver);
+            tmp = this.qz(tmp0_safe_receiver);
         }
         var tmp1_elvis_lhs = tmp;
-        return tmp1_elvis_lhs == null ? this.q1() : tmp1_elvis_lhs;
+        return tmp1_elvis_lhs == null ? this.p1() : tmp1_elvis_lhs;
     };
-    protoOf(AbstractJsonTreeDecoder).yz = function(currentTag) {
-        return this.hs() + ('.' + currentTag);
+    protoOf(AbstractJsonTreeDecoder).oz = function(currentTag) {
+        return this.xr() + ('.' + currentTag);
     };
-    protoOf(AbstractJsonTreeDecoder).zu = function() {
-        return this.zz();
+    protoOf(AbstractJsonTreeDecoder).pu = function() {
+        return this.pz();
     };
-    protoOf(AbstractJsonTreeDecoder).yi = function(deserializer) {
-        var tmp2_withExceptionHandling_this = this.zz();
+    protoOf(AbstractJsonTreeDecoder).oi = function(deserializer) {
+        var tmp2_withExceptionHandling_this = this.pz();
         var tmp;
         try {
             var tmp$ret$2;
@@ -16406,20 +16004,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 if (!(deserializer instanceof AbstractPolymorphicSerializer)) {
                     tmp_0 = true;
                 } else {
-                    tmp_0 = this.yu().mt_1.nu_1;
+                    tmp_0 = this.ou().ct_1.du_1;
                 }
                 if (tmp_0) {
-                    tmp$ret$2 = deserializer.tg(this);
+                    tmp$ret$2 = deserializer.jg(this);
                     break $l$block;
                 }
-                var discriminator = classDiscriminator(deserializer.sg(), this.yu());
-                var tmp2 = this.zu();
-                var serialName = deserializer.sg().ah();
+                var discriminator = classDiscriminator(deserializer.ig(), this.ou());
+                var tmp2 = this.pu();
+                var serialName = deserializer.ig().qg();
                 if (!(tmp2 instanceof JsonObject)) {
-                    var tmp2_0 = 'Expected ' + getKClass(JsonObject).k8() + ', but had ' + getKClassFromExpression(tmp2).k8() + ' as the serialized body of ' + serialName;
-                    var path = this.hs();
+                    var tmp2_0 = 'Expected ' + getKClass(JsonObject).j8() + ', but had ' + getKClassFromExpression(tmp2).j8() + ' as the serialized body of ' + serialName;
+                    var path = this.xr();
                     var tmp_1;
-                    if (this.yu().mt_1.wu_1) {
+                    if (this.ou().ct_1.mu_1) {
                         var tmp$ret$8 = toString_1(tmp2);
                         tmp_1 = toString_1(minify(tmp$ret$8));
                     } else {
@@ -16429,18 +16027,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_0, path, null, inputValue), tmp2_0, -1, path, inputValue, null);
                 }
                 var jsonTree = tmp2;
-                var tmp0_safe_receiver = jsonTree.cv(discriminator);
+                var tmp0_safe_receiver = jsonTree.su(discriminator);
                 var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
                 var type = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
-                var tmp_2 = deserializer.rj(this, type);
+                var tmp_2 = deserializer.hj(this, type);
                 var actualSerializer = (!(tmp_2 == null) ? isInterface(tmp_2, DeserializationStrategy) : false) ? tmp_2 : null;
                 if (actualSerializer == null) {
-                    var _destruct__k2r9zo = subtypeNotRegisteredMessageJson(type, deserializer.qj());
-                    var message = _destruct__k2r9zo.oa();
-                    var hint = _destruct__k2r9zo.pa();
-                    var path_0 = this.hs();
+                    var _destruct__k2r9zo = subtypeNotRegisteredMessageJson(type, deserializer.gj());
+                    var message = _destruct__k2r9zo.wa();
+                    var hint = _destruct__k2r9zo.xa();
+                    var path_0 = this.xr();
                     var tmp_3;
-                    if (this.yu().mt_1.wu_1) {
+                    if (this.ou().ct_1.mu_1) {
                         var tmp$ret$13 = jsonTree.toString();
                         tmp_3 = toString_1(minify(tmp$ret$13));
                     } else {
@@ -16449,16 +16047,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var inputValue_0 = tmp_3;
                     throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, message, path_0, hint, inputValue_0), message, -1, path_0, inputValue_0, hint);
                 }
-                tmp$ret$2 = readPolymorphicJson(this.yu(), discriminator, jsonTree, actualSerializer);
+                tmp$ret$2 = readPolymorphicJson(this.ou(), discriminator, jsonTree, actualSerializer);
             }
             tmp = tmp$ret$2;
         } catch ($p) {
             var tmp_4;
             if ($p instanceof MissingFieldException) {
                 var e = $p;
-                if (contains_5(ensureNotNull(e.message), 'at path')) throw e;
-                var tmp_5 = plus_0(e.message, ' at path: ');
-                var tmp$ret$14 = this.hs();
+                if (contains_1(ensureNotNull(e.message), 'at path')) throw e;
+                var tmp_5 = plus_1(e.message, ' at path: ');
+                var tmp$ret$14 = this.xr();
                 throw missingFieldExceptionWithNewMessage(e, tmp_5 + tmp$ret$14);
             } else {
                 if ($p instanceof SerializationException) {
@@ -16467,11 +16065,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 } else {
                     if ($p instanceof Exception) {
                         var e_1 = $p;
-                        var path_1 = this.hs();
+                        var path_1 = this.xr();
                         var causeMessage = e_1.message;
                         var shortMessage = 'Deserialization failed because of ' + (causeMessage == null ? 'an exception' : "'" + causeMessage + "' exception") + ' in the decoder';
                         var tmp_6;
-                        if (this.yu().mt_1.wu_1) {
+                        if (this.ou().ct_1.mu_1) {
                             var tmp$ret$19 = toString_1(tmp2_withExceptionHandling_this);
                             tmp_6 = toString_1(minify(tmp$ret$19));
                         } else {
@@ -16487,12 +16085,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     };
-    protoOf(AbstractJsonTreeDecoder).gs = function(parentName, childName) {
+    protoOf(AbstractJsonTreeDecoder).wr = function(parentName, childName) {
         return childName;
     };
-    protoOf(AbstractJsonTreeDecoder).zi = function(descriptor) {
-        var currentObject = this.zz();
-        var tmp0_subject = descriptor.bh();
+    protoOf(AbstractJsonTreeDecoder).pi = function(descriptor) {
+        var currentObject = this.pz();
+        var tmp0_subject = descriptor.rg();
         var tmp;
         var tmp_0;
         if (equals(tmp0_subject, LIST_getInstance())) {
@@ -16501,13 +16099,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = tmp0_subject instanceof PolymorphicKind;
         }
         if (tmp_0) {
-            var tmp_1 = this.yu();
-            var serialName = descriptor.ah();
+            var tmp_1 = this.ou();
+            var serialName = descriptor.qg();
             if (!(currentObject instanceof JsonArray)) {
-                var tmp2 = 'Expected ' + getKClass(JsonArray).k8() + ', but had ' + getKClassFromExpression(currentObject).k8() + ' as the serialized body of ' + serialName;
-                var path = this.hs();
+                var tmp2 = 'Expected ' + getKClass(JsonArray).j8() + ', but had ' + getKClassFromExpression(currentObject).j8() + ' as the serialized body of ' + serialName;
+                var path = this.xr();
                 var tmp_2;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$6 = toString_1(currentObject);
                     tmp_2 = toString_1(minify(tmp$ret$6));
                 } else {
@@ -16519,9 +16117,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = new JsonTreeListDecoder(tmp_1, currentObject);
         } else {
             if (equals(tmp0_subject, MAP_getInstance())) {
-                var this_0 = this.yu();
-                var keyDescriptor = carrierDescriptor(descriptor.jh(0), this_0.mj());
-                var keyKind = keyDescriptor.bh();
+                var this_0 = this.ou();
+                var keyDescriptor = carrierDescriptor(descriptor.zg(0), this_0.cj());
+                var keyKind = keyDescriptor.rg();
                 var tmp_3;
                 var tmp_4;
                 if (keyKind instanceof PrimitiveKind) {
@@ -16530,13 +16128,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     tmp_4 = equals(keyKind, ENUM_getInstance());
                 }
                 if (tmp_4) {
-                    var tmp_5 = this.yu();
-                    var serialName_0 = descriptor.ah();
+                    var tmp_5 = this.ou();
+                    var serialName_0 = descriptor.qg();
                     if (!(currentObject instanceof JsonObject)) {
-                        var tmp2_0 = 'Expected ' + getKClass(JsonObject).k8() + ', but had ' + getKClassFromExpression(currentObject).k8() + ' as the serialized body of ' + serialName_0;
-                        var path_0 = this.hs();
+                        var tmp2_0 = 'Expected ' + getKClass(JsonObject).j8() + ', but had ' + getKClassFromExpression(currentObject).j8() + ' as the serialized body of ' + serialName_0;
+                        var path_0 = this.xr();
                         var tmp_6;
-                        if (this.yu().mt_1.wu_1) {
+                        if (this.ou().ct_1.mu_1) {
                             var tmp$ret$15 = toString_1(currentObject);
                             tmp_6 = toString_1(minify(tmp$ret$15));
                         } else {
@@ -16547,14 +16145,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     }
                     tmp_3 = new JsonTreeMapDecoder(tmp_5, currentObject, descriptor);
                 } else {
-                    if (this_0.mt_1.iu_1) {
-                        var tmp_7 = this.yu();
-                        var serialName_1 = descriptor.ah();
+                    if (this_0.ct_1.yt_1) {
+                        var tmp_7 = this.ou();
+                        var serialName_1 = descriptor.qg();
                         if (!(currentObject instanceof JsonArray)) {
-                            var tmp2_1 = 'Expected ' + getKClass(JsonArray).k8() + ', but had ' + getKClassFromExpression(currentObject).k8() + ' as the serialized body of ' + serialName_1;
-                            var path_1 = this.hs();
+                            var tmp2_1 = 'Expected ' + getKClass(JsonArray).j8() + ', but had ' + getKClassFromExpression(currentObject).j8() + ' as the serialized body of ' + serialName_1;
+                            var path_1 = this.xr();
                             var tmp_8;
-                            if (this.yu().mt_1.wu_1) {
+                            if (this.ou().ct_1.mu_1) {
                                 var tmp$ret$23 = toString_1(currentObject);
                                 tmp_8 = toString_1(minify(tmp$ret$23));
                             } else {
@@ -16570,13 +16168,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 }
                 tmp = tmp_3;
             } else {
-                var tmp_9 = this.yu();
-                var serialName_2 = descriptor.ah();
+                var tmp_9 = this.ou();
+                var serialName_2 = descriptor.qg();
                 if (!(currentObject instanceof JsonObject)) {
-                    var tmp2_2 = 'Expected ' + getKClass(JsonObject).k8() + ', but had ' + getKClassFromExpression(currentObject).k8() + ' as the serialized body of ' + serialName_2;
-                    var path_2 = this.hs();
+                    var tmp2_2 = 'Expected ' + getKClass(JsonObject).j8() + ', but had ' + getKClassFromExpression(currentObject).j8() + ' as the serialized body of ' + serialName_2;
+                    var path_2 = this.xr();
                     var tmp_10;
-                    if (this.yu().mt_1.wu_1) {
+                    if (this.ou().ct_1.mu_1) {
                         var tmp$ret$30 = toString_1(currentObject);
                         tmp_10 = toString_1(minify(tmp$ret$30));
                     } else {
@@ -16585,31 +16183,31 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var inputValue_2 = tmp_10;
                     throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_2, path_2, null, inputValue_2), tmp2_2, -1, path_2, inputValue_2, null);
                 }
-                tmp = new JsonTreeDecoder(tmp_9, currentObject, descriptor, this.wz_1);
+                tmp = new JsonTreeDecoder(tmp_9, currentObject, descriptor, this.mz_1);
             }
         }
         return tmp;
     };
-    protoOf(AbstractJsonTreeDecoder).aj = function(descriptor) {};
-    protoOf(AbstractJsonTreeDecoder).li = function() {
-        var tmp = this.zz();
+    protoOf(AbstractJsonTreeDecoder).qi = function(descriptor) {};
+    protoOf(AbstractJsonTreeDecoder).bi = function() {
+        var tmp = this.pz();
         return !(tmp instanceof JsonNull);
     };
-    protoOf(AbstractJsonTreeDecoder).b10 = function(tag) {
-        return !(this.a10(tag) === JsonNull_getInstance());
+    protoOf(AbstractJsonTreeDecoder).rz = function(tag) {
+        return !(this.qz(tag) === JsonNull_getInstance());
     };
-    protoOf(AbstractJsonTreeDecoder).js = function(tag) {
-        return this.b10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).zr = function(tag) {
+        return this.rz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).c10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).sz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'boolean';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'boolean';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16640,18 +16238,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractJsonTreeDecoder).ks = function(tag) {
-        return this.c10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).as = function(tag) {
+        return this.sz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).d10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).tz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'byte';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'byte';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16665,7 +16263,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var result = parseLongImpl(literal);
                 var tmp_0;
                 var this_0 = numberRangeToNumber(-128, 127);
-                if (contains_4(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) {
+                if (contains_0(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) {
                     tmp_0 = convertToByte(result);
                 } else {
                     tmp_0 = null;
@@ -16690,18 +16288,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractJsonTreeDecoder).ls = function(tag) {
-        return this.d10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).bs = function(tag) {
+        return this.tz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).e10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).uz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'short';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'short';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16715,7 +16313,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var result = parseLongImpl(literal);
                 var tmp_0;
                 var this_0 = numberRangeToNumber(-32768, 32767);
-                if (contains_4(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) {
+                if (contains_0(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) {
                     tmp_0 = convertToShort(result);
                 } else {
                     tmp_0 = null;
@@ -16740,18 +16338,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractJsonTreeDecoder).ms = function(tag) {
-        return this.e10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).cs = function(tag) {
+        return this.uz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).f10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).vz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'int';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'int';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16765,7 +16363,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var result = parseLongImpl(literal);
                 var tmp_0;
                 var this_0 = numberRangeToNumber(-2147483648, 2147483647);
-                if (contains_4(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) {
+                if (contains_0(isInterface(this_0, ClosedRange) ? this_0 : THROW_CCE(), result)) {
                     tmp_0 = convertToInt(result);
                 } else {
                     tmp_0 = null;
@@ -16790,18 +16388,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractJsonTreeDecoder).ns = function(tag) {
-        return this.f10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).ds = function(tag) {
+        return this.vz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).g10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).wz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'long';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'long';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16832,18 +16430,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractJsonTreeDecoder).os = function(tag) {
-        return this.g10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).es = function(tag) {
+        return this.wz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).h10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).xz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'float';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'float';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16873,13 +16471,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
         }
         var result = tmp$ret$0;
-        var specialFp = this.yu().mt_1.pu_1;
+        var specialFp = this.ou().ct_1.fu_1;
         if (specialFp || isFinite_0(result)) return result;
         var tmp2_0 = access$nonFiniteFpMessage$tJsonExceptionsKt(result, tag);
         var hint = "It is possible to deserialize them using 'JsonBuilder.allowSpecialFloatingPointValues = true'";
         var tmp_1;
-        if (this.yu().mt_1.wu_1) {
-            var tmp$ret$13 = toString_1(this.zz());
+        if (this.ou().ct_1.mu_1) {
+            var tmp$ret$13 = toString_1(this.pz());
             tmp_1 = toString_1(minify(tmp$ret$13));
         } else {
             tmp_1 = null;
@@ -16887,18 +16485,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var inputValue_0 = tmp_1;
         throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_0, null, hint, inputValue_0), tmp2_0, -1, null, inputValue_0, hint);
     };
-    protoOf(AbstractJsonTreeDecoder).ps = function(tag) {
-        return this.h10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).fs = function(tag) {
+        return this.xz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).i10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).yz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'double';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'double';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16928,13 +16526,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
         }
         var result = tmp$ret$0;
-        var specialFp = this.yu().mt_1.pu_1;
+        var specialFp = this.ou().ct_1.fu_1;
         if (specialFp || isFinite(result)) return result;
         var tmp2_0 = access$nonFiniteFpMessage$tJsonExceptionsKt(result, tag);
         var hint = "It is possible to deserialize them using 'JsonBuilder.allowSpecialFloatingPointValues = true'";
         var tmp_1;
-        if (this.yu().mt_1.wu_1) {
-            var tmp$ret$13 = toString_1(this.zz());
+        if (this.ou().ct_1.mu_1) {
+            var tmp$ret$13 = toString_1(this.pz());
             tmp_1 = toString_1(minify(tmp$ret$13));
         } else {
             tmp_1 = null;
@@ -16942,18 +16540,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var inputValue_0 = tmp_1;
         throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_0, null, hint, inputValue_0), tmp2_0, -1, null, inputValue_0, hint);
     };
-    protoOf(AbstractJsonTreeDecoder).qs = function(tag) {
-        return this.i10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).gs = function(tag) {
+        return this.yz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).j10 = function(tag) {
+    protoOf(AbstractJsonTreeDecoder).zz = function(tag) {
         var tmp$ret$0;
         $l$block: {
-            var value = this.a10(tag);
+            var value = this.qz(tag);
             if (!(value instanceof JsonPrimitive)) {
-                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'char';
-                var path = this.yz(tag);
+                var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'char';
+                var path = this.oz(tag);
                 var tmp;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(value);
                     tmp = toString_1(minify(tmp$ret$7));
                 } else {
@@ -16964,14 +16562,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             var literal = value;
             try {
-                var tmp0_elvis_lhs = new Char(single_2(literal.dv()));
+                var tmp0_elvis_lhs = new Char(single_0(literal.tu()));
                 var tmp_0;
                 if (tmp0_elvis_lhs == null) {
                     unparsedPrimitive(this, literal, 'char', tag);
                 } else {
                     tmp_0 = tmp0_elvis_lhs;
                 }
-                tmp$ret$0 = tmp_0.a1_1;
+                tmp$ret$0 = tmp_0.z_1;
                 break $l$block;
             } catch ($p) {
                 if ($p instanceof IllegalArgumentException) {
@@ -16984,16 +16582,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractJsonTreeDecoder).rs = function(tag) {
-        return this.j10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).hs = function(tag) {
+        return this.zz((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).k10 = function(tag) {
-        var value = this.a10(tag);
+    protoOf(AbstractJsonTreeDecoder).a10 = function(tag) {
+        var value = this.qz(tag);
         if (!(value instanceof JsonPrimitive)) {
-            var tmp2 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(value).k8() + ' as the serialized body of ' + 'string';
-            var path = this.yz(tag);
+            var tmp2 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(value).j8() + ' as the serialized body of ' + 'string';
+            var path = this.oz(tag);
             var tmp;
-            if (this.yu().mt_1.wu_1) {
+            if (this.ou().ct_1.mu_1) {
                 var tmp$ret$6 = toString_1(value);
                 tmp = toString_1(minify(tmp$ret$6));
             } else {
@@ -17005,11 +16603,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var value_0 = value;
         if (!(value_0 instanceof JsonLiteral)) {
             var tmp2_0 = "Expected string value for a non-null key '" + tag + "', got null literal instead";
-            var tmp4 = this.yz(tag);
+            var tmp4 = this.oz(tag);
             var hint = "Use 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.";
             var tmp_0;
-            if (this.yu().mt_1.wu_1) {
-                var tmp$ret$10 = toString_1(this.zz());
+            if (this.ou().ct_1.mu_1) {
+                var tmp$ret$10 = toString_1(this.pz());
                 tmp_0 = toString_1(minify(tmp$ret$10));
             } else {
                 tmp_0 = null;
@@ -17017,13 +16615,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var inputValue_0 = tmp_0;
             throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_0, tmp4, hint, inputValue_0), tmp2_0, -1, tmp4, inputValue_0, hint);
         }
-        if (!value_0.jv_1 && !this.yu().mt_1.hu_1) {
+        if (!value_0.zu_1 && !this.ou().ct_1.xt_1) {
             var tmp2_1 = "String literal for value of key '" + tag + "' should be quoted";
-            var tmp4_0 = this.yz(tag);
+            var tmp4_0 = this.oz(tag);
             var hint_0 = "Use 'isLenient = true' in 'Json {}' builder to accept non-compliant JSON.";
             var tmp_1;
-            if (this.yu().mt_1.wu_1) {
-                var tmp$ret$14 = toString_1(this.zz());
+            if (this.ou().ct_1.mu_1) {
+                var tmp$ret$14 = toString_1(this.pz());
                 tmp_1 = toString_1(minify(tmp$ret$14));
             } else {
                 tmp_1 = null;
@@ -17031,22 +16629,22 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var inputValue_1 = tmp_1;
             throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_1, tmp4_0, hint_0, inputValue_1), tmp2_1, -1, tmp4_0, inputValue_1, hint_0);
         }
-        return value_0.lv_1;
+        return value_0.bv_1;
     };
-    protoOf(AbstractJsonTreeDecoder).ss = function(tag) {
-        return this.k10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
+    protoOf(AbstractJsonTreeDecoder).is = function(tag) {
+        return this.a10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE());
     };
-    protoOf(AbstractJsonTreeDecoder).l10 = function(tag, inlineDescriptor) {
+    protoOf(AbstractJsonTreeDecoder).b10 = function(tag, inlineDescriptor) {
         var tmp;
         if (get_isUnsignedNumber(inlineDescriptor)) {
-            var tmp_0 = this.yu();
-            var tmp2 = this.a10(tag);
-            var serialName = inlineDescriptor.ah();
+            var tmp_0 = this.ou();
+            var tmp2 = this.qz(tag);
+            var serialName = inlineDescriptor.qg();
             if (!(tmp2 instanceof JsonPrimitive)) {
-                var tmp2_0 = 'Expected ' + getKClass(JsonPrimitive).k8() + ', but had ' + getKClassFromExpression(tmp2).k8() + ' as the serialized body of ' + serialName;
-                var path = this.yz(tag);
+                var tmp2_0 = 'Expected ' + getKClass(JsonPrimitive).j8() + ', but had ' + getKClassFromExpression(tmp2).j8() + ' as the serialized body of ' + serialName;
+                var path = this.oz(tag);
                 var tmp_1;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$7 = toString_1(tmp2);
                     tmp_1 = toString_1(minify(tmp$ret$7));
                 } else {
@@ -17055,27 +16653,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var inputValue = tmp_1;
                 throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_0, path, null, inputValue), tmp2_0, -1, path, inputValue, null);
             }
-            var lexer = StringJsonLexer_0(tmp_0, tmp2.dv());
-            tmp = new JsonDecoderForUnsignedTypes(lexer, this.yu());
+            var lexer = StringJsonLexer_0(tmp_0, tmp2.tu());
+            tmp = new JsonDecoderForUnsignedTypes(lexer, this.ou());
         } else {
-            tmp = protoOf(NamedValueDecoder).ts.call(this, tag, inlineDescriptor);
+            tmp = protoOf(NamedValueDecoder).js.call(this, tag, inlineDescriptor);
         }
         return tmp;
     };
-    protoOf(AbstractJsonTreeDecoder).ts = function(tag, inlineDescriptor) {
-        return this.l10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE(), inlineDescriptor);
+    protoOf(AbstractJsonTreeDecoder).js = function(tag, inlineDescriptor) {
+        return this.b10((!(tag == null) ? typeof tag === 'string' : false) ? tag : THROW_CCE(), inlineDescriptor);
     };
-    protoOf(AbstractJsonTreeDecoder).wi = function(descriptor) {
-        return !(this.fs() == null) ? protoOf(NamedValueDecoder).wi.call(this, descriptor) : new JsonPrimitiveDecoder(this.yu(), this.q1(), this.wz_1).wi(descriptor);
+    protoOf(AbstractJsonTreeDecoder).mi = function(descriptor) {
+        return !(this.vr() == null) ? protoOf(NamedValueDecoder).mi.call(this, descriptor) : new JsonPrimitiveDecoder(this.ou(), this.p1(), this.mz_1).mi(descriptor);
     };
     function coerceInputValue_0($this, descriptor, index, element) {
-        var tmp0 = $this.yu();
+        var tmp0 = $this.ou();
         var tmp$ret$0;
         $l$block_2: {
-            var isOptional = descriptor.kh(index);
-            var elementDescriptor = descriptor.jh(index);
+            var isOptional = descriptor.ah(index);
+            var elementDescriptor = descriptor.zg(index);
             var tmp;
-            if (isOptional && !elementDescriptor.ch()) {
+            if (isOptional && !elementDescriptor.sg()) {
                 tmp = element instanceof JsonNull;
             } else {
                 tmp = false;
@@ -17084,9 +16682,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$0 = true;
                 break $l$block_2;
             }
-            if (equals(elementDescriptor.bh(), ENUM_getInstance())) {
+            if (equals(elementDescriptor.rg(), ENUM_getInstance())) {
                 var tmp_0;
-                if (elementDescriptor.ch()) {
+                if (elementDescriptor.sg()) {
                     tmp_0 = element instanceof JsonNull;
                 } else {
                     tmp_0 = false;
@@ -17106,7 +16704,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 }
                 var enumValue = tmp_1;
                 var enumIndex = getJsonNameIndex(elementDescriptor, tmp0, enumValue);
-                var coerceToNull = !tmp0.mt_1.ku_1 && elementDescriptor.ch();
+                var coerceToNull = !tmp0.ct_1.au_1 && elementDescriptor.sg();
                 if (enumIndex === -3 && (isOptional || coerceToNull)) {
                     tmp$ret$0 = true;
                     break $l$block_2;
@@ -17118,11 +16716,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function throwUnknownKey($this, key) {
         var tmp2 = "Encountered an unknown key '" + key + "'";
-        var tmp4 = $this.hs();
+        var tmp4 = $this.xr();
         var hint = "Use 'ignoreUnknownKeys = true' in 'Json {}' builder or '@JsonIgnoreUnknownKeys' annotation to ignore unknown keys.";
         var tmp;
-        if ($this.yu().mt_1.wu_1) {
-            var tmp$ret$3 = $this.q1().toString();
+        if ($this.ou().ct_1.mu_1) {
+            var tmp$ret$3 = $this.p1().toString();
             tmp = toString_1(minify(tmp$ret$3));
         } else {
             tmp = null;
@@ -17134,76 +16732,76 @@ if (typeof String.prototype.startsWith === 'undefined') {
         polymorphicDiscriminator = polymorphicDiscriminator === VOID ? null : polymorphicDiscriminator;
         polyDescriptor = polyDescriptor === VOID ? null : polyDescriptor;
         AbstractJsonTreeDecoder.call(this, json, value, polymorphicDiscriminator);
-        this.s10_1 = value;
-        this.t10_1 = polyDescriptor;
-        this.u10_1 = this.q1().w1().g();
-        this.v10_1 = this.xz_1.ku_1 ? null : new JsonElementMarker(descriptor);
-        this.w10_1 = null;
-        this.x10_1 = null;
+        this.i10_1 = value;
+        this.j10_1 = polyDescriptor;
+        this.k10_1 = this.p1().v1().g();
+        this.l10_1 = this.nz_1.au_1 ? null : new JsonElementMarker(descriptor);
+        this.m10_1 = null;
+        this.n10_1 = null;
     }
-    protoOf(JsonTreeDecoder).q1 = function() {
-        return this.s10_1;
+    protoOf(JsonTreeDecoder).p1 = function() {
+        return this.i10_1;
     };
-    protoOf(JsonTreeDecoder).oj = function(descriptor) {
-        var entries = this.u10_1;
+    protoOf(JsonTreeDecoder).ej = function(descriptor) {
+        var entries = this.k10_1;
         $l$loop: while (entries.h()) {
             var entry = entries.i();
-            var key = entry.p1();
-            var index = getJsonNameIndex(descriptor, this.yu(), key);
+            var key = entry.o1();
+            var index = getJsonNameIndex(descriptor, this.ou(), key);
             if (!(index === -3)) {
-                if (this.xz_1.mu_1 && coerceInputValue_0(this, descriptor, index, entry.q1())) {
+                if (this.nz_1.cu_1 && coerceInputValue_0(this, descriptor, index, entry.p1())) {
                     continue $l$loop;
                 }
-                var tmp0_safe_receiver = this.v10_1;
+                var tmp0_safe_receiver = this.l10_1;
                 if (tmp0_safe_receiver == null) null; else {
-                    tmp0_safe_receiver.nw(index);
+                    tmp0_safe_receiver.dw(index);
                 }
-                this.w10_1 = key;
-                this.x10_1 = entry.q1();
+                this.m10_1 = key;
+                this.n10_1 = entry.p1();
                 return index;
             }
-            if (!(key === this.wz_1) && !ignoreUnknownKeys(descriptor, this.yu())) {
+            if (!(key === this.mz_1) && !ignoreUnknownKeys(descriptor, this.ou())) {
                 throwUnknownKey(this, key);
             }
         }
-        var tmp1_safe_receiver = this.v10_1;
-        var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.ow();
+        var tmp1_safe_receiver = this.l10_1;
+        var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : tmp1_safe_receiver.ew();
         var markerIndex = tmp2_elvis_lhs == null ? -1 : tmp2_elvis_lhs;
         if (!(markerIndex === -1)) {
-            this.w10_1 = descriptor.gh(markerIndex);
-            this.x10_1 = null;
+            this.m10_1 = descriptor.wg(markerIndex);
+            this.n10_1 = null;
         }
         return markerIndex;
     };
-    protoOf(JsonTreeDecoder).li = function() {
+    protoOf(JsonTreeDecoder).bi = function() {
         var tmp;
-        var tmp0_safe_receiver = this.v10_1;
-        var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.mw_1;
+        var tmp0_safe_receiver = this.l10_1;
+        var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.cw_1;
         if (!(tmp1_elvis_lhs == null ? false : tmp1_elvis_lhs)) {
-            tmp = protoOf(AbstractJsonTreeDecoder).li.call(this);
+            tmp = protoOf(AbstractJsonTreeDecoder).bi.call(this);
         } else {
             tmp = false;
         }
         return tmp;
     };
-    protoOf(JsonTreeDecoder).bs = function(descriptor, index) {
-        var tmp0_elvis_lhs = this.w10_1;
-        return tmp0_elvis_lhs == null ? descriptor.gh(index) : tmp0_elvis_lhs;
+    protoOf(JsonTreeDecoder).rr = function(descriptor, index) {
+        var tmp0_elvis_lhs = this.m10_1;
+        return tmp0_elvis_lhs == null ? descriptor.wg(index) : tmp0_elvis_lhs;
     };
-    protoOf(JsonTreeDecoder).a10 = function(tag) {
-        var tmp0_elvis_lhs = this.x10_1;
-        return tmp0_elvis_lhs == null ? getValue(this.q1(), tag) : tmp0_elvis_lhs;
+    protoOf(JsonTreeDecoder).qz = function(tag) {
+        var tmp0_elvis_lhs = this.n10_1;
+        return tmp0_elvis_lhs == null ? getValue(this.p1(), tag) : tmp0_elvis_lhs;
     };
-    protoOf(JsonTreeDecoder).zi = function(descriptor) {
-        if (descriptor === this.t10_1) {
-            var tmp = this.yu();
-            var tmp2 = this.zz();
-            var serialName = this.t10_1.ah();
+    protoOf(JsonTreeDecoder).pi = function(descriptor) {
+        if (descriptor === this.j10_1) {
+            var tmp = this.ou();
+            var tmp2 = this.pz();
+            var serialName = this.j10_1.qg();
             if (!(tmp2 instanceof JsonObject)) {
-                var tmp2_0 = 'Expected ' + getKClass(JsonObject).k8() + ', but had ' + getKClassFromExpression(tmp2).k8() + ' as the serialized body of ' + serialName;
-                var path = this.hs();
+                var tmp2_0 = 'Expected ' + getKClass(JsonObject).j8() + ', but had ' + getKClassFromExpression(tmp2).j8() + ' as the serialized body of ' + serialName;
+                var path = this.xr();
                 var tmp_0;
-                if (this.yu().mt_1.wu_1) {
+                if (this.ou().ct_1.mu_1) {
                     var tmp$ret$6 = toString_1(tmp2);
                     tmp_0 = toString_1(minify(tmp$ret$6));
                 } else {
@@ -17212,121 +16810,121 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var inputValue = tmp_0;
                 throw new JsonDecodingException(access$formatDecodingException$tJsonExceptionsKt(-1, tmp2_0, path, null, inputValue), tmp2_0, -1, path, inputValue, null);
             }
-            return new JsonTreeDecoder(tmp, tmp2, descriptor, this.wz_1, this.t10_1);
+            return new JsonTreeDecoder(tmp, tmp2, descriptor, this.mz_1, this.j10_1);
         }
-        return protoOf(AbstractJsonTreeDecoder).zi.call(this, descriptor);
+        return protoOf(AbstractJsonTreeDecoder).pi.call(this, descriptor);
     };
     function JsonTreeListDecoder(json, value) {
         AbstractJsonTreeDecoder.call(this, json, value);
-        this.e11_1 = value;
-        this.f11_1 = this.e11_1.j();
-        this.g11_1 = -1;
+        this.u10_1 = value;
+        this.v10_1 = this.u10_1.j();
+        this.w10_1 = -1;
     }
-    protoOf(JsonTreeListDecoder).q1 = function() {
-        return this.e11_1;
+    protoOf(JsonTreeListDecoder).p1 = function() {
+        return this.u10_1;
     };
-    protoOf(JsonTreeListDecoder).bs = function(descriptor, index) {
+    protoOf(JsonTreeListDecoder).rr = function(descriptor, index) {
         return index.toString();
     };
-    protoOf(JsonTreeListDecoder).a10 = function(tag) {
-        return this.e11_1.m(toInt(tag));
+    protoOf(JsonTreeListDecoder).qz = function(tag) {
+        return this.u10_1.k(toInt(tag));
     };
-    protoOf(JsonTreeListDecoder).oj = function(descriptor) {
-        while (this.g11_1 < (this.f11_1 - 1 | 0)) {
-            this.g11_1 = this.g11_1 + 1 | 0;
-            return this.g11_1;
+    protoOf(JsonTreeListDecoder).ej = function(descriptor) {
+        while (this.w10_1 < (this.v10_1 - 1 | 0)) {
+            this.w10_1 = this.w10_1 + 1 | 0;
+            return this.w10_1;
         }
         return -1;
     };
     function JsonPrimitiveDecoder(json, value, polymorphicDiscriminator) {
         polymorphicDiscriminator = polymorphicDiscriminator === VOID ? null : polymorphicDiscriminator;
         AbstractJsonTreeDecoder.call(this, json, value, polymorphicDiscriminator);
-        this.n11_1 = value;
-        this.us('primitive');
+        this.d11_1 = value;
+        this.ks('primitive');
     }
-    protoOf(JsonPrimitiveDecoder).q1 = function() {
-        return this.n11_1;
+    protoOf(JsonPrimitiveDecoder).p1 = function() {
+        return this.d11_1;
     };
-    protoOf(JsonPrimitiveDecoder).oj = function(descriptor) {
+    protoOf(JsonPrimitiveDecoder).ej = function(descriptor) {
         return 0;
     };
-    protoOf(JsonPrimitiveDecoder).a10 = function(tag) {
+    protoOf(JsonPrimitiveDecoder).qz = function(tag) {
         if (!(tag === 'primitive')) {
             var message = "This input can only handle primitives with 'primitive' tag";
             throw IllegalArgumentException_init_$Create$_0(toString_1(message));
         }
-        return this.n11_1;
+        return this.d11_1;
     };
     function JsonTreeMapDecoder(json, value, descriptor) {
         JsonTreeDecoder.call(this, json, value, descriptor);
-        this.a12_1 = toList_0(value.u1());
-        this.b12_1 = imul(this.a12_1.j(), 2);
-        this.c12_1 = -1;
+        this.q11_1 = toList_0(value.t1());
+        this.r11_1 = imul(this.q11_1.j(), 2);
+        this.s11_1 = -1;
     }
-    protoOf(JsonTreeMapDecoder).bs = function(descriptor, index) {
+    protoOf(JsonTreeMapDecoder).rr = function(descriptor, index) {
         var i = index / 2 | 0;
-        return this.a12_1.m(i);
+        return this.q11_1.k(i);
     };
-    protoOf(JsonTreeMapDecoder).oj = function(descriptor) {
-        while (this.c12_1 < (this.b12_1 - 1 | 0)) {
-            this.c12_1 = this.c12_1 + 1 | 0;
-            return this.c12_1;
+    protoOf(JsonTreeMapDecoder).ej = function(descriptor) {
+        while (this.s11_1 < (this.r11_1 - 1 | 0)) {
+            this.s11_1 = this.s11_1 + 1 | 0;
+            return this.s11_1;
         }
         return -1;
     };
-    protoOf(JsonTreeMapDecoder).a10 = function(tag) {
-        return (this.c12_1 % 2 | 0) === 0 ? JsonPrimitive_1(tag) : getValue(this.q1(), tag);
+    protoOf(JsonTreeMapDecoder).qz = function(tag) {
+        return (this.s11_1 % 2 | 0) === 0 ? JsonPrimitive_1(tag) : getValue(this.p1(), tag);
     };
-    protoOf(JsonTreeMapDecoder).aj = function(descriptor) {};
+    protoOf(JsonTreeMapDecoder).qi = function(descriptor) {};
     function appendEscape($this, lastPosition, current) {
-        $this.d12(lastPosition, current);
+        $this.t11(lastPosition, current);
         return appendEsc($this, current + 1 | 0);
     }
     function decodedString($this, lastPosition, currentPosition) {
-        $this.d12(lastPosition, currentPosition);
-        var result = $this.du_1.toString();
-        $this.du_1.t9(0);
+        $this.t11(lastPosition, currentPosition);
+        var result = $this.tt_1.toString();
+        $this.tt_1.s9(0);
         return result;
     }
     function takePeeked($this) {
-        var this_0 = ensureNotNull($this.cu_1);
-        $this.cu_1 = null;
+        var this_0 = ensureNotNull($this.st_1);
+        $this.st_1 = null;
         return this_0;
     }
     function wasUnquotedString($this) {
-        return !(charSequenceGet($this.mz(), $this.au_1 - 1 | 0) === _Char___init__impl__6a9atx(34));
+        return !(charSequenceGet($this.cz(), $this.qt_1 - 1 | 0) === _Char___init__impl__6a9atx(34));
     }
     function appendEsc($this, startPosition) {
         var currentPosition = startPosition;
-        currentPosition = $this.e12(currentPosition);
+        currentPosition = $this.u11(currentPosition);
         if (currentPosition === -1) {
-            $this.qw('Expected escape sequence to continue, got EOF');
+            $this.gw('Expected escape sequence to continue, got EOF');
         }
-        var tmp = $this.mz();
+        var tmp = $this.cz();
         var _unary__edvuaz = currentPosition;
         currentPosition = _unary__edvuaz + 1 | 0;
         var currentChar = charSequenceGet(tmp, _unary__edvuaz);
         if (currentChar === _Char___init__impl__6a9atx(117)) {
-            return appendHex($this, $this.mz(), currentPosition);
+            return appendHex($this, $this.cz(), currentPosition);
         }
         var tmp$ret$0 = Char__toInt_impl_vasixd(currentChar);
         var c = escapeToChar(tmp$ret$0);
         if (c === _Char___init__impl__6a9atx(0)) {
-            $this.qw("Invalid escaped char '" + toString(currentChar) + "'");
+            $this.gw("Invalid escaped char '" + toString(currentChar) + "'");
         }
-        $this.du_1.a7(c);
+        $this.tt_1.z6(c);
         return currentPosition;
     }
     function appendHex($this, source, startPos) {
         if ((startPos + 4 | 0) >= charSequenceLength(source)) {
-            $this.au_1 = startPos;
-            $this.f12();
-            if (($this.au_1 + 4 | 0) >= charSequenceLength(source)) {
-                $this.qw('Unexpected EOF during unicode escape');
+            $this.qt_1 = startPos;
+            $this.v11();
+            if (($this.qt_1 + 4 | 0) >= charSequenceLength(source)) {
+                $this.gw('Unexpected EOF during unicode escape');
             }
-            return appendHex($this, source, $this.au_1);
+            return appendHex($this, source, $this.qt_1);
         }
-        $this.du_1.a7(numberToChar((((fromHexChar($this, source, startPos) << 12) + (fromHexChar($this, source, startPos + 1 | 0) << 8) | 0) + (fromHexChar($this, source, startPos + 2 | 0) << 4) | 0) + fromHexChar($this, source, startPos + 3 | 0) | 0));
+        $this.tt_1.z6(numberToChar((((fromHexChar($this, source, startPos) << 12) + (fromHexChar($this, source, startPos + 1 | 0) << 8) | 0) + (fromHexChar($this, source, startPos + 2 | 0) << 4) | 0) + fromHexChar($this, source, startPos + 3 | 0) | 0));
         return startPos + 4 | 0;
     }
     function fromHexChar($this, source, currentPosition) {
@@ -17345,16 +16943,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var this_2 = _Char___init__impl__6a9atx(65);
             tmp = (tmp_2 - Char__toInt_impl_vasixd(this_2) | 0) + 10 | 0;
         } else {
-            $this.qw("Invalid toHexChar char '" + toString(character) + "' in unicode escape");
+            $this.gw("Invalid toHexChar char '" + toString(character) + "' in unicode escape");
         }
         return tmp;
     }
     function consumeBoolean2($this, start) {
-        var current = $this.e12(start);
-        if (current >= charSequenceLength($this.mz()) || current === -1) {
-            $this.qw('EOF');
+        var current = $this.u11(start);
+        if (current >= charSequenceLength($this.cz()) || current === -1) {
+            $this.gw('EOF');
         }
-        var tmp = $this.mz();
+        var tmp = $this.cz();
         var _unary__edvuaz = current;
         current = _unary__edvuaz + 1 | 0;
         var this_0 = charSequenceGet(tmp, _unary__edvuaz);
@@ -17370,14 +16968,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 consumeBooleanLiteral($this, 'alse', current);
                 tmp_0 = false;
             } else {
-                $this.qw("Expected valid boolean literal prefix, but had '" + $this.qx() + "'");
+                $this.gw("Expected valid boolean literal prefix, but had '" + $this.gx() + "'");
             }
         }
         return tmp_0;
     }
     function consumeBooleanLiteral($this, literalSuffix, current) {
-        if ((charSequenceLength($this.mz()) - current | 0) < literalSuffix.length) {
-            $this.qw('Unexpected end of boolean literal');
+        if ((charSequenceLength($this.cz()) - current | 0) < literalSuffix.length) {
+            $this.gw('Unexpected end of boolean literal');
         }
         var inductionVariable = 0;
         var last = charSequenceLength(literalSuffix) - 1 | 0;
@@ -17385,13 +16983,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var expected = charCodeAt(literalSuffix, i);
-            var actual = charSequenceGet($this.mz(), current + i | 0);
+            var actual = charSequenceGet($this.cz(), current + i | 0);
             var tmp = Char__toInt_impl_vasixd(expected);
             if (!(tmp === (Char__toInt_impl_vasixd(actual) | 32))) {
-                $this.qw("Expected valid boolean literal prefix, but had '" + $this.qx() + "'");
+                $this.gw("Expected valid boolean literal prefix, but had '" + $this.gx() + "'");
             }
         } while (inductionVariable <= last);
-        $this.au_1 = current + literalSuffix.length | 0;
+        $this.qt_1 = current + literalSuffix.length | 0;
     }
     function consumeNumericLiteral$calculateExponent(exponentAccumulator, isExponentPositive) {
         var tmp;
@@ -17413,132 +17011,132 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function AbstractJsonLexer(configuration) {
-        this.zt_1 = configuration;
-        this.au_1 = 0;
-        this.bu_1 = new JsonPath(this.zt_1);
-        this.cu_1 = null;
-        this.du_1 = StringBuilder_init_$Create$_0();
+        this.pt_1 = configuration;
+        this.qt_1 = 0;
+        this.rt_1 = new JsonPath(this.pt_1);
+        this.st_1 = null;
+        this.tt_1 = StringBuilder_init_$Create$_0();
     }
-    protoOf(AbstractJsonLexer).f12 = function() {};
-    protoOf(AbstractJsonLexer).ez = function() {
-        var current = this.g12();
-        var source = this.mz();
+    protoOf(AbstractJsonLexer).v11 = function() {};
+    protoOf(AbstractJsonLexer).uy = function() {
+        var current = this.w11();
+        var source = this.cz();
         if (current >= charSequenceLength(source) || current === -1) return false;
         if (charSequenceGet(source, current) === _Char___init__impl__6a9atx(44)) {
-            this.au_1 = this.au_1 + 1 | 0;
+            this.qt_1 = this.qt_1 + 1 | 0;
             return true;
         }
         return false;
     };
-    protoOf(AbstractJsonLexer).h12 = function(c) {
+    protoOf(AbstractJsonLexer).x11 = function(c) {
         return c === _Char___init__impl__6a9atx(125) || c === _Char___init__impl__6a9atx(93) || (c === _Char___init__impl__6a9atx(58) || c === _Char___init__impl__6a9atx(44)) ? false : true;
     };
-    protoOf(AbstractJsonLexer).eu = function() {
-        var nextToken = this.sx();
+    protoOf(AbstractJsonLexer).ut = function() {
+        var nextToken = this.ix();
         if (!(nextToken === 10)) {
-            this.qw('Expected EOF after parsing, but had ' + toString(charSequenceGet(this.mz(), this.au_1 - 1 | 0)) + ' instead');
+            this.gw('Expected EOF after parsing, but had ' + toString(charSequenceGet(this.cz(), this.qt_1 - 1 | 0)) + ' instead');
         }
     };
-    protoOf(AbstractJsonLexer).mx = function(expected) {
-        var token = this.sx();
+    protoOf(AbstractJsonLexer).cx = function(expected) {
+        var token = this.ix();
         if (!(token === expected)) {
             var expected_0 = tokenDescription(expected);
-            var position = true && this.au_1 > 0 ? this.au_1 - 1 | 0 : this.au_1;
-            var s = this.au_1 === charSequenceLength(this.mz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.mz(), position));
+            var position = true && this.qt_1 > 0 ? this.qt_1 - 1 | 0 : this.qt_1;
+            var s = this.qt_1 === charSequenceLength(this.cz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.cz(), position));
             var tmp$ret$1 = 'Expected ' + expected_0 + ", but had '" + s + "' instead";
-            this.qw(tmp$ret$1, position);
+            this.gw(tmp$ret$1, position);
         }
         return token;
     };
-    protoOf(AbstractJsonLexer).i12 = function(expected) {
-        if (this.au_1 > 0 && expected === _Char___init__impl__6a9atx(34)) {
+    protoOf(AbstractJsonLexer).y11 = function(expected) {
+        if (this.qt_1 > 0 && expected === _Char___init__impl__6a9atx(34)) {
             var tmp$ret$0;
             $l$block: {
-                var snapshot = this.au_1;
+                var snapshot = this.qt_1;
                 try {
-                    this.au_1 = this.au_1 - 1 | 0;
-                    tmp$ret$0 = this.qx();
+                    this.qt_1 = this.qt_1 - 1 | 0;
+                    tmp$ret$0 = this.gx();
                     break $l$block;
                 } finally {
-                    this.au_1 = snapshot;
+                    this.qt_1 = snapshot;
                 }
             }
             var inputLiteral = tmp$ret$0;
             if (inputLiteral === 'null') {
-                this.pw("Expected string literal but 'null' literal was found", this.au_1 - 1 | 0, "Use 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.");
+                this.fw("Expected string literal but 'null' literal was found", this.qt_1 - 1 | 0, "Use 'coerceInputValues = true' in 'Json {}' builder to coerce nulls if property has a default value.");
             }
         }
         var expectedToken = charToTokenClass(expected);
         var expected_0 = tokenDescription(expectedToken);
-        var position = true && this.au_1 > 0 ? this.au_1 - 1 | 0 : this.au_1;
-        var s = this.au_1 === charSequenceLength(this.mz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.mz(), position));
+        var position = true && this.qt_1 > 0 ? this.qt_1 - 1 | 0 : this.qt_1;
+        var s = this.qt_1 === charSequenceLength(this.cz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.cz(), position));
         var tmp$ret$3 = 'Expected ' + expected_0 + ", but had '" + s + "' instead";
-        this.qw(tmp$ret$3, position);
+        this.gw(tmp$ret$3, position);
     };
-    protoOf(AbstractJsonLexer).nx = function() {
-        var source = this.mz();
-        var cpos = this.au_1;
+    protoOf(AbstractJsonLexer).dx = function() {
+        var source = this.cz();
+        var cpos = this.qt_1;
         $l$loop_0: while (true) {
-            cpos = this.e12(cpos);
+            cpos = this.u11(cpos);
             if (cpos === -1) break $l$loop_0;
             var ch = charSequenceGet(source, cpos);
             if (ch === _Char___init__impl__6a9atx(32) || ch === _Char___init__impl__6a9atx(10) || ch === _Char___init__impl__6a9atx(13) || ch === _Char___init__impl__6a9atx(9)) {
                 cpos = cpos + 1 | 0;
                 continue $l$loop_0;
             }
-            this.au_1 = cpos;
+            this.qt_1 = cpos;
             return charToTokenClass(ch);
         }
-        this.au_1 = cpos;
+        this.qt_1 = cpos;
         return 10;
     };
-    protoOf(AbstractJsonLexer).fz = function(doConsume) {
-        var current = this.g12();
-        current = this.e12(current);
-        var len = charSequenceLength(this.mz()) - current | 0;
+    protoOf(AbstractJsonLexer).vy = function(doConsume) {
+        var current = this.w11();
+        current = this.u11(current);
+        var len = charSequenceLength(this.cz()) - current | 0;
         if (len < 4 || current === -1) return false;
         var inductionVariable = 0;
         if (inductionVariable <= 3) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            if (!(charCodeAt('null', i) === charSequenceGet(this.mz(), current + i | 0))) return false;
+            if (!(charCodeAt('null', i) === charSequenceGet(this.cz(), current + i | 0))) return false;
         } while (inductionVariable <= 3);
-        if (len > 4 && charToTokenClass(charSequenceGet(this.mz(), current + 4 | 0)) === 0) return false;
+        if (len > 4 && charToTokenClass(charSequenceGet(this.cz(), current + 4 | 0)) === 0) return false;
         if (doConsume) {
-            this.au_1 = current + 4 | 0;
+            this.qt_1 = current + 4 | 0;
         }
         return true;
     };
-    protoOf(AbstractJsonLexer).nz = function(doConsume, $super) {
+    protoOf(AbstractJsonLexer).dz = function(doConsume, $super) {
         doConsume = doConsume === VOID ? true : doConsume;
-        return $super === VOID ? this.fz(doConsume) : $super.fz.call(this, doConsume);
+        return $super === VOID ? this.vy(doConsume) : $super.vy.call(this, doConsume);
     };
-    protoOf(AbstractJsonLexer).gz = function(isLenient) {
-        var token = this.nx();
+    protoOf(AbstractJsonLexer).wy = function(isLenient) {
+        var token = this.dx();
         var tmp;
         if (isLenient) {
             if (!(token === 1) && !(token === 0)) return null;
-            tmp = this.qx();
+            tmp = this.gx();
         } else {
             if (!(token === 1)) return null;
-            tmp = this.px();
+            tmp = this.fx();
         }
         var string = tmp;
-        this.cu_1 = string;
+        this.st_1 = string;
         return string;
     };
-    protoOf(AbstractJsonLexer).j12 = function() {
-        this.cu_1 = null;
+    protoOf(AbstractJsonLexer).z11 = function() {
+        this.st_1 = null;
     };
-    protoOf(AbstractJsonLexer).k12 = function(startPos, endPos) {
-        var this_0 = this.mz();
+    protoOf(AbstractJsonLexer).a12 = function(startPos, endPos) {
+        var this_0 = this.cz();
         return toString_1(charSequenceSubSequence(this_0, startPos, endPos));
     };
-    protoOf(AbstractJsonLexer).px = function() {
-        if (!(this.cu_1 == null)) {
+    protoOf(AbstractJsonLexer).fx = function() {
+        if (!(this.st_1 == null)) {
             return takePeeked(this);
         }
-        return this.jz();
+        return this.zy();
     };
     protoOf(AbstractJsonLexer).consumeString2 = function(source, startPosition, current) {
         var currentPosition = current;
@@ -17548,19 +17146,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (!(char === _Char___init__impl__6a9atx(34))) {
             if (char === _Char___init__impl__6a9atx(92)) {
                 usedAppend = true;
-                currentPosition = this.e12(appendEscape(this, lastPosition, currentPosition));
+                currentPosition = this.u11(appendEscape(this, lastPosition, currentPosition));
                 if (currentPosition === -1) {
-                    this.qw('Unexpected EOF', currentPosition);
+                    this.gw('Unexpected EOF', currentPosition);
                 }
                 lastPosition = currentPosition;
             } else {
                 currentPosition = currentPosition + 1 | 0;
                 if (currentPosition >= charSequenceLength(source)) {
                     usedAppend = true;
-                    this.d12(lastPosition, currentPosition);
-                    currentPosition = this.e12(currentPosition);
+                    this.t11(lastPosition, currentPosition);
+                    currentPosition = this.u11(currentPosition);
                     if (currentPosition === -1) {
-                        this.qw('Unexpected EOF', currentPosition);
+                        this.gw('Unexpected EOF', currentPosition);
                     }
                     lastPosition = currentPosition;
                 }
@@ -17569,45 +17167,45 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var tmp;
         if (!usedAppend) {
-            tmp = this.k12(lastPosition, currentPosition);
+            tmp = this.a12(lastPosition, currentPosition);
         } else {
             tmp = decodedString(this, lastPosition, currentPosition);
         }
         var string = tmp;
-        this.au_1 = currentPosition + 1 | 0;
+        this.qt_1 = currentPosition + 1 | 0;
         return string;
     };
-    protoOf(AbstractJsonLexer).kz = function() {
-        var result = this.qx();
+    protoOf(AbstractJsonLexer).az = function() {
+        var result = this.gx();
         if (result === 'null' && wasUnquotedString(this)) {
-            this.qw("Unexpected 'null' value instead of string literal");
+            this.gw("Unexpected 'null' value instead of string literal");
         }
         return result;
     };
-    protoOf(AbstractJsonLexer).qx = function() {
-        if (!(this.cu_1 == null)) {
+    protoOf(AbstractJsonLexer).gx = function() {
+        if (!(this.st_1 == null)) {
             return takePeeked(this);
         }
-        var current = this.g12();
-        if (current >= charSequenceLength(this.mz()) || current === -1) {
-            this.qw('EOF', current);
+        var current = this.w11();
+        if (current >= charSequenceLength(this.cz()) || current === -1) {
+            this.gw('EOF', current);
         }
-        var token = charToTokenClass(charSequenceGet(this.mz(), current));
+        var token = charToTokenClass(charSequenceGet(this.cz(), current));
         if (token === 1) {
-            return this.px();
+            return this.fx();
         }
         if (!(token === 0)) {
-            this.qw('Expected beginning of the string, but got ' + toString(charSequenceGet(this.mz(), current)));
+            this.gw('Expected beginning of the string, but got ' + toString(charSequenceGet(this.cz(), current)));
         }
         var usedAppend = false;
-        while (charToTokenClass(charSequenceGet(this.mz(), current)) === 0) {
+        while (charToTokenClass(charSequenceGet(this.cz(), current)) === 0) {
             current = current + 1 | 0;
-            if (current >= charSequenceLength(this.mz())) {
+            if (current >= charSequenceLength(this.cz())) {
                 usedAppend = true;
-                this.d12(this.au_1, current);
-                var eof = this.e12(current);
+                this.t11(this.qt_1, current);
+                var eof = this.u11(current);
                 if (eof === -1) {
-                    this.au_1 = current;
+                    this.qt_1 = current;
                     return decodedString(this, 0, 0);
                 } else {
                     current = eof;
@@ -17616,28 +17214,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var tmp;
         if (!usedAppend) {
-            tmp = this.k12(this.au_1, current);
+            tmp = this.a12(this.qt_1, current);
         } else {
-            tmp = decodedString(this, this.au_1, current);
+            tmp = decodedString(this, this.qt_1, current);
         }
         var result = tmp;
-        this.au_1 = current;
+        this.qt_1 = current;
         return result;
     };
-    protoOf(AbstractJsonLexer).d12 = function(fromIndex, toIndex) {
-        this.du_1.o9(this.mz(), fromIndex, toIndex);
+    protoOf(AbstractJsonLexer).t11 = function(fromIndex, toIndex) {
+        this.tt_1.n9(this.cz(), fromIndex, toIndex);
     };
-    protoOf(AbstractJsonLexer).iz = function(allowLenientStrings) {
+    protoOf(AbstractJsonLexer).yy = function(allowLenientStrings) {
         var tokenStack = ArrayList_init_$Create$();
-        var lastToken = this.nx();
+        var lastToken = this.dx();
         if (!(lastToken === 8) && !(lastToken === 6)) {
-            this.qx();
+            this.gx();
             return Unit_instance;
         }
         $l$loop: while (true) {
-            lastToken = this.nx();
+            lastToken = this.dx();
             if (lastToken === 1) {
-                if (allowLenientStrings) this.qx(); else this.jz();
+                if (allowLenientStrings) this.gx(); else this.zy();
                 continue $l$loop;
             }
             var tmp0_subject = lastToken;
@@ -17645,48 +17243,48 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tokenStack.f(lastToken);
             } else if (tmp0_subject === 9) {
                 if (!(last(tokenStack) === 8)) {
-                    this.qw('found ] instead of }');
+                    this.gw('found ] instead of }');
                 }
                 removeLast(tokenStack);
             } else if (tmp0_subject === 7) {
                 if (!(last(tokenStack) === 6)) {
-                    this.qw('found } instead of ]');
+                    this.gw('found } instead of ]');
                 }
                 removeLast(tokenStack);
             } else if (tmp0_subject === 10) {
-                this.qw('Unexpected end of input due to malformed JSON during ignoring unknown keys');
+                this.gw('Unexpected end of input due to malformed JSON during ignoring unknown keys');
             }
-            this.sx();
+            this.ix();
             if (tokenStack.j() === 0) return Unit_instance;
         }
     };
     protoOf(AbstractJsonLexer).toString = function() {
-        return "JsonReader(source='" + toString_1(this.mz()) + "', currentPosition=" + this.au_1 + ')';
+        return "JsonReader(source='" + toString_1(this.cz()) + "', currentPosition=" + this.qt_1 + ')';
     };
-    protoOf(AbstractJsonLexer).hz = function(key) {
-        var processed = this.k12(0, this.au_1);
+    protoOf(AbstractJsonLexer).xy = function(key) {
+        var processed = this.a12(0, this.qt_1);
         var lastIndexOf_0 = lastIndexOf(processed, key);
-        this.pw("Encountered an unknown key '" + key + "'", lastIndexOf_0, "Use 'ignoreUnknownKeys = true' in 'Json {}' builder or '@JsonIgnoreUnknownKeys' annotation to ignore unknown keys.");
+        this.fw("Encountered an unknown key '" + key + "'", lastIndexOf_0, "Use 'ignoreUnknownKeys = true' in 'Json {}' builder or '@JsonIgnoreUnknownKeys' annotation to ignore unknown keys.");
     };
-    protoOf(AbstractJsonLexer).pw = function(message, position, hint) {
-        throw decodingExceptionOf_0(this, message, position, this.bu_1.fx(), hint, this.mz());
+    protoOf(AbstractJsonLexer).fw = function(message, position, hint) {
+        throw decodingExceptionOf_0(this, message, position, this.rt_1.vw(), hint, this.cz());
     };
-    protoOf(AbstractJsonLexer).qw = function(message, position, hint, $super) {
-        position = position === VOID ? this.au_1 : position;
+    protoOf(AbstractJsonLexer).gw = function(message, position, hint, $super) {
+        position = position === VOID ? this.qt_1 : position;
         hint = hint === VOID ? null : hint;
-        return $super === VOID ? this.pw(message, position, hint) : $super.pw.call(this, message, position, hint);
+        return $super === VOID ? this.fw(message, position, hint) : $super.fw.call(this, message, position, hint);
     };
-    protoOf(AbstractJsonLexer).pz = function() {
-        var current = this.g12();
-        current = this.e12(current);
-        if (current >= charSequenceLength(this.mz()) || current === -1) {
-            this.qw('EOF');
+    protoOf(AbstractJsonLexer).fz = function() {
+        var current = this.w11();
+        current = this.u11(current);
+        if (current >= charSequenceLength(this.cz()) || current === -1) {
+            this.gw('EOF');
         }
         var tmp;
-        if (charSequenceGet(this.mz(), current) === _Char___init__impl__6a9atx(34)) {
+        if (charSequenceGet(this.cz(), current) === _Char___init__impl__6a9atx(34)) {
             current = current + 1 | 0;
-            if (current === charSequenceLength(this.mz())) {
-                this.qw('EOF');
+            if (current === charSequenceLength(this.cz())) {
+                this.gw('EOF');
             }
             tmp = true;
         } else {
@@ -17699,11 +17297,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var isExponentPositive = false;
         var hasExponent = false;
         var start = current;
-        $l$loop_4: while (!(current === charSequenceLength(this.mz()))) {
-            var ch = charSequenceGet(this.mz(), current);
+        $l$loop_4: while (!(current === charSequenceLength(this.cz()))) {
+            var ch = charSequenceGet(this.cz(), current);
             if ((ch === _Char___init__impl__6a9atx(101) || ch === _Char___init__impl__6a9atx(69)) && !hasExponent) {
                 if (current === start) {
-                    this.qw("Unexpected symbol '" + toString(ch) + "' in numeric literal", current);
+                    this.gw("Unexpected symbol '" + toString(ch) + "' in numeric literal", current);
                 }
                 isExponentPositive = true;
                 hasExponent = true;
@@ -17712,7 +17310,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             if (ch === _Char___init__impl__6a9atx(45) && hasExponent) {
                 if (current === start) {
-                    this.qw("Unexpected symbol '-' in numeric literal", current);
+                    this.gw("Unexpected symbol '-' in numeric literal", current);
                 }
                 isExponentPositive = false;
                 current = current + 1 | 0;
@@ -17720,7 +17318,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             if (ch === _Char___init__impl__6a9atx(43) && hasExponent) {
                 if (current === start) {
-                    this.qw("Unexpected symbol '+' in numeric literal", current);
+                    this.gw("Unexpected symbol '+' in numeric literal", current);
                 }
                 isExponentPositive = true;
                 current = current + 1 | 0;
@@ -17728,7 +17326,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             if (ch === _Char___init__impl__6a9atx(45)) {
                 if (!(current === start)) {
-                    this.qw("Unexpected symbol '-' in numeric literal", current);
+                    this.gw("Unexpected symbol '-' in numeric literal", current);
                 }
                 isNegative = true;
                 current = current + 1 | 0;
@@ -17739,7 +17337,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             current = current + 1 | 0;
             var digit = Char__minus_impl_a2frrh(ch, _Char___init__impl__6a9atx(48));
             if (!(0 <= digit ? digit <= 9 : false)) {
-                this.qw("Unexpected symbol '" + toString(ch) + "' in numeric literal", current - 1 | 0);
+                this.gw("Unexpected symbol '" + toString(ch) + "' in numeric literal", current - 1 | 0);
             }
             if (hasExponent) {
                 var this_0 = exponentAccumulator;
@@ -17751,30 +17349,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var this_3 = multiply(this_2, fromInt(10));
             accumulator = subtract(this_3, fromInt(digit));
             if (compare(accumulator, new Long(0, 0)) > 0) {
-                this.qw('Numeric value overflow');
+                this.gw('Numeric value overflow');
             }
         }
         var hasChars = !(current === start);
         if (start === current || isNegative && start === (current - 1 | 0)) {
-            this.qw('Expected numeric literal', current);
+            this.gw('Expected numeric literal', current);
         }
         if (hasQuotation) {
             if (!hasChars) {
-                this.qw('EOF');
+                this.gw('EOF');
             }
-            if (!(charSequenceGet(this.mz(), current) === _Char___init__impl__6a9atx(34))) {
-                this.qw('Expected closing quotation mark', current);
+            if (!(charSequenceGet(this.cz(), current) === _Char___init__impl__6a9atx(34))) {
+                this.gw('Expected closing quotation mark', current);
             }
             current = current + 1 | 0;
         }
-        this.au_1 = current;
+        this.qt_1 = current;
         if (hasExponent) {
             var doubleAccumulator = toNumber(accumulator) * consumeNumericLiteral$calculateExponent(exponentAccumulator, isExponentPositive);
             if (doubleAccumulator > toNumber(new Long(-1, 2147483647)) || doubleAccumulator < toNumber(new Long(0, -2147483648))) {
-                this.qw('Numeric value overflow');
+                this.gw('Numeric value overflow');
             }
             if (!(Math.floor(doubleAccumulator) === doubleAccumulator)) {
-                this.qw("Can't convert " + doubleAccumulator + ' to Long');
+                this.gw("Can't convert " + doubleAccumulator + ' to Long');
             }
             accumulator = numberToLong(doubleAccumulator);
         }
@@ -17784,29 +17382,29 @@ if (typeof String.prototype.startsWith === 'undefined') {
         } else if (!equalsLong(accumulator, new Long(0, -2147483648))) {
             tmp_0 = negate(accumulator);
         } else {
-            this.qw('Numeric value overflow');
+            this.gw('Numeric value overflow');
         }
         return tmp_0;
     };
-    protoOf(AbstractJsonLexer).iv = function() {
-        var result = this.pz();
-        var next = this.sx();
+    protoOf(AbstractJsonLexer).yu = function() {
+        var result = this.fz();
+        var next = this.ix();
         if (!(next === 10)) {
             var expected = tokenDescription(10);
-            var position = true && this.au_1 > 0 ? this.au_1 - 1 | 0 : this.au_1;
-            var s = this.au_1 === charSequenceLength(this.mz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.mz(), position));
+            var position = true && this.qt_1 > 0 ? this.qt_1 - 1 | 0 : this.qt_1;
+            var s = this.qt_1 === charSequenceLength(this.cz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.cz(), position));
             var tmp$ret$1 = "Expected input to contain a single valid number, but got '" + s + "' after it";
-            this.qw(tmp$ret$1, position);
+            this.gw(tmp$ret$1, position);
         }
         return result;
     };
-    protoOf(AbstractJsonLexer).oz = function() {
-        var current = this.g12();
-        if (current === charSequenceLength(this.mz())) {
-            this.qw('EOF');
+    protoOf(AbstractJsonLexer).ez = function() {
+        var current = this.w11();
+        if (current === charSequenceLength(this.cz())) {
+            this.gw('EOF');
         }
         var tmp;
-        if (charSequenceGet(this.mz(), current) === _Char___init__impl__6a9atx(34)) {
+        if (charSequenceGet(this.cz(), current) === _Char___init__impl__6a9atx(34)) {
             current = current + 1 | 0;
             tmp = true;
         } else {
@@ -17815,20 +17413,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var hasQuotation = tmp;
         var result = consumeBoolean2(this, current);
         if (hasQuotation) {
-            if (this.au_1 === charSequenceLength(this.mz())) {
-                this.qw('EOF');
+            if (this.qt_1 === charSequenceLength(this.cz())) {
+                this.gw('EOF');
             }
-            if (!(charSequenceGet(this.mz(), this.au_1) === _Char___init__impl__6a9atx(34))) {
-                this.qw('Expected closing quotation mark');
+            if (!(charSequenceGet(this.cz(), this.qt_1) === _Char___init__impl__6a9atx(34))) {
+                this.gw('Expected closing quotation mark');
             }
-            this.au_1 = this.au_1 + 1 | 0;
+            this.qt_1 = this.qt_1 + 1 | 0;
         }
         return result;
     };
     function charToTokenClass(c) {
         var tmp;
         if (Char__toInt_impl_vasixd(c) < 126) {
-            var tmp_0 = CharMappings_getInstance().m12_1;
+            var tmp_0 = CharMappings_getInstance().c12_1;
             tmp = tmp_0[Char__toInt_impl_vasixd(c)];
         } else {
             tmp = 0;
@@ -17839,7 +17437,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return token === 1 ? "quotation mark '\"'" : token === 2 ? "string escape sequence '\\'" : token === 4 ? "comma ','" : token === 5 ? "colon ':'" : token === 6 ? "start of the object '{'" : token === 7 ? "end of the object '}'" : token === 8 ? "start of the array '['" : token === 9 ? "end of the array ']'" : token === 10 ? 'end of the input' : token === 127 ? 'invalid token' : 'valid token';
     }
     function escapeToChar(c) {
-        return c < 117 ? CharMappings_getInstance().l12_1[c] : _Char___init__impl__6a9atx(0);
+        return c < 117 ? CharMappings_getInstance().b12_1[c] : _Char___init__impl__6a9atx(0);
     }
     function initEscape($this) {
         var inductionVariable = 0;
@@ -17880,7 +17478,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function initC2ESC($this, c, esc) {
         if (!(esc === _Char___init__impl__6a9atx(117))) {
             var tmp$ret$0 = Char__toInt_impl_vasixd(esc);
-            $this.l12_1[tmp$ret$0] = numberToChar(c);
+            $this.b12_1[tmp$ret$0] = numberToChar(c);
         }
     }
     function initC2ESC_0($this, c, esc) {
@@ -17888,7 +17486,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return initC2ESC($this, tmp$ret$0, esc);
     }
     function initC2TC($this, c, cl) {
-        $this.m12_1[c] = cl;
+        $this.c12_1[c] = cl;
     }
     function initC2TC_0($this, c, cl) {
         var tmp$ret$0 = Char__toInt_impl_vasixd(c);
@@ -17896,8 +17494,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function CharMappings() {
         CharMappings_instance = this;
-        this.l12_1 = charArray(117);
-        this.m12_1 = new Int8Array(126);
+        this.b12_1 = charArray(117);
+        this.c12_1 = new Int8Array(126);
         initEscape(this);
         initCharToToken(this);
     }
@@ -17909,42 +17507,42 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function StringJsonLexerWithComments(source, configuration) {
         StringJsonLexer.call(this, source, configuration);
     }
-    protoOf(StringJsonLexerWithComments).sx = function() {
-        var source = this.mz();
-        var cpos = this.g12();
+    protoOf(StringJsonLexerWithComments).ix = function() {
+        var source = this.cz();
+        var cpos = this.w11();
         if (cpos >= source.length || cpos === -1) return 10;
-        this.au_1 = cpos + 1 | 0;
+        this.qt_1 = cpos + 1 | 0;
         return charToTokenClass(charCodeAt(source, cpos));
     };
-    protoOf(StringJsonLexerWithComments).ox = function() {
-        var current = this.g12();
-        if (current >= this.mz().length || current === -1) return false;
-        return this.h12(charCodeAt(this.mz(), current));
+    protoOf(StringJsonLexerWithComments).ex = function() {
+        var current = this.w11();
+        if (current >= this.cz().length || current === -1) return false;
+        return this.x11(charCodeAt(this.cz(), current));
     };
-    protoOf(StringJsonLexerWithComments).dz = function(expected) {
-        var source = this.mz();
-        var current = this.g12();
+    protoOf(StringJsonLexerWithComments).ty = function(expected) {
+        var source = this.cz();
+        var current = this.w11();
         if (current >= source.length || current === -1) {
-            this.au_1 = -1;
-            this.i12(expected);
+            this.qt_1 = -1;
+            this.y11(expected);
         }
         var c = charCodeAt(source, current);
-        this.au_1 = current + 1 | 0;
+        this.qt_1 = current + 1 | 0;
         if (c === expected) return Unit_instance; else {
-            this.i12(expected);
+            this.y11(expected);
         }
     };
-    protoOf(StringJsonLexerWithComments).nx = function() {
-        var source = this.mz();
-        var cpos = this.g12();
+    protoOf(StringJsonLexerWithComments).dx = function() {
+        var source = this.cz();
+        var cpos = this.w11();
         if (cpos >= source.length || cpos === -1) return 10;
-        this.au_1 = cpos;
+        this.qt_1 = cpos;
         return charToTokenClass(charCodeAt(source, cpos));
     };
-    protoOf(StringJsonLexerWithComments).g12 = function() {
-        var current = this.au_1;
+    protoOf(StringJsonLexerWithComments).w11 = function() {
+        var current = this.qt_1;
         if (current === -1) return current;
-        var source = this.mz();
+        var source = this.cz();
         $l$loop_1: while (current < source.length) {
             var c = charCodeAt(source, current);
             if (c === _Char___init__impl__6a9atx(32) || c === _Char___init__impl__6a9atx(10) || c === _Char___init__impl__6a9atx(13) || c === _Char___init__impl__6a9atx(9)) {
@@ -17954,7 +17552,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (c === _Char___init__impl__6a9atx(47) && (current + 1 | 0) < source.length) {
                 var tmp0_subject = charCodeAt(source, current + 1 | 0);
                 if (tmp0_subject === _Char___init__impl__6a9atx(47)) {
-                    current = indexOf_4(source, _Char___init__impl__6a9atx(10), current + 2 | 0);
+                    current = indexOf_0(source, _Char___init__impl__6a9atx(10), current + 2 | 0);
                     if (current === -1) {
                         current = source.length;
                     } else {
@@ -17962,10 +17560,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     }
                     continue $l$loop_1;
                 } else if (tmp0_subject === _Char___init__impl__6a9atx(42)) {
-                    current = indexOf_5(source, '*/', current + 2 | 0);
+                    current = indexOf_1(source, '*/', current + 2 | 0);
                     if (current === -1) {
-                        this.au_1 = source.length;
-                        this.qw('Expected end of the block comment: "*/", but had EOF instead');
+                        this.qt_1 = source.length;
+                        this.gw('Expected end of the block comment: "*/", but had EOF instead');
                     } else {
                         current = current + 2 | 0;
                     }
@@ -17974,53 +17572,53 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             break $l$loop_1;
         }
-        this.au_1 = current;
+        this.qt_1 = current;
         return current;
     };
     function StringJsonLexer(source, configuration) {
         AbstractJsonLexer.call(this, configuration);
-        this.y12_1 = source;
+        this.o12_1 = source;
     }
-    protoOf(StringJsonLexer).mz = function() {
-        return this.y12_1;
+    protoOf(StringJsonLexer).cz = function() {
+        return this.o12_1;
     };
-    protoOf(StringJsonLexer).e12 = function(position) {
-        return position < this.mz().length ? position : -1;
+    protoOf(StringJsonLexer).u11 = function(position) {
+        return position < this.cz().length ? position : -1;
     };
-    protoOf(StringJsonLexer).sx = function() {
-        var source = this.mz();
-        var cpos = this.au_1;
+    protoOf(StringJsonLexer).ix = function() {
+        var source = this.cz();
+        var cpos = this.qt_1;
         $l$loop: while (!(cpos === -1) && cpos < source.length) {
             var _unary__edvuaz = cpos;
             cpos = _unary__edvuaz + 1 | 0;
             var c = charCodeAt(source, _unary__edvuaz);
             if (c === _Char___init__impl__6a9atx(32) || c === _Char___init__impl__6a9atx(10) || c === _Char___init__impl__6a9atx(13) || c === _Char___init__impl__6a9atx(9)) continue $l$loop;
-            this.au_1 = cpos;
+            this.qt_1 = cpos;
             return charToTokenClass(c);
         }
-        this.au_1 = source.length;
+        this.qt_1 = source.length;
         return 10;
     };
-    protoOf(StringJsonLexer).ox = function() {
-        var current = this.au_1;
+    protoOf(StringJsonLexer).ex = function() {
+        var current = this.qt_1;
         if (current === -1) return false;
-        var source = this.mz();
+        var source = this.cz();
         $l$loop: while (current < source.length) {
             var c = charCodeAt(source, current);
             if (c === _Char___init__impl__6a9atx(32) || c === _Char___init__impl__6a9atx(10) || c === _Char___init__impl__6a9atx(13) || c === _Char___init__impl__6a9atx(9)) {
                 current = current + 1 | 0;
                 continue $l$loop;
             }
-            this.au_1 = current;
-            return this.h12(c);
+            this.qt_1 = current;
+            return this.x11(c);
         }
-        this.au_1 = current;
+        this.qt_1 = current;
         return false;
     };
-    protoOf(StringJsonLexer).g12 = function() {
-        var current = this.au_1;
+    protoOf(StringJsonLexer).w11 = function() {
+        var current = this.qt_1;
         if (current === -1) return current;
-        var source = this.mz();
+        var source = this.cz();
         $l$loop: while (current < source.length) {
             var c = charCodeAt(source, current);
             if (c === _Char___init__impl__6a9atx(32) || c === _Char___init__impl__6a9atx(10) || c === _Char___init__impl__6a9atx(13) || c === _Char___init__impl__6a9atx(9)) {
@@ -18029,86 +17627,1143 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 break $l$loop;
             }
         }
-        this.au_1 = current;
+        this.qt_1 = current;
         return current;
     };
-    protoOf(StringJsonLexer).dz = function(expected) {
-        if (this.au_1 === -1) {
-            this.i12(expected);
+    protoOf(StringJsonLexer).ty = function(expected) {
+        if (this.qt_1 === -1) {
+            this.y11(expected);
         }
-        var source = this.mz();
-        var cpos = this.au_1;
+        var source = this.cz();
+        var cpos = this.qt_1;
         $l$loop: while (cpos < source.length) {
             var _unary__edvuaz = cpos;
             cpos = _unary__edvuaz + 1 | 0;
             var c = charCodeAt(source, _unary__edvuaz);
             if (c === _Char___init__impl__6a9atx(32) || c === _Char___init__impl__6a9atx(10) || c === _Char___init__impl__6a9atx(13) || c === _Char___init__impl__6a9atx(9)) continue $l$loop;
-            this.au_1 = cpos;
+            this.qt_1 = cpos;
             if (c === expected) return Unit_instance;
-            this.i12(expected);
+            this.y11(expected);
         }
-        this.au_1 = -1;
-        this.i12(expected);
+        this.qt_1 = -1;
+        this.y11(expected);
     };
-    protoOf(StringJsonLexer).jz = function() {
-        this.dz(_Char___init__impl__6a9atx(34));
-        var current = this.au_1;
-        var closingQuote = indexOf_4(this.mz(), _Char___init__impl__6a9atx(34), current);
+    protoOf(StringJsonLexer).zy = function() {
+        this.ty(_Char___init__impl__6a9atx(34));
+        var current = this.qt_1;
+        var closingQuote = indexOf_0(this.cz(), _Char___init__impl__6a9atx(34), current);
         if (closingQuote === -1) {
-            this.qx();
+            this.gx();
             var expected = tokenDescription(1);
-            var position = false && this.au_1 > 0 ? this.au_1 - 1 | 0 : this.au_1;
-            var s = this.au_1 === charSequenceLength(this.mz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.mz(), position));
+            var position = false && this.qt_1 > 0 ? this.qt_1 - 1 | 0 : this.qt_1;
+            var s = this.qt_1 === charSequenceLength(this.cz()) || position < 0 ? 'EOF' : toString(charSequenceGet(this.cz(), position));
             var tmp$ret$1 = 'Expected ' + expected + ", but had '" + s + "' instead";
-            this.qw(tmp$ret$1, position);
+            this.gw(tmp$ret$1, position);
         }
         var inductionVariable = current;
         if (inductionVariable < closingQuote) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            if (charCodeAt(this.mz(), i) === _Char___init__impl__6a9atx(92)) {
-                return this.consumeString2(this.mz(), this.au_1, i);
+            if (charCodeAt(this.cz(), i) === _Char___init__impl__6a9atx(92)) {
+                return this.consumeString2(this.cz(), this.qt_1, i);
             }
         } while (inductionVariable < closingQuote);
-        this.au_1 = closingQuote + 1 | 0;
-        return substring(this.mz(), current, closingQuote);
+        this.qt_1 = closingQuote + 1 | 0;
+        return substring(this.cz(), current, closingQuote);
     };
-    protoOf(StringJsonLexer).lz = function(keyToMatch, isLenient) {
-        var positionSnapshot = this.au_1;
+    protoOf(StringJsonLexer).bz = function(keyToMatch, isLenient) {
+        var positionSnapshot = this.qt_1;
         try {
-            if (!(this.sx() === 6)) return null;
-            var firstKey = this.gz(isLenient);
+            if (!(this.ix() === 6)) return null;
+            var firstKey = this.wy(isLenient);
             if (!(firstKey === keyToMatch)) return null;
-            this.j12();
-            if (!(this.sx() === 5)) return null;
-            return this.gz(isLenient);
+            this.z11();
+            if (!(this.ix() === 5)) return null;
+            return this.wy(isLenient);
         } finally {
-            this.au_1 = positionSnapshot;
-            this.j12();
+            this.qt_1 = positionSnapshot;
+            this.z11();
         }
     };
     function StringJsonLexer_0(json, source) {
-        return !json.mt_1.uu_1 ? new StringJsonLexer(source, json.mt_1) : new StringJsonLexerWithComments(source, json.mt_1);
+        return !json.ct_1.ku_1 ? new StringJsonLexer(source, json.ct_1) : new StringJsonLexerWithComments(source, json.ct_1);
     }
     function get_schemaCache(_this__u8e3s4) {
-        return _this__u8e3s4.ot_1;
+        return _this__u8e3s4.et_1;
     }
     function createMapForCache(initialCapacity) {
         return HashMap_init_$Create$_0(initialCapacity);
     }
+    function makeGround($this, random) {
+        var columns = numberToInt(1e3 / 5) + 1 | 0;
+        var tmp = 0;
+        var tmp_0 = new Float64Array(3);
+        while (tmp < 3) {
+            tmp_0[tmp] = random.rb(0, 2 * 3.141592653589793);
+            tmp = tmp + 1 | 0;
+        }
+        var phases = tmp_0;
+        var centre = random.rb(150, 300);
+        var tmp_1 = 0;
+        var tmp_2 = (columns / 2 | 0) + 1 | 0;
+        var tmp_3 = new Float64Array(tmp_2);
+        while (tmp_1 < tmp_2) {
+            var tmp_4 = tmp_1;
+            var t = tmp_4 / (columns / 2 | 0);
+            var x = t * 7 + phases[0];
+            var tmp_5 = 26 * Math.sin(x);
+            var x_0 = t * 15 + phases[1];
+            var tmp_6 = tmp_5 + 14 * Math.sin(x_0);
+            var x_1 = t * 31 + phases[2];
+            var rolling = tmp_6 + 7 * Math.sin(x_1);
+            var rise = centre * t * t * t;
+            tmp_3[tmp_4] = 110 + rolling + rise;
+            tmp_1 = tmp_1 + 1 | 0;
+        }
+        var half = tmp_3;
+        var flat = half[numberToInt(110 / 5)];
+        var inductionVariable = 0;
+        var last = half.length - 1 | 0;
+        if (inductionVariable <= last) do {
+            var i = inductionVariable;
+            inductionVariable = inductionVariable + 1 | 0;
+            var x_2 = i * 5;
+            var blend = coerceIn((x_2 - (110 + 20)) / 60, 0, 1);
+            if (x_2 <= 110 + 80) {
+                half[i] = flat * (1 - blend) + half[i] * blend;
+            }
+        } while (inductionVariable <= last);
+        var tmp_7 = 0;
+        var tmp_8 = new Float64Array(columns);
+        while (tmp_7 < columns) {
+            var tmp_9 = tmp_7;
+            var b = (columns - 1 | 0) - tmp_9 | 0;
+            tmp_8[tmp_9] = half[Math.min(tmp_9, b)];
+            tmp_7 = tmp_7 + 1 | 0;
+        }
+        return tmp_8;
+    }
+    function Crate(id, x, y) {
+        this.p12_1 = id;
+        this.q12_1 = x;
+        this.r12_1 = y;
+        this.s12_1 = true;
+    }
+    function Blast(at, x, y, style, direct, kind) {
+        this.t12_1 = at;
+        this.u12_1 = x;
+        this.v12_1 = y;
+        this.w12_1 = style;
+        this.x12_1 = direct;
+        this.y12_1 = kind;
+    }
+    function Landing(x, y, time, direct, crate, onField, vx, vy, atTop) {
+        this.z12_1 = x;
+        this.a13_1 = y;
+        this.b13_1 = time;
+        this.c13_1 = direct;
+        this.d13_1 = crate;
+        this.e13_1 = onField;
+        this.f13_1 = vx;
+        this.g13_1 = vy;
+        this.h13_1 = atTop;
+    }
+    function newWind($this) {
+        return $this.k13_1 === 0 ? 0 : $this.j13_1.pb(-$this.k13_1 | 0, $this.k13_1 + 1 | 0);
+    }
+    function heightAt($this, x) {
+        var at = coerceIn(x / 5, 0, $this.n13_1.length - 1 | 0);
+        var left = numberToInt(at);
+        var tmp0 = left + 1 | 0;
+        var b = $this.n13_1.length - 1 | 0;
+        var right = Math.min(tmp0, b);
+        return $this.n13_1[left] + ($this.n13_1[right] - $this.n13_1[left]) * (at - left);
+    }
+    function cannonY($this, side) {
+        return heightAt($this, $this.o13_1[side]);
+    }
+    function fire($this, side, angle, power, weapon) {
+        if (!Companion_getInstance_25().o14_1.l1(weapon)) return false;
+        if (!(weapon === 'shell')) {
+            var tmp0_elvis_lhs = $this.s13_1[side].s1(weapon);
+            var left = tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs;
+            if (left <= 0) return false;
+            var tmp0 = $this.s13_1[side];
+            var value = left - 1 | 0;
+            tmp0.w1(weapon, value);
+        }
+        $this.q13_1[side] = angle;
+        $this.r13_1[side] = to(angle, power);
+        var radians = angle * 3.141592653589793 / 180;
+        var speed = 120 + power / 100 * (620 - 120);
+        var tmp = $this.o13_1[side];
+        var startX = tmp + Math.cos(radians) * 30;
+        var tmp_0 = cannonY($this, side) + 16;
+        var startY = tmp_0 + Math.sin(radians) * 30;
+        var segments = ArrayList_init_$Create$();
+        var bounces = ArrayList_init_$Create$();
+        var splits = ArrayList_init_$Create$();
+        var blasts = ArrayList_init_$Create$();
+        var flight = new Flight($this, side, segments);
+        switch (weapon) {
+          case 'bouncer':
+            var tmp_1 = Math.cos(radians) * speed;
+            var tmp$ret$8 = Math.sin(radians);
+            var landing = flight.l16(weapon, startX, startY, tmp_1, tmp$ret$8 * speed, 0, false);
+            var left_0 = 2;
+            $l$loop: while (true) {
+                var tmp_2;
+                if (landing.e13_1 && landing.c13_1 == null && landing.d13_1 == null && left_0 > 0) {
+                    var x = landing.g13_1;
+                    tmp_2 = Math.abs(x) > 30;
+                } else {
+                    tmp_2 = false;
+                }
+                if (!tmp_2) {
+                    break $l$loop;
+                }
+                left_0 = left_0 - 1 | 0;
+                var element = at($this, landing.b13_1, landing.z12_1, landing.a13_1);
+                bounces.f(element);
+                landing = flight.l16(weapon, landing.z12_1, landing.a13_1 + 2, landing.f13_1 * .8, -landing.g13_1 * .65, landing.b13_1, false);
+            }
+            if (landing.e13_1) {
+                var element_0 = new Blast(landing.b13_1, landing.z12_1, landing.a13_1, getValue(Companion_getInstance_25().p14_1, weapon), landing.c13_1, weapon);
+                blasts.f(element_0);
+            }
+            openFrom($this, landing);
+            break;
+
+          case 'cluster':
+            var tmp_3 = Math.cos(radians) * speed;
+            var tmp$ret$13 = Math.sin(radians);
+            var top = flight.l16(weapon, startX, startY, tmp_3, tmp$ret$13 * speed, 0, true);
+            if (top.e13_1 && !top.h13_1) {
+                var element_1 = new Blast(top.b13_1, top.z12_1, top.a13_1, getValue(Companion_getInstance_25().p14_1, 'bomblet'), top.c13_1, 'bomblet');
+                blasts.f(element_1);
+                openFrom($this, top);
+            } else if (top.h13_1) {
+                var element_2 = at($this, top.b13_1, top.z12_1, top.a13_1);
+                splits.f(element_2);
+                var inductionVariable = 0;
+                if (inductionVariable < 5) do {
+                    var i = inductionVariable;
+                    inductionVariable = inductionVariable + 1 | 0;
+                    var offset = (i - 4 / 2) * 55;
+                    var landing_0 = flight.l16('bomblet', top.z12_1, top.a13_1, top.f13_1 + offset, top.g13_1, top.b13_1, false);
+                    if (landing_0.e13_1) {
+                        var element_3 = new Blast(landing_0.b13_1, landing_0.z12_1, landing_0.a13_1, getValue(Companion_getInstance_25().p14_1, 'bomblet'), landing_0.c13_1, 'bomblet');
+                        blasts.f(element_3);
+                    }
+                    openFrom($this, landing_0);
+                } while (inductionVariable < 5);
+            }
+            break;
+
+          default:
+            var tmp_4 = Math.cos(radians) * speed;
+            var tmp$ret$18 = Math.sin(radians);
+            var landing_1 = flight.l16(weapon, startX, startY, tmp_4, tmp$ret$18 * speed, 0, false);
+            if (landing_1.e13_1) {
+                var element_4 = new Blast(landing_1.b13_1, landing_1.z12_1, landing_1.a13_1, getValue(Companion_getInstance_25().p14_1, weapon), landing_1.c13_1, weapon);
+                blasts.f(element_4);
+            }
+            openFrom($this, landing_1);
+            break;
+        }
+        var _destruct__k2r9zo = resolve($this, side, blasts, toList_0($this.g14_1));
+        var done = _destruct__k2r9zo.wa();
+        var opened = _destruct__k2r9zo.xa();
+        $this.g14_1.k3();
+        $this.b14_1 = $this.b14_1 + 1 | 0;
+        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(segments, 10));
+        var _iterator__ex2g4s = segments.g();
+        while (_iterator__ex2g4s.h()) {
+            var item = _iterator__ex2g4s.i();
+            var tmp$ret$22 = toDouble(get_jsonPrimitive(getValue(item, 'start')).tu()) + toDouble(get_jsonPrimitive(getValue(item, 'ms')).tu());
+            destination.f(tmp$ret$22);
+        }
+        var tmp_5 = destination;
+        var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(done, 10));
+        var _iterator__ex2g4s_0 = done.g();
+        while (_iterator__ex2g4s_0.h()) {
+            var item_0 = _iterator__ex2g4s_0.i();
+            var tmp$ret$25 = toDouble(get_jsonPrimitive(getValue(item_0, 't')).tu());
+            destination_0.f(tmp$ret$25);
+        }
+        var tmp_6 = plus(tmp_5, destination_0);
+        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(opened, 10));
+        var _iterator__ex2g4s_1 = opened.g();
+        while (_iterator__ex2g4s_1.h()) {
+            var item_1 = _iterator__ex2g4s_1.i();
+            var tmp$ret$28 = toDouble(get_jsonPrimitive(getValue(item_1, 't')).tu());
+            destination_1.f(tmp$ret$28);
+        }
+        var tmp2_elvis_lhs = maxOrNull(plus(tmp_6, destination_1));
+        var finish = tmp2_elvis_lhs == null ? 0 : tmp2_elvis_lhs;
+        var tmp_7 = $this;
+        var builder = new JsonObjectBuilder;
+        put(builder, 'seq', $this.b14_1);
+        put(builder, 'side', side);
+        put_0(builder, 'weapon', weapon);
+        put(builder, 'angle', angle);
+        put(builder, 'power', power);
+        builder.dv('segments', new JsonArray(segments));
+        builder.dv('bounces', new JsonArray(bounces));
+        builder.dv('splits', new JsonArray(splits));
+        builder.dv('blasts', new JsonArray(done));
+        builder.dv('opened', new JsonArray(opened));
+        tmp_7.a14_1 = builder.ev();
+        var tmp_8 = $this;
+        var tmp$ret$31 = Math.ceil(finish);
+        tmp_8.z13_1 = numberToInt(tmp$ret$31) + 1100 | 0;
+        judge($this);
+        return true;
+    }
+    function drive($this, side, direction) {
+        var path = mutableListOf([ to($this.o13_1[side], cannonY($this, side)) ]);
+        var travelled = 0;
+        var met = null;
+        var rivalX = $this.o13_1[1 - side | 0];
+        $l$loop_0: while (travelled < 75) {
+            var x = $this.o13_1[side] + direction * 2.5;
+            var tmp;
+            if (x < 20 || x > 1e3 - 20) {
+                tmp = true;
+            } else {
+                var x_0 = x - rivalX;
+                tmp = Math.abs(x_0) < 60;
+            }
+            if (tmp) break $l$loop_0;
+            var tmp_0 = travelled;
+            var y = heightAt($this, x) - heightAt($this, $this.o13_1[side]);
+            travelled = tmp_0 + hypot(2.5, y);
+            $this.o13_1[side] = x;
+            var element = to(x, cannonY($this, side));
+            path.f(element);
+            var tmp0 = $this.t13_1;
+            var tmp$ret$3;
+            $l$block: {
+                var _iterator__ex2g4s = tmp0.g();
+                while (_iterator__ex2g4s.h()) {
+                    var element_0 = _iterator__ex2g4s.i();
+                    var tmp_1;
+                    if (!element_0.s12_1) {
+                        var x_1 = element_0.q12_1 - x;
+                        tmp_1 = Math.abs(x_1) <= 22 + 20 / 2;
+                    } else {
+                        tmp_1 = false;
+                    }
+                    if (tmp_1) {
+                        tmp$ret$3 = element_0;
+                        break $l$block;
+                    }
+                }
+                tmp$ret$3 = null;
+            }
+            met = tmp$ret$3;
+            if (!(met == null)) break $l$loop_0;
+        }
+        if (path.j() < 2) return false;
+        var b = travelled / 70 * 1e3;
+        var ms = Math.max(300, b);
+        var tmp_2 = emptyList();
+        var tmp0_safe_receiver = met;
+        var tmp_3;
+        if (tmp0_safe_receiver == null) {
+            tmp_3 = null;
+        } else {
+            tmp_3 = to(tmp0_safe_receiver, ms);
+        }
+        var _destruct__k2r9zo = resolve($this, side, tmp_2, listOfNotNull(tmp_3));
+        var done = _destruct__k2r9zo.wa();
+        var opened = _destruct__k2r9zo.xa();
+        $this.d14_1 = $this.d14_1 + 1 | 0;
+        var tmp_4 = $this;
+        var builder = new JsonObjectBuilder;
+        put(builder, 'seq', $this.d14_1);
+        put(builder, 'side', side);
+        put(builder, 'ms', ms);
+        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(path, 10));
+        var _iterator__ex2g4s_0 = path.g();
+        while (_iterator__ex2g4s_0.h()) {
+            var item = _iterator__ex2g4s_0.i();
+            var px = item.wa();
+            var py = item.xa();
+            var tmp$ret$13 = new JsonArray(listOf_0([ JsonPrimitive_0(roundToInt(px)), JsonPrimitive_0(roundToInt(py)) ]));
+            destination.f(tmp$ret$13);
+        }
+        builder.dv('path', new JsonArray(destination));
+        builder.dv('blasts', new JsonArray(done));
+        builder.dv('opened', new JsonArray(opened));
+        tmp_4.c14_1 = builder.ev();
+        var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(done, 10));
+        var _iterator__ex2g4s_1 = done.g();
+        while (_iterator__ex2g4s_1.h()) {
+            var item_0 = _iterator__ex2g4s_1.i();
+            var tmp$ret$16 = toDouble(get_jsonPrimitive(getValue(item_0, 't')).tu());
+            destination_0.f(tmp$ret$16);
+        }
+        var tmp_5 = destination_0;
+        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(opened, 10));
+        var _iterator__ex2g4s_2 = opened.g();
+        while (_iterator__ex2g4s_2.h()) {
+            var item_1 = _iterator__ex2g4s_2.i();
+            var tmp$ret$19 = toDouble(get_jsonPrimitive(getValue(item_1, 't')).tu());
+            destination_1.f(tmp$ret$19);
+        }
+        var finish = max(plus_0(plus(tmp_5, destination_1), ms));
+        var tmp_6 = $this;
+        var tmp$ret$20 = Math.ceil(finish);
+        tmp_6.z13_1 = numberToInt(tmp$ret$20) + 300 | 0;
+        judge($this);
+        return true;
+    }
+    function resolve($this, side, blasts, opens) {
+        var opened = ArrayList_init_$Create$();
+        var done = ArrayList_init_$Create$();
+        var tmp = ArtilleryGame$resolve$lambda;
+        var tmp$ret$3 = new sam$kotlin_Comparator$0_0(tmp);
+        var tmp$ret$2 = sortedWith(blasts, tmp$ret$3);
+        var queue = toMutableList(tmp$ret$2);
+        var index = 0;
+        var _iterator__ex2g4s = opens.g();
+        while (_iterator__ex2g4s.h()) {
+            var _destruct__k2r9zo = _iterator__ex2g4s.i();
+            var crate = _destruct__k2r9zo.wa();
+            var time = _destruct__k2r9zo.xa();
+            if ($this.t13_1.l1(crate)) {
+                resolve$open($this, side, queue, opened, crate, time);
+            }
+        }
+        while (index < queue.j()) {
+            var _unary__edvuaz = index;
+            index = _unary__edvuaz + 1 | 0;
+            var blast = queue.k(_unary__edvuaz);
+            var damage = new Int32Array(2);
+            var inductionVariable = 0;
+            if (inductionVariable <= 1) do {
+                var who = inductionVariable;
+                inductionVariable = inductionVariable + 1 | 0;
+                var tmp0 = blast.u12_1 - $this.o13_1[who];
+                var y = blast.v12_1 - (cannonY($this, who) + 16 / 2);
+                var distance = hypot(tmp0, y);
+                var tmp_0;
+                if (who === blast.x12_1) {
+                    tmp_0 = blast.w12_1.p16_1;
+                } else if (distance < blast.w12_1.n16_1) {
+                    var b = roundToInt(blast.w12_1.q16_1 * (1 - distance / blast.w12_1.n16_1));
+                    tmp_0 = Math.max(1, b);
+                } else {
+                    tmp_0 = 0;
+                }
+                damage[who] = tmp_0;
+                var b_0 = $this.p13_1[who] - damage[who] | 0;
+                var tmp$ret$6 = Math.max(0, b_0);
+                $this.p13_1[who] = tmp$ret$6;
+            } while (inductionVariable <= 1);
+            var _iterator__ex2g4s_0 = toList_0($this.t13_1).g();
+            while (_iterator__ex2g4s_0.h()) {
+                var crate_0 = _iterator__ex2g4s_0.i();
+                var tmp0_0 = blast.u12_1 - crate_0.q12_1;
+                var y_0 = blast.v12_1 - crate_0.r12_1;
+                if (hypot(tmp0_0, y_0) <= blast.w12_1.n16_1 + 22) {
+                    resolve$open($this, side, queue, opened, crate_0, blast.t12_1 + 120);
+                }
+            }
+            carve($this, blast.u12_1, blast.v12_1, blast.w12_1.o16_1);
+            var builder = new JsonObjectBuilder;
+            put(builder, 't', blast.t12_1);
+            put(builder, 'x', blast.u12_1);
+            put(builder, 'y', blast.v12_1);
+            put_0(builder, 'kind', blast.y12_1);
+            put_0(builder, 'size', blast.w12_1.m16_1);
+            put(builder, 'direct', blast.x12_1);
+            var destination = ArrayList_init_$Create$_0(damage.length);
+            var inductionVariable_0 = 0;
+            var last = damage.length;
+            while (inductionVariable_0 < last) {
+                var item = damage[inductionVariable_0];
+                inductionVariable_0 = inductionVariable_0 + 1 | 0;
+                var tmp$ret$12 = JsonPrimitive_0(item);
+                destination.f(tmp$ret$12);
+            }
+            builder.dv('damage', new JsonArray(destination));
+            var element = builder.ev();
+            done.f(element);
+        }
+        settleCrates($this);
+        return to(done, opened);
+    }
+    function judge($this) {
+        var tmp = $this;
+        var tmp_0;
+        var tmp0 = $this.p13_1;
+        var tmp$ret$0;
+        $l$block: {
+            var inductionVariable = 0;
+            var last = tmp0.length;
+            while (inductionVariable < last) {
+                var element = tmp0[inductionVariable];
+                inductionVariable = inductionVariable + 1 | 0;
+                if (!(element === 0)) {
+                    tmp$ret$0 = false;
+                    break $l$block;
+                }
+            }
+            tmp$ret$0 = true;
+        }
+        if (tmp$ret$0) {
+            tmp_0 = 'draw';
+        } else {
+            if ($this.p13_1[0] === 0) {
+                tmp_0 = $this.i13_1.k(1);
+            } else {
+                if ($this.p13_1[1] === 0) {
+                    tmp_0 = $this.i13_1.k(0);
+                } else {
+                    tmp_0 = null;
+                }
+            }
+        }
+        tmp.e14_1 = tmp_0;
+    }
+    function openFrom($this, landing) {
+        if (!(landing.d13_1 == null)) {
+            var tmp0 = $this.g14_1;
+            var element = to(landing.d13_1, landing.b13_1);
+            tmp0.f(element);
+        }
+    }
+    function at($this, time, x, y) {
+        var builder = new JsonObjectBuilder;
+        put(builder, 't', time);
+        put(builder, 'x', x);
+        put(builder, 'y', y);
+        return builder.ev();
+    }
+    function Flight($outer, side, segments) {
+        this.k16_1 = $outer;
+        this.i16_1 = side;
+        this.j16_1 = segments;
+    }
+    protoOf(Flight).l16 = function(kind, fromX, fromY, startVx, startVy, startMs, splitsAtTop) {
+        var x = fromX;
+        var y = fromY;
+        var vx = startVx;
+        var vy = startVy;
+        var time = startMs / 1e3;
+        var began = time;
+        var path = mutableListOf([ to(x, y) ]);
+        var steps = 0;
+        var direct = null;
+        var crate = null;
+        var onField = false;
+        var wasRising = vy > 0;
+        var atTop = false;
+        $l$loop_1: while (time - began < 9) {
+            x = x + vx * .008333333333333333;
+            y = y + vy * .008333333333333333;
+            vy = vy - 300 * .008333333333333333;
+            vx = vx + this.k16_1.w13_1 * 10 * .008333333333333333;
+            time = time + .008333333333333333;
+            steps = steps + 1 | 0;
+            if ((steps % 4 | 0) === 0) {
+                var element = to(x, y);
+                path.f(element);
+            }
+            if (x < -80 || x > 1e3 + 80) break $l$loop_1;
+            var tmp0 = numberRangeToNumber(0, 1);
+            var tmp$ret$1;
+            $l$block: {
+                var inductionVariable = tmp0.v_1;
+                var last = tmp0.w_1;
+                if (inductionVariable <= last) do {
+                    var element_0 = inductionVariable;
+                    inductionVariable = inductionVariable + 1 | 0;
+                    var who = element_0;
+                    var tmp;
+                    if (!(who === this.i16_1) || time > .25) {
+                        var tmp0_0 = x - this.k16_1.o13_1[who];
+                        var y_0 = y - (cannonY(this.k16_1, who) + 16 / 2);
+                        tmp = hypot(tmp0_0, y_0) <= 20;
+                    } else {
+                        tmp = false;
+                    }
+                    if (tmp) {
+                        tmp$ret$1 = element_0;
+                        break $l$block;
+                    }
+                } while (!(element_0 === last));
+                tmp$ret$1 = null;
+            }
+            direct = tmp$ret$1;
+            var tmp0_1 = this.k16_1.t13_1;
+            var tmp$ret$4;
+            $l$block_0: {
+                var _iterator__ex2g4s = tmp0_1.g();
+                while (_iterator__ex2g4s.h()) {
+                    var element_1 = _iterator__ex2g4s.i();
+                    var tmp0_2 = x - element_1.q12_1;
+                    var y_1 = y - element_1.r12_1;
+                    if (hypot(tmp0_2, y_1) <= 22) {
+                        tmp$ret$4 = element_1;
+                        break $l$block_0;
+                    }
+                }
+                tmp$ret$4 = null;
+            }
+            crate = tmp$ret$4;
+            if (!(direct == null) || !(crate == null) || (0 <= x ? x <= 1e3 : false) && y <= heightAt(this.k16_1, x)) {
+                onField = true;
+                break $l$loop_1;
+            }
+            if (splitsAtTop && wasRising && vy <= 0) {
+                atTop = true;
+                break $l$loop_1;
+            }
+            wasRising = vy > 0;
+        }
+        var element_2 = to(x, y);
+        path.f(element_2);
+        var tmp0_3 = this.j16_1;
+        var builder = new JsonObjectBuilder;
+        put_0(builder, 'kind', kind);
+        put(builder, 'start', startMs);
+        put(builder, 'ms', (time - began) * 1e3);
+        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(path, 10));
+        var _iterator__ex2g4s_0 = path.g();
+        while (_iterator__ex2g4s_0.h()) {
+            var item = _iterator__ex2g4s_0.i();
+            var px = item.wa();
+            var py = item.xa();
+            var tmp$ret$12 = new JsonArray(listOf_0([ JsonPrimitive_0(roundToInt(px)), JsonPrimitive_0(roundToInt(py)) ]));
+            destination.f(tmp$ret$12);
+        }
+        builder.dv('path', new JsonArray(destination));
+        var element_3 = builder.ev();
+        tmp0_3.f(element_3);
+        return new Landing(x, y, time * 1e3, direct, crate, onField, vx, vy, atTop);
+    };
+    function carve($this, x, y, radius) {
+        var inductionVariable = 0;
+        var last = $this.n13_1.length - 1 | 0;
+        if (inductionVariable <= last) $l$loop: do {
+            var i = inductionVariable;
+            inductionVariable = inductionVariable + 1 | 0;
+            var x_0 = i * 5 - x;
+            var dx = Math.abs(x_0);
+            if (dx >= radius) continue $l$loop;
+            var tmp0 = $this.n13_1[i];
+            var x_1 = radius * radius - dx * dx;
+            var b = y - Math.sqrt(x_1);
+            var b_0 = Math.min(tmp0, b);
+            var tmp$ret$3 = Math.max(24, b_0);
+            $this.n13_1[i] = tmp$ret$3;
+        } while (inductionVariable <= last);
+    }
+    function settleCrates($this) {
+        var _iterator__ex2g4s = $this.t13_1.g();
+        while (_iterator__ex2g4s.h()) {
+            var crate = _iterator__ex2g4s.i();
+            var floor = heightAt($this, crate.q12_1) + 22;
+            if (!crate.s12_1 || crate.r12_1 <= floor) {
+                crate.r12_1 = floor;
+                crate.s12_1 = false;
+            }
+        }
+    }
+    function nextTurn($this) {
+        $this.x13_1 = 1 - $this.x13_1 | 0;
+        $this.y13_1 = 30;
+        $this.w13_1 = newWind($this);
+        $this.v13_1 = $this.v13_1 + 1 | 0;
+        var _iterator__ex2g4s = $this.t13_1.g();
+        while (_iterator__ex2g4s.h()) {
+            var crate = _iterator__ex2g4s.i();
+            if (crate.s12_1) {
+                crate.r12_1 = crate.r12_1 - 130;
+            }
+        }
+        settleCrates($this);
+        if ($this.l13_1 > 0 && $this.v13_1 >= $this.l13_1 && $this.t13_1.j() < 2) {
+            $this.v13_1 = 0;
+            var tmp0 = $this.t13_1;
+            var _unary__edvuaz = $this.u13_1;
+            $this.u13_1 = _unary__edvuaz + 1 | 0;
+            var element = new Crate(_unary__edvuaz, $this.j13_1.rb(170, 1e3 - 170), 440);
+            tmp0.f(element);
+        }
+    }
+    function common($this, $receiver) {
+        put_0($receiver, 'game', Artillery_getInstance().r16_1);
+        put_0($receiver, 'phase', !($this.f14_1 == null) ? 'over' : $this.z13_1 > 0 ? 'flying' : 'aiming');
+        var this_0 = $this.i13_1;
+        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
+        var _iterator__ex2g4s = this_0.g();
+        while (_iterator__ex2g4s.h()) {
+            var item = _iterator__ex2g4s.i();
+            var tmp$ret$2 = JsonPrimitive_1(item);
+            destination.f(tmp$ret$2);
+        }
+        $receiver.dv('sides', new JsonArray(destination));
+        put($receiver, 'turn', $this.x13_1);
+        put($receiver, 'clock', !($this.f14_1 == null) ? 0 : $this.y13_1);
+        var this_1 = $this.p13_1;
+        var destination_0 = ArrayList_init_$Create$_0(this_1.length);
+        var inductionVariable = 0;
+        var last = this_1.length;
+        while (inductionVariable < last) {
+            var item_0 = this_1[inductionVariable];
+            inductionVariable = inductionVariable + 1 | 0;
+            var tmp$ret$5 = JsonPrimitive_0(item_0);
+            destination_0.f(tmp$ret$5);
+        }
+        $receiver.dv('hull', new JsonArray(destination_0));
+        put($receiver, 'hullMax', 100);
+        var this_2 = $this.q13_1;
+        var destination_1 = ArrayList_init_$Create$_0(this_2.length);
+        var inductionVariable_0 = 0;
+        var last_0 = this_2.length;
+        while (inductionVariable_0 < last_0) {
+            var item_1 = this_2[inductionVariable_0];
+            inductionVariable_0 = inductionVariable_0 + 1 | 0;
+            var tmp$ret$8 = JsonPrimitive_0(item_1);
+            destination_1.f(tmp$ret$8);
+        }
+        $receiver.dv('aims', new JsonArray(destination_1));
+        put($receiver, 'wind', $this.w13_1);
+        put($receiver, 'maxWind', 4);
+        var this_3 = $this.s13_1;
+        var destination_2 = ArrayList_init_$Create$_0(this_3.length);
+        var inductionVariable_1 = 0;
+        var last_1 = this_3.length;
+        while (inductionVariable_1 < last_1) {
+            var item_2 = this_3[inductionVariable_1];
+            inductionVariable_1 = inductionVariable_1 + 1 | 0;
+            var result = LinkedHashMap_init_$Create$();
+            var _iterator__ex2g4s_0 = item_2.v1().g();
+            while (_iterator__ex2g4s_0.h()) {
+                var entry = _iterator__ex2g4s_0.i();
+                if (entry.p1() > 0) {
+                    result.w1(entry.o1(), entry.p1());
+                }
+            }
+            var destination_3 = LinkedHashMap_init_$Create$_0(mapCapacity(result.j()));
+            var _iterator__ex2g4s_1 = result.v1().g();
+            while (_iterator__ex2g4s_1.h()) {
+                var element = _iterator__ex2g4s_1.i();
+                var tmp = element.o1();
+                var tmp$ret$19 = JsonPrimitive_0(element.p1());
+                destination_3.w1(tmp, tmp$ret$19);
+            }
+            var tmp$ret$11 = new JsonObject(destination_3);
+            destination_2.f(tmp$ret$11);
+        }
+        $receiver.dv('arsenals', new JsonArray(destination_2));
+        put($receiver, 'shots', $this.b14_1);
+        put($receiver, 'drives', $this.d14_1);
+        put_0($receiver, 'winner', $this.f14_1);
+    }
+    function BlastStyle(size, radius, crater, direct, splash) {
+        this.m16_1 = size;
+        this.n16_1 = radius;
+        this.o16_1 = crater;
+        this.p16_1 = direct;
+        this.q16_1 = splash;
+    }
+    function Companion_25() {
+        Companion_instance_25 = this;
+        this.h14_1 = 'shell';
+        this.i14_1 = 'cluster';
+        this.j14_1 = 'bouncer';
+        this.k14_1 = 'mega';
+        this.l14_1 = 'bomblet';
+        this.m14_1 = 'repair';
+        this.n14_1 = 'surprise';
+        this.o14_1 = setOf_0([ 'shell', 'cluster', 'bouncer', 'mega' ]);
+        this.p14_1 = mapOf_0([ to('shell', new BlastStyle('normal', 70, 42, 40, 28)), to('bouncer', new BlastStyle('normal', 80, 46, 45, 32)), to('mega', new BlastStyle('huge', 135, 85, 65, 48)), to('bomblet', new BlastStyle('small', 45, 24, 15, 12)), to('surprise', new BlastStyle('normal', 75, 40, 30, 30)) ]);
+        this.q14_1 = 1e3;
+        this.r14_1 = 562;
+        this.s14_1 = 5;
+        this.t14_1 = 110;
+        this.u14_1 = 100;
+        this.v14_1 = 24;
+        this.w14_1 = 30;
+        this.x14_1 = 16;
+        this.y14_1 = 20;
+        this.z14_1 = 80;
+        this.a15_1 = .25;
+        this.b15_1 = 120;
+        this.c15_1 = 620;
+        this.d15_1 = 300;
+        this.e15_1 = .008333333333333333;
+        this.f15_1 = 4;
+        this.g15_1 = 9;
+        this.h15_1 = 1100;
+        this.i15_1 = 30;
+        this.j15_1 = 200;
+        this.k15_1 = 4;
+        this.l15_1 = 10;
+        this.m15_1 = 75;
+        this.n15_1 = 2.5;
+        this.o15_1 = 70;
+        this.p15_1 = 300;
+        this.q15_1 = 20;
+        this.r15_1 = 60;
+        this.s15_1 = 300;
+        this.t15_1 = 2;
+        this.u15_1 = .8;
+        this.v15_1 = .65;
+        this.w15_1 = 30;
+        this.x15_1 = 5;
+        this.y15_1 = 55;
+        this.z15_1 = 2;
+        this.a16_1 = 2;
+        this.b16_1 = 22;
+        this.c16_1 = 440;
+        this.d16_1 = 130;
+        this.e16_1 = 170;
+        this.f16_1 = 25;
+        this.g16_1 = 250;
+        this.h16_1 = 120;
+    }
+    protoOf(Companion_25).t16 = function(random) {
+        var roll = random.q(100);
+        return roll < 28 ? 'cluster' : roll < 56 ? 'bouncer' : roll < 70 ? 'mega' : roll < 86 ? 'repair' : 'surprise';
+    };
+    var Companion_instance_25;
+    function Companion_getInstance_25() {
+        if (Companion_instance_25 == null) new Companion_25;
+        return Companion_instance_25;
+    }
+    function sam$kotlin_Comparator$0_0(function_0) {
+        this.u16_1 = function_0;
+    }
+    protoOf(sam$kotlin_Comparator$0_0).w9 = function(a, b) {
+        return this.u16_1(a, b);
+    };
+    protoOf(sam$kotlin_Comparator$0_0).compare = function(a, b) {
+        return this.w9(a, b);
+    };
+    protoOf(sam$kotlin_Comparator$0_0).j2 = function() {
+        return this.u16_1;
+    };
+    protoOf(sam$kotlin_Comparator$0_0).equals = function(other) {
+        var tmp;
+        if (!(other == null) ? isInterface(other, Comparator) : false) {
+            var tmp_0;
+            if (!(other == null) ? isInterface(other, FunctionAdapter) : false) {
+                tmp_0 = equals(this.j2(), other.j2());
+            } else {
+                tmp_0 = false;
+            }
+            tmp = tmp_0;
+        } else {
+            tmp = false;
+        }
+        return tmp;
+    };
+    protoOf(sam$kotlin_Comparator$0_0).hashCode = function() {
+        return hashCode_0(this.j2());
+    };
+    function ArtilleryGame$Companion$randomContents$ref(p0) {
+        return constructCallableReference((function(p0_0) {
+            return p0.t16(p0_0);
+        }), 1, 0, 7, 'randomContents', [ p0 ]);
+    }
+    function ArtilleryGame$resolve$lambda(a, b) {
+        var tmp = a.t12_1;
+        var tmp$ret$2 = b.t12_1;
+        return compareValues(tmp, tmp$ret$2);
+    }
+    function resolve$open(this$0, $side, queue, opened, crate, time) {
+        this$0.t13_1.w2(crate);
+        var holds = this$0.m13_1(this$0.j13_1);
+        switch (holds) {
+          case 'repair':
+            var b = this$0.p13_1[$side] + 25 | 0;
+            var tmp$ret$0 = Math.min(100, b);
+            this$0.p13_1[$side] = tmp$ret$0;
+            break;
+
+          case 'surprise':
+            var element = new Blast(time + 250, crate.q12_1, crate.r12_1, getValue(Companion_getInstance_25().p14_1, 'surprise'), null, 'surprise');
+            queue.f(element);
+            break;
+
+          default:
+            var tmp0 = this$0.s13_1[$side];
+            var tmp1_elvis_lhs = this$0.s13_1[$side].s1(holds);
+            var value = (tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs) + 1 | 0;
+            tmp0.w1(holds, value);
+            break;
+        }
+        var builder = new JsonObjectBuilder;
+        put(builder, 'id', crate.p12_1);
+        put(builder, 'x', crate.q12_1);
+        put(builder, 'y', crate.r12_1);
+        put(builder, 't', time);
+        put_0(builder, 'holds', holds);
+        var element_0 = builder.ev();
+        opened.f(element_0);
+    }
+    function ArtilleryGame(players, random, maxWind, cratesEvery, crateHolds) {
+        Companion_getInstance_25();
+        maxWind = maxWind === VOID ? 4 : maxWind;
+        cratesEvery = cratesEvery === VOID ? 2 : cratesEvery;
+        var tmp;
+        if (crateHolds === VOID) {
+            tmp = ArtilleryGame$Companion$randomContents$ref(Companion_getInstance_25());
+        } else {
+            tmp = crateHolds;
+        }
+        crateHolds = tmp;
+        this.i13_1 = players;
+        this.j13_1 = random;
+        this.k13_1 = maxWind;
+        this.l13_1 = cratesEvery;
+        this.m13_1 = crateHolds;
+        this.n13_1 = makeGround(Companion_getInstance_25(), this.j13_1);
+        var tmp_0 = this;
+        tmp_0.o13_1 = new Float64Array([ 110, 1e3 - 110 ]);
+        var tmp_1 = this;
+        var tmp_2 = 0;
+        var tmp_3 = new Int32Array(2);
+        while (tmp_2 < 2) {
+            tmp_3[tmp_2] = 100;
+            tmp_2 = tmp_2 + 1 | 0;
+        }
+        tmp_1.p13_1 = tmp_3;
+        var tmp_4 = this;
+        tmp_4.q13_1 = new Float64Array([ 45, 135 ]);
+        var tmp_5 = this;
+        tmp_5.r13_1 = Array(2);
+        var tmp_6 = this;
+        var tmp_7 = 0;
+        var tmp_8 = Array(2);
+        while (tmp_7 < 2) {
+            tmp_8[tmp_7] = LinkedHashMap_init_$Create$();
+            tmp_7 = tmp_7 + 1 | 0;
+        }
+        tmp_6.s13_1 = tmp_8;
+        var tmp_9 = this;
+        tmp_9.t13_1 = ArrayList_init_$Create$();
+        this.u13_1 = 0;
+        this.v13_1 = 0;
+        this.w13_1 = newWind(this);
+        this.x13_1 = this.j13_1.q(2);
+        this.y13_1 = 30;
+        this.z13_1 = 0;
+        this.a14_1 = null;
+        this.b14_1 = 0;
+        this.c14_1 = null;
+        this.d14_1 = 0;
+        this.e14_1 = null;
+        this.f14_1 = null;
+        var tmp_10 = this;
+        tmp_10.g14_1 = ArrayList_init_$Create$();
+    }
+    protoOf(ArtilleryGame).v16 = function() {
+        return this.f14_1;
+    };
+    protoOf(ArtilleryGame).w16 = function(player, action) {
+        var side = this.i13_1.n1(player);
+        if (!(side === this.x13_1) || this.z13_1 > 0 || !(this.f14_1 == null)) return false;
+        var tmp3_safe_receiver = action.su('do');
+        var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
+        if ((tmp4_safe_receiver == null ? null : get_contentOrNull(tmp4_safe_receiver)) === 'drive') {
+            var tmp0_safe_receiver = action.su('direction');
+            var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
+            var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
+            var tmp;
+            if (tmp2_elvis_lhs == null) {
+                return false;
+            } else {
+                tmp = tmp2_elvis_lhs;
+            }
+            var direction = tmp;
+            switch (direction) {
+              case 1:
+              case -1:
+                return drive(this, side, direction);
+
+              default:
+                return false;
+            }
+        }
+        var tmp5_safe_receiver = action.su('angle');
+        var tmp6_safe_receiver = tmp5_safe_receiver == null ? null : get_jsonPrimitive(tmp5_safe_receiver);
+        var tmp7_safe_receiver = tmp6_safe_receiver == null ? null : get_doubleOrNull(tmp6_safe_receiver);
+        var tmp8_elvis_lhs = tmp7_safe_receiver == null ? null : coerceIn(tmp7_safe_receiver, 0, 180);
+        var tmp_0;
+        if (tmp8_elvis_lhs == null) {
+            return false;
+        } else {
+            tmp_0 = tmp8_elvis_lhs;
+        }
+        var angle = tmp_0;
+        var tmp9_safe_receiver = action.su('do');
+        var tmp10_safe_receiver = tmp9_safe_receiver == null ? null : get_jsonPrimitive(tmp9_safe_receiver);
+        var tmp_1;
+        switch (tmp10_safe_receiver == null ? null : get_contentOrNull(tmp10_safe_receiver)) {
+          case 'aim':
+            this.q13_1[side] = angle;
+            tmp_1 = true;
+            break;
+
+          case 'fire':
+            var tmp12_safe_receiver = action.su('power');
+            var tmp13_safe_receiver = tmp12_safe_receiver == null ? null : get_jsonPrimitive(tmp12_safe_receiver);
+            var tmp14_safe_receiver = tmp13_safe_receiver == null ? null : get_doubleOrNull(tmp13_safe_receiver);
+            var tmp15_elvis_lhs = tmp14_safe_receiver == null ? null : coerceIn(tmp14_safe_receiver, 0, 100);
+            var tmp_2;
+            if (tmp15_elvis_lhs == null) {
+                return false;
+            } else {
+                tmp_2 = tmp15_elvis_lhs;
+            }
+            var tmp_3 = tmp_2;
+            var tmp16_safe_receiver = action.su('weapon');
+            var tmp17_safe_receiver = tmp16_safe_receiver == null ? null : get_jsonPrimitive(tmp16_safe_receiver);
+            var tmp18_elvis_lhs = tmp17_safe_receiver == null ? null : get_contentOrNull(tmp17_safe_receiver);
+            tmp_1 = fire(this, side, angle, tmp_3, tmp18_elvis_lhs == null ? 'shell' : tmp18_elvis_lhs);
+            break;
+
+          default:
+            tmp_1 = false;
+            break;
+        }
+        return tmp_1;
+    };
+    protoOf(ArtilleryGame).x16 = function() {
+        if (!(this.f14_1 == null) || this.z13_1 > 0) return false;
+        this.y13_1 = this.y13_1 - 1 | 0;
+        if (this.y13_1 > 0) return true;
+        nextTurn(this);
+        return true;
+    };
+    protoOf(ArtilleryGame).y16 = function() {
+        if (this.z13_1 <= 0) return Frame_NONE_getInstance();
+        this.z13_1 = this.z13_1 - 200 | 0;
+        if (this.z13_1 > 0) return Frame_NONE_getInstance();
+        this.z13_1 = 0;
+        if (!(this.e14_1 == null)) this.f14_1 = this.e14_1; else {
+            nextTurn(this);
+        }
+        return Frame_EVERYONE_getInstance();
+    };
+    protoOf(ArtilleryGame).z16 = function() {
+        var builder = new JsonObjectBuilder;
+        common(this, builder);
+        put(builder, 'width', 1e3);
+        put(builder, 'height', 562);
+        put(builder, 'column', 5);
+        var this_0 = this.n13_1;
+        var destination = ArrayList_init_$Create$_0(this_0.length);
+        var inductionVariable = 0;
+        var last = this_0.length;
+        while (inductionVariable < last) {
+            var item = this_0[inductionVariable];
+            inductionVariable = inductionVariable + 1 | 0;
+            var tmp$ret$4 = JsonPrimitive_0(roundToInt(item));
+            destination.f(tmp$ret$4);
+        }
+        builder.dv('ground', new JsonArray(destination));
+        var tmp0_elvis_lhs = this.a14_1;
+        builder.dv('shot', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
+        var tmp1_elvis_lhs = this.c14_1;
+        builder.dv('drive', tmp1_elvis_lhs == null ? JsonNull_getInstance() : tmp1_elvis_lhs);
+        var this_1 = this.o13_1;
+        var destination_0 = ArrayList_init_$Create$_0(this_1.length);
+        var inductionVariable_0 = 0;
+        var last_0 = this_1.length;
+        while (inductionVariable_0 < last_0) {
+            var item_0 = this_1[inductionVariable_0];
+            inductionVariable_0 = inductionVariable_0 + 1 | 0;
+            var tmp$ret$7 = JsonPrimitive_0(item_0);
+            destination_0.f(tmp$ret$7);
+        }
+        builder.dv('xs', new JsonArray(destination_0));
+        var this_2 = numberRangeToNumber(0, 1);
+        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_2, 10));
+        var inductionVariable_1 = this_2.v_1;
+        var last_1 = this_2.w_1;
+        if (inductionVariable_1 <= last_1) do {
+            var item_1 = inductionVariable_1;
+            inductionVariable_1 = inductionVariable_1 + 1 | 0;
+            var it = item_1;
+            var tmp$ret$10 = JsonPrimitive_0(roundToInt(cannonY(this, it)));
+            destination_1.f(tmp$ret$10);
+        } while (!(item_1 === last_1));
+        builder.dv('ys', new JsonArray(destination_1));
+        var this_3 = this.t13_1;
+        var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_3, 10));
+        var _iterator__ex2g4s = this_3.g();
+        while (_iterator__ex2g4s.h()) {
+            var item_2 = _iterator__ex2g4s.i();
+            var builder_0 = new JsonObjectBuilder;
+            put(builder_0, 'id', item_2.p12_1);
+            put(builder_0, 'x', item_2.q12_1);
+            put(builder_0, 'y', item_2.r12_1);
+            put_1(builder_0, 'inAir', item_2.s12_1);
+            var tmp$ret$13 = builder_0.ev();
+            destination_2.f(tmp$ret$13);
+        }
+        builder.dv('crates', new JsonArray(destination_2));
+        return builder.ev();
+    };
+    protoOf(ArtilleryGame).a17 = function(player) {
+        var builder = new JsonObjectBuilder;
+        var side = this.i13_1.n1(player);
+        common(this, builder);
+        put(builder, 'side', side);
+        put_1(builder, 'yourTurn', this.f14_1 == null && this.z13_1 === 0 && this.x13_1 === side);
+        var last = this.r13_1[side];
+        var tmp;
+        if (last == null) {
+            tmp = JsonNull_getInstance();
+        } else {
+            var builder_0 = new JsonObjectBuilder;
+            put(builder_0, 'angle', last.ra_1);
+            put(builder_0, 'power', last.sa_1);
+            tmp = builder_0.ev();
+        }
+        builder.dv('lastShot', tmp);
+        return builder.ev();
+    };
+    function Artillery() {
+        Artillery_instance = this;
+        this.r16_1 = 'artillery';
+        this.s16_1 = numberRangeToNumber(2, 2);
+    }
+    protoOf(Artillery).b17 = function() {
+        return this.r16_1;
+    };
+    protoOf(Artillery).c17 = function() {
+        return this.s16_1;
+    };
+    protoOf(Artillery).d17 = function(players, random) {
+        return new ArtilleryGame(players, random);
+    };
+    var Artillery_instance;
+    function Artillery_getInstance() {
+        if (Artillery_instance == null) new Artillery;
+        return Artillery_instance;
+    }
     function Ship(cells) {
-        this.z12_1 = cells;
+        this.e17_1 = cells;
     }
     function _get_settingOut__x7we4z($this) {
-        return $this.e13_1.j() < $this.a13_1.j();
+        return $this.j17_1.j() < $this.f17_1.j();
     }
     function setOut($this, player, action) {
-        var tmp0_safe_receiver = action.cv('do');
+        var tmp0_safe_receiver = action.su('do');
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var command = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
-        if (command === 'unready') return $this.e13_1.y2(player);
-        if ($this.e13_1.m1(player)) return false;
-        var fleet = getValue($this.d13_1, player);
+        if (command === 'unready') return $this.j17_1.w2(player);
+        if ($this.j17_1.l1(player)) return false;
+        var fleet = getValue($this.i17_1, player);
         var tmp;
         switch (command) {
           case 'place':
@@ -18120,7 +18775,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'remove':
-            var tmp3_safe_receiver = action.cv('x');
+            var tmp3_safe_receiver = action.su('x');
             var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
             var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : get_intOrNull(tmp4_safe_receiver);
             var tmp_0;
@@ -18130,7 +18785,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_0 = tmp5_elvis_lhs;
             }
             var x = tmp_0;
-            var tmp6_safe_receiver = action.cv('y');
+            var tmp6_safe_receiver = action.su('y');
             var tmp7_safe_receiver = tmp6_safe_receiver == null ? null : get_jsonPrimitive(tmp6_safe_receiver);
             var tmp8_elvis_lhs = tmp7_safe_receiver == null ? null : get_intOrNull(tmp7_safe_receiver);
             var tmp_1;
@@ -18144,20 +18799,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'random':
-            fleet.a2();
-            var elements = placeFleet($this, $this.b13_1);
+            fleet.k3();
+            var elements = placeFleet($this, $this.g17_1);
             addAll(fleet, elements);
             tmp = true;
             break;
 
           case 'clear':
-            var hadAny = !fleet.k();
-            fleet.a2();
+            var hadAny = !fleet.p();
+            fleet.k3();
             tmp = hadAny;
             break;
 
           case 'ready':
-            tmp = remaining($this, fleet).k() && $this.e13_1.f(player);
+            tmp = remaining($this, fleet).p() && $this.j17_1.f(player);
             break;
 
           default:
@@ -18167,7 +18822,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function place($this, fleet, action) {
-        var tmp0_safe_receiver = action.cv('size');
+        var tmp0_safe_receiver = action.su('size');
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
         var tmp;
@@ -18177,7 +18832,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp2_elvis_lhs;
         }
         var size = tmp;
-        if (!remaining($this, fleet).m1(size)) return false;
+        if (!remaining($this, fleet).l1(size)) return false;
         var tmp3_elvis_lhs = cellsFor($this, fleet, action, size);
         var tmp_0;
         if (tmp3_elvis_lhs == null) {
@@ -18191,7 +18846,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return true;
     }
     function move($this, fleet, action) {
-        var tmp0_safe_receiver = action.cv('fromX');
+        var tmp0_safe_receiver = action.su('fromX');
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
         var tmp;
@@ -18201,7 +18856,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp2_elvis_lhs;
         }
         var fromX = tmp;
-        var tmp3_safe_receiver = action.cv('fromY');
+        var tmp3_safe_receiver = action.su('fromY');
         var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
         var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : get_intOrNull(tmp4_safe_receiver);
         var tmp_0;
@@ -18216,7 +18871,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = fleet.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.z12_1.m1(imul(fromY, 10) + fromX | 0)) {
+                if (element.e17_1.l1(imul(fromY, 10) + fromX | 0)) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -18231,7 +18886,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1 = tmp6_elvis_lhs;
         }
         var ship = tmp_1;
-        var tmp7_elvis_lhs = cellsFor($this, minus(fleet, ship), action, ship.z12_1.j());
+        var tmp7_elvis_lhs = cellsFor($this, minus(fleet, ship), action, ship.e17_1.j());
         var tmp_2;
         if (tmp7_elvis_lhs == null) {
             return false;
@@ -18239,11 +18894,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_2 = tmp7_elvis_lhs;
         }
         var cells = tmp_2;
-        fleet.s(fleet.o1(ship), new Ship(cells));
+        fleet.r(fleet.n1(ship), new Ship(cells));
         return true;
     }
     function cellsFor($this, others, action, size) {
-        var tmp0_safe_receiver = action.cv('x');
+        var tmp0_safe_receiver = action.su('x');
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
         var tmp;
@@ -18253,7 +18908,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp2_elvis_lhs;
         }
         var x = tmp;
-        var tmp3_safe_receiver = action.cv('y');
+        var tmp3_safe_receiver = action.su('y');
         var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
         var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : get_intOrNull(tmp4_safe_receiver);
         var tmp_0;
@@ -18263,7 +18918,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = tmp5_elvis_lhs;
         }
         var y = tmp_0;
-        var tmp6_safe_receiver = action.cv('across');
+        var tmp6_safe_receiver = action.su('across');
         var tmp7_safe_receiver = tmp6_safe_receiver == null ? null : get_jsonPrimitive(tmp6_safe_receiver);
         var tmp8_elvis_lhs = tmp7_safe_receiver == null ? null : get_booleanOrNull(tmp7_safe_receiver);
         var tmp_1;
@@ -18276,8 +18931,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (!(0 <= x ? x < 10 : false) || !(0 <= y ? y < 10 : false) || ((across ? x : y) + size | 0) > 10) return null;
         var this_0 = until(0, size);
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var inductionVariable = this_0.w_1;
-        var last = this_0.x_1;
+        var inductionVariable = this_0.v_1;
+        var last = this_0.w_1;
         if (inductionVariable <= last) do {
             var item = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
@@ -18290,7 +18945,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = others.g();
         while (_iterator__ex2g4s.h()) {
             var element = _iterator__ex2g4s.i();
-            var tmp0 = element.z12_1;
+            var tmp0 = element.e17_1;
             var destination_1 = ArrayList_init_$Create$();
             var _iterator__ex2g4s_0 = tmp0.g();
             while (_iterator__ex2g4s_0.h()) {
@@ -18307,7 +18962,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp_3;
             if (isInterface(cells, Collection)) {
-                tmp_3 = cells.k();
+                tmp_3 = cells.p();
             } else {
                 tmp_3 = false;
             }
@@ -18318,7 +18973,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = cells.g();
             while (_iterator__ex2g4s_1.h()) {
                 var element_1 = _iterator__ex2g4s_1.i();
-                if (blocked.m1(element_1)) {
+                if (blocked.l1(element_1)) {
                     tmp$ret$9 = true;
                     break $l$block_0;
                 }
@@ -18333,17 +18988,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp_2;
     }
     function remaining($this, fleet) {
-        var this_0 = toMutableList(Companion_getInstance_25().k13_1);
+        var this_0 = toMutableList(Companion_getInstance_26().p17_1);
         var _iterator__ex2g4s = fleet.g();
         while (_iterator__ex2g4s.h()) {
             var element = _iterator__ex2g4s.i();
-            this_0.y2(element.z12_1.j());
+            this_0.w2(element.e17_1.j());
         }
         return this_0;
     }
     function shoot($this, player, action) {
-        if (!(player === $this.c13_1)) return false;
-        var tmp0_safe_receiver = action.cv('x');
+        if (!(player === $this.h17_1)) return false;
+        var tmp0_safe_receiver = action.su('x');
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
         var tmp;
@@ -18353,7 +19008,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp2_elvis_lhs;
         }
         var x = tmp;
-        var tmp3_safe_receiver = action.cv('y');
+        var tmp3_safe_receiver = action.su('y');
         var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
         var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : get_intOrNull(tmp4_safe_receiver);
         var tmp_0;
@@ -18366,17 +19021,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (!(0 <= x ? x < 10 : false) || !(0 <= y ? y < 10 : false)) return false;
         var target = opponent($this, player);
         var cell = imul(y, 10) + x | 0;
-        if (!getValue($this.f13_1, target).f(cell)) return false;
-        var tmp0 = $this.g13_1;
-        var value = getValue($this.g13_1, player) + 1 | 0;
-        tmp0.x1(player, value);
-        var tmp0_0 = getValue($this.d13_1, target);
+        if (!getValue($this.k17_1, target).f(cell)) return false;
+        var tmp0 = $this.l17_1;
+        var value = getValue($this.l17_1, player) + 1 | 0;
+        tmp0.w1(player, value);
+        var tmp0_0 = getValue($this.i17_1, target);
         var tmp$ret$1;
         $l$block: {
             var _iterator__ex2g4s = tmp0_0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.z12_1.m1(cell)) {
+                if (element.e17_1.l1(cell)) {
                     tmp$ret$1 = element;
                     break $l$block;
                 }
@@ -18384,10 +19039,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$1 = null;
         }
         var ship = tmp$ret$1;
-        var result = ship == null ? 'miss' : getValue($this.f13_1, target).n1(ship.z12_1) ? 'sunk' : 'hit';
+        var result = ship == null ? 'miss' : getValue($this.k17_1, target).m1(ship.e17_1) ? 'sunk' : 'hit';
         if (result === 'sunk') {
-            var tmp0_1 = getValue($this.f13_1, target);
-            var tmp0_2 = ensureNotNull(ship).z12_1;
+            var tmp0_1 = getValue($this.k17_1, target);
+            var tmp0_2 = ensureNotNull(ship).e17_1;
             var destination = ArrayList_init_$Create$();
             var _iterator__ex2g4s_0 = tmp0_2.g();
             while (_iterator__ex2g4s_0.h()) {
@@ -18397,13 +19052,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             addAll(tmp0_1, destination);
         }
-        if (ship == null) $this.c13_1 = target;
-        var tmp0_3 = getValue($this.d13_1, target);
+        if (ship == null) $this.h17_1 = target;
+        var tmp0_3 = getValue($this.i17_1, target);
         var tmp$ret$7;
         $l$block_1: {
             var tmp_1;
             if (isInterface(tmp0_3, Collection)) {
-                tmp_1 = tmp0_3.k();
+                tmp_1 = tmp0_3.p();
             } else {
                 tmp_1 = false;
             }
@@ -18414,37 +19069,37 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = tmp0_3.g();
             while (_iterator__ex2g4s_1.h()) {
                 var element_1 = _iterator__ex2g4s_1.i();
-                if (!getValue($this.f13_1, target).n1(element_1.z12_1)) {
+                if (!getValue($this.k17_1, target).m1(element_1.e17_1)) {
                     tmp$ret$7 = false;
                     break $l$block_1;
                 }
             }
             tmp$ret$7 = true;
         }
-        if (tmp$ret$7) $this.i13_1 = player;
+        if (tmp$ret$7) $this.n17_1 = player;
         var tmp_2 = $this;
         var builder = new JsonObjectBuilder;
-        put(builder, 'by', player);
-        put_0(builder, 'x', x);
-        put_0(builder, 'y', y);
-        put(builder, 'result', result);
-        tmp_2.h13_1 = builder.ov();
+        put_0(builder, 'by', player);
+        put(builder, 'x', x);
+        put(builder, 'y', y);
+        put_0(builder, 'result', result);
+        tmp_2.m17_1 = builder.ev();
         return true;
     }
     function firedJson($this) {
-        var this_0 = $this.g13_1;
+        var this_0 = $this.l17_1;
         var destination = LinkedHashMap_init_$Create$_0(mapCapacity(this_0.j()));
-        var _iterator__ex2g4s = this_0.w1().g();
+        var _iterator__ex2g4s = this_0.v1().g();
         while (_iterator__ex2g4s.h()) {
             var element = _iterator__ex2g4s.i();
-            var tmp = element.p1();
-            var tmp$ret$4 = JsonPrimitive_0(element.q1());
-            destination.x1(tmp, tmp$ret$4);
+            var tmp = element.o1();
+            var tmp$ret$4 = JsonPrimitive_0(element.p1());
+            destination.w1(tmp, tmp$ret$4);
         }
         return new JsonObject(destination);
     }
     function opponent($this, player) {
-        var tmp0 = $this.a13_1;
+        var tmp0 = $this.f17_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
@@ -18460,12 +19115,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp$ret$0;
     }
     function rows($this, owner, showShips) {
-        var fleet = getValue($this.d13_1, owner);
-        var shot = getValue($this.f13_1, owner);
+        var fleet = getValue($this.i17_1, owner);
+        var shot = getValue($this.k17_1, owner);
         var this_0 = until(0, 10);
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var inductionVariable = this_0.w_1;
-        var last = this_0.x_1;
+        var inductionVariable = this_0.v_1;
+        var last = this_0.w_1;
         if (inductionVariable <= last) do {
             var item = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
@@ -18480,7 +19135,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var _iterator__ex2g4s = fleet.g();
                     while (_iterator__ex2g4s.h()) {
                         var element = _iterator__ex2g4s.i();
-                        if (element.z12_1.m1(cell)) {
+                        if (element.e17_1.l1(cell)) {
                             tmp$ret$4 = element;
                             break $l$block;
                         }
@@ -18488,7 +19143,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     tmp$ret$4 = null;
                 }
                 var ship = tmp$ret$4;
-                tmp_0[tmp_1] = !shot.m1(cell) ? !(ship == null) && showShips ? _Char___init__impl__6a9atx(83) : _Char___init__impl__6a9atx(46) : ship == null ? _Char___init__impl__6a9atx(111) : shot.n1(ship.z12_1) ? _Char___init__impl__6a9atx(35) : _Char___init__impl__6a9atx(120);
+                tmp_0[tmp_1] = !shot.l1(cell) ? !(ship == null) && showShips ? _Char___init__impl__6a9atx(83) : _Char___init__impl__6a9atx(46) : ship == null ? _Char___init__impl__6a9atx(111) : shot.m1(ship.e17_1) ? _Char___init__impl__6a9atx(35) : _Char___init__impl__6a9atx(120);
                 tmp = tmp + 1 | 0;
             }
             var tmp$ret$2 = JsonPrimitive_1(concatToString(tmp_0));
@@ -18500,12 +19155,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (true) {
             var ships = ArrayList_init_$Create$();
             var blocked = LinkedHashSet_init_$Create$();
-            var _iterator__ex2g4s = Companion_getInstance_25().k13_1.g();
+            var _iterator__ex2g4s = Companion_getInstance_26().p17_1.g();
             $l$loop: while (_iterator__ex2g4s.h()) {
                 var length = _iterator__ex2g4s.i();
                 var tmp = asSequence(shuffled(until(0, 200), random));
                 var options = mapNotNull(tmp, BattleshipGame$placeFleet$lambda(length, blocked));
-                var tmp0_elvis_lhs = firstOrNull_0(options);
+                var tmp0_elvis_lhs = firstOrNull(options);
                 var tmp_0;
                 if (tmp0_elvis_lhs == null) {
                     break $l$loop;
@@ -18523,7 +19178,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     blocked.f(element_0);
                 }
             }
-            if (ships.j() === Companion_getInstance_25().k13_1.j()) return ships;
+            if (ships.j() === Companion_getInstance_26().p17_1.j()) return ships;
         }
     }
     function around($this, cell) {
@@ -18531,16 +19186,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var y = cell / 10 | 0;
         var tmp0 = numberRangeToNumber(-1, 1);
         var destination = ArrayList_init_$Create$();
-        var inductionVariable = tmp0.w_1;
-        var last = tmp0.x_1;
+        var inductionVariable = tmp0.v_1;
+        var last = tmp0.w_1;
         if (inductionVariable <= last) do {
             var element = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var dy = element;
             var tmp0_0 = numberRangeToNumber(-1, 1);
             var destination_0 = ArrayList_init_$Create$();
-            var inductionVariable_0 = tmp0_0.w_1;
-            var last_0 = tmp0_0.x_1;
+            var inductionVariable_0 = tmp0_0.v_1;
+            var last_0 = tmp0_0.w_1;
             if (inductionVariable_0 <= last_0) do {
                 var element_0 = inductionVariable_0;
                 inductionVariable_0 = inductionVariable_0 + 1 | 0;
@@ -18556,12 +19211,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         } while (!(element === last));
         return destination;
     }
-    function Companion_25() {
-        Companion_instance_25 = this;
-        this.j13_1 = 10;
-        this.k13_1 = listOf_0([ 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 ]);
+    function Companion_26() {
+        Companion_instance_26 = this;
+        this.o17_1 = 10;
+        this.p17_1 = listOf_0([ 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 ]);
         var tmp = this;
-        var this_0 = this.k13_1;
+        var this_0 = this.p17_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.g();
         while (_iterator__ex2g4s.h()) {
@@ -18569,16 +19224,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var tmp$ret$2 = JsonPrimitive_0(item);
             destination.f(tmp$ret$2);
         }
-        tmp.l13_1 = new JsonArray(destination);
+        tmp.q17_1 = new JsonArray(destination);
     }
-    var Companion_instance_25;
-    function Companion_getInstance_25() {
-        if (Companion_instance_25 == null) new Companion_25;
-        return Companion_instance_25;
+    var Companion_instance_26;
+    function Companion_getInstance_26() {
+        if (Companion_instance_26 == null) new Companion_26;
+        return Companion_instance_26;
     }
     function BattleshipGame$setOut$lambda($y, $x) {
         return function(it) {
-            return it.z12_1.m1(imul($y, 10) + $x | 0);
+            return it.e17_1.l1(imul($y, 10) + $x | 0);
         };
     }
     function BattleshipGame$placeFleet$lambda($length, $blocked) {
@@ -18593,8 +19248,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             var this_0 = until(0, $length);
             var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-            var inductionVariable = this_0.w_1;
-            var last = this_0.x_1;
+            var inductionVariable = this_0.v_1;
+            var last = this_0.w_1;
             if (inductionVariable <= last) do {
                 var item = inductionVariable;
                 inductionVariable = inductionVariable + 1 | 0;
@@ -18608,7 +19263,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             $l$block_0: {
                 var tmp_1;
                 if (isInterface(cells, Collection)) {
-                    tmp_1 = cells.k();
+                    tmp_1 = cells.p();
                 } else {
                     tmp_1 = false;
                 }
@@ -18619,7 +19274,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s = cells.g();
                 while (_iterator__ex2g4s.h()) {
                     var element = _iterator__ex2g4s.i();
-                    if ($blocked.m1(element)) {
+                    if ($blocked.l1(element)) {
                         tmp$ret$5 = false;
                         break $l$block_0;
                     }
@@ -18635,113 +19290,113 @@ if (typeof String.prototype.startsWith === 'undefined') {
         };
     }
     function BattleshipGame(players, random_0, turn) {
-        Companion_getInstance_25();
+        Companion_getInstance_26();
         turn = turn === VOID ? random(players, random_0) : turn;
-        this.a13_1 = players;
-        this.b13_1 = random_0;
-        this.c13_1 = turn;
+        this.f17_1 = players;
+        this.g17_1 = random_0;
+        this.h17_1 = turn;
         var tmp = this;
-        var this_0 = this.a13_1;
+        var this_0 = this.f17_1;
         var result = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_0, 10)), 16));
         var _iterator__ex2g4s = this_0.g();
         while (_iterator__ex2g4s.h()) {
             var element = _iterator__ex2g4s.i();
             var tmp$ret$2 = ArrayList_init_$Create$();
-            result.x1(element, tmp$ret$2);
+            result.w1(element, tmp$ret$2);
         }
-        tmp.d13_1 = result;
+        tmp.i17_1 = result;
         var tmp_0 = this;
-        tmp_0.e13_1 = LinkedHashSet_init_$Create$();
+        tmp_0.j17_1 = LinkedHashSet_init_$Create$();
         var tmp_1 = this;
-        var this_1 = this.a13_1;
+        var this_1 = this.f17_1;
         var result_0 = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_1, 10)), 16));
         var _iterator__ex2g4s_0 = this_1.g();
         while (_iterator__ex2g4s_0.h()) {
             var element_0 = _iterator__ex2g4s_0.i();
             var tmp$ret$7 = LinkedHashSet_init_$Create$();
-            result_0.x1(element_0, tmp$ret$7);
+            result_0.w1(element_0, tmp$ret$7);
         }
-        tmp_1.f13_1 = result_0;
+        tmp_1.k17_1 = result_0;
         var tmp_2 = this;
-        var this_2 = this.a13_1;
+        var this_2 = this.f17_1;
         var result_1 = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_2, 10)), 16));
         var _iterator__ex2g4s_1 = this_2.g();
         while (_iterator__ex2g4s_1.h()) {
             var element_1 = _iterator__ex2g4s_1.i();
-            result_1.x1(element_1, 0);
+            result_1.w1(element_1, 0);
         }
-        tmp_2.g13_1 = toMutableMap(result_1);
-        this.h13_1 = null;
-        this.i13_1 = null;
+        tmp_2.l17_1 = toMutableMap(result_1);
+        this.m17_1 = null;
+        this.n17_1 = null;
     }
-    protoOf(BattleshipGame).m13 = function() {
-        return this.i13_1;
+    protoOf(BattleshipGame).v16 = function() {
+        return this.n17_1;
     };
-    protoOf(BattleshipGame).n13 = function(player, action) {
-        return !(this.i13_1 == null) ? false : _get_settingOut__x7we4z(this) ? setOut(this, player, action) : shoot(this, player, action);
+    protoOf(BattleshipGame).w16 = function(player, action) {
+        return !(this.n17_1 == null) ? false : _get_settingOut__x7we4z(this) ? setOut(this, player, action) : shoot(this, player, action);
     };
-    protoOf(BattleshipGame).o13 = function() {
+    protoOf(BattleshipGame).z16 = function() {
         var tmp;
         if (_get_settingOut__x7we4z(this)) {
             var builder = new JsonObjectBuilder;
-            put(builder, 'game', Battleship_getInstance().p13_1);
-            put(builder, 'phase', 'placing');
-            builder.nv('fleet', Companion_getInstance_25().l13_1);
-            var this_0 = this.a13_1;
+            put_0(builder, 'game', Battleship_getInstance().r17_1);
+            put_0(builder, 'phase', 'placing');
+            builder.dv('fleet', Companion_getInstance_26().q17_1);
+            var this_0 = this.f17_1;
             var result = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_0, 10)), 16));
             var _iterator__ex2g4s = this_0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
                 var builder_0 = new JsonObjectBuilder;
-                var this_1 = getValue(this.d13_1, element);
+                var this_1 = getValue(this.i17_1, element);
                 var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
                 var _iterator__ex2g4s_0 = this_1.g();
                 while (_iterator__ex2g4s_0.h()) {
                     var item = _iterator__ex2g4s_0.i();
-                    var tmp$ret$9 = JsonPrimitive_0(item.z12_1.j());
+                    var tmp$ret$9 = JsonPrimitive_0(item.e17_1.j());
                     destination.f(tmp$ret$9);
                 }
-                builder_0.nv('placed', new JsonArray(destination));
-                put_1(builder_0, 'ready', this.e13_1.m1(element));
-                var tmp$ret$4 = builder_0.ov();
-                result.x1(element, tmp$ret$4);
+                builder_0.dv('placed', new JsonArray(destination));
+                put_1(builder_0, 'ready', this.j17_1.l1(element));
+                var tmp$ret$4 = builder_0.ev();
+                result.w1(element, tmp$ret$4);
             }
-            builder.nv('placing', new JsonObject(result));
-            tmp = builder.ov();
+            builder.dv('placing', new JsonObject(result));
+            tmp = builder.ev();
         } else {
             var builder_1 = new JsonObjectBuilder;
-            put(builder_1, 'game', Battleship_getInstance().p13_1);
-            put(builder_1, 'phase', 'playing');
-            put(builder_1, 'turn', this.c13_1);
-            put(builder_1, 'winner', this.i13_1);
-            var tmp0_elvis_lhs = this.h13_1;
-            builder_1.nv('last', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
-            builder_1.nv('fleet', Companion_getInstance_25().l13_1);
-            builder_1.nv('fired', firedJson(this));
-            var this_2 = this.a13_1;
+            put_0(builder_1, 'game', Battleship_getInstance().r17_1);
+            put_0(builder_1, 'phase', 'playing');
+            put_0(builder_1, 'turn', this.h17_1);
+            put_0(builder_1, 'winner', this.n17_1);
+            var tmp0_elvis_lhs = this.m17_1;
+            builder_1.dv('last', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
+            builder_1.dv('fleet', Companion_getInstance_26().q17_1);
+            builder_1.dv('fired', firedJson(this));
+            var this_2 = this.f17_1;
             var result_0 = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_2, 10)), 16));
             var _iterator__ex2g4s_1 = this_2.g();
             while (_iterator__ex2g4s_1.h()) {
                 var element_0 = _iterator__ex2g4s_1.i();
-                var tmp$ret$14 = rows(this, element_0, !(this.i13_1 == null));
-                result_0.x1(element_0, tmp$ret$14);
+                var tmp$ret$14 = rows(this, element_0, !(this.n17_1 == null));
+                result_0.w1(element_0, tmp$ret$14);
             }
-            builder_1.nv('boards', new JsonObject(result_0));
-            tmp = builder_1.ov();
+            builder_1.dv('boards', new JsonObject(result_0));
+            tmp = builder_1.ev();
         }
         return tmp;
     };
-    protoOf(BattleshipGame).r13 = function(player) {
+    protoOf(BattleshipGame).a17 = function(player) {
         var tmp;
         if (_get_settingOut__x7we4z(this)) {
             var builder = new JsonObjectBuilder;
             var rival = opponent(this, player);
-            put(builder, 'game', Battleship_getInstance().p13_1);
-            put(builder, 'phase', 'placing');
-            put_0(builder, 'side', this.a13_1.o1(player));
-            builder.nv('fleet', Companion_getInstance_25().l13_1);
-            builder.nv('own', rows(this, player, true));
-            var this_0 = remaining(this, getValue(this.d13_1, player));
+            put_0(builder, 'game', Battleship_getInstance().r17_1);
+            put_0(builder, 'phase', 'placing');
+            put(builder, 'side', this.f17_1.n1(player));
+            builder.dv('fleet', Companion_getInstance_26().q17_1);
+            builder.dv('own', rows(this, player, true));
+            var this_0 = remaining(this, getValue(this.i17_1, player));
             var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
             var _iterator__ex2g4s = this_0.g();
             while (_iterator__ex2g4s.h()) {
@@ -18749,1101 +19404,46 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var tmp$ret$4 = JsonPrimitive_0(item);
                 destination.f(tmp$ret$4);
             }
-            builder.nv('remaining', new JsonArray(destination));
-            put_1(builder, 'youReady', this.e13_1.m1(player));
-            put_0(builder, 'rivalPlaced', getValue(this.d13_1, rival).j());
-            put_1(builder, 'rivalReady', this.e13_1.m1(rival));
-            tmp = builder.ov();
+            builder.dv('remaining', new JsonArray(destination));
+            put_1(builder, 'youReady', this.j17_1.l1(player));
+            put(builder, 'rivalPlaced', getValue(this.i17_1, rival).j());
+            put_1(builder, 'rivalReady', this.j17_1.l1(rival));
+            tmp = builder.ev();
         } else {
             var builder_0 = new JsonObjectBuilder;
-            put(builder_0, 'game', Battleship_getInstance().p13_1);
-            put(builder_0, 'phase', 'playing');
-            put_0(builder_0, 'side', this.a13_1.o1(player));
-            put_1(builder_0, 'yourTurn', this.i13_1 == null && this.c13_1 === player);
-            put(builder_0, 'winner', this.i13_1);
-            var tmp0_elvis_lhs = this.h13_1;
-            builder_0.nv('last', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
-            builder_0.nv('fleet', Companion_getInstance_25().l13_1);
-            builder_0.nv('fired', firedJson(this));
-            builder_0.nv('own', rows(this, player, true));
-            builder_0.nv('target', rows(this, opponent(this, player), !(this.i13_1 == null)));
-            tmp = builder_0.ov();
+            put_0(builder_0, 'game', Battleship_getInstance().r17_1);
+            put_0(builder_0, 'phase', 'playing');
+            put(builder_0, 'side', this.f17_1.n1(player));
+            put_1(builder_0, 'yourTurn', this.n17_1 == null && this.h17_1 === player);
+            put_0(builder_0, 'winner', this.n17_1);
+            var tmp0_elvis_lhs = this.m17_1;
+            builder_0.dv('last', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
+            builder_0.dv('fleet', Companion_getInstance_26().q17_1);
+            builder_0.dv('fired', firedJson(this));
+            builder_0.dv('own', rows(this, player, true));
+            builder_0.dv('target', rows(this, opponent(this, player), !(this.n17_1 == null)));
+            tmp = builder_0.ev();
         }
         return tmp;
     };
     function Battleship() {
         Battleship_instance = this;
-        this.p13_1 = 'battleship';
-        this.q13_1 = numberRangeToNumber(2, 2);
+        this.r17_1 = 'battleship';
+        this.s17_1 = numberRangeToNumber(2, 2);
     }
-    protoOf(Battleship).u13 = function() {
-        return this.p13_1;
+    protoOf(Battleship).b17 = function() {
+        return this.r17_1;
     };
-    protoOf(Battleship).v13 = function() {
-        return this.q13_1;
+    protoOf(Battleship).c17 = function() {
+        return this.s17_1;
     };
-    protoOf(Battleship).w13 = function(players, random) {
+    protoOf(Battleship).d17 = function(players, random) {
         return new BattleshipGame(players, random);
     };
     var Battleship_instance;
     function Battleship_getInstance() {
         if (Battleship_instance == null) new Battleship;
         return Battleship_instance;
-    }
-    function Figure(id, x, y) {
-        this.x13_1 = id;
-        this.y13_1 = x;
-        this.z13_1 = y;
-        this.a14_1 = true;
-        this.b14_1 = this.y13_1;
-        this.c14_1 = this.z13_1;
-        this.d14_1 = 0;
-    }
-    function Seat(figure) {
-        this.e14_1 = figure;
-        this.f14_1 = 0;
-        this.g14_1 = 0;
-        this.h14_1 = 0;
-        this.i14_1 = 0;
-        this.j14_1 = booleanArray(Companion_getInstance_26().f15_1.j());
-        this.k14_1 = new Int32Array(Companion_getInstance_26().f15_1.j());
-    }
-    function startRound($this) {
-        $this.n15_1 = $this.n15_1 + 1 | 0;
-        var total = 26 + $this.g15_1.j() | 0;
-        var ids = shuffled(until(0, total), $this.h15_1);
-        var tmp = $this;
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(ids, 10));
-        var _iterator__ex2g4s = ids.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var tmp$ret$2 = new Figure(item, $this.h15_1.tb(20, 1e3 - 20), $this.h15_1.tb(20, 562 - 20));
-            destination.f(tmp$ret$2);
-        }
-        var _iterator__ex2g4s_0 = destination.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element = _iterator__ex2g4s_0.i();
-            wander($this, element);
-        }
-        var tmp_0 = CrowdGame$startRound$lambda;
-        var tmp$ret$8 = new sam$kotlin_Comparator$0_0(tmp_0);
-        tmp.i15_1 = sortedWith(destination, tmp$ret$8);
-        var picks = shuffled($this.i15_1, $this.h15_1);
-        var tmp_1 = $this;
-        var this_0 = withIndex_0($this.g15_1);
-        var capacity = coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_0, 10)), 16);
-        var destination_0 = LinkedHashMap_init_$Create$_0(capacity);
-        var _iterator__ex2g4s_1 = this_0.g();
-        while (_iterator__ex2g4s_1.h()) {
-            var element_0 = _iterator__ex2g4s_1.i();
-            var i = element_0.oa();
-            var player = element_0.pa();
-            var pair = to(player, new Seat(picks.m(i)));
-            destination_0.x1(pair.ua_1, pair.va_1);
-        }
-        tmp_1.j15_1 = destination_0;
-        $this.o15_1 = 12e4;
-        $this.p15_1 = 0;
-        $this.q15_1 = null;
-        $this.r15_1 = false;
-        $this.l15_1.a2();
-    }
-    function wander($this, figure) {
-        figure.d14_1 = $this.h15_1.rb(0, 2500);
-        var inductionVariable = 0;
-        if (inductionVariable < 12) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            $l$block: {
-                var dx = $this.h15_1.rb(-1, 2);
-                var dy = $this.h15_1.rb(-1, 2);
-                if (dx === 0 && dy === 0) {
-                    break $l$block;
-                }
-                var length = hypot(dx, dy);
-                var distance = $this.h15_1.tb(40, 320);
-                var x = figure.y13_1 + dx / length * distance;
-                var y = figure.z13_1 + dy / length * distance;
-                if ((20 <= x ? x <= 1e3 - 20 : false) && (20 <= y ? y <= 562 - 20 : false)) {
-                    figure.b14_1 = x;
-                    figure.c14_1 = y;
-                    return Unit_instance;
-                }
-            }
-        } while (inductionVariable < 12);
-    }
-    function stab($this, player, seat) {
-        if (seat.h14_1 > 0) return false;
-        var me = seat.e14_1;
-        var tmp0 = $this.i15_1;
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = tmp0.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            if (!(element === me) && element.a14_1) {
-                destination.f(element);
-            }
-        }
-        var tmp$ret$3;
-        $l$block_0: {
-            var iterator = destination.g();
-            if (!iterator.h()) {
-                tmp$ret$3 = null;
-                break $l$block_0;
-            }
-            var minElem = iterator.i();
-            if (!iterator.h()) {
-                tmp$ret$3 = minElem;
-                break $l$block_0;
-            }
-            var it = minElem;
-            var tmp0_0 = it.y13_1 - me.y13_1;
-            var y = it.z13_1 - me.z13_1;
-            var minValue = hypot(tmp0_0, y);
-            do {
-                var e = iterator.i();
-                var tmp0_1 = e.y13_1 - me.y13_1;
-                var y_0 = e.z13_1 - me.z13_1;
-                var v = hypot(tmp0_1, y_0);
-                if (compareTo(minValue, v) > 0) {
-                    minElem = e;
-                    minValue = v;
-                }
-            } while (iterator.h());
-            tmp$ret$3 = minElem;
-        }
-        var tmp0_safe_receiver = tmp$ret$3;
-        var tmp;
-        if (tmp0_safe_receiver == null) {
-            tmp = null;
-        } else {
-            var tmp_0;
-            var tmp0_2 = tmp0_safe_receiver.y13_1 - me.y13_1;
-            var y_1 = tmp0_safe_receiver.z13_1 - me.z13_1;
-            if (hypot(tmp0_2, y_1) <= 45) {
-                tmp_0 = tmp0_safe_receiver;
-            } else {
-                tmp_0 = null;
-            }
-            tmp = tmp_0;
-        }
-        var target = tmp;
-        if (target == null) {
-            seat.h14_1 = 800;
-            return true;
-        }
-        target.a14_1 = false;
-        var tmp0_3 = $this.j15_1.w1();
-        var tmp$ret$11;
-        $l$block_1: {
-            var _iterator__ex2g4s_0 = tmp0_3.g();
-            while (_iterator__ex2g4s_0.h()) {
-                var element_0 = _iterator__ex2g4s_0.i();
-                if (element_0.q1().e14_1 === target) {
-                    tmp$ret$11 = element_0;
-                    break $l$block_1;
-                }
-            }
-            tmp$ret$11 = null;
-        }
-        var victim = tmp$ret$11;
-        if (victim == null) {
-            seat.h14_1 = 3e3;
-            seat.i14_1 = 2500;
-        }
-        var tmp0_4 = $this.l15_1;
-        var builder = new JsonObjectBuilder;
-        $this.m15_1 = $this.m15_1 + 1 | 0;
-        put_0(builder, 'seq', $this.m15_1);
-        put_0(builder, 'by', me.x13_1);
-        put_0(builder, 'to', target.x13_1);
-        put_1(builder, 'real', !(victim == null));
-        put_0(builder, 'x', target.y13_1);
-        put_0(builder, 'y', target.z13_1);
-        var element_1 = builder.ov();
-        tmp0_4.f(element_1);
-        if ($this.l15_1.j() > 6) {
-            $this.l15_1.f3(0);
-        }
-        var this_0 = $this.j15_1;
-        var result = LinkedHashMap_init_$Create$();
-        var _iterator__ex2g4s_1 = this_0.w1().g();
-        while (_iterator__ex2g4s_1.h()) {
-            var entry = _iterator__ex2g4s_1.i();
-            if (entry.q1().e14_1.a14_1) {
-                result.x1(entry.p1(), entry.q1());
-            }
-        }
-        var alive = result.u1();
-        if (alive.j() === 1) {
-            endRound($this, single_0(alive));
-        }
-        return true;
-    }
-    function endRound($this, who) {
-        $this.r15_1 = true;
-        $this.q15_1 = who;
-        $this.p15_1 = 5e3;
-        if (!(who == null)) {
-            var tmp0 = $this.k15_1;
-            var value = getValue($this.k15_1, who) + 1 | 0;
-            tmp0.x1(who, value);
-        }
-    }
-    function walk($this, figure) {
-        if (figure.d14_1 > 0) {
-            figure.d14_1 = figure.d14_1 - 200 | 0;
-            return Unit_instance;
-        }
-        var dx = figure.b14_1 - figure.y13_1;
-        var dy = figure.c14_1 - figure.z13_1;
-        var distance = hypot(dx, dy);
-        var stride = 90 * 200 / 1e3;
-        if (distance <= stride) {
-            figure.y13_1 = figure.b14_1;
-            figure.z13_1 = figure.c14_1;
-            wander($this, figure);
-            return Unit_instance;
-        }
-        figure.y13_1 = figure.y13_1 + dx / distance * stride;
-        figure.z13_1 = figure.z13_1 + dy / distance * stride;
-    }
-    function updateSeat($this, seat) {
-        var figure = seat.e14_1;
-        var changed = false;
-        if (seat.i14_1 > 0) {
-            seat.i14_1 = seat.i14_1 - 200 | 0;
-            if (seat.i14_1 <= 0) changed = true;
-        }
-        if (seat.h14_1 > 0) {
-            seat.h14_1 = seat.h14_1 - 200 | 0;
-            if (seat.h14_1 <= 0) changed = true;
-        } else if (!(seat.f14_1 === 0) || !(seat.g14_1 === 0)) {
-            var tmp0 = seat.f14_1;
-            var y = seat.g14_1;
-            var length = hypot(tmp0, y);
-            var stride = 90 * 200 / 1e3;
-            figure.y13_1 = coerceIn(figure.y13_1 + seat.f14_1 / length * stride, 20, 1e3 - 20);
-            figure.z13_1 = coerceIn(figure.z13_1 + seat.g14_1 / length * stride, 20, 562 - 20);
-        }
-        var index = 0;
-        var _iterator__ex2g4s = Companion_getInstance_26().f15_1.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var _unary__edvuaz = index;
-            index = _unary__edvuaz + 1 | 0;
-            var tmp0_0 = checkIndexOverflow(_unary__edvuaz);
-            $l$block: {
-                var x = item.oa();
-                var y_0 = item.pa();
-                if (seat.j14_1[tmp0_0]) {
-                    break $l$block;
-                }
-                var tmp0_1 = figure.y13_1 - x;
-                var y_1 = figure.z13_1 - y_0;
-                var inside = hypot(tmp0_1, y_1) <= 50;
-                var before = seat.k14_1[tmp0_0];
-                seat.k14_1[tmp0_0] = inside ? before + 200 | 0 : 0;
-                if (seat.k14_1[tmp0_0] >= 4e3) {
-                    seat.j14_1[tmp0_0] = true;
-                    seat.k14_1[tmp0_0] = 0;
-                    changed = true;
-                } else if (!(before === 0 === (seat.k14_1[tmp0_0] === 0)) || !((seat.k14_1[tmp0_0] / 1e3 | 0) === (before / 1e3 | 0))) changed = true;
-            }
-        }
-        return changed;
-    }
-    function alivePlayers($this) {
-        var this_0 = $this.j15_1;
-        var result = LinkedHashMap_init_$Create$();
-        var _iterator__ex2g4s = this_0.w1().g();
-        while (_iterator__ex2g4s.h()) {
-            var entry = _iterator__ex2g4s.i();
-            if (entry.q1().e14_1.a14_1) {
-                result.x1(entry.p1(), entry.q1());
-            }
-        }
-        return result.u1();
-    }
-    function common($this, $receiver) {
-        put($receiver, 'game', Crowd_getInstance().t15_1);
-        put($receiver, 'phase', !($this.s15_1 == null) ? 'over' : $this.r15_1 ? 'between' : 'playing');
-        put_0($receiver, 'round', $this.n15_1);
-        put_0($receiver, 'clock', !($this.s15_1 == null) ? 0 : ($this.o15_1 + 999 | 0) / 1e3 | 0);
-        var this_0 = $this.g15_1;
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var tmp$ret$2 = JsonPrimitive_1(item);
-            destination.f(tmp$ret$2);
-        }
-        $receiver.nv('sides', new JsonArray(destination));
-        var this_1 = $this.k15_1;
-        var destination_0 = LinkedHashMap_init_$Create$_0(mapCapacity(this_1.j()));
-        var _iterator__ex2g4s_0 = this_1.w1().g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element = _iterator__ex2g4s_0.i();
-            var tmp = element.p1();
-            var tmp$ret$7 = JsonPrimitive_0(element.q1());
-            destination_0.x1(tmp, tmp$ret$7);
-        }
-        $receiver.nv('points', new JsonObject(destination_0));
-        put_0($receiver, 'pointsToWin', 3);
-        put($receiver, 'roundWinner', $this.q15_1);
-        put($receiver, 'winner', $this.s15_1);
-        put_0($receiver, 'alive', alivePlayers($this).j());
-    }
-    function Companion_26() {
-        Companion_instance_26 = this;
-        this.l14_1 = 1e3;
-        this.m14_1 = 562;
-        this.n14_1 = 20;
-        this.o14_1 = 26;
-        this.p14_1 = 90;
-        this.q14_1 = 45;
-        this.r14_1 = 3e3;
-        this.s14_1 = 800;
-        this.t14_1 = 2500;
-        this.u14_1 = 50;
-        this.v14_1 = 4e3;
-        this.w14_1 = 12e4;
-        this.x14_1 = 5e3;
-        this.y14_1 = 2500;
-        this.z14_1 = 40;
-        this.a15_1 = 320;
-        this.b15_1 = 12;
-        this.c15_1 = 3;
-        this.d15_1 = 6;
-        this.e15_1 = 200;
-        this.f15_1 = listOf_0([ to(200, 130), to(800, 130), to(500, 440) ]);
-    }
-    var Companion_instance_26;
-    function Companion_getInstance_26() {
-        if (Companion_instance_26 == null) new Companion_26;
-        return Companion_instance_26;
-    }
-    function sam$kotlin_Comparator$0_0(function_0) {
-        this.v15_1 = function_0;
-    }
-    protoOf(sam$kotlin_Comparator$0_0).x9 = function(a, b) {
-        return this.v15_1(a, b);
-    };
-    protoOf(sam$kotlin_Comparator$0_0).compare = function(a, b) {
-        return this.x9(a, b);
-    };
-    protoOf(sam$kotlin_Comparator$0_0).l2 = function() {
-        return this.v15_1;
-    };
-    protoOf(sam$kotlin_Comparator$0_0).equals = function(other) {
-        var tmp;
-        if (!(other == null) ? isInterface(other, Comparator) : false) {
-            var tmp_0;
-            if (!(other == null) ? isInterface(other, FunctionAdapter) : false) {
-                tmp_0 = equals(this.l2(), other.l2());
-            } else {
-                tmp_0 = false;
-            }
-            tmp = tmp_0;
-        } else {
-            tmp = false;
-        }
-        return tmp;
-    };
-    protoOf(sam$kotlin_Comparator$0_0).hashCode = function() {
-        return hashCode_0(this.l2());
-    };
-    function CrowdGame$startRound$lambda(a, b) {
-        var tmp = a.x13_1;
-        var tmp$ret$2 = b.x13_1;
-        return compareValues(tmp, tmp$ret$2);
-    }
-    function CrowdGame(players, random) {
-        Companion_getInstance_26();
-        this.g15_1 = players;
-        this.h15_1 = random;
-        var tmp = this;
-        tmp.i15_1 = emptyList();
-        var tmp_0 = this;
-        tmp_0.j15_1 = emptyMap();
-        var tmp_1 = this;
-        var this_0 = this.g15_1;
-        var result = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_0, 10)), 16));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            result.x1(element, 0);
-        }
-        tmp_1.k15_1 = toMutableMap(result);
-        var tmp_2 = this;
-        tmp_2.l15_1 = ArrayList_init_$Create$();
-        this.m15_1 = 0;
-        this.n15_1 = 0;
-        this.o15_1 = 12e4;
-        this.p15_1 = 0;
-        this.q15_1 = null;
-        this.r15_1 = false;
-        this.s15_1 = null;
-        startRound(this);
-    }
-    protoOf(CrowdGame).m13 = function() {
-        return this.s15_1;
-    };
-    protoOf(CrowdGame).n13 = function(player, action) {
-        var tmp0_elvis_lhs = this.j15_1.t1(player);
-        var tmp;
-        if (tmp0_elvis_lhs == null) {
-            return false;
-        } else {
-            tmp = tmp0_elvis_lhs;
-        }
-        var seat = tmp;
-        if (!(this.s15_1 == null) || this.r15_1 || !seat.e14_1.a14_1) return false;
-        var tmp1_safe_receiver = action.cv('do');
-        var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
-        var tmp_0;
-        switch (tmp2_safe_receiver == null ? null : get_contentOrNull(tmp2_safe_receiver)) {
-          case 'steer':
-            var tmp4_safe_receiver = action.cv('dx');
-            var tmp5_safe_receiver = tmp4_safe_receiver == null ? null : get_jsonPrimitive(tmp4_safe_receiver);
-            var tmp6_elvis_lhs = tmp5_safe_receiver == null ? null : get_intOrNull(tmp5_safe_receiver);
-            var tmp_1;
-            if (tmp6_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_1 = tmp6_elvis_lhs;
-            }
-            var dx = tmp_1;
-            var tmp7_safe_receiver = action.cv('dy');
-            var tmp8_safe_receiver = tmp7_safe_receiver == null ? null : get_jsonPrimitive(tmp7_safe_receiver);
-            var tmp9_elvis_lhs = tmp8_safe_receiver == null ? null : get_intOrNull(tmp8_safe_receiver);
-            var tmp_2;
-            if (tmp9_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_2 = tmp9_elvis_lhs;
-            }
-            var dy = tmp_2;
-            if (!(-1 <= dx ? dx <= 1 : false) || !(-1 <= dy ? dy <= 1 : false)) return false;
-            seat.f14_1 = dx;
-            seat.g14_1 = dy;
-            tmp_0 = false;
-            break;
-
-          case 'stab':
-            tmp_0 = stab(this, player, seat);
-            break;
-
-          default:
-            tmp_0 = false;
-            break;
-        }
-        return tmp_0;
-    };
-    protoOf(CrowdGame).t13 = function() {
-        if (!(this.s15_1 == null)) return Frame_NONE_getInstance();
-        if (this.r15_1) {
-            this.p15_1 = this.p15_1 - 200 | 0;
-            if (this.p15_1 > 0) return Frame_NONE_getInstance();
-            var tmp0 = this.k15_1.w1();
-            var tmp$ret$0;
-            $l$block: {
-                var _iterator__ex2g4s = tmp0.g();
-                while (_iterator__ex2g4s.h()) {
-                    var element = _iterator__ex2g4s.i();
-                    if (element.q1() >= 3) {
-                        tmp$ret$0 = element;
-                        break $l$block;
-                    }
-                }
-                tmp$ret$0 = null;
-            }
-            var champion = tmp$ret$0;
-            if (!(champion == null)) this.s15_1 = champion.p1(); else {
-                startRound(this);
-            }
-            return Frame_EVERYONE_getInstance();
-        }
-        var second = this.o15_1 / 1e3 | 0;
-        this.o15_1 = this.o15_1 - 200 | 0;
-        var phonesNeedIt = !((this.o15_1 / 1e3 | 0) === second);
-        var _iterator__ex2g4s_0 = this.i15_1.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var figure = _iterator__ex2g4s_0.i();
-            var tmp;
-            if (figure.a14_1) {
-                var tmp0_0 = this.j15_1.v1();
-                var tmp$ret$2;
-                $l$block_1: {
-                    var tmp_0;
-                    if (isInterface(tmp0_0, Collection)) {
-                        tmp_0 = tmp0_0.k();
-                    } else {
-                        tmp_0 = false;
-                    }
-                    if (tmp_0) {
-                        tmp$ret$2 = true;
-                        break $l$block_1;
-                    }
-                    var _iterator__ex2g4s_1 = tmp0_0.g();
-                    while (_iterator__ex2g4s_1.h()) {
-                        var element_0 = _iterator__ex2g4s_1.i();
-                        if (element_0.e14_1 === figure) {
-                            tmp$ret$2 = false;
-                            break $l$block_1;
-                        }
-                    }
-                    tmp$ret$2 = true;
-                }
-                tmp = tmp$ret$2;
-            } else {
-                tmp = false;
-            }
-            if (tmp) {
-                walk(this, figure);
-            }
-        }
-        var _iterator__ex2g4s_2 = this.j15_1.v1().g();
-        while (_iterator__ex2g4s_2.h()) {
-            var seat = _iterator__ex2g4s_2.i();
-            if (seat.e14_1.a14_1) {
-                if (updateSeat(this, seat)) phonesNeedIt = true;
-            }
-        }
-        var tmp0_1 = this.j15_1.w1();
-        var tmp$ret$4;
-        $l$block_3: {
-            var _iterator__ex2g4s_3 = tmp0_1.g();
-            while (_iterator__ex2g4s_3.h()) {
-                var element_1 = _iterator__ex2g4s_3.i();
-                var seat_0 = element_1.q1();
-                var tmp_1;
-                if (seat_0.e14_1.a14_1) {
-                    var tmp0_2 = seat_0.j14_1;
-                    var tmp$ret$7;
-                    $l$block_2: {
-                        var inductionVariable = 0;
-                        var last = tmp0_2.length;
-                        while (inductionVariable < last) {
-                            var element_2 = tmp0_2[inductionVariable];
-                            inductionVariable = inductionVariable + 1 | 0;
-                            if (!element_2) {
-                                tmp$ret$7 = false;
-                                break $l$block_2;
-                            }
-                        }
-                        tmp$ret$7 = true;
-                    }
-                    tmp_1 = tmp$ret$7;
-                } else {
-                    tmp_1 = false;
-                }
-                if (tmp_1) {
-                    tmp$ret$4 = element_1;
-                    break $l$block_3;
-                }
-            }
-            tmp$ret$4 = null;
-        }
-        var done = tmp$ret$4;
-        if (!(done == null)) {
-            endRound(this, done.p1());
-        } else if (this.o15_1 <= 0) {
-            endRound(this, null);
-        } else return phonesNeedIt ? Frame_EVERYONE_getInstance() : Frame_TV_getInstance();
-        return Frame_EVERYONE_getInstance();
-    };
-    protoOf(CrowdGame).o13 = function() {
-        var builder = new JsonObjectBuilder;
-        common(this, builder);
-        put_0(builder, 'width', 1e3);
-        put_0(builder, 'height', 562);
-        var this_0 = this.i15_1;
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var builder_0 = new JsonObjectBuilder;
-            put_0(builder_0, 'id', item.x13_1);
-            put_0(builder_0, 'x', round(item.y13_1));
-            put_0(builder_0, 'y', round(item.z13_1));
-            put_1(builder_0, 'alive', item.a14_1);
-            var tmp$ret$4 = builder_0.ov();
-            destination.f(tmp$ret$4);
-        }
-        builder.nv('figures', new JsonArray(destination));
-        var tmp0 = this.j15_1.v1();
-        var destination_0 = ArrayList_init_$Create$();
-        var _iterator__ex2g4s_0 = tmp0.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element = _iterator__ex2g4s_0.i();
-            if (element.i14_1 > 0 && element.e14_1.a14_1) {
-                destination_0.f(element);
-            }
-        }
-        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(destination_0, 10));
-        var _iterator__ex2g4s_1 = destination_0.g();
-        while (_iterator__ex2g4s_1.h()) {
-            var item_0 = _iterator__ex2g4s_1.i();
-            var tmp$ret$12 = JsonPrimitive_0(item_0.e14_1.x13_1);
-            destination_1.f(tmp$ret$12);
-        }
-        builder.nv('revealed', new JsonArray(destination_1));
-        var this_1 = Companion_getInstance_26().f15_1;
-        var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
-        var index = 0;
-        var _iterator__ex2g4s_2 = this_1.g();
-        while (_iterator__ex2g4s_2.h()) {
-            var item_1 = _iterator__ex2g4s_2.i();
-            var _unary__edvuaz = index;
-            index = _unary__edvuaz + 1 | 0;
-            var i = checkIndexOverflow(_unary__edvuaz);
-            var x = item_1.oa();
-            var y = item_1.pa();
-            var builder_1 = new JsonObjectBuilder;
-            put_0(builder_1, 'x', x);
-            put_0(builder_1, 'y', y);
-            put_0(builder_1, 'radius', 50);
-            var tmp0_0 = this.j15_1.v1();
-            var tmp$ret$18;
-            $l$block_0: {
-                var tmp;
-                if (isInterface(tmp0_0, Collection)) {
-                    tmp = tmp0_0.k();
-                } else {
-                    tmp = false;
-                }
-                if (tmp) {
-                    tmp$ret$18 = false;
-                    break $l$block_0;
-                }
-                var _iterator__ex2g4s_3 = tmp0_0.g();
-                while (_iterator__ex2g4s_3.h()) {
-                    var element_0 = _iterator__ex2g4s_3.i();
-                    if (element_0.e14_1.a14_1 && element_0.k14_1[i] > 0) {
-                        tmp$ret$18 = true;
-                        break $l$block_0;
-                    }
-                }
-                tmp$ret$18 = false;
-            }
-            put_1(builder_1, 'busy', tmp$ret$18);
-            var tmp$ret$15 = builder_1.ov();
-            destination_2.f(tmp$ret$15);
-        }
-        builder.nv('flags', new JsonArray(destination_2));
-        builder.nv('stabs', new JsonArray(this.l15_1));
-        if (this.r15_1 || !(this.s15_1 == null)) {
-            var this_2 = this.j15_1;
-            var destination_3 = LinkedHashMap_init_$Create$_0(mapCapacity(this_2.j()));
-            var _iterator__ex2g4s_4 = this_2.w1().g();
-            while (_iterator__ex2g4s_4.h()) {
-                var element_1 = _iterator__ex2g4s_4.i();
-                var tmp_0 = element_1.p1();
-                var tmp$ret$24 = JsonPrimitive_0(element_1.q1().e14_1.x13_1);
-                destination_3.x1(tmp_0, tmp$ret$24);
-            }
-            builder.nv('who', new JsonObject(destination_3));
-        }
-        return builder.ov();
-    };
-    protoOf(CrowdGame).r13 = function(player) {
-        var builder = new JsonObjectBuilder;
-        var seat = getValue(this.j15_1, player);
-        common(this, builder);
-        put_0(builder, 'side', this.g15_1.o1(player));
-        put_1(builder, 'alive', seat.e14_1.a14_1);
-        put_1(builder, 'stunned', seat.h14_1 > 0);
-        var this_0 = seat.j14_1;
-        var destination = ArrayList_init_$Create$_0(this_0.length);
-        var inductionVariable = 0;
-        var last = this_0.length;
-        while (inductionVariable < last) {
-            var item = this_0[inductionVariable];
-            inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$4 = JsonPrimitive_2(item);
-            destination.f(tmp$ret$4);
-        }
-        builder.nv('yourFlags', new JsonArray(destination));
-        var tmp0_elvis_lhs = maxOrNull(seat.k14_1);
-        put_0(builder, 'holding', tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs);
-        put_0(builder, 'flagHold', 4e3);
-        return builder.ov();
-    };
-    function Crowd() {
-        Crowd_instance = this;
-        this.t15_1 = 'crowd';
-        this.u15_1 = numberRangeToNumber(2, 4);
-    }
-    protoOf(Crowd).u13 = function() {
-        return this.t15_1;
-    };
-    protoOf(Crowd).v13 = function() {
-        return this.u15_1;
-    };
-    protoOf(Crowd).w13 = function(players, random) {
-        return new CrowdGame(players, random);
-    };
-    var Crowd_instance;
-    function Crowd_getInstance() {
-        if (Crowd_instance == null) new Crowd;
-        return Crowd_instance;
-    }
-    function roll($this) {
-        var _iterator__ex2g4s = $this.w15_1.g();
-        while (_iterator__ex2g4s.h()) {
-            var player = _iterator__ex2g4s.i();
-            getValue($this.y15_1, player).a2();
-            var times = getValue($this.z15_1, player);
-            var inductionVariable = 0;
-            if (inductionVariable < times) do {
-                var index = inductionVariable;
-                inductionVariable = inductionVariable + 1 | 0;
-                var tmp0 = getValue($this.y15_1, player);
-                var element = $this.x15_1.rb(1, 7);
-                tmp0.f(element);
-            } while (inductionVariable < times);
-            sort_0(getValue($this.y15_1, player));
-        }
-    }
-    function total($this) {
-        return sum_0($this.z15_1.v1());
-    }
-    function canTop($this, count, face) {
-        return (2 <= face ? face <= 6 : false) && (1 <= count ? count <= total($this) : false) && (count > $this.b16_1 || count === $this.b16_1 && face > $this.c16_1);
-    }
-    function bid($this, player, count, face) {
-        if (!canTop($this, count, face)) return false;
-        $this.b16_1 = count;
-        $this.c16_1 = face;
-        $this.d16_1 = player;
-        var tmp0 = $this.e16_1;
-        var builder = new JsonObjectBuilder;
-        put(builder, 'by', player);
-        put_0(builder, 'count', count);
-        put_0(builder, 'face', face);
-        var element = builder.ov();
-        tmp0.f(element);
-        $this.a16_1 = following($this, player);
-        $this.g16_1 = 30;
-        return true;
-    }
-    function following($this, player) {
-        var at = $this.w15_1.o1(player);
-        var this_0 = numberRangeToNumber(1, $this.w15_1.j());
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var inductionVariable = this_0.w_1;
-        var last = this_0.x_1;
-        if (inductionVariable <= last) do {
-            var item = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var it = item;
-            var tmp$ret$2 = $this.w15_1.m((at + it | 0) % $this.w15_1.j() | 0);
-            destination.f(tmp$ret$2);
-        } while (!(item === last));
-        var tmp$ret$3;
-        $l$block: {
-            var _iterator__ex2g4s = destination.g();
-            while (_iterator__ex2g4s.h()) {
-                var element = _iterator__ex2g4s.i();
-                if (getValue($this.z15_1, element) > 0) {
-                    tmp$ret$3 = element;
-                    break $l$block;
-                }
-            }
-            throw NoSuchElementException_init_$Create$_0('Collection contains no element matching the predicate.');
-        }
-        return tmp$ret$3;
-    }
-    function call($this, player, exact) {
-        var claimedBy = ensureNotNull($this.d16_1);
-        var tmp0 = flatten($this.y15_1.v1());
-        var tmp$ret$0;
-        $l$block: {
-            var tmp;
-            if (isInterface(tmp0, Collection)) {
-                tmp = tmp0.k();
-            } else {
-                tmp = false;
-            }
-            if (tmp) {
-                tmp$ret$0 = 0;
-                break $l$block;
-            }
-            var count = 0;
-            var _iterator__ex2g4s = tmp0.g();
-            while (_iterator__ex2g4s.h()) {
-                var element = _iterator__ex2g4s.i();
-                if (element === $this.c16_1 || element === 1) {
-                    count = count + 1 | 0;
-                    checkCountOverflow(count);
-                }
-            }
-            tmp$ret$0 = count;
-        }
-        var matching = tmp$ret$0;
-        var right = exact ? matching === $this.b16_1 : matching < $this.b16_1;
-        var loser = right ? exact ? null : claimedBy : player;
-        var gainer = exact && right && getValue($this.z15_1, player) < 5 ? player : null;
-        var tmp_0 = $this;
-        var builder = new JsonObjectBuilder;
-        put(builder, 'kind', exact ? 'exact' : 'doubt');
-        put(builder, 'by', player);
-        put(builder, 'bidder', claimedBy);
-        put_0(builder, 'count', $this.b16_1);
-        put_0(builder, 'face', $this.c16_1);
-        put_0(builder, 'actual', matching);
-        put_1(builder, 'right', right);
-        put(builder, 'loser', loser);
-        put(builder, 'gainer', gainer);
-        var this_0 = $this.y15_1;
-        var destination = LinkedHashMap_init_$Create$_0(mapCapacity(this_0.j()));
-        var _iterator__ex2g4s_0 = this_0.w1().g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element_0 = _iterator__ex2g4s_0.i();
-            var tmp_1 = element_0.p1();
-            var values = element_0.q1();
-            var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(values, 10));
-            var _iterator__ex2g4s_1 = values.g();
-            while (_iterator__ex2g4s_1.h()) {
-                var item = _iterator__ex2g4s_1.i();
-                var tmp$ret$12 = JsonPrimitive_0(item);
-                destination_0.f(tmp$ret$12);
-            }
-            var tmp$ret$8 = new JsonArray(destination_0);
-            destination.x1(tmp_1, tmp$ret$8);
-        }
-        builder.nv('dice', new JsonObject(destination));
-        tmp_0.h16_1 = builder.ov();
-        if (!(loser == null)) {
-            var tmp0_0 = $this.z15_1;
-            var value = getValue($this.z15_1, loser) - 1 | 0;
-            tmp0_0.x1(loser, value);
-        }
-        if (!(gainer == null)) {
-            var tmp0_1 = $this.z15_1;
-            var value_0 = getValue($this.z15_1, gainer) + 1 | 0;
-            tmp0_1.x1(gainer, value_0);
-        }
-        $this.i16_1 = !(loser == null) && getValue($this.z15_1, loser) > 0 ? loser : !(loser == null) ? following($this, loser) : player;
-        var tmp_2 = $this;
-        var this_1 = $this.z15_1;
-        var result = LinkedHashMap_init_$Create$();
-        var _iterator__ex2g4s_2 = this_1.w1().g();
-        while (_iterator__ex2g4s_2.h()) {
-            var entry = _iterator__ex2g4s_2.i();
-            if (entry.q1() > 0) {
-                result.x1(entry.p1(), entry.q1());
-            }
-        }
-        tmp_2.j16_1 = singleOrNull(result.u1());
-        $this.g16_1 = 7;
-        return true;
-    }
-    function timeUp($this) {
-        var player = $this.a16_1;
-        if ($this.d16_1 == null) bid($this, player, 1, 2); else if (canTop($this, $this.b16_1, $this.c16_1 + 1 | 0)) bid($this, player, $this.b16_1, $this.c16_1 + 1 | 0); else if (canTop($this, $this.b16_1 + 1 | 0, 2)) bid($this, player, $this.b16_1 + 1 | 0, 2); else call($this, player, false);
-    }
-    function nextRound($this) {
-        $this.h16_1 = null;
-        if (!($this.j16_1 == null)) {
-            $this.k16_1 = $this.j16_1;
-            return Unit_instance;
-        }
-        $this.f16_1 = $this.f16_1 + 1 | 0;
-        $this.b16_1 = 0;
-        $this.c16_1 = 0;
-        $this.d16_1 = null;
-        $this.e16_1.a2();
-        var tmp = $this;
-        var tmp0_elvis_lhs = $this.i16_1;
-        tmp.a16_1 = tmp0_elvis_lhs == null ? $this.a16_1 : tmp0_elvis_lhs;
-        $this.i16_1 = null;
-        $this.g16_1 = 30;
-        roll($this);
-    }
-    function common_0($this, $receiver) {
-        put($receiver, 'game', Dice_getInstance().l16_1);
-        put($receiver, 'phase', !($this.k16_1 == null) ? 'over' : !($this.h16_1 == null) ? 'reveal' : 'bidding');
-        put_0($receiver, 'round', $this.f16_1);
-        put_0($receiver, 'clock', !($this.k16_1 == null) ? 0 : $this.g16_1);
-        var this_0 = $this.w15_1;
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var tmp$ret$2 = JsonPrimitive_1(item);
-            destination.f(tmp$ret$2);
-        }
-        $receiver.nv('sides', new JsonArray(destination));
-        var this_1 = $this.z15_1;
-        var destination_0 = LinkedHashMap_init_$Create$_0(mapCapacity(this_1.j()));
-        var _iterator__ex2g4s_0 = this_1.w1().g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element = _iterator__ex2g4s_0.i();
-            var tmp = element.p1();
-            var tmp$ret$7 = JsonPrimitive_0(element.q1());
-            destination_0.x1(tmp, tmp$ret$7);
-        }
-        $receiver.nv('counts', new JsonObject(destination_0));
-        put_0($receiver, 'total', total($this));
-        put($receiver, 'turn', $this.a16_1);
-        put($receiver, 'winner', $this.k16_1);
-        var tmp_0;
-        if ($this.d16_1 == null) {
-            tmp_0 = JsonNull_getInstance();
-        } else {
-            var builder = new JsonObjectBuilder;
-            put(builder, 'by', $this.d16_1);
-            put_0(builder, 'count', $this.b16_1);
-            put_0(builder, 'face', $this.c16_1);
-            tmp_0 = builder.ov();
-        }
-        $receiver.nv('bid', tmp_0);
-        $receiver.nv('history', new JsonArray($this.e16_1));
-        var tmp0_elvis_lhs = $this.h16_1;
-        $receiver.nv('result', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
-    }
-    function Companion_27() {
-        this.n16_1 = 5;
-        this.o16_1 = 30;
-        this.p16_1 = 7;
-    }
-    var Companion_instance_27;
-    function Companion_getInstance_27() {
-        return Companion_instance_27;
-    }
-    function DiceGame(players, random) {
-        this.w15_1 = players;
-        this.x15_1 = random;
-        var tmp = this;
-        var this_0 = this.w15_1;
-        var result = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_0, 10)), 16));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            var tmp$ret$2 = ArrayList_init_$Create$();
-            result.x1(element, tmp$ret$2);
-        }
-        tmp.y15_1 = result;
-        var tmp_0 = this;
-        var this_1 = this.w15_1;
-        var result_0 = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_1, 10)), 16));
-        var _iterator__ex2g4s_0 = this_1.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element_0 = _iterator__ex2g4s_0.i();
-            result_0.x1(element_0, 5);
-        }
-        tmp_0.z15_1 = toMutableMap(result_0);
-        this.a16_1 = first(this.w15_1);
-        this.b16_1 = 0;
-        this.c16_1 = 0;
-        this.d16_1 = null;
-        var tmp_1 = this;
-        tmp_1.e16_1 = ArrayList_init_$Create$();
-        this.f16_1 = 1;
-        this.g16_1 = 30;
-        this.h16_1 = null;
-        this.i16_1 = null;
-        this.j16_1 = null;
-        this.k16_1 = null;
-        roll(this);
-    }
-    protoOf(DiceGame).m13 = function() {
-        return this.k16_1;
-    };
-    protoOf(DiceGame).n13 = function(player, action) {
-        if (!(player === this.a16_1) || !(this.h16_1 == null) || !(this.k16_1 == null)) return false;
-        var tmp0_safe_receiver = action.cv('do');
-        var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
-        var tmp;
-        switch (tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver)) {
-          case 'bid':
-            var tmp3_safe_receiver = action.cv('count');
-            var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
-            var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : get_intOrNull(tmp4_safe_receiver);
-            var tmp_0;
-            if (tmp5_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_0 = tmp5_elvis_lhs;
-            }
-            var tmp_1 = tmp_0;
-            var tmp6_safe_receiver = action.cv('face');
-            var tmp7_safe_receiver = tmp6_safe_receiver == null ? null : get_jsonPrimitive(tmp6_safe_receiver);
-            var tmp8_elvis_lhs = tmp7_safe_receiver == null ? null : get_intOrNull(tmp7_safe_receiver);
-            var tmp_2;
-            if (tmp8_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_2 = tmp8_elvis_lhs;
-            }
-            tmp = bid(this, player, tmp_1, tmp_2);
-            break;
-
-          case 'doubt':
-            tmp = !(this.d16_1 == null) && call(this, player, false);
-            break;
-
-          case 'exact':
-            tmp = !(this.d16_1 == null) && call(this, player, true);
-            break;
-
-          default:
-            tmp = false;
-            break;
-        }
-        return tmp;
-    };
-    protoOf(DiceGame).s13 = function() {
-        if (!(this.k16_1 == null)) return false;
-        this.g16_1 = this.g16_1 - 1 | 0;
-        if (this.g16_1 > 0) return true;
-        if (!(this.h16_1 == null)) {
-            nextRound(this);
-        } else {
-            timeUp(this);
-        }
-        return true;
-    };
-    protoOf(DiceGame).o13 = function() {
-        var builder = new JsonObjectBuilder;
-        common_0(this, builder);
-        return builder.ov();
-    };
-    protoOf(DiceGame).r13 = function(player) {
-        var builder = new JsonObjectBuilder;
-        common_0(this, builder);
-        var this_0 = getValue(this.y15_1, player);
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var tmp$ret$4 = JsonPrimitive_0(item);
-            destination.f(tmp$ret$4);
-        }
-        builder.nv('yourDice', new JsonArray(destination));
-        put_1(builder, 'yourTurn', this.k16_1 == null && this.h16_1 == null && this.a16_1 === player);
-        return builder.ov();
-    };
-    function Dice() {
-        Dice_instance = this;
-        this.l16_1 = 'dice';
-        this.m16_1 = numberRangeToNumber(2, 6);
-    }
-    protoOf(Dice).u13 = function() {
-        return this.l16_1;
-    };
-    protoOf(Dice).v13 = function() {
-        return this.m16_1;
-    };
-    protoOf(Dice).w13 = function(players, random) {
-        return new DiceGame(players, random);
-    };
-    var Dice_instance;
-    function Dice_getInstance() {
-        if (Dice_instance == null) new Dice;
-        return Dice_instance;
     }
     function get_GAMES() {
         _init_properties_Game_kt__8erhxu();
@@ -19871,16 +19471,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Enum.call(this, name, ordinal);
     }
     function ComingGame(id, players) {
-        this.q16_1 = id;
-        this.r16_1 = players;
+        this.t17_1 = id;
+        this.u17_1 = players;
     }
     function Frame_NONE_getInstance() {
         static_init_4();
         return Frame_NONE_instance;
-    }
-    function Frame_TV_getInstance() {
-        static_init_4();
-        return Frame_TV_instance;
     }
     function Frame_EVERYONE_getInstance() {
         static_init_4();
@@ -19890,2033 +19486,43 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function _init_properties_Game_kt__8erhxu() {
         if (!properties_initialized_Game_kt_8p3p0) {
             properties_initialized_Game_kt_8p3p0 = true;
-            GAMES = listOf_0([ Battleship_getInstance(), Siege_getInstance(), Submarine_getInstance(), Crowd_getInstance(), Dice_getInstance() ]);
+            GAMES = listOf_0([ Battleship_getInstance(), Artillery_getInstance() ]);
             COMING_GAMES = listOf_0([ new ComingGame('durak', numberRangeToNumber(2, 6)), new ComingGame('spy', numberRangeToNumber(3, 8)) ]);
         }
     }
-    function Card(id, kind) {
-        this.s16_1 = id;
-        this.t16_1 = kind;
-        this.u16_1 = null;
-    }
-    function Squad(id, kind, side, hp) {
-        this.v16_1 = id;
-        this.w16_1 = kind;
-        this.x16_1 = side;
-        this.y16_1 = hp;
-    }
-    function draw($this, side) {
-        if ($this.h17_1[side].k()) {
-            var tmp0 = $this.h17_1[side];
-            var elements = shuffled($this.b17_1.m(side), $this.a17_1);
-            addAll(tmp0, elements);
-        }
-        var _unary__edvuaz = $this.r17_1;
-        $this.r17_1 = _unary__edvuaz + 1 | 0;
-        return new Card(_unary__edvuaz, removeLast($this.h17_1[side]));
-    }
-    function price($this, kind) {
-        return getValue(Companion_getInstance_28().l18_1, kind);
-    }
-    function left($this, side) {
-        var tmp = $this.g17_1[side];
-        var tmp0 = $this.i17_1[side];
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = tmp0.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            if (!(element.u16_1 == null)) {
-                destination.f(element);
-            }
-        }
-        var sum = 0;
-        var _iterator__ex2g4s_0 = destination.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element_0 = _iterator__ex2g4s_0.i();
-            var tmp_0 = sum;
-            sum = tmp_0 + price($this, element_0.t16_1) | 0;
-        }
-        return tmp - sum | 0;
-    }
-    function card($this, side, action) {
-        var tmp0_safe_receiver = action.cv('card');
-        var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
-        var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
-        var tmp;
-        if (tmp2_elvis_lhs == null) {
-            return null;
-        } else {
-            tmp = tmp2_elvis_lhs;
-        }
-        var id = tmp;
-        var tmp0 = $this.i17_1[side];
-        var tmp$ret$0;
-        $l$block: {
-            var _iterator__ex2g4s = tmp0.g();
-            while (_iterator__ex2g4s.h()) {
-                var element = _iterator__ex2g4s.i();
-                if (element.s16_1 === id) {
-                    tmp$ret$0 = element;
-                    break $l$block;
-                }
-            }
-            tmp$ret$0 = null;
-        }
-        return tmp$ret$0;
-    }
-    function play($this, side, card, lane) {
-        if (!(0 <= lane ? lane < 3 : false) || card.t16_1 === 'spy' || card.u16_1 === lane) return false;
-        if (card.u16_1 == null && left($this, side) < price($this, card.t16_1)) return false;
-        var tmp0 = $this.i17_1[side];
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = tmp0.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            if (!(element === card) && element.u16_1 === lane) {
-                destination.f(element);
-            }
-        }
-        var others = destination;
-        switch (card.t16_1) {
-          case 'ambush':
-            var tmp;
-            if ($this.d17_1[side][lane]) {
-                tmp = true;
-            } else {
-                var tmp$ret$3;
-                $l$block_0: {
-                    var tmp_0;
-                    if (isInterface(others, Collection)) {
-                        tmp_0 = others.k();
-                    } else {
-                        tmp_0 = false;
-                    }
-                    if (tmp_0) {
-                        tmp$ret$3 = false;
-                        break $l$block_0;
-                    }
-                    var _iterator__ex2g4s_0 = others.g();
-                    while (_iterator__ex2g4s_0.h()) {
-                        var element_0 = _iterator__ex2g4s_0.i();
-                        if (element_0.t16_1 === 'ambush') {
-                            tmp$ret$3 = true;
-                            break $l$block_0;
-                        }
-                    }
-                    tmp$ret$3 = false;
-                }
-                tmp = tmp$ret$3;
-            }
-            if (tmp) return false;
-            break;
-
-          case 'ram':
-            var tmp$ret$5;
-            $l$block_2: {
-                var tmp_1;
-                if (isInterface(others, Collection)) {
-                    tmp_1 = others.k();
-                } else {
-                    tmp_1 = false;
-                }
-                if (tmp_1) {
-                    tmp$ret$5 = false;
-                    break $l$block_2;
-                }
-                var _iterator__ex2g4s_1 = others.g();
-                while (_iterator__ex2g4s_1.h()) {
-                    var element_1 = _iterator__ex2g4s_1.i();
-                    if (element_1.t16_1 === 'ram') {
-                        tmp$ret$5 = true;
-                        break $l$block_2;
-                    }
-                }
-                tmp$ret$5 = false;
-            }
-            if (tmp$ret$5) return false;
-            break;
-
-          default:
-            var tmp_2 = $this.c17_1[lane][side].j();
-            var tmp$ret$7;
-            $l$block_3: {
-                var tmp_3;
-                if (isInterface(others, Collection)) {
-                    tmp_3 = others.k();
-                } else {
-                    tmp_3 = false;
-                }
-                if (tmp_3) {
-                    tmp$ret$7 = 0;
-                    break $l$block_3;
-                }
-                var count = 0;
-                var _iterator__ex2g4s_2 = others.g();
-                while (_iterator__ex2g4s_2.h()) {
-                    var element_2 = _iterator__ex2g4s_2.i();
-                    if (Companion_getInstance_28().i18_1.m1(element_2.t16_1)) {
-                        count = count + 1 | 0;
-                        checkCountOverflow(count);
-                    }
-                }
-                tmp$ret$7 = count;
-            }
-            if ((tmp_2 + tmp$ret$7 | 0) >= 3) return false;
-            break;
-        }
-        card.u16_1 = lane;
-        return true;
-    }
-    function redraw($this, side) {
-        var tmp0 = $this.i17_1[side];
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = tmp0.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            if (element.u16_1 == null) {
-                destination.f(element);
-            }
-        }
-        var free = destination;
-        if (free.k() || left($this, side) < 1) return false;
-        var _array__4zh2yp = $this.g17_1;
-        _array__4zh2yp[side] = _array__4zh2yp[side] - 1 | 0;
-        $this.i17_1[side].n3(free);
-        var times = free.j();
-        var inductionVariable = 0;
-        if (inductionVariable < times) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var tmp0_0 = $this.i17_1[side];
-            var element_0 = draw($this, side);
-            tmp0_0.f(element_0);
-        } while (inductionVariable < times);
-        return true;
-    }
-    function spy($this, side, card) {
-        if (!(card.t16_1 === 'spy') || left($this, side) < price($this, 'spy')) return false;
-        var _array__4zh2yp = $this.g17_1;
-        _array__4zh2yp[side] = _array__4zh2yp[side] - price($this, 'spy') | 0;
-        $this.i17_1[side].y2(card);
-        var rival = $this.i17_1[1 - side | 0];
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = rival.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            if (!(element.u16_1 == null)) {
-                destination.f(element);
-            }
-        }
-        var tmp;
-        if (destination.k()) {
-            tmp = rival;
-        } else {
-            tmp = destination;
-        }
-        var tmp$ret$3 = tmp;
-        var seen = randomOrNull(tmp$ret$3, $this.a17_1);
-        var tmp0 = $this.j17_1[side];
-        var builder = new JsonObjectBuilder;
-        put(builder, 'kind', seen == null ? null : seen.t16_1);
-        put_0(builder, 'lane', seen == null ? null : seen.u16_1);
-        var element_0 = builder.ov();
-        tmp0.f(element_0);
-        return true;
-    }
-    function resolve($this) {
-        var this_0 = until(0, 3);
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var inductionVariable = this_0.w_1;
-        var last = this_0.x_1;
-        if (inductionVariable <= last) do {
-            var item = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var lane = item;
-            var tmp$ret$2 = battle($this, lane);
-            destination.f(tmp$ret$2);
-        } while (!(item === last));
-        var beats = destination;
-        var inductionVariable_0 = 0;
-        if (inductionVariable_0 <= 1) do {
-            var side = inductionVariable_0;
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            $this.g17_1[side] = left($this, side);
-            $this.i17_1[side].a2();
-        } while (inductionVariable_0 <= 1);
-        var tmp = $this;
-        var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(beats, 10));
-        var _iterator__ex2g4s = beats.g();
-        while (_iterator__ex2g4s.h()) {
-            var item_0 = _iterator__ex2g4s.i();
-            var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(item_0, 10));
-            var _iterator__ex2g4s_0 = item_0.g();
-            while (_iterator__ex2g4s_0.h()) {
-                var item_1 = _iterator__ex2g4s_0.i();
-                var tmp$ret$8 = new JsonArray(item_1);
-                destination_1.f(tmp$ret$8);
-            }
-            var tmp$ret$5 = new JsonArray(destination_1);
-            destination_0.f(tmp$ret$5);
-        }
-        tmp.p17_1 = new JsonArray(destination_0);
-        $this.o17_1 = true;
-        var tmp_0 = $this;
-        var tmp0 = until(0, 5);
-        var tmp$ret$9;
-        $l$block: {
-            var tmp_1;
-            if (isInterface(tmp0, Collection)) {
-                tmp_1 = tmp0.k();
-            } else {
-                tmp_1 = false;
-            }
-            if (tmp_1) {
-                tmp$ret$9 = 0;
-                break $l$block;
-            }
-            var count = 0;
-            var inductionVariable_1 = tmp0.w_1;
-            var last_0 = tmp0.x_1;
-            if (inductionVariable_1 <= last_0) do {
-                var element = inductionVariable_1;
-                inductionVariable_1 = inductionVariable_1 + 1 | 0;
-                var beat = element;
-                var tmp$ret$11;
-                $l$block_1: {
-                    var tmp_2;
-                    if (isInterface(beats, Collection)) {
-                        tmp_2 = beats.k();
-                    } else {
-                        tmp_2 = false;
-                    }
-                    if (tmp_2) {
-                        tmp$ret$11 = false;
-                        break $l$block_1;
-                    }
-                    var _iterator__ex2g4s_1 = beats.g();
-                    while (_iterator__ex2g4s_1.h()) {
-                        var element_0 = _iterator__ex2g4s_1.i();
-                        if (!element_0.m(beat).k()) {
-                            tmp$ret$11 = true;
-                            break $l$block_1;
-                        }
-                    }
-                    tmp$ret$11 = false;
-                }
-                if (tmp$ret$11) {
-                    count = count + 1 | 0;
-                    checkCountOverflow(count);
-                }
-            } while (!(element === last_0));
-            tmp$ret$9 = count;
-        }
-        tmp_0.m17_1 = 2 + tmp$ret$9 | 0;
-        $this.q17_1 = judge($this);
-    }
-    function battle($this, lane) {
-        var list = ArrayList_init_$Create$_0(5);
-        var inductionVariable = 0;
-        if (inductionVariable < 5) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$4 = ArrayList_init_$Create$();
-            list.f(tmp$ret$4);
-        } while (inductionVariable < 5);
-        var beats = list;
-        var here = $this.c17_1[lane];
-        var inductionVariable_0 = 0;
-        if (inductionVariable_0 <= 1) do {
-            var side = inductionVariable_0;
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            var tmp0 = $this.i17_1[side];
-            var destination = ArrayList_init_$Create$();
-            var _iterator__ex2g4s = tmp0.g();
-            while (_iterator__ex2g4s.h()) {
-                var element = _iterator__ex2g4s.i();
-                if (element.u16_1 === lane) {
-                    destination.f(element);
-                }
-            }
-            var _iterator__ex2g4s_0 = destination.g();
-            while (_iterator__ex2g4s_0.h()) {
-                var card = _iterator__ex2g4s_0.i();
-                var tmp0_subject = card.t16_1;
-                if (tmp0_subject === 'ambush') {
-                    $this.d17_1[side][lane] = true;
-                } else if (Companion_getInstance_28().i18_1.m1(tmp0_subject)) {
-                    var _unary__edvuaz = $this.r17_1;
-                    $this.r17_1 = _unary__edvuaz + 1 | 0;
-                    var squad = new Squad(_unary__edvuaz, card.t16_1, side, getValue(Companion_getInstance_28().j18_1, card.t16_1));
-                    here[side].f(squad);
-                    var tmp0_0 = beats.m(0);
-                    var element_0 = event($this, 'enter', SiegeGame$battle$lambda(side, squad));
-                    tmp0_0.f(element_0);
-                }
-            }
-        } while (inductionVariable_0 <= 1);
-        var inductionVariable_1 = 0;
-        if (inductionVariable_1 <= 1) $l$loop: do {
-            var side_0 = inductionVariable_1;
-            inductionVariable_1 = inductionVariable_1 + 1 | 0;
-            if (!$this.d17_1[side_0][lane] || here[1 - side_0 | 0].k()) continue $l$loop;
-            $this.d17_1[side_0][lane] = false;
-            var tmp0_1 = beats.m(0);
-            var element_1 = event($this, 'ambush', SiegeGame$battle$lambda_0(side_0));
-            tmp0_1.f(element_1);
-            var _iterator__ex2g4s_1 = here[1 - side_0 | 0].g();
-            while (_iterator__ex2g4s_1.h()) {
-                var squad_0 = _iterator__ex2g4s_1.i();
-                squad_0.y16_1 = squad_0.y16_1 - 2 | 0;
-                var tmp0_2 = beats.m(0);
-                var element_2 = hitEvent($this, null, squad_0, 2, false);
-                tmp0_2.f(element_2);
-            }
-            var tmp = here[1 - side_0 | 0];
-            removeAll(tmp, SiegeGame$battle$lambda_1);
-        } while (inductionVariable_1 <= 1);
-        var inductionVariable_2 = 1;
-        if (inductionVariable_2 <= 3) $l$loop_0: do {
-            var clash = inductionVariable_2;
-            inductionVariable_2 = inductionVariable_2 + 1 | 0;
-            var tmp$ret$13;
-            $l$block: {
-                var inductionVariable_3 = 0;
-                var last = here.length;
-                while (inductionVariable_3 < last) {
-                    var element_3 = here[inductionVariable_3];
-                    inductionVariable_3 = inductionVariable_3 + 1 | 0;
-                    if (element_3.k()) {
-                        tmp$ret$13 = true;
-                        break $l$block;
-                    }
-                }
-                tmp$ret$13 = false;
-            }
-            if (tmp$ret$13) break $l$loop_0;
-            attack($this, here, beats.m(clash), true, clash);
-            attack($this, here, beats.m(clash), false, clash);
-        } while (inductionVariable_2 <= 3);
-        var inductionVariable_4 = 0;
-        if (inductionVariable_4 <= 1) $l$loop_1: do {
-            var side_1 = inductionVariable_4;
-            inductionVariable_4 = inductionVariable_4 + 1 | 0;
-            var rival = 1 - side_1 | 0;
-            var tmp_0;
-            if (here[side_1].k()) {
-                tmp_0 = true;
-            } else {
-                tmp_0 = !here[rival].k();
-            }
-            if (tmp_0) continue $l$loop_1;
-            var tmp0_3 = $this.i17_1[side_1];
-            var tmp$ret$16;
-            $l$block_1: {
-                var tmp_1;
-                if (isInterface(tmp0_3, Collection)) {
-                    tmp_1 = tmp0_3.k();
-                } else {
-                    tmp_1 = false;
-                }
-                if (tmp_1) {
-                    tmp$ret$16 = false;
-                    break $l$block_1;
-                }
-                var _iterator__ex2g4s_2 = tmp0_3.g();
-                while (_iterator__ex2g4s_2.h()) {
-                    var element_4 = _iterator__ex2g4s_2.i();
-                    if (element_4.u16_1 === lane && element_4.t16_1 === 'ram') {
-                        tmp$ret$16 = true;
-                        break $l$block_1;
-                    }
-                }
-                tmp$ret$16 = false;
-            }
-            var ram = tmp$ret$16;
-            var _iterator__ex2g4s_3 = here[side_1].g();
-            while (_iterator__ex2g4s_3.h()) {
-                var squad_1 = _iterator__ex2g4s_3.i();
-                var damage = 2;
-                if (ram) {
-                    ram = false;
-                    var a = $this.e17_1[rival][lane];
-                    var toWall = Math.min(a, 4);
-                    var _array__4zh2yp = $this.e17_1[rival];
-                    _array__4zh2yp[lane] = _array__4zh2yp[lane] - toWall | 0;
-                }
-                var tmp0_4 = $this.e17_1[rival][lane];
-                var b = damage;
-                var toWall_0 = Math.min(tmp0_4, b);
-                var _array__4zh2yp_0 = $this.e17_1[rival];
-                _array__4zh2yp_0[lane] = _array__4zh2yp_0[lane] - toWall_0 | 0;
-                damage = damage - toWall_0 | 0;
-                var _array__4zh2yp_1 = $this.f17_1;
-                _array__4zh2yp_1[rival] = _array__4zh2yp_1[rival] - damage | 0;
-                var tmp0_5 = beats.m(4);
-                var element_5 = event($this, 'strike', SiegeGame$battle$lambda_2(side_1, squad_1, $this, rival, lane));
-                tmp0_5.f(element_5);
-            }
-        } while (inductionVariable_4 <= 1);
-        return beats;
-    }
-    function attack($this, here, beat, ranged, clash) {
-        var blows = ArrayList_init_$Create$();
-        var inductionVariable = 0;
-        if (inductionVariable <= 1) do {
-            var side = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var _iterator__ex2g4s = here[side].g();
-            $l$loop_0: while (_iterator__ex2g4s.h()) {
-                var squad = _iterator__ex2g4s.i();
-                if (!(squad.w16_1 === 'archer' === ranged)) continue $l$loop_0;
-                var enemies = here[1 - side | 0];
-                var tmp$ret$1;
-                $l$block: {
-                    var _iterator__ex2g4s_0 = enemies.g();
-                    while (_iterator__ex2g4s_0.h()) {
-                        var element = _iterator__ex2g4s_0.i();
-                        if (Companion_getInstance_28().k18_1.t1(squad.w16_1) === element.w16_1) {
-                            tmp$ret$1 = element;
-                            break $l$block;
-                        }
-                    }
-                    tmp$ret$1 = null;
-                }
-                var tmp0_elvis_lhs = tmp$ret$1;
-                var tmp1_elvis_lhs = tmp0_elvis_lhs == null ? firstOrNull(enemies) : tmp0_elvis_lhs;
-                var tmp;
-                if (tmp1_elvis_lhs == null) {
-                    continue $l$loop_0;
-                } else {
-                    tmp = tmp1_elvis_lhs;
-                }
-                var target = tmp;
-                var countered = Companion_getInstance_28().k18_1.t1(squad.w16_1) === target.w16_1;
-                var charge = squad.w16_1 === 'horse' && clash === 1;
-                var element_0 = new Triple(squad, target, (countered ? 2 : 1) + (charge ? 1 : 0) | 0);
-                blows.f(element_0);
-            }
-        } while (inductionVariable <= 1);
-        var _iterator__ex2g4s_1 = blows.g();
-        while (_iterator__ex2g4s_1.h()) {
-            var _destruct__k2r9zo = _iterator__ex2g4s_1.i();
-            var by = _destruct__k2r9zo.oa();
-            var to = _destruct__k2r9zo.pa();
-            var damage = _destruct__k2r9zo.ue();
-            to.y16_1 = to.y16_1 - damage | 0;
-            var element_1 = hitEvent($this, by, to, damage, ranged);
-            beat.f(element_1);
-        }
-        var inductionVariable_0 = 0;
-        var last = here.length;
-        while (inductionVariable_0 < last) {
-            var side_0 = here[inductionVariable_0];
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            removeAll(side_0, SiegeGame$attack$lambda);
-        }
-    }
-    function hitEvent($this, by, to, damage, ranged) {
-        return event($this, 'hit', SiegeGame$hitEvent$lambda(by, to, damage, ranged));
-    }
-    function event($this, type, fill) {
-        var builder = new JsonObjectBuilder;
-        put(builder, 'e', type);
-        fill(builder);
-        return builder.ov();
-    }
-    function judge($this) {
-        var tmp;
-        var tmp0 = $this.f17_1;
-        var tmp$ret$0;
-        $l$block: {
-            var inductionVariable = 0;
-            var last = tmp0.length;
-            while (inductionVariable < last) {
-                var element = tmp0[inductionVariable];
-                inductionVariable = inductionVariable + 1 | 0;
-                if (element <= 0) {
-                    tmp$ret$0 = false;
-                    break $l$block;
-                }
-            }
-            tmp$ret$0 = true;
-        }
-        if (tmp$ret$0) {
-            tmp = $this.l17_1 < 8;
-        } else {
-            tmp = false;
-        }
-        if (tmp) return null;
-        var tmp_0 = 0;
-        var tmp_1 = new Int32Array(2);
-        while (tmp_0 < 2) {
-            var tmp_2 = tmp_0;
-            tmp_1[tmp_2] = $this.f17_1[tmp_2] + sum($this.e17_1[tmp_2]) | 0;
-            tmp_0 = tmp_0 + 1 | 0;
-        }
-        var strength = tmp_1;
-        return !($this.f17_1[0] === $this.f17_1[1]) ? $this.z16_1.m($this.f17_1[0] > $this.f17_1[1] ? 0 : 1) : !(strength[0] === strength[1]) ? $this.z16_1.m(strength[0] > strength[1] ? 0 : 1) : 'draw';
-    }
-    function nextRound_0($this) {
-        $this.o17_1 = false;
-        if (!($this.q17_1 == null)) {
-            $this.s17_1 = $this.q17_1;
-            return Unit_instance;
-        }
-        $this.l17_1 = $this.l17_1 + 1 | 0;
-        fill($this.k17_1, false);
-        $this.n17_1 = false;
-        $this.m17_1 = 20;
-        var inductionVariable = 0;
-        if (inductionVariable <= 1) do {
-            var side = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var _array__4zh2yp = $this.g17_1;
-            _array__4zh2yp[side] = _array__4zh2yp[side] + Companion_getInstance_28().n18($this.l17_1) | 0;
-            $this.j17_1[side].a2();
-            var inductionVariable_0 = 0;
-            if (inductionVariable_0 < 4) do {
-                var index = inductionVariable_0;
-                inductionVariable_0 = inductionVariable_0 + 1 | 0;
-                var tmp0 = $this.i17_1[side];
-                var element = draw($this, side);
-                tmp0.f(element);
-            } while (inductionVariable_0 < 4);
-        } while (inductionVariable <= 1);
-    }
-    function common_1($this, $receiver) {
-        put($receiver, 'game', Siege_getInstance().o18_1);
-        put($receiver, 'phase', !($this.s17_1 == null) ? 'over' : $this.o17_1 ? 'showing' : 'planning');
-        put_0($receiver, 'round', $this.l17_1);
-        put_0($receiver, 'rounds', 8);
-        put_0($receiver, 'clock', !($this.s17_1 == null) ? 0 : $this.m17_1);
-        var this_0 = $this.z16_1;
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var tmp$ret$2 = JsonPrimitive_1(item);
-            destination.f(tmp$ret$2);
-        }
-        $receiver.nv('sides', new JsonArray(destination));
-        var this_1 = $this.f17_1;
-        var destination_0 = ArrayList_init_$Create$_0(this_1.length);
-        var inductionVariable = 0;
-        var last = this_1.length;
-        while (inductionVariable < last) {
-            var item_0 = this_1[inductionVariable];
-            inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$6 = Math.max(0, item_0);
-            var tmp$ret$5 = JsonPrimitive_0(tmp$ret$6);
-            destination_0.f(tmp$ret$5);
-        }
-        $receiver.nv('towers', new JsonArray(destination_0));
-        var this_2 = $this.e17_1;
-        var destination_1 = ArrayList_init_$Create$_0(this_2.length);
-        var inductionVariable_0 = 0;
-        var last_0 = this_2.length;
-        while (inductionVariable_0 < last_0) {
-            var item_1 = this_2[inductionVariable_0];
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            var destination_2 = ArrayList_init_$Create$_0(item_1.length);
-            var inductionVariable_1 = 0;
-            var last_1 = item_1.length;
-            while (inductionVariable_1 < last_1) {
-                var item_2 = item_1[inductionVariable_1];
-                inductionVariable_1 = inductionVariable_1 + 1 | 0;
-                var tmp$ret$12 = JsonPrimitive_0(item_2);
-                destination_2.f(tmp$ret$12);
-            }
-            var tmp$ret$9 = new JsonArray(destination_2);
-            destination_1.f(tmp$ret$9);
-        }
-        $receiver.nv('walls', new JsonArray(destination_1));
-        var this_3 = $this.k17_1;
-        var destination_3 = ArrayList_init_$Create$_0(this_3.length);
-        var inductionVariable_2 = 0;
-        var last_2 = this_3.length;
-        while (inductionVariable_2 < last_2) {
-            var item_3 = this_3[inductionVariable_2];
-            inductionVariable_2 = inductionVariable_2 + 1 | 0;
-            var tmp$ret$15 = JsonPrimitive_2(item_3);
-            destination_3.f(tmp$ret$15);
-        }
-        $receiver.nv('ready', new JsonArray(destination_3));
-        put($receiver, 'winner', $this.s17_1);
-        put_0($receiver, 'slots', 3);
-        put_0($receiver, 'redrawPrice', 1);
-        var this_4 = Companion_getInstance_28().l18_1;
-        var destination_4 = LinkedHashMap_init_$Create$_0(mapCapacity(this_4.j()));
-        var _iterator__ex2g4s_0 = this_4.w1().g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element = _iterator__ex2g4s_0.i();
-            var tmp = element.p1();
-            var tmp$ret$20 = JsonPrimitive_0(element.q1());
-            destination_4.x1(tmp, tmp$ret$20);
-        }
-        $receiver.nv('prices', new JsonObject(destination_4));
-        var this_5 = until(0, 3);
-        var destination_5 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_5, 10));
-        var inductionVariable_3 = this_5.w_1;
-        var last_3 = this_5.x_1;
-        if (inductionVariable_3 <= last_3) do {
-            var item_4 = inductionVariable_3;
-            inductionVariable_3 = inductionVariable_3 + 1 | 0;
-            var lane = item_4;
-            var this_6 = numberRangeToNumber(0, 1);
-            var destination_6 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_6, 10));
-            var inductionVariable_4 = this_6.w_1;
-            var last_4 = this_6.x_1;
-            if (inductionVariable_4 <= last_4) do {
-                var item_5 = inductionVariable_4;
-                inductionVariable_4 = inductionVariable_4 + 1 | 0;
-                var side = item_5;
-                var this_7 = $this.c17_1[lane][side];
-                var destination_7 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_7, 10));
-                var _iterator__ex2g4s_1 = this_7.g();
-                while (_iterator__ex2g4s_1.h()) {
-                    var item_6 = _iterator__ex2g4s_1.i();
-                    var builder = new JsonObjectBuilder;
-                    put_0(builder, 'id', item_6.v16_1);
-                    put(builder, 'kind', item_6.w16_1);
-                    put_0(builder, 'hp', item_6.y16_1);
-                    var tmp$ret$29 = builder.ov();
-                    destination_7.f(tmp$ret$29);
-                }
-                var tmp$ret$26 = new JsonArray(destination_7);
-                destination_6.f(tmp$ret$26);
-            } while (!(item_5 === last_4));
-            var tmp$ret$23 = new JsonArray(destination_6);
-            destination_5.f(tmp$ret$23);
-        } while (!(item_4 === last_3));
-        $receiver.nv('lanes', new JsonArray(destination_5));
-        var tmp0_elvis_lhs = $this.p17_1;
-        $receiver.nv('report', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
-    }
-    function Companion_28() {
-        Companion_instance_28 = this;
-        this.t17_1 = 3;
-        this.u17_1 = 3;
-        this.v17_1 = 4;
-        this.w17_1 = 12;
-        this.x17_1 = 4;
-        this.y17_1 = 8;
-        this.z17_1 = 2;
-        this.a18_1 = 4;
-        this.b18_1 = 2;
-        this.c18_1 = 1;
-        this.d18_1 = 3;
-        this.e18_1 = 5;
-        this.f18_1 = 20;
-        this.g18_1 = 8;
-        this.h18_1 = 2;
-        this.i18_1 = setOf_0([ 'pike', 'horse', 'archer' ]);
-        this.j18_1 = mapOf_0([ to('pike', 4), to('horse', 3), to('archer', 2) ]);
-        this.k18_1 = mapOf_0([ to('pike', 'horse'), to('horse', 'archer'), to('archer', 'pike') ]);
-        this.l18_1 = mapOf_0([ to('pike', 2), to('horse', 2), to('archer', 2), to('ram', 2), to('ambush', 2), to('spy', 1) ]);
-        var tmp = this;
-        var list = ArrayList_init_$Create$_0(4);
-        var inductionVariable = 0;
-        if (inductionVariable < 4) do {
-            var index = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            list.f('pike');
-        } while (inductionVariable < 4);
-        var tmp_0 = list;
-        var list_0 = ArrayList_init_$Create$_0(4);
-        var inductionVariable_0 = 0;
-        if (inductionVariable_0 < 4) do {
-            var index_0 = inductionVariable_0;
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            list_0.f('horse');
-        } while (inductionVariable_0 < 4);
-        var tmp_1 = plus(tmp_0, list_0);
-        var list_1 = ArrayList_init_$Create$_0(4);
-        var inductionVariable_1 = 0;
-        if (inductionVariable_1 < 4) do {
-            var index_1 = inductionVariable_1;
-            inductionVariable_1 = inductionVariable_1 + 1 | 0;
-            list_1.f('archer');
-        } while (inductionVariable_1 < 4);
-        var tmp_2 = plus(tmp_1, list_1);
-        var list_2 = ArrayList_init_$Create$_0(2);
-        var inductionVariable_2 = 0;
-        if (inductionVariable_2 < 2) do {
-            var index_2 = inductionVariable_2;
-            inductionVariable_2 = inductionVariable_2 + 1 | 0;
-            list_2.f('ram');
-        } while (inductionVariable_2 < 2);
-        var tmp_3 = plus(tmp_2, list_2);
-        var list_3 = ArrayList_init_$Create$_0(2);
-        var inductionVariable_3 = 0;
-        if (inductionVariable_3 < 2) do {
-            var index_3 = inductionVariable_3;
-            inductionVariable_3 = inductionVariable_3 + 1 | 0;
-            list_3.f('ambush');
-        } while (inductionVariable_3 < 2);
-        var tmp_4 = plus(tmp_3, list_3);
-        var list_4 = ArrayList_init_$Create$_0(2);
-        var inductionVariable_4 = 0;
-        if (inductionVariable_4 < 2) do {
-            var index_4 = inductionVariable_4;
-            inductionVariable_4 = inductionVariable_4 + 1 | 0;
-            list_4.f('spy');
-        } while (inductionVariable_4 < 2);
-        tmp.m18_1 = plus(tmp_4, list_4);
-    }
-    protoOf(Companion_28).n18 = function(round) {
-        return 4 + ((round - 1 | 0) / 2 | 0) | 0;
-    };
-    var Companion_instance_28;
-    function Companion_getInstance_28() {
-        if (Companion_instance_28 == null) new Companion_28;
-        return Companion_instance_28;
-    }
-    function SiegeGame$battle$lambda($side, $squad) {
-        return function($this$event) {
-            put_0($this$event, 'side', $side);
-            put_0($this$event, 'id', $squad.v16_1);
-            put($this$event, 'kind', $squad.w16_1);
-            put_0($this$event, 'hp', $squad.y16_1);
-            return Unit_instance;
-        };
-    }
-    function SiegeGame$battle$lambda_0($side) {
-        return function($this$event) {
-            put_0($this$event, 'side', $side);
-            return Unit_instance;
-        };
-    }
-    function SiegeGame$battle$lambda_1(it) {
-        return it.y16_1 <= 0;
-    }
-    function SiegeGame$battle$lambda_2($side, $squad, this$0, $rival, $lane) {
-        return function($this$event) {
-            put_0($this$event, 'side', $side);
-            put_0($this$event, 'id', $squad.v16_1);
-            put_0($this$event, 'wall', this$0.e17_1[$rival][$lane]);
-            var b = this$0.f17_1[$rival];
-            var tmp$ret$0 = Math.max(0, b);
-            put_0($this$event, 'tower', tmp$ret$0);
-            return Unit_instance;
-        };
-    }
-    function SiegeGame$attack$lambda(it) {
-        return it.y16_1 <= 0;
-    }
-    function SiegeGame$hitEvent$lambda($by, $to, $damage, $ranged) {
-        return function($this$event) {
-            var tmp0_safe_receiver = $by;
-            put_0($this$event, 'by', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.v16_1);
-            put_0($this$event, 'to', $to.v16_1);
-            put_0($this$event, 'side', $to.x16_1);
-            put_0($this$event, 'damage', $damage);
-            var b = $to.y16_1;
-            var tmp$ret$0 = Math.max(0, b);
-            put_0($this$event, 'hp', tmp$ret$0);
-            put_1($this$event, 'ranged', $ranged);
-            return Unit_instance;
-        };
-    }
-    function SiegeGame(players, random, decks) {
-        Companion_getInstance_28();
-        decks = decks === VOID ? listOf_0([ Companion_getInstance_28().m18_1, Companion_getInstance_28().m18_1 ]) : decks;
-        this.z16_1 = players;
-        this.a17_1 = random;
-        this.b17_1 = decks;
-        var tmp = this;
-        var tmp_0 = 0;
-        var tmp_1 = Array(3);
-        while (tmp_0 < 3) {
-            var tmp_2 = tmp_0;
-            var tmp_3 = 0;
-            var tmp_4 = Array(2);
-            while (tmp_3 < 2) {
-                tmp_4[tmp_3] = ArrayList_init_$Create$();
-                tmp_3 = tmp_3 + 1 | 0;
-            }
-            tmp_1[tmp_2] = tmp_4;
-            tmp_0 = tmp_0 + 1 | 0;
-        }
-        tmp.c17_1 = tmp_1;
-        var tmp_5 = this;
-        var tmp_6 = 0;
-        var tmp_7 = Array(2);
-        while (tmp_6 < 2) {
-            tmp_7[tmp_6] = booleanArray(3);
-            tmp_6 = tmp_6 + 1 | 0;
-        }
-        tmp_5.d17_1 = tmp_7;
-        var tmp_8 = this;
-        var tmp_9 = 0;
-        var tmp_10 = Array(2);
-        while (tmp_9 < 2) {
-            var tmp_11 = tmp_9;
-            var tmp_12 = 0;
-            var tmp_13 = new Int32Array(3);
-            while (tmp_12 < 3) {
-                tmp_13[tmp_12] = 4;
-                tmp_12 = tmp_12 + 1 | 0;
-            }
-            tmp_10[tmp_11] = tmp_13;
-            tmp_9 = tmp_9 + 1 | 0;
-        }
-        tmp_8.e17_1 = tmp_10;
-        var tmp_14 = this;
-        var tmp_15 = 0;
-        var tmp_16 = new Int32Array(2);
-        while (tmp_15 < 2) {
-            tmp_16[tmp_15] = 12;
-            tmp_15 = tmp_15 + 1 | 0;
-        }
-        tmp_14.f17_1 = tmp_16;
-        var tmp_17 = this;
-        var tmp_18 = 0;
-        var tmp_19 = new Int32Array(2);
-        while (tmp_18 < 2) {
-            tmp_19[tmp_18] = Companion_getInstance_28().n18(1);
-            tmp_18 = tmp_18 + 1 | 0;
-        }
-        tmp_17.g17_1 = tmp_19;
-        var tmp_20 = this;
-        var tmp_21 = 0;
-        var tmp_22 = Array(2);
-        while (tmp_21 < 2) {
-            tmp_22[tmp_21] = ArrayList_init_$Create$();
-            tmp_21 = tmp_21 + 1 | 0;
-        }
-        tmp_20.h17_1 = tmp_22;
-        var tmp_23 = this;
-        var tmp_24 = 0;
-        var tmp_25 = Array(2);
-        while (tmp_24 < 2) {
-            tmp_25[tmp_24] = ArrayList_init_$Create$();
-            tmp_24 = tmp_24 + 1 | 0;
-        }
-        tmp_23.i17_1 = tmp_25;
-        var tmp_26 = this;
-        var tmp_27 = 0;
-        var tmp_28 = Array(2);
-        while (tmp_27 < 2) {
-            tmp_28[tmp_27] = ArrayList_init_$Create$();
-            tmp_27 = tmp_27 + 1 | 0;
-        }
-        tmp_26.j17_1 = tmp_28;
-        this.k17_1 = booleanArray(2);
-        this.l17_1 = 1;
-        this.m17_1 = 20;
-        this.n17_1 = false;
-        this.o17_1 = false;
-        this.p17_1 = null;
-        this.q17_1 = null;
-        this.r17_1 = 0;
-        this.s17_1 = null;
-        var inductionVariable = 0;
-        if (inductionVariable <= 1) do {
-            var side = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var inductionVariable_0 = 0;
-            if (inductionVariable_0 < 4) do {
-                var index = inductionVariable_0;
-                inductionVariable_0 = inductionVariable_0 + 1 | 0;
-                var tmp0 = this.i17_1[side];
-                var element = draw(this, side);
-                tmp0.f(element);
-            } while (inductionVariable_0 < 4);
-        } while (inductionVariable <= 1);
-    }
-    protoOf(SiegeGame).m13 = function() {
-        return this.s17_1;
-    };
-    protoOf(SiegeGame).n13 = function(player, action) {
-        var side = this.z16_1.o1(player);
-        if (side < 0 || this.o17_1 || !(this.s17_1 == null)) return false;
-        var tmp0_safe_receiver = action.cv('do');
-        var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
-        var command = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
-        if (command === 'unready') {
-            if (!this.k17_1[side]) return false;
-            this.k17_1[side] = false;
-            return true;
-        }
-        if (this.k17_1[side]) return false;
-        var tmp;
-        switch (command) {
-          case 'ready':
-            this.k17_1[side] = true;
-            var tmp0 = this.k17_1;
-            var tmp$ret$0;
-            $l$block: {
-                var inductionVariable = 0;
-                var last = tmp0.length;
-                while (inductionVariable < last) {
-                    var element = tmp0[inductionVariable];
-                    inductionVariable = inductionVariable + 1 | 0;
-                    if (!element) {
-                        tmp$ret$0 = false;
-                        break $l$block;
-                    }
-                }
-                tmp$ret$0 = true;
-            }
-            if (tmp$ret$0) {
-                resolve(this);
-            } else {
-                if (!this.n17_1) {
-                    this.n17_1 = true;
-                    var tmp_0 = this;
-                    var a = this.m17_1;
-                    tmp_0.m17_1 = Math.min(a, 8);
-                }
-            }
-            tmp = true;
-            break;
-
-          case 'redraw':
-            tmp = redraw(this, side);
-            break;
-
-          case 'play':
-            var tmp3_elvis_lhs = card(this, side, action);
-            var tmp_1;
-            if (tmp3_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_1 = tmp3_elvis_lhs;
-            }
-            var tmp_2 = tmp_1;
-            var tmp4_safe_receiver = action.cv('lane');
-            var tmp5_safe_receiver = tmp4_safe_receiver == null ? null : get_jsonPrimitive(tmp4_safe_receiver);
-            var tmp6_elvis_lhs = tmp5_safe_receiver == null ? null : get_intOrNull(tmp5_safe_receiver);
-            var tmp_3;
-            if (tmp6_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_3 = tmp6_elvis_lhs;
-            }
-            tmp = play(this, side, tmp_2, tmp_3);
-            break;
-
-          case 'unplay':
-            var tmp7_elvis_lhs = card(this, side, action);
-            var tmp_4;
-            if (tmp7_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_4 = tmp7_elvis_lhs;
-            }
-            var card_0 = tmp_4;
-            if (card_0.u16_1 == null) return false;
-            card_0.u16_1 = null;
-            tmp = true;
-            break;
-
-          case 'spy':
-            var tmp8_elvis_lhs = card(this, side, action);
-            var tmp_5;
-            if (tmp8_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_5 = tmp8_elvis_lhs;
-            }
-            tmp = spy(this, side, tmp_5);
-            break;
-
-          default:
-            tmp = false;
-            break;
-        }
-        return tmp;
-    };
-    protoOf(SiegeGame).s13 = function() {
-        if (!(this.s17_1 == null)) return false;
-        this.m17_1 = this.m17_1 - 1 | 0;
-        if (this.m17_1 > 0) return true;
-        if (this.o17_1) {
-            nextRound_0(this);
-        } else {
-            resolve(this);
-        }
-        return true;
-    };
-    protoOf(SiegeGame).o13 = function() {
-        var builder = new JsonObjectBuilder;
-        common_1(this, builder);
-        return builder.ov();
-    };
-    protoOf(SiegeGame).r13 = function(player) {
-        var builder = new JsonObjectBuilder;
-        var side = this.z16_1.o1(player);
-        common_1(this, builder);
-        put_0(builder, 'side', side);
-        put_0(builder, 'left', left(this, side));
-        put_1(builder, 'youReady', this.k17_1[side]);
-        put_1(builder, 'rivalReady', this.k17_1[1 - side | 0]);
-        var this_0 = this.i17_1[side];
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var builder_0 = new JsonObjectBuilder;
-            put_0(builder_0, 'id', item.s16_1);
-            put(builder_0, 'kind', item.t16_1);
-            put_0(builder_0, 'lane', item.u16_1);
-            var tmp$ret$4 = builder_0.ov();
-            destination.f(tmp$ret$4);
-        }
-        builder.nv('hand', new JsonArray(destination));
-        var this_1 = this.d17_1[side];
-        var destination_0 = ArrayList_init_$Create$_0(this_1.length);
-        var inductionVariable = 0;
-        var last = this_1.length;
-        while (inductionVariable < last) {
-            var item_0 = this_1[inductionVariable];
-            inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$9 = JsonPrimitive_2(item_0);
-            destination_0.f(tmp$ret$9);
-        }
-        builder.nv('ambushes', new JsonArray(destination_0));
-        builder.nv('intel', new JsonArray(this.j17_1[side]));
-        return builder.ov();
-    };
-    function Siege() {
-        Siege_instance = this;
-        this.o18_1 = 'siege';
-        this.p18_1 = numberRangeToNumber(2, 2);
-    }
-    protoOf(Siege).u13 = function() {
-        return this.o18_1;
-    };
-    protoOf(Siege).v13 = function() {
-        return this.p18_1;
-    };
-    protoOf(Siege).w13 = function(players, random) {
-        return new SiegeGame(players, random);
-    };
-    var Siege_instance;
-    function Siege_getInstance() {
-        if (Siege_instance == null) new Siege;
-        return Siege_instance;
-    }
-    function _get_settingOut__x7we4z_0($this) {
-        var tmp0 = $this.w18_1;
-        var tmp$ret$0;
-        $l$block: {
-            var inductionVariable = 0;
-            var last = tmp0.length;
-            while (inductionVariable < last) {
-                var element = tmp0[inductionVariable];
-                inductionVariable = inductionVariable + 1 | 0;
-                if (!element) {
-                    tmp$ret$0 = false;
-                    break $l$block;
-                }
-            }
-            tmp$ret$0 = true;
-        }
-        return !tmp$ret$0;
-    }
-    function isWater($this, cell) {
-        return charCodeAt($this.s18_1.m(cell / 12 | 0), cell % 12 | 0) === _Char___init__impl__6a9atx(46);
-    }
-    function cellAt($this, x, y) {
-        return (0 <= x ? x < 12 : false) && (0 <= y ? y < 12 : false) ? imul(y, 12) + x | 0 : null;
-    }
-    function sectorOf($this, cell) {
-        return imul((cell / 12 | 0) / 4 | 0, 3) + ((cell % 12 | 0) / 4 | 0) | 0;
-    }
-    function distance($this, a, b) {
-        return abs_0((a % 12 | 0) - (b % 12 | 0) | 0) + abs_0((a / 12 | 0) - (b / 12 | 0) | 0) | 0;
-    }
-    function blastDistance($this, a, b) {
-        var tmp0 = abs_0((a % 12 | 0) - (b % 12 | 0) | 0);
-        var b_0 = abs_0((a / 12 | 0) - (b / 12 | 0) | 0);
-        return Math.max(tmp0, b_0);
-    }
-    function step_0($this, cell, dir) {
-        var tmp0_elvis_lhs = Companion_getInstance_29().v19_1.t1(dir);
-        var tmp;
-        if (tmp0_elvis_lhs == null) {
-            return null;
-        } else {
-            tmp = tmp0_elvis_lhs;
-        }
-        var _destruct__k2r9zo = tmp;
-        var dx = _destruct__k2r9zo.oa();
-        var dy = _destruct__k2r9zo.pa();
-        var tmp1_safe_receiver = cellAt($this, (cell % 12 | 0) + dx | 0, (cell / 12 | 0) + dy | 0);
-        var tmp_0;
-        if (tmp1_safe_receiver == null) {
-            tmp_0 = null;
-        } else {
-            var tmp_1;
-            if (isWater($this, tmp1_safe_receiver)) {
-                tmp_1 = tmp1_safe_receiver;
-            } else {
-                tmp_1 = null;
-            }
-            tmp_0 = tmp_1;
-        }
-        return tmp_0;
-    }
-    function canMove($this, side, dir) {
-        var tmp0_elvis_lhs = $this.u18_1[side];
-        var tmp;
-        if (tmp0_elvis_lhs == null) {
-            return false;
-        } else {
-            tmp = tmp0_elvis_lhs;
-        }
-        var tmp1_elvis_lhs = step_0($this, tmp, dir);
-        var tmp_0;
-        if (tmp1_elvis_lhs == null) {
-            return false;
-        } else {
-            tmp_0 = tmp1_elvis_lhs;
-        }
-        var to = tmp_0;
-        return !$this.v18_1[side].m1(to);
-    }
-    function silentCells($this, side) {
-        var tmp0_elvis_lhs = $this.u18_1[side];
-        var tmp;
-        if (tmp0_elvis_lhs == null) {
-            return emptyList();
-        } else {
-            tmp = tmp0_elvis_lhs;
-        }
-        var from = tmp;
-        var tmp0 = Companion_getInstance_29().v19_1.u1();
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = tmp0.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            var this_0 = ArrayList_init_$Create$();
-            $l$block: {
-                var at = from;
-                var inductionVariable = 0;
-                if (inductionVariable < 3) do {
-                    var index = inductionVariable;
-                    inductionVariable = inductionVariable + 1 | 0;
-                    var to = step_0($this, at, element);
-                    if (to == null || $this.v18_1[side].m1(to)) {
-                        break $l$block;
-                    }
-                    this_0.f(to);
-                    at = to;
-                } while (inductionVariable < 3);
-            }
-            var list = this_0.d4();
-            addAll(destination, list);
-        }
-        return destination;
-    }
-    function cellFrom($this, action) {
-        var tmp0_safe_receiver = action.cv('x');
-        var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
-        var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
-        var tmp;
-        if (tmp2_elvis_lhs == null) {
-            return null;
-        } else {
-            tmp = tmp2_elvis_lhs;
-        }
-        var x = tmp;
-        var tmp3_safe_receiver = action.cv('y');
-        var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
-        var tmp5_elvis_lhs = tmp4_safe_receiver == null ? null : get_intOrNull(tmp4_safe_receiver);
-        var tmp_0;
-        if (tmp5_elvis_lhs == null) {
-            return null;
-        } else {
-            tmp_0 = tmp5_elvis_lhs;
-        }
-        var y = tmp_0;
-        return cellAt($this, x, y);
-    }
-    function setOut_0($this, side, command, action) {
-        if (command === 'unready') {
-            if (!$this.w18_1[side]) return false;
-            $this.w18_1[side] = false;
-            return true;
-        }
-        if ($this.w18_1[side]) return false;
-        var tmp;
-        switch (command) {
-          case 'place':
-            var tmp1_safe_receiver = cellFrom($this, action);
-            var tmp_0;
-            if (tmp1_safe_receiver == null) {
-                tmp_0 = null;
-            } else {
-                var tmp_1;
-                if (isWater($this, tmp1_safe_receiver)) {
-                    tmp_1 = tmp1_safe_receiver;
-                } else {
-                    tmp_1 = null;
-                }
-                tmp_0 = tmp_1;
-            }
-            var tmp2_elvis_lhs = tmp_0;
-            var tmp_2;
-            if (tmp2_elvis_lhs == null) {
-                return false;
-            } else {
-                tmp_2 = tmp2_elvis_lhs;
-            }
-            var cell = tmp_2;
-            $this.u18_1[side] = cell;
-            $this.v18_1[side].a2();
-            $this.v18_1[side].f(cell);
-            tmp = true;
-            break;
-
-          case 'random':
-            var cell_0 = random($this.t18_1, $this.r18_1);
-            $this.u18_1[side] = cell_0;
-            $this.v18_1[side].a2();
-            $this.v18_1[side].f(cell_0);
-            tmp = true;
-            break;
-
-          case 'ready':
-            if ($this.u18_1[side] == null) return false;
-            $this.w18_1[side] = true;
-            var tmp0 = $this.w18_1;
-            var tmp$ret$4;
-            $l$block: {
-                var inductionVariable = 0;
-                var last = tmp0.length;
-                while (inductionVariable < last) {
-                    var element = tmp0[inductionVariable];
-                    inductionVariable = inductionVariable + 1 | 0;
-                    if (!element) {
-                        tmp$ret$4 = false;
-                        break $l$block;
-                    }
-                }
-                tmp$ret$4 = true;
-            }
-            if (tmp$ret$4) {
-                $this.c19_1 = $this.r18_1.l(2);
-                $this.f19_1 = 30;
-            }
-            tmp = true;
-            break;
-
-          default:
-            tmp = false;
-            break;
-        }
-        return tmp;
-    }
-    function move_0($this, side, dir) {
-        var tmp;
-        var this_0 = Companion_getInstance_29().v19_1;
-        if (!(isInterface(this_0, KtMap) ? this_0 : THROW_CCE()).r1(dir)) {
-            tmp = true;
-        } else {
-            tmp = !canMove($this, side, dir);
-        }
-        if (tmp) return false;
-        var to = ensureNotNull(step_0($this, ensureNotNull($this.u18_1[side]), dir));
-        $this.u18_1[side] = to;
-        $this.v18_1[side].f(to);
-        var b = $this.y18_1[side] + 1 | 0;
-        var tmp$ret$3 = Math.min(6, b);
-        $this.y18_1[side] = tmp$ret$3;
-        var watcher = $this.a19_1[1 - side | 0];
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = watcher.g();
-        while (_iterator__ex2g4s.h()) {
-            var element = _iterator__ex2g4s.i();
-            var tmp0_safe_receiver = step_0($this, element, dir);
-            if (tmp0_safe_receiver == null) null; else {
-                destination.f(tmp0_safe_receiver);
-            }
-        }
-        var moved = destination;
-        watcher.a2();
-        addAll(watcher, moved);
-        var tmp0 = $this.b19_1;
-        var element_0 = entry($this, 'move', side, SubmarineGame$move$lambda(dir));
-        tmp0.f(element_0);
-        afterMove($this, side);
-        return true;
-    }
-    function afterMove($this, side) {
-        if ($this.y18_1[side] >= 2) $this.d19_1 = true; else {
-            endTurn($this);
-        }
-    }
-    function silent($this, side, to) {
-        if ($this.y18_1[side] < 3 || !silentCells($this, side).m1(to)) return false;
-        var from = ensureNotNull($this.u18_1[side]);
-        var _array__4zh2yp = $this.y18_1;
-        _array__4zh2yp[side] = _array__4zh2yp[side] - 3 | 0;
-        var dx = coerceIn_0((to % 12 | 0) - (from % 12 | 0) | 0, -1, 1);
-        var dy = coerceIn_0((to / 12 | 0) - (from / 12 | 0) | 0, -1, 1);
-        var at = from;
-        while (!(at === to)) {
-            at = ensureNotNull(cellAt($this, (at % 12 | 0) + dx | 0, (at / 12 | 0) + dy | 0));
-            var tmp0 = $this.v18_1[side];
-            var element = at;
-            tmp0.f(element);
-        }
-        $this.u18_1[side] = to;
-        var watcher = $this.a19_1[1 - side | 0];
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = watcher.g();
-        while (_iterator__ex2g4s.h()) {
-            var element_0 = _iterator__ex2g4s.i();
-            var tmp = listOf(element_0);
-            var tmp0_0 = Companion_getInstance_29().v19_1.u1();
-            var destination_0 = ArrayList_init_$Create$();
-            var _iterator__ex2g4s_0 = tmp0_0.g();
-            while (_iterator__ex2g4s_0.h()) {
-                var element_1 = _iterator__ex2g4s_0.i();
-                var this_0 = ArrayList_init_$Create$();
-                $l$block: {
-                    var cell = element_0;
-                    var inductionVariable = 0;
-                    if (inductionVariable < 3) do {
-                        var index = inductionVariable;
-                        inductionVariable = inductionVariable + 1 | 0;
-                        var tmp0_elvis_lhs = step_0($this, cell, element_1);
-                        var tmp_0;
-                        if (tmp0_elvis_lhs == null) {
-                            break $l$block;
-                        } else {
-                            tmp_0 = tmp0_elvis_lhs;
-                        }
-                        var next = tmp_0;
-                        this_0.f(next);
-                        cell = next;
-                    } while (inductionVariable < 3);
-                }
-                var list = this_0.d4();
-                addAll(destination_0, list);
-            }
-            var list_0 = plus(tmp, destination_0);
-            addAll(destination, list_0);
-        }
-        var spread = destination;
-        watcher.a2();
-        addAll(watcher, spread);
-        var tmp0_1 = $this.b19_1;
-        var element_2 = entry($this, 'silent', side, SubmarineGame$silent$lambda);
-        tmp0_1.f(element_2);
-        endTurn($this);
-        return true;
-    }
-    function surface($this, side) {
-        var at = ensureNotNull($this.u18_1[side]);
-        var sector = sectorOf($this, at);
-        $this.v18_1[side].a2();
-        $this.v18_1[side].f(at);
-        var tmp = $this.a19_1[1 - side | 0];
-        retainAll(tmp, SubmarineGame$surface$lambda($this, sector));
-        var tmp0 = $this.b19_1;
-        var element = entry($this, 'surface', side, SubmarineGame$surface$lambda_0(sector));
-        tmp0.f(element);
-        $this.e19_1 = true;
-        endTurn($this);
-    }
-    function torpedo($this, side, target) {
-        var from = ensureNotNull($this.u18_1[side]);
-        if ($this.y18_1[side] < 3 || distance($this, from, target) > 4) return false;
-        var _array__4zh2yp = $this.y18_1;
-        _array__4zh2yp[side] = _array__4zh2yp[side] - 3 | 0;
-        var tmp = 0;
-        var tmp_0 = new Int32Array(2);
-        while (tmp < 2) {
-            var tmp_1 = tmp;
-            switch (blastDistance($this, ensureNotNull($this.u18_1[tmp_1]), target)) {
-              case 0:
-                var tmp$ret$0 = 2;
-                break;
-
-              case 1:
-                tmp$ret$0 = 1;
-                break;
-
-              default:
-                tmp$ret$0 = 0;
-                break;
-            }
-            tmp_0[tmp_1] = tmp$ret$0;
-            tmp = tmp + 1 | 0;
-        }
-        var damage = tmp_0;
-        var tmp_2 = $this.a19_1[1 - side | 0];
-        retainAll(tmp_2, SubmarineGame$torpedo$lambda($this, target));
-        var inductionVariable = 0;
-        if (inductionVariable <= 1) do {
-            var who = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var watcher = $this.a19_1[1 - who | 0];
-            switch (damage[who]) {
-              case 2:
-                retainAll(watcher, SubmarineGame$torpedo$lambda_0(target));
-                break;
-
-              case 1:
-                retainAll(watcher, SubmarineGame$torpedo$lambda_1($this, target));
-                break;
-
-              default:
-                removeAll_0(watcher, SubmarineGame$torpedo$lambda_2($this, target));
-                break;
-            }
-            var b = $this.x18_1[who] - damage[who] | 0;
-            var tmp$ret$1 = Math.max(0, b);
-            $this.x18_1[who] = tmp$ret$1;
-        } while (inductionVariable <= 1);
-        var tmp0 = $this.b19_1;
-        var element = entry($this, 'torpedo', side, SubmarineGame$torpedo$lambda_3(target, damage));
-        tmp0.f(element);
-        var tmp0_0 = $this.x18_1;
-        var tmp$ret$3;
-        $l$block: {
-            var inductionVariable_0 = 0;
-            var last = tmp0_0.length;
-            while (inductionVariable_0 < last) {
-                var element_0 = tmp0_0[inductionVariable_0];
-                inductionVariable_0 = inductionVariable_0 + 1 | 0;
-                if (!(element_0 === 0)) {
-                    tmp$ret$3 = false;
-                    break $l$block;
-                }
-            }
-            tmp$ret$3 = true;
-        }
-        if (tmp$ret$3) $this.g19_1 = 'draw'; else {
-            if ($this.x18_1[0] === 0) $this.g19_1 = $this.q18_1.m(1); else {
-                if ($this.x18_1[1] === 0) $this.g19_1 = $this.q18_1.m(0); else {
-                    endTurn($this);
-                }
-            }
-        }
-        return true;
-    }
-    function useSonar($this, side) {
-        if ($this.y18_1[side] < 2) return false;
-        var _array__4zh2yp = $this.y18_1;
-        _array__4zh2yp[side] = _array__4zh2yp[side] - 2 | 0;
-        var sector = sectorOf($this, ensureNotNull($this.u18_1[1 - side | 0]));
-        $this.z18_1[side] = sector;
-        var tmp = $this.a19_1[side];
-        retainAll(tmp, SubmarineGame$useSonar$lambda($this, sector));
-        var tmp0 = $this.b19_1;
-        var element = entry($this, 'sonar', side, SubmarineGame$useSonar$lambda_0);
-        tmp0.f(element);
-        endTurn($this);
-        return true;
-    }
-    function endTurn($this) {
-        $this.d19_1 = false;
-        $this.f19_1 = 30;
-        if ($this.e19_1) {
-            $this.e19_1 = false;
-            $this.c19_1 = 1 - $this.c19_1 | 0;
-            $this.h19_1 = true;
-            return Unit_instance;
-        }
-        if ($this.h19_1) {
-            $this.h19_1 = false;
-            return Unit_instance;
-        }
-        $this.c19_1 = 1 - $this.c19_1 | 0;
-    }
-    function entry($this, kind, side, fill) {
-        var builder = new JsonObjectBuilder;
-        put(builder, 'kind', kind);
-        put_0(builder, 'side', side);
-        fill(builder);
-        return builder.ov();
-    }
-    function common_2($this, $receiver) {
-        put($receiver, 'game', Submarine_getInstance().x19_1);
-        put($receiver, 'phase', !($this.g19_1 == null) ? 'over' : _get_settingOut__x7we4z_0($this) ? 'placing' : 'playing');
-        put_0($receiver, 'size', 12);
-        put_0($receiver, 'sector', 4);
-        var this_0 = $this.s18_1;
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var tmp$ret$2 = JsonPrimitive_1(item);
-            destination.f(tmp$ret$2);
-        }
-        $receiver.nv('map', new JsonArray(destination));
-        var this_1 = $this.q18_1;
-        var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
-        var _iterator__ex2g4s_0 = this_1.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var item_0 = _iterator__ex2g4s_0.i();
-            var tmp$ret$5 = JsonPrimitive_1(item_0);
-            destination_0.f(tmp$ret$5);
-        }
-        $receiver.nv('sides', new JsonArray(destination_0));
-        var this_2 = $this.x18_1;
-        var destination_1 = ArrayList_init_$Create$_0(this_2.length);
-        var inductionVariable = 0;
-        var last = this_2.length;
-        while (inductionVariable < last) {
-            var item_1 = this_2[inductionVariable];
-            inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$8 = JsonPrimitive_0(item_1);
-            destination_1.f(tmp$ret$8);
-        }
-        $receiver.nv('hull', new JsonArray(destination_1));
-        put_0($receiver, 'hullMax', 4);
-        var this_3 = $this.w18_1;
-        var destination_2 = ArrayList_init_$Create$_0(this_3.length);
-        var inductionVariable_0 = 0;
-        var last_0 = this_3.length;
-        while (inductionVariable_0 < last_0) {
-            var item_2 = this_3[inductionVariable_0];
-            inductionVariable_0 = inductionVariable_0 + 1 | 0;
-            var tmp$ret$11 = JsonPrimitive_2(item_2);
-            destination_2.f(tmp$ret$11);
-        }
-        $receiver.nv('ready', new JsonArray(destination_2));
-        $receiver.nv('turn', _get_settingOut__x7we4z_0($this) ? JsonNull_getInstance() : JsonPrimitive_0($this.c19_1));
-        put_0($receiver, 'clock', !($this.g19_1 == null) || _get_settingOut__x7we4z_0($this) ? 0 : $this.f19_1);
-        put($receiver, 'winner', $this.g19_1);
-        var builder = new JsonObjectBuilder;
-        put_0(builder, 'torpedo', 3);
-        put_0(builder, 'sonar', 2);
-        put_0(builder, 'silent', 3);
-        var tmp$ret$12 = builder.ov();
-        $receiver.nv('prices', tmp$ret$12);
-        $receiver.nv('log', new JsonArray(takeLast($this.b19_1, 40)));
-        put_0($receiver, 'logCount', $this.b19_1.j());
-    }
-    function Companion_29() {
-        Companion_instance_29 = this;
-        this.i19_1 = 12;
-        this.j19_1 = 4;
-        this.k19_1 = 4;
-        this.l19_1 = 6;
-        this.m19_1 = 3;
-        this.n19_1 = 2;
-        this.o19_1 = 3;
-        this.p19_1 = 4;
-        this.q19_1 = 3;
-        this.r19_1 = 2;
-        this.s19_1 = 1;
-        this.t19_1 = 30;
-        this.u19_1 = 40;
-        this.v19_1 = mapOf_0([ to('N', to(0, -1)), to('E', to(1, 0)), to('S', to(0, 1)), to('W', to(-1, 0)) ]);
-        this.w19_1 = listOf_0([ listOf_0([ '............', '..##....##..', '..#......#..', '............', '.....##.....', '.#...##...#.', '.#...##...#.', '.....##.....', '............', '..#......#..', '..##....##..', '............' ]), listOf_0([ '............', '.....#......', '.##..#...##.', '.....#......', '..#......#..', '..#..##..#..', '..#..##..#..', '..#......#..', '......#.....', '.##...#..##.', '......#.....', '............' ]) ]);
-    }
-    var Companion_instance_29;
-    function Companion_getInstance_29() {
-        if (Companion_instance_29 == null) new Companion_29;
-        return Companion_instance_29;
-    }
-    function SubmarineGame$move$lambda($dir) {
-        return function($this$entry) {
-            put($this$entry, 'dir', $dir);
-            return Unit_instance;
-        };
-    }
-    function SubmarineGame$silent$lambda($this$entry) {
-        return Unit_instance;
-    }
-    function SubmarineGame$surface$lambda(this$0, $sector) {
-        return function(it) {
-            return sectorOf(this$0, it) === $sector;
-        };
-    }
-    function SubmarineGame$surface$lambda_0($sector) {
-        return function($this$entry) {
-            put_0($this$entry, 'sector', $sector);
-            return Unit_instance;
-        };
-    }
-    function SubmarineGame$torpedo$lambda(this$0, $target) {
-        return function(it) {
-            return distance(this$0, it, $target) <= 4;
-        };
-    }
-    function SubmarineGame$torpedo$lambda_0($target) {
-        return function(it) {
-            return it === $target;
-        };
-    }
-    function SubmarineGame$torpedo$lambda_1(this$0, $target) {
-        return function(it) {
-            return blastDistance(this$0, it, $target) === 1;
-        };
-    }
-    function SubmarineGame$torpedo$lambda_2(this$0, $target) {
-        return function(it) {
-            return blastDistance(this$0, it, $target) <= 1;
-        };
-    }
-    function SubmarineGame$torpedo$lambda_3($target, $damage) {
-        return function($this$entry) {
-            put_0($this$entry, 'x', $target % 12 | 0);
-            put_0($this$entry, 'y', $target / 12 | 0);
-            var this_0 = $damage;
-            var destination = ArrayList_init_$Create$_0(this_0.length);
-            var inductionVariable = 0;
-            var last = this_0.length;
-            while (inductionVariable < last) {
-                var item = this_0[inductionVariable];
-                inductionVariable = inductionVariable + 1 | 0;
-                var tmp$ret$2 = JsonPrimitive_0(item);
-                destination.f(tmp$ret$2);
-            }
-            $this$entry.nv('damage', new JsonArray(destination));
-            return Unit_instance;
-        };
-    }
-    function SubmarineGame$useSonar$lambda(this$0, $sector) {
-        return function(it) {
-            return sectorOf(this$0, it) === $sector;
-        };
-    }
-    function SubmarineGame$useSonar$lambda_0($this$entry) {
-        return Unit_instance;
-    }
-    function SubmarineGame(players, random) {
-        Companion_getInstance_29();
-        this.q18_1 = players;
-        this.r18_1 = random;
-        this.s18_1 = Companion_getInstance_29().w19_1.m(this.r18_1.l(Companion_getInstance_29().w19_1.j()));
-        var tmp = this;
-        var tmp0 = until(0, 144);
-        var destination = ArrayList_init_$Create$();
-        var inductionVariable = tmp0.w_1;
-        var last = tmp0.x_1;
-        if (inductionVariable <= last) do {
-            var element = inductionVariable;
-            inductionVariable = inductionVariable + 1 | 0;
-            var it = element;
-            if (isWater(this, it)) {
-                destination.f(element);
-            }
-        } while (!(element === last));
-        tmp.t18_1 = toSet_0(destination);
-        var tmp_0 = this;
-        tmp_0.u18_1 = Array(2);
-        var tmp_1 = this;
-        var tmp_2 = 0;
-        var tmp_3 = Array(2);
-        while (tmp_2 < 2) {
-            tmp_3[tmp_2] = ArrayList_init_$Create$();
-            tmp_2 = tmp_2 + 1 | 0;
-        }
-        tmp_1.v18_1 = tmp_3;
-        this.w18_1 = booleanArray(2);
-        var tmp_4 = this;
-        var tmp_5 = 0;
-        var tmp_6 = new Int32Array(2);
-        while (tmp_5 < 2) {
-            tmp_6[tmp_5] = 4;
-            tmp_5 = tmp_5 + 1 | 0;
-        }
-        tmp_4.x18_1 = tmp_6;
-        this.y18_1 = new Int32Array(2);
-        var tmp_7 = this;
-        tmp_7.z18_1 = Array(2);
-        var tmp_8 = this;
-        var tmp_9 = 0;
-        var tmp_10 = Array(2);
-        while (tmp_9 < 2) {
-            tmp_10[tmp_9] = toMutableSet(this.t18_1);
-            tmp_9 = tmp_9 + 1 | 0;
-        }
-        tmp_8.a19_1 = tmp_10;
-        var tmp_11 = this;
-        tmp_11.b19_1 = ArrayList_init_$Create$();
-        this.c19_1 = 0;
-        this.d19_1 = false;
-        this.e19_1 = false;
-        this.f19_1 = 30;
-        this.g19_1 = null;
-        this.h19_1 = false;
-    }
-    protoOf(SubmarineGame).m13 = function() {
-        return this.g19_1;
-    };
-    protoOf(SubmarineGame).n13 = function(player, action) {
-        var side = this.q18_1.o1(player);
-        if (side < 0 || !(this.g19_1 == null)) return false;
-        var tmp0_safe_receiver = action.cv('do');
-        var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
-        var command = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
-        if (_get_settingOut__x7we4z_0(this)) return setOut_0(this, side, command, action);
-        if (!(side === this.c19_1)) return false;
-        var tmp;
-        if (this.d19_1) {
-            var tmp_0;
-            switch (command) {
-              case 'torpedo':
-                var tmp3_elvis_lhs = cellFrom(this, action);
-                var tmp_1;
-                if (tmp3_elvis_lhs == null) {
-                    return false;
-                } else {
-                    tmp_1 = tmp3_elvis_lhs;
-                }
-                tmp_0 = torpedo(this, side, tmp_1);
-                break;
-
-              case 'sonar':
-                tmp_0 = useSonar(this, side);
-                break;
-
-              case 'end':
-                endTurn(this);
-                tmp_0 = true;
-                break;
-
-              default:
-                tmp_0 = false;
-                break;
-            }
-            tmp = tmp_0;
-        } else {
-            var tmp_2;
-            switch (command) {
-              case 'move':
-                var tmp5_safe_receiver = action.cv('dir');
-                var tmp6_safe_receiver = tmp5_safe_receiver == null ? null : get_jsonPrimitive(tmp5_safe_receiver);
-                var tmp7_elvis_lhs = tmp6_safe_receiver == null ? null : get_contentOrNull(tmp6_safe_receiver);
-                var tmp_3;
-                if (tmp7_elvis_lhs == null) {
-                    return false;
-                } else {
-                    tmp_3 = tmp7_elvis_lhs;
-                }
-                tmp_2 = move_0(this, side, tmp_3);
-                break;
-
-              case 'silent':
-                var tmp8_elvis_lhs = cellFrom(this, action);
-                var tmp_4;
-                if (tmp8_elvis_lhs == null) {
-                    return false;
-                } else {
-                    tmp_4 = tmp8_elvis_lhs;
-                }
-                tmp_2 = silent(this, side, tmp_4);
-                break;
-
-              case 'surface':
-                surface(this, side);
-                tmp_2 = true;
-                break;
-
-              default:
-                tmp_2 = false;
-                break;
-            }
-            tmp = tmp_2;
-        }
-        return tmp;
-    };
-    protoOf(SubmarineGame).s13 = function() {
-        if (!(this.g19_1 == null) || _get_settingOut__x7we4z_0(this)) return false;
-        this.f19_1 = this.f19_1 - 1 | 0;
-        if (this.f19_1 > 0) return true;
-        if (this.d19_1) {
-            endTurn(this);
-        } else {
-            var tmp0 = Companion_getInstance_29().v19_1.u1();
-            var destination = ArrayList_init_$Create$();
-            var _iterator__ex2g4s = tmp0.g();
-            while (_iterator__ex2g4s.h()) {
-                var element = _iterator__ex2g4s.i();
-                if (canMove(this, this.c19_1, element)) {
-                    destination.f(element);
-                }
-            }
-            var dirs = destination;
-            if (dirs.k()) {
-                surface(this, this.c19_1);
-            } else move_0(this, this.c19_1, random(dirs, this.r18_1));
-        }
-        return true;
-    };
-    protoOf(SubmarineGame).o13 = function() {
-        var builder = new JsonObjectBuilder;
-        common_2(this, builder);
-        if (!(this.g19_1 == null)) {
-            var this_0 = this.u18_1;
-            var destination = ArrayList_init_$Create$_0(this_0.length);
-            var inductionVariable = 0;
-            var last = this_0.length;
-            while (inductionVariable < last) {
-                var item = this_0[inductionVariable];
-                inductionVariable = inductionVariable + 1 | 0;
-                var tmp$ret$4 = JsonPrimitive_0(item);
-                destination.f(tmp$ret$4);
-            }
-            builder.nv('positions', new JsonArray(destination));
-            var this_1 = this.v18_1;
-            var destination_0 = ArrayList_init_$Create$_0(this_1.length);
-            var inductionVariable_0 = 0;
-            var last_0 = this_1.length;
-            while (inductionVariable_0 < last_0) {
-                var item_0 = this_1[inductionVariable_0];
-                inductionVariable_0 = inductionVariable_0 + 1 | 0;
-                var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(item_0, 10));
-                var _iterator__ex2g4s = item_0.g();
-                while (_iterator__ex2g4s.h()) {
-                    var item_1 = _iterator__ex2g4s.i();
-                    var tmp$ret$10 = JsonPrimitive_0(item_1);
-                    destination_1.f(tmp$ret$10);
-                }
-                var tmp$ret$7 = new JsonArray(destination_1);
-                destination_0.f(tmp$ret$7);
-            }
-            builder.nv('wakes', new JsonArray(destination_0));
-        }
-        return builder.ov();
-    };
-    protoOf(SubmarineGame).r13 = function(player) {
-        var builder = new JsonObjectBuilder;
-        var side = this.q18_1.o1(player);
-        common_2(this, builder);
-        put_0(builder, 'side', side);
-        put_0(builder, 'position', this.u18_1[side]);
-        var this_0 = this.v18_1[side];
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
-        var _iterator__ex2g4s = this_0.g();
-        while (_iterator__ex2g4s.h()) {
-            var item = _iterator__ex2g4s.i();
-            var tmp$ret$4 = JsonPrimitive_0(item);
-            destination.f(tmp$ret$4);
-        }
-        builder.nv('wake', new JsonArray(destination));
-        put_0(builder, 'energy', this.y18_1[side]);
-        put_1(builder, 'youReady', this.w18_1[side]);
-        put_1(builder, 'rivalReady', this.w18_1[1 - side | 0]);
-        put_1(builder, 'yourTurn', !_get_settingOut__x7we4z_0(this) && this.g19_1 == null && this.c19_1 === side);
-        put_1(builder, 'acting', this.d19_1 && this.c19_1 === side);
-        var tmp0 = Companion_getInstance_29().v19_1.u1();
-        var destination_0 = ArrayList_init_$Create$();
-        var _iterator__ex2g4s_0 = tmp0.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var element = _iterator__ex2g4s_0.i();
-            if (canMove(this, side, element)) {
-                destination_0.f(element);
-            }
-        }
-        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(destination_0, 10));
-        var _iterator__ex2g4s_1 = destination_0.g();
-        while (_iterator__ex2g4s_1.h()) {
-            var item_0 = _iterator__ex2g4s_1.i();
-            var tmp$ret$10 = JsonPrimitive_1(item_0);
-            destination_1.f(tmp$ret$10);
-        }
-        builder.nv('moves', new JsonArray(destination_1));
-        var this_1 = silentCells(this, side);
-        var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
-        var _iterator__ex2g4s_2 = this_1.g();
-        while (_iterator__ex2g4s_2.h()) {
-            var item_1 = _iterator__ex2g4s_2.i();
-            var tmp$ret$13 = JsonPrimitive_0(item_1);
-            destination_2.f(tmp$ret$13);
-        }
-        builder.nv('silentCells', new JsonArray(destination_2));
-        var tmp0_safe_receiver = this.u18_1[side];
-        var tmp;
-        if (tmp0_safe_receiver == null) {
-            tmp = null;
-        } else {
-            var tmp0_0 = until(0, 144);
-            var destination_3 = ArrayList_init_$Create$();
-            var inductionVariable = tmp0_0.w_1;
-            var last = tmp0_0.x_1;
-            if (inductionVariable <= last) do {
-                var element_0 = inductionVariable;
-                inductionVariable = inductionVariable + 1 | 0;
-                var it = element_0;
-                if (distance(this, it, tmp0_safe_receiver) <= 4) {
-                    destination_3.f(element_0);
-                }
-            } while (!(element_0 === last));
-            tmp = destination_3;
-        }
-        var tmp1_elvis_lhs = tmp;
-        var this_2 = tmp1_elvis_lhs == null ? emptyList() : tmp1_elvis_lhs;
-        var destination_4 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_2, 10));
-        var _iterator__ex2g4s_3 = this_2.g();
-        while (_iterator__ex2g4s_3.h()) {
-            var item_2 = _iterator__ex2g4s_3.i();
-            var tmp$ret$21 = JsonPrimitive_0(item_2);
-            destination_4.f(tmp$ret$21);
-        }
-        builder.nv('torpedoCells', new JsonArray(destination_4));
-        var this_3 = sorted(this.a19_1[side]);
-        var destination_5 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_3, 10));
-        var _iterator__ex2g4s_4 = this_3.g();
-        while (_iterator__ex2g4s_4.h()) {
-            var item_3 = _iterator__ex2g4s_4.i();
-            var tmp$ret$24 = JsonPrimitive_0(item_3);
-            destination_5.f(tmp$ret$24);
-        }
-        builder.nv('suspects', new JsonArray(destination_5));
-        put_0(builder, 'sonar', this.z18_1[side]);
-        return builder.ov();
-    };
-    function Submarine() {
-        Submarine_instance = this;
-        this.x19_1 = 'submarine';
-        this.y19_1 = numberRangeToNumber(2, 2);
-    }
-    protoOf(Submarine).u13 = function() {
-        return this.x19_1;
-    };
-    protoOf(Submarine).v13 = function() {
-        return this.y19_1;
-    };
-    protoOf(Submarine).w13 = function(players, random) {
-        return new SubmarineGame(players, random);
-    };
-    var Submarine_instance;
-    function Submarine_getInstance() {
-        if (Submarine_instance == null) new Submarine;
-        return Submarine_instance;
-    }
     function Delivery(to, message) {
-        this.z19_1 = to;
-        this.a1a_1 = message;
+        this.v17_1 = to;
+        this.w17_1 = message;
     }
     protoOf(Delivery).toString = function() {
-        return 'Delivery(to=' + this.z19_1 + ', message=' + this.a1a_1.toString() + ')';
+        return 'Delivery(to=' + this.v17_1 + ', message=' + this.w17_1.toString() + ')';
     };
     protoOf(Delivery).hashCode = function() {
-        var result = getStringHashCode(this.z19_1);
-        result = imul(result, 31) + this.a1a_1.hashCode() | 0;
+        var result = getStringHashCode(this.v17_1);
+        result = imul(result, 31) + this.w17_1.hashCode() | 0;
         return result;
     };
     protoOf(Delivery).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof Delivery)) return false;
-        if (!(this.z19_1 === other.z19_1)) return false;
-        if (!this.a1a_1.equals(other.a1a_1)) return false;
+        if (!(this.v17_1 === other.v17_1)) return false;
+        if (!this.w17_1.equals(other.w17_1)) return false;
         return true;
     };
     function Player(id, name, online) {
         online = online === VOID ? true : online;
-        this.b1a_1 = id;
-        this.c1a_1 = name;
-        this.d1a_1 = online;
+        this.x17_1 = id;
+        this.y17_1 = name;
+        this.z17_1 = online;
     }
     function host($this) {
-        var tmp0 = $this.f1a_1;
+        var tmp0 = $this.b18_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.d1a_1) {
+                if (element.z17_1) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -21935,13 +19541,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = this_0;
         }
         var shown = tmp;
-        var tmp0 = $this.f1a_1;
+        var tmp0 = $this.b18_1;
         var tmp$ret$4;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.b1a_1 === id) {
+                if (element.x17_1 === id) {
                     tmp$ret$4 = element;
                     break $l$block;
                 }
@@ -21950,31 +19556,31 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var player = tmp$ret$4;
         if (!(player == null)) {
-            player.c1a_1 = shown;
-            player.d1a_1 = true;
+            player.y17_1 = shown;
+            player.z17_1 = true;
         } else {
-            var tmp0_0 = $this.f1a_1;
+            var tmp0_0 = $this.b18_1;
             var element_0 = new Player(id, shown);
             tmp0_0.f(element_0);
         }
         return true;
     }
     function leave($this, player) {
-        $this.f1a_1.y2(player);
-        if ($this.i1a_1.m1(player.b1a_1)) {
+        $this.b18_1.w2(player);
+        if ($this.e18_1.l1(player.x17_1)) {
             endGame($this);
         }
         return true;
     }
     function browse($this, id) {
-        if (!($this.g1a_1 == null) || id == null || id === $this.k1a_1) return false;
+        if (!($this.c18_1 == null) || id == null || id === $this.g18_1) return false;
         var tmp;
         var tmp0 = get_GAMES();
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.k();
+                tmp_0 = tmp0.p();
             } else {
                 tmp_0 = false;
             }
@@ -21985,7 +19591,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.u13() === id) {
+                if (element.b17() === id) {
                     tmp$ret$0 = false;
                     break $l$block_0;
                 }
@@ -21998,7 +19604,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             $l$block_2: {
                 var tmp_1;
                 if (isInterface(tmp0_0, Collection)) {
-                    tmp_1 = tmp0_0.k();
+                    tmp_1 = tmp0_0.p();
                 } else {
                     tmp_1 = false;
                 }
@@ -22009,7 +19615,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_0 = tmp0_0.g();
                 while (_iterator__ex2g4s_0.h()) {
                     var element_0 = _iterator__ex2g4s_0.i();
-                    if (element_0.q16_1 === id) {
+                    if (element_0.t17_1 === id) {
                         tmp$ret$2 = false;
                         break $l$block_2;
                     }
@@ -22021,7 +19627,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = false;
         }
         if (tmp) return false;
-        $this.k1a_1 = id;
+        $this.g18_1 = id;
         return true;
     }
     function start($this, id) {
@@ -22031,7 +19637,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.u13() === id) {
+                if (element.b17() === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -22046,12 +19652,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var kind = tmp;
-        var tmp0_0 = $this.f1a_1;
+        var tmp0_0 = $this.b18_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s_0 = tmp0_0.g();
         while (_iterator__ex2g4s_0.h()) {
             var element_0 = _iterator__ex2g4s_0.i();
-            if (element_0.d1a_1) {
+            if (element_0.z17_1) {
                 destination.f(element_0);
             }
         }
@@ -22059,47 +19665,47 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_1 = destination.g();
         while (_iterator__ex2g4s_1.h()) {
             var item = _iterator__ex2g4s_1.i();
-            var tmp$ret$7 = item.b1a_1;
+            var tmp$ret$7 = item.x17_1;
             destination_0.f(tmp$ret$7);
         }
-        var sitting = take(destination_0, kind.v13().x_1);
+        var sitting = take(destination_0, kind.c17().w_1);
         var tmp_0;
-        if (!($this.g1a_1 == null)) {
+        if (!($this.c18_1 == null)) {
             tmp_0 = true;
         } else {
-            var progression = kind.v13();
-            var containsLower = progression.w_1;
-            var containsUpper = progression.x_1;
+            var progression = kind.c17();
+            var containsLower = progression.v_1;
+            var containsUpper = progression.w_1;
             var containsArg = sitting.j();
             tmp_0 = !(containsLower <= containsArg ? containsArg <= containsUpper : false);
         }
         if (tmp_0) return false;
-        $this.g1a_1 = kind.w13(sitting, $this.e1a_1);
-        $this.h1a_1 = kind.u13();
-        $this.k1a_1 = kind.u13();
-        $this.i1a_1 = toSet_0(sitting);
+        $this.c18_1 = kind.d17(sitting, $this.a18_1);
+        $this.d18_1 = kind.b17();
+        $this.g18_1 = kind.b17();
+        $this.e18_1 = toSet_0(sitting);
         return true;
     }
     function rematch($this, player) {
         var tmp;
-        var tmp0_safe_receiver = $this.g1a_1;
-        if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.m13()) == null) {
+        var tmp0_safe_receiver = $this.c18_1;
+        if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.v16()) == null) {
             tmp = true;
         } else {
-            tmp = !$this.i1a_1.m1(player.b1a_1);
+            tmp = !$this.e18_1.l1(player.x17_1);
         }
         if (tmp) return false;
         if (!equals(player, host($this))) {
-            if ($this.j1a_1 === player.b1a_1) return false;
-            $this.j1a_1 = player.b1a_1;
+            if ($this.f18_1 === player.x17_1) return false;
+            $this.f18_1 = player.x17_1;
             return true;
         }
-        var tmp0 = $this.f1a_1;
+        var tmp0 = $this.b18_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.k();
+                tmp_0 = tmp0.p();
             } else {
                 tmp_0 = false;
             }
@@ -22110,7 +19716,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if ($this.i1a_1.m1(element.b1a_1) && !element.d1a_1) {
+                if ($this.e18_1.l1(element.x17_1) && !element.z17_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -22125,51 +19731,51 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.g();
             while (_iterator__ex2g4s_0.h()) {
                 var element_0 = _iterator__ex2g4s_0.i();
-                if (element_0.u13() === $this.h1a_1) {
+                if (element_0.b17() === $this.d18_1) {
                     tmp$ret$2 = element_0;
                     break $l$block_1;
                 }
             }
             throw NoSuchElementException_init_$Create$_0('Collection contains no element matching the predicate.');
         }
-        tmp_1.g1a_1 = tmp$ret$2.w13(toList_0($this.i1a_1), $this.e1a_1);
-        $this.j1a_1 = null;
+        tmp_1.c18_1 = tmp$ret$2.d17(toList_0($this.e18_1), $this.a18_1);
+        $this.f18_1 = null;
         return true;
     }
     function endGame($this) {
-        $this.g1a_1 = null;
-        $this.h1a_1 = null;
-        $this.i1a_1 = emptySet();
-        $this.j1a_1 = null;
+        $this.c18_1 = null;
+        $this.d18_1 = null;
+        $this.e18_1 = emptySet();
+        $this.f18_1 = null;
         return true;
     }
     function picture($this) {
         var builder = new JsonObjectBuilder;
-        var this_0 = $this.f1a_1;
+        var this_0 = $this.b18_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.g();
         while (_iterator__ex2g4s.h()) {
             var item = _iterator__ex2g4s.i();
             var builder_0 = new JsonObjectBuilder;
-            put(builder_0, 'id', item.b1a_1);
-            put(builder_0, 'name', item.c1a_1);
-            put_1(builder_0, 'online', item.d1a_1);
-            var tmp$ret$4 = builder_0.ov();
+            put_0(builder_0, 'id', item.x17_1);
+            put_0(builder_0, 'name', item.y17_1);
+            put_1(builder_0, 'online', item.z17_1);
+            var tmp$ret$4 = builder_0.ev();
             destination.f(tmp$ret$4);
         }
-        builder.nv('players', new JsonArray(destination));
+        builder.dv('players', new JsonArray(destination));
         var tmp0_safe_receiver = host($this);
-        put(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.b1a_1);
+        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.x17_1);
         var this_1 = get_GAMES();
         var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
         var _iterator__ex2g4s_0 = this_1.g();
         while (_iterator__ex2g4s_0.h()) {
             var item_0 = _iterator__ex2g4s_0.i();
             var builder_1 = new JsonObjectBuilder;
-            put(builder_1, 'id', item_0.u13());
-            put_0(builder_1, 'min', item_0.v13().w_1);
-            put_0(builder_1, 'max', item_0.v13().x_1);
-            var tmp$ret$9 = builder_1.ov();
+            put_0(builder_1, 'id', item_0.b17());
+            put(builder_1, 'min', item_0.c17().v_1);
+            put(builder_1, 'max', item_0.c17().w_1);
+            var tmp$ret$9 = builder_1.ev();
             destination_0.f(tmp$ret$9);
         }
         var tmp = destination_0;
@@ -22179,29 +19785,29 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s_1.h()) {
             var item_1 = _iterator__ex2g4s_1.i();
             var builder_2 = new JsonObjectBuilder;
-            put(builder_2, 'id', item_1.q16_1);
-            put_0(builder_2, 'min', item_1.r16_1.w_1);
-            put_0(builder_2, 'max', item_1.r16_1.x_1);
+            put_0(builder_2, 'id', item_1.t17_1);
+            put(builder_2, 'min', item_1.u17_1.v_1);
+            put(builder_2, 'max', item_1.u17_1.w_1);
             put_1(builder_2, 'soon', true);
-            var tmp$ret$14 = builder_2.ov();
+            var tmp$ret$14 = builder_2.ev();
             destination_1.f(tmp$ret$14);
         }
-        builder.nv('games', new JsonArray(plus(tmp, destination_1)));
-        put(builder, 'browsing', $this.k1a_1);
-        put(builder, 'playing', $this.h1a_1);
-        put(builder, 'rematchOffer', $this.j1a_1);
-        var room = builder.ov();
-        var current = $this.g1a_1;
+        builder.dv('games', new JsonArray(plus(tmp, destination_1)));
+        put_0(builder, 'browsing', $this.g18_1);
+        put_0(builder, 'playing', $this.d18_1);
+        put_0(builder, 'rematchOffer', $this.f18_1);
+        var room = builder.ev();
+        var current = $this.c18_1;
         var this_3 = ArrayList_init_$Create$();
-        var tmp_0 = plus_2(room, to('type', JsonPrimitive_1('state')));
+        var tmp_0 = plus_3(room, to('type', JsonPrimitive_1('state')));
         var tmp_1;
         if (current == null) {
             tmp_1 = null;
         } else {
-            tmp_1 = to('view', current.o13());
+            tmp_1 = to('view', current.z16());
         }
-        this_3.f(new Delivery('tv', new JsonObject(plus_1(tmp_0, listOfNotNull(tmp_1)))));
-        var _iterator__ex2g4s_2 = $this.f1a_1.g();
+        this_3.f(new Delivery('tv', new JsonObject(plus_2(tmp_0, listOfNotNull(tmp_1)))));
+        var _iterator__ex2g4s_2 = $this.b18_1.g();
         while (_iterator__ex2g4s_2.h()) {
             var player = _iterator__ex2g4s_2.i();
             var tmp_2;
@@ -22209,7 +19815,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = null;
             } else {
                 var tmp_3;
-                if ($this.i1a_1.m1(player.b1a_1)) {
+                if ($this.e18_1.l1(player.x17_1)) {
                     tmp_3 = current;
                 } else {
                     tmp_3 = null;
@@ -22217,40 +19823,40 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = tmp_3;
             }
             var tmp2_safe_receiver = tmp_2;
-            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.r13(player.b1a_1);
-            var tmp_4 = plus_2(plus_2(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.b1a_1)));
+            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.a17(player.x17_1);
+            var tmp_4 = plus_3(plus_3(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.x17_1)));
             var tmp_5;
             if (view == null) {
                 tmp_5 = null;
             } else {
                 tmp_5 = to('view', view);
             }
-            this_3.f(new Delivery(player.b1a_1, new JsonObject(plus_1(tmp_4, listOfNotNull(tmp_5)))));
+            this_3.f(new Delivery(player.x17_1, new JsonObject(plus_2(tmp_4, listOfNotNull(tmp_5)))));
         }
-        return this_3.d4();
+        return this_3.c4();
     }
-    function Companion_30() {
-        this.l1a_1 = 16;
+    function Companion_27() {
+        this.h18_1 = 16;
     }
-    var Companion_instance_30;
-    function Companion_getInstance_30() {
-        return Companion_instance_30;
+    var Companion_instance_27;
+    function Companion_getInstance_27() {
+        return Companion_instance_27;
     }
     function Table(random) {
         random = random === VOID ? Default_getInstance() : random;
-        this.e1a_1 = random;
+        this.a18_1 = random;
         var tmp = this;
-        tmp.f1a_1 = ArrayList_init_$Create$();
-        this.g1a_1 = null;
-        this.h1a_1 = null;
-        this.i1a_1 = emptySet();
-        this.j1a_1 = null;
-        this.k1a_1 = first(get_GAMES()).u13();
+        tmp.b18_1 = ArrayList_init_$Create$();
+        this.c18_1 = null;
+        this.d18_1 = null;
+        this.e18_1 = emptySet();
+        this.f18_1 = null;
+        this.g18_1 = first(get_GAMES()).b17();
     }
-    protoOf(Table).m1a = function(from, text) {
+    protoOf(Table).i18 = function(from, text) {
         var tmp;
         try {
-            var value = get_jsonObject(Default_getInstance_0().qt(text));
+            var value = get_jsonObject(Default_getInstance_0().gt(text));
             tmp = _Result___init__impl__xyqfz8(value);
         } catch ($p) {
             var tmp_0;
@@ -22271,16 +19877,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1 = tmp0_elvis_lhs;
         }
         var message = tmp_1;
-        var tmp1_safe_receiver = message.cv('type');
+        var tmp1_safe_receiver = message.su('type');
         var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
         var type = tmp2_safe_receiver == null ? null : get_contentOrNull(tmp2_safe_receiver);
-        var tmp0 = this.f1a_1;
+        var tmp0 = this.b18_1;
         var tmp$ret$5;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.b1a_1 === from) {
+                if (element.x17_1 === from) {
                     tmp$ret$5 = element;
                     break $l$block;
                 }
@@ -22291,7 +19897,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp_2;
         switch (type) {
           case 'join':
-            var tmp4_safe_receiver = message.cv('name');
+            var tmp4_safe_receiver = message.su('name');
             var tmp5_safe_receiver = tmp4_safe_receiver == null ? null : get_jsonPrimitive(tmp4_safe_receiver);
             var tmp0_elvis_lhs_0 = tmp5_safe_receiver == null ? null : get_contentOrNull(tmp5_safe_receiver);
             var tmp$ret$7 = tmp0_elvis_lhs_0 == null ? '' : tmp0_elvis_lhs_0;
@@ -22305,7 +19911,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
           case 'browse':
             var tmp_3;
             if (equals(player, host(this))) {
-                var tmp6_safe_receiver = message.cv('game');
+                var tmp6_safe_receiver = message.su('game');
                 var tmp7_safe_receiver = tmp6_safe_receiver == null ? null : get_jsonPrimitive(tmp6_safe_receiver);
                 tmp_3 = browse(this, tmp7_safe_receiver == null ? null : get_contentOrNull(tmp7_safe_receiver));
             } else {
@@ -22317,7 +19923,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
           case 'start':
             var tmp_4;
             if (equals(player, host(this))) {
-                var tmp8_safe_receiver = message.cv('game');
+                var tmp8_safe_receiver = message.su('game');
                 var tmp9_safe_receiver = tmp8_safe_receiver == null ? null : get_jsonPrimitive(tmp8_safe_receiver);
                 tmp_4 = start(this, tmp9_safe_receiver == null ? null : get_contentOrNull(tmp9_safe_receiver));
             } else {
@@ -22327,7 +19933,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'lobby':
-            tmp_2 = equals(player, host(this)) && !(this.g1a_1 == null) && endGame(this);
+            tmp_2 = equals(player, host(this)) && !(this.c18_1 == null) && endGame(this);
             break;
 
           case 'rematch':
@@ -22336,9 +19942,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
           case 'act':
             var tmp_5;
-            if (!(player == null) && this.i1a_1.m1(from)) {
-                var tmp10_safe_receiver = this.g1a_1;
-                tmp_5 = (tmp10_safe_receiver == null ? null : tmp10_safe_receiver.n13(from, message)) === true;
+            if (!(player == null) && this.e18_1.l1(from)) {
+                var tmp10_safe_receiver = this.c18_1;
+                tmp_5 = (tmp10_safe_receiver == null ? null : tmp10_safe_receiver.w16(from, message)) === true;
             } else {
                 tmp_5 = false;
             }
@@ -22352,14 +19958,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var changed = tmp_2;
         return changed ? picture(this) : emptyList();
     };
-    protoOf(Table).n1a = function(id) {
-        var tmp0 = this.f1a_1;
+    protoOf(Table).j18 = function(id) {
+        var tmp0 = this.b18_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.b1a_1 === id) {
+                if (element.x17_1 === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -22374,11 +19980,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var player = tmp;
-        player.d1a_1 = false;
+        player.z17_1 = false;
         return picture(this);
     };
-    protoOf(Table).s13 = function() {
-        var tmp0_elvis_lhs = this.g1a_1;
+    protoOf(Table).x16 = function() {
+        var tmp0_elvis_lhs = this.c18_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -22386,12 +19992,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.f1a_1;
+        var tmp0 = this.b18_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.k();
+                tmp_0 = tmp0.p();
             } else {
                 tmp_0 = false;
             }
@@ -22402,7 +20008,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (this.i1a_1.m1(element.b1a_1) && !element.d1a_1) {
+                if (this.e18_1.l1(element.x17_1) && !element.z17_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -22410,10 +20016,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$0 = false;
         }
         if (tmp$ret$0) return emptyList();
-        return current.s13() ? picture(this) : emptyList();
+        return current.x16() ? picture(this) : emptyList();
     };
-    protoOf(Table).t13 = function() {
-        var tmp0_elvis_lhs = this.g1a_1;
+    protoOf(Table).y16 = function() {
+        var tmp0_elvis_lhs = this.c18_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -22421,12 +20027,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.f1a_1;
+        var tmp0 = this.b18_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.k();
+                tmp_0 = tmp0.p();
             } else {
                 tmp_0 = false;
             }
@@ -22437,7 +20043,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (this.i1a_1.m1(element.b1a_1) && !element.d1a_1) {
+                if (this.e18_1.l1(element.x17_1) && !element.z17_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -22446,7 +20052,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         if (tmp$ret$0) return emptyList();
         var tmp_1;
-        switch (current.t13().c2_1) {
+        switch (current.y16().a2_1) {
           case 0:
             tmp_1 = emptyList();
             break;
@@ -22457,7 +20063,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.g();
             while (_iterator__ex2g4s_0.h()) {
                 var element_0 = _iterator__ex2g4s_0.i();
-                if (element_0.z19_1 === 'tv') {
+                if (element_0.v17_1 === 'tv') {
                     destination.f(element_0);
                 }
             }
@@ -22480,66 +20086,62 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s.h()) {
             var item = _iterator__ex2g4s.i();
             var builder = new JsonObjectBuilder;
-            put(builder, 'to', item.z19_1);
-            builder.nv('message', item.a1a_1);
-            var tmp$ret$2 = builder.ov();
+            put_0(builder, 'to', item.v17_1);
+            builder.dv('message', item.w17_1);
+            var tmp$ret$2 = builder.ev();
             destination.f(tmp$ret$2);
         }
         return new JsonArray(destination).toString();
     }
     function Engine() {
-        this.o1a_1 = new Table;
+        this.k18_1 = new Table;
     }
     protoOf(Engine).receive = function(from, text) {
-        return encode(this, this.o1a_1.m1a(from, text));
+        return encode(this, this.k18_1.i18(from, text));
     };
     protoOf(Engine).offline = function(id) {
-        return encode(this, this.o1a_1.n1a(id));
+        return encode(this, this.k18_1.j18(id));
     };
     protoOf(Engine).tick = function() {
-        return encode(this, this.o1a_1.s13());
+        return encode(this, this.k18_1.x16());
     };
     protoOf(Engine).frame = function() {
-        return encode(this, this.o1a_1.t13());
+        return encode(this, this.k18_1.y16());
     };
-    protoOf(InternalHashMap).e5 = containsAllEntries;
-    protoOf(SerialDescriptorImpl).ch = get_isNullable;
-    protoOf(SerialDescriptorImpl).dh = get_isInline;
-    protoOf(AbstractDecoder).lj = decodeSerializableElement$default;
-    protoOf(AbstractDecoder).yi = decodeSerializableValue;
-    protoOf(AbstractDecoder).nj = decodeSequentially;
-    protoOf(AbstractDecoder).pj = decodeCollectionSize;
-    protoOf(ListLikeDescriptor).ch = get_isNullable;
-    protoOf(ListLikeDescriptor).dh = get_isInline;
-    protoOf(ListLikeDescriptor).fh = get_annotations;
-    protoOf(MapLikeDescriptor).ch = get_isNullable;
-    protoOf(MapLikeDescriptor).dh = get_isInline;
-    protoOf(MapLikeDescriptor).fh = get_annotations;
-    protoOf(PluginGeneratedSerialDescriptor).ch = get_isNullable;
-    protoOf(PluginGeneratedSerialDescriptor).dh = get_isInline;
-    protoOf(InlinePrimitiveDescriptor$1).in = typeParametersSerializers;
-    protoOf(NothingSerialDescriptor).ch = get_isNullable;
-    protoOf(NothingSerialDescriptor).dh = get_isInline;
-    protoOf(NothingSerialDescriptor).fh = get_annotations;
-    protoOf(PrimitiveSerialDescriptor_0).ch = get_isNullable;
-    protoOf(PrimitiveSerialDescriptor_0).dh = get_isInline;
-    protoOf(PrimitiveSerialDescriptor_0).fh = get_annotations;
-    protoOf(TaggedDecoder).lj = decodeSerializableElement$default;
-    protoOf(TaggedDecoder).yi = decodeSerializableValue;
-    protoOf(TaggedDecoder).nj = decodeSequentially;
-    protoOf(TaggedDecoder).pj = decodeCollectionSize;
-    protoOf(defer$1).ch = get_isNullable;
-    protoOf(defer$1).dh = get_isInline;
-    protoOf(defer$1).fh = get_annotations;
+    protoOf(InternalHashMap).d5 = containsAllEntries;
+    protoOf(SerialDescriptorImpl).sg = get_isNullable;
+    protoOf(SerialDescriptorImpl).tg = get_isInline;
+    protoOf(AbstractDecoder).bj = decodeSerializableElement$default;
+    protoOf(AbstractDecoder).oi = decodeSerializableValue;
+    protoOf(AbstractDecoder).dj = decodeSequentially;
+    protoOf(AbstractDecoder).fj = decodeCollectionSize;
+    protoOf(ListLikeDescriptor).sg = get_isNullable;
+    protoOf(ListLikeDescriptor).tg = get_isInline;
+    protoOf(ListLikeDescriptor).vg = get_annotations;
+    protoOf(MapLikeDescriptor).sg = get_isNullable;
+    protoOf(MapLikeDescriptor).tg = get_isInline;
+    protoOf(MapLikeDescriptor).vg = get_annotations;
+    protoOf(PluginGeneratedSerialDescriptor).sg = get_isNullable;
+    protoOf(PluginGeneratedSerialDescriptor).tg = get_isInline;
+    protoOf(InlinePrimitiveDescriptor$1).ym = typeParametersSerializers;
+    protoOf(NothingSerialDescriptor).sg = get_isNullable;
+    protoOf(NothingSerialDescriptor).tg = get_isInline;
+    protoOf(NothingSerialDescriptor).vg = get_annotations;
+    protoOf(PrimitiveSerialDescriptor_0).sg = get_isNullable;
+    protoOf(PrimitiveSerialDescriptor_0).tg = get_isInline;
+    protoOf(PrimitiveSerialDescriptor_0).vg = get_annotations;
+    protoOf(TaggedDecoder).bj = decodeSerializableElement$default;
+    protoOf(TaggedDecoder).oi = decodeSerializableValue;
+    protoOf(TaggedDecoder).dj = decodeSequentially;
+    protoOf(TaggedDecoder).fj = decodeCollectionSize;
+    protoOf(defer$1).sg = get_isNullable;
+    protoOf(defer$1).tg = get_isInline;
+    protoOf(defer$1).vg = get_annotations;
     defineProp(protoOf(JsonException), 'message', (function() {
-        return this.i8();
+        return this.h8();
     }));
-    protoOf(BattleshipGame).s13 = tick;
-    protoOf(BattleshipGame).t13 = frame;
-    protoOf(CrowdGame).s13 = tick;
-    protoOf(DiceGame).t13 = frame;
-    protoOf(SiegeGame).t13 = frame;
-    protoOf(SubmarineGame).t13 = frame;
+    protoOf(BattleshipGame).x16 = tick;
+    protoOf(BattleshipGame).y16 = frame;
     Companion_instance_0 = new Companion_0;
     ByteCompanionObject_instance = new ByteCompanionObject;
     ShortCompanionObject_instance = new ShortCompanionObject;
@@ -22556,7 +20158,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     Companion_instance_5 = new Companion_5;
     Companion_instance_6 = new Companion_6;
     EmptyIterator_instance = new EmptyIterator;
-    NaturalOrderComparator_instance = new NaturalOrderComparator;
     Key_instance = new Key;
     Companion_instance_9 = new Companion_9;
     State_instance = new State;
@@ -22571,7 +20172,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     Tombstone_instance = new Tombstone;
     RedactedKey_instance = new RedactedKey;
     Companion_instance_27 = new Companion_27;
-    Companion_instance_30 = new Companion_30;
     function $jsExportAll$(_) {
         var com = _.com || (_.com = {});
         var dezesar = com.dezesar || (com.dezesar = {});
