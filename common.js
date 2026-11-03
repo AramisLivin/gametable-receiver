@@ -1,6 +1,6 @@
 const NAMESPACE = 'urn:x-cast:com.dezesar.gametable';
 
-const VERSION = '20261103091315';
+const VERSION = '20261103091358';
 
 const SEARCH = new URLSearchParams(location.search);
 
