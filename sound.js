@@ -4,15 +4,24 @@ let bus = null;
 
 let musicBus = null;
 
+function softCeiling() {
+    const shaper = audio.createWaveShaper();
+    const curve = new Float32Array(2049);
+    for (let i = 0; i < curve.length; i++) curve[i] = Math.tanh((i / 1024 - 1) * 1.6) / Math.tanh(1.6) * .95;
+    shaper.curve = curve;
+    shaper.oversample = '2x';
+    return shaper;
+}
+
 function makeBus() {
     const limiter = audio.createDynamicsCompressor();
-    limiter.threshold.value = -10;
+    limiter.threshold.value = -16;
     limiter.ratio.value = 12;
-    limiter.attack.value = .003;
+    limiter.attack.value = .001;
     limiter.release.value = .25;
     const master = audio.createGain();
-    master.gain.value = .72;
-    limiter.connect(master).connect(audio.destination);
+    master.gain.value = .42;
+    limiter.connect(master).connect(softCeiling()).connect(audio.destination);
     musicBus = audio.createGain();
     musicBus.gain.value = MUSIC_VOLUME;
     musicBus.connect(limiter);
@@ -113,7 +122,7 @@ function explosion(at, volume) {
     thump(at, 95, 26, 1.3, volume);
 }
 
-const MUSIC_VOLUME = .6;
+const MUSIC_VOLUME = .42;
 
 const BEAT = .8;
 
@@ -122,7 +131,9 @@ const BAR = BEAT * 4;
 const CHORDS = [ [ 50, 53, 57 ], [ 46, 50, 53 ], [ 43, 50, 55 ], [ 45, 49, 52 ] ];
 
 const DUCK_SECONDS = {
-    miss: .6,
+    place: .5,
+    ready: .8,
+    miss: .9,
     hit: 1.6,
     sunk: 3,
     battle: 3.4,
@@ -248,7 +259,7 @@ function duckMusic(kind) {
     if (!musicMood || !seconds) return;
     const now = audio.currentTime;
     musicBus.gain.cancelScheduledValues(now);
-    musicBus.gain.setTargetAtTime(MUSIC_VOLUME * .3, now, .06);
+    musicBus.gain.setTargetAtTime(MUSIC_VOLUME * .25, now, .03);
     musicBus.gain.setTargetAtTime(MUSIC_VOLUME, now + seconds, .9);
 }
 
@@ -261,8 +272,8 @@ const SOUNDS = {
         chord([ 196, 293.7 ], 0, .7, .11);
     },
     miss() {
-        noise(0, .3, 1.4, 'lowpass', 2200, 350);
-        thump(0, 210, 80, .18, .8);
+        noise(0, .34, 2.4, 'lowpass', 3e3, 400);
+        thump(0, 230, 85, .2, 1.3);
     },
     hit() {
         explosion(0, 1.3);
@@ -301,7 +312,9 @@ const SOUNDS = {
 
 function prepareSound() {
     if (audio) return;
-    audio = new AudioContext;
+    audio = new AudioContext({
+        latencyHint: 'balanced'
+    });
     bus = makeBus();
     noiseBuffer = makeNoise();
 }
@@ -322,5 +335,7 @@ function playSound(kind) {
     } catch {
         audio = null;
         bus = null;
+        clearInterval(musicTimer);
+        musicMood = null;
     }
 }
