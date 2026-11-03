@@ -1,6 +1,6 @@
 const NAMESPACE = 'urn:x-cast:com.dezesar.gametable';
 
-const VERSION = '20261103173136';
+const VERSION = '20261103194157';
 
 const SEARCH = new URLSearchParams(location.search);
 
@@ -12,6 +12,10 @@ const $ = id => document.getElementById(id);
 
 function show(id) {
     document.querySelectorAll('.screen').forEach((s => s.classList.toggle('on', s.id === id)));
+}
+
+function letterbox(on) {
+    document.body.classList.toggle('finale', on);
 }
 
 function div(cls, text) {

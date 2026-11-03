@@ -130,13 +130,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ MutableIterable, Collection ]);
     initMetadataForClass(IteratorImpl, 'IteratorImpl');
     initMetadataForClass(ListIteratorImpl, 'ListIteratorImpl', VOID, IteratorImpl);
-    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ MutableIterable, KtList, Collection ]);
+    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ MutableIterable, Collection, KtList ]);
     initMetadataForClass(AbstractMap, 'AbstractMap', VOID, VOID, [ KtMap ]);
     initMetadataForClass(AbstractMutableMap, 'AbstractMutableMap', VOID, AbstractMap, [ KtMutableMap ]);
     initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ MutableIterable, KtSet, Collection ]);
     initMetadataForCompanion(Companion_2);
     initMetadataForInterface(RandomAccess, 'RandomAccess');
-    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ MutableIterable, KtList, Collection, RandomAccess ]);
+    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ MutableIterable, Collection, KtList, RandomAccess ]);
     initMetadataForClass(HashMap, 'HashMap', HashMap_init_$Create$, AbstractMutableMap, [ KtMutableMap ]);
     initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
     initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ MutableIterable, Collection ]);
@@ -158,7 +158,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp;
             if (isInterface(m, Collection)) {
-                tmp = m.p();
+                tmp = m.k();
             } else {
                 tmp = false;
             }
@@ -714,6 +714,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return result;
     }
+    function random(_this__u8e3s4, random) {
+        if (_this__u8e3s4.k()) throw NoSuchElementException_init_$Create$_0('Collection is empty.');
+        return elementAt(_this__u8e3s4, random.l(_this__u8e3s4.j()));
+    }
     function toList_0(_this__u8e3s4) {
         if (isInterface(_this__u8e3s4, Collection)) {
             var tmp;
@@ -725,7 +729,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
               case 1:
                 var tmp_0;
                 if (isInterface(_this__u8e3s4, KtList)) {
-                    tmp_0 = _this__u8e3s4.k(0);
+                    tmp_0 = _this__u8e3s4.m(0);
                 } else {
                     tmp_0 = _this__u8e3s4.g().i();
                 }
@@ -754,8 +758,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function plus(_this__u8e3s4, elements) {
         if (isInterface(elements, Collection)) {
             var result = ArrayList_init_$Create$_0(_this__u8e3s4.j() + elements.j() | 0);
-            result.o(_this__u8e3s4);
-            result.o(elements);
+            result.q(_this__u8e3s4);
+            result.q(elements);
             return result;
         } else {
             var result_0 = ArrayList_init_$Create$_1(_this__u8e3s4);
@@ -776,16 +780,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function plus_0(_this__u8e3s4, element) {
         var result = ArrayList_init_$Create$_0(_this__u8e3s4.j() + 1 | 0);
-        result.o(_this__u8e3s4);
+        result.q(_this__u8e3s4);
         result.f(element);
         return result;
     }
     function toMutableList(_this__u8e3s4) {
         return ArrayList_init_$Create$_1(_this__u8e3s4);
-    }
-    function random(_this__u8e3s4, random) {
-        if (_this__u8e3s4.p()) throw NoSuchElementException_init_$Create$_0('Collection is empty.');
-        return elementAt(_this__u8e3s4, random.q(_this__u8e3s4.j()));
     }
     function minus(_this__u8e3s4, element) {
         var result = ArrayList_init_$Create$_0(collectionSizeOrDefault(_this__u8e3s4, 10));
@@ -817,7 +817,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
               case 1:
                 var tmp_0;
                 if (isInterface(_this__u8e3s4, KtList)) {
-                    tmp_0 = _this__u8e3s4.k(0);
+                    tmp_0 = _this__u8e3s4.m(0);
                 } else {
                     tmp_0 = _this__u8e3s4.g().i();
                 }
@@ -836,8 +836,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new asSequence$$inlined$Sequence$1(_this__u8e3s4);
     }
     function first(_this__u8e3s4) {
-        if (_this__u8e3s4.p()) throw NoSuchElementException_init_$Create$_0('List is empty.');
-        return _this__u8e3s4.k(0);
+        if (_this__u8e3s4.k()) throw NoSuchElementException_init_$Create$_0('List is empty.');
+        return _this__u8e3s4.m(0);
     }
     function take(_this__u8e3s4, n) {
         if (!(n >= 0)) {
@@ -869,8 +869,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (1 <= inductionVariable) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + -1 | 0;
-            var j = random.q(i + 1 | 0);
-            _this__u8e3s4.r(j, _this__u8e3s4.r(i, _this__u8e3s4.k(j)));
+            var j = random.l(i + 1 | 0);
+            _this__u8e3s4.r(j, _this__u8e3s4.r(i, _this__u8e3s4.m(j)));
         } while (1 <= inductionVariable);
     }
     function toCollection_0(_this__u8e3s4, destination) {
@@ -880,6 +880,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination.f(item);
         }
         return destination;
+    }
+    function elementAt(_this__u8e3s4, index) {
+        if (isInterface(_this__u8e3s4, KtList)) return _this__u8e3s4.m(index);
+        return elementAtOrElse(_this__u8e3s4, index, elementAt$lambda(index));
     }
     function sortedWith(_this__u8e3s4, comparator) {
         if (isInterface(_this__u8e3s4, Collection)) {
@@ -893,13 +897,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         sortWith_0(this_1, comparator);
         return this_1;
     }
-    function elementAt(_this__u8e3s4, index) {
-        if (isInterface(_this__u8e3s4, KtList)) return _this__u8e3s4.k(index);
-        return elementAtOrElse(_this__u8e3s4, index, elementAt$lambda(index));
-    }
     function last(_this__u8e3s4) {
-        if (_this__u8e3s4.p()) throw NoSuchElementException_init_$Create$_0('List is empty.');
-        return _this__u8e3s4.k(get_lastIndex_2(_this__u8e3s4));
+        if (_this__u8e3s4.k()) throw NoSuchElementException_init_$Create$_0('List is empty.');
+        return _this__u8e3s4.m(get_lastIndex_2(_this__u8e3s4));
     }
     function first_0(_this__u8e3s4) {
         if (isInterface(_this__u8e3s4, KtList)) return first(_this__u8e3s4); else {
@@ -910,7 +910,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function elementAtOrElse(_this__u8e3s4, index, defaultValue) {
         if (isInterface(_this__u8e3s4, KtList)) {
-            return (0 <= index ? index < _this__u8e3s4.j() : false) ? _this__u8e3s4.k(index) : defaultValue(index);
+            return (0 <= index ? index < _this__u8e3s4.j() : false) ? _this__u8e3s4.m(index) : defaultValue(index);
         }
         if (index < 0) return defaultValue(index);
         var iterator = _this__u8e3s4.g();
@@ -924,10 +924,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return defaultValue(index);
     }
     function singleOrNull(_this__u8e3s4) {
-        return _this__u8e3s4.j() === 1 ? _this__u8e3s4.k(0) : null;
+        return _this__u8e3s4.j() === 1 ? _this__u8e3s4.m(0) : null;
     }
     function lastOrNull(_this__u8e3s4) {
-        return _this__u8e3s4.p() ? null : _this__u8e3s4.k(_this__u8e3s4.j() - 1 | 0);
+        return _this__u8e3s4.k() ? null : _this__u8e3s4.m(_this__u8e3s4.j() - 1 | 0);
     }
     function minOrNull(_this__u8e3s4) {
         var iterator = _this__u8e3s4.g();
@@ -2935,7 +2935,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return false;
     };
-    protoOf(AbstractMutableCollection).o = function(elements) {
+    protoOf(AbstractMutableCollection).q = function(elements) {
         this.x2();
         var modified = false;
         var _iterator__ex2g4s = elements.g();
@@ -2963,7 +2963,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _unary__edvuaz = this.z2_1;
         this.z2_1 = _unary__edvuaz + 1 | 0;
         tmp.a3_1 = _unary__edvuaz;
-        return this.b3_1.k(this.a3_1);
+        return this.b3_1.m(this.a3_1);
     };
     protoOf(IteratorImpl).y2 = function() {
         if (!!(this.a3_1 === -1)) {
@@ -3119,7 +3119,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_instance_2 = this;
         var tmp = this;
         var this_0 = ArrayList_init_$Create$_0(0);
-        this_0.n_1 = true;
+        this_0.p_1 = true;
         tmp.a4_1 = this_0;
     }
     var Companion_instance_2;
@@ -3157,7 +3157,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function increaseLength($this, amount) {
         var previous = $this.j();
-        $this.m_1.length = $this.j() + amount | 0;
+        $this.o_1.length = $this.j() + amount | 0;
         return previous;
     }
     function rangeCheck($this, index) {
@@ -3171,42 +3171,42 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function ArrayList(array) {
         Companion_getInstance_2();
         AbstractMutableList.call(this);
-        this.m_1 = array;
-        this.n_1 = false;
+        this.o_1 = array;
+        this.p_1 = false;
     }
     protoOf(ArrayList).c4 = function() {
         this.x2();
-        this.n_1 = true;
+        this.p_1 = true;
         return this.j() > 0 ? this : Companion_getInstance_2().a4_1;
     };
     protoOf(ArrayList).d4 = function(minCapacity) {};
     protoOf(ArrayList).j = function() {
-        return this.m_1.length;
+        return this.o_1.length;
     };
-    protoOf(ArrayList).k = function(index) {
-        return this.m_1[rangeCheck(this, index)];
+    protoOf(ArrayList).m = function(index) {
+        return this.o_1[rangeCheck(this, index)];
     };
     protoOf(ArrayList).r = function(index, element) {
         this.x2();
         rangeCheck(this, index);
-        var this_0 = this.m_1[index];
-        this.m_1[index] = element;
+        var this_0 = this.o_1[index];
+        this.o_1[index] = element;
         return this_0;
     };
     protoOf(ArrayList).f = function(element) {
         this.x2();
-        this.m_1.push(element);
+        this.o_1.push(element);
         this.c3_1 = this.c3_1 + 1 | 0;
         return true;
     };
     protoOf(ArrayList).j3 = function(index, element) {
         this.x2();
-        this.m_1.splice(insertionRangeCheck(this, index), 0, element);
+        this.o_1.splice(insertionRangeCheck(this, index), 0, element);
         this.c3_1 = this.c3_1 + 1 | 0;
     };
-    protoOf(ArrayList).o = function(elements) {
+    protoOf(ArrayList).q = function(elements) {
         this.x2();
-        if (elements.p()) return false;
+        if (elements.k()) return false;
         var offset = increaseLength(this, elements.j());
         var index = 0;
         var _iterator__ex2g4s = elements.g();
@@ -3215,7 +3215,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _unary__edvuaz = index;
             index = _unary__edvuaz + 1 | 0;
             var index_0 = checkIndexOverflow(_unary__edvuaz);
-            this.m_1[offset + index_0 | 0] = item;
+            this.o_1[offset + index_0 | 0] = item;
         }
         this.c3_1 = this.c3_1 + 1 | 0;
         return true;
@@ -3226,21 +3226,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.c3_1 = this.c3_1 + 1 | 0;
         var tmp;
         if (index === get_lastIndex_2(this)) {
-            tmp = this.m_1.pop();
+            tmp = this.o_1.pop();
         } else {
-            tmp = this.m_1.splice(index, 1)[0];
+            tmp = this.o_1.splice(index, 1)[0];
         }
         return tmp;
     };
     protoOf(ArrayList).w2 = function(element) {
         this.x2();
         var inductionVariable = 0;
-        var last = this.m_1.length - 1 | 0;
+        var last = this.o_1.length - 1 | 0;
         if (inductionVariable <= last) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            if (equals(this.m_1[index], element)) {
-                this.m_1.splice(index, 1);
+            if (equals(this.o_1[index], element)) {
+                this.o_1.splice(index, 1);
                 this.c3_1 = this.c3_1 + 1 | 0;
                 return true;
             }
@@ -3250,28 +3250,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(ArrayList).l3 = function(fromIndex, toIndex) {
         this.x2();
         this.c3_1 = this.c3_1 + 1 | 0;
-        this.m_1.splice(fromIndex, toIndex - fromIndex | 0);
+        this.o_1.splice(fromIndex, toIndex - fromIndex | 0);
     };
     protoOf(ArrayList).k3 = function() {
         this.x2();
         var tmp = this;
-        tmp.m_1 = [];
+        tmp.o_1 = [];
         this.c3_1 = this.c3_1 + 1 | 0;
     };
     protoOf(ArrayList).n1 = function(element) {
-        return indexOf(this.m_1, element);
+        return indexOf(this.o_1, element);
     };
     protoOf(ArrayList).toString = function() {
-        return arrayToString(this.m_1);
+        return arrayToString(this.o_1);
     };
     protoOf(ArrayList).e4 = function() {
-        return [].slice.call(this.m_1);
+        return [].slice.call(this.o_1);
     };
     protoOf(ArrayList).toArray = function() {
         return this.e4();
     };
     protoOf(ArrayList).x2 = function() {
-        if (this.n_1) throw UnsupportedOperationException_init_$Create$();
+        if (this.p_1) throw UnsupportedOperationException_init_$Create$();
     };
     var _stableSortingIsSupported;
     function sortArrayWith(array, comparator) {
@@ -3441,7 +3441,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(HashMapKeys).j = function() {
         return this.m4_1.j();
     };
-    protoOf(HashMapKeys).p = function() {
+    protoOf(HashMapKeys).k = function() {
         return this.m4_1.j() === 0;
     };
     protoOf(HashMapKeys).l1 = function(element) {
@@ -3450,7 +3450,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(HashMapKeys).f = function(element) {
         throw UnsupportedOperationException_init_$Create$();
     };
-    protoOf(HashMapKeys).o = function(elements) {
+    protoOf(HashMapKeys).q = function(elements) {
         throw UnsupportedOperationException_init_$Create$();
     };
     protoOf(HashMapKeys).w2 = function(element) {
@@ -3469,7 +3469,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(HashMapValues).j = function() {
         return this.q4_1.j();
     };
-    protoOf(HashMapValues).p = function() {
+    protoOf(HashMapValues).k = function() {
         return this.q4_1.j() === 0;
     };
     protoOf(HashMapValues).r4 = function(element) {
@@ -3488,7 +3488,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(HashMapValues).t4 = function(elements) {
         throw UnsupportedOperationException_init_$Create$();
     };
-    protoOf(HashMapValues).o = function(elements) {
+    protoOf(HashMapValues).q = function(elements) {
         return this.t4(elements);
     };
     protoOf(HashMapValues).g = function() {
@@ -3510,7 +3510,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(HashMapEntrySetBase).j = function() {
         return this.w4_1.j();
     };
-    protoOf(HashMapEntrySetBase).p = function() {
+    protoOf(HashMapEntrySetBase).k = function() {
         return this.w4_1.j() === 0;
     };
     protoOf(HashMapEntrySetBase).y4 = function(element) {
@@ -3526,7 +3526,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(HashMapEntrySetBase).f = function(element) {
         return this.z4((!(element == null) ? isInterface(element, Entry) : false) ? element : THROW_CCE());
     };
-    protoOf(HashMapEntrySetBase).o = function(elements) {
+    protoOf(HashMapEntrySetBase).q = function(elements) {
         throw UnsupportedOperationException_init_$Create$();
     };
     protoOf(HashMapEntrySetBase).a5 = function(element) {
@@ -3662,7 +3662,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(HashSet).l1 = function(element) {
         return this.j5_1.l4(element);
     };
-    protoOf(HashSet).p = function() {
+    protoOf(HashSet).k = function() {
         return this.j5_1.j() === 0;
     };
     protoOf(HashSet).g = function() {
@@ -3937,7 +3937,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return false;
     }
     function putAllEntries($this, from) {
-        if (from.p()) return false;
+        if (from.k()) return false;
         ensureExtraCapacity($this, from.j());
         var it = from.g();
         var updated = false;
@@ -6014,7 +6014,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp;
             if (isInterface(this, Collection)) {
-                tmp = this.p();
+                tmp = this.k();
             } else {
                 tmp = false;
             }
@@ -6039,7 +6039,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp;
             if (isInterface(elements, Collection)) {
-                tmp = elements.p();
+                tmp = elements.k();
             } else {
                 tmp = false;
             }
@@ -6059,7 +6059,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(AbstractCollection).p = function() {
+    protoOf(AbstractCollection).k = function() {
         return this.j() === 0;
     };
     protoOf(AbstractCollection).toString = function() {
@@ -6230,7 +6230,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp;
             if (isInterface(tmp0, Collection)) {
-                tmp = tmp0.p();
+                tmp = tmp0.k();
             } else {
                 tmp = false;
             }
@@ -6278,7 +6278,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp;
             if (isInterface(tmp0, Collection)) {
-                tmp = tmp0.p();
+                tmp = tmp0.k();
             } else {
                 tmp = false;
             }
@@ -6305,7 +6305,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(AbstractMap).hashCode = function() {
         return hashCode_0(this.v1());
     };
-    protoOf(AbstractMap).p = function() {
+    protoOf(AbstractMap).k = function() {
         return this.j() === 0;
     };
     protoOf(AbstractMap).j = function() {
@@ -6367,7 +6367,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         throw ArithmeticException_init_$Create$_0('Index overflow has happened.');
     }
     function collectionToArrayCommonImpl(collection) {
-        if (collection.p()) {
+        if (collection.k()) {
             return [];
         }
         var size = collection.j();
@@ -6393,9 +6393,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     }
-    function listOfNotNull(element) {
-        return !(element == null) ? listOf(element) : emptyList();
-    }
     function listOf_0(elements) {
         return elements.length > 0 ? asList(elements) : emptyList();
     }
@@ -6404,6 +6401,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         shuffle(this_0, random);
         return this_0;
     }
+    function listOfNotNull(element) {
+        return !(element == null) ? listOf(element) : emptyList();
+    }
     function EmptyList() {
         EmptyList_instance = this;
         this.ia_1 = new Long(-1478467534, -1720727600);
@@ -6411,7 +6411,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptyList).equals = function(other) {
         var tmp;
         if (!(other == null) ? isInterface(other, KtList) : false) {
-            tmp = other.p();
+            tmp = other.k();
         } else {
             tmp = false;
         }
@@ -6426,7 +6426,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptyList).j = function() {
         return 0;
     };
-    protoOf(EmptyList).p = function() {
+    protoOf(EmptyList).k = function() {
         return true;
     };
     protoOf(EmptyList).ja = function(element) {
@@ -6442,7 +6442,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return this.ja(tmp);
     };
-    protoOf(EmptyList).k = function(index) {
+    protoOf(EmptyList).m = function(index) {
         throw IndexOutOfBoundsException_init_$Create$_0("Empty list doesn't contain element at index " + index + '.');
     };
     protoOf(EmptyList).ka = function(element) {
@@ -6483,7 +6483,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             return emptyList();
 
           case 1:
-            return listOf(_this__u8e3s4.k(0));
+            return listOf(_this__u8e3s4.m(0));
 
           default:
             return _this__u8e3s4;
@@ -6571,7 +6571,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
               case 1:
                 var tmp_0;
                 if (isInterface(_this__u8e3s4, KtList)) {
-                    tmp_0 = _this__u8e3s4.k(0);
+                    tmp_0 = _this__u8e3s4.m(0);
                 } else {
                     tmp_0 = _this__u8e3s4.g().i();
                 }
@@ -6591,7 +6591,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function plus_2(_this__u8e3s4, pairs) {
         var tmp;
-        if (_this__u8e3s4.p()) {
+        if (_this__u8e3s4.k()) {
             tmp = toMap(pairs);
         } else {
             var this_0 = LinkedHashMap_init_$Create$_1(_this__u8e3s4);
@@ -6602,7 +6602,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function plus_3(_this__u8e3s4, pair) {
         var tmp;
-        if (_this__u8e3s4.p()) {
+        if (_this__u8e3s4.k()) {
             tmp = mapOf(pair);
         } else {
             var this_0 = LinkedHashMap_init_$Create$_1(_this__u8e3s4);
@@ -6618,7 +6618,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptyMap).equals = function(other) {
         var tmp;
         if (!(other == null) ? isInterface(other, KtMap) : false) {
-            tmp = other.p();
+            tmp = other.k();
         } else {
             tmp = false;
         }
@@ -6633,7 +6633,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptyMap).j = function() {
         return 0;
     };
-    protoOf(EmptyMap).p = function() {
+    protoOf(EmptyMap).k = function() {
         return true;
     };
     protoOf(EmptyMap).ua = function(key) {
@@ -6727,7 +6727,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (inductionVariable <= last) $l$loop: do {
             var readIndex = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            var element = _this__u8e3s4.k(readIndex);
+            var element = _this__u8e3s4.m(readIndex);
             if (predicate(element) === predicateResultToRemove) continue $l$loop;
             if (!(writeIndex === readIndex)) {
                 _this__u8e3s4.r(writeIndex, element);
@@ -6758,7 +6758,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function removeLast(_this__u8e3s4) {
         var tmp;
-        if (_this__u8e3s4.p()) {
+        if (_this__u8e3s4.k()) {
             throw NoSuchElementException_init_$Create$_0('List is empty.');
         } else {
             tmp = _this__u8e3s4.d3(get_lastIndex_2(_this__u8e3s4));
@@ -6766,7 +6766,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function addAll(_this__u8e3s4, elements) {
-        if (isInterface(elements, Collection)) return _this__u8e3s4.o(elements); else {
+        if (isInterface(elements, Collection)) return _this__u8e3s4.q(elements); else {
             var result = false;
             var _iterator__ex2g4s = elements.g();
             while (_iterator__ex2g4s.h()) {
@@ -6853,7 +6853,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptySet).equals = function(other) {
         var tmp;
         if (!(other == null) ? isInterface(other, KtSet) : false) {
-            tmp = other.p();
+            tmp = other.k();
         } else {
             tmp = false;
         }
@@ -6868,7 +6868,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(EmptySet).j = function() {
         return 0;
     };
-    protoOf(EmptySet).p = function() {
+    protoOf(EmptySet).k = function() {
         return true;
     };
     protoOf(EmptySet).ja = function(element) {
@@ -6885,7 +6885,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return this.ja(tmp);
     };
     protoOf(EmptySet).lb = function(elements) {
-        return elements.p();
+        return elements.k();
     };
     protoOf(EmptySet).m1 = function(elements) {
         return this.lb(elements);
@@ -6993,8 +6993,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(Default).ya = function() {
         return this.nb_1.ya();
     };
-    protoOf(Default).q = function(until) {
-        return this.nb_1.q(until);
+    protoOf(Default).l = function(until) {
+        return this.nb_1.l(until);
     };
     protoOf(Default).pb = function(from, until) {
         return this.nb_1.pb(from, until);
@@ -7016,7 +7016,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(Random).ya = function() {
         return this.ob(32);
     };
-    protoOf(Random).q = function(until) {
+    protoOf(Random).l = function(until) {
         return this.pb(0, until);
     };
     protoOf(Random).pb = function(from, until) {
@@ -7172,20 +7172,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(IntRange).y = function(value) {
         return this.ec(typeof value === 'number' ? value : THROW_CCE());
     };
-    protoOf(IntRange).p = function() {
+    protoOf(IntRange).k = function() {
         return this.v_1 > this.w_1;
     };
     protoOf(IntRange).equals = function(other) {
         var tmp;
         if (other instanceof IntRange) {
-            tmp = this.p() && other.p() || this.v_1 === other.v_1 && this.w_1 === other.w_1;
+            tmp = this.k() && other.k() || this.v_1 === other.v_1 && this.w_1 === other.w_1;
         } else {
             tmp = false;
         }
         return tmp;
     };
     protoOf(IntRange).hashCode = function() {
-        return this.p() ? -1 : imul(31, this.v_1) + this.w_1 | 0;
+        return this.k() ? -1 : imul(31, this.v_1) + this.w_1 | 0;
     };
     protoOf(IntRange).toString = function() {
         return '' + this.v_1 + '..' + this.w_1;
@@ -7228,20 +7228,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(IntProgression).g = function() {
         return new IntProgressionIterator(this.v_1, this.w_1, this.x_1);
     };
-    protoOf(IntProgression).p = function() {
+    protoOf(IntProgression).k = function() {
         return this.x_1 > 0 ? this.v_1 > this.w_1 : this.v_1 < this.w_1;
     };
     protoOf(IntProgression).equals = function(other) {
         var tmp;
         if (other instanceof IntProgression) {
-            tmp = this.p() && other.p() || this.v_1 === other.v_1 && this.w_1 === other.w_1 && this.x_1 === other.x_1;
+            tmp = this.k() && other.k() || this.v_1 === other.v_1 && this.w_1 === other.w_1 && this.x_1 === other.x_1;
         } else {
             tmp = false;
         }
         return tmp;
     };
     protoOf(IntProgression).hashCode = function() {
-        return this.p() ? -1 : imul(31, imul(31, this.v_1) + this.w_1 | 0) + this.x_1 | 0;
+        return this.k() ? -1 : imul(31, imul(31, this.v_1) + this.w_1 | 0) + this.x_1 | 0;
     };
     protoOf(IntProgression).toString = function() {
         return this.x_1 > 0 ? '' + this.v_1 + '..' + this.w_1 + ' step ' + this.x_1 : '' + this.v_1 + ' downTo ' + this.w_1 + ' step ' + (-this.x_1 | 0);
@@ -9941,7 +9941,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(UByteArray).g = function() {
         return UByteArray__iterator_impl_509y1p(this.df_1);
     };
-    protoOf(UByteArray).p = function() {
+    protoOf(UByteArray).k = function() {
         return UByteArray__isEmpty_impl_nbfqsa(this.df_1);
     };
     protoOf(UByteArray).toString = function() {
@@ -10072,7 +10072,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(UIntArray).g = function() {
         return UIntArray__iterator_impl_tkdv7k(this.nf_1);
     };
-    protoOf(UIntArray).p = function() {
+    protoOf(UIntArray).k = function() {
         return UIntArray__isEmpty_impl_vd8j4n(this.nf_1);
     };
     protoOf(UIntArray).toString = function() {
@@ -10205,7 +10205,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(ULongArray).g = function() {
         return ULongArray__iterator_impl_cq4d2h(this.xf_1);
     };
-    protoOf(ULongArray).p = function() {
+    protoOf(ULongArray).k = function() {
         return ULongArray__isEmpty_impl_c3yngu(this.xf_1);
     };
     protoOf(ULongArray).toString = function() {
@@ -10338,7 +10338,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(UShortArray).g = function() {
         return UShortArray__iterator_impl_ktpenn(this.hg_1);
     };
-    protoOf(UShortArray).p = function() {
+    protoOf(UShortArray).k = function() {
         return UShortArray__isEmpty_impl_cdd9l0(this.hg_1);
     };
     protoOf(UShortArray).toString = function() {
@@ -11401,7 +11401,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         if (expectedSize === _this__u8e3s4.j()) return ArrayList_init_$Create$_1(_this__u8e3s4);
         var this_0 = ArrayList_init_$Create$_0(expectedSize);
-        this_0.o(_this__u8e3s4);
+        this_0.q(_this__u8e3s4);
         return this_0;
     };
     protoOf(ArrayListSerializer).hk = function(_this__u8e3s4, expectedSize) {
@@ -11887,7 +11887,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function compactArray(_this__u8e3s4) {
         _init_properties_Platform_common_kt__3qzecs();
         var tmp;
-        if (!(_this__u8e3s4 == null || _this__u8e3s4.p())) {
+        if (!(_this__u8e3s4 == null || _this__u8e3s4.k())) {
             tmp = _this__u8e3s4;
         } else {
             tmp = null;
@@ -13389,7 +13389,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     };
     protoOf(NamedValueDecoder).xr = function() {
-        return this.tr_1.p() ? '$' : joinToString_0(this.tr_1, '.', '$.');
+        return this.tr_1.k() ? '$' : joinToString_0(this.tr_1, '.', '$.');
     };
     function tagBlock($this, tag, block) {
         $this.ks(tag);
@@ -13814,8 +13814,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp = this.qu_1.v1();
         return joinToString_0(tmp, ',', '{', '}', VOID, VOID, JsonObject$toString$lambda);
     };
-    protoOf(JsonObject).p = function() {
-        return this.qu_1.p();
+    protoOf(JsonObject).k = function() {
+        return this.qu_1.k();
     };
     protoOf(JsonObject).ru = function(key) {
         return this.qu_1.q1(key);
@@ -13930,8 +13930,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(JsonArray).toString = function() {
         return joinToString_0(this.uu_1, ',', '[', ']');
     };
-    protoOf(JsonArray).p = function() {
-        return this.uu_1.p();
+    protoOf(JsonArray).k = function() {
+        return this.uu_1.k();
     };
     protoOf(JsonArray).vu = function(element) {
         return this.uu_1.l1(element);
@@ -13943,8 +13943,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(JsonArray).g = function() {
         return this.uu_1.g();
     };
-    protoOf(JsonArray).k = function(index) {
-        return this.uu_1.k(index);
+    protoOf(JsonArray).m = function(index) {
+        return this.uu_1.m(index);
     };
     protoOf(JsonArray).wu = function(element) {
         return this.uu_1.n1(element);
@@ -14519,7 +14519,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             $l$block_0: {
                 var tmp_0;
                 if (isInterface(tmp0, Collection)) {
-                    tmp_0 = tmp0.p();
+                    tmp_0 = tmp0.k();
                 } else {
                     tmp_0 = false;
                 }
@@ -14623,7 +14623,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
         } while (inductionVariable < last);
         var tmp_1;
-        if (builder.p()) {
+        if (builder.k()) {
             tmp_1 = emptyMap();
         } else {
             tmp_1 = builder;
@@ -16827,7 +16827,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return index.toString();
     };
     protoOf(JsonTreeListDecoder).qz = function(tag) {
-        return this.u10_1.k(toInt(tag));
+        return this.u10_1.m(toInt(tag));
     };
     protoOf(JsonTreeListDecoder).ej = function(descriptor) {
         while (this.w10_1 < (this.v10_1 - 1 | 0)) {
@@ -16863,7 +16863,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     protoOf(JsonTreeMapDecoder).rr = function(descriptor, index) {
         var i = index / 2 | 0;
-        return this.q11_1.k(i);
+        return this.q11_1.m(i);
     };
     protoOf(JsonTreeMapDecoder).ej = function(descriptor) {
         while (this.s11_1 < (this.r11_1 - 1 | 0)) {
@@ -17694,7 +17694,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function createMapForCache(initialCapacity) {
         return HashMap_init_$Create$_0(initialCapacity);
     }
-    function makeGround($this, random) {
+    function makeGround($this, kind, cannonX, random) {
         var columns = numberToInt(1e3 / 5) + 1 | 0;
         var tmp = 0;
         var tmp_0 = new Float64Array(3);
@@ -17703,45 +17703,82 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp + 1 | 0;
         }
         var phases = tmp_0;
-        var centre = random.rb(150, 300);
+        var rolling = ArtilleryGame$Companion$makeGround$lambda(phases);
+        var bump = ArtilleryGame$Companion$makeGround$lambda_0;
+        var size = random.rb(.8, 1.2);
         var tmp_1 = 0;
         var tmp_2 = (columns / 2 | 0) + 1 | 0;
         var tmp_3 = new Float64Array(tmp_2);
         while (tmp_1 < tmp_2) {
             var tmp_4 = tmp_1;
             var t = tmp_4 / (columns / 2 | 0);
-            var x = t * 7 + phases[0];
-            var tmp_5 = 26 * Math.sin(x);
-            var x_0 = t * 15 + phases[1];
-            var tmp_6 = tmp_5 + 14 * Math.sin(x_0);
-            var x_1 = t * 31 + phases[2];
-            var rolling = tmp_6 + 7 * Math.sin(x_1);
-            var rise = centre * t * t * t;
-            tmp_3[tmp_4] = 110 + rolling + rise;
+            var tmp_5;
+            switch (kind) {
+              case 'valley':
+                tmp_5 = 270 * size - 215 * size * t * t + rolling(t, 12);
+                break;
+
+              case 'plateau':
+                var cliff = coerceIn((.5 - t) / .08, 0, 1);
+                tmp_5 = 70 + 215 * size * cliff * cliff * (3 - 2 * cliff) + rolling(t, 10);
+                break;
+
+              case 'peaks':
+                tmp_5 = 95 + 270 * size * bump(t, .62, .17) + rolling(t, 16);
+                break;
+
+              case 'islands':
+                tmp_5 = 38 + 125 * bump(t, cannonX / (1e3 / 2), .2) + 150 * size * bump(t, 1, .2) + rolling(t, 7);
+                break;
+
+              default:
+                tmp_5 = 110 + rolling(t, 26) + 225 * size * t * t * t;
+                break;
+            }
+            tmp_3[tmp_4] = tmp_5;
             tmp_1 = tmp_1 + 1 | 0;
         }
         var half = tmp_3;
-        var flat = half[numberToInt(110 / 5)];
+        var flat = half[numberToInt(cannonX / 5)];
         var inductionVariable = 0;
         var last = half.length - 1 | 0;
         if (inductionVariable <= last) do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            var x_2 = i * 5;
-            var blend = coerceIn((x_2 - (110 + 20)) / 60, 0, 1);
-            if (x_2 <= 110 + 80) {
+            var x = i * 5;
+            var x_0 = x - cannonX;
+            var tmp$ret$2 = Math.abs(x_0);
+            var blend = coerceIn((tmp$ret$2 - 24) / 60, 0, 1);
+            var x_1 = x - cannonX;
+            if (Math.abs(x_1) <= 84) {
                 half[i] = flat * (1 - blend) + half[i] * blend;
             }
         } while (inductionVariable <= last);
-        var tmp_7 = 0;
-        var tmp_8 = new Float64Array(columns);
-        while (tmp_7 < columns) {
-            var tmp_9 = tmp_7;
-            var b = (columns - 1 | 0) - tmp_9 | 0;
-            tmp_8[tmp_9] = half[Math.min(tmp_9, b)];
-            tmp_7 = tmp_7 + 1 | 0;
+        var tmp_6 = 0;
+        var tmp_7 = new Float64Array(columns);
+        while (tmp_6 < columns) {
+            var tmp_8 = tmp_6;
+            var b = (columns - 1 | 0) - tmp_8 | 0;
+            var a = half[Math.min(tmp_8, b)];
+            var b_0 = Math.min(a, 440);
+            tmp_7[tmp_8] = Math.max(24, b_0);
+            tmp_6 = tmp_6 + 1 | 0;
         }
-        return tmp_8;
+        return tmp_7;
+    }
+    function ArtilleryGame$Companion$makeGround$lambda($phases) {
+        return function(t, size) {
+            var x = t * 7 + $phases[0];
+            var tmp = 26 * Math.sin(x);
+            var x_0 = t * 15 + $phases[1];
+            var tmp_0 = tmp + 14 * Math.sin(x_0);
+            var x_1 = t * 31 + $phases[2];
+            return size * (tmp_0 + 7 * Math.sin(x_1)) / 26;
+        };
+    }
+    function ArtilleryGame$Companion$makeGround$lambda_0(t, at, wide) {
+        var x = -((t - at) / wide) * ((t - at) / wide);
+        return Math.exp(x);
     }
     function Crate(id, x, y) {
         this.p12_1 = id;
@@ -17772,31 +17809,32 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return $this.k13_1 === 0 ? 0 : $this.j13_1.pb(-$this.k13_1 | 0, $this.k13_1 + 1 | 0);
     }
     function heightAt($this, x) {
-        var at = coerceIn(x / 5, 0, $this.n13_1.length - 1 | 0);
+        var at = coerceIn(x / 5, 0, $this.p13_1.length - 1 | 0);
         var left = numberToInt(at);
         var tmp0 = left + 1 | 0;
-        var b = $this.n13_1.length - 1 | 0;
+        var b = $this.p13_1.length - 1 | 0;
         var right = Math.min(tmp0, b);
-        return $this.n13_1[left] + ($this.n13_1[right] - $this.n13_1[left]) * (at - left);
+        return $this.p13_1[left] + ($this.p13_1[right] - $this.p13_1[left]) * (at - left);
     }
     function cannonY($this, side) {
-        return heightAt($this, $this.o13_1[side]);
+        return heightAt($this, $this.q13_1[side]);
     }
     function fire($this, side, angle, power, weapon) {
-        if (!Companion_getInstance_25().o14_1.l1(weapon)) return false;
+        if (!Companion_getInstance_25().u14_1.l1(weapon)) return false;
         if (!(weapon === 'shell')) {
-            var tmp0_elvis_lhs = $this.s13_1[side].s1(weapon);
+            var tmp0_elvis_lhs = $this.u13_1[side].s1(weapon);
             var left = tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs;
             if (left <= 0) return false;
-            var tmp0 = $this.s13_1[side];
+            var tmp0 = $this.u13_1[side];
             var value = left - 1 | 0;
             tmp0.w1(weapon, value);
         }
-        $this.q13_1[side] = angle;
-        $this.r13_1[side] = to(angle, power);
+        $this.s13_1[side] = angle;
+        $this.g14_1 = 0;
+        $this.t13_1[side] = to(angle, power);
         var radians = angle * 3.141592653589793 / 180;
         var speed = 120 + power / 100 * (620 - 120);
-        var tmp = $this.o13_1[side];
+        var tmp = $this.q13_1[side];
         var startX = tmp + Math.cos(radians) * 30;
         var tmp_0 = cannonY($this, side) + 16;
         var startY = tmp_0 + Math.sin(radians) * 30;
@@ -17809,7 +17847,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
           case 'bouncer':
             var tmp_1 = Math.cos(radians) * speed;
             var tmp$ret$8 = Math.sin(radians);
-            var landing = flight.l16(weapon, startX, startY, tmp_1, tmp$ret$8 * speed, 0, false);
+            var landing = flight.e17(weapon, startX, startY, tmp_1, tmp$ret$8 * speed, 0, false);
             var left_0 = 2;
             $l$loop: while (true) {
                 var tmp_2;
@@ -17825,10 +17863,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 left_0 = left_0 - 1 | 0;
                 var element = at($this, landing.b13_1, landing.z12_1, landing.a13_1);
                 bounces.f(element);
-                landing = flight.l16(weapon, landing.z12_1, landing.a13_1 + 2, landing.f13_1 * .8, -landing.g13_1 * .65, landing.b13_1, false);
+                landing = flight.e17(weapon, landing.z12_1, landing.a13_1 + 2, landing.f13_1 * .8, -landing.g13_1 * .65, landing.b13_1, false);
             }
             if (landing.e13_1) {
-                var element_0 = new Blast(landing.b13_1, landing.z12_1, landing.a13_1, getValue(Companion_getInstance_25().p14_1, weapon), landing.c13_1, weapon);
+                var element_0 = new Blast(landing.b13_1, landing.z12_1, landing.a13_1, getValue(Companion_getInstance_25().v14_1, weapon), landing.c13_1, weapon);
                 blasts.f(element_0);
             }
             openFrom($this, landing);
@@ -17837,9 +17875,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
           case 'cluster':
             var tmp_3 = Math.cos(radians) * speed;
             var tmp$ret$13 = Math.sin(radians);
-            var top = flight.l16(weapon, startX, startY, tmp_3, tmp$ret$13 * speed, 0, true);
+            var top = flight.e17(weapon, startX, startY, tmp_3, tmp$ret$13 * speed, 0, true);
             if (top.e13_1 && !top.h13_1) {
-                var element_1 = new Blast(top.b13_1, top.z12_1, top.a13_1, getValue(Companion_getInstance_25().p14_1, 'bomblet'), top.c13_1, 'bomblet');
+                var element_1 = new Blast(top.b13_1, top.z12_1, top.a13_1, getValue(Companion_getInstance_25().v14_1, 'bomblet'), top.c13_1, 'bomblet');
                 blasts.f(element_1);
                 openFrom($this, top);
             } else if (top.h13_1) {
@@ -17850,9 +17888,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var i = inductionVariable;
                     inductionVariable = inductionVariable + 1 | 0;
                     var offset = (i - 4 / 2) * 55;
-                    var landing_0 = flight.l16('bomblet', top.z12_1, top.a13_1, top.f13_1 + offset, top.g13_1, top.b13_1, false);
+                    var landing_0 = flight.e17('bomblet', top.z12_1, top.a13_1, top.f13_1 + offset, top.g13_1, top.b13_1, false);
                     if (landing_0.e13_1) {
-                        var element_3 = new Blast(landing_0.b13_1, landing_0.z12_1, landing_0.a13_1, getValue(Companion_getInstance_25().p14_1, 'bomblet'), landing_0.c13_1, 'bomblet');
+                        var element_3 = new Blast(landing_0.b13_1, landing_0.z12_1, landing_0.a13_1, getValue(Companion_getInstance_25().v14_1, 'bomblet'), landing_0.c13_1, 'bomblet');
                         blasts.f(element_3);
                     }
                     openFrom($this, landing_0);
@@ -17863,19 +17901,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
           default:
             var tmp_4 = Math.cos(radians) * speed;
             var tmp$ret$18 = Math.sin(radians);
-            var landing_1 = flight.l16(weapon, startX, startY, tmp_4, tmp$ret$18 * speed, 0, false);
+            var landing_1 = flight.e17(weapon, startX, startY, tmp_4, tmp$ret$18 * speed, 0, false);
             if (landing_1.e13_1) {
-                var element_4 = new Blast(landing_1.b13_1, landing_1.z12_1, landing_1.a13_1, getValue(Companion_getInstance_25().p14_1, weapon), landing_1.c13_1, weapon);
+                var element_4 = new Blast(landing_1.b13_1, landing_1.z12_1, landing_1.a13_1, getValue(Companion_getInstance_25().v14_1, weapon), landing_1.c13_1, weapon);
                 blasts.f(element_4);
             }
             openFrom($this, landing_1);
             break;
         }
-        var _destruct__k2r9zo = resolve($this, side, blasts, toList_0($this.g14_1));
+        var _destruct__k2r9zo = resolve($this, side, blasts, toList_0($this.m14_1));
         var done = _destruct__k2r9zo.wa();
         var opened = _destruct__k2r9zo.xa();
-        $this.g14_1.k3();
-        $this.b14_1 = $this.b14_1 + 1 | 0;
+        $this.m14_1.k3();
+        $this.d14_1 = $this.d14_1 + 1 | 0;
+        judge($this);
+        var finale = !($this.k14_1 == null);
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(segments, 10));
         var _iterator__ex2g4s = segments.g();
         while (_iterator__ex2g4s.h()) {
@@ -17903,7 +17943,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var finish = tmp2_elvis_lhs == null ? 0 : tmp2_elvis_lhs;
         var tmp_7 = $this;
         var builder = new JsonObjectBuilder;
-        put(builder, 'seq', $this.b14_1);
+        put(builder, 'seq', $this.d14_1);
         put(builder, 'side', side);
         put_0(builder, 'weapon', weapon);
         put(builder, 'angle', angle);
@@ -17913,20 +17953,29 @@ if (typeof String.prototype.startsWith === 'undefined') {
         builder.dv('splits', new JsonArray(splits));
         builder.dv('blasts', new JsonArray(done));
         builder.dv('opened', new JsonArray(opened));
-        tmp_7.a14_1 = builder.ev();
+        put_1(builder, 'finale', finale);
+        put(builder, 'slow', finale ? 1.6 : 1);
+        tmp_7.c14_1 = builder.ev();
         var tmp_8 = $this;
-        var tmp$ret$31 = Math.ceil(finish);
-        tmp_8.z13_1 = numberToInt(tmp$ret$31) + 1100 | 0;
-        judge($this);
+        var tmp_9;
+        if (finale) {
+            var x_0 = finish * 1.6;
+            var tmp$ret$31 = Math.ceil(x_0);
+            tmp_9 = numberToInt(tmp$ret$31) + 2600 | 0;
+        } else {
+            var tmp$ret$32 = Math.ceil(finish);
+            tmp_9 = numberToInt(tmp$ret$32) + 1100 | 0;
+        }
+        tmp_8.b14_1 = tmp_9;
         return true;
     }
     function drive($this, side, direction) {
-        var path = mutableListOf([ to($this.o13_1[side], cannonY($this, side)) ]);
+        var path = mutableListOf([ to($this.q13_1[side], cannonY($this, side)) ]);
         var travelled = 0;
-        var met = null;
-        var rivalX = $this.o13_1[1 - side | 0];
-        $l$loop_0: while (travelled < 75) {
-            var x = $this.o13_1[side] + direction * 2.5;
+        var met = ArrayList_init_$Create$();
+        var rivalX = $this.q13_1[1 - side | 0];
+        $l$loop: while (travelled < 75) {
+            var x = $this.q13_1[side] + direction * 2.5;
             var tmp;
             if (x < 20 || x > 1e3 - 20) {
                 tmp = true;
@@ -17934,90 +17983,195 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var x_0 = x - rivalX;
                 tmp = Math.abs(x_0) < 60;
             }
-            if (tmp) break $l$loop_0;
+            if (tmp) break $l$loop;
             var tmp_0 = travelled;
-            var y = heightAt($this, x) - heightAt($this, $this.o13_1[side]);
+            var y = heightAt($this, x) - heightAt($this, $this.q13_1[side]);
             travelled = tmp_0 + hypot(2.5, y);
-            $this.o13_1[side] = x;
+            $this.q13_1[side] = x;
             var element = to(x, cannonY($this, side));
             path.f(element);
-            var tmp0 = $this.t13_1;
-            var tmp$ret$3;
-            $l$block: {
-                var _iterator__ex2g4s = tmp0.g();
-                while (_iterator__ex2g4s.h()) {
-                    var element_0 = _iterator__ex2g4s.i();
-                    var tmp_1;
-                    if (!element_0.s12_1) {
-                        var x_1 = element_0.q12_1 - x;
-                        tmp_1 = Math.abs(x_1) <= 22 + 20 / 2;
+            var _iterator__ex2g4s = $this.v13_1.g();
+            while (_iterator__ex2g4s.h()) {
+                var crate = _iterator__ex2g4s.i();
+                var tmp_1;
+                var tmp$ret$4;
+                $l$block_0: {
+                    var tmp_2;
+                    if (isInterface(met, Collection)) {
+                        tmp_2 = met.k();
                     } else {
-                        tmp_1 = false;
+                        tmp_2 = false;
                     }
-                    if (tmp_1) {
-                        tmp$ret$3 = element_0;
-                        break $l$block;
+                    if (tmp_2) {
+                        tmp$ret$4 = true;
+                        break $l$block_0;
                     }
+                    var _iterator__ex2g4s_0 = met.g();
+                    while (_iterator__ex2g4s_0.h()) {
+                        var element_0 = _iterator__ex2g4s_0.i();
+                        if (element_0.ra_1 === crate) {
+                            tmp$ret$4 = false;
+                            break $l$block_0;
+                        }
+                    }
+                    tmp$ret$4 = true;
                 }
-                tmp$ret$3 = null;
+                if (tmp$ret$4) {
+                    tmp_1 = within($this, crate, side);
+                } else {
+                    tmp_1 = false;
+                }
+                if (tmp_1) {
+                    var element_1 = to(crate, path.j());
+                    met.f(element_1);
+                }
             }
-            met = tmp$ret$3;
-            if (!(met == null)) break $l$loop_0;
         }
         if (path.j() < 2) return false;
         var b = travelled / 70 * 1e3;
         var ms = Math.max(300, b);
-        var tmp_2 = emptyList();
-        var tmp0_safe_receiver = met;
-        var tmp_3;
-        if (tmp0_safe_receiver == null) {
-            tmp_3 = null;
-        } else {
-            tmp_3 = to(tmp0_safe_receiver, ms);
+        var tmp_3 = emptyList();
+        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(met, 10));
+        var _iterator__ex2g4s_1 = met.g();
+        while (_iterator__ex2g4s_1.h()) {
+            var item = _iterator__ex2g4s_1.i();
+            var crate_0 = item.wa();
+            var at = item.xa();
+            var tmp$ret$10 = to(crate_0, ms * at / path.j());
+            destination.f(tmp$ret$10);
         }
-        var _destruct__k2r9zo = resolve($this, side, tmp_2, listOfNotNull(tmp_3));
+        var _destruct__k2r9zo = resolve($this, side, tmp_3, destination);
         var done = _destruct__k2r9zo.wa();
         var opened = _destruct__k2r9zo.xa();
-        $this.d14_1 = $this.d14_1 + 1 | 0;
+        $this.f14_1 = $this.f14_1 + 1 | 0;
         var tmp_4 = $this;
         var builder = new JsonObjectBuilder;
-        put(builder, 'seq', $this.d14_1);
+        put(builder, 'seq', $this.f14_1);
         put(builder, 'side', side);
         put(builder, 'ms', ms);
-        var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(path, 10));
-        var _iterator__ex2g4s_0 = path.g();
-        while (_iterator__ex2g4s_0.h()) {
-            var item = _iterator__ex2g4s_0.i();
-            var px = item.wa();
-            var py = item.xa();
-            var tmp$ret$13 = new JsonArray(listOf_0([ JsonPrimitive_0(roundToInt(px)), JsonPrimitive_0(roundToInt(py)) ]));
-            destination.f(tmp$ret$13);
+        var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(path, 10));
+        var _iterator__ex2g4s_2 = path.g();
+        while (_iterator__ex2g4s_2.h()) {
+            var item_0 = _iterator__ex2g4s_2.i();
+            var px = item_0.wa();
+            var py = item_0.xa();
+            var tmp$ret$15 = new JsonArray(listOf_0([ JsonPrimitive_0(roundToInt(px)), JsonPrimitive_0(roundToInt(py)) ]));
+            destination_0.f(tmp$ret$15);
         }
-        builder.dv('path', new JsonArray(destination));
+        builder.dv('path', new JsonArray(destination_0));
         builder.dv('blasts', new JsonArray(done));
         builder.dv('opened', new JsonArray(opened));
-        tmp_4.c14_1 = builder.ev();
-        var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(done, 10));
-        var _iterator__ex2g4s_1 = done.g();
-        while (_iterator__ex2g4s_1.h()) {
-            var item_0 = _iterator__ex2g4s_1.i();
-            var tmp$ret$16 = toDouble(get_jsonPrimitive(getValue(item_0, 't')).tu());
-            destination_0.f(tmp$ret$16);
+        tmp_4.e14_1 = builder.ev();
+        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(done, 10));
+        var _iterator__ex2g4s_3 = done.g();
+        while (_iterator__ex2g4s_3.h()) {
+            var item_1 = _iterator__ex2g4s_3.i();
+            var tmp$ret$18 = toDouble(get_jsonPrimitive(getValue(item_1, 't')).tu());
+            destination_1.f(tmp$ret$18);
         }
-        var tmp_5 = destination_0;
-        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(opened, 10));
-        var _iterator__ex2g4s_2 = opened.g();
-        while (_iterator__ex2g4s_2.h()) {
-            var item_1 = _iterator__ex2g4s_2.i();
-            var tmp$ret$19 = toDouble(get_jsonPrimitive(getValue(item_1, 't')).tu());
-            destination_1.f(tmp$ret$19);
+        var tmp_5 = destination_1;
+        var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(opened, 10));
+        var _iterator__ex2g4s_4 = opened.g();
+        while (_iterator__ex2g4s_4.h()) {
+            var item_2 = _iterator__ex2g4s_4.i();
+            var tmp$ret$21 = toDouble(get_jsonPrimitive(getValue(item_2, 't')).tu());
+            destination_2.f(tmp$ret$21);
         }
-        var finish = max(plus_0(plus(tmp_5, destination_1), ms));
+        var finish = max(plus_0(plus(tmp_5, destination_2), ms));
         var tmp_6 = $this;
-        var tmp$ret$20 = Math.ceil(finish);
-        tmp_6.z13_1 = numberToInt(tmp$ret$20) + 300 | 0;
+        var tmp$ret$22 = Math.ceil(finish);
+        tmp_6.b14_1 = numberToInt(tmp$ret$22) + 300 | 0;
         judge($this);
         return true;
+    }
+    function within($this, crate, side) {
+        var tmp;
+        var x = crate.q12_1 - $this.q13_1[side];
+        if (Math.abs(x) <= 22 + 20) {
+            tmp = crate.r12_1 - (cannonY($this, side) + 16) <= 22 + 20;
+        } else {
+            tmp = false;
+        }
+        return tmp;
+    }
+    function collectFallen($this) {
+        var tmp0 = $this.v13_1;
+        var destination = ArrayList_init_$Create$();
+        var _iterator__ex2g4s = tmp0.g();
+        while (_iterator__ex2g4s.h()) {
+            var element = _iterator__ex2g4s.i();
+            if (!element.s12_1) {
+                destination.f(element);
+            }
+        }
+        var destination_0 = ArrayList_init_$Create$();
+        var _iterator__ex2g4s_0 = destination.g();
+        while (_iterator__ex2g4s_0.h()) {
+            var element_0 = _iterator__ex2g4s_0.i();
+            var tmp0_0 = numberRangeToNumber(0, 1);
+            var tmp$ret$8;
+            $l$block: {
+                var inductionVariable = tmp0_0.v_1;
+                var last = tmp0_0.w_1;
+                if (inductionVariable <= last) do {
+                    var element_1 = inductionVariable;
+                    inductionVariable = inductionVariable + 1 | 0;
+                    var it = element_1;
+                    if (within($this, element_0, it)) {
+                        tmp$ret$8 = element_1;
+                        break $l$block;
+                    }
+                } while (!(element_1 === last));
+                tmp$ret$8 = null;
+            }
+            var tmp0_safe_receiver = tmp$ret$8;
+            var tmp;
+            if (tmp0_safe_receiver == null) {
+                tmp = null;
+            } else {
+                tmp = to(element_0, tmp0_safe_receiver);
+            }
+            var tmp0_safe_receiver_0 = tmp;
+            if (tmp0_safe_receiver_0 == null) null; else {
+                destination_0.f(tmp0_safe_receiver_0);
+            }
+        }
+        var takers = destination_0;
+        var _iterator__ex2g4s_1 = takers.g();
+        while (_iterator__ex2g4s_1.h()) {
+            var _destruct__k2r9zo = _iterator__ex2g4s_1.i();
+            var crate = _destruct__k2r9zo.wa();
+            var side = _destruct__k2r9zo.xa();
+            var _destruct__k2r9zo_0 = resolve($this, side, emptyList(), listOf(to(crate, 0)));
+            var done = _destruct__k2r9zo_0.wa();
+            var opened = _destruct__k2r9zo_0.xa();
+            $this.i14_1 = $this.i14_1 + 1 | 0;
+            var tmp_0 = $this;
+            var builder = new JsonObjectBuilder;
+            put(builder, 'seq', $this.i14_1);
+            put(builder, 'side', side);
+            builder.dv('blasts', new JsonArray(done));
+            builder.dv('opened', new JsonArray(opened));
+            tmp_0.h14_1 = builder.ev();
+            if (!done.k()) {
+                var tmp_1 = $this;
+                var iterator = done.g();
+                if (!iterator.h()) throw NoSuchElementException_init_$Create$();
+                var it_0 = iterator.i();
+                var maxValue = toDouble(get_jsonPrimitive(getValue(it_0, 't')).tu());
+                while (iterator.h()) {
+                    var it_1 = iterator.i();
+                    var v = toDouble(get_jsonPrimitive(getValue(it_1, 't')).tu());
+                    var a = maxValue;
+                    maxValue = Math.max(a, v);
+                }
+                var x = maxValue;
+                var tmp$ret$21 = Math.ceil(x);
+                tmp_1.b14_1 = numberToInt(tmp$ret$21) + 1100 | 0;
+                $this.j14_1 = true;
+                judge($this);
+            }
+        }
     }
     function resolve($this, side, blasts, opens) {
         var opened = ArrayList_init_$Create$();
@@ -18032,52 +18186,52 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _destruct__k2r9zo = _iterator__ex2g4s.i();
             var crate = _destruct__k2r9zo.wa();
             var time = _destruct__k2r9zo.xa();
-            if ($this.t13_1.l1(crate)) {
+            if ($this.v13_1.l1(crate)) {
                 resolve$open($this, side, queue, opened, crate, time);
             }
         }
         while (index < queue.j()) {
             var _unary__edvuaz = index;
             index = _unary__edvuaz + 1 | 0;
-            var blast = queue.k(_unary__edvuaz);
+            var blast = queue.m(_unary__edvuaz);
             var damage = new Int32Array(2);
             var inductionVariable = 0;
             if (inductionVariable <= 1) do {
                 var who = inductionVariable;
                 inductionVariable = inductionVariable + 1 | 0;
-                var tmp0 = blast.u12_1 - $this.o13_1[who];
+                var tmp0 = blast.u12_1 - $this.q13_1[who];
                 var y = blast.v12_1 - (cannonY($this, who) + 16 / 2);
                 var distance = hypot(tmp0, y);
                 var tmp_0;
                 if (who === blast.x12_1) {
-                    tmp_0 = blast.w12_1.p16_1;
-                } else if (distance < blast.w12_1.n16_1) {
-                    var b = roundToInt(blast.w12_1.q16_1 * (1 - distance / blast.w12_1.n16_1));
+                    tmp_0 = blast.w12_1.i17_1;
+                } else if (distance < blast.w12_1.g17_1) {
+                    var b = roundToInt(blast.w12_1.j17_1 * (1 - distance / blast.w12_1.g17_1));
                     tmp_0 = Math.max(1, b);
                 } else {
                     tmp_0 = 0;
                 }
                 damage[who] = tmp_0;
-                var b_0 = $this.p13_1[who] - damage[who] | 0;
+                var b_0 = $this.r13_1[who] - damage[who] | 0;
                 var tmp$ret$6 = Math.max(0, b_0);
-                $this.p13_1[who] = tmp$ret$6;
+                $this.r13_1[who] = tmp$ret$6;
             } while (inductionVariable <= 1);
-            var _iterator__ex2g4s_0 = toList_0($this.t13_1).g();
+            var _iterator__ex2g4s_0 = toList_0($this.v13_1).g();
             while (_iterator__ex2g4s_0.h()) {
                 var crate_0 = _iterator__ex2g4s_0.i();
                 var tmp0_0 = blast.u12_1 - crate_0.q12_1;
                 var y_0 = blast.v12_1 - crate_0.r12_1;
-                if (hypot(tmp0_0, y_0) <= blast.w12_1.n16_1 + 22) {
+                if (hypot(tmp0_0, y_0) <= blast.w12_1.g17_1 + 22) {
                     resolve$open($this, side, queue, opened, crate_0, blast.t12_1 + 120);
                 }
             }
-            carve($this, blast.u12_1, blast.v12_1, blast.w12_1.o16_1);
+            carve($this, blast.u12_1, blast.v12_1, blast.w12_1.h17_1);
             var builder = new JsonObjectBuilder;
             put(builder, 't', blast.t12_1);
             put(builder, 'x', blast.u12_1);
             put(builder, 'y', blast.v12_1);
             put_0(builder, 'kind', blast.y12_1);
-            put_0(builder, 'size', blast.w12_1.m16_1);
+            put_0(builder, 'size', blast.w12_1.f17_1);
             put(builder, 'direct', blast.x12_1);
             var destination = ArrayList_init_$Create$_0(damage.length);
             var inductionVariable_0 = 0;
@@ -18098,7 +18252,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function judge($this) {
         var tmp = $this;
         var tmp_0;
-        var tmp0 = $this.p13_1;
+        var tmp0 = $this.r13_1;
         var tmp$ret$0;
         $l$block: {
             var inductionVariable = 0;
@@ -18116,21 +18270,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (tmp$ret$0) {
             tmp_0 = 'draw';
         } else {
-            if ($this.p13_1[0] === 0) {
-                tmp_0 = $this.i13_1.k(1);
+            if ($this.r13_1[0] === 0) {
+                tmp_0 = $this.i13_1.m(1);
             } else {
-                if ($this.p13_1[1] === 0) {
-                    tmp_0 = $this.i13_1.k(0);
+                if ($this.r13_1[1] === 0) {
+                    tmp_0 = $this.i13_1.m(0);
                 } else {
                     tmp_0 = null;
                 }
             }
         }
-        tmp.e14_1 = tmp_0;
+        tmp.k14_1 = tmp_0;
     }
     function openFrom($this, landing) {
         if (!(landing.d13_1 == null)) {
-            var tmp0 = $this.g14_1;
+            var tmp0 = $this.m14_1;
             var element = to(landing.d13_1, landing.b13_1);
             tmp0.f(element);
         }
@@ -18143,11 +18297,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return builder.ev();
     }
     function Flight($outer, side, segments) {
-        this.k16_1 = $outer;
-        this.i16_1 = side;
-        this.j16_1 = segments;
+        this.d17_1 = $outer;
+        this.b17_1 = side;
+        this.c17_1 = segments;
     }
-    protoOf(Flight).l16 = function(kind, fromX, fromY, startVx, startVy, startMs, splitsAtTop) {
+    protoOf(Flight).e17 = function(kind, fromX, fromY, startVx, startVy, startMs, splitsAtTop) {
         var x = fromX;
         var y = fromY;
         var vx = startVx;
@@ -18165,7 +18319,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             x = x + vx * .008333333333333333;
             y = y + vy * .008333333333333333;
             vy = vy - 300 * .008333333333333333;
-            vx = vx + this.k16_1.w13_1 * 10 * .008333333333333333;
+            vx = vx + this.d17_1.y13_1 * 10 * .008333333333333333;
             time = time + .008333333333333333;
             steps = steps + 1 | 0;
             if ((steps % 4 | 0) === 0) {
@@ -18183,9 +18337,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     inductionVariable = inductionVariable + 1 | 0;
                     var who = element_0;
                     var tmp;
-                    if (!(who === this.i16_1) || time > .25) {
-                        var tmp0_0 = x - this.k16_1.o13_1[who];
-                        var y_0 = y - (cannonY(this.k16_1, who) + 16 / 2);
+                    if (!(who === this.b17_1) || time > .25) {
+                        var tmp0_0 = x - this.d17_1.q13_1[who];
+                        var y_0 = y - (cannonY(this.d17_1, who) + 16 / 2);
                         tmp = hypot(tmp0_0, y_0) <= 20;
                     } else {
                         tmp = false;
@@ -18198,7 +18352,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$1 = null;
             }
             direct = tmp$ret$1;
-            var tmp0_1 = this.k16_1.t13_1;
+            var tmp0_1 = this.d17_1.v13_1;
             var tmp$ret$4;
             $l$block_0: {
                 var _iterator__ex2g4s = tmp0_1.g();
@@ -18214,7 +18368,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$4 = null;
             }
             crate = tmp$ret$4;
-            if (!(direct == null) || !(crate == null) || (0 <= x ? x <= 1e3 : false) && y <= heightAt(this.k16_1, x)) {
+            if (!(direct == null) || !(crate == null) || (0 <= x ? x <= 1e3 : false) && y <= heightAt(this.d17_1, x)) {
                 onField = true;
                 break $l$loop_1;
             }
@@ -18226,7 +18380,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var element_2 = to(x, y);
         path.f(element_2);
-        var tmp0_3 = this.j16_1;
+        var tmp0_3 = this.c17_1;
         var builder = new JsonObjectBuilder;
         put_0(builder, 'kind', kind);
         put(builder, 'start', startMs);
@@ -18245,25 +18399,53 @@ if (typeof String.prototype.startsWith === 'undefined') {
         tmp0_3.f(element_3);
         return new Landing(x, y, time * 1e3, direct, crate, onField, vx, vy, atTop);
     };
+    function aimPath($this) {
+        if ($this.g14_1 <= 0 || $this.b14_1 > 0 || !($this.l14_1 == null)) return new JsonArray(emptyList());
+        var radians = $this.s13_1[$this.z13_1] * 3.141592653589793 / 180;
+        var speed = 120 + $this.g14_1 / 100 * (620 - 120);
+        var tmp = $this.q13_1[$this.z13_1];
+        var x = tmp + Math.cos(radians) * 30;
+        var tmp_0 = cannonY($this, $this.z13_1) + 16;
+        var y = tmp_0 + Math.sin(radians) * 30;
+        var vx0 = Math.cos(radians) * speed;
+        var vx = vx0;
+        var vy = Math.sin(radians) * speed;
+        var points = ArrayList_init_$Create$();
+        var time = 0;
+        var next = .075;
+        while (time < .95 && (0 <= x ? x <= 1e3 : false) && y > heightAt($this, x)) {
+            x = x + vx * .008333333333333333;
+            y = y + vy * .008333333333333333;
+            vy = vy - 300 * .008333333333333333;
+            vx = vx + $this.y13_1 * 10 * .008333333333333333;
+            time = time + .008333333333333333;
+            if (time >= next) {
+                var element = new JsonArray(listOf_0([ JsonPrimitive_0(roundToInt(x)), JsonPrimitive_0(roundToInt(y)) ]));
+                points.f(element);
+                next = next + .075;
+            }
+        }
+        return new JsonArray(points);
+    }
     function carve($this, x, y, radius) {
         var inductionVariable = 0;
-        var last = $this.n13_1.length - 1 | 0;
+        var last = $this.p13_1.length - 1 | 0;
         if (inductionVariable <= last) $l$loop: do {
             var i = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var x_0 = i * 5 - x;
             var dx = Math.abs(x_0);
             if (dx >= radius) continue $l$loop;
-            var tmp0 = $this.n13_1[i];
+            var tmp0 = $this.p13_1[i];
             var x_1 = radius * radius - dx * dx;
             var b = y - Math.sqrt(x_1);
             var b_0 = Math.min(tmp0, b);
             var tmp$ret$3 = Math.max(24, b_0);
-            $this.n13_1[i] = tmp$ret$3;
+            $this.p13_1[i] = tmp$ret$3;
         } while (inductionVariable <= last);
     }
     function settleCrates($this) {
-        var _iterator__ex2g4s = $this.t13_1.g();
+        var _iterator__ex2g4s = $this.v13_1.g();
         while (_iterator__ex2g4s.h()) {
             var crate = _iterator__ex2g4s.i();
             var floor = heightAt($this, crate.q12_1) + 22;
@@ -18274,11 +18456,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function nextTurn($this) {
-        $this.x13_1 = 1 - $this.x13_1 | 0;
-        $this.y13_1 = 30;
-        $this.w13_1 = newWind($this);
-        $this.v13_1 = $this.v13_1 + 1 | 0;
-        var _iterator__ex2g4s = $this.t13_1.g();
+        $this.z13_1 = 1 - $this.z13_1 | 0;
+        $this.a14_1 = 30;
+        $this.g14_1 = 0;
+        $this.y13_1 = newWind($this);
+        $this.x13_1 = $this.x13_1 + 1 | 0;
+        var _iterator__ex2g4s = $this.v13_1.g();
         while (_iterator__ex2g4s.h()) {
             var crate = _iterator__ex2g4s.i();
             if (crate.s12_1) {
@@ -18286,18 +18469,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
         }
         settleCrates($this);
-        if ($this.l13_1 > 0 && $this.v13_1 >= $this.l13_1 && $this.t13_1.j() < 2) {
-            $this.v13_1 = 0;
-            var tmp0 = $this.t13_1;
-            var _unary__edvuaz = $this.u13_1;
-            $this.u13_1 = _unary__edvuaz + 1 | 0;
+        collectFallen($this);
+        if ($this.l13_1 > 0 && $this.x13_1 >= $this.l13_1 && $this.v13_1.j() < 2) {
+            $this.x13_1 = 0;
+            var tmp0 = $this.v13_1;
+            var _unary__edvuaz = $this.w13_1;
+            $this.w13_1 = _unary__edvuaz + 1 | 0;
             var element = new Crate(_unary__edvuaz, $this.j13_1.rb(170, 1e3 - 170), 440);
             tmp0.f(element);
         }
     }
     function common($this, $receiver) {
-        put_0($receiver, 'game', Artillery_getInstance().r16_1);
-        put_0($receiver, 'phase', !($this.f14_1 == null) ? 'over' : $this.z13_1 > 0 ? 'flying' : 'aiming');
+        put_0($receiver, 'game', Artillery_getInstance().k17_1);
+        put_0($receiver, 'phase', !($this.l14_1 == null) ? 'over' : $this.b14_1 > 0 ? 'flying' : 'aiming');
         var this_0 = $this.i13_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.g();
@@ -18307,9 +18491,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination.f(tmp$ret$2);
         }
         $receiver.dv('sides', new JsonArray(destination));
-        put($receiver, 'turn', $this.x13_1);
-        put($receiver, 'clock', !($this.f14_1 == null) ? 0 : $this.y13_1);
-        var this_1 = $this.p13_1;
+        put($receiver, 'turn', $this.z13_1);
+        put($receiver, 'clock', !($this.l14_1 == null) ? 0 : $this.a14_1);
+        var this_1 = $this.r13_1;
         var destination_0 = ArrayList_init_$Create$_0(this_1.length);
         var inductionVariable = 0;
         var last = this_1.length;
@@ -18321,7 +18505,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         $receiver.dv('hull', new JsonArray(destination_0));
         put($receiver, 'hullMax', 100);
-        var this_2 = $this.q13_1;
+        var this_2 = $this.s13_1;
         var destination_1 = ArrayList_init_$Create$_0(this_2.length);
         var inductionVariable_0 = 0;
         var last_0 = this_2.length;
@@ -18332,9 +18516,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_1.f(tmp$ret$8);
         }
         $receiver.dv('aims', new JsonArray(destination_1));
-        put($receiver, 'wind', $this.w13_1);
+        $receiver.dv('aimPath', aimPath($this));
+        put($receiver, 'wind', $this.y13_1);
         put($receiver, 'maxWind', 4);
-        var this_3 = $this.s13_1;
+        var this_3 = $this.u13_1;
         var destination_2 = ArrayList_init_$Create$_0(this_3.length);
         var inductionVariable_1 = 0;
         var last_1 = this_3.length;
@@ -18361,75 +18546,88 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_2.f(tmp$ret$11);
         }
         $receiver.dv('arsenals', new JsonArray(destination_2));
-        put($receiver, 'shots', $this.b14_1);
-        put($receiver, 'drives', $this.d14_1);
-        put_0($receiver, 'winner', $this.f14_1);
+        put($receiver, 'shots', $this.d14_1);
+        put($receiver, 'drives', $this.f14_1);
+        put_0($receiver, 'winner', $this.l14_1);
     }
     function BlastStyle(size, radius, crater, direct, splash) {
-        this.m16_1 = size;
-        this.n16_1 = radius;
-        this.o16_1 = crater;
-        this.p16_1 = direct;
-        this.q16_1 = splash;
+        this.f17_1 = size;
+        this.g17_1 = radius;
+        this.h17_1 = crater;
+        this.i17_1 = direct;
+        this.j17_1 = splash;
     }
     function Companion_25() {
         Companion_instance_25 = this;
-        this.h14_1 = 'shell';
-        this.i14_1 = 'cluster';
-        this.j14_1 = 'bouncer';
-        this.k14_1 = 'mega';
-        this.l14_1 = 'bomblet';
-        this.m14_1 = 'repair';
-        this.n14_1 = 'surprise';
-        this.o14_1 = setOf_0([ 'shell', 'cluster', 'bouncer', 'mega' ]);
-        this.p14_1 = mapOf_0([ to('shell', new BlastStyle('normal', 70, 42, 40, 28)), to('bouncer', new BlastStyle('normal', 80, 46, 45, 32)), to('mega', new BlastStyle('huge', 135, 85, 65, 48)), to('bomblet', new BlastStyle('small', 45, 24, 15, 12)), to('surprise', new BlastStyle('normal', 75, 40, 30, 30)) ]);
-        this.q14_1 = 1e3;
-        this.r14_1 = 562;
-        this.s14_1 = 5;
-        this.t14_1 = 110;
-        this.u14_1 = 100;
-        this.v14_1 = 24;
-        this.w14_1 = 30;
-        this.x14_1 = 16;
-        this.y14_1 = 20;
-        this.z14_1 = 80;
-        this.a15_1 = .25;
-        this.b15_1 = 120;
-        this.c15_1 = 620;
-        this.d15_1 = 300;
-        this.e15_1 = .008333333333333333;
-        this.f15_1 = 4;
-        this.g15_1 = 9;
-        this.h15_1 = 1100;
-        this.i15_1 = 30;
-        this.j15_1 = 200;
+        this.n14_1 = 'shell';
+        this.o14_1 = 'cluster';
+        this.p14_1 = 'bouncer';
+        this.q14_1 = 'mega';
+        this.r14_1 = 'bomblet';
+        this.s14_1 = 'repair';
+        this.t14_1 = 'surprise';
+        this.u14_1 = setOf_0([ 'shell', 'cluster', 'bouncer', 'mega' ]);
+        this.v14_1 = mapOf_0([ to('shell', new BlastStyle('normal', 70, 42, 40, 28)), to('bouncer', new BlastStyle('normal', 80, 46, 45, 32)), to('mega', new BlastStyle('huge', 135, 85, 65, 48)), to('bomblet', new BlastStyle('small', 45, 24, 15, 12)), to('surprise', new BlastStyle('normal', 75, 40, 30, 30)) ]);
+        this.w14_1 = 1e3;
+        this.x14_1 = 562;
+        this.y14_1 = 5;
+        this.z14_1 = 100;
+        this.a15_1 = 24;
+        this.b15_1 = 30;
+        this.c15_1 = 16;
+        this.d15_1 = 20;
+        this.e15_1 = 80;
+        this.f15_1 = .25;
+        this.g15_1 = 120;
+        this.h15_1 = 620;
+        this.i15_1 = 300;
+        this.j15_1 = .008333333333333333;
         this.k15_1 = 4;
-        this.l15_1 = 10;
-        this.m15_1 = 75;
-        this.n15_1 = 2.5;
-        this.o15_1 = 70;
-        this.p15_1 = 300;
-        this.q15_1 = 20;
-        this.r15_1 = 60;
-        this.s15_1 = 300;
-        this.t15_1 = 2;
-        this.u15_1 = .8;
-        this.v15_1 = .65;
-        this.w15_1 = 30;
-        this.x15_1 = 5;
-        this.y15_1 = 55;
-        this.z15_1 = 2;
-        this.a16_1 = 2;
-        this.b16_1 = 22;
-        this.c16_1 = 440;
-        this.d16_1 = 130;
-        this.e16_1 = 170;
-        this.f16_1 = 25;
-        this.g16_1 = 250;
-        this.h16_1 = 120;
+        this.l15_1 = 9;
+        this.m15_1 = 1100;
+        this.n15_1 = 1.6;
+        this.o15_1 = 2600;
+        this.p15_1 = 30;
+        this.q15_1 = 200;
+        this.r15_1 = 4;
+        this.s15_1 = 10;
+        this.t15_1 = .95;
+        this.u15_1 = .075;
+        this.v15_1 = 75;
+        this.w15_1 = 2.5;
+        this.x15_1 = 70;
+        this.y15_1 = 300;
+        this.z15_1 = 20;
+        this.a16_1 = 60;
+        this.b16_1 = 300;
+        this.c16_1 = 2;
+        this.d16_1 = .8;
+        this.e16_1 = .65;
+        this.f16_1 = 30;
+        this.g16_1 = 5;
+        this.h16_1 = 55;
+        this.i16_1 = 2;
+        this.j16_1 = 2;
+        this.k16_1 = 22;
+        this.l16_1 = 440;
+        this.m16_1 = 130;
+        this.n16_1 = 170;
+        this.o16_1 = 25;
+        this.p16_1 = 250;
+        this.q16_1 = 120;
+        this.r16_1 = 'ridge';
+        this.s16_1 = 'valley';
+        this.t16_1 = 'plateau';
+        this.u16_1 = 'peaks';
+        this.v16_1 = 'islands';
+        this.w16_1 = listOf_0([ 'ridge', 'valley', 'plateau', 'peaks', 'islands' ]);
+        this.x16_1 = 92;
+        this.y16_1 = 85;
+        this.z16_1 = 170;
+        this.a17_1 = 440;
     }
-    protoOf(Companion_25).t16 = function(random) {
-        var roll = random.q(100);
+    protoOf(Companion_25).m17 = function(random) {
+        var roll = random.l(100);
         return roll < 28 ? 'cluster' : roll < 56 ? 'bouncer' : roll < 70 ? 'mega' : roll < 86 ? 'repair' : 'surprise';
     };
     var Companion_instance_25;
@@ -18438,16 +18636,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_25;
     }
     function sam$kotlin_Comparator$0_0(function_0) {
-        this.u16_1 = function_0;
+        this.n17_1 = function_0;
     }
     protoOf(sam$kotlin_Comparator$0_0).w9 = function(a, b) {
-        return this.u16_1(a, b);
+        return this.n17_1(a, b);
     };
     protoOf(sam$kotlin_Comparator$0_0).compare = function(a, b) {
         return this.w9(a, b);
     };
     protoOf(sam$kotlin_Comparator$0_0).j2 = function() {
-        return this.u16_1;
+        return this.n17_1;
     };
     protoOf(sam$kotlin_Comparator$0_0).equals = function(other) {
         var tmp;
@@ -18469,7 +18667,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     };
     function ArtilleryGame$Companion$randomContents$ref(p0) {
         return constructCallableReference((function(p0_0) {
-            return p0.t16(p0_0);
+            return p0.m17(p0_0);
         }), 1, 0, 7, 'randomContents', [ p0 ]);
     }
     function ArtilleryGame$resolve$lambda(a, b) {
@@ -18478,23 +18676,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return compareValues(tmp, tmp$ret$2);
     }
     function resolve$open(this$0, $side, queue, opened, crate, time) {
-        this$0.t13_1.w2(crate);
+        this$0.v13_1.w2(crate);
         var holds = this$0.m13_1(this$0.j13_1);
         switch (holds) {
           case 'repair':
-            var b = this$0.p13_1[$side] + 25 | 0;
+            var b = this$0.r13_1[$side] + 25 | 0;
             var tmp$ret$0 = Math.min(100, b);
-            this$0.p13_1[$side] = tmp$ret$0;
+            this$0.r13_1[$side] = tmp$ret$0;
             break;
 
           case 'surprise':
-            var element = new Blast(time + 250, crate.q12_1, crate.r12_1, getValue(Companion_getInstance_25().p14_1, 'surprise'), null, 'surprise');
+            var element = new Blast(time + 250, crate.q12_1, crate.r12_1, getValue(Companion_getInstance_25().v14_1, 'surprise'), null, 'surprise');
             queue.f(element);
             break;
 
           default:
-            var tmp0 = this$0.s13_1[$side];
-            var tmp1_elvis_lhs = this$0.s13_1[$side].s1(holds);
+            var tmp0 = this$0.u13_1[$side];
+            var tmp1_elvis_lhs = this$0.u13_1[$side].s1(holds);
             var value = (tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs) + 1 | 0;
             tmp0.w1(holds, value);
             break;
@@ -18508,7 +18706,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var element_0 = builder.ev();
         opened.f(element_0);
     }
-    function ArtilleryGame(players, random, maxWind, cratesEvery, crateHolds) {
+    function ArtilleryGame(players, random_0, maxWind, cratesEvery, crateHolds, map) {
         Companion_getInstance_25();
         maxWind = maxWind === VOID ? 4 : maxWind;
         cratesEvery = cratesEvery === VOID ? 2 : cratesEvery;
@@ -18519,57 +18717,65 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = crateHolds;
         }
         crateHolds = tmp;
+        map = map === VOID ? null : map;
         this.i13_1 = players;
-        this.j13_1 = random;
+        this.j13_1 = random_0;
         this.k13_1 = maxWind;
         this.l13_1 = cratesEvery;
         this.m13_1 = crateHolds;
-        this.n13_1 = makeGround(Companion_getInstance_25(), this.j13_1);
         var tmp_0 = this;
-        tmp_0.o13_1 = new Float64Array([ 110, 1e3 - 110 ]);
+        tmp_0.n13_1 = map == null ? random(Companion_getInstance_25().w16_1, this.j13_1) : map;
+        this.o13_1 = this.j13_1.rb(85, 170);
+        this.p13_1 = makeGround(Companion_getInstance_25(), this.n13_1, this.o13_1, this.j13_1);
         var tmp_1 = this;
-        var tmp_2 = 0;
-        var tmp_3 = new Int32Array(2);
-        while (tmp_2 < 2) {
-            tmp_3[tmp_2] = 100;
-            tmp_2 = tmp_2 + 1 | 0;
+        tmp_1.q13_1 = new Float64Array([ this.o13_1, 1e3 - this.o13_1 ]);
+        var tmp_2 = this;
+        var tmp_3 = 0;
+        var tmp_4 = new Int32Array(2);
+        while (tmp_3 < 2) {
+            tmp_4[tmp_3] = 100;
+            tmp_3 = tmp_3 + 1 | 0;
         }
-        tmp_1.p13_1 = tmp_3;
-        var tmp_4 = this;
-        tmp_4.q13_1 = new Float64Array([ 45, 135 ]);
+        tmp_2.r13_1 = tmp_4;
         var tmp_5 = this;
-        tmp_5.r13_1 = Array(2);
+        tmp_5.s13_1 = new Float64Array([ 45, 135 ]);
         var tmp_6 = this;
-        var tmp_7 = 0;
-        var tmp_8 = Array(2);
-        while (tmp_7 < 2) {
-            tmp_8[tmp_7] = LinkedHashMap_init_$Create$();
-            tmp_7 = tmp_7 + 1 | 0;
+        tmp_6.t13_1 = Array(2);
+        var tmp_7 = this;
+        var tmp_8 = 0;
+        var tmp_9 = Array(2);
+        while (tmp_8 < 2) {
+            tmp_9[tmp_8] = LinkedHashMap_init_$Create$();
+            tmp_8 = tmp_8 + 1 | 0;
         }
-        tmp_6.s13_1 = tmp_8;
-        var tmp_9 = this;
-        tmp_9.t13_1 = ArrayList_init_$Create$();
-        this.u13_1 = 0;
-        this.v13_1 = 0;
-        this.w13_1 = newWind(this);
-        this.x13_1 = this.j13_1.q(2);
-        this.y13_1 = 30;
-        this.z13_1 = 0;
-        this.a14_1 = null;
+        tmp_7.u13_1 = tmp_9;
+        var tmp_10 = this;
+        tmp_10.v13_1 = ArrayList_init_$Create$();
+        this.w13_1 = 0;
+        this.x13_1 = 0;
+        this.y13_1 = newWind(this);
+        this.z13_1 = this.j13_1.l(2);
+        this.a14_1 = 30;
         this.b14_1 = 0;
         this.c14_1 = null;
         this.d14_1 = 0;
         this.e14_1 = null;
-        this.f14_1 = null;
-        var tmp_10 = this;
-        tmp_10.g14_1 = ArrayList_init_$Create$();
+        this.f14_1 = 0;
+        this.g14_1 = 0;
+        this.h14_1 = null;
+        this.i14_1 = 0;
+        this.j14_1 = false;
+        this.k14_1 = null;
+        this.l14_1 = null;
+        var tmp_11 = this;
+        tmp_11.m14_1 = ArrayList_init_$Create$();
     }
-    protoOf(ArtilleryGame).v16 = function() {
-        return this.f14_1;
+    protoOf(ArtilleryGame).o17 = function() {
+        return this.l14_1;
     };
-    protoOf(ArtilleryGame).w16 = function(player, action) {
+    protoOf(ArtilleryGame).p17 = function(player, action) {
         var side = this.i13_1.n1(player);
-        if (!(side === this.x13_1) || this.z13_1 > 0 || !(this.f14_1 == null)) return false;
+        if (!(side === this.z13_1) || this.b14_1 > 0 || !(this.l14_1 == null)) return false;
         var tmp3_safe_receiver = action.su('do');
         var tmp4_safe_receiver = tmp3_safe_receiver == null ? null : get_jsonPrimitive(tmp3_safe_receiver);
         if ((tmp4_safe_receiver == null ? null : get_contentOrNull(tmp4_safe_receiver)) === 'drive') {
@@ -18608,26 +18814,32 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp_1;
         switch (tmp10_safe_receiver == null ? null : get_contentOrNull(tmp10_safe_receiver)) {
           case 'aim':
-            this.q13_1[side] = angle;
-            tmp_1 = true;
-            break;
-
-          case 'fire':
+            this.s13_1[side] = angle;
+            var tmp_2 = this;
             var tmp12_safe_receiver = action.su('power');
             var tmp13_safe_receiver = tmp12_safe_receiver == null ? null : get_jsonPrimitive(tmp12_safe_receiver);
             var tmp14_safe_receiver = tmp13_safe_receiver == null ? null : get_doubleOrNull(tmp13_safe_receiver);
             var tmp15_elvis_lhs = tmp14_safe_receiver == null ? null : coerceIn(tmp14_safe_receiver, 0, 100);
-            var tmp_2;
-            if (tmp15_elvis_lhs == null) {
+            tmp_2.g14_1 = tmp15_elvis_lhs == null ? 0 : tmp15_elvis_lhs;
+            tmp_1 = true;
+            break;
+
+          case 'fire':
+            var tmp16_safe_receiver = action.su('power');
+            var tmp17_safe_receiver = tmp16_safe_receiver == null ? null : get_jsonPrimitive(tmp16_safe_receiver);
+            var tmp18_safe_receiver = tmp17_safe_receiver == null ? null : get_doubleOrNull(tmp17_safe_receiver);
+            var tmp19_elvis_lhs = tmp18_safe_receiver == null ? null : coerceIn(tmp18_safe_receiver, 0, 100);
+            var tmp_3;
+            if (tmp19_elvis_lhs == null) {
                 return false;
             } else {
-                tmp_2 = tmp15_elvis_lhs;
+                tmp_3 = tmp19_elvis_lhs;
             }
-            var tmp_3 = tmp_2;
-            var tmp16_safe_receiver = action.su('weapon');
-            var tmp17_safe_receiver = tmp16_safe_receiver == null ? null : get_jsonPrimitive(tmp16_safe_receiver);
-            var tmp18_elvis_lhs = tmp17_safe_receiver == null ? null : get_contentOrNull(tmp17_safe_receiver);
-            tmp_1 = fire(this, side, angle, tmp_3, tmp18_elvis_lhs == null ? 'shell' : tmp18_elvis_lhs);
+            var tmp_4 = tmp_3;
+            var tmp20_safe_receiver = action.su('weapon');
+            var tmp21_safe_receiver = tmp20_safe_receiver == null ? null : get_jsonPrimitive(tmp20_safe_receiver);
+            var tmp22_elvis_lhs = tmp21_safe_receiver == null ? null : get_contentOrNull(tmp21_safe_receiver);
+            tmp_1 = fire(this, side, angle, tmp_4, tmp22_elvis_lhs == null ? 'shell' : tmp22_elvis_lhs);
             break;
 
           default:
@@ -18636,30 +18848,32 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp_1;
     };
-    protoOf(ArtilleryGame).x16 = function() {
-        if (!(this.f14_1 == null) || this.z13_1 > 0) return false;
-        this.y13_1 = this.y13_1 - 1 | 0;
-        if (this.y13_1 > 0) return true;
+    protoOf(ArtilleryGame).q17 = function() {
+        if (!(this.l14_1 == null) || this.b14_1 > 0) return false;
+        this.a14_1 = this.a14_1 - 1 | 0;
+        if (this.a14_1 > 0) return true;
         nextTurn(this);
         return true;
     };
-    protoOf(ArtilleryGame).y16 = function() {
-        if (this.z13_1 <= 0) return Frame_NONE_getInstance();
-        this.z13_1 = this.z13_1 - 200 | 0;
-        if (this.z13_1 > 0) return Frame_NONE_getInstance();
-        this.z13_1 = 0;
-        if (!(this.e14_1 == null)) this.f14_1 = this.e14_1; else {
+    protoOf(ArtilleryGame).r17 = function() {
+        if (this.b14_1 <= 0) return Frame_NONE_getInstance();
+        this.b14_1 = this.b14_1 - 200 | 0;
+        if (this.b14_1 > 0) return Frame_NONE_getInstance();
+        this.b14_1 = 0;
+        if (!(this.k14_1 == null)) this.l14_1 = this.k14_1; else if (this.j14_1) this.j14_1 = false; else {
             nextTurn(this);
         }
         return Frame_EVERYONE_getInstance();
     };
-    protoOf(ArtilleryGame).z16 = function() {
+    protoOf(ArtilleryGame).s17 = function() {
         var builder = new JsonObjectBuilder;
         common(this, builder);
         put(builder, 'width', 1e3);
         put(builder, 'height', 562);
         put(builder, 'column', 5);
-        var this_0 = this.n13_1;
+        put_0(builder, 'map', this.n13_1);
+        put(builder, 'water', this.n13_1 === 'islands' ? 92 : 0);
+        var this_0 = this.p13_1;
         var destination = ArrayList_init_$Create$_0(this_0.length);
         var inductionVariable = 0;
         var last = this_0.length;
@@ -18670,11 +18884,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination.f(tmp$ret$4);
         }
         builder.dv('ground', new JsonArray(destination));
-        var tmp0_elvis_lhs = this.a14_1;
+        var tmp0_elvis_lhs = this.c14_1;
         builder.dv('shot', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
-        var tmp1_elvis_lhs = this.c14_1;
+        var tmp1_elvis_lhs = this.e14_1;
         builder.dv('drive', tmp1_elvis_lhs == null ? JsonNull_getInstance() : tmp1_elvis_lhs);
-        var this_1 = this.o13_1;
+        var tmp2_elvis_lhs = this.h14_1;
+        builder.dv('drop', tmp2_elvis_lhs == null ? JsonNull_getInstance() : tmp2_elvis_lhs);
+        var this_1 = this.q13_1;
         var destination_0 = ArrayList_init_$Create$_0(this_1.length);
         var inductionVariable_0 = 0;
         var last_0 = this_1.length;
@@ -18697,7 +18913,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_1.f(tmp$ret$10);
         } while (!(item_1 === last_1));
         builder.dv('ys', new JsonArray(destination_1));
-        var this_3 = this.t13_1;
+        var this_3 = this.v13_1;
         var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_3, 10));
         var _iterator__ex2g4s = this_3.g();
         while (_iterator__ex2g4s.h()) {
@@ -18713,13 +18929,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         builder.dv('crates', new JsonArray(destination_2));
         return builder.ev();
     };
-    protoOf(ArtilleryGame).a17 = function(player) {
+    protoOf(ArtilleryGame).t17 = function(player) {
         var builder = new JsonObjectBuilder;
         var side = this.i13_1.n1(player);
         common(this, builder);
         put(builder, 'side', side);
-        put_1(builder, 'yourTurn', this.f14_1 == null && this.z13_1 === 0 && this.x13_1 === side);
-        var last = this.r13_1[side];
+        put_1(builder, 'yourTurn', this.l14_1 == null && this.b14_1 === 0 && this.z13_1 === side);
+        var last = this.t13_1[side];
         var tmp;
         if (last == null) {
             tmp = JsonNull_getInstance();
@@ -18734,16 +18950,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     };
     function Artillery() {
         Artillery_instance = this;
-        this.r16_1 = 'artillery';
-        this.s16_1 = numberRangeToNumber(2, 2);
+        this.k17_1 = 'artillery';
+        this.l17_1 = numberRangeToNumber(2, 2);
     }
-    protoOf(Artillery).b17 = function() {
-        return this.r16_1;
+    protoOf(Artillery).u17 = function() {
+        return this.k17_1;
     };
-    protoOf(Artillery).c17 = function() {
-        return this.s16_1;
+    protoOf(Artillery).v17 = function() {
+        return this.l17_1;
     };
-    protoOf(Artillery).d17 = function(players, random) {
+    protoOf(Artillery).w17 = function(players, random) {
         return new ArtilleryGame(players, random);
     };
     var Artillery_instance;
@@ -18752,18 +18968,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Artillery_instance;
     }
     function Ship(cells) {
-        this.e17_1 = cells;
+        this.x17_1 = cells;
     }
     function _get_settingOut__x7we4z($this) {
-        return $this.j17_1.j() < $this.f17_1.j();
+        return $this.c18_1.j() < $this.y17_1.j();
     }
     function setOut($this, player, action) {
         var tmp0_safe_receiver = action.su('do');
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var command = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
-        if (command === 'unready') return $this.j17_1.w2(player);
-        if ($this.j17_1.l1(player)) return false;
-        var fleet = getValue($this.i17_1, player);
+        if (command === 'unready') return $this.c18_1.w2(player);
+        if ($this.c18_1.l1(player)) return false;
+        var fleet = getValue($this.b18_1, player);
         var tmp;
         switch (command) {
           case 'place':
@@ -18800,19 +19016,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
           case 'random':
             fleet.k3();
-            var elements = placeFleet($this, $this.g17_1);
+            var elements = placeFleet($this, $this.z17_1);
             addAll(fleet, elements);
             tmp = true;
             break;
 
           case 'clear':
-            var hadAny = !fleet.p();
+            var hadAny = !fleet.k();
             fleet.k3();
             tmp = hadAny;
             break;
 
           case 'ready':
-            tmp = remaining($this, fleet).p() && $this.j17_1.f(player);
+            tmp = remaining($this, fleet).k() && $this.c18_1.f(player);
             break;
 
           default:
@@ -18871,7 +19087,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = fleet.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.e17_1.l1(imul(fromY, 10) + fromX | 0)) {
+                if (element.x17_1.l1(imul(fromY, 10) + fromX | 0)) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -18886,7 +19102,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1 = tmp6_elvis_lhs;
         }
         var ship = tmp_1;
-        var tmp7_elvis_lhs = cellsFor($this, minus(fleet, ship), action, ship.e17_1.j());
+        var tmp7_elvis_lhs = cellsFor($this, minus(fleet, ship), action, ship.x17_1.j());
         var tmp_2;
         if (tmp7_elvis_lhs == null) {
             return false;
@@ -18945,7 +19161,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = others.g();
         while (_iterator__ex2g4s.h()) {
             var element = _iterator__ex2g4s.i();
-            var tmp0 = element.e17_1;
+            var tmp0 = element.x17_1;
             var destination_1 = ArrayList_init_$Create$();
             var _iterator__ex2g4s_0 = tmp0.g();
             while (_iterator__ex2g4s_0.h()) {
@@ -18962,7 +19178,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         $l$block_0: {
             var tmp_3;
             if (isInterface(cells, Collection)) {
-                tmp_3 = cells.p();
+                tmp_3 = cells.k();
             } else {
                 tmp_3 = false;
             }
@@ -18988,16 +19204,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp_2;
     }
     function remaining($this, fleet) {
-        var this_0 = toMutableList(Companion_getInstance_26().p17_1);
+        var this_0 = toMutableList(Companion_getInstance_26().m18_1);
         var _iterator__ex2g4s = fleet.g();
         while (_iterator__ex2g4s.h()) {
             var element = _iterator__ex2g4s.i();
-            this_0.w2(element.e17_1.j());
+            this_0.w2(element.x17_1.j());
         }
         return this_0;
     }
     function shoot($this, player, action) {
-        if (!(player === $this.h17_1)) return false;
+        if (!(player === $this.a18_1)) return false;
         var tmp0_safe_receiver = action.su('x');
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var tmp2_elvis_lhs = tmp1_safe_receiver == null ? null : get_intOrNull(tmp1_safe_receiver);
@@ -19021,17 +19237,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (!(0 <= x ? x < 10 : false) || !(0 <= y ? y < 10 : false)) return false;
         var target = opponent($this, player);
         var cell = imul(y, 10) + x | 0;
-        if (!getValue($this.k17_1, target).f(cell)) return false;
-        var tmp0 = $this.l17_1;
-        var value = getValue($this.l17_1, player) + 1 | 0;
+        if (!getValue($this.d18_1, target).f(cell)) return false;
+        var tmp0 = $this.e18_1;
+        var value = getValue($this.e18_1, player) + 1 | 0;
         tmp0.w1(player, value);
-        var tmp0_0 = getValue($this.i17_1, target);
+        var tmp0_0 = getValue($this.b18_1, target);
         var tmp$ret$1;
         $l$block: {
             var _iterator__ex2g4s = tmp0_0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.e17_1.l1(cell)) {
+                if (element.x17_1.l1(cell)) {
                     tmp$ret$1 = element;
                     break $l$block;
                 }
@@ -19039,10 +19255,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$1 = null;
         }
         var ship = tmp$ret$1;
-        var result = ship == null ? 'miss' : getValue($this.k17_1, target).m1(ship.e17_1) ? 'sunk' : 'hit';
+        var result = ship == null ? 'miss' : getValue($this.d18_1, target).m1(ship.x17_1) ? 'sunk' : 'hit';
         if (result === 'sunk') {
-            var tmp0_1 = getValue($this.k17_1, target);
-            var tmp0_2 = ensureNotNull(ship).e17_1;
+            var tmp0_1 = getValue($this.d18_1, target);
+            var tmp0_2 = ensureNotNull(ship).x17_1;
             var destination = ArrayList_init_$Create$();
             var _iterator__ex2g4s_0 = tmp0_2.g();
             while (_iterator__ex2g4s_0.h()) {
@@ -19052,13 +19268,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             addAll(tmp0_1, destination);
         }
-        if (ship == null) $this.h17_1 = target;
-        var tmp0_3 = getValue($this.i17_1, target);
+        if (ship == null) $this.a18_1 = target;
+        var tmp0_3 = getValue($this.b18_1, target);
         var tmp$ret$7;
         $l$block_1: {
             var tmp_1;
             if (isInterface(tmp0_3, Collection)) {
-                tmp_1 = tmp0_3.p();
+                tmp_1 = tmp0_3.k();
             } else {
                 tmp_1 = false;
             }
@@ -19069,25 +19285,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = tmp0_3.g();
             while (_iterator__ex2g4s_1.h()) {
                 var element_1 = _iterator__ex2g4s_1.i();
-                if (!getValue($this.k17_1, target).m1(element_1.e17_1)) {
+                if (!getValue($this.d18_1, target).m1(element_1.x17_1)) {
                     tmp$ret$7 = false;
                     break $l$block_1;
                 }
             }
             tmp$ret$7 = true;
         }
-        if (tmp$ret$7) $this.n17_1 = player;
+        if (tmp$ret$7) {
+            $this.i18_1 = player;
+            $this.h18_1 = 3600;
+        }
         var tmp_2 = $this;
         var builder = new JsonObjectBuilder;
         put_0(builder, 'by', player);
         put(builder, 'x', x);
         put(builder, 'y', y);
         put_0(builder, 'result', result);
-        tmp_2.m17_1 = builder.ev();
+        tmp_2.f18_1 = builder.ev();
         return true;
     }
     function firedJson($this) {
-        var this_0 = $this.l17_1;
+        var this_0 = $this.e18_1;
         var destination = LinkedHashMap_init_$Create$_0(mapCapacity(this_0.j()));
         var _iterator__ex2g4s = this_0.v1().g();
         while (_iterator__ex2g4s.h()) {
@@ -19099,7 +19318,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return new JsonObject(destination);
     }
     function opponent($this, player) {
-        var tmp0 = $this.f17_1;
+        var tmp0 = $this.y17_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
@@ -19115,8 +19334,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp$ret$0;
     }
     function rows($this, owner, showShips) {
-        var fleet = getValue($this.i17_1, owner);
-        var shot = getValue($this.k17_1, owner);
+        var fleet = getValue($this.b18_1, owner);
+        var shot = getValue($this.d18_1, owner);
         var this_0 = until(0, 10);
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var inductionVariable = this_0.v_1;
@@ -19135,7 +19354,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var _iterator__ex2g4s = fleet.g();
                     while (_iterator__ex2g4s.h()) {
                         var element = _iterator__ex2g4s.i();
-                        if (element.e17_1.l1(cell)) {
+                        if (element.x17_1.l1(cell)) {
                             tmp$ret$4 = element;
                             break $l$block;
                         }
@@ -19143,7 +19362,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     tmp$ret$4 = null;
                 }
                 var ship = tmp$ret$4;
-                tmp_0[tmp_1] = !shot.l1(cell) ? !(ship == null) && showShips ? _Char___init__impl__6a9atx(83) : _Char___init__impl__6a9atx(46) : ship == null ? _Char___init__impl__6a9atx(111) : shot.m1(ship.e17_1) ? _Char___init__impl__6a9atx(35) : _Char___init__impl__6a9atx(120);
+                tmp_0[tmp_1] = !shot.l1(cell) ? !(ship == null) && showShips ? _Char___init__impl__6a9atx(83) : _Char___init__impl__6a9atx(46) : ship == null ? _Char___init__impl__6a9atx(111) : shot.m1(ship.x17_1) ? _Char___init__impl__6a9atx(35) : _Char___init__impl__6a9atx(120);
                 tmp = tmp + 1 | 0;
             }
             var tmp$ret$2 = JsonPrimitive_1(concatToString(tmp_0));
@@ -19155,7 +19374,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (true) {
             var ships = ArrayList_init_$Create$();
             var blocked = LinkedHashSet_init_$Create$();
-            var _iterator__ex2g4s = Companion_getInstance_26().p17_1.g();
+            var _iterator__ex2g4s = Companion_getInstance_26().m18_1.g();
             $l$loop: while (_iterator__ex2g4s.h()) {
                 var length = _iterator__ex2g4s.i();
                 var tmp = asSequence(shuffled(until(0, 200), random));
@@ -19178,7 +19397,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     blocked.f(element_0);
                 }
             }
-            if (ships.j() === Companion_getInstance_26().p17_1.j()) return ships;
+            if (ships.j() === Companion_getInstance_26().m18_1.j()) return ships;
         }
     }
     function around($this, cell) {
@@ -19213,10 +19432,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_26() {
         Companion_instance_26 = this;
-        this.o17_1 = 10;
-        this.p17_1 = listOf_0([ 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 ]);
+        this.j18_1 = 10;
+        this.k18_1 = 3600;
+        this.l18_1 = 200;
+        this.m18_1 = listOf_0([ 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 ]);
         var tmp = this;
-        var this_0 = this.p17_1;
+        var this_0 = this.m18_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.g();
         while (_iterator__ex2g4s.h()) {
@@ -19224,7 +19445,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var tmp$ret$2 = JsonPrimitive_0(item);
             destination.f(tmp$ret$2);
         }
-        tmp.q17_1 = new JsonArray(destination);
+        tmp.n18_1 = new JsonArray(destination);
     }
     var Companion_instance_26;
     function Companion_getInstance_26() {
@@ -19233,7 +19454,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function BattleshipGame$setOut$lambda($y, $x) {
         return function(it) {
-            return it.e17_1.l1(imul($y, 10) + $x | 0);
+            return it.x17_1.l1(imul($y, 10) + $x | 0);
         };
     }
     function BattleshipGame$placeFleet$lambda($length, $blocked) {
@@ -19263,7 +19484,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             $l$block_0: {
                 var tmp_1;
                 if (isInterface(cells, Collection)) {
-                    tmp_1 = cells.p();
+                    tmp_1 = cells.k();
                 } else {
                     tmp_1 = false;
                 }
@@ -19292,11 +19513,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function BattleshipGame(players, random_0, turn) {
         Companion_getInstance_26();
         turn = turn === VOID ? random(players, random_0) : turn;
-        this.f17_1 = players;
-        this.g17_1 = random_0;
-        this.h17_1 = turn;
+        this.y17_1 = players;
+        this.z17_1 = random_0;
+        this.a18_1 = turn;
         var tmp = this;
-        var this_0 = this.f17_1;
+        var this_0 = this.y17_1;
         var result = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_0, 10)), 16));
         var _iterator__ex2g4s = this_0.g();
         while (_iterator__ex2g4s.h()) {
@@ -19304,11 +19525,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var tmp$ret$2 = ArrayList_init_$Create$();
             result.w1(element, tmp$ret$2);
         }
-        tmp.i17_1 = result;
+        tmp.b18_1 = result;
         var tmp_0 = this;
-        tmp_0.j17_1 = LinkedHashSet_init_$Create$();
+        tmp_0.c18_1 = LinkedHashSet_init_$Create$();
         var tmp_1 = this;
-        var this_1 = this.f17_1;
+        var this_1 = this.y17_1;
         var result_0 = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_1, 10)), 16));
         var _iterator__ex2g4s_0 = this_1.g();
         while (_iterator__ex2g4s_0.h()) {
@@ -19316,48 +19537,58 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var tmp$ret$7 = LinkedHashSet_init_$Create$();
             result_0.w1(element_0, tmp$ret$7);
         }
-        tmp_1.k17_1 = result_0;
+        tmp_1.d18_1 = result_0;
         var tmp_2 = this;
-        var this_2 = this.f17_1;
+        var this_2 = this.y17_1;
         var result_1 = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_2, 10)), 16));
         var _iterator__ex2g4s_1 = this_2.g();
         while (_iterator__ex2g4s_1.h()) {
             var element_1 = _iterator__ex2g4s_1.i();
             result_1.w1(element_1, 0);
         }
-        tmp_2.l17_1 = toMutableMap(result_1);
-        this.m17_1 = null;
-        this.n17_1 = null;
+        tmp_2.e18_1 = toMutableMap(result_1);
+        this.f18_1 = null;
+        this.g18_1 = null;
+        this.h18_1 = 0;
+        this.i18_1 = null;
     }
-    protoOf(BattleshipGame).v16 = function() {
-        return this.n17_1;
+    protoOf(BattleshipGame).o17 = function() {
+        return this.g18_1;
     };
-    protoOf(BattleshipGame).w16 = function(player, action) {
-        return !(this.n17_1 == null) ? false : _get_settingOut__x7we4z(this) ? setOut(this, player, action) : shoot(this, player, action);
+    protoOf(BattleshipGame).p17 = function(player, action) {
+        return !(this.g18_1 == null) || this.h18_1 > 0 ? false : _get_settingOut__x7we4z(this) ? setOut(this, player, action) : shoot(this, player, action);
     };
-    protoOf(BattleshipGame).z16 = function() {
+    protoOf(BattleshipGame).r17 = function() {
+        if (this.h18_1 <= 0) return Frame_NONE_getInstance();
+        this.h18_1 = this.h18_1 - 200 | 0;
+        if (this.h18_1 > 0) return Frame_NONE_getInstance();
+        this.h18_1 = 0;
+        this.g18_1 = this.i18_1;
+        return Frame_EVERYONE_getInstance();
+    };
+    protoOf(BattleshipGame).s17 = function() {
         var tmp;
         if (_get_settingOut__x7we4z(this)) {
             var builder = new JsonObjectBuilder;
-            put_0(builder, 'game', Battleship_getInstance().r17_1);
+            put_0(builder, 'game', Battleship_getInstance().o18_1);
             put_0(builder, 'phase', 'placing');
-            builder.dv('fleet', Companion_getInstance_26().q17_1);
-            var this_0 = this.f17_1;
+            builder.dv('fleet', Companion_getInstance_26().n18_1);
+            var this_0 = this.y17_1;
             var result = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_0, 10)), 16));
             var _iterator__ex2g4s = this_0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
                 var builder_0 = new JsonObjectBuilder;
-                var this_1 = getValue(this.i17_1, element);
+                var this_1 = getValue(this.b18_1, element);
                 var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
                 var _iterator__ex2g4s_0 = this_1.g();
                 while (_iterator__ex2g4s_0.h()) {
                     var item = _iterator__ex2g4s_0.i();
-                    var tmp$ret$9 = JsonPrimitive_0(item.e17_1.j());
+                    var tmp$ret$9 = JsonPrimitive_0(item.x17_1.j());
                     destination.f(tmp$ret$9);
                 }
                 builder_0.dv('placed', new JsonArray(destination));
-                put_1(builder_0, 'ready', this.j17_1.l1(element));
+                put_1(builder_0, 'ready', this.c18_1.l1(element));
                 var tmp$ret$4 = builder_0.ev();
                 result.w1(element, tmp$ret$4);
             }
@@ -19365,20 +19596,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = builder.ev();
         } else {
             var builder_1 = new JsonObjectBuilder;
-            put_0(builder_1, 'game', Battleship_getInstance().r17_1);
+            put_0(builder_1, 'game', Battleship_getInstance().o18_1);
             put_0(builder_1, 'phase', 'playing');
-            put_0(builder_1, 'turn', this.h17_1);
-            put_0(builder_1, 'winner', this.n17_1);
-            var tmp0_elvis_lhs = this.m17_1;
+            put_1(builder_1, 'finale', this.h18_1 > 0);
+            put_0(builder_1, 'turn', this.a18_1);
+            put_0(builder_1, 'winner', this.g18_1);
+            var tmp0_elvis_lhs = this.f18_1;
             builder_1.dv('last', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
-            builder_1.dv('fleet', Companion_getInstance_26().q17_1);
+            builder_1.dv('fleet', Companion_getInstance_26().n18_1);
             builder_1.dv('fired', firedJson(this));
-            var this_2 = this.f17_1;
+            var this_2 = this.y17_1;
             var result_0 = LinkedHashMap_init_$Create$_0(coerceAtLeast(mapCapacity(collectionSizeOrDefault(this_2, 10)), 16));
             var _iterator__ex2g4s_1 = this_2.g();
             while (_iterator__ex2g4s_1.h()) {
                 var element_0 = _iterator__ex2g4s_1.i();
-                var tmp$ret$14 = rows(this, element_0, !(this.n17_1 == null));
+                var tmp$ret$14 = rows(this, element_0, !(this.g18_1 == null));
                 result_0.w1(element_0, tmp$ret$14);
             }
             builder_1.dv('boards', new JsonObject(result_0));
@@ -19386,17 +19618,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp;
     };
-    protoOf(BattleshipGame).a17 = function(player) {
+    protoOf(BattleshipGame).t17 = function(player) {
         var tmp;
         if (_get_settingOut__x7we4z(this)) {
             var builder = new JsonObjectBuilder;
             var rival = opponent(this, player);
-            put_0(builder, 'game', Battleship_getInstance().r17_1);
+            put_0(builder, 'game', Battleship_getInstance().o18_1);
             put_0(builder, 'phase', 'placing');
-            put(builder, 'side', this.f17_1.n1(player));
-            builder.dv('fleet', Companion_getInstance_26().q17_1);
+            put(builder, 'side', this.y17_1.n1(player));
+            builder.dv('fleet', Companion_getInstance_26().n18_1);
             builder.dv('own', rows(this, player, true));
-            var this_0 = remaining(this, getValue(this.i17_1, player));
+            var this_0 = remaining(this, getValue(this.b18_1, player));
             var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
             var _iterator__ex2g4s = this_0.g();
             while (_iterator__ex2g4s.h()) {
@@ -19405,39 +19637,39 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 destination.f(tmp$ret$4);
             }
             builder.dv('remaining', new JsonArray(destination));
-            put_1(builder, 'youReady', this.j17_1.l1(player));
-            put(builder, 'rivalPlaced', getValue(this.i17_1, rival).j());
-            put_1(builder, 'rivalReady', this.j17_1.l1(rival));
+            put_1(builder, 'youReady', this.c18_1.l1(player));
+            put(builder, 'rivalPlaced', getValue(this.b18_1, rival).j());
+            put_1(builder, 'rivalReady', this.c18_1.l1(rival));
             tmp = builder.ev();
         } else {
             var builder_0 = new JsonObjectBuilder;
-            put_0(builder_0, 'game', Battleship_getInstance().r17_1);
+            put_0(builder_0, 'game', Battleship_getInstance().o18_1);
             put_0(builder_0, 'phase', 'playing');
-            put(builder_0, 'side', this.f17_1.n1(player));
-            put_1(builder_0, 'yourTurn', this.n17_1 == null && this.h17_1 === player);
-            put_0(builder_0, 'winner', this.n17_1);
-            var tmp0_elvis_lhs = this.m17_1;
+            put(builder_0, 'side', this.y17_1.n1(player));
+            put_1(builder_0, 'yourTurn', this.g18_1 == null && this.h18_1 === 0 && this.a18_1 === player);
+            put_0(builder_0, 'winner', this.g18_1);
+            var tmp0_elvis_lhs = this.f18_1;
             builder_0.dv('last', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
-            builder_0.dv('fleet', Companion_getInstance_26().q17_1);
+            builder_0.dv('fleet', Companion_getInstance_26().n18_1);
             builder_0.dv('fired', firedJson(this));
             builder_0.dv('own', rows(this, player, true));
-            builder_0.dv('target', rows(this, opponent(this, player), !(this.n17_1 == null)));
+            builder_0.dv('target', rows(this, opponent(this, player), !(this.g18_1 == null)));
             tmp = builder_0.ev();
         }
         return tmp;
     };
     function Battleship() {
         Battleship_instance = this;
-        this.r17_1 = 'battleship';
-        this.s17_1 = numberRangeToNumber(2, 2);
+        this.o18_1 = 'battleship';
+        this.p18_1 = numberRangeToNumber(2, 2);
     }
-    protoOf(Battleship).b17 = function() {
-        return this.r17_1;
+    protoOf(Battleship).u17 = function() {
+        return this.o18_1;
     };
-    protoOf(Battleship).c17 = function() {
-        return this.s17_1;
+    protoOf(Battleship).v17 = function() {
+        return this.p18_1;
     };
-    protoOf(Battleship).d17 = function(players, random) {
+    protoOf(Battleship).w17 = function(players, random) {
         return new BattleshipGame(players, random);
     };
     var Battleship_instance;
@@ -19471,8 +19703,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Enum.call(this, name, ordinal);
     }
     function ComingGame(id, players) {
-        this.t17_1 = id;
-        this.u17_1 = players;
+        this.q18_1 = id;
+        this.r18_1 = players;
     }
     function Frame_NONE_getInstance() {
         static_init_4();
@@ -19491,38 +19723,38 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function Delivery(to, message) {
-        this.v17_1 = to;
-        this.w17_1 = message;
+        this.s18_1 = to;
+        this.t18_1 = message;
     }
     protoOf(Delivery).toString = function() {
-        return 'Delivery(to=' + this.v17_1 + ', message=' + this.w17_1.toString() + ')';
+        return 'Delivery(to=' + this.s18_1 + ', message=' + this.t18_1.toString() + ')';
     };
     protoOf(Delivery).hashCode = function() {
-        var result = getStringHashCode(this.v17_1);
-        result = imul(result, 31) + this.w17_1.hashCode() | 0;
+        var result = getStringHashCode(this.s18_1);
+        result = imul(result, 31) + this.t18_1.hashCode() | 0;
         return result;
     };
     protoOf(Delivery).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof Delivery)) return false;
-        if (!(this.v17_1 === other.v17_1)) return false;
-        if (!this.w17_1.equals(other.w17_1)) return false;
+        if (!(this.s18_1 === other.s18_1)) return false;
+        if (!this.t18_1.equals(other.t18_1)) return false;
         return true;
     };
     function Player(id, name, online) {
         online = online === VOID ? true : online;
-        this.x17_1 = id;
-        this.y17_1 = name;
-        this.z17_1 = online;
+        this.u18_1 = id;
+        this.v18_1 = name;
+        this.w18_1 = online;
     }
     function host($this) {
-        var tmp0 = $this.b18_1;
+        var tmp0 = $this.y18_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.z17_1) {
+                if (element.w18_1) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -19541,13 +19773,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = this_0;
         }
         var shown = tmp;
-        var tmp0 = $this.b18_1;
+        var tmp0 = $this.y18_1;
         var tmp$ret$4;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.x17_1 === id) {
+                if (element.u18_1 === id) {
                     tmp$ret$4 = element;
                     break $l$block;
                 }
@@ -19556,31 +19788,31 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var player = tmp$ret$4;
         if (!(player == null)) {
-            player.y17_1 = shown;
-            player.z17_1 = true;
+            player.v18_1 = shown;
+            player.w18_1 = true;
         } else {
-            var tmp0_0 = $this.b18_1;
+            var tmp0_0 = $this.y18_1;
             var element_0 = new Player(id, shown);
             tmp0_0.f(element_0);
         }
         return true;
     }
     function leave($this, player) {
-        $this.b18_1.w2(player);
-        if ($this.e18_1.l1(player.x17_1)) {
+        $this.y18_1.w2(player);
+        if ($this.b19_1.l1(player.u18_1)) {
             endGame($this);
         }
         return true;
     }
     function browse($this, id) {
-        if (!($this.c18_1 == null) || id == null || id === $this.g18_1) return false;
+        if (!($this.z18_1 == null) || id == null || id === $this.d19_1) return false;
         var tmp;
         var tmp0 = get_GAMES();
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.p();
+                tmp_0 = tmp0.k();
             } else {
                 tmp_0 = false;
             }
@@ -19591,7 +19823,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.b17() === id) {
+                if (element.u17() === id) {
                     tmp$ret$0 = false;
                     break $l$block_0;
                 }
@@ -19604,7 +19836,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             $l$block_2: {
                 var tmp_1;
                 if (isInterface(tmp0_0, Collection)) {
-                    tmp_1 = tmp0_0.p();
+                    tmp_1 = tmp0_0.k();
                 } else {
                     tmp_1 = false;
                 }
@@ -19615,7 +19847,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_0 = tmp0_0.g();
                 while (_iterator__ex2g4s_0.h()) {
                     var element_0 = _iterator__ex2g4s_0.i();
-                    if (element_0.t17_1 === id) {
+                    if (element_0.q18_1 === id) {
                         tmp$ret$2 = false;
                         break $l$block_2;
                     }
@@ -19627,7 +19859,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = false;
         }
         if (tmp) return false;
-        $this.g18_1 = id;
+        $this.d19_1 = id;
         return true;
     }
     function start($this, id) {
@@ -19637,7 +19869,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.b17() === id) {
+                if (element.u17() === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -19652,12 +19884,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var kind = tmp;
-        var tmp0_0 = $this.b18_1;
+        var tmp0_0 = $this.y18_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s_0 = tmp0_0.g();
         while (_iterator__ex2g4s_0.h()) {
             var element_0 = _iterator__ex2g4s_0.i();
-            if (element_0.z17_1) {
+            if (element_0.w18_1) {
                 destination.f(element_0);
             }
         }
@@ -19665,47 +19897,47 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_1 = destination.g();
         while (_iterator__ex2g4s_1.h()) {
             var item = _iterator__ex2g4s_1.i();
-            var tmp$ret$7 = item.x17_1;
+            var tmp$ret$7 = item.u18_1;
             destination_0.f(tmp$ret$7);
         }
-        var sitting = take(destination_0, kind.c17().w_1);
+        var sitting = take(destination_0, kind.v17().w_1);
         var tmp_0;
-        if (!($this.c18_1 == null)) {
+        if (!($this.z18_1 == null)) {
             tmp_0 = true;
         } else {
-            var progression = kind.c17();
+            var progression = kind.v17();
             var containsLower = progression.v_1;
             var containsUpper = progression.w_1;
             var containsArg = sitting.j();
             tmp_0 = !(containsLower <= containsArg ? containsArg <= containsUpper : false);
         }
         if (tmp_0) return false;
-        $this.c18_1 = kind.d17(sitting, $this.a18_1);
-        $this.d18_1 = kind.b17();
-        $this.g18_1 = kind.b17();
-        $this.e18_1 = toSet_0(sitting);
+        $this.z18_1 = kind.w17(sitting, $this.x18_1);
+        $this.a19_1 = kind.u17();
+        $this.d19_1 = kind.u17();
+        $this.b19_1 = toSet_0(sitting);
         return true;
     }
     function rematch($this, player) {
         var tmp;
-        var tmp0_safe_receiver = $this.c18_1;
-        if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.v16()) == null) {
+        var tmp0_safe_receiver = $this.z18_1;
+        if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.o17()) == null) {
             tmp = true;
         } else {
-            tmp = !$this.e18_1.l1(player.x17_1);
+            tmp = !$this.b19_1.l1(player.u18_1);
         }
         if (tmp) return false;
         if (!equals(player, host($this))) {
-            if ($this.f18_1 === player.x17_1) return false;
-            $this.f18_1 = player.x17_1;
+            if ($this.c19_1 === player.u18_1) return false;
+            $this.c19_1 = player.u18_1;
             return true;
         }
-        var tmp0 = $this.b18_1;
+        var tmp0 = $this.y18_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.p();
+                tmp_0 = tmp0.k();
             } else {
                 tmp_0 = false;
             }
@@ -19716,7 +19948,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if ($this.e18_1.l1(element.x17_1) && !element.z17_1) {
+                if ($this.b19_1.l1(element.u18_1) && !element.w18_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -19731,50 +19963,50 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.g();
             while (_iterator__ex2g4s_0.h()) {
                 var element_0 = _iterator__ex2g4s_0.i();
-                if (element_0.b17() === $this.d18_1) {
+                if (element_0.u17() === $this.a19_1) {
                     tmp$ret$2 = element_0;
                     break $l$block_1;
                 }
             }
             throw NoSuchElementException_init_$Create$_0('Collection contains no element matching the predicate.');
         }
-        tmp_1.c18_1 = tmp$ret$2.d17(toList_0($this.e18_1), $this.a18_1);
-        $this.f18_1 = null;
+        tmp_1.z18_1 = tmp$ret$2.w17(toList_0($this.b19_1), $this.x18_1);
+        $this.c19_1 = null;
         return true;
     }
     function endGame($this) {
-        $this.c18_1 = null;
-        $this.d18_1 = null;
-        $this.e18_1 = emptySet();
-        $this.f18_1 = null;
+        $this.z18_1 = null;
+        $this.a19_1 = null;
+        $this.b19_1 = emptySet();
+        $this.c19_1 = null;
         return true;
     }
     function picture($this) {
         var builder = new JsonObjectBuilder;
-        var this_0 = $this.b18_1;
+        var this_0 = $this.y18_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.g();
         while (_iterator__ex2g4s.h()) {
             var item = _iterator__ex2g4s.i();
             var builder_0 = new JsonObjectBuilder;
-            put_0(builder_0, 'id', item.x17_1);
-            put_0(builder_0, 'name', item.y17_1);
-            put_1(builder_0, 'online', item.z17_1);
+            put_0(builder_0, 'id', item.u18_1);
+            put_0(builder_0, 'name', item.v18_1);
+            put_1(builder_0, 'online', item.w18_1);
             var tmp$ret$4 = builder_0.ev();
             destination.f(tmp$ret$4);
         }
         builder.dv('players', new JsonArray(destination));
         var tmp0_safe_receiver = host($this);
-        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.x17_1);
+        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.u18_1);
         var this_1 = get_GAMES();
         var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
         var _iterator__ex2g4s_0 = this_1.g();
         while (_iterator__ex2g4s_0.h()) {
             var item_0 = _iterator__ex2g4s_0.i();
             var builder_1 = new JsonObjectBuilder;
-            put_0(builder_1, 'id', item_0.b17());
-            put(builder_1, 'min', item_0.c17().v_1);
-            put(builder_1, 'max', item_0.c17().w_1);
+            put_0(builder_1, 'id', item_0.u17());
+            put(builder_1, 'min', item_0.v17().v_1);
+            put(builder_1, 'max', item_0.v17().w_1);
             var tmp$ret$9 = builder_1.ev();
             destination_0.f(tmp$ret$9);
         }
@@ -19785,29 +20017,29 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s_1.h()) {
             var item_1 = _iterator__ex2g4s_1.i();
             var builder_2 = new JsonObjectBuilder;
-            put_0(builder_2, 'id', item_1.t17_1);
-            put(builder_2, 'min', item_1.u17_1.v_1);
-            put(builder_2, 'max', item_1.u17_1.w_1);
+            put_0(builder_2, 'id', item_1.q18_1);
+            put(builder_2, 'min', item_1.r18_1.v_1);
+            put(builder_2, 'max', item_1.r18_1.w_1);
             put_1(builder_2, 'soon', true);
             var tmp$ret$14 = builder_2.ev();
             destination_1.f(tmp$ret$14);
         }
         builder.dv('games', new JsonArray(plus(tmp, destination_1)));
-        put_0(builder, 'browsing', $this.g18_1);
-        put_0(builder, 'playing', $this.d18_1);
-        put_0(builder, 'rematchOffer', $this.f18_1);
+        put_0(builder, 'browsing', $this.d19_1);
+        put_0(builder, 'playing', $this.a19_1);
+        put_0(builder, 'rematchOffer', $this.c19_1);
         var room = builder.ev();
-        var current = $this.c18_1;
+        var current = $this.z18_1;
         var this_3 = ArrayList_init_$Create$();
         var tmp_0 = plus_3(room, to('type', JsonPrimitive_1('state')));
         var tmp_1;
         if (current == null) {
             tmp_1 = null;
         } else {
-            tmp_1 = to('view', current.z16());
+            tmp_1 = to('view', current.s17());
         }
         this_3.f(new Delivery('tv', new JsonObject(plus_2(tmp_0, listOfNotNull(tmp_1)))));
-        var _iterator__ex2g4s_2 = $this.b18_1.g();
+        var _iterator__ex2g4s_2 = $this.y18_1.g();
         while (_iterator__ex2g4s_2.h()) {
             var player = _iterator__ex2g4s_2.i();
             var tmp_2;
@@ -19815,7 +20047,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = null;
             } else {
                 var tmp_3;
-                if ($this.e18_1.l1(player.x17_1)) {
+                if ($this.b19_1.l1(player.u18_1)) {
                     tmp_3 = current;
                 } else {
                     tmp_3 = null;
@@ -19823,20 +20055,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = tmp_3;
             }
             var tmp2_safe_receiver = tmp_2;
-            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.a17(player.x17_1);
-            var tmp_4 = plus_3(plus_3(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.x17_1)));
+            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.t17(player.u18_1);
+            var tmp_4 = plus_3(plus_3(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.u18_1)));
             var tmp_5;
             if (view == null) {
                 tmp_5 = null;
             } else {
                 tmp_5 = to('view', view);
             }
-            this_3.f(new Delivery(player.x17_1, new JsonObject(plus_2(tmp_4, listOfNotNull(tmp_5)))));
+            this_3.f(new Delivery(player.u18_1, new JsonObject(plus_2(tmp_4, listOfNotNull(tmp_5)))));
         }
         return this_3.c4();
     }
     function Companion_27() {
-        this.h18_1 = 16;
+        this.e19_1 = 16;
     }
     var Companion_instance_27;
     function Companion_getInstance_27() {
@@ -19844,16 +20076,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Table(random) {
         random = random === VOID ? Default_getInstance() : random;
-        this.a18_1 = random;
+        this.x18_1 = random;
         var tmp = this;
-        tmp.b18_1 = ArrayList_init_$Create$();
-        this.c18_1 = null;
-        this.d18_1 = null;
-        this.e18_1 = emptySet();
-        this.f18_1 = null;
-        this.g18_1 = first(get_GAMES()).b17();
+        tmp.y18_1 = ArrayList_init_$Create$();
+        this.z18_1 = null;
+        this.a19_1 = null;
+        this.b19_1 = emptySet();
+        this.c19_1 = null;
+        this.d19_1 = first(get_GAMES()).u17();
     }
-    protoOf(Table).i18 = function(from, text) {
+    protoOf(Table).f19 = function(from, text) {
         var tmp;
         try {
             var value = get_jsonObject(Default_getInstance_0().gt(text));
@@ -19880,13 +20112,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = message.su('type');
         var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
         var type = tmp2_safe_receiver == null ? null : get_contentOrNull(tmp2_safe_receiver);
-        var tmp0 = this.b18_1;
+        var tmp0 = this.y18_1;
         var tmp$ret$5;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.x17_1 === from) {
+                if (element.u18_1 === from) {
                     tmp$ret$5 = element;
                     break $l$block;
                 }
@@ -19933,7 +20165,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'lobby':
-            tmp_2 = equals(player, host(this)) && !(this.c18_1 == null) && endGame(this);
+            tmp_2 = equals(player, host(this)) && !(this.z18_1 == null) && endGame(this);
             break;
 
           case 'rematch':
@@ -19942,9 +20174,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
           case 'act':
             var tmp_5;
-            if (!(player == null) && this.e18_1.l1(from)) {
-                var tmp10_safe_receiver = this.c18_1;
-                tmp_5 = (tmp10_safe_receiver == null ? null : tmp10_safe_receiver.w16(from, message)) === true;
+            if (!(player == null) && this.b19_1.l1(from)) {
+                var tmp10_safe_receiver = this.z18_1;
+                tmp_5 = (tmp10_safe_receiver == null ? null : tmp10_safe_receiver.p17(from, message)) === true;
             } else {
                 tmp_5 = false;
             }
@@ -19958,14 +20190,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var changed = tmp_2;
         return changed ? picture(this) : emptyList();
     };
-    protoOf(Table).j18 = function(id) {
-        var tmp0 = this.b18_1;
+    protoOf(Table).g19 = function(id) {
+        var tmp0 = this.y18_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (element.x17_1 === id) {
+                if (element.u18_1 === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -19980,11 +20212,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var player = tmp;
-        player.z17_1 = false;
+        player.w18_1 = false;
         return picture(this);
     };
-    protoOf(Table).x16 = function() {
-        var tmp0_elvis_lhs = this.c18_1;
+    protoOf(Table).q17 = function() {
+        var tmp0_elvis_lhs = this.z18_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -19992,12 +20224,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.b18_1;
+        var tmp0 = this.y18_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.p();
+                tmp_0 = tmp0.k();
             } else {
                 tmp_0 = false;
             }
@@ -20008,7 +20240,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (this.e18_1.l1(element.x17_1) && !element.z17_1) {
+                if (this.b19_1.l1(element.u18_1) && !element.w18_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -20016,10 +20248,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$0 = false;
         }
         if (tmp$ret$0) return emptyList();
-        return current.x16() ? picture(this) : emptyList();
+        return current.q17() ? picture(this) : emptyList();
     };
-    protoOf(Table).y16 = function() {
-        var tmp0_elvis_lhs = this.c18_1;
+    protoOf(Table).r17 = function() {
+        var tmp0_elvis_lhs = this.z18_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -20027,12 +20259,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.b18_1;
+        var tmp0 = this.y18_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.p();
+                tmp_0 = tmp0.k();
             } else {
                 tmp_0 = false;
             }
@@ -20043,7 +20275,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.g();
             while (_iterator__ex2g4s.h()) {
                 var element = _iterator__ex2g4s.i();
-                if (this.e18_1.l1(element.x17_1) && !element.z17_1) {
+                if (this.b19_1.l1(element.u18_1) && !element.w18_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -20052,7 +20284,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         if (tmp$ret$0) return emptyList();
         var tmp_1;
-        switch (current.y16().a2_1) {
+        switch (current.r17().a2_1) {
           case 0:
             tmp_1 = emptyList();
             break;
@@ -20063,7 +20295,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.g();
             while (_iterator__ex2g4s_0.h()) {
                 var element_0 = _iterator__ex2g4s_0.i();
-                if (element_0.v17_1 === 'tv') {
+                if (element_0.s18_1 === 'tv') {
                     destination.f(element_0);
                 }
             }
@@ -20086,27 +20318,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s.h()) {
             var item = _iterator__ex2g4s.i();
             var builder = new JsonObjectBuilder;
-            put_0(builder, 'to', item.v17_1);
-            builder.dv('message', item.w17_1);
+            put_0(builder, 'to', item.s18_1);
+            builder.dv('message', item.t18_1);
             var tmp$ret$2 = builder.ev();
             destination.f(tmp$ret$2);
         }
         return new JsonArray(destination).toString();
     }
     function Engine() {
-        this.k18_1 = new Table;
+        this.h19_1 = new Table;
     }
     protoOf(Engine).receive = function(from, text) {
-        return encode(this, this.k18_1.i18(from, text));
+        return encode(this, this.h19_1.f19(from, text));
     };
     protoOf(Engine).offline = function(id) {
-        return encode(this, this.k18_1.j18(id));
+        return encode(this, this.h19_1.g19(id));
     };
     protoOf(Engine).tick = function() {
-        return encode(this, this.k18_1.x16());
+        return encode(this, this.h19_1.q17());
     };
     protoOf(Engine).frame = function() {
-        return encode(this, this.k18_1.y16());
+        return encode(this, this.h19_1.r17());
     };
     protoOf(InternalHashMap).d5 = containsAllEntries;
     protoOf(SerialDescriptorImpl).sg = get_isNullable;
@@ -20140,8 +20372,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     defineProp(protoOf(JsonException), 'message', (function() {
         return this.h8();
     }));
-    protoOf(BattleshipGame).x16 = tick;
-    protoOf(BattleshipGame).y16 = frame;
+    protoOf(BattleshipGame).q17 = tick;
     Companion_instance_0 = new Companion_0;
     ByteCompanionObject_instance = new ByteCompanionObject;
     ShortCompanionObject_instance = new ShortCompanionObject;

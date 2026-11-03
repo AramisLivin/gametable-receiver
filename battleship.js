@@ -180,6 +180,7 @@ let landing = null;
 function dropLanding() {
     if (landing) clearTimeout(landing.timer);
     landing = null;
+    if (document.body.classList.contains('finale') && !artyNodes) openOut();
 }
 
 function drawBattleship(state) {
@@ -202,12 +203,32 @@ function drawBattleship(state) {
     };
 }
 
+const FINALE_SLOW = 9;
+
+function closeInOn(owner, shot) {
+    const root = $('battleship');
+    const cell = root.querySelector(`.sea[data-owner="${owner}"] .cell[data-x="${shot.x}"][data-y="${shot.y}"]`);
+    if (!cell || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const box = cell.getBoundingClientRect();
+    letterbox(true);
+    root.classList.add('closing-in');
+    root.style.transformOrigin = `${box.left + box.width / 2}px ${box.top + box.height / 2}px`;
+    root.style.transform = 'scale(1.55)';
+}
+
+function openOut() {
+    const root = $('battleship');
+    letterbox(false);
+    root.style.transform = '';
+}
+
 function shellFlight(view) {
-    if (view.phase !== 'playing' || !view.last || !seenBoards) return 0;
+    if (view.phase !== 'playing' || !view.last || !seenBoards || view.winner) return 0;
     const owners = Object.keys(view.boards);
     if (!owners.some((owner => view.boards[owner].join() !== seenBoards[owner].join()))) return 0;
     const target = owners.find((owner => owner !== view.last.by));
-    return fireCannon(owners.indexOf(view.last.by), target, view.last.x, view.last.y);
+    if (view.finale) closeInOn(target, view.last);
+    return fireCannon(owners.indexOf(view.last.by), target, view.last.x, view.last.y, view.finale ? FINALE_SLOW : 1);
 }
 
 function paintBattleship(state) {
@@ -244,17 +265,22 @@ function paintBattleship(state) {
         root.appendChild(div('callout callout-sunk', word('battle', 'Battle!')));
         playSound('battle');
     }
-    if (changed && view.last.result !== 'miss') blastOn(owners.findIndex((owner => owner !== view.last.by)), view.last.result === 'sunk');
+    if (changed && !view.winner && view.last.result !== 'miss') blastOn(owners.findIndex((owner => owner !== view.last.by)), view.last.result === 'sunk');
     if (changed && !view.winner) {
         const result = view.last.result;
-        root.appendChild(div('callout callout-' + result, word(result, {
+        const line = div('callout callout-' + result, word(result, {
             hit: 'Hit!',
             miss: 'Miss',
             sunk: 'Ship sunk!'
-        }[result])));
+        }[result]));
+        if (view.finale) {
+            line.addEventListener('animationend', (() => line.remove()));
+            document.body.appendChild(line);
+        } else root.appendChild(line);
         playSound(result);
     }
     if (view.winner) {
+        openOut();
         if (!seenWinner) playSound('win');
         drawVictory(root, word('fired', 'Shots fired: {n}').replace('{n}', view.fired[view.winner]));
     }

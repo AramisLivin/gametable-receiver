@@ -26,7 +26,7 @@ function hideCannon() {
     $('cannon').classList.remove('on');
 }
 
-function fireCannon(side, owner, x, y) {
+function fireCannon(side, owner, x, y, slow = 1) {
     const cell = document.querySelector(`#battleship .sea[data-owner="${owner}"] .cell[data-x="${x}"][data-y="${y}"]`);
     if (!cell || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 0;
     placeCannon(side);
@@ -39,7 +39,8 @@ function fireCannon(side, owner, x, y) {
     const angle = Math.atan2(toY - fromY, toX - fromX);
     $('cannon').querySelector('.cannon-aim').style.transform = `rotate(${angle + Math.PI / 2}rad)`;
     setTimeout((() => {
-        playSound('fire');
+        playSound(slow > 1 ? 'launch' : 'fire');
+        if (slow > 1) playSound('whistle', CANNON_FLIGHT_MS * slow / 1e3);
         $('cannon').querySelector('.cannon-gun').animate([ {
             transform: 'none'
         }, {
@@ -69,9 +70,9 @@ function fireCannon(side, owner, x, y) {
         }, {
             transform: `translate(${toX}px, ${toY}px) rotate(${angle}rad)`
         } ], {
-            duration: CANNON_FLIGHT_MS,
+            duration: CANNON_FLIGHT_MS * slow,
             easing: 'linear'
         }).onfinish = () => shell.remove();
     }), CANNON_AIM_MS);
-    return CANNON_AIM_MS + CANNON_FLIGHT_MS;
+    return CANNON_AIM_MS + CANNON_FLIGHT_MS * slow;
 }

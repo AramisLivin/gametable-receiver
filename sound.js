@@ -132,6 +132,12 @@ const CHORDS = [ [ 50, 53, 57 ], [ 46, 50, 53 ], [ 43, 50, 55 ], [ 45, 49, 52 ] 
 const DUCK_SECONDS = {
     launch: .5,
     thud: .9,
+    blast: 1.5,
+    pop: .5,
+    mega: 3.5,
+    crate: .6,
+    repair: .7,
+    boing: .3,
     place: .5,
     ready: .8,
     miss: .9,
@@ -264,18 +270,66 @@ function duckMusic(kind) {
     musicBus.gain.setTargetAtTime(MUSIC_VOLUME, now + seconds, .9);
 }
 
+function glide(at, from, to, attack, seconds, volume) {
+    const oscillator = audio.createOscillator();
+    const start = audio.currentTime + at;
+    oscillator.frequency.setValueAtTime(from, start);
+    oscillator.frequency.exponentialRampToValueAtTime(to, start + seconds);
+    oscillator.connect(envelope(at, attack, Math.max(0, seconds - attack - .08), .08, volume)).connect(bus);
+    oscillator.start(start);
+    oscillator.stop(start + seconds + .05);
+}
+
 const SOUNDS = {
     fire() {
         noise(0, .05, .14, 'bandpass', 3600, 1500);
         thump(0, 210, 130, .05, .12);
     },
     launch() {
-        noise(0, .16, 1.1, 'lowpass', 2600, 500);
-        thump(0, 130, 48, .28, 1.1);
+        noise(0, .05, .5, 'highpass', 2600, 900);
+        noise(0, .22, 1.2, 'lowpass', 2600, 380);
+        thump(0, 140, 44, .3, 1.2);
+        noise(.06, .55, .28, 'lowpass', 800, 120);
+    },
+    whistle(seconds) {
+        glide(0, 1250, 340, .18, Math.max(.4, seconds), .045);
     },
     thud() {
-        noise(0, .28, 1.5, 'lowpass', 1400, 240);
-        thump(0, 120, 42, .3, 1.2);
+        noise(0, .32, 1.6, 'lowpass', 1500, 220);
+        thump(0, 120, 40, .32, 1.3);
+        noise(.2, .5, .16, 'bandpass', 2400, 800);
+    },
+    blast() {
+        explosion(0, 1.05);
+        noise(.34, .7, .17, 'bandpass', 2600, 700);
+    },
+    pop() {
+        noise(0, .12, 1.9, 'lowpass', 3e3, 400);
+        thump(0, 170, 55, .18, 1.6);
+    },
+    mega() {
+        explosion(0, 1.25);
+        explosion(.2, .85);
+        thump(0, 74, 20, 2.4, 1.2);
+        noise(.55, 1.5, .22, 'bandpass', 2e3, 500);
+    },
+    boing() {
+        glide(0, 210, 620, .01, .2, .3);
+        thump(0, 150, 70, .12, .6);
+    },
+    crate() {
+        noise(0, .1, 1.2, 'bandpass', 1900, 700);
+        glide(.08, 784, 784, .01, .2, .14);
+        glide(.2, 1175, 1175, .01, .34, .14);
+    },
+    repair() {
+        glide(0, 523, 523, .01, .18, .13);
+        glide(.13, 659, 659, .01, .18, .13);
+        glide(.26, 784, 784, .01, .34, .13);
+    },
+    drive(seconds) {
+        noise(0, seconds, 2.4, 'lowpass', 260, 160);
+        noise(0, seconds, .2, 'bandpass', 1100, 900);
     },
     place() {
         noise(0, .4, 1.2, 'bandpass', 1500, 350);
@@ -339,12 +393,12 @@ try {
     bus = null;
 }
 
-function playSound(kind) {
+function playSound(kind, detail) {
     try {
         prepareSound();
         if (audio.state === 'suspended') audio.resume();
         duckMusic(kind);
-        SOUNDS[kind]();
+        SOUNDS[kind](detail);
     } catch {
         audio = null;
         bus = null;
