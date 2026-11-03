@@ -112,6 +112,7 @@ function doodleScreen(id, game) {
                 showing = false;
             }));
         }
+        if (view.phase !== 'showing') showing = false;
         if (!showing) setPips(view);
         if (view.phase !== 'showing' && !showing) game.idle(ui, view, state);
         ui.status.textContent = view.phase === 'over' ? view.winner === 'draw' ? word('siege_draw', 'A draw') : word('won', '{name} won!').replace('{name}', nameOf(view.winner)) : view.phase === 'showing' ? '' : game.status(view);
@@ -353,6 +354,7 @@ const ROCKETS_SCREEN = doodleScreen('rockets', {
     play(ui, show, view, later) {
         ui.lines.textContent = '';
         for (const wall of show.walls) if (wall.length >= 4) ui.lines.appendChild(ddLine(wall, 'rk-wall'));
+        for (const rocket of show.rockets) if (rocket.path.length >= 4) ui.lines.appendChild(ddLine(rocket.path, `rk-route dd-line side-${rocket.side}`));
         for (const rocket of show.rockets) {
             if (rocket.end === 'none') continue;
             const frames = rkFrames(rocket);
@@ -366,10 +368,10 @@ const ROCKETS_SCREEN = doodleScreen('rockets', {
             playSound('launch');
             later(rocket.ms, (() => {
                 node.remove();
-                ui.lines.appendChild(ddLine(rocket.path, `rk-route dd-line side-${rocket.side}`));
                 const big = rocket.end === 'base';
                 blastAt(ui.field, rocket.x * DD_K, rocket.y * DD_K, big ? 'huge' : 'normal');
                 playSound(big ? 'mega' : rocket.end === 'fuel' ? 'thud' : 'blast');
+                if (!big && !(rocket.end === 'rocket' && rocket.side === 1)) rkLabel(ui, rocket);
                 ddShake(ui.field, big);
                 if (big) {
                     const base = ui.bases[1 - rocket.side];
@@ -383,10 +385,19 @@ const ROCKETS_SCREEN = doodleScreen('rockets', {
         const results = show.rockets.map((rocket => rocket.end));
         const last = Math.max(...show.rockets.map((rocket => rocket.ms)));
         later(last + 100, (() => {
-            if (results.includes('base')) ddCall(ui, ddOneOf('dd_hit_base', 'Bullseye!'), 'callout-sunk'); else if (results.includes('rocket')) ddCall(ui, word('dd_head_on', 'Head on!'), 'callout-sunk'); else if (results.includes('wall')) ddCall(ui, ddOneOf('dd_on_wall', 'Into the wall!'), 'callout-hit'); else if (results.includes('fuel')) ddCall(ui, ddOneOf('dd_fuel', 'Out of ink!'), 'callout-miss'); else ddCall(ui, word('dd_none', 'Nothing launched'), 'callout-miss');
+            if (results.includes('base')) ddCall(ui, ddOneOf('dd_hit_base', 'Bullseye!'), 'callout-sunk'); else if (results.every((end => end === 'none'))) ddCall(ui, word('dd_none', 'Nothing launched'), 'callout-miss');
         }));
     }
 });
+
+function rkLabel(ui, rocket) {
+    const text = rocket.end === 'wall' ? ddOneOf('dd_on_wall', 'Into the wall!') : rocket.end === 'rocket' ? word('dd_head_on', 'Head on!') : ddOneOf('dd_fuel', 'Line ends here');
+    const note = div('arty-damage rk-label', text);
+    note.style.left = `${rocket.x * DD_K}vh`;
+    note.style.top = `${Math.max(14, (rocket.y - 40) * DD_K)}vh`;
+    note.addEventListener('animationend', (() => note.remove()));
+    ui.field.appendChild(note);
+}
 
 function rkFrames(rocket) {
     const points = [];
