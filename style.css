@@ -67,7 +67,8 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 .playing .half-right::before { content: ''; position: absolute; z-index: 1; left: 0; top: 0; width: .25vh; height: 100%; background: var(--gold); }
 .sweep { position: absolute; left: 50%; top: 50%; display: none; width: 136vh; height: 136vh; margin: -68vh 0 0 -68vh; border-radius: 50%; will-change: transform;
   background: conic-gradient(rgba(255, 255, 255, 0) 0deg, rgba(255, 255, 255, 0) 290deg, rgba(255, 255, 255, .09) 360deg); animation: sweep 14s linear infinite; }
-.half.lit .sweep, body:not(.playing) .half .sweep { display: block; }
+body:not(.seated) .half .sweep { display: block; }
+.seated .fog { display: none; }
 .half-right .sweep { animation-delay: -7s; }
 .fog { position: absolute; left: 0; top: 20%; width: 100%; height: 60%; will-change: transform;
   background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 70%); animation: drift 37s ease-in-out infinite alternate; }

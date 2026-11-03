@@ -9,7 +9,6 @@ function softCeiling() {
     const curve = new Float32Array(2049);
     for (let i = 0; i < curve.length; i++) curve[i] = Math.tanh((i / 1024 - 1) * 1.6) / Math.tanh(1.6) * .95;
     shaper.curve = curve;
-    shaper.oversample = '2x';
     return shaper;
 }
 
@@ -29,7 +28,7 @@ function makeBus() {
     const dry = audio.createGain();
     dry.connect(limiter);
     const hall = audio.createConvolver();
-    const seconds = 2.4;
+    const seconds = 1;
     const impulse = audio.createBuffer(2, Math.floor(audio.sampleRate * seconds), audio.sampleRate);
     for (let channel = 0; channel < 2; channel++) {
         const data = impulse.getChannelData(channel);
@@ -265,8 +264,8 @@ function duckMusic(kind) {
 
 const SOUNDS = {
     fire() {
-        noise(0, .1, .9, 'lowpass', 2400, 500);
-        thump(0, 170, 70, .1, .7);
+        noise(0, .05, .14, 'bandpass', 3600, 1500);
+        thump(0, 210, 130, .05, .12);
     },
     place() {
         noise(0, .4, 1.2, 'bandpass', 1500, 350);
@@ -317,7 +316,7 @@ const SOUNDS = {
 function prepareSound() {
     if (audio) return;
     audio = new AudioContext({
-        latencyHint: 'balanced'
+        latencyHint: 'playback'
     });
     bus = makeBus();
     noiseBuffer = makeNoise();

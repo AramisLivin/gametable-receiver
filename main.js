@@ -59,6 +59,7 @@ function deliver(json) {
 function draw(state) {
     players = state.players.length;
     document.body.classList.toggle('playing', !!state.playing);
+    document.body.classList.toggle('seated', players > 0);
     setMusic(!players ? null : state.view && state.view.phase === 'playing' && !state.view.winner ? 'battle' : 'calm');
     if (state.playing || !players) playMenuVideo(null);
     if (state.playing === 'battleship') {
