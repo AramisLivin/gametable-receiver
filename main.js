@@ -50,6 +50,27 @@ function fromHub(sender, msg) {
     }
 }
 
+const GAME_SCREENS = {
+    siege: {
+        draw: drawSiege,
+        stop: stopSiege
+    },
+    submarine: {
+        draw: drawSubmarine,
+        stop: stopSubmarine
+    },
+    crowd: {
+        draw: drawCrowd,
+        stop: stopCrowd
+    },
+    dice: {
+        draw: drawDice,
+        stop: stopDice
+    }
+};
+
+const BATTLE_MUSIC = [ 'battleship', 'siege' ];
+
 function deliver(json) {
     for (const {to: to, message: message} of JSON.parse(json)) {
         if (to === 'tv') draw(message); else if (addressOf.has(to)) sendTo(addressOf.get(to), message);
@@ -59,21 +80,22 @@ function deliver(json) {
 function draw(state) {
     players = state.players.length;
     document.body.classList.toggle('playing', !!state.playing);
-    document.body.classList.toggle('siege-on', state.playing === 'siege');
+    document.body.classList.toggle('no-divide', !!state.playing && state.playing !== 'battleship');
     document.body.classList.toggle('seated', players > 0);
-    setMusic(!players ? null : state.view && state.view.phase !== 'placing' && !state.view.winner ? 'battle' : 'calm');
+    const fighting = BATTLE_MUSIC.includes(state.playing) && state.view && state.view.phase !== 'placing' && !state.view.winner;
+    setMusic(!players ? null : fighting ? 'battle' : 'calm');
     if (state.playing || !players) playMenuVideo(null);
     if (state.playing === 'battleship') {
         drawBattleship(state);
         return;
     }
     dropLanding();
-    if (state.playing === 'siege') {
+    for (const [id, screen] of Object.entries(GAME_SCREENS)) if (id !== state.playing) screen.stop();
+    if (GAME_SCREENS[state.playing]) {
         hideCannon();
-        drawSiege(state);
+        GAME_SCREENS[state.playing].draw(state);
         return;
     }
-    stopSiege();
     if (!players) {
         show('home');
         return;
@@ -177,6 +199,8 @@ function showJoin(url, room) {
 }
 
 setInterval((() => deliver(engine.tick())), 1e3);
+
+setInterval((() => deliver(engine.frame())), 200);
 
 show('home');
 

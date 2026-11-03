@@ -1,16 +1,12 @@
 const ROAD_MIDDLE = 61;
 
-const ROAD_STEP = 17;
+const SLOT_GAP = 2;
 
-const SQUAD_GAP = 8;
+const SLOT_STEP = 13;
 
-const SQUAD_TOUCH = 5;
+const SQUAD_WIDTH = 12;
 
-const SQUAD_HALF = 5.5;
-
-const BATTLE_MS = 3e3;
-
-const SIEGE_TINTS = [ 'side-0', 'side-1' ];
+const BEAT_MS = 900;
 
 let siegeNodes = null;
 
@@ -20,11 +16,13 @@ let siegeOver = false;
 
 let siegeTimers = [];
 
-const frontAt = front => ROAD_MIDDLE + front * ROAD_STEP;
-
-const place = (node, x) => {
+const placeAt = (node, x) => {
     node.style.transform = `translate3d(${x}vh,0,0)`;
 };
+
+const slotX = (side, slot) => side ? ROAD_MIDDLE + SLOT_GAP + slot * SLOT_STEP : ROAD_MIDDLE - SLOT_GAP - SQUAD_WIDTH - slot * SLOT_STEP;
+
+const castleX = side => side ? ROAD_MIDDLE * 2 : -SQUAD_WIDTH;
 
 function buildSiege() {
     const root = $('siege');
@@ -32,67 +30,40 @@ function buildSiege() {
     const nodes = {
         names: [],
         chips: [],
-        castles: [],
-        roads: []
+        towers: [],
+        roads: [],
+        squads: new Map
     };
     const top = div('siege-top');
-    const sideHead = side => {
-        const head = div(`siege-head ${SIEGE_TINTS[side]}`);
+    const head = side => {
+        const box = div(`siege-head side-${side}`);
         nodes.names[side] = div('siege-name');
         nodes.chips[side] = div('siege-chip');
-        head.append(nodes.names[side], nodes.chips[side]);
-        return head;
+        box.append(nodes.names[side], nodes.chips[side]);
+        return box;
     };
     const middle = div('siege-middle');
     nodes.round = div('siege-round');
     nodes.clock = div('siege-clock');
     middle.append(nodes.round, nodes.clock);
-    top.append(sideHead(0), middle, sideHead(1));
+    top.append(head(0), middle, head(1));
     root.appendChild(top);
     const field = div('siege-field');
     for (const side of [ 0, 1 ]) {
-        const castle = div(`castle castle-${side} ${SIEGE_TINTS[side]}`);
-        const towers = [ 0, 1 ].map((i => div(`castle-tower castle-tower-${i}`)));
-        const hp = div('castle-hp');
-        const bar = div('castle-bar');
-        const fill = document.createElement('i');
-        bar.appendChild(fill);
-        castle.append(...towers, hp, bar);
-        nodes.castles[side] = {
-            node: castle,
-            hp: hp,
-            fill: fill,
-            value: null
-        };
+        const castle = div(`castle castle-${side} side-${side}`);
+        nodes.towers[side] = div('castle-hp');
+        castle.appendChild(nodes.towers[side]);
+        nodes.towers[side].castle = castle;
         field.appendChild(castle);
     }
     for (let lane = 0; lane < 3; lane++) {
         const road = div(`road road-${lane}`);
-        const land = [ div('road-land road-land-0 side-0'), div('road-land road-land-1 side-1') ];
-        const front = div('road-front');
-        road.append(...land, front);
-        const squads = [], walls = [], powers = [];
-        for (const side of [ 0, 1 ]) {
-            const squad = div(`squad ${SIEGE_TINTS[side]}`);
-            const count = document.createElement('b');
-            squad.appendChild(count);
-            const wall = div(`road-wall ${SIEGE_TINTS[side]}`);
-            const power = div(`road-power ${SIEGE_TINTS[side]}`);
-            road.append(wall, squad, power);
-            squads[side] = {
-                node: squad,
-                count: count
-            };
-            walls[side] = wall;
-            powers[side] = power;
-        }
+        const gates = [ 0, 1 ].map((side => div(`road-gate road-gate-${side} side-${side}`)));
+        road.append(...gates);
         nodes.roads[lane] = {
             node: road,
-            land: land,
-            front: front,
-            squads: squads,
-            walls: walls,
-            powers: powers
+            gates: gates,
+            list: [ [], [] ]
         };
         field.appendChild(road);
     }
@@ -102,42 +73,54 @@ function buildSiege() {
     siegeNodes = nodes;
 }
 
-function setFront(road, front) {
-    const x = frontAt(front);
-    place(road.front, x);
-    road.land[0].style.transform = `scaleX(${x / (ROAD_MIDDLE * 2)})`;
-    road.land[1].style.transform = `scaleX(${1 - x / (ROAD_MIDDLE * 2)})`;
+function setGate(lane, side, value) {
+    const gate = siegeNodes.roads[lane].gates[side];
+    gate.textContent = value;
+    gate.classList.toggle('down', value <= 0);
 }
 
-function setSquad(road, side, count, x) {
-    const squad = road.squads[side];
-    squad.count.textContent = count;
-    squad.node.classList.toggle('gone', count <= 0);
-    place(squad.node, x - SQUAD_HALF);
-}
-
-const squadX = (front, side) => frontAt(front) + (side ? SQUAD_GAP : -SQUAD_GAP);
-
-function setCastle(side, value, most) {
-    const castle = siegeNodes.castles[side];
-    if (castle.value === value) return;
-    castle.value = value;
-    castle.hp.textContent = value;
-    castle.fill.style.transform = `scaleX(${value / most})`;
+function makeSquad(road, side, kind) {
+    const node = div(`squad side-${side}`);
+    const card = div('squad-card');
+    const hp = div('squad-hp');
+    card.append(div('squad-name', word('card_' + kind, kind)), hp);
+    node.appendChild(card);
+    road.node.appendChild(node);
+    return {
+        node: node,
+        hp: hp,
+        side: side,
+        lane: road
+    };
 }
 
 function setMap(view) {
-    view.lanes.forEach(((lane, i) => {
-        const road = siegeNodes.roads[i];
-        road.node.classList.remove('live');
-        setFront(road, lane.front);
-        for (const side of [ 0, 1 ]) {
-            setSquad(road, side, lane.soldiers[side], squadX(lane.front, side));
-            road.walls[side].classList.remove('on');
-            road.powers[side].classList.remove('on');
-        }
+    const present = new Set;
+    view.lanes.forEach(((sides, lane) => {
+        const road = siegeNodes.roads[lane];
+        sides.forEach(((squads, side) => {
+            road.list[side] = squads.map(((squad, slot) => {
+                present.add(squad.id);
+                let shown = siegeNodes.squads.get(squad.id);
+                if (!shown) {
+                    shown = makeSquad(road, side, squad.kind);
+                    siegeNodes.squads.set(squad.id, shown);
+                }
+                shown.hp.textContent = squad.hp;
+                placeAt(shown.node, slotX(side, slot));
+                return squad.id;
+            }));
+            setGate(lane, side, view.walls[side][lane]);
+        }));
     }));
-    view.castles.forEach(((value, side) => setCastle(side, value, view.castle)));
+    for (const [id, shown] of siegeNodes.squads) {
+        if (present.has(id)) continue;
+        shown.node.remove();
+        siegeNodes.squads.delete(id);
+    }
+    view.towers.forEach(((value, side) => {
+        siegeNodes.towers[side].textContent = value;
+    }));
 }
 
 function later(ms, action) {
@@ -152,100 +135,101 @@ function stopSiege() {
     siegeOver = false;
 }
 
-function bump(node, cls) {
+function kick(node, cls) {
     node.classList.remove(cls);
     void node.offsetWidth;
     node.classList.add(cls);
 }
 
-function flyAlong(road, side, toX) {
-    const stone = div(`road-stone ${SIEGE_TINTS[side]}`);
-    place(stone, side ? ROAD_MIDDLE * 2 : 0);
+function floatOn(road, x, text) {
+    const note = div('road-float', text);
+    note.style.left = `${x}vh`;
+    note.addEventListener('animationend', (() => note.remove()));
+    road.node.appendChild(note);
+}
+
+function arrow(road, side, fromX, toX) {
+    const stone = div(`road-stone side-${side}`);
+    placeAt(stone, fromX + SQUAD_WIDTH / 2);
     road.node.appendChild(stone);
     void stone.offsetWidth;
-    place(stone, toX);
-    later(450, (() => stone.remove()));
+    placeAt(stone, toX + SQUAD_WIDTH / 2);
+    later(360, (() => stone.remove()));
 }
 
-function callout(text, cls = 'callout-hit') {
-    const node = div(`callout ${cls}`, text);
-    node.addEventListener('animationend', (() => node.remove()));
-    siegeNodes.effects.appendChild(node);
+function closeRanks(road) {
+    [ 0, 1 ].forEach((side => road.list[side].forEach(((id, slot) => {
+        const shown = siegeNodes.squads.get(id);
+        if (shown) placeAt(shown.node, slotX(side, slot));
+    }))));
 }
 
-function playBattle(battle, start, view) {
-    const road = siegeNodes.roads[battle.lane];
-    const force = [ 0, 1 ].map((side => battle.stood[side] + battle.sent[side]));
-    const fighting = [ 0, 1 ].map((side => force[side] - battle.shot[side]));
-    const at = (ms, action) => later(start + ms, action);
-    at(0, (() => {
-        road.node.classList.add('live');
-        for (const side of [ 0, 1 ]) {
-            setSquad(road, side, force[side], squadX(battle.from, side));
-            if (battle.sent[side]) bump(road.squads[side].node, 'pop');
-        }
-        if (battle.sent[0] || battle.sent[1]) playSound('place');
-    }));
-    at(600, (() => {
-        for (const side of [ 0, 1 ]) {
-            if (battle.walls[side]) {
-                place(road.walls[side], frontAt(battle.from) + (side ? 1.5 : -4.1));
-                road.walls[side].classList.add('on');
+function playBeat(events, lane, sounds) {
+    const road = siegeNodes.roads[lane];
+    for (const event of events) {
+        if (event.e === 'enter') {
+            const shown = makeSquad(road, event.side, event.kind);
+            siegeNodes.squads.set(event.id, shown);
+            shown.hp.textContent = event.hp;
+            placeAt(shown.node, castleX(event.side));
+            road.list[event.side].push(event.id);
+            void shown.node.offsetWidth;
+            sounds.add('place');
+        } else if (event.e === 'ambush') {
+            const note = div(`road-note side-${event.side}`, word('siege_ambush', 'Ambush!'));
+            note.addEventListener('animationend', (() => note.remove()));
+            road.node.appendChild(note);
+            sounds.add('hit');
+        } else if (event.e === 'hit') {
+            const target = siegeNodes.squads.get(event.to);
+            const attacker = event.by === null ? null : siegeNodes.squads.get(event.by);
+            if (!target) continue;
+            const slot = road.list[event.side].indexOf(event.to);
+            const x = slotX(event.side, Math.max(0, slot));
+            if (attacker) {
+                if (event.ranged) {
+                    const from = slotX(attacker.side, Math.max(0, road.list[attacker.side].indexOf(event.by)));
+                    arrow(road, attacker.side, from, x);
+                    sounds.add('fire');
+                } else {
+                    kick(attacker.node, `lunge-${attacker.side}`);
+                    sounds.add('hit');
+                }
             }
-            if (!battle.catapults[side]) continue;
-            const target = 1 - side;
-            flyAlong(road, side, squadX(battle.from, target) - SQUAD_HALF);
-            playSound('fire');
-            later(400, (() => {
-                setSquad(road, target, fighting[target], squadX(battle.from, target));
-                bump(road.squads[target].node, 'struck');
-                playSound('miss');
-            }));
+            target.hp.textContent = event.hp;
+            kick(target.node, 'struck');
+            floatOn(road, x, `−${event.damage}`);
+            if (event.hp <= 0) {
+                target.node.classList.add('dead');
+                road.list[event.side] = road.list[event.side].filter((id => id !== event.to));
+                later(400, (() => target.node.remove()));
+                siegeNodes.squads.delete(event.to);
+            }
+        } else if (event.e === 'strike') {
+            const attacker = siegeNodes.squads.get(event.id);
+            if (attacker) kick(attacker.node, `lunge-${event.side}`);
+            const rival = 1 - event.side;
+            const before = +siegeNodes.towers[rival].textContent;
+            setGate(lane, rival, event.wall);
+            siegeNodes.towers[rival].textContent = event.tower;
+            if (event.tower < before) {
+                kick(siegeNodes.towers[rival].castle, 'shake');
+                blastOn(rival, false);
+                sounds.add('sunk');
+            } else sounds.add('hit');
         }
-    }));
-    at(1350, (() => {
-        for (const side of [ 0, 1 ]) {
-            const power = road.powers[side];
-            power.textContent = battle.strength[side];
-            power.classList.add('on');
-            place(power, squadX(battle.from, side) - SQUAD_HALF);
-            if (fighting[side]) setSquad(road, side, fighting[side], frontAt(battle.from) + (side ? SQUAD_TOUCH : -SQUAD_TOUCH));
-        }
-    }));
-    at(1900, (() => {
-        const won = battle.won;
-        if (won === null) {
-            for (const side of [ 0, 1 ]) setSquad(road, side, 0, frontAt(battle.from));
-            if (fighting[0] || fighting[1]) playSound('miss');
-            return;
-        }
-        const lost = 1 - won;
-        const standing = battle.left[won] + battle.hit;
-        setSquad(road, lost, 0, frontAt(battle.from));
-        if (fighting[lost]) bump(road.squads[won].node, 'struck');
-        setFront(road, battle.to);
-        setSquad(road, won, standing, squadX(battle.to, won));
-        if (fighting[0] && fighting[1]) playSound('hit');
-    }));
-    if (battle.hit) {
-        at(2300, (() => {
-            const won = battle.won, target = 1 - won;
-            setSquad(road, won, 0, won ? 0 : ROAD_MIDDLE * 2);
-            const castle = siegeNodes.castles[target];
-            const before = castle.value;
-            setCastle(target, Math.max(0, before - battle.hit), view.castle);
-            bump(castle.node, 'shake');
-            blastOn(target, before - battle.hit <= 5);
-            callout(`−${battle.hit}`, 'callout-sunk');
-            playSound('sunk');
-        }));
     }
-    at(BATTLE_MS - 100, (() => {
-        road.node.classList.remove('live');
-        for (const side of [ 0, 1 ]) {
-            road.walls[side].classList.remove('on');
-            road.powers[side].classList.remove('on');
-        }
+}
+
+function playReport(view) {
+    const beats = [ 0, 1, 2, 3, 4 ].filter((beat => view.report.some((lane => lane[beat].length))));
+    beats.forEach(((beat, i) => {
+        later(150 + i * BEAT_MS, (() => {
+            const sounds = new Set;
+            view.report.forEach(((lane, i) => playBeat(lane[beat], i, sounds)));
+            siegeNodes.roads.forEach(closeRanks);
+            sounds.forEach(playSound);
+        }));
     }));
 }
 
@@ -256,9 +240,9 @@ function drawSiege(state) {
     const away = view.sides.find((id => !(state.players.find((p => p.id === id)) || {}).online));
     view.sides.forEach(((id, side) => {
         siegeNodes.names[side].textContent = nameOf(id);
-        const chip = siegeNodes.chips[side];
-        chip.textContent = view.phase === 'planning' && view.ready[side] ? word('siege_ready', 'Ready') : '';
-        chip.classList.toggle('on', view.phase === 'planning' && view.ready[side]);
+        const on = view.phase === 'planning' && view.ready[side];
+        siegeNodes.chips[side].textContent = on ? word('siege_ready', 'Ready') : '';
+        siegeNodes.chips[side].classList.toggle('on', on);
     }));
     siegeNodes.round.textContent = word('siege_round', 'Round {n} of {m}').replace('{n}', view.round).replace('{m}', view.rounds);
     const clock = siegeNodes.clock;
@@ -271,11 +255,13 @@ function drawSiege(state) {
             siegeOver = false;
             siegeNodes.effects.textContent = '';
         }
+        siegeTimers.forEach(clearTimeout);
+        siegeTimers = [];
         setMap(view);
         lightHalf(-1);
     } else if (view.phase === 'showing' && siegeShown !== view.round) {
         siegeShown = view.round;
-        view.report.filter((battle => battle.fought)).forEach(((battle, i) => playBattle(battle, 200 + i * BATTLE_MS, view)));
+        playReport(view);
     } else if (view.phase === 'over') {
         const winner = view.sides.indexOf(view.winner);
         siegeNodes.round.textContent = '';
