@@ -38,20 +38,28 @@ function envelope(at, attack, hold, release, volume) {
     return gain;
 }
 
-function noise(at, seconds, volume, filterType, from, to) {
-    const length = Math.floor(audio.sampleRate * seconds);
-    const buffer = audio.createBuffer(1, length, audio.sampleRate);
+const NOISE_SECONDS = 4;
+
+let noiseBuffer = null;
+
+function makeNoise() {
+    const buffer = audio.createBuffer(1, Math.floor(audio.sampleRate * NOISE_SECONDS), audio.sampleRate);
     const data = buffer.getChannelData(0);
-    for (let i = 0; i < length; i++) data[i] = Math.random() * 2 - 1;
+    for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+    return buffer;
+}
+
+function noise(at, seconds, volume, filterType, from, to) {
+    noiseBuffer = noiseBuffer || makeNoise();
     const source = audio.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = noiseBuffer;
     const filter = audio.createBiquadFilter();
     const start = audio.currentTime + at;
     filter.type = filterType;
     filter.frequency.setValueAtTime(from, start);
     filter.frequency.exponentialRampToValueAtTime(to, start + seconds);
     source.connect(filter).connect(envelope(at, .005, 0, seconds, volume)).connect(bus);
-    source.start(start);
+    source.start(start, Math.random() * (NOISE_SECONDS - seconds), seconds);
 }
 
 function thump(at, from, to, seconds, volume) {
@@ -146,12 +154,23 @@ const SOUNDS = {
     }
 };
 
+function prepareSound() {
+    if (audio) return;
+    audio = new AudioContext;
+    bus = makeBus();
+    noiseBuffer = makeNoise();
+}
+
+try {
+    prepareSound();
+} catch {
+    audio = null;
+    bus = null;
+}
+
 function playSound(kind) {
     try {
-        if (!audio) {
-            audio = new AudioContext;
-            bus = makeBus();
-        }
+        prepareSound();
         if (audio.state === 'suspended') audio.resume();
         SOUNDS[kind]();
     } catch {
