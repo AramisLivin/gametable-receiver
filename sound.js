@@ -2,6 +2,8 @@ let audio = null;
 
 let bus = null;
 
+let musicBus = null;
+
 function makeBus() {
     const limiter = audio.createDynamicsCompressor();
     limiter.threshold.value = -10;
@@ -11,6 +13,10 @@ function makeBus() {
     const master = audio.createGain();
     master.gain.value = .72;
     limiter.connect(master).connect(audio.destination);
+    musicBus = audio.createGain();
+    musicBus.gain.value = MUSIC_VOLUME;
+    musicBus.connect(limiter);
+    musicEcho = null;
     const dry = audio.createGain();
     dry.connect(limiter);
     const hall = audio.createConvolver();
@@ -107,6 +113,145 @@ function explosion(at, volume) {
     thump(at, 95, 26, 1.3, volume);
 }
 
+const MUSIC_VOLUME = .6;
+
+const BEAT = .8;
+
+const BAR = BEAT * 4;
+
+const CHORDS = [ [ 50, 53, 57 ], [ 46, 50, 53 ], [ 43, 50, 55 ], [ 45, 49, 52 ] ];
+
+const DUCK_SECONDS = {
+    miss: .6,
+    hit: 1.6,
+    sunk: 3,
+    battle: 3.4,
+    win: 5
+};
+
+let musicMood = null;
+
+let musicTimer = null;
+
+let musicEcho = null;
+
+let nextBar = 0;
+
+let barNumber = 0;
+
+const pitch = note => 440 * Math.pow(2, (note - 69) / 12);
+
+function musicNote(to, wave, note, at, attack, hold, release, volume, cutoff, detune = 0) {
+    const start = audio.currentTime + at;
+    const oscillator = audio.createOscillator();
+    oscillator.type = wave;
+    oscillator.frequency.value = pitch(note);
+    oscillator.detune.value = detune;
+    let last = oscillator;
+    if (cutoff) {
+        const filter = audio.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = cutoff;
+        last = oscillator.connect(filter);
+    }
+    last.connect(envelope(at, attack, hold, release, volume)).connect(to);
+    oscillator.start(start);
+    oscillator.stop(start + attack + hold + release + .05);
+}
+
+function echoFor() {
+    if (musicEcho) return musicEcho;
+    const delay = audio.createDelay(2);
+    delay.delayTime.value = BEAT * .75;
+    const feedback = audio.createGain();
+    feedback.gain.value = .32;
+    delay.connect(feedback).connect(delay);
+    const wet = audio.createGain();
+    wet.gain.value = .5;
+    delay.connect(wet).connect(musicBus);
+    musicEcho = delay;
+    return delay;
+}
+
+function musicDrum(at, volume) {
+    const start = audio.currentTime + at;
+    const oscillator = audio.createOscillator();
+    oscillator.frequency.setValueAtTime(95, start);
+    oscillator.frequency.exponentialRampToValueAtTime(48, start + .3);
+    oscillator.connect(envelope(at, .006, 0, .42, volume)).connect(musicBus);
+    oscillator.start(start);
+    oscillator.stop(start + .5);
+}
+
+function playBar(at, number, mood) {
+    const chord = CHORDS[Math.floor(number / 2) % CHORDS.length];
+    if (number % 2 === 0) {
+        for (const note of chord) {
+            for (const detune of [ -6, 6 ]) musicNote(musicBus, 'sawtooth', note, at, 1.4, BAR * 2 - 2.6, 1.6, .03, 620, detune);
+        }
+        musicNote(musicBus, 'sine', chord[0] - 12, at, .5, BAR * 2 - 1.6, 1.2, .1);
+    }
+    const echo = echoFor();
+    const notes = [ chord[0] + 12, chord[1] + 12, chord[2] + 12, chord[0] + 24, chord[2] + 24 ];
+    const plucks = Math.random() < .7 ? 1 + Math.floor(Math.random() * 3) : 0;
+    for (let i = 0; i < plucks; i++) {
+        const when = at + Math.floor(Math.random() * 8) * BEAT / 2;
+        const note = notes[Math.floor(Math.random() * notes.length)];
+        musicNote(musicBus, 'triangle', note, when, .006, 0, 1.1, .055);
+        musicNote(echo, 'triangle', note, when, .006, 0, 1.1, .055);
+    }
+    if (mood === 'battle') {
+        for (let eighth = 0; eighth < 8; eighth++) {
+            const note = (eighth % 4 === 3 ? chord[2] : chord[0]) - 12;
+            musicNote(musicBus, 'sawtooth', note, at + eighth * BEAT / 2, .01, .06, .2, eighth % 2 ? .035 : .055, 420);
+        }
+        [ 0, 1.5, 2, 3.5 ].forEach(((beat, i) => musicDrum(at + beat * BEAT, i % 2 ? .09 : .15)));
+    }
+}
+
+function playNextBars() {
+    while (nextBar < audio.currentTime + 1) {
+        playBar(nextBar - audio.currentTime, barNumber++, musicMood);
+        nextBar += BAR;
+    }
+}
+
+function setMusic(mood) {
+    try {
+        if (mood === musicMood) return;
+        const wasOn = !!musicMood;
+        musicMood = mood;
+        prepareSound();
+        const now = audio.currentTime;
+        if (!mood) {
+            clearInterval(musicTimer);
+            musicBus.gain.cancelScheduledValues(now);
+            musicBus.gain.setTargetAtTime(1e-4, now, .5);
+            return;
+        }
+        if (wasOn) return;
+        if (audio.state === 'suspended') audio.resume();
+        musicBus.gain.cancelScheduledValues(now);
+        musicBus.gain.setValueAtTime(1e-4, now);
+        musicBus.gain.setTargetAtTime(MUSIC_VOLUME, now, 1.2);
+        nextBar = now + .1;
+        barNumber = 0;
+        playNextBars();
+        musicTimer = setInterval(playNextBars, 400);
+    } catch {
+        musicMood = null;
+    }
+}
+
+function duckMusic(kind) {
+    const seconds = DUCK_SECONDS[kind];
+    if (!musicMood || !seconds) return;
+    const now = audio.currentTime;
+    musicBus.gain.cancelScheduledValues(now);
+    musicBus.gain.setTargetAtTime(MUSIC_VOLUME * .3, now, .06);
+    musicBus.gain.setTargetAtTime(MUSIC_VOLUME, now + seconds, .9);
+}
+
 const SOUNDS = {
     place() {
         noise(0, .4, 1.2, 'bandpass', 1500, 350);
@@ -172,6 +317,7 @@ function playSound(kind) {
     try {
         prepareSound();
         if (audio.state === 'suspended') audio.resume();
+        duckMusic(kind);
         SOUNDS[kind]();
     } catch {
         audio = null;

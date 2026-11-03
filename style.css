@@ -81,6 +81,14 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
 .cell.hit i::after { animation: flame-heart .41s ease-in-out infinite alternate; }
 .cell.sunk i::before { background: #c9472a; box-shadow: none; opacity: .75; transform: rotate(45deg) scale(.62); }
 .cell.sunk i::after { background: #ff9d3d; opacity: .75; transform: rotate(45deg) scale(.62); }
+.cell.sunk:not(.fx-sunk) { contain: paint; }
+.cell.sunk:not(.fx-sunk) .reticle { left: 0; top: 0; right: 0; bottom: 0; }
+.cell.sunk:not(.fx-sunk) i { transform-origin: 50% 80%; animation: smoulder 1.4s ease-in-out infinite alternate; }
+.cell.sunk:nth-child(2n):not(.fx-sunk) i { animation-duration: 1.15s; animation-delay: -.3s; }
+.cell.sunk:nth-child(3n):not(.fx-sunk) i { animation-duration: 1.7s; animation-delay: -.8s; }
+.cell.sunk:nth-child(5n):not(.fx-sunk) i { animation-duration: 1.28s; animation-delay: -1.1s; }
+.cell.sunk:nth-child(7n):not(.fx-sunk) i { animation-duration: 1.95s; animation-delay: -.5s; }
+@keyframes smoulder { from { opacity: .62; transform: rotate(-5deg) scale(.88); } to { opacity: 1; transform: rotate(5deg) scale(1.12, 1.18); } }
 .cell:nth-child(3n) i::before { animation-delay: -.2s; }
 .cell:nth-child(5n) i::before { animation-delay: -.4s; }
 .cell:nth-child(2n) i::after { animation-delay: -.15s; }
@@ -168,4 +176,5 @@ p { font-size: 3.4vh; color: var(--dim); margin-top: 2vh; }
   #join.on { animation: none; }
   .sweep, .fog, .reticle, .fx-sunk i, .fx-clear i { animation: none; }
   .cell.hit i::before, .cell.hit i::after { animation: none; transform: rotate(45deg); }
+  .cell.sunk:not(.fx-sunk) i { animation: none; }
 }

@@ -59,6 +59,7 @@ function deliver(json) {
 function draw(state) {
     players = state.players.length;
     document.body.classList.toggle('playing', !!state.playing);
+    setMusic(!players ? null : state.view && state.view.phase === 'playing' && !state.view.winner ? 'battle' : 'calm');
     if (state.playing === 'battleship') {
         drawBattleship(state);
         return;
