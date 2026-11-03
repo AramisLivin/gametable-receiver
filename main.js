@@ -70,10 +70,14 @@ const GAME_SCREENS = {
     artillery: {
         draw: drawArtillery,
         stop: stopArtillery
-    }
+    },
+    ram: RAM_SCREEN,
+    carpet: CARPET_SCREEN,
+    rockets: ROCKETS_SCREEN,
+    recall: RECALL_SCREEN
 };
 
-const BATTLE_MUSIC = [ 'battleship', 'siege', 'artillery' ];
+const BATTLE_MUSIC = [ 'battleship', 'siege', 'artillery', 'ram', 'carpet', 'rockets' ];
 
 function deliver(json) {
     for (const {to: to, message: message} of JSON.parse(json)) {

@@ -242,8 +242,12 @@ function artyLine(key, fallback) {
 }
 
 function explode(x, y, size) {
+    blastAt(artyNodes.field, artyX(x), artyY(y), size);
+}
+
+function blastAt(field, xVh, yVh, size) {
     const blast = div(`arty-blast ${size}`);
-    blast.style.transform = `translate3d(${artyX(x)}vh,${artyY(y)}vh,0)`;
+    blast.style.transform = `translate3d(${xVh}vh,${yVh}vh,0)`;
     blast.appendChild(div('arty-fire'));
     blast.appendChild(div('arty-ring'));
     for (let i = 0; i < {
@@ -279,8 +283,8 @@ function explode(x, y, size) {
         clod.style.animationDelay = `${Math.random() * 60}ms`;
         blast.appendChild(clod);
     }
-    artyNodes.field.appendChild(blast);
-    artyLater(2200, (() => blast.remove()));
+    field.appendChild(blast);
+    setTimeout((() => blast.remove()), 2200);
 }
 
 function scar(x, y, size) {
