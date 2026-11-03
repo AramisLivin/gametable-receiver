@@ -108,8 +108,13 @@ const SOUNDS = {
         chord([ 196, 293.7 ], 0, .7, .11);
     },
     miss() {
-        noise(0, .8, 1.6, 'bandpass', 2600, 280);
-        thump(.02, 170, 60, .35, .7);
+        noise(0, .14, 1.5, 'lowpass', 4200, 800);
+        thump(0, 190, 65, .3, .9);
+        noise(.07, 1.2, 1.1, 'bandpass', 1500, 420);
+        for (let i = 0; i < 10; i++) {
+            const pitch = 450 + Math.random() * 900;
+            thump(.15 + Math.random() * .85, pitch, pitch * 1.7, .05 + Math.random() * .06, .1 + Math.random() * .12);
+        }
     },
     hit() {
         explosion(0, 1.3);
