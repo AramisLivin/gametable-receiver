@@ -59,14 +59,21 @@ function deliver(json) {
 function draw(state) {
     players = state.players.length;
     document.body.classList.toggle('playing', !!state.playing);
+    document.body.classList.toggle('siege-on', state.playing === 'siege');
     document.body.classList.toggle('seated', players > 0);
-    setMusic(!players ? null : state.view && state.view.phase === 'playing' && !state.view.winner ? 'battle' : 'calm');
+    setMusic(!players ? null : state.view && state.view.phase !== 'placing' && !state.view.winner ? 'battle' : 'calm');
     if (state.playing || !players) playMenuVideo(null);
     if (state.playing === 'battleship') {
         drawBattleship(state);
         return;
     }
     dropLanding();
+    if (state.playing === 'siege') {
+        hideCannon();
+        drawSiege(state);
+        return;
+    }
+    stopSiege();
     if (!players) {
         show('home');
         return;
@@ -168,6 +175,8 @@ function showJoin(url, room) {
     writeJoinWords();
     $('join').classList.add('on');
 }
+
+setInterval((() => deliver(engine.tick())), 1e3);
 
 show('home');
 

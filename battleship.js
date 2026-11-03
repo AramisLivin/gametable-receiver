@@ -100,11 +100,10 @@ function drawTableSea(owner, rows, before, last) {
     return sea;
 }
 
-function drawVictory(root, state, name) {
-    const view = state.view;
+function drawVictory(root, note) {
     const box = div('victory');
     const inner = div('victory-card');
-    inner.appendChild(div('victory-note', word('fired', 'Shots fired: {n}').replace('{n}', view.fired[view.winner])));
+    inner.appendChild(div('victory-note', note));
     box.appendChild(inner);
     const colors = [ '#f2c14e', '#f6efdc', '#ff6a3d', '#7fb7d8' ];
     for (let i = 0; i < 36; i++) {
@@ -257,7 +256,7 @@ function paintBattleship(state) {
     }
     if (view.winner) {
         if (!seenWinner) playSound('win');
-        drawVictory(root, state, name);
+        drawVictory(root, word('fired', 'Shots fired: {n}').replace('{n}', view.fired[view.winner]));
     }
     seenBoards = view.boards;
     seenWinner = view.winner;

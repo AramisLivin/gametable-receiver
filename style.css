@@ -181,6 +181,67 @@ body:not(.seated) .half .sweep { display: block; }
 .cannon-shell { position: absolute; z-index: 5; left: -2.5vh; top: -.3vh; width: 5vh; height: .6vh; border-radius: .3vh; pointer-events: none;
   background: linear-gradient(90deg, rgba(255, 176, 87, 0), #ffb057 55%, #fff3c4); }
 
+#siege { justify-content: flex-start; padding-top: 2vh; }
+.siege-on .half-right::before { display: none; }
+.side-0 { --tint: #7db7f0; }
+.side-1 { --tint: #f27d86; }
+.siege-top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; width: 170vh; height: 15vh; }
+.siege-head { flex: 1 1 0; min-width: 0; display: flex; align-items: center; }
+.siege-head.side-1 { flex-direction: row-reverse; }
+.siege-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 4.6vh; color: var(--tint); }
+.siege-chip { flex: none; margin: 0 2vh; padding: .5vh 2vh; border-radius: 1.2vh; font-size: 2.6vh; opacity: 0; background: var(--gold); color: #17302a; }
+.siege-chip.on { opacity: 1; animation: stamp .4s cubic-bezier(.2, 1.5, .4, 1) both; }
+.siege-middle { flex: none; width: 58vh; text-align: center; }
+.siege-round { height: 3.6vh; font-size: 2.8vh; line-height: 3.6vh; color: var(--dim); }
+.siege-clock { height: 9vh; font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 8vh; line-height: 9vh; color: var(--gold); }
+.siege-clock.words { font-size: 5.4vh; }
+.siege-clock.urgent { color: var(--flame); }
+.siege-field { position: relative; z-index: 1; flex: none; width: 170vh; height: 76vh; }
+.siege-effects { position: absolute; z-index: 3; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.castle { position: absolute; top: 0; width: 24vh; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, .22), rgba(0, 0, 0, .22)), var(--tint); border-radius: 1.4vh; box-shadow: inset 0 0 0 1.2vh rgba(0, 0, 0, .25); }
+.castle-0 { left: 0; }
+.castle-1 { right: 0; }
+.castle::after { content: ''; position: absolute; top: 0; width: 2.4vh; height: 100%; background: repeating-linear-gradient(rgba(11, 26, 46, .55) 0, rgba(11, 26, 46, .55) 3vh, transparent 3vh, transparent 6vh); }
+.castle-0::after { right: 0; }
+.castle-1::after { left: 0; }
+.castle-tower { z-index: 1; }
+.castle-tower { position: absolute; width: 8vh; height: 8vh; border-radius: 50%; background: var(--tint); box-shadow: 0 0 0 .7vh rgba(0, 0, 0, .3); }
+.castle-0 .castle-tower { right: -1.5vh; }
+.castle-1 .castle-tower { left: -1.5vh; }
+.castle-tower-0 { top: -1.5vh; }
+.castle-tower-1 { bottom: -1.5vh; }
+.castle-hp { font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 12vh; line-height: 1; color: #0b1a2e; }
+.castle-bar { width: 15vh; height: 1.6vh; margin-top: 1.4vh; border-radius: .8vh; overflow: hidden; background: rgba(0, 0, 0, .3); }
+.castle-bar i { display: block; width: 100%; height: 100%; background: #0b1a2e; transform-origin: 0 50%; transition: transform .5s; }
+
+.road { position: absolute; left: 24vh; width: 122vh; height: 21vh; }
+.road-0 { top: 2vh; }
+.road-1 { top: 27.5vh; }
+.road-2 { top: 53vh; }
+.road::before { content: ''; position: absolute; left: 0; top: 3vh; width: 100%; height: 15vh;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .13) 0, rgba(255, 255, 255, .13) .3vh, transparent .3vh, transparent 17vh) 10vh 0 no-repeat, rgba(3, 9, 20, .5); }
+.road::after { content: ''; position: absolute; left: 0; top: 3vh; width: 100%; height: 15vh; opacity: 0; box-shadow: inset 0 0 0 .5vh var(--gold); transition: opacity .25s; }
+.road.live::after { opacity: 1; }
+.road-land { position: absolute; top: 3vh; width: 100%; height: 15vh; opacity: .24; background: var(--tint); transition: transform .5s; }
+.road-land-0 { left: 0; transform-origin: 0 50%; }
+.road-land-1 { right: 0; transform-origin: 100% 50%; }
+.road-front { position: absolute; z-index: 1; left: -.3vh; top: 1vh; width: .6vh; height: 19vh; background: var(--gold); transition: transform .5s; }
+.squad { position: absolute; z-index: 2; left: 0; top: 5vh; width: 11vh; height: 11vh; display: flex; align-items: center; justify-content: center; transition: transform .45s cubic-bezier(.3, .1, .2, 1); }
+.squad b { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding-bottom: 1vh; background: var(--tint); color: #0b1a2e;
+  clip-path: polygon(0 0, 100% 0, 100% 62%, 50% 100%, 0 62%); font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 6vh; line-height: 1; transition: opacity .25s; }
+.squad.gone b { opacity: 0; }
+.squad.pop b { animation: squad-pop .4s cubic-bezier(.2, 1.5, .4, 1); }
+.squad.struck b { animation: shake .4s ease-out; }
+@keyframes squad-pop { from { transform: scale(1.5); } to { transform: none; } }
+.road-wall { position: absolute; z-index: 1; left: 0; top: 2vh; width: 2.6vh; height: 17vh; border-radius: .6vh; opacity: 0; background: var(--tint); box-shadow: 0 0 0 .4vh #0b1a2e; transition: opacity .25s; }
+.road-wall.on { opacity: 1; }
+.road-power { position: absolute; z-index: 3; left: 0; top: -2vh; width: 11vh; text-align: center; opacity: 0; color: var(--tint); font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 5vh; line-height: 1.2;
+  text-shadow: 0 .3vh 1vh rgba(0, 0, 0, .8); transition: opacity .2s; }
+.road-power.on { opacity: 1; }
+.road-stone { position: absolute; z-index: 3; left: 0; top: 8vh; width: 4vh; height: 4vh; border-radius: 50%; background: radial-gradient(circle, #fff3c4 20%, var(--tint) 75%); transition: transform .4s linear; }
+
 .callout { position: absolute; z-index: 3; left: 0; top: 42%; width: 100%; text-align: center; pointer-events: none; opacity: 0;
   font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 10vh; color: var(--ink); animation: call 1.3s ease-out both;
   text-shadow: 0 .5vh 2.5vh rgba(0, 0, 0, .65); }
@@ -213,6 +274,8 @@ body:not(.seated) .half .sweep { display: block; }
   .fx-miss::after, .fx-hit::after, .fx-sunk::after, .fx-sunk::before, .fx-gone i::before, .confetti, .splash, .smoke, .blast { display: none; }
   #join.on, #menu-info.fresh { animation: none; }
   #cannon, .cannon-aim { transition: none; }
+  .squad, .road-land, .road-front, .road-stone, .castle-bar i { transition: none; }
+  .squad.pop b, .squad.struck b, .siege-chip.on { animation: none; }
   .sweep, .fog, .reticle, .fx-sunk i, .fx-clear i { animation: none; }
   .cell.hit i::before, .cell.hit i::after { animation: none; transform: rotate(45deg); }
   .cell.sunk:not(.fx-sunk) i { animation: none; }
