@@ -127,26 +127,26 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(Comparator, 'Comparator');
     initMetadataForObject(Unit, 'Unit');
     initMetadataForClass(AbstractCollection, 'AbstractCollection', VOID, VOID, [ Collection ]);
-    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ Collection, MutableIterable ]);
+    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ MutableIterable, Collection ]);
     initMetadataForClass(IteratorImpl, 'IteratorImpl');
     initMetadataForClass(ListIteratorImpl, 'ListIteratorImpl', VOID, IteratorImpl);
-    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ MutableIterable, KtList, Collection ]);
+    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ KtList, Collection, MutableIterable ]);
     initMetadataForClass(AbstractMap, 'AbstractMap', VOID, VOID, [ KtMap ]);
     initMetadataForClass(AbstractMutableMap, 'AbstractMutableMap', VOID, AbstractMap, [ KtMutableMap ]);
-    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ KtSet, Collection, MutableIterable ]);
     initMetadataForCompanion(Companion_2);
     initMetadataForInterface(RandomAccess, 'RandomAccess');
-    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ MutableIterable, KtList, Collection, RandomAccess ]);
+    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ KtList, Collection, MutableIterable, RandomAccess ]);
     initMetadataForClass(HashMap, 'HashMap', HashMap_init_$Create$, AbstractMutableMap, [ KtMutableMap ]);
-    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
-    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ Collection, MutableIterable ]);
-    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
+    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ MutableIterable, Collection ]);
+    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
     initMetadataForClass(HashMapEntrySet, 'HashMapEntrySet', VOID, HashMapEntrySetBase);
     initMetadataForClass(HashMapKeysDefault$iterator$1);
     initMetadataForClass(HashMapKeysDefault, 'HashMapKeysDefault', VOID, AbstractMutableSet);
     initMetadataForClass(HashMapValuesDefault$iterator$1);
     initMetadataForClass(HashMapValuesDefault, 'HashMapValuesDefault', VOID, AbstractMutableCollection);
-    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
     initMetadataForCompanion(Companion_3);
     initMetadataForClass(Itr, 'Itr');
     initMetadataForClass(KeysItr, 'KeysItr', VOID, Itr);
@@ -188,7 +188,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(InternalMap, 'InternalMap');
     initMetadataForClass(InternalHashMap, 'InternalHashMap', InternalHashMap_init_$Create$, VOID, [ InternalMap ]);
     initMetadataForClass(LinkedHashMap, 'LinkedHashMap', LinkedHashMap_init_$Create$, HashMap, [ KtMutableMap ]);
-    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ KtSet, Collection, MutableIterable ]);
     initMetadataForInterface(Continuation, 'Continuation');
     initMetadataForClass(InterceptedCoroutine, 'InterceptedCoroutine', VOID, VOID, [ Continuation ]);
     initMetadataForClass(CoroutineImpl, 'CoroutineImpl', VOID, InterceptedCoroutine, [ Continuation ]);
@@ -21495,7 +21495,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var tmp;
         if (destination.n()) {
-            tmp = listOf(Companion_getInstance_29().j1g_1);
+            tmp = listOf(Companion_getInstance_29().k1g_1);
         } else {
             tmp = destination;
         }
@@ -21574,9 +21574,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function shelfHalf($this, time) {
         var tmp;
         if (time < 9) {
-            tmp = 300;
+            tmp = 280;
         } else {
-            var b = 300 - (time - 9) * 50;
+            var b = 280 - (time - 9) * 50;
             tmp = Math.max(0, b);
         }
         return tmp;
@@ -21651,7 +21651,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 if (closing <= 0) continue $l$loop_0;
                 var turnA = ax * ny - ay * nx;
                 var turnB = bx * ny - by * nx;
-                var j = (1 + .8) * closing / (1 / a.e1e_1 + 1 / b.e1e_1 + turnA * turnA / a.f1e_1 + turnB * turnB / b.f1e_1);
+                var j = (1 + 1) * closing / (1 / a.e1e_1 + 1 / b.e1e_1 + turnA * turnA / a.f1e_1 + turnB * turnB / b.f1e_1);
                 a.k1e(-j * nx, -j * ny, ax, ay);
                 b.k1e(j * nx, j * ny, bx, by);
                 if (closing > hardest) {
@@ -21685,7 +21685,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.h1f_1 = 13;
         this.i1f_1 = 8;
         this.j1f_1 = 170;
-        this.k1f_1 = 300;
+        this.k1f_1 = 280;
         this.l1f_1 = 40;
         this.m1f_1 = 40;
         this.n1f_1 = 340;
@@ -21693,15 +21693,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.p1f_1 = .008333333333333333;
         this.q1f_1 = 6;
         this.r1f_1 = .05;
-        this.s1f_1 = .8;
+        this.s1f_1 = 1;
         this.t1f_1 = .2;
         this.u1f_1 = .25;
         this.v1f_1 = .998;
         this.w1f_1 = 1300;
         this.x1f_1 = .7;
         this.y1f_1 = 1;
-        this.z1f_1 = 520;
-        this.a1g_1 = 200;
+        this.z1f_1 = 320;
+        this.a1g_1 = 120;
         this.b1g_1 = 1.4;
         this.c1g_1 = 70;
         this.d1g_1 = .18;
@@ -21709,8 +21709,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.f1g_1 = 50;
         this.g1g_1 = 18;
         this.h1g_1 = 1.2;
-        this.i1g_1 = 1800;
-        this.j1g_1 = listOf_0([ new Dot(110, 260), new Dot(190, 260) ]);
+        this.i1g_1 = .94;
+        this.j1g_1 = 1800;
+        this.k1g_1 = listOf_0([ new Dot(110, 260), new Dot(190, 260) ]);
     }
     var Companion_instance_29;
     function Companion_getInstance_29() {
@@ -21724,7 +21725,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_getInstance_29();
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.b1f_1 = Ram_getInstance().k1g_1;
+        this.b1f_1 = Ram_getInstance().l1g_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -21783,7 +21784,35 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var endAt = 18;
         while (time < endAt) {
             var half = shelfHalf(this, time);
+            var tmp;
             if (time >= nextKick) {
+                var tmp$ret$6;
+                $l$block_0: {
+                    var tmp_0;
+                    if (isInterface(bodies, Collection)) {
+                        tmp_0 = bodies.n();
+                    } else {
+                        tmp_0 = false;
+                    }
+                    if (tmp_0) {
+                        tmp$ret$6 = true;
+                        break $l$block_0;
+                    }
+                    var _iterator__ex2g4s_0 = bodies.j();
+                    while (_iterator__ex2g4s_0.k()) {
+                        var element = _iterator__ex2g4s_0.l();
+                        if (!(element.h1e_1 == null)) {
+                            tmp$ret$6 = false;
+                            break $l$block_0;
+                        }
+                    }
+                    tmp$ret$6 = true;
+                }
+                tmp = tmp$ret$6;
+            } else {
+                tmp = false;
+            }
+            if (tmp) {
                 nextKick = nextKick + 1;
                 var iterator = bodies.j();
                 var index = 0;
@@ -21794,19 +21823,46 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     if (!(body.h1e_1 == null)) continue $l$loop;
                     var rival = bodies.p(1 - side | 0);
                     var toward = rival.y1d_1 >= body.y1d_1 ? 1 : -1;
-                    body.b1e_1 = body.b1e_1 + toward * 520;
-                    body.c1e_1 = body.c1e_1 + 200;
+                    body.b1e_1 = body.b1e_1 + toward * 320;
+                    body.c1e_1 = body.c1e_1 + 120;
                     body.d1e_1 = body.d1e_1 + this.k1b_1.ee(-1.4, 1.4);
                     var builder = new JsonObjectBuilder;
                     put(builder, 't', round(time * 1e3));
                     put(builder, 'side', side);
-                    var element = builder.ux();
-                    kicks.i(element);
+                    var element_0 = builder.ux();
+                    kicks.i(element_0);
                 }
             }
-            var _iterator__ex2g4s_0 = bodies.j();
-            while (_iterator__ex2g4s_0.k()) {
-                var body_0 = _iterator__ex2g4s_0.l();
+            var tmp$ret$11;
+            $l$block_2: {
+                var tmp_1;
+                if (isInterface(bodies, Collection)) {
+                    tmp_1 = bodies.n();
+                } else {
+                    tmp_1 = false;
+                }
+                if (tmp_1) {
+                    tmp$ret$11 = false;
+                    break $l$block_2;
+                }
+                var _iterator__ex2g4s_1 = bodies.j();
+                while (_iterator__ex2g4s_1.k()) {
+                    var element_1 = _iterator__ex2g4s_1.l();
+                    if (!(element_1.h1e_1 == null)) {
+                        tmp$ret$11 = true;
+                        break $l$block_2;
+                    }
+                }
+                tmp$ret$11 = false;
+            }
+            var decided = tmp$ret$11;
+            var _iterator__ex2g4s_2 = bodies.j();
+            while (_iterator__ex2g4s_2.k()) {
+                var body_0 = _iterator__ex2g4s_2.l();
+                if (decided && body_0.h1e_1 == null) {
+                    body_0.b1e_1 = body_0.b1e_1 * .94;
+                    body_0.d1e_1 = body_0.d1e_1 * .94;
+                }
                 body_0.c1e_1 = body_0.c1e_1 - 620 * .008333333333333333;
                 body_0.y1d_1 = body_0.y1d_1 + body_0.b1e_1 * .008333333333333333;
                 body_0.z1d_1 = body_0.z1d_1 + body_0.c1e_1 * .008333333333333333;
@@ -21829,12 +21885,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 put(builder_0, 'x', round(hit.ch_1));
                 put(builder_0, 'y', round(hit.dh_1));
                 put(builder_0, 'power', round(hit.eh_1));
-                var element_0 = builder_0.ux();
-                hits.i(element_0);
+                var element_2 = builder_0.ux();
+                hits.i(element_2);
             }
-            var _iterator__ex2g4s_1 = bodies.j();
-            while (_iterator__ex2g4s_1.k()) {
-                var body_1 = _iterator__ex2g4s_1.l();
+            var _iterator__ex2g4s_3 = bodies.j();
+            while (_iterator__ex2g4s_3.k()) {
+                var body_1 = _iterator__ex2g4s_3.l();
                 if (body_1.h1e_1 == null && body_1.z1d_1 < 40) {
                     body_1.h1e_1 = time;
                     var tmp0_0 = endAt;
@@ -21845,25 +21901,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _unary__edvuaz = step;
             step = _unary__edvuaz + 1 | 0;
             if ((_unary__edvuaz % 6 | 0) === 0) {
-                var _iterator__ex2g4s_2 = bodies.j();
-                while (_iterator__ex2g4s_2.k()) {
-                    var body_2 = _iterator__ex2g4s_2.l();
-                    var element_1 = JsonPrimitive_0(round(body_2.y1d_1));
-                    frames.i(element_1);
-                    var element_2 = JsonPrimitive_0(round(body_2.z1d_1));
-                    frames.i(element_2);
-                    var element_3 = JsonPrimitive_0(round(body_2.a1e_1 * 100) / 100);
+                var _iterator__ex2g4s_4 = bodies.j();
+                while (_iterator__ex2g4s_4.k()) {
+                    var body_2 = _iterator__ex2g4s_4.l();
+                    var element_3 = JsonPrimitive_0(round(body_2.y1d_1));
                     frames.i(element_3);
+                    var element_4 = JsonPrimitive_0(round(body_2.z1d_1));
+                    frames.i(element_4);
+                    var element_5 = JsonPrimitive_0(round(body_2.a1e_1 * 100) / 100);
+                    frames.i(element_5);
                 }
             }
             time = time + .008333333333333333;
         }
         var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(bodies, 10));
-        var _iterator__ex2g4s_3 = bodies.j();
-        while (_iterator__ex2g4s_3.k()) {
-            var item_0 = _iterator__ex2g4s_3.l();
-            var tmp$ret$19 = item_0.h1e_1;
-            destination_0.i(tmp$ret$19);
+        var _iterator__ex2g4s_5 = bodies.j();
+        while (_iterator__ex2g4s_5.k()) {
+            var item_0 = _iterator__ex2g4s_5.l();
+            var tmp$ret$23 = item_0.h1e_1;
+            destination_0.i(tmp$ret$23);
         }
         var falls = destination_0;
         var loser = falls.p(0) == null && falls.p(1) == null ? bodies.p(0).z1d_1 < bodies.p(1).z1d_1 ? 0 : bodies.p(1).z1d_1 < bodies.p(0).z1d_1 ? 1 : null : falls.p(1) == null ? 0 : falls.p(0) == null ? 1 : ensureNotNull(falls.p(0)) < ensureNotNull(falls.p(1)) ? 0 : ensureNotNull(falls.p(1)) < ensureNotNull(falls.p(0)) ? 1 : null;
@@ -21878,32 +21934,32 @@ if (typeof String.prototype.startsWith === 'undefined') {
         put(builder_1, 'step', .05 * 1e3);
         builder_1.tx('frames', new JsonArray(frames));
         var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(shapes, 10));
-        var _iterator__ex2g4s_4 = shapes.j();
-        while (_iterator__ex2g4s_4.k()) {
-            var item_1 = _iterator__ex2g4s_4.l();
-            var tmp$ret$24 = linesToJson(item_1.m1e_1);
-            destination_1.i(tmp$ret$24);
+        var _iterator__ex2g4s_6 = shapes.j();
+        while (_iterator__ex2g4s_6.k()) {
+            var item_1 = _iterator__ex2g4s_6.l();
+            var tmp$ret$28 = linesToJson(item_1.m1e_1);
+            destination_1.i(tmp$ret$28);
         }
         builder_1.tx('shapes', new JsonArray(destination_1));
         builder_1.tx('hits', new JsonArray(hits));
         builder_1.tx('kicks', new JsonArray(kicks));
         var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(falls, 10));
-        var _iterator__ex2g4s_5 = falls.j();
-        while (_iterator__ex2g4s_5.k()) {
-            var item_2 = _iterator__ex2g4s_5.l();
-            var tmp$ret$27 = item_2 == null ? JsonPrimitive_0(-1) : JsonPrimitive_0(round(item_2 * 1e3));
-            destination_2.i(tmp$ret$27);
+        var _iterator__ex2g4s_7 = falls.j();
+        while (_iterator__ex2g4s_7.k()) {
+            var item_2 = _iterator__ex2g4s_7.l();
+            var tmp$ret$31 = item_2 == null ? JsonPrimitive_0(-1) : JsonPrimitive_0(round(item_2 * 1e3));
+            destination_2.i(tmp$ret$31);
         }
         builder_1.tx('falls', new JsonArray(destination_2));
         put(builder_1, 'loser', loser);
         put(builder_1, 'crumbleAfter', 9 * 1e3);
-        put(builder_1, 'crumbleMs', 300 / 50 * 1e3);
-        var tmp$ret$20 = builder_1.ux();
-        return to(tmp$ret$20, ms + 1800 | 0);
+        put(builder_1, 'crumbleMs', 280 / 50 * 1e3);
+        var tmp$ret$24 = builder_1.ux();
+        return to(tmp$ret$24, ms + 1800 | 0);
     };
     protoOf(RamGame).q1d = function(_this__u8e3s4) {
         put(_this__u8e3s4, 'floor', 170);
-        put(_this__u8e3s4, 'shelfHalf', 300);
+        put(_this__u8e3s4, 'shelfHalf', 280);
     };
     protoOf(RamGame).r1d = function(_this__u8e3s4, side) {
         put(_this__u8e3s4, 'ink', 800);
@@ -21912,14 +21968,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
     };
     function Ram() {
         Ram_instance = this;
-        this.k1g_1 = 'ram';
-        this.l1g_1 = numberRangeToNumber(2, 2);
+        this.l1g_1 = 'ram';
+        this.m1g_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Ram).k1a = function() {
-        return this.k1g_1;
+        return this.l1g_1;
     };
     protoOf(Ram).l1a = function() {
-        return this.l1g_1;
+        return this.m1g_1;
     };
     protoOf(Ram).m1a = function(players, random) {
         return new RamGame(players, random);
@@ -21968,15 +22024,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_30() {
         Companion_instance_30 = this;
-        this.m1g_1 = 300;
-        this.n1g_1 = 3e3;
+        this.n1g_1 = 300;
         this.o1g_1 = 3e3;
-        this.p1g_1 = 15;
-        this.q1g_1 = 6e3;
-        this.r1g_1 = 42;
-        this.s1g_1 = mapOf_0([ to('star', listOf(line(this, new Int32Array([ 150, 30, 185, 115, 275, 120, 205, 180, 230, 270, 150, 220, 70, 270, 95, 180, 25, 120, 115, 115, 150, 30 ])))), to('house', listOf_0([ line(this, new Int32Array([ 60, 270, 60, 130, 150, 40, 240, 130, 240, 270, 60, 270 ])), line(this, new Int32Array([ 125, 270, 125, 190, 175, 190, 175, 270 ])) ])), to('heart', listOf(line(this, new Int32Array([ 150, 270, 50, 165, 30, 105, 60, 55, 110, 50, 150, 95, 190, 50, 240, 55, 270, 105, 250, 165, 150, 270 ])))), to('zigzag', listOf(line(this, new Int32Array([ 30, 240, 80, 60, 130, 240, 180, 60, 230, 240, 270, 90 ])))), to('fish', listOf(line(this, new Int32Array([ 30, 150, 80, 90, 160, 80, 220, 140, 275, 90, 275, 210, 220, 160, 160, 220, 80, 210, 30, 150 ])))), to('arrow', listOf(line(this, new Int32Array([ 30, 120, 170, 120, 170, 60, 275, 150, 170, 240, 170, 180, 30, 180, 30, 120 ])))), to('bolt', listOf(line(this, new Int32Array([ 180, 25, 80, 165, 145, 165, 110, 275, 225, 120, 160, 120, 180, 25 ])))), to('crown', listOf(line(this, new Int32Array([ 40, 240, 30, 80, 95, 150, 150, 50, 205, 150, 270, 80, 260, 240, 40, 240 ])))), to('boat', listOf_0([ line(this, new Int32Array([ 30, 190, 270, 190, 225, 260, 75, 260, 30, 190 ])), line(this, new Int32Array([ 150, 190, 150, 40, 235, 150, 150, 150 ])) ])), to('tree', listOf_0([ line(this, new Int32Array([ 150, 25, 225, 115, 190, 115, 255, 205, 45, 205, 110, 115, 75, 115, 150, 25 ])), line(this, new Int32Array([ 130, 205, 130, 275, 170, 275, 170, 205 ])) ])), to('letter', listOf_0([ line(this, new Int32Array([ 30, 80, 270, 80, 270, 225, 30, 225, 30, 80 ])), line(this, new Int32Array([ 30, 80, 150, 170, 270, 80 ])) ])), to('spiral', listOf(line(this, new Int32Array([ 150, 150, 175, 150, 175, 120, 125, 120, 115, 180, 200, 190, 215, 90, 90, 80, 70, 215, 240, 235, 260, 45, 50, 40 ])))) ]);
+        this.p1g_1 = 3e3;
+        this.q1g_1 = 15;
+        this.r1g_1 = 6e3;
+        this.s1g_1 = 42;
+        this.t1g_1 = mapOf_0([ to('star', listOf(line(this, new Int32Array([ 150, 30, 185, 115, 275, 120, 205, 180, 230, 270, 150, 220, 70, 270, 95, 180, 25, 120, 115, 115, 150, 30 ])))), to('house', listOf_0([ line(this, new Int32Array([ 60, 270, 60, 130, 150, 40, 240, 130, 240, 270, 60, 270 ])), line(this, new Int32Array([ 125, 270, 125, 190, 175, 190, 175, 270 ])) ])), to('heart', listOf(line(this, new Int32Array([ 150, 270, 50, 165, 30, 105, 60, 55, 110, 50, 150, 95, 190, 50, 240, 55, 270, 105, 250, 165, 150, 270 ])))), to('zigzag', listOf(line(this, new Int32Array([ 30, 240, 80, 60, 130, 240, 180, 60, 230, 240, 270, 90 ])))), to('fish', listOf(line(this, new Int32Array([ 30, 150, 80, 90, 160, 80, 220, 140, 275, 90, 275, 210, 220, 160, 160, 220, 80, 210, 30, 150 ])))), to('arrow', listOf(line(this, new Int32Array([ 30, 120, 170, 120, 170, 60, 275, 150, 170, 240, 170, 180, 30, 180, 30, 120 ])))), to('bolt', listOf(line(this, new Int32Array([ 180, 25, 80, 165, 145, 165, 110, 275, 225, 120, 160, 120, 180, 25 ])))), to('crown', listOf(line(this, new Int32Array([ 40, 240, 30, 80, 95, 150, 150, 50, 205, 150, 270, 80, 260, 240, 40, 240 ])))), to('boat', listOf_0([ line(this, new Int32Array([ 30, 190, 270, 190, 225, 260, 75, 260, 30, 190 ])), line(this, new Int32Array([ 150, 190, 150, 40, 235, 150, 150, 150 ])) ])), to('tree', listOf_0([ line(this, new Int32Array([ 150, 25, 225, 115, 190, 115, 255, 205, 45, 205, 110, 115, 75, 115, 150, 25 ])), line(this, new Int32Array([ 130, 205, 130, 275, 170, 275, 170, 205 ])) ])), to('letter', listOf_0([ line(this, new Int32Array([ 30, 80, 270, 80, 270, 225, 30, 225, 30, 80 ])), line(this, new Int32Array([ 30, 80, 150, 170, 270, 80 ])) ])), to('spiral', listOf(line(this, new Int32Array([ 150, 150, 175, 150, 175, 120, 125, 120, 115, 180, 200, 190, 215, 90, 90, 80, 70, 215, 240, 235, 260, 45, 50, 40 ])))) ]);
     }
-    protoOf(Companion_30).t1g = function(drawing, target) {
+    protoOf(Companion_30).u1g = function(drawing, target) {
         var drawn = flatten(drawing);
         if (drawn.m() < 2) return emptyList();
         var wanted = flatten(target);
@@ -22147,7 +22203,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return destination;
     };
-    protoOf(Companion_30).u1g = function(drawing, target) {
+    protoOf(Companion_30).v1g = function(drawing, target) {
         if (drawing.n()) return 0;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = drawing.j();
@@ -22184,7 +22240,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_getInstance_30();
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.j1h_1 = Recall_getInstance().n1h_1;
+        this.k1h_1 = Recall_getInstance().o1h_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -22192,13 +22248,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.k1h_1 = tmp_1;
-        this.l1h_1 = toMutableList_0(shuffled(Companion_getInstance_30().s1g_1.u1(), random));
-        this.m1h_1 = '';
+        tmp.l1h_1 = tmp_1;
+        this.m1h_1 = toMutableList_0(shuffled(Companion_getInstance_30().t1g_1.u1(), random));
+        this.n1h_1 = '';
         this.j1d();
     }
     protoOf(RecallGame).k1d = function() {
-        return this.j1h_1;
+        return this.k1h_1;
     };
     protoOf(RecallGame).l1d = function() {
         return 15;
@@ -22214,16 +22270,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.k1h_1 = tmp_1;
-        if (this.l1h_1.n()) {
-            var tmp0 = this.l1h_1;
-            var elements = shuffled(Companion_getInstance_30().s1g_1.u1(), this.k1b_1);
+        tmp.l1h_1 = tmp_1;
+        if (this.m1h_1.n()) {
+            var tmp0 = this.m1h_1;
+            var elements = shuffled(Companion_getInstance_30().t1g_1.u1(), this.k1b_1);
             addAll(tmp0, elements);
         }
-        this.m1h_1 = this.l1h_1.e3(0);
+        this.n1h_1 = this.m1h_1.e3(0);
     };
     protoOf(RecallGame).n1d = function(side, action) {
-        var tmp = this.k1h_1;
+        var tmp = this.l1h_1;
         var tmp0_elvis_lhs = readStrokes(action.ix('strokes'), 300, 300, 3e3);
         var tmp_0;
         if (tmp0_elvis_lhs == null) {
@@ -22235,15 +22291,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return true;
     };
     protoOf(RecallGame).p1d = function() {
-        var target = getValue(Companion_getInstance_30().s1g_1, this.m1h_1);
-        var this_0 = this.k1h_1;
+        var target = getValue(Companion_getInstance_30().t1g_1, this.n1h_1);
+        var this_0 = this.l1h_1;
         var destination = ArrayList_init_$Create$_0(this_0.length);
         var inductionVariable = 0;
         var last = this_0.length;
         while (inductionVariable < last) {
             var item = this_0[inductionVariable];
             inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$2 = Companion_getInstance_30().t1g(item, target);
+            var tmp$ret$2 = Companion_getInstance_30().u1g(item, target);
             destination.i(tmp$ret$2);
         }
         var fitted = destination;
@@ -22251,7 +22307,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = fitted.j();
         while (_iterator__ex2g4s.k()) {
             var item_0 = _iterator__ex2g4s.l();
-            var tmp$ret$5 = Companion_getInstance_30().u1g(item_0, target);
+            var tmp$ret$5 = Companion_getInstance_30().v1g(item_0, target);
             destination_0.i(tmp$ret$5);
         }
         var scores = destination_0;
@@ -22265,7 +22321,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var builder = new JsonObjectBuilder;
         put(builder, 'ms', 6e3);
-        put_0(builder, 'shape', this.m1h_1);
+        put_0(builder, 'shape', this.n1h_1);
         builder.tx('target', linesToJson(target));
         var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(fitted, 10));
         var _iterator__ex2g4s_0 = fitted.j();
@@ -22288,24 +22344,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     };
     protoOf(RecallGame).q1d = function(_this__u8e3s4) {
         put(_this__u8e3s4, 'pad', 300);
-        _this__u8e3s4.tx('flash', this.m1b_1 === 'prelude' ? linesToJson(getValue(Companion_getInstance_30().s1g_1, this.m1h_1)) : JsonNull_getInstance());
+        _this__u8e3s4.tx('flash', this.m1b_1 === 'prelude' ? linesToJson(getValue(Companion_getInstance_30().t1g_1, this.n1h_1)) : JsonNull_getInstance());
         put(_this__u8e3s4, 'flashMs', 3e3);
     };
     protoOf(RecallGame).r1d = function(_this__u8e3s4, side) {
         put(_this__u8e3s4, 'pad', 300);
         put(_this__u8e3s4, 'ink', 3e3);
-        _this__u8e3s4.tx('mine', linesToJson(this.k1h_1[side]));
+        _this__u8e3s4.tx('mine', linesToJson(this.l1h_1[side]));
     };
     function Recall() {
         Recall_instance = this;
-        this.n1h_1 = 'recall';
-        this.o1h_1 = numberRangeToNumber(2, 2);
+        this.o1h_1 = 'recall';
+        this.p1h_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Recall).k1a = function() {
-        return this.n1h_1;
+        return this.o1h_1;
     };
     protoOf(Recall).l1a = function() {
-        return this.o1h_1;
+        return this.p1h_1;
     };
     protoOf(Recall).m1a = function(players, random) {
         return new RecallGame(players, random);
@@ -22335,53 +22391,53 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function Flyer(side, path) {
-        this.p1h_1 = side;
-        this.q1h_1 = path;
-        this.r1h_1 = lineLength(this.q1h_1);
-        this.s1h_1 = 0;
+        this.q1h_1 = side;
+        this.r1h_1 = path;
+        this.s1h_1 = lineLength(this.r1h_1);
         this.t1h_1 = 0;
+        this.u1h_1 = 0;
         var tmp = this;
-        var tmp0_safe_receiver = firstOrNull(this.q1h_1);
+        var tmp0_safe_receiver = firstOrNull(this.r1h_1);
         var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.x1b_1;
-        tmp.u1h_1 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
+        tmp.v1h_1 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
         var tmp_0 = this;
-        var tmp0_safe_receiver_0 = firstOrNull(this.q1h_1);
+        var tmp0_safe_receiver_0 = firstOrNull(this.r1h_1);
         var tmp1_elvis_lhs_0 = tmp0_safe_receiver_0 == null ? null : tmp0_safe_receiver_0.y1b_1;
-        tmp_0.v1h_1 = tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0;
-        this.w1h_1 = null;
-        this.x1h_1 = 0;
+        tmp_0.w1h_1 = tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0;
+        this.x1h_1 = null;
+        this.y1h_1 = 0;
     }
-    protoOf(Flyer).y1h = function(distance) {
+    protoOf(Flyer).z1h = function(distance) {
         var left = distance;
-        while (left > 0 && this.s1h_1 < (this.q1h_1.m() - 1 | 0)) {
-            var from = this.q1h_1.p(this.s1h_1);
-            var to = this.q1h_1.p(this.s1h_1 + 1 | 0);
+        while (left > 0 && this.t1h_1 < (this.r1h_1.m() - 1 | 0)) {
+            var from = this.r1h_1.p(this.t1h_1);
+            var to = this.r1h_1.p(this.t1h_1 + 1 | 0);
             var tmp0 = to.x1b_1 - from.x1b_1;
             var y = to.y1b_1 - from.y1b_1;
             var step = hypot(tmp0, y);
-            if (this.t1h_1 + left < step) {
-                this.t1h_1 = this.t1h_1 + left;
-                this.x1h_1 = this.x1h_1 + left;
+            if (this.u1h_1 + left < step) {
+                this.u1h_1 = this.u1h_1 + left;
+                this.y1h_1 = this.y1h_1 + left;
                 left = 0;
             } else {
-                left = left - (step - this.t1h_1);
-                this.x1h_1 = this.x1h_1 + (step - this.t1h_1);
-                this.t1h_1 = 0;
-                this.s1h_1 = this.s1h_1 + 1 | 0;
+                left = left - (step - this.u1h_1);
+                this.y1h_1 = this.y1h_1 + (step - this.u1h_1);
+                this.u1h_1 = 0;
+                this.t1h_1 = this.t1h_1 + 1 | 0;
             }
         }
-        if (this.s1h_1 >= (this.q1h_1.m() - 1 | 0)) {
-            this.u1h_1 = last(this.q1h_1).x1b_1;
-            this.v1h_1 = last(this.q1h_1).y1b_1;
+        if (this.t1h_1 >= (this.r1h_1.m() - 1 | 0)) {
+            this.v1h_1 = last(this.r1h_1).x1b_1;
+            this.w1h_1 = last(this.r1h_1).y1b_1;
             return false;
         }
-        var from_0 = this.q1h_1.p(this.s1h_1);
-        var to_0 = this.q1h_1.p(this.s1h_1 + 1 | 0);
+        var from_0 = this.r1h_1.p(this.t1h_1);
+        var to_0 = this.r1h_1.p(this.t1h_1 + 1 | 0);
         var tmp0_0 = to_0.x1b_1 - from_0.x1b_1;
         var y_0 = to_0.y1b_1 - from_0.y1b_1;
         var step_0 = hypot(tmp0_0, y_0);
-        this.u1h_1 = from_0.x1b_1 + (to_0.x1b_1 - from_0.x1b_1) * this.t1h_1 / step_0;
-        this.v1h_1 = from_0.y1b_1 + (to_0.y1b_1 - from_0.y1b_1) * this.t1h_1 / step_0;
+        this.v1h_1 = from_0.x1b_1 + (to_0.x1b_1 - from_0.x1b_1) * this.u1h_1 / step_0;
+        this.w1h_1 = from_0.y1b_1 + (to_0.y1b_1 - from_0.y1b_1) * this.u1h_1 / step_0;
         return true;
     };
     function distanceToLine($this, x, y, line) {
@@ -22406,19 +22462,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return best;
     }
     function Companion_31() {
-        this.z1h_1 = 800;
-        this.a1i_1 = 562;
-        this.b1i_1 = 60;
-        this.c1i_1 = 46;
-        this.d1i_1 = 1050;
-        this.e1i_1 = 340;
-        this.f1i_1 = 240;
-        this.g1i_1 = .016666666666666666;
-        this.h1i_1 = 8;
-        this.i1i_1 = 24;
-        this.j1i_1 = 30;
-        this.k1i_1 = 20;
-        this.l1i_1 = 2200;
+        this.a1i_1 = 800;
+        this.b1i_1 = 562;
+        this.c1i_1 = 60;
+        this.d1i_1 = 46;
+        this.e1i_1 = 1050;
+        this.f1i_1 = 340;
+        this.g1i_1 = 240;
+        this.h1i_1 = .016666666666666666;
+        this.i1i_1 = 8;
+        this.j1i_1 = 24;
+        this.k1i_1 = 30;
+        this.l1i_1 = 20;
+        this.m1i_1 = 2200;
     }
     var Companion_instance_31;
     function Companion_getInstance_31() {
@@ -22427,7 +22483,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function RocketsGame(players, random, pointsToWin) {
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.a1j_1 = Rockets_getInstance().d1j_1;
+        this.b1j_1 = Rockets_getInstance().e1j_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -22435,7 +22491,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.b1j_1 = tmp_1;
+        tmp.c1j_1 = tmp_1;
         var tmp_2 = this;
         var tmp_3 = 0;
         var tmp_4 = Array(2);
@@ -22443,25 +22499,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_4[tmp_3] = emptyList();
             tmp_3 = tmp_3 + 1 | 0;
         }
-        tmp_2.c1j_1 = tmp_4;
+        tmp_2.d1j_1 = tmp_4;
         this.j1d();
     }
     protoOf(RocketsGame).k1d = function() {
-        return this.a1j_1;
+        return this.b1j_1;
     };
     protoOf(RocketsGame).l1d = function() {
         return 20;
     };
     protoOf(RocketsGame).m1d = function() {
-        var progression = get_indices(this.b1j_1);
+        var progression = get_indices(this.c1j_1);
         var inductionVariable = progression.w_1;
         var last = progression.x_1;
         if (inductionVariable <= last) do {
             var element = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var it = element;
-            this.b1j_1[it] = emptyList();
             this.c1j_1[it] = emptyList();
+            this.d1j_1[it] = emptyList();
         } while (!(element === last));
     };
     protoOf(RocketsGame).n1d = function(side, action) {
@@ -22469,7 +22525,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var layer = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
         if (layer === 'rocket') {
-            var b = 1050 - lineLength(this.c1j_1[side]);
+            var b = 1050 - lineLength(this.d1j_1[side]);
             var inkLeft = Math.max(0, b);
             var tmp2_elvis_lhs = readStrokes(action.ix('strokes'), 800, 562, 1050);
             var tmp;
@@ -22480,7 +22536,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             var tmp3_elvis_lhs = firstOrNull(tmp);
             var line = tmp3_elvis_lhs == null ? emptyList() : tmp3_elvis_lhs;
-            this.b1j_1[side] = drop(cutToInk(routeWithBase(this, line), inkLeft), 1);
+            this.c1j_1[side] = drop(cutToInk(routeWithBase(this, line), inkLeft), 1);
             return true;
         }
         if (layer === 'wall') {
@@ -22501,9 +22557,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 list.i(item);
             }
             var own = list;
-            var b_0 = 1050 - lineLength(routeWithBase(this, this.b1j_1[side]));
+            var b_0 = 1050 - lineLength(routeWithBase(this, this.c1j_1[side]));
             var inkLeft_0 = Math.max(0, b_0);
-            this.c1j_1[side] = cutToInk(own, inkLeft_0);
+            this.d1j_1[side] = cutToInk(own, inkLeft_0);
             return true;
         }
         return false;
@@ -22517,7 +22573,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var item = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var it = item;
-            var tmp$ret$2 = turned(this, it, this.c1j_1[it]);
+            var tmp$ret$2 = turned(this, it, this.d1j_1[it]);
             destination.i(tmp$ret$2);
         } while (!(item === last));
         var fieldWalls = destination;
@@ -22529,7 +22585,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var item_0 = inductionVariable_0;
             inductionVariable_0 = inductionVariable_0 + 1 | 0;
             var side = item_0;
-            var tmp$ret$5 = new Flyer(side, turned(this, side, routeWithBase(this, this.b1j_1[side])));
+            var tmp$ret$5 = new Flyer(side, turned(this, side, routeWithBase(this, this.c1j_1[side])));
             destination_0.i(tmp$ret$5);
         } while (!(item_0 === last_0));
         var flyers = destination_0;
@@ -22538,9 +22594,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = flyers.j();
         while (_iterator__ex2g4s.k()) {
             var flyer = _iterator__ex2g4s.l();
-            if (flyer.q1h_1.m() < 2) {
-                flyer.w1h_1 = 'none';
-                ends[flyer.p1h_1] = 0;
+            if (flyer.r1h_1.m() < 2) {
+                flyer.x1h_1 = 'none';
+                ends[flyer.q1h_1] = 0;
             }
         }
         $l$loop: while (true) {
@@ -22559,7 +22615,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_0 = flyers.j();
                 while (_iterator__ex2g4s_0.k()) {
                     var element = _iterator__ex2g4s_0.l();
-                    if (element.w1h_1 == null) {
+                    if (element.x1h_1 == null) {
                         tmp$ret$7 = true;
                         break $l$block_0;
                     }
@@ -22573,14 +22629,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = flyers.j();
             $l$loop_0: while (_iterator__ex2g4s_1.k()) {
                 var flyer_0 = _iterator__ex2g4s_1.l();
-                if (!(flyer_0.w1h_1 == null)) continue $l$loop_0;
-                var flying = flyer_0.y1h(240 * .016666666666666666);
-                var rivalBaseX = flyer_0.p1h_1 === 0 ? 800 - 60 : 60;
-                var tmp0 = flyer_0.u1h_1 - rivalBaseX;
-                var y = flyer_0.v1h_1 - 562 / 2;
-                if (hypot(tmp0, y) <= 46) flyer_0.w1h_1 = 'base'; else {
+                if (!(flyer_0.x1h_1 == null)) continue $l$loop_0;
+                var flying = flyer_0.z1h(240 * .016666666666666666);
+                var rivalBaseX = flyer_0.q1h_1 === 0 ? 800 - 60 : 60;
+                var tmp0 = flyer_0.v1h_1 - rivalBaseX;
+                var y = flyer_0.w1h_1 - 562 / 2;
+                if (hypot(tmp0, y) <= 46) flyer_0.x1h_1 = 'base'; else {
                     var tmp_0;
-                    if (flyer_0.x1h_1 > 30) {
+                    if (flyer_0.y1h_1 > 30) {
                         var tmp$ret$10;
                         $l$block_2: {
                             var tmp_1;
@@ -22596,7 +22652,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                             var _iterator__ex2g4s_2 = fieldWalls.j();
                             while (_iterator__ex2g4s_2.k()) {
                                 var element_0 = _iterator__ex2g4s_2.l();
-                                if (element_0.m() >= 2 && distanceToLine(this, flyer_0.u1h_1, flyer_0.v1h_1, element_0) <= 8) {
+                                if (element_0.m() >= 2 && distanceToLine(this, flyer_0.v1h_1, flyer_0.w1h_1, element_0) <= 8) {
                                     tmp$ret$10 = true;
                                     break $l$block_2;
                                 }
@@ -22607,27 +22663,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     } else {
                         tmp_0 = false;
                     }
-                    if (tmp_0) flyer_0.w1h_1 = 'wall'; else {
-                        if (!flying) flyer_0.w1h_1 = 'fuel';
+                    if (tmp_0) flyer_0.x1h_1 = 'wall'; else {
+                        if (!flying) flyer_0.x1h_1 = 'fuel';
                     }
                 }
-                if (!(flyer_0.w1h_1 == null)) {
-                    ends[flyer_0.p1h_1] = time;
+                if (!(flyer_0.x1h_1 == null)) {
+                    ends[flyer_0.q1h_1] = time;
                 }
             }
             var a = flyers.p(0);
             var b = flyers.p(1);
             var tmp_2;
-            if (a.w1h_1 == null && b.w1h_1 == null) {
-                var tmp0_0 = a.u1h_1 - b.u1h_1;
-                var y_0 = a.v1h_1 - b.v1h_1;
+            if (a.x1h_1 == null && b.x1h_1 == null) {
+                var tmp0_0 = a.v1h_1 - b.v1h_1;
+                var y_0 = a.w1h_1 - b.w1h_1;
                 tmp_2 = hypot(tmp0_0, y_0) <= 24;
             } else {
                 tmp_2 = false;
             }
             if (tmp_2) {
-                a.w1h_1 = 'rocket';
-                b.w1h_1 = 'rocket';
+                a.x1h_1 = 'rocket';
+                b.x1h_1 = 'rocket';
                 ends[0] = time;
                 ends[1] = time;
             }
@@ -22635,9 +22691,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_3 = flyers.j();
         while (_iterator__ex2g4s_3.k()) {
             var flyer_1 = _iterator__ex2g4s_3.l();
-            if (flyer_1.w1h_1 === 'base') {
+            if (flyer_1.x1h_1 === 'base') {
                 var _array__4zh2yp = this.o1b_1;
-                var _index_0__fvwizt = flyer_1.p1h_1;
+                var _index_0__fvwizt = flyer_1.q1h_1;
                 _array__4zh2yp[_index_0__fvwizt] = _array__4zh2yp[_index_0__fvwizt] + 1 | 0;
             }
         }
@@ -22650,14 +22706,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s_4.k()) {
             var item_1 = _iterator__ex2g4s_4.l();
             var builder_0 = new JsonObjectBuilder;
-            put(builder_0, 'side', item_1.p1h_1);
-            put_0(builder_0, 'end', item_1.w1h_1);
-            put(builder_0, 'x', round(item_1.u1h_1));
-            put(builder_0, 'y', round(item_1.v1h_1));
-            var tmp0_elvis_lhs = ends[item_1.p1h_1];
+            put(builder_0, 'side', item_1.q1h_1);
+            put_0(builder_0, 'end', item_1.x1h_1);
+            put(builder_0, 'x', round(item_1.v1h_1));
+            put(builder_0, 'y', round(item_1.w1h_1));
+            var tmp0_elvis_lhs = ends[item_1.q1h_1];
             put(builder_0, 'ms', round((tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs) * 1e3));
-            put(builder_0, 'flown', round(item_1.x1h_1));
-            builder_0.tx('path', lineToJson(item_1.q1h_1));
+            put(builder_0, 'flown', round(item_1.y1h_1));
+            builder_0.tx('path', lineToJson(item_1.r1h_1));
             var tmp$ret$19 = builder_0.ux();
             destination_1.i(tmp$ret$19);
         }
@@ -22678,19 +22734,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         put(_this__u8e3s4, 'wallInk', 340);
         put(_this__u8e3s4, 'baseX', 60);
         put(_this__u8e3s4, 'baseRadius', 46);
-        _this__u8e3s4.tx('rocket', lineToJson(this.b1j_1[side]));
-        _this__u8e3s4.tx('wall', lineToJson(this.c1j_1[side]));
+        _this__u8e3s4.tx('rocket', lineToJson(this.c1j_1[side]));
+        _this__u8e3s4.tx('wall', lineToJson(this.d1j_1[side]));
     };
     function Rockets() {
         Rockets_instance = this;
-        this.d1j_1 = 'rockets';
-        this.e1j_1 = numberRangeToNumber(2, 2);
+        this.e1j_1 = 'rockets';
+        this.f1j_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Rockets).k1a = function() {
-        return this.d1j_1;
+        return this.e1j_1;
     };
     protoOf(Rockets).l1a = function() {
-        return this.e1j_1;
+        return this.f1j_1;
     };
     protoOf(Rockets).m1a = function(players, random) {
         return new RocketsGame(players, random);
@@ -22701,38 +22757,38 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Rockets_instance;
     }
     function Delivery(to, message) {
-        this.f1j_1 = to;
-        this.g1j_1 = message;
+        this.g1j_1 = to;
+        this.h1j_1 = message;
     }
     protoOf(Delivery).toString = function() {
-        return 'Delivery(to=' + this.f1j_1 + ', message=' + this.g1j_1.toString() + ')';
+        return 'Delivery(to=' + this.g1j_1 + ', message=' + this.h1j_1.toString() + ')';
     };
     protoOf(Delivery).hashCode = function() {
-        var result = getStringHashCode(this.f1j_1);
-        result = imul(result, 31) + this.g1j_1.hashCode() | 0;
+        var result = getStringHashCode(this.g1j_1);
+        result = imul(result, 31) + this.h1j_1.hashCode() | 0;
         return result;
     };
     protoOf(Delivery).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof Delivery)) return false;
-        if (!(this.f1j_1 === other.f1j_1)) return false;
-        if (!this.g1j_1.equals(other.g1j_1)) return false;
+        if (!(this.g1j_1 === other.g1j_1)) return false;
+        if (!this.h1j_1.equals(other.h1j_1)) return false;
         return true;
     };
     function Player(id, name, online) {
         online = online === VOID ? true : online;
-        this.h1j_1 = id;
-        this.i1j_1 = name;
-        this.j1j_1 = online;
+        this.i1j_1 = id;
+        this.j1j_1 = name;
+        this.k1j_1 = online;
     }
     function host($this) {
-        var tmp0 = $this.l1j_1;
+        var tmp0 = $this.m1j_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.j1j_1) {
+                if (element.k1j_1) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -22751,13 +22807,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = this_0;
         }
         var shown = tmp;
-        var tmp0 = $this.l1j_1;
+        var tmp0 = $this.m1j_1;
         var tmp$ret$4;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.h1j_1 === id) {
+                if (element.i1j_1 === id) {
                     tmp$ret$4 = element;
                     break $l$block;
                 }
@@ -22766,24 +22822,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var player = tmp$ret$4;
         if (!(player == null)) {
-            player.i1j_1 = shown;
-            player.j1j_1 = true;
+            player.j1j_1 = shown;
+            player.k1j_1 = true;
         } else {
-            var tmp0_0 = $this.l1j_1;
+            var tmp0_0 = $this.m1j_1;
             var element_0 = new Player(id, shown);
             tmp0_0.i(element_0);
         }
         return true;
     }
     function leave($this, player) {
-        $this.l1j_1.x2(player);
-        if ($this.o1j_1.m1(player.h1j_1)) {
+        $this.m1j_1.x2(player);
+        if ($this.p1j_1.m1(player.i1j_1)) {
             endGame($this);
         }
         return true;
     }
     function browse($this, id) {
-        if (!($this.m1j_1 == null) || id == null || id === $this.q1j_1) return false;
+        if (!($this.n1j_1 == null) || id == null || id === $this.r1j_1) return false;
         var tmp;
         var tmp0 = get_GAMES();
         var tmp$ret$0;
@@ -22837,7 +22893,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = false;
         }
         if (tmp) return false;
-        $this.q1j_1 = id;
+        $this.r1j_1 = id;
         return true;
     }
     function start($this, id) {
@@ -22862,12 +22918,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var kind = tmp;
-        var tmp0_0 = $this.l1j_1;
+        var tmp0_0 = $this.m1j_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s_0 = tmp0_0.j();
         while (_iterator__ex2g4s_0.k()) {
             var element_0 = _iterator__ex2g4s_0.l();
-            if (element_0.j1j_1) {
+            if (element_0.k1j_1) {
                 destination.i(element_0);
             }
         }
@@ -22875,12 +22931,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_1 = destination.j();
         while (_iterator__ex2g4s_1.k()) {
             var item = _iterator__ex2g4s_1.l();
-            var tmp$ret$7 = item.h1j_1;
+            var tmp$ret$7 = item.i1j_1;
             destination_0.i(tmp$ret$7);
         }
         var sitting = take(destination_0, kind.l1a().x_1);
         var tmp_0;
-        if (!($this.m1j_1 == null)) {
+        if (!($this.n1j_1 == null)) {
             tmp_0 = true;
         } else {
             var progression = kind.l1a();
@@ -22890,27 +22946,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = !(containsLower <= containsArg ? containsArg <= containsUpper : false);
         }
         if (tmp_0) return false;
-        $this.m1j_1 = kind.m1a(sitting, $this.k1j_1);
-        $this.n1j_1 = kind.k1a();
-        $this.q1j_1 = kind.k1a();
-        $this.o1j_1 = toSet_0(sitting);
+        $this.n1j_1 = kind.m1a(sitting, $this.l1j_1);
+        $this.o1j_1 = kind.k1a();
+        $this.r1j_1 = kind.k1a();
+        $this.p1j_1 = toSet_0(sitting);
         return true;
     }
     function rematch($this, player) {
         var tmp;
-        var tmp0_safe_receiver = $this.m1j_1;
+        var tmp0_safe_receiver = $this.n1j_1;
         if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.e1a()) == null) {
             tmp = true;
         } else {
-            tmp = !$this.o1j_1.m1(player.h1j_1);
+            tmp = !$this.p1j_1.m1(player.i1j_1);
         }
         if (tmp) return false;
         if (!equals(player, host($this))) {
-            if ($this.p1j_1 === player.h1j_1) return false;
-            $this.p1j_1 = player.h1j_1;
+            if ($this.q1j_1 === player.i1j_1) return false;
+            $this.q1j_1 = player.i1j_1;
             return true;
         }
-        var tmp0 = $this.l1j_1;
+        var tmp0 = $this.m1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -22926,7 +22982,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if ($this.o1j_1.m1(element.h1j_1) && !element.j1j_1) {
+                if ($this.p1j_1.m1(element.i1j_1) && !element.k1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -22941,41 +22997,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.k1a() === $this.n1j_1) {
+                if (element_0.k1a() === $this.o1j_1) {
                     tmp$ret$2 = element_0;
                     break $l$block_1;
                 }
             }
             throw NoSuchElementException_init_$Create$_0('Collection contains no element matching the predicate.');
         }
-        tmp_1.m1j_1 = tmp$ret$2.m1a(toList_1($this.o1j_1), $this.k1j_1);
-        $this.p1j_1 = null;
+        tmp_1.n1j_1 = tmp$ret$2.m1a(toList_1($this.p1j_1), $this.l1j_1);
+        $this.q1j_1 = null;
         return true;
     }
     function endGame($this) {
-        $this.m1j_1 = null;
         $this.n1j_1 = null;
-        $this.o1j_1 = emptySet();
-        $this.p1j_1 = null;
+        $this.o1j_1 = null;
+        $this.p1j_1 = emptySet();
+        $this.q1j_1 = null;
         return true;
     }
     function picture($this) {
         var builder = new JsonObjectBuilder;
-        var this_0 = $this.l1j_1;
+        var this_0 = $this.m1j_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.j();
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
             var builder_0 = new JsonObjectBuilder;
-            put_0(builder_0, 'id', item.h1j_1);
-            put_0(builder_0, 'name', item.i1j_1);
-            put_1(builder_0, 'online', item.j1j_1);
+            put_0(builder_0, 'id', item.i1j_1);
+            put_0(builder_0, 'name', item.j1j_1);
+            put_1(builder_0, 'online', item.k1j_1);
             var tmp$ret$4 = builder_0.ux();
             destination.i(tmp$ret$4);
         }
         builder.tx('players', new JsonArray(destination));
         var tmp0_safe_receiver = host($this);
-        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.h1j_1);
+        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.i1j_1);
         var this_1 = get_GAMES();
         var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
         var _iterator__ex2g4s_0 = this_1.j();
@@ -23003,11 +23059,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_1.i(tmp$ret$14);
         }
         builder.tx('games', new JsonArray(plus(tmp, destination_1)));
-        put_0(builder, 'browsing', $this.q1j_1);
-        put_0(builder, 'playing', $this.n1j_1);
-        put_0(builder, 'rematchOffer', $this.p1j_1);
+        put_0(builder, 'browsing', $this.r1j_1);
+        put_0(builder, 'playing', $this.o1j_1);
+        put_0(builder, 'rematchOffer', $this.q1j_1);
         var room = builder.ux();
-        var current = $this.m1j_1;
+        var current = $this.n1j_1;
         var this_3 = ArrayList_init_$Create$();
         var tmp_0 = plus_2(room, to('type', JsonPrimitive_1('state')));
         var tmp_1;
@@ -23017,7 +23073,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1 = to('view', current.i1a());
         }
         this_3.i(new Delivery('tv', new JsonObject(plus_3(tmp_0, listOfNotNull(tmp_1)))));
-        var _iterator__ex2g4s_2 = $this.l1j_1.j();
+        var _iterator__ex2g4s_2 = $this.m1j_1.j();
         while (_iterator__ex2g4s_2.k()) {
             var player = _iterator__ex2g4s_2.l();
             var tmp_2;
@@ -23025,7 +23081,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = null;
             } else {
                 var tmp_3;
-                if ($this.o1j_1.m1(player.h1j_1)) {
+                if ($this.p1j_1.m1(player.i1j_1)) {
                     tmp_3 = current;
                 } else {
                     tmp_3 = null;
@@ -23033,20 +23089,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = tmp_3;
             }
             var tmp2_safe_receiver = tmp_2;
-            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.j1a(player.h1j_1);
-            var tmp_4 = plus_2(plus_2(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.h1j_1)));
+            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.j1a(player.i1j_1);
+            var tmp_4 = plus_2(plus_2(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.i1j_1)));
             var tmp_5;
             if (view == null) {
                 tmp_5 = null;
             } else {
                 tmp_5 = to('view', view);
             }
-            this_3.i(new Delivery(player.h1j_1, new JsonObject(plus_3(tmp_4, listOfNotNull(tmp_5)))));
+            this_3.i(new Delivery(player.i1j_1, new JsonObject(plus_3(tmp_4, listOfNotNull(tmp_5)))));
         }
         return this_3.c4();
     }
     function Companion_32() {
-        this.r1j_1 = 16;
+        this.s1j_1 = 16;
     }
     var Companion_instance_32;
     function Companion_getInstance_32() {
@@ -23054,16 +23110,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Table(random) {
         random = random === VOID ? Default_getInstance() : random;
-        this.k1j_1 = random;
+        this.l1j_1 = random;
         var tmp = this;
-        tmp.l1j_1 = ArrayList_init_$Create$();
-        this.m1j_1 = null;
+        tmp.m1j_1 = ArrayList_init_$Create$();
         this.n1j_1 = null;
-        this.o1j_1 = emptySet();
-        this.p1j_1 = null;
-        this.q1j_1 = first(get_GAMES()).k1a();
+        this.o1j_1 = null;
+        this.p1j_1 = emptySet();
+        this.q1j_1 = null;
+        this.r1j_1 = first(get_GAMES()).k1a();
     }
-    protoOf(Table).s1j = function(from, text) {
+    protoOf(Table).t1j = function(from, text) {
         var tmp;
         try {
             var value = get_jsonObject(Default_getInstance_0().wv(text));
@@ -23090,13 +23146,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = message.ix('type');
         var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
         var type = tmp2_safe_receiver == null ? null : get_contentOrNull(tmp2_safe_receiver);
-        var tmp0 = this.l1j_1;
+        var tmp0 = this.m1j_1;
         var tmp$ret$5;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.h1j_1 === from) {
+                if (element.i1j_1 === from) {
                     tmp$ret$5 = element;
                     break $l$block;
                 }
@@ -23143,7 +23199,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'lobby':
-            tmp_2 = equals(player, host(this)) && !(this.m1j_1 == null) && endGame(this);
+            tmp_2 = equals(player, host(this)) && !(this.n1j_1 == null) && endGame(this);
             break;
 
           case 'rematch':
@@ -23152,8 +23208,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
           case 'act':
             var tmp_5;
-            if (!(player == null) && this.o1j_1.m1(from)) {
-                var tmp10_safe_receiver = this.m1j_1;
+            if (!(player == null) && this.p1j_1.m1(from)) {
+                var tmp10_safe_receiver = this.n1j_1;
                 tmp_5 = (tmp10_safe_receiver == null ? null : tmp10_safe_receiver.f1a(from, message)) === true;
             } else {
                 tmp_5 = false;
@@ -23168,14 +23224,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var changed = tmp_2;
         return changed ? picture(this) : emptyList();
     };
-    protoOf(Table).t1j = function(id) {
-        var tmp0 = this.l1j_1;
+    protoOf(Table).u1j = function(id) {
+        var tmp0 = this.m1j_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.h1j_1 === id) {
+                if (element.i1j_1 === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -23190,11 +23246,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var player = tmp;
-        player.j1j_1 = false;
+        player.k1j_1 = false;
         return picture(this);
     };
     protoOf(Table).g1a = function() {
-        var tmp0_elvis_lhs = this.m1j_1;
+        var tmp0_elvis_lhs = this.n1j_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -23202,7 +23258,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.l1j_1;
+        var tmp0 = this.m1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -23218,7 +23274,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (this.o1j_1.m1(element.h1j_1) && !element.j1j_1) {
+                if (this.p1j_1.m1(element.i1j_1) && !element.k1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -23229,7 +23285,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return current.g1a() ? picture(this) : emptyList();
     };
     protoOf(Table).h1a = function() {
-        var tmp0_elvis_lhs = this.m1j_1;
+        var tmp0_elvis_lhs = this.n1j_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -23237,7 +23293,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.l1j_1;
+        var tmp0 = this.m1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -23253,7 +23309,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (this.o1j_1.m1(element.h1j_1) && !element.j1j_1) {
+                if (this.p1j_1.m1(element.i1j_1) && !element.k1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -23273,7 +23329,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.f1j_1 === 'tv') {
+                if (element_0.g1j_1 === 'tv') {
                     destination.i(element_0);
                 }
             }
@@ -23296,27 +23352,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
             var builder = new JsonObjectBuilder;
-            put_0(builder, 'to', item.f1j_1);
-            builder.tx('message', item.g1j_1);
+            put_0(builder, 'to', item.g1j_1);
+            builder.tx('message', item.h1j_1);
             var tmp$ret$2 = builder.ux();
             destination.i(tmp$ret$2);
         }
         return new JsonArray(destination).toString();
     }
     function Engine() {
-        this.u1j_1 = new Table;
+        this.v1j_1 = new Table;
     }
     protoOf(Engine).receive = function(from, text) {
-        return encode(this, this.u1j_1.s1j(from, text));
+        return encode(this, this.v1j_1.t1j(from, text));
     };
     protoOf(Engine).offline = function(id) {
-        return encode(this, this.u1j_1.t1j(id));
+        return encode(this, this.v1j_1.u1j(id));
     };
     protoOf(Engine).tick = function() {
-        return encode(this, this.u1j_1.g1a());
+        return encode(this, this.v1j_1.g1a());
     };
     protoOf(Engine).frame = function() {
-        return encode(this, this.u1j_1.h1a());
+        return encode(this, this.v1j_1.h1a());
     };
     protoOf(InternalHashMap).d5 = containsAllEntries;
     protoOf(SerialDescriptorImpl).ij = get_isNullable;
