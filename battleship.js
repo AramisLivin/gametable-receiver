@@ -43,16 +43,23 @@ function blastOn(index, sunk) {
     half.appendChild(light);
 }
 
-function drawTally(fleet, rows) {
+function drawTally(fleet, rows, before) {
     const sunk = sunkSizes(rows);
+    const sunkBefore = before ? sunkSizes(before) : [];
+    const count = (list, size) => list.filter((s => s === size)).length;
     const tally = div('tally');
-    for (const size of fleet) {
-        const at = sunk.indexOf(size);
-        if (at >= 0) sunk.splice(at, 1);
-        const ship = div('tally-ship' + (at >= 0 ? ' gone' : ''));
-        for (let i = 0; i < size; i++) ship.appendChild(document.createElement('i'));
+    let nth = 0;
+    fleet.forEach(((size, i) => {
+        nth = i && fleet[i - 1] === size ? nth + 1 : 0;
+        const gone = nth < count(sunk, size);
+        const ship = div('tally-ship' + (nth ? '' : ' class-start') + (gone ? ' gone' : '') + (gone && nth >= count(sunkBefore, size) ? ' fx-gone' : ''));
+        for (let deck = 0; deck < size; deck++) {
+            const node = document.createElement('i');
+            if (gone) node.style.setProperty('--wait', `${deck * SINK_STEP_MS}ms`);
+            ship.appendChild(node);
+        }
         tally.appendChild(ship);
-    }
+    }));
     return tally;
 }
 
@@ -188,10 +195,12 @@ function drawBattleship(state) {
     for (const owner of owners) {
         const wrap = div('sea-wrap' + (view.winner ? '' : owner === view.turn ? ' resting' : ' under-fire'));
         wrap.appendChild(div('sea-glow'));
-        wrap.appendChild(div('sea-name', word('sea_of', 'Sea of {name}').replace('{name}', name(owner))));
+        const title = div('sea-name', word('sea_of', 'Sea of {name}').replace('{name}', name(owner)));
+        title.appendChild(div('sea-count', `${view.fleet.length - sunkSizes(view.boards[owner]).length} / ${view.fleet.length}`));
+        wrap.appendChild(title);
         const shot = view.last && owner !== view.last.by ? view.last : null;
         wrap.appendChild(drawTableSea(owner, view.boards[owner], before && before[owner], shot));
-        wrap.appendChild(drawTally(view.fleet, view.boards[owner]));
+        wrap.appendChild(drawTally(view.fleet, view.boards[owner], before && before[owner]));
         seas.appendChild(wrap);
     }
     root.appendChild(seas);
