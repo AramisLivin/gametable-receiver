@@ -323,7 +323,7 @@ body:not(.seated) .half .sweep { display: block; }
 #artillery.map-plateau { --sky1: #120826; --sky2: #2a1450; --sky3: #5b2a78; --sky4: #b0507a; --far: #2a1845; --d1: #8a5a6a; --d2: #5a3a54; --d3: #33223a; --d4: #190f1e; --grass: #c79ad0; --grass-edge: #5a3a66; --stars: .7; }
 #artillery.map-peaks { --sky1: #0a1830; --sky2: #1c3556; --sky3: #466a8e; --sky4: #8fb0c8; --far: #39597c; --d1: #eef4fa; --d2: #b9cadb; --d3: #6f849b; --d4: #33414f; --grass: #ffffff; --grass-edge: #9fb4c8; --stars: .6; }
 #artillery.map-islands { --sky1: #17325a; --sky2: #3b6090; --sky3: #e08a6e; --sky4: #f6c98a; --far: #5a4f76; --d1: #d8c48a; --d2: #8a7a4e; --d3: #4e4430; --d4: #221d14; --grass: #6fbf5e; --grass-edge: #3f7a3a; --stars: .1; --moon: .35; }
-.arty-camera { position: absolute; left: 0; top: 0; width: 100%; height: 100%; transition: transform 1.1s ease-in-out; }
+.arty-camera { position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform-origin: 0 0; transition: transform 1.1s ease-in-out; }
 .arty-d1 { stop-color: var(--d1); } .arty-d2 { stop-color: var(--d2); } .arty-d3 { stop-color: var(--d3); } .arty-d4 { stop-color: var(--d4); }
 .arty-far { fill: var(--far); }
 .arty-grass { stroke: var(--grass); }

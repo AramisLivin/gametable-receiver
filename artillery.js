@@ -394,6 +394,15 @@ function shotVerdict(shot) {
     return [ artyLine('arty_miss', 'Miss'), 'callout-miss' ];
 }
 
+function artyCloseUp(x, y) {
+    const zoom = 1.7, bars = 11, fieldWidth = 177.94, width = innerWidth / innerHeight * 100;
+    const left = width / 2 - fieldWidth / 2;
+    const within = (value, low, high) => Math.min(Math.max(value, low), high);
+    const moveX = within(width / 2 - zoom * (left + artyX(x)), width - zoom * (left + fieldWidth), -zoom * left);
+    const moveY = within(58 - zoom * artyY(y), 100 - bars - zoom * 100, bars);
+    return `translate(${moveX}vh,${moveY}vh) scale(${zoom})`;
+}
+
 function fly(view) {
     const shot = view.shot;
     artyFlying = true;
@@ -412,9 +421,9 @@ function fly(view) {
         const loser = view.hull.indexOf(0);
         if (loser >= 0) {
             const target = artyNodes.camera;
-            target.style.transformOrigin = `calc(50% + ${artyX(view.xs[loser]) - 88.97}vh) ${artyY(view.ys[loser])}vh`;
+            const frame = artyCloseUp(view.xs[loser], view.ys[loser]);
             artyLater(flightEnd * slow * .45, (() => {
-                target.style.transform = 'scale(1.7)';
+                target.style.transform = frame;
             }));
         }
     }
