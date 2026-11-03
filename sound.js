@@ -264,6 +264,10 @@ function duckMusic(kind) {
 }
 
 const SOUNDS = {
+    fire() {
+        noise(0, .1, .9, 'lowpass', 2400, 500);
+        thump(0, 170, 70, .1, .7);
+    },
     place() {
         noise(0, .4, 1.2, 'bandpass', 1500, 350);
         thump(0, 120, 55, .25, .9);

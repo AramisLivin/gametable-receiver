@@ -60,22 +60,17 @@ function draw(state) {
     players = state.players.length;
     document.body.classList.toggle('playing', !!state.playing);
     setMusic(!players ? null : state.view && state.view.phase === 'playing' && !state.view.winner ? 'battle' : 'calm');
+    if (state.playing || !players) playMenuVideo(null);
     if (state.playing === 'battleship') {
         drawBattleship(state);
         return;
     }
+    dropLanding();
     if (!players) {
         show('home');
         return;
     }
-    $('lobby-title').textContent = word('table', 'At the table');
-    $('lobby-hint').textContent = word('host_picks', 'The first player picks a game on the phone');
-    const seats = $('seats');
-    seats.textContent = '';
-    for (const p of state.players) {
-        seats.appendChild(div('seat' + (p.online ? '' : ' off') + (p.id === state.host ? ' host' : ''), p.name));
-    }
-    show('lobby');
+    drawMenu(state);
 }
 
 function seatFor(secret) {

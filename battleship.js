@@ -167,6 +167,7 @@ function drawPlacing(state) {
     }
     root.appendChild(docks);
     lightHalf(-1);
+    hideCannon();
     if (landed) playSound('place');
     if (readied) playSound('ready');
     seenPlacing = view.placing;
@@ -175,7 +176,42 @@ function drawPlacing(state) {
     show('battleship');
 }
 
+let landing = null;
+
+function dropLanding() {
+    if (landing) clearTimeout(landing.timer);
+    landing = null;
+}
+
 function drawBattleship(state) {
+    if (landing) {
+        const waiting = landing.state;
+        dropLanding();
+        paintBattleship(waiting);
+    }
+    const flight = shellFlight(state.view);
+    if (!flight) {
+        paintBattleship(state);
+        return;
+    }
+    landing = {
+        state: state,
+        timer: setTimeout((() => {
+            landing = null;
+            paintBattleship(state);
+        }), flight)
+    };
+}
+
+function shellFlight(view) {
+    if (view.phase !== 'playing' || !view.last || !seenBoards) return 0;
+    const owners = Object.keys(view.boards);
+    if (!owners.some((owner => view.boards[owner].join() !== seenBoards[owner].join()))) return 0;
+    const target = owners.find((owner => owner !== view.last.by));
+    return fireCannon(owners.indexOf(view.last.by), target, view.last.x, view.last.y);
+}
+
+function paintBattleship(state) {
     const view = state.view, root = $('battleship');
     if (view.phase === 'placing') {
         drawPlacing(state);
@@ -225,5 +261,6 @@ function drawBattleship(state) {
     }
     seenBoards = view.boards;
     seenWinner = view.winner;
+    placeCannon(owners.indexOf(view.winner || view.turn));
     show('battleship');
 }
