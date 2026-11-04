@@ -100,7 +100,11 @@ function draw(state) {
     document.body.classList.toggle('no-divide', !!state.playing && state.playing !== 'battleship');
     setMusic(...musicFor(state));
     if (state.playing || !players) playMenuVideo(null);
-    raiseCurtain(state.playing);
+    if (state.countdown) {
+        if (!counting) startCountdown(state.playing);
+        return;
+    }
+    liftCountdown();
     if (state.playing === 'battleship') {
         drawBattleship(state);
         return;

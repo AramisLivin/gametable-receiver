@@ -130,23 +130,23 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ MutableIterable, Collection ]);
     initMetadataForClass(IteratorImpl, 'IteratorImpl');
     initMetadataForClass(ListIteratorImpl, 'ListIteratorImpl', VOID, IteratorImpl);
-    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ MutableIterable, KtList, Collection ]);
+    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ KtList, Collection, MutableIterable ]);
     initMetadataForClass(AbstractMap, 'AbstractMap', VOID, VOID, [ KtMap ]);
     initMetadataForClass(AbstractMutableMap, 'AbstractMutableMap', VOID, AbstractMap, [ KtMutableMap ]);
-    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ Collection, MutableIterable, KtSet ]);
     initMetadataForCompanion(Companion_2);
     initMetadataForInterface(RandomAccess, 'RandomAccess');
-    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ MutableIterable, KtList, Collection, RandomAccess ]);
+    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ KtList, Collection, MutableIterable, RandomAccess ]);
     initMetadataForClass(HashMap, 'HashMap', HashMap_init_$Create$, AbstractMutableMap, [ KtMutableMap ]);
-    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ Collection, MutableIterable, KtSet ]);
     initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ MutableIterable, Collection ]);
-    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ Collection, MutableIterable, KtSet ]);
     initMetadataForClass(HashMapEntrySet, 'HashMapEntrySet', VOID, HashMapEntrySetBase);
     initMetadataForClass(HashMapKeysDefault$iterator$1);
     initMetadataForClass(HashMapKeysDefault, 'HashMapKeysDefault', VOID, AbstractMutableSet);
     initMetadataForClass(HashMapValuesDefault$iterator$1);
     initMetadataForClass(HashMapValuesDefault, 'HashMapValuesDefault', VOID, AbstractMutableCollection);
-    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ Collection, MutableIterable, KtSet ]);
     initMetadataForCompanion(Companion_3);
     initMetadataForClass(Itr, 'Itr');
     initMetadataForClass(KeysItr, 'KeysItr', VOID, Itr);
@@ -188,7 +188,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(InternalMap, 'InternalMap');
     initMetadataForClass(InternalHashMap, 'InternalHashMap', InternalHashMap_init_$Create$, VOID, [ InternalMap ]);
     initMetadataForClass(LinkedHashMap, 'LinkedHashMap', LinkedHashMap_init_$Create$, HashMap, [ KtMutableMap ]);
-    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ Collection, MutableIterable, KtSet ]);
     initMetadataForInterface(Continuation, 'Continuation');
     initMetadataForClass(InterceptedCoroutine, 'InterceptedCoroutine', VOID, VOID, [ Continuation ]);
     initMetadataForClass(CoroutineImpl, 'CoroutineImpl', VOID, InterceptedCoroutine, [ Continuation ]);
@@ -550,6 +550,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForClass(Player, 'Player');
     initMetadataForCompanion(Companion_32);
     initMetadataForClass(Table, 'Table', Table);
+    initMetadataForCompanion(Companion_33);
     initMetadataForClass(Engine, 'Engine', Engine);
     function CharSequence() {}
     function Comparable() {}
@@ -22825,7 +22826,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         this.l1j_1 = online;
     }
     function host($this) {
-        var tmp0 = $this.n1j_1;
+        var tmp0 = $this.o1j_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
@@ -22850,7 +22851,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = this_0;
         }
         var shown = tmp;
-        var tmp0 = $this.n1j_1;
+        var tmp0 = $this.o1j_1;
         var tmp$ret$4;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
@@ -22868,21 +22869,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
             player.k1j_1 = shown;
             player.l1j_1 = true;
         } else {
-            var tmp0_0 = $this.n1j_1;
+            var tmp0_0 = $this.o1j_1;
             var element_0 = new Player(id, shown);
             tmp0_0.i(element_0);
         }
         return true;
     }
     function leave($this, player) {
-        $this.n1j_1.x2(player);
-        if ($this.q1j_1.m1(player.j1j_1)) {
+        $this.o1j_1.x2(player);
+        if ($this.r1j_1.m1(player.j1j_1)) {
             endGame($this);
         }
         return true;
     }
     function browse($this, id) {
-        if (!($this.o1j_1 == null) || id == null || id === $this.s1j_1) return false;
+        if (!($this.p1j_1 == null) || id == null || id === $this.t1j_1) return false;
         var tmp0 = get_GAMES();
         var tmp$ret$0;
         $l$block_0: {
@@ -22907,7 +22908,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$0 = true;
         }
         if (tmp$ret$0) return false;
-        $this.s1j_1 = id;
+        $this.t1j_1 = id;
         return true;
     }
     function start($this, id) {
@@ -22932,7 +22933,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var kind = tmp;
-        var tmp0_0 = $this.n1j_1;
+        var tmp0_0 = $this.o1j_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s_0 = tmp0_0.j();
         while (_iterator__ex2g4s_0.k()) {
@@ -22950,7 +22951,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var sitting = take(destination_0, kind.m1a().x_1);
         var tmp_0;
-        if (!($this.o1j_1 == null)) {
+        if (!($this.p1j_1 == null)) {
             tmp_0 = true;
         } else {
             var progression = kind.m1a();
@@ -22960,27 +22961,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = !(containsLower <= containsArg ? containsArg <= containsUpper : false);
         }
         if (tmp_0) return false;
-        $this.o1j_1 = kind.n1a(sitting, $this.m1j_1);
-        $this.p1j_1 = kind.l1a();
-        $this.s1j_1 = kind.l1a();
-        $this.q1j_1 = toSet_0(sitting);
+        $this.p1j_1 = kind.n1a(sitting, $this.m1j_1);
+        $this.q1j_1 = kind.l1a();
+        $this.t1j_1 = kind.l1a();
+        $this.r1j_1 = toSet_0(sitting);
+        $this.u1j_1 = $this.n1j_1;
         return true;
     }
     function rematch($this, player) {
         var tmp;
-        var tmp0_safe_receiver = $this.o1j_1;
+        var tmp0_safe_receiver = $this.p1j_1;
         if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.f1a()) == null) {
             tmp = true;
         } else {
-            tmp = !$this.q1j_1.m1(player.j1j_1);
+            tmp = !$this.r1j_1.m1(player.j1j_1);
         }
         if (tmp) return false;
         if (!equals(player, host($this))) {
-            if ($this.r1j_1 === player.j1j_1) return false;
-            $this.r1j_1 = player.j1j_1;
+            if ($this.s1j_1 === player.j1j_1) return false;
+            $this.s1j_1 = player.j1j_1;
             return true;
         }
-        var tmp0 = $this.n1j_1;
+        var tmp0 = $this.o1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -22996,7 +22998,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if ($this.q1j_1.m1(element.j1j_1) && !element.l1j_1) {
+                if ($this.r1j_1.m1(element.j1j_1) && !element.l1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -23011,27 +23013,29 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.l1a() === $this.p1j_1) {
+                if (element_0.l1a() === $this.q1j_1) {
                     tmp$ret$2 = element_0;
                     break $l$block_1;
                 }
             }
             throw NoSuchElementException_init_$Create$_0('Collection contains no element matching the predicate.');
         }
-        tmp_1.o1j_1 = tmp$ret$2.n1a(toList_1($this.q1j_1), $this.m1j_1);
-        $this.r1j_1 = null;
+        tmp_1.p1j_1 = tmp$ret$2.n1a(toList_1($this.r1j_1), $this.m1j_1);
+        $this.s1j_1 = null;
+        $this.u1j_1 = $this.n1j_1;
         return true;
     }
     function endGame($this) {
-        $this.o1j_1 = null;
+        $this.u1j_1 = 0;
         $this.p1j_1 = null;
-        $this.q1j_1 = emptySet();
-        $this.r1j_1 = null;
+        $this.q1j_1 = null;
+        $this.r1j_1 = emptySet();
+        $this.s1j_1 = null;
         return true;
     }
     function picture($this) {
         var builder = new JsonObjectBuilder;
-        var this_0 = $this.n1j_1;
+        var this_0 = $this.o1j_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.j();
         while (_iterator__ex2g4s.k()) {
@@ -23059,11 +23063,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_0.i(tmp$ret$9);
         }
         builder.ux('games', new JsonArray(destination_0));
-        put_0(builder, 'browsing', $this.s1j_1);
-        put_0(builder, 'playing', $this.p1j_1);
-        put_0(builder, 'rematchOffer', $this.r1j_1);
+        put_0(builder, 'browsing', $this.t1j_1);
+        put_0(builder, 'playing', $this.q1j_1);
+        put_0(builder, 'rematchOffer', $this.s1j_1);
+        if ($this.u1j_1 > 0) {
+            put(builder, 'countdown', $this.u1j_1);
+        }
         var room = builder.vx();
-        var current = $this.o1j_1;
+        var current = $this.p1j_1;
         var this_2 = ArrayList_init_$Create$();
         var tmp = plus_2(room, to('type', JsonPrimitive_1('state')));
         var tmp_0;
@@ -23073,7 +23080,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = to('view', current.j1a());
         }
         this_2.i(new Delivery('tv', new JsonObject(plus_3(tmp, listOfNotNull(tmp_0)))));
-        var _iterator__ex2g4s_1 = $this.n1j_1.j();
+        var _iterator__ex2g4s_1 = $this.o1j_1.j();
         while (_iterator__ex2g4s_1.k()) {
             var player = _iterator__ex2g4s_1.l();
             var tmp_1;
@@ -23081,7 +23088,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_1 = null;
             } else {
                 var tmp_2;
-                if ($this.q1j_1.m1(player.j1j_1)) {
+                if ($this.r1j_1.m1(player.j1j_1)) {
                     tmp_2 = current;
                 } else {
                     tmp_2 = null;
@@ -23102,24 +23109,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return this_2.c4();
     }
     function Companion_32() {
-        this.t1j_1 = 16;
+        this.v1j_1 = 16;
+        this.w1j_1 = 200;
     }
     var Companion_instance_32;
     function Companion_getInstance_32() {
         return Companion_instance_32;
     }
-    function Table(random) {
+    function Table(random, countdownMs) {
         random = random === VOID ? Default_getInstance() : random;
+        countdownMs = countdownMs === VOID ? 0 : countdownMs;
         this.m1j_1 = random;
+        this.n1j_1 = countdownMs;
         var tmp = this;
-        tmp.n1j_1 = ArrayList_init_$Create$();
-        this.o1j_1 = null;
+        tmp.o1j_1 = ArrayList_init_$Create$();
         this.p1j_1 = null;
-        this.q1j_1 = emptySet();
-        this.r1j_1 = null;
-        this.s1j_1 = first(get_GAMES()).l1a();
+        this.q1j_1 = null;
+        this.r1j_1 = emptySet();
+        this.s1j_1 = null;
+        this.t1j_1 = first(get_GAMES()).l1a();
+        this.u1j_1 = 0;
     }
-    protoOf(Table).u1j = function(from, text) {
+    protoOf(Table).x1j = function(from, text) {
         var tmp;
         try {
             var value = get_jsonObject(Default_getInstance_0().xv(text));
@@ -23146,7 +23157,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = message.jx('type');
         var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
         var type = tmp2_safe_receiver == null ? null : get_contentOrNull(tmp2_safe_receiver);
-        var tmp0 = this.n1j_1;
+        var tmp0 = this.o1j_1;
         var tmp$ret$5;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
@@ -23199,7 +23210,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'lobby':
-            tmp_2 = equals(player, host(this)) && !(this.o1j_1 == null) && endGame(this);
+            tmp_2 = equals(player, host(this)) && !(this.p1j_1 == null) && endGame(this);
             break;
 
           case 'rematch':
@@ -23208,8 +23219,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
           case 'act':
             var tmp_5;
-            if (!(player == null) && this.q1j_1.m1(from)) {
-                var tmp10_safe_receiver = this.o1j_1;
+            if (!(player == null) && this.r1j_1.m1(from) && this.u1j_1 <= 0) {
+                var tmp10_safe_receiver = this.p1j_1;
                 tmp_5 = (tmp10_safe_receiver == null ? null : tmp10_safe_receiver.g1a(from, message)) === true;
             } else {
                 tmp_5 = false;
@@ -23224,8 +23235,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var changed = tmp_2;
         return changed ? picture(this) : emptyList();
     };
-    protoOf(Table).v1j = function(id) {
-        var tmp0 = this.n1j_1;
+    protoOf(Table).y1j = function(id) {
+        var tmp0 = this.o1j_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
@@ -23250,7 +23261,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return picture(this);
     };
     protoOf(Table).h1a = function() {
-        var tmp0_elvis_lhs = this.o1j_1;
+        var tmp0_elvis_lhs = this.p1j_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -23258,34 +23269,40 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.n1j_1;
-        var tmp$ret$0;
-        $l$block_0: {
-            var tmp_0;
-            if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.n();
-            } else {
-                tmp_0 = false;
-            }
-            if (tmp_0) {
-                tmp$ret$0 = false;
-                break $l$block_0;
-            }
-            var _iterator__ex2g4s = tmp0.j();
-            while (_iterator__ex2g4s.k()) {
-                var element = _iterator__ex2g4s.l();
-                if (this.q1j_1.m1(element.j1j_1) && !element.l1j_1) {
-                    tmp$ret$0 = true;
+        var tmp_0;
+        if (this.u1j_1 > 0) {
+            tmp_0 = true;
+        } else {
+            var tmp0 = this.o1j_1;
+            var tmp$ret$0;
+            $l$block_0: {
+                var tmp_1;
+                if (isInterface(tmp0, Collection)) {
+                    tmp_1 = tmp0.n();
+                } else {
+                    tmp_1 = false;
+                }
+                if (tmp_1) {
+                    tmp$ret$0 = false;
                     break $l$block_0;
                 }
+                var _iterator__ex2g4s = tmp0.j();
+                while (_iterator__ex2g4s.k()) {
+                    var element = _iterator__ex2g4s.l();
+                    if (this.r1j_1.m1(element.j1j_1) && !element.l1j_1) {
+                        tmp$ret$0 = true;
+                        break $l$block_0;
+                    }
+                }
+                tmp$ret$0 = false;
             }
-            tmp$ret$0 = false;
+            tmp_0 = tmp$ret$0;
         }
-        if (tmp$ret$0) return emptyList();
+        if (tmp_0) return emptyList();
         return current.h1a() ? picture(this) : emptyList();
     };
     protoOf(Table).i1a = function() {
-        var tmp0_elvis_lhs = this.o1j_1;
+        var tmp0_elvis_lhs = this.p1j_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -23293,7 +23310,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.n1j_1;
+        var tmp0 = this.o1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -23309,7 +23326,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (this.q1j_1.m1(element.j1j_1) && !element.l1j_1) {
+                if (this.r1j_1.m1(element.j1j_1) && !element.l1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -23317,6 +23334,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$0 = false;
         }
         if (tmp$ret$0) return emptyList();
+        if (this.u1j_1 > 0) {
+            this.u1j_1 = this.u1j_1 - 200 | 0;
+            return this.u1j_1 <= 0 ? picture(this) : emptyList();
+        }
         var tmp_1;
         switch (current.i1a().b2_1) {
           case 0:
@@ -23359,20 +23380,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return new JsonArray(destination).toString();
     }
+    function Companion_33() {
+        this.z1j_1 = 2600;
+    }
+    var Companion_instance_33;
+    function Companion_getInstance_33() {
+        return Companion_instance_33;
+    }
     function Engine() {
-        this.w1j_1 = new Table;
+        this.a1k_1 = new Table(VOID, 2600);
     }
     protoOf(Engine).receive = function(from, text) {
-        return encode(this, this.w1j_1.u1j(from, text));
+        return encode(this, this.a1k_1.x1j(from, text));
     };
     protoOf(Engine).offline = function(id) {
-        return encode(this, this.w1j_1.v1j(id));
+        return encode(this, this.a1k_1.y1j(id));
     };
     protoOf(Engine).tick = function() {
-        return encode(this, this.w1j_1.h1a());
+        return encode(this, this.a1k_1.h1a());
     };
     protoOf(Engine).frame = function() {
-        return encode(this, this.w1j_1.i1a());
+        return encode(this, this.a1k_1.i1a());
     };
     protoOf(InternalHashMap).d5 = containsAllEntries;
     protoOf(SerialDescriptorImpl).jj = get_isNullable;
@@ -23440,6 +23468,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     Companion_instance_28 = new Companion_28;
     Companion_instance_31 = new Companion_31;
     Companion_instance_32 = new Companion_32;
+    Companion_instance_33 = new Companion_33;
     function $jsExportAll$(_) {
         var com = _.com || (_.com = {});
         var dezesar = com.dezesar || (com.dezesar = {});

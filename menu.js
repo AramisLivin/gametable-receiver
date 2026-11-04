@@ -112,21 +112,53 @@ function drawMenu(state) {
     show('lobby');
 }
 
-let curtainFor = null;
+const COUNT_STEP_MS = 700;
 
-function raiseCurtain(playing) {
-    const was = curtainFor;
-    curtainFor = playing || null;
-    if (!playing || was || playing === 'recall') return;
-    playSound('curtain');
-    const curtain = $('curtain');
-    curtain.dataset.game = playing;
-    $('curtain-name').textContent = word('game_' + playing, playing);
-    curtain.classList.remove('go');
-    void curtain.offsetWidth;
-    curtain.classList.add('go');
+const COUNT_END_MS = 3 * COUNT_STEP_MS + 900;
+
+let counting = false;
+
+let countTimers = [];
+
+function countMark(text, cls) {
+    const mark = div('cd-mark ' + cls, text);
+    mark.addEventListener('animationend', (event => {
+        if (event.target === mark && event.animationName === 'cd-out') mark.remove();
+    }));
+    $('cd-stage').appendChild(mark);
+    const ring = div('cd-ring');
+    ring.addEventListener('animationend', (() => ring.remove()));
+    $('cd-stage').appendChild(ring);
+    const stage = $('cd-stage');
+    stage.classList.remove('hit');
+    void stage.offsetWidth;
+    stage.classList.add('hit');
 }
 
-$('curtain').addEventListener('animationend', (event => {
-    if (event.target === $('curtain')) $('curtain').classList.remove('go');
-}));
+function startCountdown(playing) {
+    counting = true;
+    countTimers.forEach(clearTimeout);
+    const box = $('countdown');
+    box.dataset.game = playing;
+    box.classList.remove('leaving');
+    box.classList.add('on');
+    $('cd-art').src = posterUrl(playing);
+    $('cd-title').textContent = word('game_' + playing, playing);
+    $('cd-stage').textContent = '';
+    [ 3, 2, 1 ].forEach(((number, i) => countTimers.push(setTimeout((() => {
+        countMark(String(number), `cd-number cd-${number}`);
+        playSound('count', i);
+    }), i * COUNT_STEP_MS))));
+    countTimers.push(setTimeout((() => {
+        countMark(word('go_' + playing, 'Go!'), 'cd-word');
+        playSound('go_' + playing);
+    }), 3 * COUNT_STEP_MS));
+    countTimers.push(setTimeout((() => {
+        box.classList.remove('on', 'leaving');
+        counting = false;
+    }), COUNT_END_MS));
+}
+
+function liftCountdown() {
+    if (counting) $('countdown').classList.add('leaving');
+}

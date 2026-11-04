@@ -123,6 +123,10 @@ function explosion(at, volume) {
 
 const MUSIC_VOLUME = .42;
 
+const MUSIC_FADE_OUT = .4;
+
+const MUSIC_FADE_IN = .4;
+
 const DUCK_SECONDS = {
     launch: .5,
     thud: .9,
@@ -151,7 +155,13 @@ const DUCK_SECONDS = {
     rocket_base: 2.4,
     ding: 1.2,
     even: .8,
-    curtain: .8,
+    count: .5,
+    go_battleship: 1,
+    go_artillery: 1,
+    go_ram: .8,
+    go_carpet: .9,
+    go_rockets: 1,
+    go_recall: .9,
     win_artillery: 3.5,
     win_ram: 3,
     win_carpet: 4,
@@ -434,26 +444,27 @@ function setMusic(theme, mood = 'calm') {
             fadeMusicTrack();
             return;
         }
-        if (theme === musicTheme) {
-            musicMood = mood;
-            return;
-        }
+        if (theme === musicTheme && mood === musicMood) return;
         prepareSound();
         if (audio.state === 'suspended') audio.resume();
+        const samePiece = theme === musicTheme;
         clearInterval(musicTimer);
         fadeMusicTrack();
         musicTheme = theme;
         musicMood = mood;
         const now = audio.currentTime;
         musicTrack = audio.createGain();
+        musicTrack.gain.value = 1e-4;
         musicTrack.gain.setValueAtTime(1e-4, now);
-        musicTrack.gain.setTargetAtTime(THEMES[theme].volume, now, .4);
+        musicTrack.gain.setTargetAtTime(THEMES[theme].volume, now, MUSIC_FADE_IN);
         musicTrack.connect(musicBus);
         musicEcho = null;
-        musicBus.gain.cancelScheduledValues(now);
-        musicBus.gain.setTargetAtTime(MUSIC_VOLUME, now, .2);
+        if (!samePiece) {
+            musicBus.gain.cancelScheduledValues(now);
+            musicBus.gain.setTargetAtTime(MUSIC_VOLUME, now, .2);
+            barNumber = 0;
+        }
         nextBar = now + .1;
-        barNumber = 0;
         playNextBars();
         musicTimer = setInterval(playNextBars, 400);
     } catch {
@@ -467,8 +478,8 @@ function fadeMusicTrack() {
     const leaving = musicTrack;
     musicTrack = null;
     leaving.gain.cancelScheduledValues(audio.currentTime);
-    leaving.gain.setTargetAtTime(1e-4, audio.currentTime, .25);
-    setTimeout((() => leaving.disconnect()), 2500);
+    leaving.gain.setTargetAtTime(1e-4, audio.currentTime, MUSIC_FADE_OUT);
+    setTimeout((() => leaving.disconnect()), 3e3);
 }
 
 function duckMusic(kind) {
@@ -496,9 +507,37 @@ const SOUNDS = {
     browse() {
         glide(0, 880, 880, .002, .05, .05);
     },
-    curtain() {
-        noise(0, .5, .5, 'bandpass', 500, 2600);
-        [ 392, 523.3, 659.3, 784 ].forEach(((frequency, i) => glide(.05 + i * .06, frequency, frequency, .005, .36, .07)));
+    count(step) {
+        const note = [ 196, 233.1, 293.7 ][step] || 293.7;
+        drum(0, .7 + step * .12);
+        chord([ note, note * 1.5 ], 0, .18, .09);
+        noise(0, .08, .3, 'highpass', 3e3, 1500);
+    },
+    go_battleship() {
+        chord([ 146.8, 220, 293.7, 440 ], 0, .8, .09);
+        thump(0, 140, 44, .3, 1.2);
+        noise(0, .22, 1.2, 'lowpass', 2600, 380);
+    },
+    go_artillery() {
+        SOUNDS.launch();
+        horn(392, 0, .16, .1);
+        horn(523.3, .16, .5, .1);
+    },
+    go_ram() {
+        SOUNDS.bonk_big();
+        glide(.05, 300, 1100, .01, .35, .12);
+    },
+    go_carpet() {
+        glide(0, 1250, 340, .05, .42, .05);
+        SOUNDS.bomb_hit();
+        chord([ 130.8, 196, 261.6 ], 0, .5, .09);
+    },
+    go_rockets() {
+        SOUNDS.rocket_launch();
+        [ 440, 659.3, 880, 1318.5 ].forEach(((frequency, i) => glide(i * .05, frequency, frequency, .003, .22, .08)));
+    },
+    go_recall() {
+        SOUNDS.ding();
     },
     splat() {
         thump(0, 170, 45, .2, 1.1);
