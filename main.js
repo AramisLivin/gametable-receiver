@@ -50,6 +50,8 @@ function fromHub(sender, msg) {
     }
 }
 
+const DOODLE_GAMES = [ 'ram', 'carpet', 'rockets', 'recall' ];
+
 const GAME_SCREENS = {
     siege: {
         draw: drawSiege,
@@ -77,7 +79,14 @@ const GAME_SCREENS = {
     recall: RECALL_SCREEN
 };
 
-const BATTLE_MUSIC = [ 'battleship', 'siege', 'artillery', 'ram', 'carpet', 'rockets' ];
+function musicFor(state) {
+    if (!state.players.length) return [ null ];
+    if (!state.playing) return [ 'menu' ];
+    const view = state.view || {};
+    if (DOODLE_GAMES.includes(state.playing)) return [ state.playing, view.phase === 'showing' ? 'fight' : 'calm' ];
+    if (state.playing === 'artillery') return [ 'artillery', view.phase === 'flying' ? 'fight' : 'calm' ];
+    return [ 'battleship', view.phase !== 'placing' && !view.winner ? 'fight' : 'calm' ];
+}
 
 function deliver(json) {
     for (const {to: to, message: message} of JSON.parse(json)) {
@@ -89,10 +98,9 @@ function draw(state) {
     players = state.players.length;
     document.body.classList.toggle('playing', !!state.playing);
     document.body.classList.toggle('no-divide', !!state.playing && state.playing !== 'battleship');
-    document.body.classList.toggle('seated', players > 0);
-    const fighting = BATTLE_MUSIC.includes(state.playing) && state.view && state.view.phase !== 'placing' && !state.view.winner;
-    setMusic(!players ? null : fighting ? 'battle' : 'calm');
+    setMusic(...musicFor(state));
     if (state.playing || !players) playMenuVideo(null);
+    raiseCurtain(state.playing);
     if (state.playing === 'battleship') {
         drawBattleship(state);
         return;
@@ -105,6 +113,7 @@ function draw(state) {
         return;
     }
     if (!players) {
+        drawHome();
         show('home');
         return;
     }
@@ -130,7 +139,6 @@ function received(address, data) {
         seatOf.set(address, seat);
         if (msg.texts && !Object.keys(texts).length) {
             texts = msg.texts;
-            $('waiting').textContent = word('waiting', $('waiting').textContent);
             writeJoinWords();
         }
     }
@@ -204,11 +212,14 @@ function showJoin(url, room) {
     $('join-code').textContent = room;
     writeJoinWords();
     $('join').classList.add('on');
+    if ($('home').classList.contains('on')) drawHome();
 }
 
 setInterval((() => deliver(engine.tick())), 1e3);
 
 setInterval((() => deliver(engine.frame())), 200);
+
+drawHome();
 
 show('home');
 

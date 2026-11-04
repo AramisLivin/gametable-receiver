@@ -209,10 +209,10 @@ function closeInOn(owner, shot) {
     const root = $('battleship');
     const cell = root.querySelector(`.sea[data-owner="${owner}"] .cell[data-x="${shot.x}"][data-y="${shot.y}"]`);
     if (!cell || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const box = cell.getBoundingClientRect();
+    const spot = onStage(cell.getBoundingClientRect());
     letterbox(true);
     root.classList.add('closing-in');
-    root.style.transformOrigin = `${box.left + box.width / 2}px ${box.top + box.height / 2}px`;
+    root.style.transformOrigin = `${spot.x}px ${spot.y}px`;
     root.style.transform = 'scale(1.55)';
 }
 

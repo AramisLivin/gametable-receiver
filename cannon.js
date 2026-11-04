@@ -31,11 +31,9 @@ function fireCannon(side, owner, x, y, slow = 1) {
     if (!cell || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return 0;
     placeCannon(side);
     const vh = window.innerHeight / 100;
-    const fromX = side === 1 ? window.innerWidth - CANNON_FROM_SIDE_VH * vh : CANNON_FROM_SIDE_VH * vh;
+    const fromX = side === 1 ? window.innerHeight * 16 / 9 - CANNON_FROM_SIDE_VH * vh : CANNON_FROM_SIDE_VH * vh;
     const fromY = window.innerHeight - CANNON_FROM_BOTTOM_VH * vh;
-    const box = cell.getBoundingClientRect();
-    const toX = box.left + box.width / 2;
-    const toY = box.top + box.height / 2;
+    const {x: toX, y: toY} = onStage(cell.getBoundingClientRect());
     const angle = Math.atan2(toY - fromY, toX - fromX);
     $('cannon').querySelector('.cannon-aim').style.transform = `rotate(${angle + Math.PI / 2}rad)`;
     setTimeout((() => {

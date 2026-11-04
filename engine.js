@@ -127,26 +127,26 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(Comparator, 'Comparator');
     initMetadataForObject(Unit, 'Unit');
     initMetadataForClass(AbstractCollection, 'AbstractCollection', VOID, VOID, [ Collection ]);
-    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ Collection, MutableIterable ]);
+    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ MutableIterable, Collection ]);
     initMetadataForClass(IteratorImpl, 'IteratorImpl');
     initMetadataForClass(ListIteratorImpl, 'ListIteratorImpl', VOID, IteratorImpl);
-    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ Collection, KtList, MutableIterable ]);
+    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ MutableIterable, KtList, Collection ]);
     initMetadataForClass(AbstractMap, 'AbstractMap', VOID, VOID, [ KtMap ]);
     initMetadataForClass(AbstractMutableMap, 'AbstractMutableMap', VOID, AbstractMap, [ KtMutableMap ]);
-    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ KtSet, Collection, MutableIterable ]);
+    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ MutableIterable, KtSet, Collection ]);
     initMetadataForCompanion(Companion_2);
     initMetadataForInterface(RandomAccess, 'RandomAccess');
-    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ Collection, KtList, MutableIterable, RandomAccess ]);
+    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ MutableIterable, KtList, Collection, RandomAccess ]);
     initMetadataForClass(HashMap, 'HashMap', HashMap_init_$Create$, AbstractMutableMap, [ KtMutableMap ]);
-    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
-    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ Collection, MutableIterable ]);
-    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
+    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
+    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ MutableIterable, Collection ]);
+    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
     initMetadataForClass(HashMapEntrySet, 'HashMapEntrySet', VOID, HashMapEntrySetBase);
     initMetadataForClass(HashMapKeysDefault$iterator$1);
     initMetadataForClass(HashMapKeysDefault, 'HashMapKeysDefault', VOID, AbstractMutableSet);
     initMetadataForClass(HashMapValuesDefault$iterator$1);
     initMetadataForClass(HashMapValuesDefault, 'HashMapValuesDefault', VOID, AbstractMutableCollection);
-    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
+    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ MutableIterable, KtSet, Collection ]);
     initMetadataForCompanion(Companion_3);
     initMetadataForClass(Itr, 'Itr');
     initMetadataForClass(KeysItr, 'KeysItr', VOID, Itr);
@@ -188,7 +188,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(InternalMap, 'InternalMap');
     initMetadataForClass(InternalHashMap, 'InternalHashMap', InternalHashMap_init_$Create$, VOID, [ InternalMap ]);
     initMetadataForClass(LinkedHashMap, 'LinkedHashMap', LinkedHashMap_init_$Create$, HashMap, [ KtMutableMap ]);
-    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ KtSet, Collection, MutableIterable ]);
+    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ MutableIterable, KtSet, Collection ]);
     initMetadataForInterface(Continuation, 'Continuation');
     initMetadataForClass(InterceptedCoroutine, 'InterceptedCoroutine', VOID, VOID, [ Continuation ]);
     initMetadataForClass(CoroutineImpl, 'CoroutineImpl', VOID, InterceptedCoroutine, [ Continuation ]);
@@ -534,7 +534,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForClass(Dot, 'Dot');
     initMetadataForCompanion(Companion_28);
     initMetadataForClass(Frame, 'Frame', VOID, Enum);
-    initMetadataForClass(ComingGame, 'ComingGame');
     initMetadataForClass(Body, 'Body');
     initMetadataForClass(Shape, 'Shape');
     initMetadataForCompanion(Companion_29);
@@ -21433,11 +21432,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return GAMES;
     }
     var GAMES;
-    function get_COMING_GAMES() {
-        _init_properties_Game_kt__8erhxu();
-        return COMING_GAMES;
-    }
-    var COMING_GAMES;
     function Game() {}
     var static_init_called_4;
     function static_init_4() {
@@ -21453,10 +21447,6 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function Frame(name, ordinal) {
         Enum.call(this, name, ordinal);
     }
-    function ComingGame(id, players) {
-        this.x1d_1 = id;
-        this.y1d_1 = players;
-    }
     function Frame_NONE_getInstance() {
         static_init_4();
         return Frame_NONE_instance;
@@ -21470,29 +21460,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
         if (!properties_initialized_Game_kt_8p3p0) {
             properties_initialized_Game_kt_8p3p0 = true;
             GAMES = listOf_0([ Battleship_getInstance(), Artillery_getInstance(), Ram_getInstance(), Carpet_getInstance(), Rockets_getInstance(), Recall_getInstance() ]);
-            COMING_GAMES = listOf_0([ new ComingGame('durak', numberRangeToNumber(2, 6)), new ComingGame('spy', numberRangeToNumber(3, 8)) ]);
         }
     }
     function Body(blobs, x, y) {
-        this.z1d_1 = blobs;
-        this.a1e_1 = x;
-        this.b1e_1 = y;
+        this.x1d_1 = blobs;
+        this.y1d_1 = x;
+        this.z1d_1 = y;
+        this.a1e_1 = 0;
+        this.b1e_1 = 0;
         this.c1e_1 = 0;
         this.d1e_1 = 0;
-        this.e1e_1 = 0;
-        this.f1e_1 = 0;
-        this.g1e_1 = this.z1d_1.m();
+        this.e1e_1 = this.x1d_1.m();
         var tmp = this;
         var sum = 0;
-        var _iterator__ex2g4s = this.z1d_1.j();
+        var _iterator__ex2g4s = this.x1d_1.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
             var tmp_0 = sum;
             sum = tmp_0 + (element.y1b_1 * element.y1b_1 + element.z1b_1 * element.z1b_1 + 8 * 8 / 2);
         }
-        tmp.h1e_1 = sum;
+        tmp.f1e_1 = sum;
         var tmp_1 = this;
-        var iterator = this.z1d_1.j();
+        var iterator = this.x1d_1.j();
         if (!iterator.k()) throw NoSuchElementException_init_$Create$();
         var it = iterator.l();
         var tmp0 = it.y1b_1;
@@ -21506,36 +21495,36 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var a = maxValue;
             maxValue = Math.max(a, v);
         }
-        tmp_1.i1e_1 = maxValue + 8;
-        this.j1e_1 = null;
+        tmp_1.g1e_1 = maxValue + 8;
+        this.h1e_1 = null;
     }
-    protoOf(Body).k1e = function(blob) {
-        var x = this.c1e_1;
+    protoOf(Body).i1e = function(blob) {
+        var x = this.a1e_1;
         var tmp$ret$0 = Math.cos(x);
         var tmp = blob.y1b_1 * tmp$ret$0;
-        var x_0 = this.c1e_1;
+        var x_0 = this.a1e_1;
         var tmp$ret$1 = Math.sin(x_0);
         return tmp - blob.z1b_1 * tmp$ret$1;
     };
-    protoOf(Body).l1e = function(blob) {
-        var x = this.c1e_1;
+    protoOf(Body).j1e = function(blob) {
+        var x = this.a1e_1;
         var tmp$ret$0 = Math.sin(x);
         var tmp = blob.y1b_1 * tmp$ret$0;
-        var x_0 = this.c1e_1;
+        var x_0 = this.a1e_1;
         var tmp$ret$1 = Math.cos(x_0);
         return tmp + blob.z1b_1 * tmp$ret$1;
     };
-    protoOf(Body).m1e = function(jx, jy, rx, ry) {
-        this.d1e_1 = this.d1e_1 + jx / this.g1e_1;
-        this.e1e_1 = this.e1e_1 + jy / this.g1e_1;
-        this.f1e_1 = this.f1e_1 + (rx * jy - ry * jx) / this.h1e_1;
+    protoOf(Body).k1e = function(jx, jy, rx, ry) {
+        this.b1e_1 = this.b1e_1 + jx / this.e1e_1;
+        this.c1e_1 = this.c1e_1 + jy / this.e1e_1;
+        this.d1e_1 = this.d1e_1 + (rx * jy - ry * jx) / this.f1e_1;
     };
     function Shape(body, lines) {
-        this.n1e_1 = body;
-        this.o1e_1 = lines;
+        this.l1e_1 = body;
+        this.m1e_1 = lines;
     }
     function shape($this, side) {
-        var tmp0 = $this.e1f_1[side];
+        var tmp0 = $this.c1f_1[side];
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
@@ -21546,7 +21535,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var tmp;
         if (destination.n()) {
-            tmp = listOf(Companion_getInstance_29().n1g_1);
+            tmp = listOf(Companion_getInstance_29().l1g_1);
         } else {
             tmp = destination;
         }
@@ -21634,13 +21623,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function onFloor($this, body, half) {
         var deepest = 0;
-        var _iterator__ex2g4s = body.z1d_1.j();
+        var _iterator__ex2g4s = body.x1d_1.j();
         $l$loop: while (_iterator__ex2g4s.k()) {
             var blob = _iterator__ex2g4s.l();
-            var rx = body.k1e(blob);
-            var ry = body.l1e(blob);
-            var wx = body.a1e_1 + rx;
-            var wy = body.b1e_1 + ry;
+            var rx = body.i1e(blob);
+            var ry = body.j1e(blob);
+            var wx = body.y1d_1 + rx;
+            var wy = body.z1d_1 + ry;
             var depth = 170 + 8 - wy;
             var tmp;
             if (depth <= 0 || depth > 40) {
@@ -21652,42 +21641,42 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (tmp) continue $l$loop;
             var a = deepest;
             deepest = Math.max(a, depth);
-            var pointVx = body.d1e_1 - body.f1e_1 * ry;
-            var pointVy = body.e1e_1 + body.f1e_1 * rx;
+            var pointVx = body.b1e_1 - body.d1e_1 * ry;
+            var pointVy = body.c1e_1 + body.d1e_1 * rx;
             if (pointVy < 0) {
-                var j = -(1 + .2) * pointVy / (1 / body.g1e_1 + rx * rx / body.h1e_1);
-                body.m1e(0, j, rx, ry);
-                var slide = body.d1e_1 - body.f1e_1 * ry;
-                var friction = coerceIn(-slide / (1 / body.g1e_1 + ry * ry / body.h1e_1), -.25 * j, .25 * j);
-                body.m1e(friction, 0, rx, ry);
+                var j = -(1 + .2) * pointVy / (1 / body.e1e_1 + rx * rx / body.f1e_1);
+                body.k1e(0, j, rx, ry);
+                var slide = body.b1e_1 - body.d1e_1 * ry;
+                var friction = coerceIn(-slide / (1 / body.e1e_1 + ry * ry / body.f1e_1), -.25 * j, .25 * j);
+                body.k1e(friction, 0, rx, ry);
             }
         }
         if (deepest > 0) {
-            body.b1e_1 = body.b1e_1 + deepest * .6;
+            body.z1d_1 = body.z1d_1 + deepest * .6;
         }
         return deepest > 0;
     }
     function clash($this, a, b) {
-        var tmp0 = a.a1e_1 - b.a1e_1;
-        var y = a.b1e_1 - b.b1e_1;
-        if (hypot(tmp0, y) > a.i1e_1 + b.i1e_1) return null;
+        var tmp0 = a.y1d_1 - b.y1d_1;
+        var y = a.z1d_1 - b.z1d_1;
+        if (hypot(tmp0, y) > a.g1e_1 + b.g1e_1) return null;
         var deepest = 0;
         var deepX = 0;
         var deepY = 0;
         var hardest = 0;
         var at = null;
-        var _iterator__ex2g4s = a.z1d_1.j();
+        var _iterator__ex2g4s = a.x1d_1.j();
         while (_iterator__ex2g4s.k()) {
             var first = _iterator__ex2g4s.l();
-            var ax = a.k1e(first);
-            var ay = a.l1e(first);
-            var _iterator__ex2g4s_0 = b.z1d_1.j();
+            var ax = a.i1e(first);
+            var ay = a.j1e(first);
+            var _iterator__ex2g4s_0 = b.x1d_1.j();
             $l$loop_0: while (_iterator__ex2g4s_0.k()) {
                 var second = _iterator__ex2g4s_0.l();
-                var bx = b.k1e(second);
-                var by = b.l1e(second);
-                var dx = b.a1e_1 + bx - a.a1e_1 - ax;
-                var dy = b.b1e_1 + by - a.b1e_1 - ay;
+                var bx = b.i1e(second);
+                var by = b.j1e(second);
+                var dx = b.y1d_1 + bx - a.y1d_1 - ax;
+                var dy = b.z1d_1 + by - a.z1d_1 - ay;
                 var distance = hypot(dx, dy);
                 if (distance >= 2 * 8 || distance === 0) continue $l$loop_0;
                 var nx = dx / distance;
@@ -21698,25 +21687,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     deepX = nx;
                     deepY = ny;
                 }
-                var closing = (a.d1e_1 - a.f1e_1 * ay - b.d1e_1 + b.f1e_1 * by) * nx + (a.e1e_1 + a.f1e_1 * ax - b.e1e_1 - b.f1e_1 * bx) * ny;
+                var closing = (a.b1e_1 - a.d1e_1 * ay - b.b1e_1 + b.d1e_1 * by) * nx + (a.c1e_1 + a.d1e_1 * ax - b.c1e_1 - b.d1e_1 * bx) * ny;
                 if (closing <= 0) continue $l$loop_0;
                 var turnA = ax * ny - ay * nx;
                 var turnB = bx * ny - by * nx;
-                var j = (1 + 1) * closing / (1 / a.g1e_1 + 1 / b.g1e_1 + turnA * turnA / a.h1e_1 + turnB * turnB / b.h1e_1);
-                a.m1e(-j * nx, -j * ny, ax, ay);
-                b.m1e(j * nx, j * ny, bx, by);
+                var j = (1 + 1) * closing / (1 / a.e1e_1 + 1 / b.e1e_1 + turnA * turnA / a.f1e_1 + turnB * turnB / b.f1e_1);
+                a.k1e(-j * nx, -j * ny, ax, ay);
+                b.k1e(j * nx, j * ny, bx, by);
                 if (closing > hardest) {
                     hardest = closing;
-                    at = to(a.a1e_1 + ax + nx * 8, a.b1e_1 + ay + ny * 8);
+                    at = to(a.y1d_1 + ax + nx * 8, a.z1d_1 + ay + ny * 8);
                 }
             }
         }
         if (deepest > 0) {
-            var share = b.g1e_1 / (a.g1e_1 + b.g1e_1);
-            a.a1e_1 = a.a1e_1 - deepX * deepest * share * .6;
-            a.b1e_1 = a.b1e_1 - deepY * deepest * share * .6;
-            b.a1e_1 = b.a1e_1 + deepX * deepest * (1 - share) * .6;
-            b.b1e_1 = b.b1e_1 + deepY * deepest * (1 - share) * .6;
+            var share = b.e1e_1 / (a.e1e_1 + b.e1e_1);
+            a.y1d_1 = a.y1d_1 - deepX * deepest * share * .6;
+            a.z1d_1 = a.z1d_1 - deepY * deepest * share * .6;
+            b.y1d_1 = b.y1d_1 + deepX * deepest * (1 - share) * .6;
+            b.z1d_1 = b.z1d_1 + deepY * deepest * (1 - share) * .6;
         }
         var tmp0_safe_receiver = at;
         var tmp;
@@ -21729,41 +21718,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_29() {
         Companion_instance_29 = this;
-        this.f1f_1 = 300;
-        this.g1f_1 = 800;
-        this.h1f_1 = 25;
-        this.i1f_1 = .62;
-        this.j1f_1 = 13;
-        this.k1f_1 = 8;
-        this.l1f_1 = 170;
-        this.m1f_1 = 280;
-        this.n1f_1 = 40;
-        this.o1f_1 = 40;
-        this.p1f_1 = 340;
-        this.q1f_1 = 620;
-        this.r1f_1 = .008333333333333333;
-        this.s1f_1 = 6;
-        this.t1f_1 = .05;
-        this.u1f_1 = 1;
-        this.v1f_1 = .2;
-        this.w1f_1 = .25;
-        this.x1f_1 = .998;
-        this.y1f_1 = 1300;
-        this.z1f_1 = .7;
-        this.a1g_1 = 1;
-        this.b1g_1 = 320;
-        this.c1g_1 = 120;
-        this.d1g_1 = 1.4;
-        this.e1g_1 = 70;
-        this.f1g_1 = .18;
-        this.g1g_1 = 9;
-        this.h1g_1 = 50;
-        this.i1g_1 = 18;
-        this.j1g_1 = 1.2;
-        this.k1g_1 = .94;
-        this.l1g_1 = 1800;
-        this.m1g_1 = 1300;
-        this.n1g_1 = listOf_0([ new Dot(110, 260), new Dot(190, 260) ]);
+        this.d1f_1 = 300;
+        this.e1f_1 = 800;
+        this.f1f_1 = 25;
+        this.g1f_1 = .62;
+        this.h1f_1 = 13;
+        this.i1f_1 = 8;
+        this.j1f_1 = 170;
+        this.k1f_1 = 280;
+        this.l1f_1 = 40;
+        this.m1f_1 = 40;
+        this.n1f_1 = 340;
+        this.o1f_1 = 620;
+        this.p1f_1 = .008333333333333333;
+        this.q1f_1 = 6;
+        this.r1f_1 = .05;
+        this.s1f_1 = 1;
+        this.t1f_1 = .2;
+        this.u1f_1 = .25;
+        this.v1f_1 = .998;
+        this.w1f_1 = 1300;
+        this.x1f_1 = .7;
+        this.y1f_1 = 1;
+        this.z1f_1 = 320;
+        this.a1g_1 = 120;
+        this.b1g_1 = 1.4;
+        this.c1g_1 = 70;
+        this.d1g_1 = .18;
+        this.e1g_1 = 9;
+        this.f1g_1 = 50;
+        this.g1g_1 = 18;
+        this.h1g_1 = 1.2;
+        this.i1g_1 = .94;
+        this.j1g_1 = 1800;
+        this.k1g_1 = 1300;
+        this.l1g_1 = listOf_0([ new Dot(110, 260), new Dot(190, 260) ]);
     }
     var Companion_instance_29;
     function Companion_getInstance_29() {
@@ -21777,7 +21766,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_getInstance_29();
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.d1f_1 = Ram_getInstance().o1g_1;
+        this.b1f_1 = Ram_getInstance().m1g_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -21785,11 +21774,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.e1f_1 = tmp_1;
+        tmp.c1f_1 = tmp_1;
         this.l1d();
     }
     protoOf(RamGame).m1d = function() {
-        return this.d1f_1;
+        return this.b1f_1;
     };
     protoOf(RamGame).n1d = function() {
         return 25;
@@ -21802,10 +21791,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.e1f_1 = tmp_1;
+        tmp.c1f_1 = tmp_1;
     };
     protoOf(RamGame).p1d = function(side, action) {
-        var tmp = this.e1f_1;
+        var tmp = this.c1f_1;
         var tmp0_elvis_lhs = readStrokes(action.jx('strokes'), 300, 300, 800);
         var tmp_0;
         if (tmp0_elvis_lhs == null) {
@@ -21822,7 +21811,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = shapes.j();
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
-            var tmp$ret$2 = item.n1e_1;
+            var tmp$ret$2 = item.l1e_1;
             destination.i(tmp$ret$2);
         }
         var bodies = destination;
@@ -21853,7 +21842,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var _iterator__ex2g4s_0 = bodies.j();
                     while (_iterator__ex2g4s_0.k()) {
                         var element = _iterator__ex2g4s_0.l();
-                        if (!(element.j1e_1 == null)) {
+                        if (!(element.h1e_1 == null)) {
                             tmp$ret$6 = false;
                             break $l$block_0;
                         }
@@ -21872,12 +21861,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var side = index;
                     index = index + 1 | 0;
                     var body = iterator.l();
-                    if (!(body.j1e_1 == null)) continue $l$loop;
+                    if (!(body.h1e_1 == null)) continue $l$loop;
                     var rival = bodies.p(1 - side | 0);
-                    var toward = rival.a1e_1 >= body.a1e_1 ? 1 : -1;
-                    body.d1e_1 = body.d1e_1 + toward * 320;
-                    body.e1e_1 = body.e1e_1 + 120;
-                    body.f1e_1 = body.f1e_1 + this.l1b_1.fe(-1.4, 1.4);
+                    var toward = rival.y1d_1 >= body.y1d_1 ? 1 : -1;
+                    body.b1e_1 = body.b1e_1 + toward * 320;
+                    body.c1e_1 = body.c1e_1 + 120;
+                    body.d1e_1 = body.d1e_1 + this.l1b_1.fe(-1.4, 1.4);
                     var builder = new JsonObjectBuilder;
                     put(builder, 't', round(time * 1e3));
                     put(builder, 'side', side);
@@ -21900,7 +21889,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_1 = bodies.j();
                 while (_iterator__ex2g4s_1.k()) {
                     var element_1 = _iterator__ex2g4s_1.l();
-                    if (!(element_1.j1e_1 == null)) {
+                    if (!(element_1.h1e_1 == null)) {
                         tmp$ret$11 = true;
                         break $l$block_2;
                     }
@@ -21911,21 +21900,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_2 = bodies.j();
             while (_iterator__ex2g4s_2.k()) {
                 var body_0 = _iterator__ex2g4s_2.l();
-                if (decided && body_0.j1e_1 == null) {
+                if (decided && body_0.h1e_1 == null) {
+                    body_0.b1e_1 = body_0.b1e_1 * .94;
                     body_0.d1e_1 = body_0.d1e_1 * .94;
-                    body_0.f1e_1 = body_0.f1e_1 * .94;
                 }
-                body_0.e1e_1 = body_0.e1e_1 - 620 * .008333333333333333;
+                body_0.c1e_1 = body_0.c1e_1 - 620 * .008333333333333333;
+                body_0.y1d_1 = body_0.y1d_1 + body_0.b1e_1 * .008333333333333333;
+                body_0.z1d_1 = body_0.z1d_1 + body_0.c1e_1 * .008333333333333333;
                 body_0.a1e_1 = body_0.a1e_1 + body_0.d1e_1 * .008333333333333333;
-                body_0.b1e_1 = body_0.b1e_1 + body_0.e1e_1 * .008333333333333333;
-                body_0.c1e_1 = body_0.c1e_1 + body_0.f1e_1 * .008333333333333333;
-                body_0.f1e_1 = body_0.f1e_1 * .998;
-                var tmp0 = body_0.d1e_1;
-                var y = body_0.e1e_1;
+                body_0.d1e_1 = body_0.d1e_1 * .998;
+                var tmp0 = body_0.b1e_1;
+                var y = body_0.c1e_1;
                 var speed = hypot(tmp0, y);
                 if (speed > 1300) {
-                    body_0.d1e_1 = body_0.d1e_1 * (1300 / speed);
-                    body_0.e1e_1 = body_0.e1e_1 * (1300 / speed);
+                    body_0.b1e_1 = body_0.b1e_1 * (1300 / speed);
+                    body_0.c1e_1 = body_0.c1e_1 * (1300 / speed);
                 }
                 onFloor(this, body_0, half);
             }
@@ -21943,8 +21932,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_3 = bodies.j();
             while (_iterator__ex2g4s_3.k()) {
                 var body_1 = _iterator__ex2g4s_3.l();
-                if (body_1.j1e_1 == null && body_1.b1e_1 < 40) {
-                    body_1.j1e_1 = time;
+                if (body_1.h1e_1 == null && body_1.z1d_1 < 40) {
+                    body_1.h1e_1 = time;
                     var tmp0_0 = endAt;
                     var b = time + 1.2;
                     endAt = Math.min(tmp0_0, b);
@@ -21956,11 +21945,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_4 = bodies.j();
                 while (_iterator__ex2g4s_4.k()) {
                     var body_2 = _iterator__ex2g4s_4.l();
-                    var element_3 = JsonPrimitive_0(round(body_2.a1e_1));
+                    var element_3 = JsonPrimitive_0(round(body_2.y1d_1));
                     frames.i(element_3);
-                    var element_4 = JsonPrimitive_0(round(body_2.b1e_1));
+                    var element_4 = JsonPrimitive_0(round(body_2.z1d_1));
                     frames.i(element_4);
-                    var element_5 = JsonPrimitive_0(round(body_2.c1e_1 * 100) / 100);
+                    var element_5 = JsonPrimitive_0(round(body_2.a1e_1 * 100) / 100);
                     frames.i(element_5);
                 }
             }
@@ -21970,11 +21959,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_5 = bodies.j();
         while (_iterator__ex2g4s_5.k()) {
             var item_0 = _iterator__ex2g4s_5.l();
-            var tmp$ret$23 = item_0.j1e_1;
+            var tmp$ret$23 = item_0.h1e_1;
             destination_0.i(tmp$ret$23);
         }
         var falls = destination_0;
-        var loser = falls.p(0) == null && falls.p(1) == null ? bodies.p(0).b1e_1 < bodies.p(1).b1e_1 ? 0 : bodies.p(1).b1e_1 < bodies.p(0).b1e_1 ? 1 : null : falls.p(1) == null ? 0 : falls.p(0) == null ? 1 : ensureNotNull(falls.p(0)) < ensureNotNull(falls.p(1)) ? 0 : ensureNotNull(falls.p(1)) < ensureNotNull(falls.p(0)) ? 1 : null;
+        var loser = falls.p(0) == null && falls.p(1) == null ? bodies.p(0).z1d_1 < bodies.p(1).z1d_1 ? 0 : bodies.p(1).z1d_1 < bodies.p(0).z1d_1 ? 1 : null : falls.p(1) == null ? 0 : falls.p(0) == null ? 1 : ensureNotNull(falls.p(0)) < ensureNotNull(falls.p(1)) ? 0 : ensureNotNull(falls.p(1)) < ensureNotNull(falls.p(0)) ? 1 : null;
         if (!(loser == null)) {
             var _array__4zh2yp = this.p1b_1;
             var _index_0__fvwizt = 1 - loser | 0;
@@ -21991,7 +21980,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_6 = shapes.j();
         while (_iterator__ex2g4s_6.k()) {
             var item_1 = _iterator__ex2g4s_6.l();
-            var tmp$ret$28 = linesToJson(item_1.o1e_1);
+            var tmp$ret$28 = linesToJson(item_1.m1e_1);
             destination_1.i(tmp$ret$28);
         }
         builder_1.ux('shapes', new JsonArray(destination_1));
@@ -22018,18 +22007,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(RamGame).t1d = function(_this__u8e3s4, side) {
         put(_this__u8e3s4, 'ink', 800);
         put(_this__u8e3s4, 'pad', 300);
-        _this__u8e3s4.ux('mine', linesToJson(this.e1f_1[side]));
+        _this__u8e3s4.ux('mine', linesToJson(this.c1f_1[side]));
     };
     function Ram() {
         Ram_instance = this;
-        this.o1g_1 = 'ram';
-        this.p1g_1 = numberRangeToNumber(2, 2);
+        this.m1g_1 = 'ram';
+        this.n1g_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Ram).l1a = function() {
-        return this.o1g_1;
+        return this.m1g_1;
     };
     protoOf(Ram).m1a = function() {
-        return this.p1g_1;
+        return this.n1g_1;
     };
     protoOf(Ram).n1a = function(players, random) {
         return new RamGame(players, random);
@@ -22078,15 +22067,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_30() {
         Companion_instance_30 = this;
-        this.q1g_1 = 300;
-        this.r1g_1 = 3e3;
-        this.s1g_1 = 3e3;
-        this.t1g_1 = 15;
-        this.u1g_1 = 6e3;
-        this.v1g_1 = 42;
-        this.w1g_1 = mapOf_0([ to('star', listOf(line(this, new Int32Array([ 150, 30, 185, 115, 275, 120, 205, 180, 230, 270, 150, 220, 70, 270, 95, 180, 25, 120, 115, 115, 150, 30 ])))), to('house', listOf_0([ line(this, new Int32Array([ 60, 270, 60, 130, 150, 40, 240, 130, 240, 270, 60, 270 ])), line(this, new Int32Array([ 125, 270, 125, 190, 175, 190, 175, 270 ])) ])), to('heart', listOf(line(this, new Int32Array([ 150, 270, 50, 165, 30, 105, 60, 55, 110, 50, 150, 95, 190, 50, 240, 55, 270, 105, 250, 165, 150, 270 ])))), to('zigzag', listOf(line(this, new Int32Array([ 30, 240, 80, 60, 130, 240, 180, 60, 230, 240, 270, 90 ])))), to('fish', listOf(line(this, new Int32Array([ 30, 150, 80, 90, 160, 80, 220, 140, 275, 90, 275, 210, 220, 160, 160, 220, 80, 210, 30, 150 ])))), to('arrow', listOf(line(this, new Int32Array([ 30, 120, 170, 120, 170, 60, 275, 150, 170, 240, 170, 180, 30, 180, 30, 120 ])))), to('bolt', listOf(line(this, new Int32Array([ 180, 25, 80, 165, 145, 165, 110, 275, 225, 120, 160, 120, 180, 25 ])))), to('crown', listOf(line(this, new Int32Array([ 40, 240, 30, 80, 95, 150, 150, 50, 205, 150, 270, 80, 260, 240, 40, 240 ])))), to('boat', listOf_0([ line(this, new Int32Array([ 30, 190, 270, 190, 225, 260, 75, 260, 30, 190 ])), line(this, new Int32Array([ 150, 190, 150, 40, 235, 150, 150, 150 ])) ])), to('tree', listOf_0([ line(this, new Int32Array([ 150, 25, 225, 115, 190, 115, 255, 205, 45, 205, 110, 115, 75, 115, 150, 25 ])), line(this, new Int32Array([ 130, 205, 130, 275, 170, 275, 170, 205 ])) ])), to('letter', listOf_0([ line(this, new Int32Array([ 30, 80, 270, 80, 270, 225, 30, 225, 30, 80 ])), line(this, new Int32Array([ 30, 80, 150, 170, 270, 80 ])) ])), to('spiral', listOf(line(this, new Int32Array([ 150, 150, 175, 150, 175, 120, 125, 120, 115, 180, 200, 190, 215, 90, 90, 80, 70, 215, 240, 235, 260, 45, 50, 40 ])))) ]);
+        this.o1g_1 = 300;
+        this.p1g_1 = 3e3;
+        this.q1g_1 = 3e3;
+        this.r1g_1 = 15;
+        this.s1g_1 = 7e3;
+        this.t1g_1 = 42;
+        this.u1g_1 = mapOf_0([ to('star', listOf(line(this, new Int32Array([ 150, 30, 185, 115, 275, 120, 205, 180, 230, 270, 150, 220, 70, 270, 95, 180, 25, 120, 115, 115, 150, 30 ])))), to('house', listOf_0([ line(this, new Int32Array([ 60, 270, 60, 130, 150, 40, 240, 130, 240, 270, 60, 270 ])), line(this, new Int32Array([ 125, 270, 125, 190, 175, 190, 175, 270 ])) ])), to('heart', listOf(line(this, new Int32Array([ 150, 270, 50, 165, 30, 105, 60, 55, 110, 50, 150, 95, 190, 50, 240, 55, 270, 105, 250, 165, 150, 270 ])))), to('zigzag', listOf(line(this, new Int32Array([ 30, 240, 80, 60, 130, 240, 180, 60, 230, 240, 270, 90 ])))), to('fish', listOf(line(this, new Int32Array([ 30, 150, 80, 90, 160, 80, 220, 140, 275, 90, 275, 210, 220, 160, 160, 220, 80, 210, 30, 150 ])))), to('arrow', listOf(line(this, new Int32Array([ 30, 120, 170, 120, 170, 60, 275, 150, 170, 240, 170, 180, 30, 180, 30, 120 ])))), to('bolt', listOf(line(this, new Int32Array([ 180, 25, 80, 165, 145, 165, 110, 275, 225, 120, 160, 120, 180, 25 ])))), to('crown', listOf(line(this, new Int32Array([ 40, 240, 30, 80, 95, 150, 150, 50, 205, 150, 270, 80, 260, 240, 40, 240 ])))), to('boat', listOf_0([ line(this, new Int32Array([ 30, 190, 270, 190, 225, 260, 75, 260, 30, 190 ])), line(this, new Int32Array([ 150, 190, 150, 40, 235, 150, 150, 150 ])) ])), to('tree', listOf_0([ line(this, new Int32Array([ 150, 25, 225, 115, 190, 115, 255, 205, 45, 205, 110, 115, 75, 115, 150, 25 ])), line(this, new Int32Array([ 130, 205, 130, 275, 170, 275, 170, 205 ])) ])), to('letter', listOf_0([ line(this, new Int32Array([ 30, 80, 270, 80, 270, 225, 30, 225, 30, 80 ])), line(this, new Int32Array([ 30, 80, 150, 170, 270, 80 ])) ])), to('spiral', listOf(line(this, new Int32Array([ 150, 150, 175, 150, 175, 120, 125, 120, 115, 180, 200, 190, 215, 90, 90, 80, 70, 215, 240, 235, 260, 45, 50, 40 ])))) ]);
     }
-    protoOf(Companion_30).x1g = function(drawing, target) {
+    protoOf(Companion_30).v1g = function(drawing, target) {
         var drawn = flatten(drawing);
         if (drawn.m() < 2) return emptyList();
         var wanted = flatten(target);
@@ -22257,7 +22246,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return destination;
     };
-    protoOf(Companion_30).y1g = function(drawing, target) {
+    protoOf(Companion_30).w1g = function(drawing, target) {
         if (drawing.n()) return 0;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = drawing.j();
@@ -22294,7 +22283,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_getInstance_30();
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.n1h_1 = Recall_getInstance().r1h_1;
+        this.l1h_1 = Recall_getInstance().p1h_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -22302,13 +22291,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.o1h_1 = tmp_1;
-        this.p1h_1 = toMutableList_0(shuffled(Companion_getInstance_30().w1g_1.u1(), random));
-        this.q1h_1 = '';
+        tmp.m1h_1 = tmp_1;
+        this.n1h_1 = toMutableList_0(shuffled(Companion_getInstance_30().u1g_1.u1(), random));
+        this.o1h_1 = '';
         this.l1d();
     }
     protoOf(RecallGame).m1d = function() {
-        return this.n1h_1;
+        return this.l1h_1;
     };
     protoOf(RecallGame).n1d = function() {
         return 15;
@@ -22324,16 +22313,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.o1h_1 = tmp_1;
-        if (this.p1h_1.n()) {
-            var tmp0 = this.p1h_1;
-            var elements = shuffled(Companion_getInstance_30().w1g_1.u1(), this.l1b_1);
+        tmp.m1h_1 = tmp_1;
+        if (this.n1h_1.n()) {
+            var tmp0 = this.n1h_1;
+            var elements = shuffled(Companion_getInstance_30().u1g_1.u1(), this.l1b_1);
             addAll(tmp0, elements);
         }
-        this.q1h_1 = this.p1h_1.e3(0);
+        this.o1h_1 = this.n1h_1.e3(0);
     };
     protoOf(RecallGame).p1d = function(side, action) {
-        var tmp = this.o1h_1;
+        var tmp = this.m1h_1;
         var tmp0_elvis_lhs = readStrokes(action.jx('strokes'), 300, 300, 3e3);
         var tmp_0;
         if (tmp0_elvis_lhs == null) {
@@ -22345,15 +22334,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return true;
     };
     protoOf(RecallGame).r1d = function() {
-        var target = getValue(Companion_getInstance_30().w1g_1, this.q1h_1);
-        var this_0 = this.o1h_1;
+        var target = getValue(Companion_getInstance_30().u1g_1, this.o1h_1);
+        var this_0 = this.m1h_1;
         var destination = ArrayList_init_$Create$_0(this_0.length);
         var inductionVariable = 0;
         var last = this_0.length;
         while (inductionVariable < last) {
             var item = this_0[inductionVariable];
             inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$2 = Companion_getInstance_30().x1g(item, target);
+            var tmp$ret$2 = Companion_getInstance_30().v1g(item, target);
             destination.i(tmp$ret$2);
         }
         var fitted = destination;
@@ -22361,7 +22350,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = fitted.j();
         while (_iterator__ex2g4s.k()) {
             var item_0 = _iterator__ex2g4s.l();
-            var tmp$ret$5 = Companion_getInstance_30().y1g(item_0, target);
+            var tmp$ret$5 = Companion_getInstance_30().w1g(item_0, target);
             destination_0.i(tmp$ret$5);
         }
         var scores = destination_0;
@@ -22374,8 +22363,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
             _array__4zh2yp_0[1] = _array__4zh2yp_0[1] + 1 | 0;
         }
         var builder = new JsonObjectBuilder;
-        put(builder, 'ms', 6e3);
-        put_0(builder, 'shape', this.q1h_1);
+        put(builder, 'ms', 7e3);
+        put_0(builder, 'shape', this.o1h_1);
         builder.ux('target', linesToJson(target));
         var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(fitted, 10));
         var _iterator__ex2g4s_0 = fitted.j();
@@ -22394,28 +22383,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         builder.ux('scores', new JsonArray(destination_2));
         var tmp$ret$6 = builder.vx();
-        return to(tmp$ret$6, 6e3);
+        return to(tmp$ret$6, 7e3);
     };
     protoOf(RecallGame).s1d = function(_this__u8e3s4) {
         put(_this__u8e3s4, 'pad', 300);
-        _this__u8e3s4.ux('flash', this.n1b_1 === 'prelude' ? linesToJson(getValue(Companion_getInstance_30().w1g_1, this.q1h_1)) : JsonNull_getInstance());
+        _this__u8e3s4.ux('flash', this.n1b_1 === 'prelude' ? linesToJson(getValue(Companion_getInstance_30().u1g_1, this.o1h_1)) : JsonNull_getInstance());
         put(_this__u8e3s4, 'flashMs', 3e3);
     };
     protoOf(RecallGame).t1d = function(_this__u8e3s4, side) {
         put(_this__u8e3s4, 'pad', 300);
         put(_this__u8e3s4, 'ink', 3e3);
-        _this__u8e3s4.ux('mine', linesToJson(this.o1h_1[side]));
+        _this__u8e3s4.ux('mine', linesToJson(this.m1h_1[side]));
     };
     function Recall() {
         Recall_instance = this;
-        this.r1h_1 = 'recall';
-        this.s1h_1 = numberRangeToNumber(2, 2);
+        this.p1h_1 = 'recall';
+        this.q1h_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Recall).l1a = function() {
-        return this.r1h_1;
+        return this.p1h_1;
     };
     protoOf(Recall).m1a = function() {
-        return this.s1h_1;
+        return this.q1h_1;
     };
     protoOf(Recall).n1a = function(players, random) {
         return new RecallGame(players, random);
@@ -22445,53 +22434,53 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function Flyer(side, path) {
-        this.t1h_1 = side;
-        this.u1h_1 = path;
-        this.v1h_1 = lineLength(this.u1h_1);
-        this.w1h_1 = 0;
-        this.x1h_1 = 0;
+        this.r1h_1 = side;
+        this.s1h_1 = path;
+        this.t1h_1 = lineLength(this.s1h_1);
+        this.u1h_1 = 0;
+        this.v1h_1 = 0;
         var tmp = this;
-        var tmp0_safe_receiver = firstOrNull(this.u1h_1);
+        var tmp0_safe_receiver = firstOrNull(this.s1h_1);
         var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.y1b_1;
-        tmp.y1h_1 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
+        tmp.w1h_1 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
         var tmp_0 = this;
-        var tmp0_safe_receiver_0 = firstOrNull(this.u1h_1);
+        var tmp0_safe_receiver_0 = firstOrNull(this.s1h_1);
         var tmp1_elvis_lhs_0 = tmp0_safe_receiver_0 == null ? null : tmp0_safe_receiver_0.z1b_1;
-        tmp_0.z1h_1 = tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0;
-        this.a1i_1 = null;
-        this.b1i_1 = 0;
+        tmp_0.x1h_1 = tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0;
+        this.y1h_1 = null;
+        this.z1h_1 = 0;
     }
-    protoOf(Flyer).c1i = function(distance) {
+    protoOf(Flyer).a1i = function(distance) {
         var left = distance;
-        while (left > 0 && this.w1h_1 < (this.u1h_1.m() - 1 | 0)) {
-            var from = this.u1h_1.p(this.w1h_1);
-            var to = this.u1h_1.p(this.w1h_1 + 1 | 0);
+        while (left > 0 && this.u1h_1 < (this.s1h_1.m() - 1 | 0)) {
+            var from = this.s1h_1.p(this.u1h_1);
+            var to = this.s1h_1.p(this.u1h_1 + 1 | 0);
             var tmp0 = to.y1b_1 - from.y1b_1;
             var y = to.z1b_1 - from.z1b_1;
             var step = hypot(tmp0, y);
-            if (this.x1h_1 + left < step) {
-                this.x1h_1 = this.x1h_1 + left;
-                this.b1i_1 = this.b1i_1 + left;
+            if (this.v1h_1 + left < step) {
+                this.v1h_1 = this.v1h_1 + left;
+                this.z1h_1 = this.z1h_1 + left;
                 left = 0;
             } else {
-                left = left - (step - this.x1h_1);
-                this.b1i_1 = this.b1i_1 + (step - this.x1h_1);
-                this.x1h_1 = 0;
-                this.w1h_1 = this.w1h_1 + 1 | 0;
+                left = left - (step - this.v1h_1);
+                this.z1h_1 = this.z1h_1 + (step - this.v1h_1);
+                this.v1h_1 = 0;
+                this.u1h_1 = this.u1h_1 + 1 | 0;
             }
         }
-        if (this.w1h_1 >= (this.u1h_1.m() - 1 | 0)) {
-            this.y1h_1 = last(this.u1h_1).y1b_1;
-            this.z1h_1 = last(this.u1h_1).z1b_1;
+        if (this.u1h_1 >= (this.s1h_1.m() - 1 | 0)) {
+            this.w1h_1 = last(this.s1h_1).y1b_1;
+            this.x1h_1 = last(this.s1h_1).z1b_1;
             return false;
         }
-        var from_0 = this.u1h_1.p(this.w1h_1);
-        var to_0 = this.u1h_1.p(this.w1h_1 + 1 | 0);
+        var from_0 = this.s1h_1.p(this.u1h_1);
+        var to_0 = this.s1h_1.p(this.u1h_1 + 1 | 0);
         var tmp0_0 = to_0.y1b_1 - from_0.y1b_1;
         var y_0 = to_0.z1b_1 - from_0.z1b_1;
         var step_0 = hypot(tmp0_0, y_0);
-        this.y1h_1 = from_0.y1b_1 + (to_0.y1b_1 - from_0.y1b_1) * this.x1h_1 / step_0;
-        this.z1h_1 = from_0.z1b_1 + (to_0.z1b_1 - from_0.z1b_1) * this.x1h_1 / step_0;
+        this.w1h_1 = from_0.y1b_1 + (to_0.y1b_1 - from_0.y1b_1) * this.v1h_1 / step_0;
+        this.x1h_1 = from_0.z1b_1 + (to_0.z1b_1 - from_0.z1b_1) * this.v1h_1 / step_0;
         return true;
     };
     function distanceToLine($this, x, y, line) {
@@ -22516,19 +22505,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return best;
     }
     function Companion_31() {
-        this.d1i_1 = 800;
-        this.e1i_1 = 562;
-        this.f1i_1 = 60;
-        this.g1i_1 = 46;
-        this.h1i_1 = 1050;
-        this.i1i_1 = 340;
-        this.j1i_1 = 240;
-        this.k1i_1 = .016666666666666666;
-        this.l1i_1 = 8;
-        this.m1i_1 = 24;
-        this.n1i_1 = 30;
-        this.o1i_1 = 20;
-        this.p1i_1 = 2200;
+        this.b1i_1 = 800;
+        this.c1i_1 = 562;
+        this.d1i_1 = 60;
+        this.e1i_1 = 46;
+        this.f1i_1 = 1050;
+        this.g1i_1 = 340;
+        this.h1i_1 = 240;
+        this.i1i_1 = .016666666666666666;
+        this.j1i_1 = 8;
+        this.k1i_1 = 24;
+        this.l1i_1 = 30;
+        this.m1i_1 = 20;
+        this.n1i_1 = 2200;
     }
     var Companion_instance_31;
     function Companion_getInstance_31() {
@@ -22537,7 +22526,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function RocketsGame(players, random, pointsToWin) {
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.e1j_1 = Rockets_getInstance().h1j_1;
+        this.c1j_1 = Rockets_getInstance().f1j_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -22545,7 +22534,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.f1j_1 = tmp_1;
+        tmp.d1j_1 = tmp_1;
         var tmp_2 = this;
         var tmp_3 = 0;
         var tmp_4 = Array(2);
@@ -22553,25 +22542,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_4[tmp_3] = emptyList();
             tmp_3 = tmp_3 + 1 | 0;
         }
-        tmp_2.g1j_1 = tmp_4;
+        tmp_2.e1j_1 = tmp_4;
         this.l1d();
     }
     protoOf(RocketsGame).m1d = function() {
-        return this.e1j_1;
+        return this.c1j_1;
     };
     protoOf(RocketsGame).n1d = function() {
         return 20;
     };
     protoOf(RocketsGame).o1d = function() {
-        var progression = get_indices(this.f1j_1);
+        var progression = get_indices(this.d1j_1);
         var inductionVariable = progression.w_1;
         var last = progression.x_1;
         if (inductionVariable <= last) do {
             var element = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var it = element;
-            this.f1j_1[it] = emptyList();
-            this.g1j_1[it] = emptyList();
+            this.d1j_1[it] = emptyList();
+            this.e1j_1[it] = emptyList();
         } while (!(element === last));
     };
     protoOf(RocketsGame).p1d = function(side, action) {
@@ -22579,7 +22568,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var layer = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
         if (layer === 'rocket') {
-            var b = 1050 - lineLength(this.g1j_1[side]);
+            var b = 1050 - lineLength(this.e1j_1[side]);
             var inkLeft = Math.max(0, b);
             var tmp2_elvis_lhs = readStrokes(action.jx('strokes'), 800, 562, 1050);
             var tmp;
@@ -22590,7 +22579,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             var tmp3_elvis_lhs = firstOrNull(tmp);
             var line = tmp3_elvis_lhs == null ? emptyList() : tmp3_elvis_lhs;
-            this.f1j_1[side] = drop(cutToInk(routeWithBase(this, line), inkLeft), 1);
+            this.d1j_1[side] = drop(cutToInk(routeWithBase(this, line), inkLeft), 1);
             return true;
         }
         if (layer === 'wall') {
@@ -22611,9 +22600,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 list.i(item);
             }
             var own = list;
-            var b_0 = 1050 - lineLength(routeWithBase(this, this.f1j_1[side]));
+            var b_0 = 1050 - lineLength(routeWithBase(this, this.d1j_1[side]));
             var inkLeft_0 = Math.max(0, b_0);
-            this.g1j_1[side] = cutToInk(own, inkLeft_0);
+            this.e1j_1[side] = cutToInk(own, inkLeft_0);
             return true;
         }
         return false;
@@ -22627,7 +22616,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var item = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var it = item;
-            var tmp$ret$2 = turned(this, it, this.g1j_1[it]);
+            var tmp$ret$2 = turned(this, it, this.e1j_1[it]);
             destination.i(tmp$ret$2);
         } while (!(item === last));
         var fieldWalls = destination;
@@ -22639,7 +22628,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var item_0 = inductionVariable_0;
             inductionVariable_0 = inductionVariable_0 + 1 | 0;
             var side = item_0;
-            var tmp$ret$5 = new Flyer(side, turned(this, side, routeWithBase(this, this.f1j_1[side])));
+            var tmp$ret$5 = new Flyer(side, turned(this, side, routeWithBase(this, this.d1j_1[side])));
             destination_0.i(tmp$ret$5);
         } while (!(item_0 === last_0));
         var flyers = destination_0;
@@ -22648,9 +22637,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = flyers.j();
         while (_iterator__ex2g4s.k()) {
             var flyer = _iterator__ex2g4s.l();
-            if (flyer.u1h_1.m() < 2) {
-                flyer.a1i_1 = 'none';
-                ends[flyer.t1h_1] = 0;
+            if (flyer.s1h_1.m() < 2) {
+                flyer.y1h_1 = 'none';
+                ends[flyer.r1h_1] = 0;
             }
         }
         $l$loop: while (true) {
@@ -22669,7 +22658,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_0 = flyers.j();
                 while (_iterator__ex2g4s_0.k()) {
                     var element = _iterator__ex2g4s_0.l();
-                    if (element.a1i_1 == null) {
+                    if (element.y1h_1 == null) {
                         tmp$ret$7 = true;
                         break $l$block_0;
                     }
@@ -22683,14 +22672,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = flyers.j();
             $l$loop_0: while (_iterator__ex2g4s_1.k()) {
                 var flyer_0 = _iterator__ex2g4s_1.l();
-                if (!(flyer_0.a1i_1 == null)) continue $l$loop_0;
-                var flying = flyer_0.c1i(240 * .016666666666666666);
-                var rivalBaseX = flyer_0.t1h_1 === 0 ? 800 - 60 : 60;
-                var tmp0 = flyer_0.y1h_1 - rivalBaseX;
-                var y = flyer_0.z1h_1 - 562 / 2;
-                if (hypot(tmp0, y) <= 46) flyer_0.a1i_1 = 'base'; else {
+                if (!(flyer_0.y1h_1 == null)) continue $l$loop_0;
+                var flying = flyer_0.a1i(240 * .016666666666666666);
+                var rivalBaseX = flyer_0.r1h_1 === 0 ? 800 - 60 : 60;
+                var tmp0 = flyer_0.w1h_1 - rivalBaseX;
+                var y = flyer_0.x1h_1 - 562 / 2;
+                if (hypot(tmp0, y) <= 46) flyer_0.y1h_1 = 'base'; else {
                     var tmp_0;
-                    if (flyer_0.b1i_1 > 30) {
+                    if (flyer_0.z1h_1 > 30) {
                         var tmp$ret$10;
                         $l$block_2: {
                             var tmp_1;
@@ -22706,7 +22695,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                             var _iterator__ex2g4s_2 = fieldWalls.j();
                             while (_iterator__ex2g4s_2.k()) {
                                 var element_0 = _iterator__ex2g4s_2.l();
-                                if (element_0.m() >= 2 && distanceToLine(this, flyer_0.y1h_1, flyer_0.z1h_1, element_0) <= 8) {
+                                if (element_0.m() >= 2 && distanceToLine(this, flyer_0.w1h_1, flyer_0.x1h_1, element_0) <= 8) {
                                     tmp$ret$10 = true;
                                     break $l$block_2;
                                 }
@@ -22717,27 +22706,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     } else {
                         tmp_0 = false;
                     }
-                    if (tmp_0) flyer_0.a1i_1 = 'wall'; else {
-                        if (!flying) flyer_0.a1i_1 = 'fuel';
+                    if (tmp_0) flyer_0.y1h_1 = 'wall'; else {
+                        if (!flying) flyer_0.y1h_1 = 'fuel';
                     }
                 }
-                if (!(flyer_0.a1i_1 == null)) {
-                    ends[flyer_0.t1h_1] = time;
+                if (!(flyer_0.y1h_1 == null)) {
+                    ends[flyer_0.r1h_1] = time;
                 }
             }
             var a = flyers.p(0);
             var b = flyers.p(1);
             var tmp_2;
-            if (a.a1i_1 == null && b.a1i_1 == null) {
-                var tmp0_0 = a.y1h_1 - b.y1h_1;
-                var y_0 = a.z1h_1 - b.z1h_1;
+            if (a.y1h_1 == null && b.y1h_1 == null) {
+                var tmp0_0 = a.w1h_1 - b.w1h_1;
+                var y_0 = a.x1h_1 - b.x1h_1;
                 tmp_2 = hypot(tmp0_0, y_0) <= 24;
             } else {
                 tmp_2 = false;
             }
             if (tmp_2) {
-                a.a1i_1 = 'rocket';
-                b.a1i_1 = 'rocket';
+                a.y1h_1 = 'rocket';
+                b.y1h_1 = 'rocket';
                 ends[0] = time;
                 ends[1] = time;
             }
@@ -22745,9 +22734,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_3 = flyers.j();
         while (_iterator__ex2g4s_3.k()) {
             var flyer_1 = _iterator__ex2g4s_3.l();
-            if (flyer_1.a1i_1 === 'base') {
+            if (flyer_1.y1h_1 === 'base') {
                 var _array__4zh2yp = this.p1b_1;
-                var _index_0__fvwizt = flyer_1.t1h_1;
+                var _index_0__fvwizt = flyer_1.r1h_1;
                 _array__4zh2yp[_index_0__fvwizt] = _array__4zh2yp[_index_0__fvwizt] + 1 | 0;
             }
         }
@@ -22760,14 +22749,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s_4.k()) {
             var item_1 = _iterator__ex2g4s_4.l();
             var builder_0 = new JsonObjectBuilder;
-            put(builder_0, 'side', item_1.t1h_1);
-            put_0(builder_0, 'end', item_1.a1i_1);
-            put(builder_0, 'x', round(item_1.y1h_1));
-            put(builder_0, 'y', round(item_1.z1h_1));
-            var tmp0_elvis_lhs = ends[item_1.t1h_1];
+            put(builder_0, 'side', item_1.r1h_1);
+            put_0(builder_0, 'end', item_1.y1h_1);
+            put(builder_0, 'x', round(item_1.w1h_1));
+            put(builder_0, 'y', round(item_1.x1h_1));
+            var tmp0_elvis_lhs = ends[item_1.r1h_1];
             put(builder_0, 'ms', round((tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs) * 1e3));
-            put(builder_0, 'flown', round(item_1.b1i_1));
-            builder_0.ux('path', lineToJson(item_1.u1h_1));
+            put(builder_0, 'flown', round(item_1.z1h_1));
+            builder_0.ux('path', lineToJson(item_1.s1h_1));
             var tmp$ret$19 = builder_0.vx();
             destination_1.i(tmp$ret$19);
         }
@@ -22788,19 +22777,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         put(_this__u8e3s4, 'wallInk', 340);
         put(_this__u8e3s4, 'baseX', 60);
         put(_this__u8e3s4, 'baseRadius', 46);
-        _this__u8e3s4.ux('rocket', lineToJson(this.f1j_1[side]));
-        _this__u8e3s4.ux('wall', lineToJson(this.g1j_1[side]));
+        _this__u8e3s4.ux('rocket', lineToJson(this.d1j_1[side]));
+        _this__u8e3s4.ux('wall', lineToJson(this.e1j_1[side]));
     };
     function Rockets() {
         Rockets_instance = this;
-        this.h1j_1 = 'rockets';
-        this.i1j_1 = numberRangeToNumber(2, 2);
+        this.f1j_1 = 'rockets';
+        this.g1j_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Rockets).l1a = function() {
-        return this.h1j_1;
+        return this.f1j_1;
     };
     protoOf(Rockets).m1a = function() {
-        return this.i1j_1;
+        return this.g1j_1;
     };
     protoOf(Rockets).n1a = function(players, random) {
         return new RocketsGame(players, random);
@@ -22811,38 +22800,38 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Rockets_instance;
     }
     function Delivery(to, message) {
-        this.j1j_1 = to;
-        this.k1j_1 = message;
+        this.h1j_1 = to;
+        this.i1j_1 = message;
     }
     protoOf(Delivery).toString = function() {
-        return 'Delivery(to=' + this.j1j_1 + ', message=' + this.k1j_1.toString() + ')';
+        return 'Delivery(to=' + this.h1j_1 + ', message=' + this.i1j_1.toString() + ')';
     };
     protoOf(Delivery).hashCode = function() {
-        var result = getStringHashCode(this.j1j_1);
-        result = imul(result, 31) + this.k1j_1.hashCode() | 0;
+        var result = getStringHashCode(this.h1j_1);
+        result = imul(result, 31) + this.i1j_1.hashCode() | 0;
         return result;
     };
     protoOf(Delivery).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof Delivery)) return false;
-        if (!(this.j1j_1 === other.j1j_1)) return false;
-        if (!this.k1j_1.equals(other.k1j_1)) return false;
+        if (!(this.h1j_1 === other.h1j_1)) return false;
+        if (!this.i1j_1.equals(other.i1j_1)) return false;
         return true;
     };
     function Player(id, name, online) {
         online = online === VOID ? true : online;
-        this.l1j_1 = id;
-        this.m1j_1 = name;
-        this.n1j_1 = online;
+        this.j1j_1 = id;
+        this.k1j_1 = name;
+        this.l1j_1 = online;
     }
     function host($this) {
-        var tmp0 = $this.p1j_1;
+        var tmp0 = $this.n1j_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.n1j_1) {
+                if (element.l1j_1) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -22861,13 +22850,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = this_0;
         }
         var shown = tmp;
-        var tmp0 = $this.p1j_1;
+        var tmp0 = $this.n1j_1;
         var tmp$ret$4;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.l1j_1 === id) {
+                if (element.j1j_1 === id) {
                     tmp$ret$4 = element;
                     break $l$block;
                 }
@@ -22876,35 +22865,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var player = tmp$ret$4;
         if (!(player == null)) {
-            player.m1j_1 = shown;
-            player.n1j_1 = true;
+            player.k1j_1 = shown;
+            player.l1j_1 = true;
         } else {
-            var tmp0_0 = $this.p1j_1;
+            var tmp0_0 = $this.n1j_1;
             var element_0 = new Player(id, shown);
             tmp0_0.i(element_0);
         }
         return true;
     }
     function leave($this, player) {
-        $this.p1j_1.x2(player);
-        if ($this.s1j_1.m1(player.l1j_1)) {
+        $this.n1j_1.x2(player);
+        if ($this.q1j_1.m1(player.j1j_1)) {
             endGame($this);
         }
         return true;
     }
     function browse($this, id) {
-        if (!($this.q1j_1 == null) || id == null || id === $this.u1j_1) return false;
-        var tmp;
+        if (!($this.o1j_1 == null) || id == null || id === $this.s1j_1) return false;
         var tmp0 = get_GAMES();
         var tmp$ret$0;
         $l$block_0: {
-            var tmp_0;
+            var tmp;
             if (isInterface(tmp0, Collection)) {
-                tmp_0 = tmp0.n();
+                tmp = tmp0.n();
             } else {
-                tmp_0 = false;
+                tmp = false;
             }
-            if (tmp_0) {
+            if (tmp) {
                 tmp$ret$0 = true;
                 break $l$block_0;
             }
@@ -22918,36 +22906,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             tmp$ret$0 = true;
         }
-        if (tmp$ret$0) {
-            var tmp0_0 = get_COMING_GAMES();
-            var tmp$ret$2;
-            $l$block_2: {
-                var tmp_1;
-                if (isInterface(tmp0_0, Collection)) {
-                    tmp_1 = tmp0_0.n();
-                } else {
-                    tmp_1 = false;
-                }
-                if (tmp_1) {
-                    tmp$ret$2 = true;
-                    break $l$block_2;
-                }
-                var _iterator__ex2g4s_0 = tmp0_0.j();
-                while (_iterator__ex2g4s_0.k()) {
-                    var element_0 = _iterator__ex2g4s_0.l();
-                    if (element_0.x1d_1 === id) {
-                        tmp$ret$2 = false;
-                        break $l$block_2;
-                    }
-                }
-                tmp$ret$2 = true;
-            }
-            tmp = tmp$ret$2;
-        } else {
-            tmp = false;
-        }
-        if (tmp) return false;
-        $this.u1j_1 = id;
+        if (tmp$ret$0) return false;
+        $this.s1j_1 = id;
         return true;
     }
     function start($this, id) {
@@ -22972,12 +22932,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var kind = tmp;
-        var tmp0_0 = $this.p1j_1;
+        var tmp0_0 = $this.n1j_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s_0 = tmp0_0.j();
         while (_iterator__ex2g4s_0.k()) {
             var element_0 = _iterator__ex2g4s_0.l();
-            if (element_0.n1j_1) {
+            if (element_0.l1j_1) {
                 destination.i(element_0);
             }
         }
@@ -22985,12 +22945,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_1 = destination.j();
         while (_iterator__ex2g4s_1.k()) {
             var item = _iterator__ex2g4s_1.l();
-            var tmp$ret$7 = item.l1j_1;
+            var tmp$ret$7 = item.j1j_1;
             destination_0.i(tmp$ret$7);
         }
         var sitting = take(destination_0, kind.m1a().x_1);
         var tmp_0;
-        if (!($this.q1j_1 == null)) {
+        if (!($this.o1j_1 == null)) {
             tmp_0 = true;
         } else {
             var progression = kind.m1a();
@@ -23000,27 +22960,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = !(containsLower <= containsArg ? containsArg <= containsUpper : false);
         }
         if (tmp_0) return false;
-        $this.q1j_1 = kind.n1a(sitting, $this.o1j_1);
-        $this.r1j_1 = kind.l1a();
-        $this.u1j_1 = kind.l1a();
-        $this.s1j_1 = toSet_0(sitting);
+        $this.o1j_1 = kind.n1a(sitting, $this.m1j_1);
+        $this.p1j_1 = kind.l1a();
+        $this.s1j_1 = kind.l1a();
+        $this.q1j_1 = toSet_0(sitting);
         return true;
     }
     function rematch($this, player) {
         var tmp;
-        var tmp0_safe_receiver = $this.q1j_1;
+        var tmp0_safe_receiver = $this.o1j_1;
         if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.f1a()) == null) {
             tmp = true;
         } else {
-            tmp = !$this.s1j_1.m1(player.l1j_1);
+            tmp = !$this.q1j_1.m1(player.j1j_1);
         }
         if (tmp) return false;
         if (!equals(player, host($this))) {
-            if ($this.t1j_1 === player.l1j_1) return false;
-            $this.t1j_1 = player.l1j_1;
+            if ($this.r1j_1 === player.j1j_1) return false;
+            $this.r1j_1 = player.j1j_1;
             return true;
         }
-        var tmp0 = $this.p1j_1;
+        var tmp0 = $this.n1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -23036,7 +22996,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if ($this.s1j_1.m1(element.l1j_1) && !element.n1j_1) {
+                if ($this.q1j_1.m1(element.j1j_1) && !element.l1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -23051,41 +23011,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.l1a() === $this.r1j_1) {
+                if (element_0.l1a() === $this.p1j_1) {
                     tmp$ret$2 = element_0;
                     break $l$block_1;
                 }
             }
             throw NoSuchElementException_init_$Create$_0('Collection contains no element matching the predicate.');
         }
-        tmp_1.q1j_1 = tmp$ret$2.n1a(toList_1($this.s1j_1), $this.o1j_1);
-        $this.t1j_1 = null;
+        tmp_1.o1j_1 = tmp$ret$2.n1a(toList_1($this.q1j_1), $this.m1j_1);
+        $this.r1j_1 = null;
         return true;
     }
     function endGame($this) {
-        $this.q1j_1 = null;
+        $this.o1j_1 = null;
+        $this.p1j_1 = null;
+        $this.q1j_1 = emptySet();
         $this.r1j_1 = null;
-        $this.s1j_1 = emptySet();
-        $this.t1j_1 = null;
         return true;
     }
     function picture($this) {
         var builder = new JsonObjectBuilder;
-        var this_0 = $this.p1j_1;
+        var this_0 = $this.n1j_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.j();
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
             var builder_0 = new JsonObjectBuilder;
-            put_0(builder_0, 'id', item.l1j_1);
-            put_0(builder_0, 'name', item.m1j_1);
-            put_1(builder_0, 'online', item.n1j_1);
+            put_0(builder_0, 'id', item.j1j_1);
+            put_0(builder_0, 'name', item.k1j_1);
+            put_1(builder_0, 'online', item.l1j_1);
             var tmp$ret$4 = builder_0.vx();
             destination.i(tmp$ret$4);
         }
         builder.ux('players', new JsonArray(destination));
         var tmp0_safe_receiver = host($this);
-        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.l1j_1);
+        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.j1j_1);
         var this_1 = get_GAMES();
         var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
         var _iterator__ex2g4s_0 = this_1.j();
@@ -23098,65 +23058,51 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var tmp$ret$9 = builder_1.vx();
             destination_0.i(tmp$ret$9);
         }
-        var tmp = destination_0;
-        var this_2 = get_COMING_GAMES();
-        var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_2, 10));
-        var _iterator__ex2g4s_1 = this_2.j();
-        while (_iterator__ex2g4s_1.k()) {
-            var item_1 = _iterator__ex2g4s_1.l();
-            var builder_2 = new JsonObjectBuilder;
-            put_0(builder_2, 'id', item_1.x1d_1);
-            put(builder_2, 'min', item_1.y1d_1.w_1);
-            put(builder_2, 'max', item_1.y1d_1.x_1);
-            put_1(builder_2, 'soon', true);
-            var tmp$ret$14 = builder_2.vx();
-            destination_1.i(tmp$ret$14);
-        }
-        builder.ux('games', new JsonArray(plus(tmp, destination_1)));
-        put_0(builder, 'browsing', $this.u1j_1);
-        put_0(builder, 'playing', $this.r1j_1);
-        put_0(builder, 'rematchOffer', $this.t1j_1);
+        builder.ux('games', new JsonArray(destination_0));
+        put_0(builder, 'browsing', $this.s1j_1);
+        put_0(builder, 'playing', $this.p1j_1);
+        put_0(builder, 'rematchOffer', $this.r1j_1);
         var room = builder.vx();
-        var current = $this.q1j_1;
-        var this_3 = ArrayList_init_$Create$();
-        var tmp_0 = plus_2(room, to('type', JsonPrimitive_1('state')));
-        var tmp_1;
+        var current = $this.o1j_1;
+        var this_2 = ArrayList_init_$Create$();
+        var tmp = plus_2(room, to('type', JsonPrimitive_1('state')));
+        var tmp_0;
         if (current == null) {
-            tmp_1 = null;
+            tmp_0 = null;
         } else {
-            tmp_1 = to('view', current.j1a());
+            tmp_0 = to('view', current.j1a());
         }
-        this_3.i(new Delivery('tv', new JsonObject(plus_3(tmp_0, listOfNotNull(tmp_1)))));
-        var _iterator__ex2g4s_2 = $this.p1j_1.j();
-        while (_iterator__ex2g4s_2.k()) {
-            var player = _iterator__ex2g4s_2.l();
-            var tmp_2;
+        this_2.i(new Delivery('tv', new JsonObject(plus_3(tmp, listOfNotNull(tmp_0)))));
+        var _iterator__ex2g4s_1 = $this.n1j_1.j();
+        while (_iterator__ex2g4s_1.k()) {
+            var player = _iterator__ex2g4s_1.l();
+            var tmp_1;
             if (current == null) {
-                tmp_2 = null;
+                tmp_1 = null;
             } else {
-                var tmp_3;
-                if ($this.s1j_1.m1(player.l1j_1)) {
-                    tmp_3 = current;
+                var tmp_2;
+                if ($this.q1j_1.m1(player.j1j_1)) {
+                    tmp_2 = current;
                 } else {
-                    tmp_3 = null;
+                    tmp_2 = null;
                 }
-                tmp_2 = tmp_3;
+                tmp_1 = tmp_2;
             }
-            var tmp2_safe_receiver = tmp_2;
-            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.k1a(player.l1j_1);
-            var tmp_4 = plus_2(plus_2(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.l1j_1)));
-            var tmp_5;
+            var tmp2_safe_receiver = tmp_1;
+            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.k1a(player.j1j_1);
+            var tmp_3 = plus_2(plus_2(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.j1j_1)));
+            var tmp_4;
             if (view == null) {
-                tmp_5 = null;
+                tmp_4 = null;
             } else {
-                tmp_5 = to('view', view);
+                tmp_4 = to('view', view);
             }
-            this_3.i(new Delivery(player.l1j_1, new JsonObject(plus_3(tmp_4, listOfNotNull(tmp_5)))));
+            this_2.i(new Delivery(player.j1j_1, new JsonObject(plus_3(tmp_3, listOfNotNull(tmp_4)))));
         }
-        return this_3.c4();
+        return this_2.c4();
     }
     function Companion_32() {
-        this.v1j_1 = 16;
+        this.t1j_1 = 16;
     }
     var Companion_instance_32;
     function Companion_getInstance_32() {
@@ -23164,16 +23110,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Table(random) {
         random = random === VOID ? Default_getInstance() : random;
-        this.o1j_1 = random;
+        this.m1j_1 = random;
         var tmp = this;
-        tmp.p1j_1 = ArrayList_init_$Create$();
-        this.q1j_1 = null;
+        tmp.n1j_1 = ArrayList_init_$Create$();
+        this.o1j_1 = null;
+        this.p1j_1 = null;
+        this.q1j_1 = emptySet();
         this.r1j_1 = null;
-        this.s1j_1 = emptySet();
-        this.t1j_1 = null;
-        this.u1j_1 = first(get_GAMES()).l1a();
+        this.s1j_1 = first(get_GAMES()).l1a();
     }
-    protoOf(Table).w1j = function(from, text) {
+    protoOf(Table).u1j = function(from, text) {
         var tmp;
         try {
             var value = get_jsonObject(Default_getInstance_0().xv(text));
@@ -23200,13 +23146,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = message.jx('type');
         var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
         var type = tmp2_safe_receiver == null ? null : get_contentOrNull(tmp2_safe_receiver);
-        var tmp0 = this.p1j_1;
+        var tmp0 = this.n1j_1;
         var tmp$ret$5;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.l1j_1 === from) {
+                if (element.j1j_1 === from) {
                     tmp$ret$5 = element;
                     break $l$block;
                 }
@@ -23253,7 +23199,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'lobby':
-            tmp_2 = equals(player, host(this)) && !(this.q1j_1 == null) && endGame(this);
+            tmp_2 = equals(player, host(this)) && !(this.o1j_1 == null) && endGame(this);
             break;
 
           case 'rematch':
@@ -23262,8 +23208,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
           case 'act':
             var tmp_5;
-            if (!(player == null) && this.s1j_1.m1(from)) {
-                var tmp10_safe_receiver = this.q1j_1;
+            if (!(player == null) && this.q1j_1.m1(from)) {
+                var tmp10_safe_receiver = this.o1j_1;
                 tmp_5 = (tmp10_safe_receiver == null ? null : tmp10_safe_receiver.g1a(from, message)) === true;
             } else {
                 tmp_5 = false;
@@ -23278,14 +23224,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var changed = tmp_2;
         return changed ? picture(this) : emptyList();
     };
-    protoOf(Table).x1j = function(id) {
-        var tmp0 = this.p1j_1;
+    protoOf(Table).v1j = function(id) {
+        var tmp0 = this.n1j_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.l1j_1 === id) {
+                if (element.j1j_1 === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -23300,11 +23246,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var player = tmp;
-        player.n1j_1 = false;
+        player.l1j_1 = false;
         return picture(this);
     };
     protoOf(Table).h1a = function() {
-        var tmp0_elvis_lhs = this.q1j_1;
+        var tmp0_elvis_lhs = this.o1j_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -23312,7 +23258,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.p1j_1;
+        var tmp0 = this.n1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -23328,7 +23274,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (this.s1j_1.m1(element.l1j_1) && !element.n1j_1) {
+                if (this.q1j_1.m1(element.j1j_1) && !element.l1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -23339,7 +23285,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return current.h1a() ? picture(this) : emptyList();
     };
     protoOf(Table).i1a = function() {
-        var tmp0_elvis_lhs = this.q1j_1;
+        var tmp0_elvis_lhs = this.o1j_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -23347,7 +23293,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.p1j_1;
+        var tmp0 = this.n1j_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -23363,7 +23309,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (this.s1j_1.m1(element.l1j_1) && !element.n1j_1) {
+                if (this.q1j_1.m1(element.j1j_1) && !element.l1j_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -23383,7 +23329,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.j1j_1 === 'tv') {
+                if (element_0.h1j_1 === 'tv') {
                     destination.i(element_0);
                 }
             }
@@ -23406,27 +23352,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
             var builder = new JsonObjectBuilder;
-            put_0(builder, 'to', item.j1j_1);
-            builder.ux('message', item.k1j_1);
+            put_0(builder, 'to', item.h1j_1);
+            builder.ux('message', item.i1j_1);
             var tmp$ret$2 = builder.vx();
             destination.i(tmp$ret$2);
         }
         return new JsonArray(destination).toString();
     }
     function Engine() {
-        this.y1j_1 = new Table;
+        this.w1j_1 = new Table;
     }
     protoOf(Engine).receive = function(from, text) {
-        return encode(this, this.y1j_1.w1j(from, text));
+        return encode(this, this.w1j_1.u1j(from, text));
     };
     protoOf(Engine).offline = function(id) {
-        return encode(this, this.y1j_1.x1j(id));
+        return encode(this, this.w1j_1.v1j(id));
     };
     protoOf(Engine).tick = function() {
-        return encode(this, this.y1j_1.h1a());
+        return encode(this, this.w1j_1.h1a());
     };
     protoOf(Engine).frame = function() {
-        return encode(this, this.y1j_1.i1a());
+        return encode(this, this.w1j_1.i1a());
     };
     protoOf(InternalHashMap).d5 = containsAllEntries;
     protoOf(SerialDescriptorImpl).jj = get_isNullable;

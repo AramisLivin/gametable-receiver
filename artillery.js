@@ -399,7 +399,7 @@ function shotVerdict(shot) {
 }
 
 function artyCloseUp(x, y) {
-    const zoom = 1.7, bars = 11, fieldWidth = 177.94, width = innerWidth / innerHeight * 100;
+    const zoom = 1.7, bars = 11, fieldWidth = 177.94, width = 177.78;
     const left = width / 2 - fieldWidth / 2;
     const within = (value, low, high) => Math.min(Math.max(value, low), high);
     const moveX = within(width / 2 - zoom * (left + artyX(x)), width - zoom * (left + fieldWidth), -zoom * left);
@@ -589,7 +589,7 @@ function drawArtillery(state) {
         artyOver = true;
         const winner = view.sides.indexOf(view.winner);
         lightHalf(winner);
-        playSound('win');
+        playSound('win_artillery');
         letterbox(false);
         artyNodes.camera.style.transform = '';
         if (winner >= 0) {

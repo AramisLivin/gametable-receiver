@@ -140,7 +140,7 @@ function doodleScreen(id, game) {
         ui.clock.classList.toggle('urgent', view.phase === 'drawing' && view.clock <= 5 && !away);
         if (view.phase === 'over' && !over) {
             over = true;
-            playSound('win');
+            playSound('win_' + id);
             if (view.sides.includes(view.winner)) drawVictory(ui.effects, '');
         }
         lightHalf(-1);
@@ -304,7 +304,7 @@ const RAM_SCREEN = doodleScreen('ram', {
                 fill: 'backwards'
             });
             later(lead * .55 + side * 180, (() => {
-                playSound('thud');
+                playSound('splat');
                 ddShake(ui.field, false);
             }));
             later(lead, (() => {
@@ -339,7 +339,7 @@ const RAM_SCREEN = doodleScreen('ram', {
         }));
         for (const kick of show.kicks) {
             later(lead + kick.t, (() => {
-                playSound('thud');
+                playSound('hop');
                 const index = Math.round(kick.t / show.step) * 6 + kick.side * 3;
                 const puff = div('ram-dust');
                 puff.style.transform = `translate3d(${ramX(show.frames[index])}vh,${ramY(view.floor)}vh,0)`;
@@ -351,7 +351,7 @@ const RAM_SCREEN = doodleScreen('ram', {
             later(lead + hit.t, (() => {
                 const big = hit.power > 280;
                 blastAt(ui.field, ramX(hit.x), ramY(hit.y), big ? 'normal' : 'small');
-                playSound(big ? 'blast' : 'pop');
+                playSound(big ? 'bonk_big' : 'bonk');
                 ddShake(ui.field, big);
             }));
         }
@@ -360,7 +360,7 @@ const RAM_SCREEN = doodleScreen('ram', {
             later(lead + time, (() => {
                 const index = Math.min(Math.round(time / show.step), count - 1) * 6 + side * 3;
                 blastAt(ui.field, ramX(show.frames[index]), ramY(50), 'huge');
-                playSound('mega');
+                playSound('lava');
                 ddShake(ui.field, true);
                 ui.bodies[side].style.visibility = 'hidden';
                 ddCall(ui, ddOneOf('dd_lava', 'Into the lava!'), 'callout-sunk');
@@ -481,6 +481,7 @@ const CARPET_SCREEN = doodleScreen('carpet', {
                 if (i + 3 < run.path.length) along += Math.hypot(run.path[i + 2] - run.path[i], run.path[i + 3] - run.path[i + 1]);
             }
             board.map.append(shadow, plane);
+            playSound('bomber', run.ms / 1e3);
             plane.animate(frames, {
                 duration: run.ms,
                 easing: 'linear',
@@ -500,10 +501,10 @@ const CARPET_SCREEN = doodleScreen('carpet', {
                 later(bomb.t, (() => {
                     board.marks.push(cpMark(board, bomb.x, bomb.y, bomb.hit));
                     if (!bomb.hit) {
-                        playSound('pop');
+                        playSound('bomb_miss');
                         return;
                     }
-                    playSound('blast');
+                    playSound('bomb_hit');
                     if (hits++ % 2 === 0) blastAt(board.map, bomb.x * CP_K, bomb.y * CP_K, 'small');
                     if (bomb.t - shookAt >= 450) {
                         shookAt = bomb.t;
@@ -598,13 +599,13 @@ const ROCKETS_SCREEN = doodleScreen('rockets', {
                 easing: 'linear',
                 fill: 'forwards'
             });
-            playSound('launch');
+            playSound('rocket_launch');
             rkTrail(ui, rocket, later);
             later(rocket.ms, (() => {
                 node.remove();
                 const big = rocket.end === 'base';
                 blastAt(ui.field, rocket.x * DD_K, rocket.y * DD_K, big ? 'huge' : 'normal');
-                playSound(big ? 'mega' : rocket.end === 'fuel' ? 'thud' : 'blast');
+                playSound(big ? 'rocket_base' : rocket.end === 'fuel' ? 'rocket_fizzle' : rocket.end === 'wall' ? 'rocket_wall' : 'rocket_meet');
                 if (!big && !(rocket.end === 'rocket' && rocket.side === 1)) rkLabel(ui, rocket);
                 ddShake(ui.field, big);
                 if (big) {
@@ -715,7 +716,7 @@ const RECALL_SCREEN = doodleScreen('recall', {
             time.appendChild(fill);
             sheet.append(svg, time);
             ui.sheet.appendChild(sheet);
-            playSound('place');
+            playSound('flash_on');
         } else if (view.phase === 'drawing') {
             const sheet = div('rc-page rc-empty-page', '?');
             ui.sheet.appendChild(sheet);
@@ -727,30 +728,143 @@ const RECALL_SCREEN = doodleScreen('recall', {
         ui.sheet.textContent = '';
         const big = div('rc-big');
         const best = show.scores[0] === show.scores[1] ? -1 : show.scores[0] > show.scores[1] ? 0 : 1;
+        const entries = [];
         show.drawings.forEach(((lines, side) => {
             const panel = div(`rc-page rc-panel side-${side}`);
             const svg = ddSvg('', `-20 -20 ${ui.pad + 40} ${ui.pad + 40}`);
             for (const line of show.target) svg.appendChild(ddLine(line, 'rc-target'));
             for (const line of lines) svg.appendChild(ddLine(line, 'rc-drawn dd-line'));
-            const score = div('rc-score', '0%');
-            panel.append(svg, score);
+            const number = document.createElement('b');
+            const digits = [ 0, 1, 2 ].map((() => number.appendChild(document.createElement('i'))));
+            number.append('%');
+            const score = div('rc-score');
+            score.appendChild(number);
+            const halo = div('rc-halo');
+            panel.append(svg, halo, score);
             big.appendChild(panel);
-            const steps = 12;
-            for (let i = 1; i <= steps; i++) {
-                later(1e3 + i * 110, (() => {
-                    score.textContent = `${Math.round(show.scores[side] * i / steps)}%`;
-                }));
-            }
-            if (best === side) {
-                const star = div('rc-star', '★');
-                later(2500, (() => panel.appendChild(star)));
-            }
+            entries.push({
+                panel: panel,
+                score: score,
+                number: number,
+                digits: digits,
+                halo: halo,
+                value: show.scores[side],
+                best: best === side,
+                shown: ''
+            });
         }));
         ui.sheet.appendChild(big);
-        playSound('ready');
-        later(2500, (() => {
-            playSound(best < 0 ? 'miss' : 'sunk');
+        playSound('scribble');
+        later(1e3, (() => rcCountUp(entries, (() => {
+            playSound(best < 0 ? 'even' : 'ding');
             if (best < 0) ddCall(ui, word('dd_same', 'Dead even!'), 'callout-hit');
-        }));
+        }))));
     }
 });
+
+const RC_POINT_MS = 30;
+
+const RC_LAST_POINTS_MS = [ 280, 210, 150, 110, 80, 55 ];
+
+const RC_TIERS = [ 50, 75, 90 ];
+
+const RC_GROW_EVERY = 5;
+
+function rcPaint(entry, value) {
+    const text = String(value).padStart(3, ' ');
+    entry.digits.forEach(((digit, i) => {
+        if (text[i] !== entry.shown[i]) digit.textContent = text[i].trim();
+    }));
+    entry.shown = text;
+    if (value % RC_GROW_EVERY === 0 || value === entry.value) entry.score.style.transform = `rotate(-7deg) scale(${(.55 + value * .0045).toFixed(3)})`;
+    const tier = RC_TIERS.filter((from => value >= from)).length;
+    if (tier !== entry.tier) {
+        entry.tier = tier;
+        entry.score.dataset.tier = tier;
+        entry.halo.classList.toggle('on', tier === 3);
+    }
+}
+
+function rcSparks(entry, count, reach) {
+    const burst = div('rc-sparks');
+    for (let i = 0; i < count; i++) {
+        const spark = document.createElement('i');
+        const angle = i / count * Math.PI * 2 + Math.random() * .4;
+        const distance = reach * (.65 + Math.random() * .5);
+        spark.animate([ {
+            transform: 'translate3d(0, 0, 0) scale(1)',
+            opacity: 1
+        }, {
+            transform: `translate3d(${Math.cos(angle) * distance}vh, ${Math.sin(angle) * distance}vh, 0) scale(.2)`,
+            opacity: 0
+        } ], {
+            duration: 420 + Math.random() * 300,
+            easing: 'cubic-bezier(.15, .7, .3, 1)',
+            fill: 'forwards'
+        });
+        burst.appendChild(spark);
+    }
+    entry.panel.appendChild(burst);
+    setTimeout((() => burst.remove()), 800);
+}
+
+function rcCountUp(entries, done) {
+    const top = Math.max(...entries.map((entry => entry.value)));
+    let value = 0;
+    const trial = [];
+    let last = performance.now();
+    let frameMs = 0;
+    let framesLeft = 0;
+    entries.forEach((entry => rcPaint(entry, 0)));
+    const finish = () => {
+        for (const entry of entries) {
+            if (entry.value !== top) continue;
+            entry.score.classList.add('rc-final');
+            const ring = div('rc-ring');
+            ring.addEventListener('animationend', (() => ring.remove()));
+            entry.panel.appendChild(ring);
+            rcSparks(entry, top === 100 ? 34 : 20, 30);
+            if (entry.best) entry.panel.appendChild(div('rc-star', '★'));
+        }
+        done();
+    };
+    const step = now => {
+        if (!entries[0].panel.isConnected) return;
+        if (!frameMs) {
+            trial.push(now - last);
+            last = now;
+            if (trial.length === 8) frameMs = trial.sort(((x, y) => x - y))[4];
+            requestAnimationFrame(step);
+            return;
+        }
+        if (--framesLeft <= 0 && value < top) {
+            value++;
+            const left = top - value;
+            framesLeft = Math.max(1, Math.round((left < RC_LAST_POINTS_MS.length ? RC_LAST_POINTS_MS[left] : RC_POINT_MS) / frameMs));
+            for (const entry of entries) {
+                if (value > entry.value) continue;
+                rcPaint(entry, value);
+                if (value % 25 === 0 && value < top) {
+                    entry.number.animate([ {
+                        transform: 'scale(1)'
+                    }, {
+                        transform: 'scale(1.32)'
+                    }, {
+                        transform: 'scale(1)'
+                    } ], {
+                        duration: 220,
+                        easing: 'ease-out'
+                    });
+                    rcSparks(entry, 9, 15);
+                }
+                if (value === entry.value && value < top) {
+                    entry.score.classList.add('rc-stopped');
+                    playSound('score_stop');
+                }
+            }
+            if (value % 2 === 0 || left < RC_LAST_POINTS_MS.length) playSound('tick', value / 100);
+        }
+        if (value < top) requestAnimationFrame(step); else finish();
+    };
+    if (top === 0) finish(); else requestAnimationFrame(step);
+}
