@@ -742,7 +742,7 @@ const RECALL_SCREEN = doodleScreen('recall', {
             const halo = div('rc-halo');
             panel.append(svg, halo, score);
             big.appendChild(panel);
-            entries.push({
+            const entry = {
                 panel: panel,
                 score: score,
                 number: number,
@@ -751,7 +751,9 @@ const RECALL_SCREEN = doodleScreen('recall', {
                 value: show.scores[side],
                 best: best === side,
                 shown: ''
-            });
+            };
+            entries.push(entry);
+            rcPaint(entry, 0);
         }));
         ui.sheet.appendChild(big);
         playSound('scribble');
@@ -815,7 +817,6 @@ function rcCountUp(entries, done) {
     let last = performance.now();
     let frameMs = 0;
     let framesLeft = 0;
-    entries.forEach((entry => rcPaint(entry, 0)));
     const finish = () => {
         for (const entry of entries) {
             if (entry.value !== top) continue;

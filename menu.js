@@ -4,7 +4,7 @@ let menuShown = null;
 
 const menuNodes = new Map;
 
-const MENU_VIDEOS = [ 'battleship', 'artillery' ];
+const MENU_VIDEOS = [ 'battleship', 'artillery', 'ram', 'carpet', 'rockets', 'recall' ];
 
 function playMenuVideo(id) {
     if (id === menuVideoOf) return;
