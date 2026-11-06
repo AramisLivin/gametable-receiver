@@ -2,31 +2,9 @@ const FT_K = 100 / 562;
 
 const FT_COLOURS = [ '#7db7f0', '#f27d86', '#8fd16a', '#f2c14e' ];
 
-const FT_ICONS = {
-    sword: '⚔️',
-    knight: '🛡️',
-    archer: '🏹',
-    fire: '🔥',
-    ice: '❄️',
-    ballista: '🎯',
-    catapult: '🪨',
-    mint: '🪙',
-    forge: '🔨',
-    bastion: '🧱',
-    cell: '⬜'
-};
-
-const FT_ENEMY_ICONS = {
-    grunt: '👺',
-    runner: '💨',
-    brute: '🪓',
-    ram: '🪵',
-    boss: '👹'
-};
-
 const FT_UNITS = [ 'sword', 'knight', 'archer', 'fire', 'ice' ];
 
-const FT_EFFECTS = [ 'arrow', 'fire', 'ice', 'bolt', 'rock', 'stomp' ];
+const FT_EFFECTS = [ 'arrow', 'fire', 'ice', 'bolt', 'rock', 'stomp', 'heal' ];
 
 let ftNodes = null;
 
@@ -96,7 +74,7 @@ function ftMeadow(field, meadow) {
 function ftWall(wall, view) {
     wall.appendChild(div('ft-cracks'));
     const rows = view.yards.length <= 2 ? view.yards.length : 2;
-    const towers = rows === 1 ? [ .06, .5, .94 ] : [ .05, .5, .95 ];
+    const towers = view.gates.length === 1 ? [ .06, .94 ] : rows === 1 ? [ .06, .5, .94 ] : [ .05, .5, .95 ];
     for (const share of towers) {
         const tower = div('ft-tower');
         tower.style.top = `${share * 100}vh`;
@@ -109,6 +87,43 @@ function ftWall(wall, view) {
         banner.style.animationDelay = `${-side * .7}s`;
         wall.appendChild(banner);
     }));
+    return view.gates.map((y => {
+        const gate = div('ft-gate');
+        gate.style.top = `${ftY(y)}vh`;
+        const top = document.createElement('i'), bottom = document.createElement('i');
+        gate.append(top, bottom);
+        wall.appendChild(gate);
+        return {
+            y: y,
+            leaves: [ top, bottom ],
+            openUntil: 0
+        };
+    }));
+}
+
+function ftOpenGate(y) {
+    const gates = ftNodes.gates;
+    if (!gates.length) return;
+    const gate = gates.reduce(((a, b) => Math.abs(a.y - y) <= Math.abs(b.y - y) ? a : b));
+    const now = performance.now();
+    if (now < gate.openUntil) return;
+    gate.openUntil = now + 900;
+    for (const leaf of gate.leaves) {
+        leaf.animate([ {
+            transform: 'none'
+        }, {
+            transform: 'scaleY(.12)',
+            offset: .2
+        }, {
+            transform: 'scaleY(.12)',
+            offset: .8
+        }, {
+            transform: 'none'
+        } ], {
+            duration: 900,
+            easing: 'ease-in-out'
+        });
+    }
 }
 
 function buildFortress(view) {
@@ -124,7 +139,7 @@ function buildFortress(view) {
     yard.style.width = `${wallVh}vh`;
     const wall = div('ft-wall');
     wall.style.left = `${wallVh - 4.2}vh`;
-    ftWall(wall, view);
+    const gates = ftWall(wall, view);
     const bodies = div('ft-bodies');
     const engines = div('ft-engines');
     const effects = div('ft-effects');
@@ -134,8 +149,11 @@ function buildFortress(view) {
         const head = div('ft-plot-head');
         const name = div('ft-plot-name');
         const coins = div('ft-plot-coins');
+        const sum = document.createElement('span');
+        coins.append(ftCoin(), sum);
         const ready = div('ft-plot-ready', '✔');
-        head.append(name, coins, ready);
+        const choosing = div('ft-plot-choosing', '🃏');
+        head.append(name, coins, ready, choosing);
         const grid = div('ft-grid');
         box.append(grid, head);
         yard.appendChild(box);
@@ -143,6 +161,7 @@ function buildFortress(view) {
             box: box,
             name: name,
             coins: coins,
+            sum: sum,
             ready: ready,
             grid: grid,
             key: null
@@ -159,12 +178,10 @@ function buildFortress(view) {
     wallBar.append(wallFill, wallArmor, wallText, armor);
     const clock = div('ft-clock');
     hud.append(waveBox, wallBar, clock);
-    const coming = div('ft-coming');
-    coming.style.left = `${wallVh + meadow / 2}vh`;
     const banner = div('ft-banner');
     banner.style.left = `${wallVh}vh`;
     banner.style.width = `${meadow}vh`;
-    stage.append(field, yard, wall, engines, bodies, effects, hud, coming, banner);
+    stage.append(field, yard, wall, engines, bodies, effects, hud, banner);
     root.appendChild(stage);
     ftNodes = {
         root: root,
@@ -181,14 +198,13 @@ function buildFortress(view) {
         wallText: wallText,
         armor: armor,
         clock: clock,
-        coming: coming,
         banner: banner,
+        gates: gates,
         figures: new Map,
         shownWall: null,
         wallShownAt: 0,
         engines: engines,
         engineNodes: new Map,
-        comingKey: null,
         blocks: new Map,
         paydaySeen: view.payday ? view.payday.wave : null
     };
@@ -201,12 +217,17 @@ function drawEngines(view) {
         let node = ftNodes.engineNodes.get(engine.id);
         if (!node) {
             node = div(`ft-body ft-engine k-${engine.k}`);
-            node.appendChild(ftArtImage('b_' + engine.k, FT_COLOURS[engine.side], 'ft-art'));
+            node.appendChild(ftArtImage('b_' + engine.k, FT_COLOURS[engine.side], 'ft-art', false, engine.lv));
+            node.dataset.lv = engine.lv;
             node.classList.add('fresh');
             ftNodes.engines.appendChild(node);
             ftNodes.engineNodes.set(engine.id, node);
         }
         node.style.setProperty('--tint', FT_COLOURS[engine.side]);
+        if (node.dataset.lv !== String(engine.lv)) {
+            node.dataset.lv = engine.lv;
+            node.firstChild.src = ftArt('b_' + engine.k, FT_COLOURS[engine.side], false, engine.lv);
+        }
         node.classList.toggle('lv-2', engine.lv === 2);
         node.classList.toggle('lv-3', engine.lv === 3);
         node.classList.toggle('lv-4', engine.lv === 4);
@@ -220,7 +241,7 @@ function drawEngines(view) {
     }
 }
 
-function ftPiece(piece, size, tint) {
+function ftPiece(piece, size, tint, cards) {
     const block = div(`ft-block k-${piece.k} lv-${piece.lv}`);
     const xs = piece.cells.map((c => c[0])), ys = piece.cells.map((c => c[1]));
     const left = Math.min(...xs), top = Math.min(...ys);
@@ -245,9 +266,9 @@ function ftPiece(piece, size, tint) {
         part.style.borderRightWidth = on ? '0' : '';
         block.appendChild(part);
     }
-    for (const image of ftBuildingImages(piece.k, piece.cells, tint, size, 'vh')) block.appendChild(image);
+    for (const image of ftBuildingImages(piece.k, piece.cells, tint, size, 'vh', piece.lv)) block.appendChild(image);
     block.style.zIndex = Math.max(...ys) + 1;
-    if (piece.lv > 1) block.appendChild(div('ft-stars', '★'.repeat(piece.lv)));
+    if (cards) block.appendChild(div('ft-cardmark', `✦${cards > 1 ? cards : ''}`));
     if (FT_UNITS.includes(piece.k)) {
         const bar = div('ft-progress');
         bar.appendChild(document.createElement('i'));
@@ -258,7 +279,7 @@ function ftPiece(piece, size, tint) {
 
 function drawPlot(view, side, plot) {
     const data = view.fields[side];
-    const key = JSON.stringify([ data.cells, data.pieces ]);
+    const key = JSON.stringify([ data.cells, data.pieces, data.cards ]);
     const cell = view.cell;
     plot.box.style.left = `${ftX(view.yards[side].x)}vh`;
     plot.box.style.top = `${ftY(view.yards[side].y)}vh`;
@@ -276,7 +297,7 @@ function drawPlot(view, side, plot) {
         plot.grid.appendChild(tile);
     }
     for (const piece of data.pieces) {
-        const block = ftPiece(piece, size, FT_COLOURS[side]);
+        const block = ftPiece(piece, size, FT_COLOURS[side], data.cards[piece.k]);
         ftNodes.blocks.set(piece.id, block);
         const was = before && before.get(piece.id);
         if (before && (!was || was.lv !== piece.lv || was.x !== piece.x || was.y !== piece.y || was.turn !== piece.turn)) {
@@ -318,23 +339,6 @@ function setWall(hp, armor, max, hit) {
     ftNodes.wall.classList.toggle('fallen', hp <= 0);
 }
 
-function drawComing(view) {
-    const key = view.phase === 'build' ? JSON.stringify([ view.wave, view.coming ]) : '';
-    if (key === ftNodes.comingKey) return;
-    ftNodes.comingKey = key;
-    ftNodes.coming.textContent = '';
-    if (!key) return;
-    const title = div('ft-coming-title', view.wave === view.waves ? ftWords('ft_last', 'The last wave!') : ftWords('ft_coming', 'Coming next'));
-    ftNodes.coming.appendChild(title);
-    for (const kind of [ 'grunt', 'runner', 'brute', 'ram', 'boss' ]) {
-        const count = view.coming[kind];
-        if (!count) continue;
-        const entry = div(`ft-coming-entry e-${kind}`);
-        entry.append(div('ft-coming-icon', FT_ENEMY_ICONS[kind]), div('ft-coming-name', `${ftWords('ft_enemy_' + kind, kind)} × ${count}`));
-        ftNodes.coming.appendChild(entry);
-    }
-}
-
 function ftBanner(text, cls) {
     const banner = div(`ft-banner ${cls} on`, text);
     banner.style.left = ftNodes.banner.style.left;
@@ -352,17 +356,16 @@ function drawFortress(state) {
         const plot = ftNodes.fields[side];
         drawPlot(view, side, plot);
         plot.name.textContent = nameOf(view.sides[side]);
-        plot.coins.textContent = `🪙 ${data.coins}`;
+        if (plot.sum.textContent !== String(data.coins)) plot.sum.textContent = data.coins;
         plot.box.classList.toggle('ready', view.phase === 'build' && data.ready);
+        plot.box.classList.toggle('choosing', view.phase === 'build' && data.choosing);
     }));
     ftNodes.waveBox.textContent = ftWords('ft_wave', 'Wave {n} of {all}', {
         n: view.wave,
         all: view.waves
     });
     ftNodes.armor.textContent = view.phase === 'build' && view.armorRate ? `🛡 +${view.armorRate} / ${view.armorEvery}s` : '';
-    ftNodes.clock.textContent = away ? word('siege_away', 'Waiting for {name}').replace('{name}', nameOf(away)) : view.phase === 'build' ? view.clock : '';
-    ftNodes.clock.classList.toggle('urgent', view.phase === 'build' && view.clock <= 5 && !away);
-    drawComing(view);
+    ftNodes.clock.textContent = away ? word('siege_away', 'Waiting for {name}').replace('{name}', nameOf(away)) : '';
     drawEngines(view);
     if (view.battle && (!ftBattle || ftBattle.raw !== view.battle)) {
         playBattle(view);
@@ -396,6 +399,7 @@ function ftFloat(target, text, cls) {
     if (!ftNodes || !target || !target.isConnected) return;
     const at = onStage(target.getBoundingClientRect());
     const note = div(`ft-float ${cls}`, text);
+    if (cls === 'coin') note.appendChild(ftCoin());
     note.style.left = `${at.x / innerHeight * 100}vh`;
     note.style.top = `${at.y / innerHeight * 100}vh`;
     ftNodes.stage.appendChild(note);
@@ -404,9 +408,9 @@ function ftFloat(target, text, cls) {
 
 function ftPayday(payday) {
     if (!ftNodes) return;
-    payday.coins.forEach(((coins, side) => ftFloat(ftNodes.fields[side] && ftNodes.fields[side].coins, `+${coins} 🪙`, 'coin')));
+    payday.coins.forEach(((coins, side) => ftFloat(ftNodes.fields[side] && ftNodes.fields[side].coins, `+${coins}`, 'coin')));
     payday.gifts.forEach((([id, kind, amount], i) => {
-        setTimeout((() => ftFloat(ftNodes && ftNodes.blocks.get(id), kind === 'mint' ? `+${amount} 🪙` : `+${amount} ♥`, kind === 'mint' ? 'coin' : 'heart')), 250 + i * 120);
+        setTimeout((() => ftFloat(ftNodes && ftNodes.blocks.get(id), kind === 'mint' ? `+${amount}` : `+${amount} ♥`, kind === 'mint' ? 'coin' : 'heart')), 250 + i * 120);
     }));
 }
 
@@ -434,6 +438,11 @@ function ftRead(raw) {
             facing = now;
         }
         if (body.died >= 0) moments.push([ body.died, 3, body.id, 0 ]);
+    }
+    const chills = ftNums(raw.chills);
+    for (let i = 0; i < chills.length; i += 3) {
+        moments.push([ chills[i], 4, chills[i + 1], chills[i] + chills[i + 2] ]);
+        moments.push([ chills[i] + chills[i + 2], 5, chills[i + 1], 0 ]);
     }
     const swings = ftNums(raw.swings);
     for (let i = 0; i < swings.length; i += 2) moments.push([ swings[i], 1, swings[i + 1], 0 ]);
@@ -633,6 +642,7 @@ function ftSpawn(data, body, t) {
         body: body,
         flashedAt: -1e3
     });
+    if (!foe && t - body.born < 300) ftOpenGate(body.track[1]);
     if (body.k === 'boss') {
         ftBanner(ftWords('ft_boss', 'Here comes the boss!'), 'boss');
         playSound('ft_boss');
@@ -693,6 +703,11 @@ function ftMoment([at, what, id, value], t) {
         }
     } else if (what === 2) {
         figure.life.style.transform = value < 0 ? 'scaleX(-1)' : '';
+    } else if (what === 4) {
+        figure.chilledUntil = Math.max(figure.chilledUntil || 0, value);
+        figure.node.classList.add('chilled');
+    } else if (what === 5) {
+        if (at >= (figure.chilledUntil || 0)) figure.node.classList.remove('chilled');
     } else {
         figure.bar.style.opacity = 0;
         const fall = figure.fig.animate([ {
@@ -747,5 +762,6 @@ function ftBoom(boom) {
     node.style.setProperty('--r', `${ftX(boom.r) * 2}vh`);
     ftNodes.effects.appendChild(node);
     setTimeout((() => node.remove()), 700);
+    if (boom.k === 'heal') return;
     ftSound(boom.k === 'ice' ? 'ft_ice' : boom.k === 'stomp' ? 'bonk_big' : boom.k === 'rock' ? 'thud' : 'ft_fire', 120);
 }
