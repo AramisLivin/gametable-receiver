@@ -833,6 +833,10 @@ body > .callout { z-index: 7; }
 .ft-float.coin { color: #ffd24a; }
 .ft-float.shield { color: #d7e6f5; }
 .ft-float.heart { color: #ff8f8f; }
+.ft-crit { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+.ft-crit::before { content: '×2'; position: absolute; left: -2vh; top: -9vh; width: 4vh; text-align: center; font-family: 'Russo One', Nunito, sans-serif; font-size: 2.6vh;
+  color: #ffd24a; text-shadow: 0 .3vh 0 #5b4328; animation: ft-crit .7s ease-out both; }
+@keyframes ft-crit { 0% { opacity: 0; transform: scale(.5); } 20% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0; transform: translateY(-3vh); } }
 @keyframes ft-float { 0% { opacity: 0; transform: translate(-50%, -30%) scale(.6); } 15% { opacity: 1; transform: translate(-50%, -70%) scale(1.15); }
   30% { transform: translate(-50%, -80%) scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -200%); } }
 .ft-block.lv-3 .ft-building, .ft-block.lv-4 .ft-building { filter: drop-shadow(0 0 .7vh #ffd27a) drop-shadow(0 .4vh 0 rgba(91, 67, 40, .35)); }

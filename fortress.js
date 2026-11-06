@@ -444,6 +444,8 @@ function ftRead(raw) {
         moments.push([ chills[i], 4, chills[i + 1], chills[i] + chills[i + 2] ]);
         moments.push([ chills[i] + chills[i + 2], 5, chills[i + 1], 0 ]);
     }
+    const crits = ftNums(raw.crits);
+    for (let i = 0; i < crits.length; i += 2) moments.push([ crits[i], 6, crits[i + 1], 0 ]);
     const swings = ftNums(raw.swings);
     for (let i = 0; i < swings.length; i += 2) moments.push([ swings[i], 1, swings[i + 1], 0 ]);
     moments.sort(((a, b) => a[0] - b[0]));
@@ -706,6 +708,23 @@ function ftMoment([at, what, id, value], t) {
     } else if (what === 4) {
         figure.chilledUntil = Math.max(figure.chilledUntil || 0, value);
         figure.node.classList.add('chilled');
+    } else if (what === 6) {
+        if (t - at < 150) {
+            figure.fig.animate([ {
+                filter: 'drop-shadow(0 0 1vh #ffd24a) brightness(1.4)'
+            }, {
+                filter: 'none'
+            } ], {
+                duration: 320,
+                easing: 'ease-out'
+            });
+            const track = figure.body.track, step = ftBattle ? ftBattle.data.step : 200;
+            const i = Math.min(track.length / 2 - 1, Math.max(0, Math.round((at - figure.body.born) / step)));
+            const note = div('ft-crit');
+            note.style.transform = ftAt(track[i * 2], track[i * 2 + 1]);
+            ftNodes.effects.appendChild(note);
+            setTimeout((() => note.remove()), 700);
+        }
     } else if (what === 5) {
         if (at >= (figure.chilledUntil || 0)) figure.node.classList.remove('chilled');
     } else {
