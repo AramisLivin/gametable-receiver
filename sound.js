@@ -128,6 +128,10 @@ const MUSIC_FADE_OUT = .4;
 const MUSIC_FADE_IN = .4;
 
 const DUCK_SECONDS = {
+    drill: .8,
+    flare: .5,
+    mine_set: .4,
+    reel_stop: .5,
     launch: .5,
     thud: .9,
     blast: 1.5,
@@ -166,7 +170,13 @@ const DUCK_SECONDS = {
     win_ram: 3,
     win_carpet: 4,
     win_rockets: 3,
-    win_recall: 3
+    win_recall: 3,
+    go_fortress: 1,
+    ft_horn: 1.4,
+    ft_boss: 1.8,
+    ft_merge: .5,
+    ft_fire: .3,
+    ft_lost: 3.5
 };
 
 let musicTheme = null;
@@ -421,6 +431,28 @@ const THEMES = {
                 step = Math.min(box.length - 1, step + 1 + Math.floor(Math.random() * 2));
             }
         }
+    },
+    fortress: {
+        beat: mood => mood === 'fight' ? .42 : .6,
+        volume: 1,
+        bar(at, n, mood, beat) {
+            const roots = [ 50, 50, 48, 45, 50, 53, 48, 50 ];
+            const root = roots[n % 8];
+            musicNote(musicTrack, 'sawtooth', root - 12, at, .2, beat * 3.4, .4, .035, 500);
+            musicNote(musicTrack, 'sawtooth', root - 5, at, .2, beat * 3.4, .4, .025, 500);
+            const tunes = [ [ 74, null, 72, 74, 76, null, 74, 72 ], [ 69, null, 72, null, 74, 72, 69, null ], [ 72, 74, 76, 79, 77, null, 76, 74 ], [ 74, null, null, 72, 74, null, null, null ] ];
+            if (mood === 'fight' || Math.floor(n / 4) % 2 === 0) {
+                musicRun(tunes[n % 4], at, beat / 2, ((note, when) => musicNote(musicTrack, 'triangle', note, when, .02, beat * .3, .12, .05)));
+            }
+            if (mood === 'fight') {
+                [ 0, .5, 1, 2, 2.5, 3 ].forEach(((when, i) => musicKick(at + when * beat, i % 3 === 0 ? .17 : .09, 80, 40)));
+                for (const when of [ 1, 3 ]) musicSnare(at + when * beat, .06);
+                for (let i = 0; i < 8; i++) musicNote(musicTrack, 'square', root + (i % 4 === 2 ? 7 : 0), at + i * beat / 2, .005, .04, .08, .016, 900);
+            } else {
+                musicBlock(at, .05, 76);
+                musicBlock(at + 2 * beat, .04, 71);
+            }
+        }
     }
 };
 
@@ -504,6 +536,11 @@ function glide(at, from, to, attack, seconds, volume) {
 let tickBooked = 0;
 
 const SOUNDS = {
+    vote() {
+        thump(0, 260, 140, .08, .5);
+        glide(.04, 784, 784, .004, .12, .08);
+        glide(.12, 1175, 1175, .004, .22, .08);
+    },
     browse() {
         glide(0, 880, 880, .002, .05, .05);
     },
@@ -538,6 +575,74 @@ const SOUNDS = {
     },
     go_recall() {
         SOUNDS.ding();
+    },
+    go_fortress() {
+        horn(293.7, 0, .25, .1);
+        horn(440, .22, .25, .1);
+        horn(587.3, .44, .7, .1);
+        drum(.44, .9);
+    },
+    ft_horn() {
+        horn(146.8, 0, .5, .11);
+        horn(146.8, .55, 1.2, .11);
+        horn(220, .55, 1.2, .06);
+    },
+    ft_boss() {
+        horn(110, 0, 1.4, .13);
+        horn(116.5, 0, 1.4, .09);
+        thump(0, 70, 30, 1.2, 1.2);
+        drum(.7, 1);
+        drum(1.05, 1);
+    },
+    ft_merge() {
+        glide(0, 523.3, 523.3, .005, .12, .12);
+        glide(.09, 784, 784, .005, .12, .12);
+        glide(.18, 1046.5, 1046.5, .005, .4, .12);
+        noise(.18, .4, .12, 'highpass', 6e3, 3e3);
+    },
+    ft_arrow() {
+        noise(0, .12, .12, 'bandpass', 2400, 5200);
+    },
+    ft_cast(kind) {
+        if (kind === 'ice') glide(0, 1200, 2200, .01, .22, .05); else glide(0, 300, 700, .01, .2, .06);
+        noise(0, .2, .1, 'bandpass', 1500, 3500);
+    },
+    ft_engine(kind) {
+        noise(0, .08, .4, 'bandpass', kind === 'rock' ? 700 : 1400, 400);
+        thump(0, kind === 'rock' ? 120 : 200, 60, .2, .5);
+        glide(.02, kind === 'rock' ? 260 : 520, kind === 'rock' ? 180 : 300, .005, .18, .05);
+    },
+    ft_fire() {
+        noise(0, .35, .5, 'lowpass', 2200, 200);
+        thump(0, 140, 50, .25, .5);
+    },
+    ft_ice() {
+        [ 1568, 2093, 2637 ].forEach(((f, i) => glide(i * .03, f, f * .98, .002, .3, .04)));
+        noise(0, .25, .18, 'highpass', 5e3, 2500);
+    },
+    ft_clash() {
+        glide(0, 2400 + Math.random() * 800, 1800, .001, .07, .035);
+        noise(0, .04, .12, 'highpass', 4e3, 2500);
+    },
+    ft_thump() {
+        thump(0, 160, 70, .1, .25);
+        noise(0, .05, .12, 'lowpass', 1200, 400);
+    },
+    ft_wall() {
+        thump(0, 110, 45, .25, .55);
+        noise(0, .2, .35, 'lowpass', 900, 200);
+    },
+    ft_coin() {
+        glide(0, 1975.5, 1975.5, .002, .06, .05);
+        glide(.06, 2637, 2637, .002, .16, .05);
+    },
+    ft_lost() {
+        drum(0, .9);
+        chord([ 146.8, 174.6, 220 ], 0, 1, .1);
+        drum(.9, .8);
+        chord([ 130.8, 155.6, 196 ], .9, 1, .1);
+        drum(1.8, 1);
+        chord([ 110, 146.8, 174.6 ], 1.8, 2.4, .09);
     },
     splat() {
         thump(0, 170, 45, .2, 1.1);
@@ -708,6 +813,32 @@ const SOUNDS = {
         glide(0, 523, 523, .01, .18, .13);
         glide(.13, 659, 659, .01, .18, .13);
         glide(.26, 784, 784, .01, .34, .13);
+    },
+    drill(seconds) {
+        const length = Math.max(.3, seconds);
+        for (let i = 0; i * .045 < length; i++) noise(i * .045, .04, .5, 'bandpass', 900 + i % 3 * 350, 600);
+        glide(0, 330, 150, .02, length, .07);
+        noise(0, length, 1, 'lowpass', 500, 200);
+    },
+    flare() {
+        noise(0, .7, .3, 'highpass', 2500, 4200);
+        glide(.15, 880, 880, .01, .12, .07);
+        glide(.3, 1175, 1175, .01, .2, .07);
+    },
+    mine_set() {
+        thump(0, 160, 70, .1, .6);
+        noise(.12, .02, .4, 'bandpass', 3e3, 2500);
+        noise(.22, .02, .4, 'bandpass', 3e3, 2500);
+        glide(.34, 1760, 1760, .004, .09, .06);
+    },
+    reel(share) {
+        const frequency = 1500 - 500 * share;
+        glide(0, frequency, frequency * .8, .002, .03, .05);
+    },
+    reel_stop(jackpot) {
+        thump(0, 220, 90, .12, .7);
+        noise(0, .05, .5, 'bandpass', 1400, 900);
+        if (jackpot) [ 1046.5, 1318.5, 1568, 2093, 2637 ].forEach(((frequency, i) => glide(.1 + i * .07, frequency, frequency, .003, .4, .08))); else glide(.06, 1318.5, 1318.5, .004, .25, .06);
     },
     drive(seconds) {
         noise(0, seconds, 2.4, 'lowpass', 260, 160);

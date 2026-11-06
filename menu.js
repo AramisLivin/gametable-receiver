@@ -63,7 +63,8 @@ function menuNodesFor(games) {
         const tile = div('menu-tile');
         tile.appendChild(posterImage(game.id, 'menu-tile-art'));
         const name = div('menu-tile-name');
-        tile.appendChild(name);
+        const votes = div('menu-votes');
+        tile.append(name, votes);
         tiles.appendChild(tile);
         const backdrop = div('menu-backdrop');
         backdrop.dataset.game = game.id;
@@ -71,7 +72,9 @@ function menuNodesFor(games) {
         menuNodes.set(game.id, {
             tile: tile,
             name: name,
-            backdrop: backdrop
+            backdrop: backdrop,
+            votes: votes,
+            voters: ''
         });
     }
 }
@@ -91,10 +94,30 @@ function drawMenu(state) {
     $('menu-title').textContent = title;
     $('menu-meta').textContent = [ playersText(game), word('length_' + game.id, '') ].filter(Boolean).join(' · ');
     $('menu-about').textContent = word('about_' + game.id, '');
+    const wanting = state.players.filter((p => (state.votes || {})[p.id] === game.id)).map((p => p.name));
+    $('menu-votes').textContent = wanting.length ? '♥ ' + word('votes_want', 'Want to play: {names}').replace('{names}', wanting.join(', ')) : '';
     $('lobby-hint').textContent = online < game.min ? word($('join').classList.contains('on') ? 'need_more_scan' : 'need_more', 'Waiting for one more player') : word('host_picks_name', '{name} picks a game on the phone').replace('{name}', host ? host.name : '');
+    const votes = state.votes || {};
+    const votersOf = id => state.players.filter((p => votes[p.id] === id));
+    let newVote = false;
     for (const g of state.games) {
         const nodes = menuNodes.get(g.id);
         nodes.name.textContent = word('game_' + g.id, g.id);
+        const voters = votersOf(g.id);
+        const key = voters.map((p => p.id)).join();
+        if (key !== nodes.voters) {
+            const before = new Set(nodes.voters.split(','));
+            nodes.voters = key;
+            nodes.votes.textContent = '';
+            for (const p of voters) {
+                const badge = div('menu-vote', [ ...p.name ][0].toUpperCase());
+                if (!before.has(p.id)) {
+                    badge.classList.add('fresh');
+                    newVote = true;
+                }
+                nodes.votes.appendChild(badge);
+            }
+        }
         nodes.tile.classList.toggle('chosen', g.id === game.id);
         nodes.backdrop.classList.toggle('on', g.id === game.id);
     }
@@ -108,6 +131,7 @@ function drawMenu(state) {
             node.classList.add('fresh');
         }
     }
+    if (newVote) playSound('vote');
     playMenuVideo(game.id);
     show('lobby');
 }

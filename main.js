@@ -73,6 +73,10 @@ const GAME_SCREENS = {
         draw: drawArtillery,
         stop: stopArtillery
     },
+    fortress: {
+        draw: drawFortress,
+        stop: stopFortress
+    },
     ram: RAM_SCREEN,
     carpet: CARPET_SCREEN,
     rockets: ROCKETS_SCREEN,
@@ -85,6 +89,7 @@ function musicFor(state) {
     const view = state.view || {};
     if (DOODLE_GAMES.includes(state.playing)) return [ state.playing, view.phase === 'showing' ? 'fight' : 'calm' ];
     if (state.playing === 'artillery') return [ 'artillery', view.phase === 'flying' ? 'fight' : 'calm' ];
+    if (state.playing === 'fortress') return [ 'fortress', view.phase === 'battle' ? 'fight' : 'calm' ];
     return [ 'battleship', view.phase !== 'placing' && !view.winner ? 'fight' : 'calm' ];
 }
 

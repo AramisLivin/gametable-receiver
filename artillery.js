@@ -16,6 +16,10 @@ let artyTimers = [];
 
 let artyHull = null;
 
+let artyDealing = false;
+
+let artyView = null;
+
 const artyX = x => x * ARTY_K;
 
 const artyY = y => (562 - y) * ARTY_K;
@@ -32,6 +36,7 @@ function stopArtillery() {
     artyFlying = false;
     artyOver = false;
     artyHull = null;
+    artyDealing = false;
 }
 
 function artyLater(ms, action) {
@@ -165,6 +170,7 @@ function buildArtillery(view) {
         clock: clock,
         wind: wind,
         crates: new Map,
+        mines: new Map,
         effects: root.querySelector('.siege-effects')
     };
     setGround(view);
@@ -336,7 +342,12 @@ function flySegment(segment, slow) {
         easing: 'linear',
         fill: 'forwards'
     });
-    const every = Math.max(1, Math.round(segment.path.length / (segment.kind === 'bomblet' ? 5 : 16)));
+    const every = Math.max(1, Math.round(segment.path.length / ({
+        bomblet: 5,
+        bomb: 4,
+        drilling: 10,
+        rocket: 34
+    }[segment.kind] || 16)));
     const stepMs = segment.ms * slow / Math.max(1, segment.path.length - 1);
     segment.path.forEach((([x, y], i) => {
         if (i % every || i === 0) return;
@@ -371,6 +382,7 @@ function shownHull(side, change) {
 
 function playBlast(blast, shot, view, first) {
     if (first) setGround(view);
+    if (blast.mine != null) removeMine(blast.mine);
     const size = shot.finale && blast.size === 'normal' ? 'huge' : blast.size;
     explode(blast.x, blast.y, size);
     scar(blast.x, blast.y, size);
@@ -383,13 +395,14 @@ function playBlast(blast, shot, view, first) {
         blastOn(side, blast.direct === side || blast.size === 'huge');
     }));
     const inWater = view.water && blast.y <= view.water;
-    playSound(blast.size === 'huge' || shot.finale ? 'mega' : blast.size === 'small' ? 'pop' : inWater ? 'miss' : blast.damage[0] || blast.damage[1] || blast.kind === 'surprise' ? 'blast' : 'thud');
+    playSound(blast.size === 'huge' || shot.finale ? 'mega' : blast.kind === 'bomb' ? 'bomb_hit' : blast.size === 'small' ? 'pop' : inWater ? 'miss' : blast.damage[0] || blast.damage[1] || blast.kind === 'surprise' ? 'blast' : 'thud');
 }
 
 function shotVerdict(shot) {
     const rival = 1 - shot.side;
     const toRival = shot.blasts.reduce(((sum, blast) => sum + blast.damage[rival]), 0);
     const toSelf = shot.blasts.reduce(((sum, blast) => sum + blast.damage[shot.side]), 0);
+    if (shot.laid && shot.laid.length && !shot.blasts.length) return null;
     if (!shot.blasts.length) return [ artyLine('arty_gone', 'Gone!'), 'callout-miss' ];
     if (toSelf && !toRival) return [ artyLine('arty_self', 'Own goal!'), 'callout-sunk' ];
     if (shot.blasts.some((blast => blast.direct === rival))) return [ artyLine('arty_direct', 'Direct hit!'), 'callout-sunk' ];
@@ -441,13 +454,27 @@ function fly(view) {
         explode(split.x, split.y, 'small');
     }));
     for (const opened of shot.opened) artyLater(opened.t * slow, (() => openCrate(opened, view)));
+    for (const drill of shot.drills || []) {
+        const under = shot.segments.find((segment => segment.kind === 'drilling' && Math.abs(segment.start - drill.t) < 1));
+        artyLater(drill.t * slow, (() => drillIn(drill, under ? under.ms * slow : 400)));
+    }
+    for (const ignite of shot.ignites || []) artyLater(ignite.t * slow, (() => lightRocket(ignite)));
+    for (const mark of shot.marks || []) artyLater(mark.t * slow, (() => lightFlare(mark, shot.strike, slow)));
+    if (shot.strike) callStrike(shot.strike, slow);
+    for (const mine of shot.laid || []) artyLater(mine.t * slow, (() => {
+        placeMine(mine, true);
+        floatOnField(mine.x, mine.y + 40, artyLine('arty_mine_laid', 'Mine laid'), 'boing');
+    }));
     shot.blasts.forEach(((blast, i) => artyLater(blast.t * slow, (() => playBlast(blast, shot, view, i === 0)))));
-    const times = [ ...shot.segments.map((segment => segment.start + segment.ms)), ...shot.blasts.map((blast => blast.t)), ...shot.opened.map((opened => opened.t)) ];
+    const strikeEnd = shot.strike ? [ shot.strike.t + 1800 ] : [];
+    const times = [ ...shot.segments.map((segment => segment.start + segment.ms)), ...shot.blasts.map((blast => blast.t)), ...shot.opened.map((opened => opened.t)), ...strikeEnd ];
     artyLater(Math.max(0, ...times) * slow + 80, (() => {
         artyFlying = false;
         setGround(view);
         setCannons(view);
         setHulls(view);
+        setMines(view);
+        setArsenals(view);
         const verdict = shotVerdict(shot);
         if (verdict) artyCall(verdict[0], verdict[1]);
     }));
@@ -475,11 +502,13 @@ function driveCannon(view) {
     for (const opened of trip.opened) artyLater(opened.t, (() => openCrate(opened, view)));
     trip.blasts.forEach(((blast, i) => artyLater(blast.t, (() => playBlast(blast, trip, view, i === 0)))));
     const times = [ trip.ms, ...trip.blasts.map((blast => blast.t)), ...trip.opened.map((opened => opened.t)) ];
+    if (trip.blasts.some((blast => blast.kind === 'mine'))) artyLater(trip.ms, (() => artyCall(artyLine('arty_mine_boom', 'Mine!'), 'callout-sunk')));
     artyLater(Math.max(...times) + 80, (() => {
         artyFlying = false;
         setGround(view);
         setCannons(view);
         setHulls(view);
+        setMines(view);
     }));
 }
 
@@ -535,6 +564,7 @@ function setWind(view) {
 }
 
 function setArsenals(view) {
+    if (artyDealing) return;
     view.arsenals.forEach(((arsenal, side) => {
         const line = Object.entries(arsenal).map((([kind, count]) => `${word('arty_weapon_' + kind, kind)}${count > 1 ? ` ×${count}` : ''}`)).join(' · ');
         if (artyNodes.heads[side].arsenal.textContent !== line) artyNodes.heads[side].arsenal.textContent = line;
@@ -543,6 +573,7 @@ function setArsenals(view) {
 
 function drawArtillery(state) {
     const view = state.view;
+    artyView = view;
     if (artyNodes && view.shots === 0 && view.drives === 0 && (artySeq > 0 || artyDriveSeq > 0)) {
         stopArtillery();
         $('artillery').textContent = '';
@@ -554,6 +585,8 @@ function drawArtillery(state) {
         setAims(view);
         setCrates(view);
         setWind(view);
+        setMines(view);
+        if (view.shots === 0 && view.drives === 0 && view.dealt && view.dealt.some((kinds => kinds.length))) playSlots(view);
     }
     const nameOf = id => (state.players.find((p => p.id === id)) || {}).name || '?';
     const away = view.sides.find((id => !(state.players.find((p => p.id === id)) || {}).online));
@@ -578,6 +611,7 @@ function drawArtillery(state) {
         setAims(view);
         setCrates(view);
         setWind(view);
+        setMines(view);
         setArsenals(view);
     }
     setGuide(view);
@@ -601,4 +635,183 @@ function drawArtillery(state) {
         artyOver = false;
     }
     show('artillery');
+}
+
+function drillIn(drill, ms) {
+    playSound('drill', ms / 1e3);
+    kickField(false);
+    for (let i = 0; i < 6; i++) {
+        const clod = div('arty-clod');
+        const angle = -Math.PI * (.15 + .7 * Math.random());
+        const far = 4 + Math.random() * 6;
+        clod.style.setProperty('--x', `${Math.cos(angle) * far}vh`);
+        clod.style.setProperty('--y', `${Math.sin(angle) * far}vh`);
+        const spot = div('arty-blast small');
+        spot.style.transform = `translate3d(${artyX(drill.x)}vh,${artyY(drill.y)}vh,0)`;
+        spot.appendChild(clod);
+        artyNodes.field.appendChild(spot);
+        setTimeout((() => spot.remove()), 1e3);
+    }
+}
+
+function lightFlare(mark, strike, slow) {
+    const flare = div('arty-flare');
+    flare.style.transform = `translate3d(${artyX(mark.x)}vh,${artyY(mark.y)}vh,0)`;
+    for (let i = 0; i < 4; i++) {
+        const smoke = div('arty-flare-smoke');
+        smoke.style.animationDelay = `${-i * .35}s`;
+        flare.appendChild(smoke);
+    }
+    artyNodes.field.appendChild(flare);
+    playSound('flare');
+    floatOnField(mark.x, mark.y + 40, artyLine('arty_flare', 'Calling it in!'), 'boing');
+    const until = strike ? (strike.t - mark.t) * slow + 1400 : 1500;
+    artyLater(until, (() => flare.classList.add('out')));
+    artyLater(until + 700, (() => flare.remove()));
+}
+
+function callStrike(strike, slow) {
+    const edge = strike.dir > 0 ? -120 : 1120;
+    const exit = strike.dir > 0 ? 1120 : -120;
+    const speed = strike.speed / slow;
+    const lead = Math.abs(strike.x - edge) / speed * 1e3;
+    const begin = strike.t * slow - lead;
+    const total = Math.abs(exit - edge) / speed * 1e3;
+    const y = artyY(strike.y);
+    artyLater(Math.max(0, begin), (() => {
+        const plane = div(`arty-plane${strike.dir < 0 ? ' left' : ''}`);
+        plane.append(div('arty-plane-body'), div('arty-plane-wing'), div('arty-plane-tail'), div('arty-plane-prop'));
+        artyNodes.field.appendChild(plane);
+        const skip = Math.max(0, -begin);
+        const motion = plane.animate([ {
+            transform: `translate3d(${artyX(edge)}vh,${y}vh,0)`
+        }, {
+            transform: `translate3d(${artyX(exit)}vh,${y}vh,0)`
+        } ], {
+            duration: total,
+            easing: 'linear',
+            fill: 'forwards'
+        });
+        motion.currentTime = skip;
+        playSound('bomber', (total - skip) / 1e3);
+        artyLater(total - skip, (() => plane.remove()));
+    }));
+}
+
+function placeMine(mine, fresh) {
+    let node = artyNodes.mines.get(mine.id);
+    if (!node) {
+        node = div('arty-mine');
+        node.append(div('arty-mine-body'), div('arty-mine-light'));
+        artyNodes.field.appendChild(node);
+        artyNodes.mines.set(mine.id, node);
+        if (fresh) {
+            node.classList.add('fresh');
+            playSound('mine_set');
+        }
+    }
+    node.style.transform = `translate3d(${artyX(mine.x)}vh,${artyY(mine.y)}vh,0)`;
+}
+
+function removeMine(id) {
+    const node = artyNodes.mines.get(id);
+    if (!node) return;
+    node.remove();
+    artyNodes.mines.delete(id);
+}
+
+function setMines(view) {
+    const present = new Set((view.mines || []).map((mine => mine.id)));
+    for (const id of [ ...artyNodes.mines.keys() ]) if (!present.has(id)) removeMine(id);
+    for (const mine of view.mines || []) placeMine(mine, false);
+}
+
+const ARTY_REEL = [ 'cluster', 'bouncer', 'drill', 'homing', 'mine', 'airstrike', 'mega' ];
+
+const ARTY_REEL_ITEMS = 16;
+
+const ARTY_ITEM_VH = 12;
+
+function reelItem(kind) {
+    const item = div('arty-reel-item');
+    const icon = div(`arty-icon ${kind}`);
+    icon.appendChild(div(`arty-shell ${kind}`));
+    item.append(icon, div('arty-reel-name', word('arty_weapon_' + kind, kind)));
+    return item;
+}
+
+function playSlots(view) {
+    artyDealing = true;
+    if (typeof counting !== 'undefined' && counting) {
+        artyLater(100, (() => playSlots(view)));
+        return;
+    }
+    const root = $('artillery');
+    const box = div('arty-slots');
+    let last = 0;
+    view.dealt.forEach(((kinds, side) => {
+        const machine = div(`arty-machine side-${side}`);
+        const lights = div('arty-lights');
+        for (let i = 0; i < 12; i++) {
+            const bulb = document.createElement('i');
+            bulb.style.animationDelay = `${-i * .09}s`;
+            lights.appendChild(bulb);
+        }
+        const reels = div('arty-reels');
+        kinds.forEach(((kind, r) => {
+            const window_ = div('arty-reel');
+            const strip = div('arty-strip');
+            const items = [];
+            const offset = Math.floor(Math.random() * ARTY_REEL.length);
+            for (let i = 0; i < ARTY_REEL_ITEMS; i++) items.push(ARTY_REEL[(i + offset) % ARTY_REEL.length]);
+            items.push(kind, ARTY_REEL[(offset + 3) % ARTY_REEL.length]);
+            items.forEach((item => strip.appendChild(reelItem(item))));
+            window_.appendChild(strip);
+            reels.appendChild(window_);
+            const stopAt = 1500 + (r * 2 + side) * 420;
+            last = Math.max(last, stopAt);
+            strip.animate([ {
+                transform: 'translate3d(0,0,0)'
+            }, {
+                transform: `translate3d(0,${-ARTY_REEL_ITEMS * ARTY_ITEM_VH}vh,0)`
+            } ], {
+                duration: stopAt,
+                easing: 'cubic-bezier(.2,.55,.3,1.08)',
+                fill: 'forwards'
+            });
+            artyLater(stopAt - 60, (() => {
+                window_.classList.add('stopped');
+                playSound('reel_stop', kind === 'mega');
+            }));
+        }));
+        machine.append(lights, reels);
+        box.appendChild(machine);
+    }));
+    root.appendChild(box);
+    let at = 0;
+    while (at < last - 80) {
+        const share = at / last;
+        artyLater(at, (() => playSound('reel', share)));
+        at += 55 + 220 * share * share;
+    }
+    artyLater(last + 1500, (() => {
+        box.classList.add('leaving');
+        artyDealing = false;
+        setArsenals(artyView || view);
+        artyNodes && artyNodes.heads.forEach((head => {
+            head.arsenal.classList.remove('dealt');
+            void head.arsenal.offsetWidth;
+            head.arsenal.classList.add('dealt');
+        }));
+    }));
+    artyLater(last + 2200, (() => box.remove()));
+}
+
+function lightRocket(ignite) {
+    playSound('rocket_launch');
+    const burst = div('arty-ignite');
+    burst.style.transform = `translate3d(${artyX(ignite.x)}vh,${artyY(ignite.y)}vh,0)`;
+    burst.addEventListener('animationend', (() => burst.remove()));
+    artyNodes.field.appendChild(burst);
+    floatOnField(ignite.x, Math.min(ignite.y + 40, 470), artyLine('arty_rocket', 'Locked on!'), 'boing');
 }
