@@ -127,26 +127,26 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(Comparator, 'Comparator');
     initMetadataForObject(Unit, 'Unit');
     initMetadataForClass(AbstractCollection, 'AbstractCollection', VOID, VOID, [ Collection ]);
-    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ MutableIterable, Collection ]);
+    initMetadataForClass(AbstractMutableCollection, 'AbstractMutableCollection', VOID, AbstractCollection, [ Collection, MutableIterable ]);
     initMetadataForClass(IteratorImpl, 'IteratorImpl');
     initMetadataForClass(ListIteratorImpl, 'ListIteratorImpl', VOID, IteratorImpl);
-    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ MutableIterable, Collection, KtList ]);
+    initMetadataForClass(AbstractMutableList, 'AbstractMutableList', VOID, AbstractMutableCollection, [ Collection, KtList, MutableIterable ]);
     initMetadataForClass(AbstractMap, 'AbstractMap', VOID, VOID, [ KtMap ]);
     initMetadataForClass(AbstractMutableMap, 'AbstractMutableMap', VOID, AbstractMap, [ KtMutableMap ]);
-    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ MutableIterable, Collection, KtSet ]);
+    initMetadataForClass(AbstractMutableSet, 'AbstractMutableSet', VOID, AbstractMutableCollection, [ KtSet, Collection, MutableIterable ]);
     initMetadataForCompanion(Companion_2);
     initMetadataForInterface(RandomAccess, 'RandomAccess');
-    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ MutableIterable, Collection, KtList, RandomAccess ]);
+    initMetadataForClass(ArrayList, 'ArrayList', ArrayList_init_$Create$, AbstractMutableList, [ Collection, KtList, MutableIterable, RandomAccess ]);
     initMetadataForClass(HashMap, 'HashMap', HashMap_init_$Create$, AbstractMutableMap, [ KtMutableMap ]);
-    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ MutableIterable, Collection, KtSet ]);
-    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ MutableIterable, Collection ]);
-    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ MutableIterable, Collection, KtSet ]);
+    initMetadataForClass(HashMapKeys, 'HashMapKeys', VOID, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
+    initMetadataForClass(HashMapValues, 'HashMapValues', VOID, AbstractMutableCollection, [ Collection, MutableIterable ]);
+    initMetadataForClass(HashMapEntrySetBase, 'HashMapEntrySetBase', VOID, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
     initMetadataForClass(HashMapEntrySet, 'HashMapEntrySet', VOID, HashMapEntrySetBase);
     initMetadataForClass(HashMapKeysDefault$iterator$1);
     initMetadataForClass(HashMapKeysDefault, 'HashMapKeysDefault', VOID, AbstractMutableSet);
     initMetadataForClass(HashMapValuesDefault$iterator$1);
     initMetadataForClass(HashMapValuesDefault, 'HashMapValuesDefault', VOID, AbstractMutableCollection);
-    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ MutableIterable, Collection, KtSet ]);
+    initMetadataForClass(HashSet, 'HashSet', HashSet_init_$Create$, AbstractMutableSet, [ KtSet, Collection, MutableIterable ]);
     initMetadataForCompanion(Companion_3);
     initMetadataForClass(Itr, 'Itr');
     initMetadataForClass(KeysItr, 'KeysItr', VOID, Itr);
@@ -188,7 +188,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     initMetadataForInterface(InternalMap, 'InternalMap');
     initMetadataForClass(InternalHashMap, 'InternalHashMap', InternalHashMap_init_$Create$, VOID, [ InternalMap ]);
     initMetadataForClass(LinkedHashMap, 'LinkedHashMap', LinkedHashMap_init_$Create$, HashMap, [ KtMutableMap ]);
-    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ MutableIterable, Collection, KtSet ]);
+    initMetadataForClass(LinkedHashSet, 'LinkedHashSet', LinkedHashSet_init_$Create$, HashSet, [ KtSet, Collection, MutableIterable ]);
     initMetadataForInterface(Continuation, 'Continuation');
     initMetadataForClass(InterceptedCoroutine, 'InterceptedCoroutine', VOID, VOID, [ Continuation ]);
     initMetadataForClass(CoroutineImpl, 'CoroutineImpl', VOID, InterceptedCoroutine, [ Continuation ]);
@@ -22137,287 +22137,357 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return builder.gy();
     };
     function _get_ms__ndc6g5($this) {
-        return roundToInt($this.l1g_1 * 1e3);
+        return roundToInt($this.m1g_1 * 1e3);
     }
     function soldier($this, b) {
-        var unit = ensureNotNull(getValue(Companion_getInstance_29().l1j_1, b.p1j_1).q1g_1);
-        var power = Companion_getInstance_29().g1j_1.p(b.q1j_1 - 1 | 0);
-        var _unary__edvuaz = $this.k1g_1;
-        $this.k1g_1 = _unary__edvuaz + 1 | 0;
-        var body = new Body(_unary__edvuaz, b.p1j_1, b.o1j_1, b.q1j_1, 420 - 8, b.r1j_1 + $this.n1g_1.v1j_1.le(-6, 6), unit.h1k_1 * power, unit.o1k_1, _get_ms__ndc6g5($this));
-        body.k1l_1 = b;
-        body.j1l_1 = coerceIn(b.r1j_1 + $this.n1g_1.v1j_1.le(-18, 18), 10, 562 - 10);
-        body.i1l_1 = 420 + (unit.l1k_1 > 30 ? 60 : 120) + $this.n1g_1.v1j_1.le(0, 30);
-        b.t1j_1 = b.t1j_1 + 1 | 0;
-        var tmp0 = body.h1l_1;
+        var unit = ensureNotNull(getValue(Companion_getInstance_29().p1j_1, b.v1j_1).r1g_1);
+        var _unary__edvuaz = $this.l1g_1;
+        $this.l1g_1 = _unary__edvuaz + 1 | 0;
+        var body = new Body(_unary__edvuaz, b.v1j_1, b.u1j_1, b.w1j_1, 420 - 8, b.x1j_1 + $this.o1g_1.d1k_1.le(-6, 6), unit.q1k_1, unit.w1k_1, _get_ms__ndc6g5($this), unit);
+        body.u1l_1 = b;
+        body.t1l_1 = coerceIn(b.x1j_1 + $this.o1g_1.d1k_1.le(-18, 18), 10, 562 - 10);
+        body.s1l_1 = 420 + (unit.u1k_1 > 30 ? 60 : 120) + $this.o1g_1.d1k_1.le(0, 30);
+        b.a1k_1 = b.a1k_1 + 1 | 0;
+        var tmp0 = body.r1l_1;
         var element = _get_ms__ndc6g5($this);
         tmp0.i(element);
-        var tmp0_0 = body.h1l_1;
-        var element_0 = roundToInt(body.c1l_1);
+        var tmp0_0 = body.r1l_1;
+        var element_0 = roundToInt(body.m1l_1);
         tmp0_0.i(element_0);
         $this.z1f_1.i(body);
     }
     function enemy($this, spawn) {
-        var stats = getValue(Companion_getInstance_29().n1j_1, spawn.l1l_1);
+        var stats = getValue(Companion_getInstance_29().r1j_1, spawn.v1l_1);
         var tmp;
-        if (spawn.l1l_1 === 'boss') {
-            tmp = .6 + .4 * $this.n1g_1.u1j_1.m();
+        if (spawn.v1l_1 === 'boss') {
+            tmp = .6 + .4 * $this.o1g_1.c1k_1.m();
         } else {
-            var tmp_0 = 1 + ($this.n1g_1.z1j_1 - 1 | 0) * .35;
-            var this_0 = $this.n1g_1.u1j_1.m();
+            var tmp_0 = 1 + ($this.o1g_1.h1k_1 - 1 | 0) * .35;
+            var this_0 = $this.o1g_1.c1k_1.m();
             tmp = tmp_0 * Math.pow(this_0, .6);
         }
         var hpScale = tmp;
-        var _unary__edvuaz = $this.k1g_1;
-        $this.k1g_1 = _unary__edvuaz + 1 | 0;
-        var body = new Body(_unary__edvuaz, spawn.l1l_1, -1, 1, 1e3 + stats.u1l_1, spawn.n1l_1, stats.o1l_1 * hpScale, stats.u1l_1, _get_ms__ndc6g5($this));
-        var tmp0 = body.h1l_1;
+        var _unary__edvuaz = $this.l1g_1;
+        $this.l1g_1 = _unary__edvuaz + 1 | 0;
+        var body = new Body(_unary__edvuaz, spawn.v1l_1, -1, 1, 1e3 + stats.e1m_1, spawn.x1l_1, stats.y1l_1 * hpScale, stats.e1m_1, _get_ms__ndc6g5($this), VOID, stats);
+        var tmp0 = body.r1l_1;
         var element = _get_ms__ndc6g5($this);
         tmp0.i(element);
-        var tmp0_0 = body.h1l_1;
-        var element_0 = roundToInt(body.c1l_1);
+        var tmp0_0 = body.r1l_1;
+        var element_0 = roundToInt(body.m1l_1);
         tmp0_0.i(element_0);
         $this.z1f_1.i(body);
     }
     function hurt($this, target, damage, from) {
-        if (!target.b1m()) return Unit_instance;
-        target.c1l_1 = target.c1l_1 - damage;
-        var tmp0 = target.h1l_1;
+        if (!target.k1m()) return Unit_instance;
+        target.m1l_1 = target.m1l_1 - damage;
+        var tmp0 = target.r1l_1;
         var element = _get_ms__ndc6g5($this);
         tmp0.i(element);
-        var tmp0_0 = target.h1l_1;
-        var b = target.c1l_1;
+        var tmp0_0 = target.r1l_1;
+        var b = target.m1l_1;
         var tmp$ret$1 = Math.max(0, b);
         var element_0 = roundToInt(tmp$ret$1);
         tmp0_0.i(element_0);
-        if (target.c1l_1 > 0) return Unit_instance;
-        target.f1l_1 = _get_ms__ndc6g5($this);
-        var b_0 = target.k1l_1;
+        if (target.m1l_1 > 0) return Unit_instance;
+        target.p1l_1 = _get_ms__ndc6g5($this);
+        var b_0 = target.u1l_1;
         if (!(b_0 == null)) {
-            b_0.t1j_1 = b_0.t1j_1 - 1 | 0;
-        }
-        if (target.c1m() && from.v1k_1 >= 0) {
-            var coins = getValue(Companion_getInstance_29().n1j_1, target.u1k_1).x1l_1;
-            var _array__4zh2yp = $this.h1g_1;
-            var _index_0__fvwizt = from.v1k_1;
-            _array__4zh2yp[_index_0__fvwizt] = _array__4zh2yp[_index_0__fvwizt] + coins | 0;
-            var tmp0_1 = $this.d1g_1;
-            var builder = new JsonObjectBuilder;
-            put(builder, 't', _get_ms__ndc6g5($this));
-            put(builder, 'side', from.v1k_1);
-            put(builder, 'coins', coins);
-            put(builder, 'x', roundToInt(target.x1k_1));
-            put(builder, 'y', roundToInt(target.y1k_1));
-            var element_1 = builder.gy();
-            tmp0_1.i(element_1);
+            b_0.a1k_1 = b_0.a1k_1 - 1 | 0;
         }
     }
-    function nearest($this, from, among, within) {
-        within = within === VOID ? 17976931348623157e292 : within;
-        var best = null;
-        var bestD = within;
-        var _iterator__ex2g4s = among.j();
-        $l$loop: while (_iterator__ex2g4s.k()) {
-            var b = _iterator__ex2g4s.l();
-            if (!b.b1m()) continue $l$loop;
-            var tmp0 = b.x1k_1 - from.x1k_1;
-            var y = b.y1k_1 - from.y1k_1;
-            var d = hypot(tmp0, y) - b.a1l_1;
-            if (d < bestD) {
-                bestD = d;
-                best = b;
-            }
-        }
-        return best;
-    }
-    function act($this, body, living) {
-        body.d1l_1 = body.d1l_1 - .05;
-        if (body.c1m()) {
-            actEnemy($this, body, living);
+    function act($this, body, foes, soldiers) {
+        body.n1l_1 = body.n1l_1 - .1;
+        if (body.l1m()) {
+            actEnemy($this, body, soldiers);
         } else {
-            actSoldier($this, body, living);
+            actSoldier($this, body, foes);
         }
     }
     function walk($this, body, toX, toY, speed) {
-        var dx = toX - body.x1k_1;
-        var dy = toY - body.y1k_1;
+        var dx = toX - body.f1l_1;
+        var dy = toY - body.g1l_1;
         var d = hypot(dx, dy);
         if (d < 1) return Unit_instance;
-        var b = speed * .05;
+        var b = speed * .1;
         var step = Math.min(d, b);
-        body.x1k_1 = body.x1k_1 + dx / d * step;
-        body.y1k_1 = body.y1k_1 + dy / d * step;
+        body.f1l_1 = body.f1l_1 + dx / d * step;
+        body.g1l_1 = body.g1l_1 + dy / d * step;
     }
-    function actSoldier($this, body, living) {
-        var unit = ensureNotNull(getValue(Companion_getInstance_29().l1j_1, body.u1k_1).q1g_1);
-        var power = Companion_getInstance_29().g1j_1.p(body.w1k_1 - 1 | 0);
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = living.j();
-        while (_iterator__ex2g4s.k()) {
-            var element = _iterator__ex2g4s.l();
-            if (element.c1m() && element.b1m() && element.x1k_1 < 1e3) {
-                destination.i(element);
-            }
-        }
-        var foes = destination;
-        if (unit.l1k_1 > 30) {
-            var target = nearest($this, body, foes, unit.l1k_1);
-            if (target == null) {
-                var far = nearest($this, body, foes);
-                if (!(far == null)) {
-                    walk($this, body, far.x1k_1, far.y1k_1, unit.k1k_1);
+    function actSoldier($this, body, foes) {
+        var unit = ensureNotNull(body.k1l_1);
+        if (unit.u1k_1 > 30) {
+            var best = null;
+            var bestD = unit.u1k_1;
+            var _iterator__ex2g4s = foes.j();
+            $l$loop: while (_iterator__ex2g4s.k()) {
+                var b = _iterator__ex2g4s.l();
+                var tmp;
+                if (!b.k1m()) {
+                    tmp = true;
                 } else {
-                    walk($this, body, body.i1l_1, body.j1l_1, unit.k1k_1);
+                    tmp = !true;
                 }
-                return Unit_instance;
+                if (tmp) continue $l$loop;
+                var tmp0 = b.f1l_1 - body.f1l_1;
+                var y = b.g1l_1 - body.g1l_1;
+                var d = hypot(tmp0, y) - b.i1l_1;
+                if (d < bestD) {
+                    bestD = d;
+                    best = b;
+                }
             }
-            if (body.d1l_1 > 0) return Unit_instance;
-            body.d1l_1 = unit.j1k_1;
-            var tmp0 = target.x1k_1 - body.x1k_1;
-            var y = target.y1k_1 - body.y1k_1;
-            var d = hypot(tmp0, y);
-            var flight = d / unit.s1k_1;
-            var tmp0_0 = $this.a1g_1;
-            var element_0 = new Hit($this.l1g_1 + flight, body, target, target.x1k_1, target.y1k_1, unit.i1k_1 * power, unit.p1k_1, unit.q1k_1, unit.r1k_1);
-            tmp0_0.i(element_0);
-            var tmp0_1 = $this.b1g_1;
-            var builder = new JsonObjectBuilder;
-            put(builder, 't', _get_ms__ndc6g5($this));
-            put_0(builder, 'k', unit.r1k_1);
-            put(builder, 'x1', roundToInt(body.x1k_1));
-            put(builder, 'y1', roundToInt(body.y1k_1));
-            put(builder, 'x2', roundToInt(target.x1k_1));
-            put(builder, 'y2', roundToInt(target.y1k_1));
-            put(builder, 'ms', roundToInt(flight * 1e3));
-            var element_1 = builder.gy();
-            tmp0_1.i(element_1);
-            return Unit_instance;
-        }
-        var destination_0 = ArrayList_init_$Create$();
-        var _iterator__ex2g4s_0 = foes.j();
-        while (_iterator__ex2g4s_0.k()) {
-            var element_2 = _iterator__ex2g4s_0.l();
-            var tmp0_2 = element_2.x1k_1 - body.i1l_1;
-            var y_0 = element_2.y1k_1 - body.j1l_1;
-            if (hypot(tmp0_2, y_0) < 170) {
-                destination_0.i(element_2);
-            }
-        }
-        var tmp0_elvis_lhs = nearest($this, body, destination_0);
-        var tmp1_elvis_lhs = tmp0_elvis_lhs == null ? nearest($this, body, foes) : tmp0_elvis_lhs;
-        var tmp;
-        if (tmp1_elvis_lhs == null) {
-            walk($this, body, body.i1l_1, body.j1l_1, unit.k1k_1);
-            return Unit_instance;
-        } else {
-            tmp = tmp1_elvis_lhs;
-        }
-        var target_0 = tmp;
-        var tmp0_3 = target_0.x1k_1 - body.x1k_1;
-        var y_1 = target_0.y1k_1 - body.y1k_1;
-        var d_0 = hypot(tmp0_3, y_1) - target_0.a1l_1 - body.a1l_1;
-        if (d_0 > unit.l1k_1) {
-            walk($this, body, target_0.x1k_1, target_0.y1k_1, unit.k1k_1);
-            return Unit_instance;
-        }
-        if (body.d1l_1 > 0) return Unit_instance;
-        body.d1l_1 = unit.j1k_1;
-        var tmp0_4 = $this.f1g_1;
-        var element_3 = _get_ms__ndc6g5($this);
-        tmp0_4.i(element_3);
-        var tmp0_5 = $this.f1g_1;
-        var element_4 = body.t1k_1;
-        tmp0_5.i(element_4);
-        hurt($this, target_0, unit.i1k_1 * power, body);
-    }
-    function actEnemy($this, body, living) {
-        var stats = getValue(Companion_getInstance_29().n1j_1, body.u1k_1);
-        var slow = body.e1l_1 > $this.l1g_1 ? .4 : 1;
-        var destination = ArrayList_init_$Create$();
-        var _iterator__ex2g4s = living.j();
-        while (_iterator__ex2g4s.k()) {
-            var element = _iterator__ex2g4s.l();
-            if (!element.c1m() && element.b1m()) {
-                destination.i(element);
-            }
-        }
-        var soldiers = destination;
-        var target = stats.a1m_1 ? null : nearest($this, body, soldiers, 34 + body.a1l_1);
-        if (!(target == null)) {
-            var tmp0 = target.x1k_1 - body.x1k_1;
-            var y = target.y1k_1 - body.y1k_1;
-            var d = hypot(tmp0, y) - target.a1l_1 - body.a1l_1;
-            if (d > stats.s1l_1) {
-                walk($this, body, target.x1k_1, target.y1k_1, stats.r1l_1 * slow);
-                return Unit_instance;
-            }
-            if (body.d1l_1 > 0) return Unit_instance;
-            body.d1l_1 = stats.q1l_1 / slow;
-            var tmp0_0 = $this.f1g_1;
-            var element_0 = _get_ms__ndc6g5($this);
-            tmp0_0.i(element_0);
-            var tmp0_1 = $this.f1g_1;
-            var element_1 = body.t1k_1;
-            tmp0_1.i(element_1);
-            if (stats.y1l_1 > 0) {
-                var _iterator__ex2g4s_0 = soldiers.j();
-                while (_iterator__ex2g4s_0.k()) {
-                    var s = _iterator__ex2g4s_0.l();
-                    var tmp0_2 = s.x1k_1 - target.x1k_1;
-                    var y_0 = s.y1k_1 - target.y1k_1;
-                    if (hypot(tmp0_2, y_0) < stats.y1l_1) {
-                        hurt($this, s, stats.p1l_1, body);
+            var target = best;
+            if (target == null) {
+                var best_0 = null;
+                var bestD_0 = 17976931348623157e292;
+                var _iterator__ex2g4s_0 = foes.j();
+                $l$loop_0: while (_iterator__ex2g4s_0.k()) {
+                    var b_0 = _iterator__ex2g4s_0.l();
+                    var tmp_0;
+                    if (!b_0.k1m()) {
+                        tmp_0 = true;
+                    } else {
+                        tmp_0 = !true;
+                    }
+                    if (tmp_0) continue $l$loop_0;
+                    var tmp0_0 = b_0.f1l_1 - body.f1l_1;
+                    var y_0 = b_0.g1l_1 - body.g1l_1;
+                    var d_0 = hypot(tmp0_0, y_0) - b_0.i1l_1;
+                    if (d_0 < bestD_0) {
+                        bestD_0 = d_0;
+                        best_0 = b_0;
                     }
                 }
-                var tmp0_3 = $this.c1g_1;
-                var builder = new JsonObjectBuilder;
-                put(builder, 't', _get_ms__ndc6g5($this));
-                put_0(builder, 'k', 'stomp');
-                put(builder, 'x', roundToInt(target.x1k_1));
-                put(builder, 'y', roundToInt(target.y1k_1));
-                put(builder, 'r', roundToInt(stats.y1l_1));
-                var element_2 = builder.gy();
-                tmp0_3.i(element_2);
+                var far = best_0;
+                if (!(far == null)) {
+                    walk($this, body, far.f1l_1, far.g1l_1, unit.t1k_1);
+                } else {
+                    walk($this, body, body.s1l_1, body.t1l_1, unit.t1k_1);
+                }
+                return Unit_instance;
+            }
+            if (body.n1l_1 > 0) return Unit_instance;
+            body.n1l_1 = unit.s1k_1;
+            var tmp0_1 = target.f1l_1 - body.f1l_1;
+            var y_1 = target.g1l_1 - body.g1l_1;
+            var d_1 = hypot(tmp0_1, y_1);
+            var flight = d_1 / unit.a1l_1;
+            var tmp0_2 = $this.a1g_1;
+            var element = new Hit($this.m1g_1 + flight, body, target, target.f1l_1, target.g1l_1, unit.r1k_1, unit.x1k_1, unit.y1k_1, unit.z1k_1);
+            tmp0_2.i(element);
+            shot($this, unit.z1k_1, body.f1l_1, body.g1l_1, target, flight);
+            return Unit_instance;
+        }
+        var best_1 = null;
+        var bestD_1 = 17976931348623157e292;
+        var _iterator__ex2g4s_1 = foes.j();
+        $l$loop_1: while (_iterator__ex2g4s_1.k()) {
+            var b_1 = _iterator__ex2g4s_1.l();
+            var tmp_1;
+            if (!b_1.k1m()) {
+                tmp_1 = true;
             } else {
-                hurt($this, target, stats.p1l_1, body);
+                var tmp0_3 = b_1.f1l_1 - body.s1l_1;
+                var y_2 = b_1.g1l_1 - body.t1l_1;
+                tmp_1 = !(hypot(tmp0_3, y_2) < 170);
+            }
+            if (tmp_1) continue $l$loop_1;
+            var tmp0_4 = b_1.f1l_1 - body.f1l_1;
+            var y_3 = b_1.g1l_1 - body.g1l_1;
+            var d_2 = hypot(tmp0_4, y_3) - b_1.i1l_1;
+            if (d_2 < bestD_1) {
+                bestD_1 = d_2;
+                best_1 = b_1;
+            }
+        }
+        var tmp0_elvis_lhs = best_1;
+        var tmp_2;
+        if (tmp0_elvis_lhs == null) {
+            var best_2 = null;
+            var bestD_2 = 17976931348623157e292;
+            var _iterator__ex2g4s_2 = foes.j();
+            $l$loop_2: while (_iterator__ex2g4s_2.k()) {
+                var b_2 = _iterator__ex2g4s_2.l();
+                var tmp_3;
+                if (!b_2.k1m()) {
+                    tmp_3 = true;
+                } else {
+                    tmp_3 = !true;
+                }
+                if (tmp_3) continue $l$loop_2;
+                var tmp0_5 = b_2.f1l_1 - body.f1l_1;
+                var y_4 = b_2.g1l_1 - body.g1l_1;
+                var d_3 = hypot(tmp0_5, y_4) - b_2.i1l_1;
+                if (d_3 < bestD_2) {
+                    bestD_2 = d_3;
+                    best_2 = b_2;
+                }
+            }
+            tmp_2 = best_2;
+        } else {
+            tmp_2 = tmp0_elvis_lhs;
+        }
+        var tmp1_elvis_lhs = tmp_2;
+        var tmp_4;
+        if (tmp1_elvis_lhs == null) {
+            walk($this, body, body.s1l_1, body.t1l_1, unit.t1k_1);
+            return Unit_instance;
+        } else {
+            tmp_4 = tmp1_elvis_lhs;
+        }
+        var target_0 = tmp_4;
+        var tmp0_6 = target_0.f1l_1 - body.f1l_1;
+        var y_5 = target_0.g1l_1 - body.g1l_1;
+        var d_4 = hypot(tmp0_6, y_5) - target_0.i1l_1 - body.i1l_1;
+        if (d_4 > unit.u1k_1) {
+            walk($this, body, target_0.f1l_1, target_0.g1l_1, unit.t1k_1);
+            return Unit_instance;
+        }
+        if (body.n1l_1 > 0) return Unit_instance;
+        body.n1l_1 = unit.s1k_1;
+        var tmp0_7 = $this.e1g_1;
+        var element_0 = _get_ms__ndc6g5($this);
+        tmp0_7.i(element_0);
+        var tmp0_8 = $this.e1g_1;
+        var element_1 = body.b1l_1;
+        tmp0_8.i(element_1);
+        hurt($this, target_0, unit.r1k_1, body);
+    }
+    function actEnemy($this, body, soldiers) {
+        var stats = ensureNotNull(body.l1l_1);
+        var slow = body.o1l_1 > $this.m1g_1 ? .4 : 1;
+        var atWall = 420 + body.i1l_1;
+        var arrived = body.f1l_1 <= atWall + 1;
+        var tmp;
+        if (stats.j1m_1) {
+            tmp = null;
+        } else if (arrived) {
+            var best = null;
+            var bestD = 17976931348623157e292;
+            var _iterator__ex2g4s = soldiers.j();
+            $l$loop: while (_iterator__ex2g4s.k()) {
+                var b = _iterator__ex2g4s.l();
+                var tmp_0;
+                if (!b.k1m()) {
+                    tmp_0 = true;
+                } else {
+                    var tmp0 = b.f1l_1 - body.f1l_1;
+                    var y = b.g1l_1 - body.g1l_1;
+                    tmp_0 = !(hypot(tmp0, y) - b.i1l_1 - body.i1l_1 <= stats.c1m_1);
+                }
+                if (tmp_0) continue $l$loop;
+                var tmp0_0 = b.f1l_1 - body.f1l_1;
+                var y_0 = b.g1l_1 - body.g1l_1;
+                var d = hypot(tmp0_0, y_0) - b.i1l_1;
+                if (d < bestD) {
+                    bestD = d;
+                    best = b;
+                }
+            }
+            tmp = best;
+        } else {
+            var best_0 = null;
+            var bestD_0 = 34 + body.i1l_1;
+            var _iterator__ex2g4s_0 = soldiers.j();
+            $l$loop_0: while (_iterator__ex2g4s_0.k()) {
+                var b_0 = _iterator__ex2g4s_0.l();
+                var tmp_1;
+                if (!b_0.k1m()) {
+                    tmp_1 = true;
+                } else {
+                    tmp_1 = !true;
+                }
+                if (tmp_1) continue $l$loop_0;
+                var tmp0_1 = b_0.f1l_1 - body.f1l_1;
+                var y_1 = b_0.g1l_1 - body.g1l_1;
+                var d_0 = hypot(tmp0_1, y_1) - b_0.i1l_1;
+                if (d_0 < bestD_0) {
+                    bestD_0 = d_0;
+                    best_0 = b_0;
+                }
+            }
+            tmp = best_0;
+        }
+        var target = tmp;
+        if (!(target == null)) {
+            var tmp0_2 = target.f1l_1 - body.f1l_1;
+            var y_2 = target.g1l_1 - body.g1l_1;
+            var d_1 = hypot(tmp0_2, y_2) - target.i1l_1 - body.i1l_1;
+            if (d_1 > stats.c1m_1) {
+                walk($this, body, target.f1l_1, target.g1l_1, stats.b1m_1 * slow);
+                return Unit_instance;
+            }
+            if (body.n1l_1 > 0) return Unit_instance;
+            body.n1l_1 = stats.a1m_1 / slow;
+            var tmp0_3 = $this.e1g_1;
+            var element = _get_ms__ndc6g5($this);
+            tmp0_3.i(element);
+            var tmp0_4 = $this.e1g_1;
+            var element_0 = body.b1l_1;
+            tmp0_4.i(element_0);
+            if (stats.h1m_1 > 0) {
+                var _iterator__ex2g4s_1 = soldiers.j();
+                while (_iterator__ex2g4s_1.k()) {
+                    var s = _iterator__ex2g4s_1.l();
+                    var tmp0_5 = s.f1l_1 - target.f1l_1;
+                    var y_3 = s.g1l_1 - target.g1l_1;
+                    if (hypot(tmp0_5, y_3) < stats.h1m_1) {
+                        hurt($this, s, stats.z1l_1, body);
+                    }
+                }
+                boom($this, 'stomp', target.f1l_1, target.g1l_1, stats.h1m_1);
+            } else {
+                hurt($this, target, stats.z1l_1, body);
             }
             return Unit_instance;
         }
-        var atWall = 420 + body.a1l_1;
-        if (body.x1k_1 > atWall + 1) {
-            walk($this, body, atWall, body.y1k_1, stats.r1l_1 * slow);
+        if (!arrived) {
+            walk($this, body, atWall, body.g1l_1, stats.b1m_1 * slow);
             return Unit_instance;
         }
-        if (body.d1l_1 > 0) return Unit_instance;
-        body.d1l_1 = stats.q1l_1 / slow;
-        var tmp0_4 = $this.f1g_1;
-        var element_3 = _get_ms__ndc6g5($this);
-        tmp0_4.i(element_3);
-        var tmp0_5 = $this.f1g_1;
-        var element_4 = body.t1k_1;
-        tmp0_5.i(element_4);
-        $this.i1g_1 = $this.i1g_1 - stats.t1l_1 * (1 - $this.j1g_1);
+        if (body.n1l_1 > 0) return Unit_instance;
+        body.n1l_1 = stats.a1m_1 / slow;
         var tmp0_6 = $this.e1g_1;
-        var element_5 = _get_ms__ndc6g5($this);
-        tmp0_6.i(element_5);
+        var element_1 = _get_ms__ndc6g5($this);
+        tmp0_6.i(element_1);
         var tmp0_7 = $this.e1g_1;
-        var b = $this.i1g_1;
-        var tmp$ret$13 = Math.max(0, b);
-        var element_6 = roundToInt(tmp$ret$13);
-        tmp0_7.i(element_6);
+        var element_2 = body.b1l_1;
+        tmp0_7.i(element_2);
+        strikeWall($this, stats.d1m_1);
     }
-    function shoot_0($this, turret, living) {
-        turret.j1m_1 = turret.j1m_1 - .05;
-        if (turret.j1m_1 > 0) return Unit_instance;
-        var stats = ensureNotNull(getValue(Companion_getInstance_29().l1j_1, turret.e1m_1).r1g_1);
+    function strikeWall($this, damage) {
+        var a = $this.h1g_1;
+        var taken = Math.min(a, damage);
+        $this.h1g_1 = $this.h1g_1 - taken;
+        $this.g1g_1 = $this.g1g_1 - (damage - taken);
+        logWall($this);
+    }
+    function logWall($this) {
+        var tmp0 = $this.d1g_1;
+        var element = _get_ms__ndc6g5($this);
+        tmp0.i(element);
+        var tmp0_0 = $this.d1g_1;
+        var b = $this.g1g_1;
+        var tmp$ret$1 = Math.max(0, b);
+        var element_0 = roundToInt(tmp$ret$1);
+        tmp0_0.i(element_0);
+        var tmp0_1 = $this.d1g_1;
+        var element_1 = roundToInt($this.h1g_1);
+        tmp0_1.i(element_1);
+    }
+    function shoot_0($this, turret, foes) {
+        turret.s1m_1 = turret.s1m_1 - .1;
+        if (turret.s1m_1 > 0) return Unit_instance;
+        var stats = ensureNotNull(getValue(Companion_getInstance_29().p1j_1, turret.n1m_1).s1g_1);
         var target = null;
-        var best = stats.m1m_1;
-        var _iterator__ex2g4s = living.j();
+        var best = stats.v1m_1;
+        var _iterator__ex2g4s = foes.j();
         $l$loop: while (_iterator__ex2g4s.k()) {
             var b = _iterator__ex2g4s.l();
-            if (!b.b1m() || !b.c1m() || b.x1k_1 >= 1e3) continue $l$loop;
-            var tmp0 = b.x1k_1 - turret.g1m_1;
-            var y = b.y1k_1 - turret.h1m_1;
+            if (!b.k1m()) continue $l$loop;
+            var tmp0 = b.f1l_1 - turret.p1m_1;
+            var y = b.g1l_1 - turret.q1m_1;
             var d = hypot(tmp0, y);
             if (d < best) {
                 best = d;
@@ -22425,30 +22495,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
         }
         if (target == null) return Unit_instance;
-        turret.j1m_1 = stats.l1m_1 * Companion_getInstance_29().h1j_1.p(turret.f1m_1 - 1 | 0);
-        var tmp0_0 = target.x1k_1 - turret.g1m_1;
-        var y_0 = target.y1k_1 - turret.h1m_1;
-        var flight = hypot(tmp0_0, y_0) / stats.o1m_1;
+        turret.s1m_1 = stats.u1m_1 * Companion_getInstance_29().l1j_1.p(turret.o1m_1 - 1 | 0);
+        var tmp0_0 = target.f1l_1 - turret.p1m_1;
+        var y_0 = target.g1l_1 - turret.q1m_1;
+        var flight = hypot(tmp0_0, y_0) / stats.x1m_1;
         var tmp0_1 = $this.a1g_1;
-        var element = new Hit($this.l1g_1 + flight, turret.i1m_1, target, target.x1k_1, target.y1k_1, stats.k1m_1 * Companion_getInstance_29().g1j_1.p(turret.f1m_1 - 1 | 0), stats.p1m_1, 0, stats.n1m_1);
+        var element = new Hit($this.m1g_1 + flight, turret.r1m_1, target, target.f1l_1, target.g1l_1, stats.t1m_1, stats.y1m_1, 0, stats.w1m_1);
         tmp0_1.i(element);
-        var tmp0_2 = $this.g1g_1;
+        var tmp0_2 = $this.f1g_1;
         var element_0 = _get_ms__ndc6g5($this);
         tmp0_2.i(element_0);
-        var tmp0_3 = $this.g1g_1;
-        var element_1 = turret.d1m_1;
+        var tmp0_3 = $this.f1g_1;
+        var element_1 = turret.m1m_1;
         tmp0_3.i(element_1);
-        var tmp0_4 = $this.b1g_1;
-        var builder = new JsonObjectBuilder;
-        put(builder, 't', _get_ms__ndc6g5($this));
-        put_0(builder, 'k', stats.n1m_1);
-        put(builder, 'x1', roundToInt(turret.g1m_1));
-        put(builder, 'y1', roundToInt(turret.h1m_1));
-        put(builder, 'x2', roundToInt(target.x1k_1));
-        put(builder, 'y2', roundToInt(target.y1k_1));
-        put(builder, 'ms', roundToInt(flight * 1e3));
-        var element_2 = builder.gy();
-        tmp0_4.i(element_2);
+        shot($this, stats.w1m_1, turret.p1m_1, turret.q1m_1, target, flight);
+    }
+    function shot($this, kind, x, y, target, flight) {
+        var tmp0 = $this.b1g_1;
+        var elements = listOf_0([ _get_ms__ndc6g5($this), Companion_getInstance_29().s1j_1.o1(kind), roundToInt(x), roundToInt(y), roundToInt(target.f1l_1), roundToInt(target.g1l_1), roundToInt(flight * 1e3) ]);
+        addAll(tmp0, elements);
+    }
+    function boom($this, kind, x, y, reach) {
+        var tmp0 = $this.c1g_1;
+        var elements = listOf_0([ _get_ms__ndc6g5($this), Companion_getInstance_29().s1j_1.o1(kind), roundToInt(x), roundToInt(y), roundToInt(reach) ]);
+        addAll(tmp0, elements);
     }
     function land($this) {
         var tmp0 = $this.a1g_1;
@@ -22456,7 +22526,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            if (element.q1m_1 <= $this.l1g_1) {
+            if (element.z1m_1 <= $this.m1g_1) {
                 destination.i(element);
             }
         }
@@ -22466,38 +22536,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_0 = due.j();
         while (_iterator__ex2g4s_0.k()) {
             var hit = _iterator__ex2g4s_0.l();
-            var x = hit.s1m_1.b1m() ? hit.s1m_1.x1k_1 : hit.t1m_1;
-            var y = hit.s1m_1.b1m() ? hit.s1m_1.y1k_1 : hit.u1m_1;
-            if (hit.w1m_1 > 0) {
-                var tmp0_0 = $this.c1g_1;
-                var builder = new JsonObjectBuilder;
-                put(builder, 't', _get_ms__ndc6g5($this));
-                put_0(builder, 'k', hit.y1m_1);
-                put(builder, 'x', roundToInt(x));
-                put(builder, 'y', roundToInt(y));
-                put(builder, 'r', roundToInt(hit.w1m_1));
-                var element_0 = builder.gy();
-                tmp0_0.i(element_0);
+            var x = hit.b1n_1.k1m() ? hit.b1n_1.f1l_1 : hit.c1n_1;
+            var y = hit.b1n_1.k1m() ? hit.b1n_1.g1l_1 : hit.d1n_1;
+            if (hit.f1n_1 > 0) {
+                boom($this, hit.h1n_1, x, y, hit.f1n_1);
                 var _iterator__ex2g4s_1 = $this.z1f_1.j();
                 $l$loop: while (_iterator__ex2g4s_1.k()) {
                     var b = _iterator__ex2g4s_1.l();
                     var tmp;
-                    if (!b.b1m() || !b.c1m()) {
+                    if (!b.k1m() || !b.l1m()) {
                         tmp = true;
                     } else {
-                        var tmp0_1 = b.x1k_1 - x;
-                        var y_0 = b.y1k_1 - y;
-                        tmp = hypot(tmp0_1, y_0) > hit.w1m_1 + b.a1l_1;
+                        var tmp0_0 = b.f1l_1 - x;
+                        var y_0 = b.g1l_1 - y;
+                        tmp = hypot(tmp0_0, y_0) > hit.f1n_1 + b.i1l_1;
                     }
                     if (tmp) continue $l$loop;
-                    if (hit.x1m_1 > 0) b.e1l_1 = $this.l1g_1 + hit.x1m_1;
-                    hurt($this, b, hit.v1m_1, hit.r1m_1);
+                    if (hit.g1n_1 > 0) b.o1l_1 = $this.m1g_1 + hit.g1n_1;
+                    hurt($this, b, hit.e1n_1, hit.a1n_1);
                 }
-            } else if (hit.s1m_1.b1m()) {
-                var tmp0_safe_receiver = Companion_getInstance_29().n1j_1.t1(hit.s1m_1.u1k_1);
-                var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.z1l_1;
+            } else if (hit.b1n_1.k1m()) {
+                var tmp0_safe_receiver = hit.b1n_1.l1l_1;
+                var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.i1m_1;
                 var resist = tmp1_elvis_lhs == null ? 1 : tmp1_elvis_lhs;
-                hurt($this, hit.s1m_1, hit.v1m_1 * resist, hit.r1m_1);
+                hurt($this, hit.b1n_1, hit.e1n_1 * resist, hit.a1n_1);
             }
         }
     }
@@ -22506,7 +22568,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = living.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            if (element.b1m()) {
+            if (element.k1m()) {
                 destination.i(element);
             }
         }
@@ -22523,63 +22585,63 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 inductionVariable_0 = inductionVariable_0 + 1 | 0;
                 var a = alive.p(i);
                 var b = alive.p(j);
-                var dx = b.x1k_1 - a.x1k_1;
-                var dy = b.y1k_1 - a.y1k_1;
-                var need = a.a1l_1 + b.a1l_1;
+                var dx = b.f1l_1 - a.f1l_1;
+                var dy = b.g1l_1 - a.g1l_1;
+                var need = a.i1l_1 + b.i1l_1;
                 if (dx > need || dx < -need || dy > need || dy < -need) continue $l$loop_0;
                 var d = hypot(dx, dy);
                 if (d >= need) continue $l$loop_0;
                 var nx = d > .01 ? dx / d : 1;
                 var ny = d > .01 ? dy / d : 0;
                 var push = (need - d) * .5;
-                var share = b.a1l_1 * b.a1l_1 / (a.a1l_1 * a.a1l_1 + b.a1l_1 * b.a1l_1);
-                a.x1k_1 = a.x1k_1 - nx * push * share * 2;
-                a.y1k_1 = a.y1k_1 - ny * push * share * 2;
-                b.x1k_1 = b.x1k_1 + nx * push * (1 - share) * 2;
-                b.y1k_1 = b.y1k_1 + ny * push * (1 - share) * 2;
+                var share = b.i1l_1 * b.i1l_1 / (a.i1l_1 * a.i1l_1 + b.i1l_1 * b.i1l_1);
+                a.f1l_1 = a.f1l_1 - nx * push * share * 2;
+                a.g1l_1 = a.g1l_1 - ny * push * share * 2;
+                b.f1l_1 = b.f1l_1 + nx * push * (1 - share) * 2;
+                b.g1l_1 = b.g1l_1 + ny * push * (1 - share) * 2;
             } while (inductionVariable_0 < last_0);
         } while (inductionVariable <= last);
         var _iterator__ex2g4s_0 = alive.j();
         while (_iterator__ex2g4s_0.k()) {
             var body = _iterator__ex2g4s_0.l();
-            body.y1k_1 = coerceIn(body.y1k_1, body.a1l_1, 562 - body.a1l_1);
-            if (body.c1m()) {
+            body.g1l_1 = coerceIn(body.g1l_1, body.i1l_1, 562 - body.i1l_1);
+            if (body.l1m()) {
                 var tmp = body;
-                var tmp0 = body.x1k_1;
-                var b_0 = 420 + body.a1l_1;
-                tmp.x1k_1 = Math.max(tmp0, b_0);
-            } else body.x1k_1 = coerceIn(body.x1k_1, 420 - 10, 1e3 - body.a1l_1);
+                var tmp0 = body.f1l_1;
+                var b_0 = 420 + body.i1l_1;
+                tmp.f1l_1 = Math.max(tmp0, b_0);
+            } else body.f1l_1 = coerceIn(body.f1l_1, 420 - 10, 1e3 - body.i1l_1);
         }
     }
     function record($this) {
         var _iterator__ex2g4s = $this.z1f_1.j();
         while (_iterator__ex2g4s.k()) {
             var b = _iterator__ex2g4s.l();
-            if (b.b1m()) {
-                var tmp0 = b.g1l_1;
-                var element = roundToInt(b.x1k_1);
+            if (b.k1m()) {
+                var tmp0 = b.q1l_1;
+                var element = roundToInt(b.f1l_1);
                 tmp0.i(element);
-                var tmp0_0 = b.g1l_1;
-                var element_0 = roundToInt(b.y1k_1);
+                var tmp0_0 = b.q1l_1;
+                var element_0 = roundToInt(b.g1l_1);
                 tmp0_0.i(element_0);
             }
         }
     }
     function Piece(id, kind, level) {
         level = level === VOID ? 1 : level;
-        this.z1m_1 = id;
-        this.a1n_1 = kind;
-        this.b1n_1 = level;
-        this.c1n_1 = -1;
-        this.d1n_1 = -1;
-        this.e1n_1 = 0;
+        this.i1n_1 = id;
+        this.j1n_1 = kind;
+        this.k1n_1 = level;
+        this.l1n_1 = -1;
+        this.m1n_1 = -1;
+        this.n1n_1 = 0;
     }
-    protoOf(Piece).f1n = function() {
-        return this.c1n_1 >= 0;
+    protoOf(Piece).o1n = function() {
+        return this.l1n_1 >= 0;
     };
     function Side($outer, index) {
-        this.n1n_1 = $outer;
-        this.g1n_1 = index;
+        this.w1n_1 = $outer;
+        this.p1n_1 = index;
         var tmp = this;
         var this_0 = LinkedHashSet_init_$Create$();
         var inductionVariable = 1;
@@ -22593,13 +22655,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 this_0.i(imul(y, 6) + x | 0);
             } while (inductionVariable_0 < 5);
         } while (inductionVariable <= 4);
-        tmp.h1n_1 = this_0;
+        tmp.q1n_1 = this_0;
         var tmp_0 = this;
-        var _unary__edvuaz = this.n1n_1.x1j_1;
-        this.n1n_1.x1j_1 = _unary__edvuaz + 1 | 0;
-        tmp_0.i1n_1 = mutableListOf([ new Piece(_unary__edvuaz, 'sword') ]);
-        this.j1n_1 = 12;
-        this.k1n_1 = 0;
+        var _unary__edvuaz = this.w1n_1.f1k_1;
+        this.w1n_1.f1k_1 = _unary__edvuaz + 1 | 0;
+        tmp_0.r1n_1 = mutableListOf([ new Piece(_unary__edvuaz, 'sword') ]);
+        this.s1n_1 = 12;
+        this.t1n_1 = 0;
         var tmp_1 = this;
         var list = ArrayList_init_$Create$_0(3);
         var inductionVariable_1 = 0;
@@ -22608,41 +22670,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
             inductionVariable_1 = inductionVariable_1 + 1 | 0;
             list.i(null);
         } while (inductionVariable_1 < 3);
-        tmp_1.l1n_1 = list;
-        this.m1n_1 = false;
+        tmp_1.u1n_1 = list;
+        this.v1n_1 = false;
     }
-    protoOf(Side).o1n = function() {
-        var tmp0 = this.i1n_1;
+    protoOf(Side).x1n = function() {
+        var tmp0 = this.r1n_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            if (!element.f1n()) {
+            if (!element.o1n()) {
                 destination.i(element);
             }
         }
         return destination;
     };
-    protoOf(Side).p1n = function() {
-        var tmp0 = this.i1n_1;
+    protoOf(Side).y1n = function() {
+        var tmp0 = this.r1n_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            if (element.f1n()) {
+            if (element.o1n()) {
                 destination.i(element);
             }
         }
         return destination;
     };
-    protoOf(Side).q1n = function(id) {
-        var tmp0 = this.i1n_1;
+    protoOf(Side).z1n = function(id) {
+        var tmp0 = this.r1n_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.z1m_1 === id) {
+                if (element.i1n_1 === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -22651,28 +22713,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return tmp$ret$0;
     };
-    protoOf(Side).r1n = function() {
-        return 3 + this.k1n_1 | 0;
+    protoOf(Side).a1o = function() {
+        return 3 + this.t1n_1 | 0;
     };
-    protoOf(Side).s1n = function() {
+    protoOf(Side).b1o = function() {
         var tmp = this;
         var list = ArrayList_init_$Create$_0(3);
         var inductionVariable = 0;
         if (inductionVariable < 3) do {
             var index = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$3 = dealKind(this.n1n_1);
+            var tmp$ret$3 = dealKind(this.w1n_1);
             list.i(tmp$ret$3);
         } while (inductionVariable < 3);
-        tmp.l1n_1 = list;
+        tmp.u1n_1 = list;
     };
-    function Outcome(wall, bounty) {
-        this.t1n_1 = wall;
-        this.u1n_1 = bounty;
+    function Outcome(wall) {
+        this.c1o_1 = wall;
     }
     function dealKind($this) {
-        var roll = $this.v1j_1.o(sum(Companion_getInstance_29().m1j_1.v1()));
-        var _iterator__ex2g4s = Companion_getInstance_29().m1j_1.w1().j();
+        var roll = $this.d1k_1.o(sum(Companion_getInstance_29().q1j_1.v1()));
+        var _iterator__ex2g4s = Companion_getInstance_29().q1j_1.w1().j();
         while (_iterator__ex2g4s.k()) {
             var _destruct__k2r9zo = _iterator__ex2g4s.l();
             var kind = _destruct__k2r9zo.p1();
@@ -22683,12 +22744,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return 'sword';
     }
     function setReady($this, side, ready) {
-        if (side.m1n_1 === ready) return false;
-        side.m1n_1 = ready;
+        if (side.v1n_1 === ready) return false;
+        side.v1n_1 = ready;
         return true;
     }
     function buy($this, side, offer) {
-        var tmp = side.l1n_1;
+        var tmp = side.u1n_1;
         var tmp1_elvis_lhs = getOrNull(tmp, offer == null ? -1 : offer);
         var tmp_0;
         if (tmp1_elvis_lhs == null) {
@@ -22697,31 +22758,31 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = tmp1_elvis_lhs;
         }
         var kind = tmp_0;
-        var price = getValue(Companion_getInstance_29().l1j_1, kind).p1g_1;
-        if (side.j1n_1 < price || side.o1n().m() >= 5) return false;
-        side.j1n_1 = side.j1n_1 - price | 0;
-        side.l1n_1.r(ensureNotNull(offer), null);
-        var tmp0 = side.i1n_1;
-        var _unary__edvuaz = $this.x1j_1;
-        $this.x1j_1 = _unary__edvuaz + 1 | 0;
+        var price = getValue(Companion_getInstance_29().p1j_1, kind).q1g_1;
+        if (side.s1n_1 < price || side.x1n().m() >= 5) return false;
+        side.s1n_1 = side.s1n_1 - price | 0;
+        side.u1n_1.r(ensureNotNull(offer), null);
+        var tmp0 = side.r1n_1;
+        var _unary__edvuaz = $this.f1k_1;
+        $this.f1k_1 = _unary__edvuaz + 1 | 0;
         var element = new Piece(_unary__edvuaz, kind);
         tmp0.i(element);
         return true;
     }
     function reroll($this, side) {
-        if (side.j1n_1 < 2) return false;
-        side.j1n_1 = side.j1n_1 - 2 | 0;
-        side.s1n();
+        if (side.s1n_1 < 2) return false;
+        side.s1n_1 = side.s1n_1 - 2 | 0;
+        side.b1o();
         return true;
     }
     function buyCell($this, side) {
-        var price = side.r1n();
+        var price = side.a1o();
         var tmp;
-        if (side.j1n_1 < price || side.o1n().m() >= 5) {
+        if (side.s1n_1 < price || side.x1n().m() >= 5) {
             tmp = true;
         } else {
-            var tmp_0 = side.h1n_1.m();
-            var tmp0 = side.i1n_1;
+            var tmp_0 = side.q1n_1.m();
+            var tmp0 = side.r1n_1;
             var tmp$ret$0;
             $l$block: {
                 var tmp_1;
@@ -22738,7 +22799,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s = tmp0.j();
                 while (_iterator__ex2g4s.k()) {
                     var element = _iterator__ex2g4s.l();
-                    if (element.a1n_1 === 'cell') {
+                    if (element.j1n_1 === 'cell') {
                         count = count + 1 | 0;
                         checkCountOverflow(count);
                     }
@@ -22748,17 +22809,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = (tmp_0 + tmp$ret$0 | 0) >= 42;
         }
         if (tmp) return false;
-        side.j1n_1 = side.j1n_1 - price | 0;
-        side.k1n_1 = side.k1n_1 + 1 | 0;
-        var tmp0_0 = side.i1n_1;
-        var _unary__edvuaz = $this.x1j_1;
-        $this.x1j_1 = _unary__edvuaz + 1 | 0;
+        side.s1n_1 = side.s1n_1 - price | 0;
+        side.t1n_1 = side.t1n_1 + 1 | 0;
+        var tmp0_0 = side.r1n_1;
+        var _unary__edvuaz = $this.f1k_1;
+        $this.f1k_1 = _unary__edvuaz + 1 | 0;
         var element_0 = new Piece(_unary__edvuaz, 'cell');
         tmp0_0.i(element_0);
         return true;
     }
     function cover($this, kind, x, y, turn) {
-        var shape = getValue(Companion_getInstance_29().l1j_1, kind).o1g_1;
+        var shape = getValue(Companion_getInstance_29().p1j_1, kind).p1g_1;
         var times = ((turn % 4 | 0) + 4 | 0) % 4 | 0;
         var inductionVariable = 0;
         if (inductionVariable < times) do {
@@ -22810,7 +22871,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function covered($this, side, except) {
         except = except === VOID ? null : except;
-        var tmp0 = side.p1n();
+        var tmp0 = side.y1n();
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
@@ -22823,7 +22884,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_0 = destination.j();
         while (_iterator__ex2g4s_0.k()) {
             var element_0 = _iterator__ex2g4s_0.l();
-            var this_0 = cover($this, element_0.a1n_1, element_0.c1n_1, element_0.d1n_1, element_0.e1n_1);
+            var this_0 = cover($this, element_0.j1n_1, element_0.l1n_1, element_0.m1n_1, element_0.n1n_1);
             var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
             var _iterator__ex2g4s_1 = this_0.j();
             while (_iterator__ex2g4s_1.k()) {
@@ -22840,7 +22901,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function place_0($this, side, piece, x, y, turn) {
         if (piece == null || x == null || y == null) return false;
-        if (piece.a1n_1 === 'cell') {
+        if (piece.j1n_1 === 'cell') {
             var tmp;
             if (!(0 <= x ? x < 6 : false)) {
                 tmp = true;
@@ -22867,7 +22928,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var element = _iterator__ex2g4s.l();
                     var a = element.xb();
                     var b = element.yb();
-                    if ((0 <= a ? a < 6 : false) && (0 <= b ? b < 7 : false) && side.h1n_1.m1(imul(b, 6) + a | 0)) {
+                    if ((0 <= a ? a < 6 : false) && (0 <= b ? b < 7 : false) && side.q1n_1.m1(imul(b, 6) + a | 0)) {
                         tmp$ret$0 = true;
                         break $l$block_0;
                     }
@@ -22875,13 +22936,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp$ret$0 = false;
             }
             var touching = tmp$ret$0;
-            if (side.h1n_1.m1(at) || !touching) return false;
-            side.h1n_1.i(at);
-            side.i1n_1.a3(piece);
+            if (side.q1n_1.m1(at) || !touching) return false;
+            side.q1n_1.i(at);
+            side.r1n_1.a3(piece);
             return true;
         }
         var taken = covered($this, side, piece);
-        var cells = cover($this, piece.a1n_1, x, y, turn);
+        var cells = cover($this, piece.j1n_1, x, y, turn);
         var tmp$ret$4;
         $l$block_2: {
             var tmp_1;
@@ -22899,7 +22960,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var element_0 = _iterator__ex2g4s_0.l();
                 var a_0 = element_0.xb();
                 var b_0 = element_0.yb();
-                if (!(0 <= a_0 ? a_0 < 6 : false) || !(0 <= b_0 ? b_0 < 7 : false) || !side.h1n_1.m1(imul(b_0, 6) + a_0 | 0) || taken.m1(imul(b_0, 6) + a_0 | 0)) {
+                if (!(0 <= a_0 ? a_0 < 6 : false) || !(0 <= b_0 ? b_0 < 7 : false) || !side.q1n_1.m1(imul(b_0, 6) + a_0 | 0) || taken.m1(imul(b_0, 6) + a_0 | 0)) {
                     tmp$ret$4 = true;
                     break $l$block_2;
                 }
@@ -22907,46 +22968,46 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$4 = false;
         }
         if (tmp$ret$4) return false;
-        if (piece.c1n_1 === x && piece.d1n_1 === y && piece.e1n_1 === (turn % 4 | 0)) return false;
-        piece.c1n_1 = x;
-        piece.d1n_1 = y;
-        piece.e1n_1 = ((turn % 4 | 0) + 4 | 0) % 4 | 0;
+        if (piece.l1n_1 === x && piece.m1n_1 === y && piece.n1n_1 === (turn % 4 | 0)) return false;
+        piece.l1n_1 = x;
+        piece.m1n_1 = y;
+        piece.n1n_1 = ((turn % 4 | 0) + 4 | 0) % 4 | 0;
         return true;
     }
     function merge($this, side, piece, into) {
-        if (piece == null || into == null || piece === into || piece.a1n_1 === 'cell') return false;
-        if (!(piece.a1n_1 === into.a1n_1) || !(piece.b1n_1 === into.b1n_1) || into.b1n_1 >= 3) return false;
-        side.i1n_1.a3(piece);
-        into.b1n_1 = into.b1n_1 + 1 | 0;
+        if (piece == null || into == null || piece === into || piece.j1n_1 === 'cell') return false;
+        if (!(piece.j1n_1 === into.j1n_1) || !(piece.k1n_1 === into.k1n_1) || into.k1n_1 >= 4) return false;
+        side.r1n_1.a3(piece);
+        into.k1n_1 = into.k1n_1 + 1 | 0;
         return true;
     }
     function stow($this, side, piece) {
-        if (piece == null || !piece.f1n() || side.o1n().m() >= 5) return false;
-        piece.c1n_1 = -1;
-        piece.d1n_1 = -1;
+        if (piece == null || !piece.o1n() || side.x1n().m() >= 5) return false;
+        piece.l1n_1 = -1;
+        piece.m1n_1 = -1;
         return true;
     }
     function sell($this, side, piece) {
-        if (piece == null || piece.a1n_1 === 'cell') return false;
-        side.i1n_1.a3(piece);
-        side.j1n_1 = side.j1n_1 + worth($this, piece) | 0;
+        if (piece == null || piece.j1n_1 === 'cell') return false;
+        side.r1n_1.a3(piece);
+        side.s1n_1 = side.s1n_1 + worth($this, piece) | 0;
         return true;
     }
     function worth($this, piece) {
-        return imul(getValue(Companion_getInstance_29().l1j_1, piece.a1n_1).p1g_1, 1 << (piece.b1n_1 - 1 | 0)) / 2 | 0;
+        return imul(getValue(Companion_getInstance_29().p1j_1, piece.j1n_1).q1g_1, 1 << (piece.k1n_1 - 1 | 0)) / 2 | 0;
     }
-    function armor($this) {
+    function armorRate($this) {
         var sum = 0;
-        var _iterator__ex2g4s = $this.y1j_1.j();
+        var _iterator__ex2g4s = $this.g1k_1.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
             var tmp = sum;
-            var tmp0 = element.p1n();
+            var tmp0 = element.y1n();
             var destination = ArrayList_init_$Create$();
             var _iterator__ex2g4s_0 = tmp0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.a1n_1 === 'bastion') {
+                if (element_0.j1n_1 === 'bastion') {
                     destination.i(element_0);
                 }
             }
@@ -22955,29 +23016,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
             while (_iterator__ex2g4s_1.k()) {
                 var element_1 = _iterator__ex2g4s_1.l();
                 var tmp_0 = sum_0;
-                sum_0 = tmp_0 + Companion_getInstance_29().k1j_1.p(element_1.b1n_1 - 1 | 0);
+                sum_0 = tmp_0 + Companion_getInstance_29().o1j_1.p(element_1.k1n_1 - 1 | 0) | 0;
             }
-            sum = tmp + sum_0;
+            sum = tmp + sum_0 | 0;
         }
-        var b = sum;
-        return Math.min(.6, b);
+        return sum;
     }
     function startBattle($this) {
-        var _destruct__k2r9zo = new Battle($this, $this.f1k_1).v1n();
+        var _destruct__k2r9zo = new Battle($this, $this.o1k_1).d1o();
         var shown = _destruct__k2r9zo.xb();
         var result = _destruct__k2r9zo.yb();
         var ms = _destruct__k2r9zo.mh();
-        $this.d1k_1 = shown;
-        $this.e1k_1 = result;
-        $this.c1k_1 = ms + 1500 | 0;
-        var _iterator__ex2g4s = $this.y1j_1.j();
+        $this.l1k_1 = shown;
+        $this.m1k_1 = result;
+        $this.k1k_1 = ms + 1500 | 0;
+        var _iterator__ex2g4s = $this.g1k_1.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            element.m1n_1 = false;
+            element.v1n_1 = false;
         }
     }
     function endBattle($this) {
-        var tmp0_elvis_lhs = $this.e1k_1;
+        var tmp0_elvis_lhs = $this.m1k_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return Unit_instance;
@@ -22985,94 +23045,102 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var result = tmp;
-        $this.a1k_1 = result.t1n_1;
-        var _iterator__ex2g4s = $this.y1j_1.j();
-        while (_iterator__ex2g4s.k()) {
-            var side = _iterator__ex2g4s.l();
-            side.j1n_1 = side.j1n_1 + result.u1n_1[side.g1n_1] | 0;
-        }
-        $this.e1k_1 = null;
-        $this.d1k_1 = null;
-        if ($this.a1k_1 <= 0) $this.g1k_1 = 'lost'; else if ($this.z1j_1 >= $this.w1j_1) $this.g1k_1 = 'won'; else {
-            $this.z1j_1 = $this.z1j_1 + 1 | 0;
-            var sum = 0;
-            var _iterator__ex2g4s_0 = $this.y1j_1.j();
-            while (_iterator__ex2g4s_0.k()) {
-                var element = _iterator__ex2g4s_0.l();
-                var tmp_0 = sum;
-                var tmp0 = element.p1n();
-                var destination = ArrayList_init_$Create$();
-                var _iterator__ex2g4s_1 = tmp0.j();
+        $this.i1k_1 = result.c1o_1;
+        $this.m1k_1 = null;
+        $this.l1k_1 = null;
+        if ($this.i1k_1 <= 0) $this.p1k_1 = 'lost'; else if ($this.h1k_1 >= $this.e1k_1) $this.p1k_1 = 'won'; else {
+            $this.h1k_1 = $this.h1k_1 + 1 | 0;
+            var this_0 = $this.g1k_1;
+            var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
+            var _iterator__ex2g4s = this_0.j();
+            while (_iterator__ex2g4s.k()) {
+                var item = _iterator__ex2g4s.l();
+                var tmp_0 = 6 + imul(4, $this.h1k_1) | 0;
+                var tmp0 = item.y1n();
+                var destination_0 = ArrayList_init_$Create$();
+                var _iterator__ex2g4s_0 = tmp0.j();
+                while (_iterator__ex2g4s_0.k()) {
+                    var element = _iterator__ex2g4s_0.l();
+                    if (element.j1n_1 === 'mint') {
+                        destination_0.i(element);
+                    }
+                }
+                var sum = 0;
+                var _iterator__ex2g4s_1 = destination_0.j();
                 while (_iterator__ex2g4s_1.k()) {
                     var element_0 = _iterator__ex2g4s_1.l();
-                    if (element_0.a1n_1 === 'forge') {
-                        destination.i(element_0);
-                    }
+                    var tmp_1 = sum;
+                    sum = tmp_1 + Companion_getInstance_29().m1j_1.p(element_0.k1n_1 - 1 | 0) | 0;
                 }
-                var sum_0 = 0;
-                var _iterator__ex2g4s_2 = destination.j();
-                while (_iterator__ex2g4s_2.k()) {
-                    var element_1 = _iterator__ex2g4s_2.l();
-                    var tmp_1 = sum_0;
-                    sum_0 = tmp_1 + Companion_getInstance_29().j1j_1.p(element_1.b1n_1 - 1 | 0) | 0;
-                }
-                sum = tmp_0 + sum_0 | 0;
+                var coins = tmp_0 + sum | 0;
+                item.s1n_1 = item.s1n_1 + coins | 0;
+                item.b1o();
+                destination.i(coins);
             }
-            var repair = sum;
+            var earned = destination;
             var tmp_2 = $this;
-            var b = $this.a1k_1 + repair;
-            tmp_2.a1k_1 = Math.min(1e3, b);
-            var _iterator__ex2g4s_3 = $this.y1j_1.j();
+            var builder = new JsonObjectBuilder;
+            put(builder, 'wave', $this.h1k_1);
+            var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(earned, 10));
+            var _iterator__ex2g4s_2 = earned.j();
+            while (_iterator__ex2g4s_2.k()) {
+                var item_0 = _iterator__ex2g4s_2.l();
+                var tmp$ret$12 = JsonPrimitive_0(item_0);
+                destination_1.i(tmp$ret$12);
+            }
+            builder.fy('coins', new JsonArray(destination_1));
+            var tmp0_0 = $this.g1k_1;
+            var destination_2 = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_3 = tmp0_0.j();
             while (_iterator__ex2g4s_3.k()) {
-                var side_0 = _iterator__ex2g4s_3.l();
-                var tmp_3 = side_0;
-                var tmp_4 = side_0.j1n_1;
-                var tmp_5 = 5 + $this.z1j_1 | 0;
-                var tmp0_0 = side_0.p1n();
-                var destination_0 = ArrayList_init_$Create$();
-                var _iterator__ex2g4s_4 = tmp0_0.j();
+                var element_1 = _iterator__ex2g4s_3.l();
+                var tmp0_1 = element_1.y1n();
+                var destination_3 = ArrayList_init_$Create$();
+                var _iterator__ex2g4s_4 = tmp0_1.j();
                 while (_iterator__ex2g4s_4.k()) {
                     var element_2 = _iterator__ex2g4s_4.l();
-                    if (element_2.a1n_1 === 'mint') {
-                        destination_0.i(element_2);
+                    if (element_2.j1n_1 === 'mint') {
+                        destination_3.i(element_2);
                     }
                 }
-                var sum_1 = 0;
-                var _iterator__ex2g4s_5 = destination_0.j();
+                var destination_4 = ArrayList_init_$Create$_0(collectionSizeOrDefault(destination_3, 10));
+                var _iterator__ex2g4s_5 = destination_3.j();
                 while (_iterator__ex2g4s_5.k()) {
-                    var element_3 = _iterator__ex2g4s_5.l();
-                    var tmp_6 = sum_1;
-                    sum_1 = tmp_6 + Companion_getInstance_29().i1j_1.p(element_3.b1n_1 - 1 | 0) | 0;
+                    var item_1 = _iterator__ex2g4s_5.l();
+                    var tmp$ret$21 = new JsonArray(listOf_0([ JsonPrimitive_0(item_1.i1n_1), JsonPrimitive_1(item_1.j1n_1), JsonPrimitive_0(Companion_getInstance_29().m1j_1.p(item_1.k1n_1 - 1 | 0)) ]));
+                    destination_4.i(tmp$ret$21);
                 }
-                tmp_3.j1n_1 = tmp_4 + (tmp_5 + sum_1 | 0) | 0;
-                side_0.s1n();
+                var list = destination_4;
+                addAll(destination_2, list);
             }
-            $this.b1k_1 = 40;
-            $this.f1k_1 = makeWave($this, $this.z1j_1);
+            builder.fy('gifts', new JsonArray(destination_2));
+            tmp_2.n1k_1 = builder.gy();
+            $this.j1k_1 = 40;
+            $this.o1k_1 = makeWave($this, $this.h1k_1);
         }
     }
     function Spawn(kind, at, y) {
-        this.l1l_1 = kind;
-        this.m1l_1 = at;
-        this.n1l_1 = y;
+        this.v1l_1 = kind;
+        this.w1l_1 = at;
+        this.x1l_1 = y;
     }
     function makeWave($this, number) {
-        var this_0 = $this.u1j_1.m();
+        var this_0 = $this.c1k_1.m();
         var crowd = Math.pow(this_0, .9);
-        var budget = (6 + 5.5 * number + imul(number, number) * .4) * crowd;
+        var budget = (6 + 6.5 * number + imul(number, number) * .4) * crowd;
         var kinds = ArrayList_init_$Create$();
-        if (number === $this.w1j_1) {
+        if (number === $this.e1k_1) {
             kinds.i('boss');
             budget = budget * .6;
         }
-        var tmp0 = Companion_getInstance_29().n1j_1;
+        var tmp0 = Companion_getInstance_29().r1j_1;
         var destination = LinkedHashMap_init_$Create$();
         var _iterator__ex2g4s = tmp0.w1().j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
             var kind = element.p1();
             var stats = element.q1();
-            if (!(kind === 'boss') && number >= stats.w1l_1) {
+            if (!(kind === 'boss') && number >= stats.g1m_1) {
                 destination.x1(element.p1(), element.q1());
             }
         }
@@ -23082,19 +23150,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = pool.w1().j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.q1().v1l_1 <= budget) {
+                if (element_0.q1().f1m_1 <= budget) {
                     destination_0.x1(element_0.p1(), element_0.q1());
                 }
             }
             var choices = destination_0;
             if (choices.n()) break $l$loop;
-            var _destruct__k2r9zo = toList_1(choices.w1()).p($this.v1j_1.o(choices.m()));
+            var _destruct__k2r9zo = toList_1(choices.w1()).p($this.d1k_1.o(choices.m()));
             var kind_0 = _destruct__k2r9zo.p1();
             var stats_0 = _destruct__k2r9zo.q1();
             kinds.i(kind_0);
-            budget = budget - stats_0.v1l_1;
+            budget = budget - stats_0.f1m_1;
         }
-        shuffle(kinds, $this.v1j_1);
+        shuffle(kinds, $this.d1k_1);
         var spread = 8 + number * 1.5;
         var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(kinds, 10));
         var index = 0;
@@ -23110,74 +23178,82 @@ if (typeof String.prototype.startsWith === 'undefined') {
             } else {
                 var tmp_0 = i * spread;
                 var b = kinds.m() - 1 | 0;
-                tmp = tmp_0 / Math.max(1, b) + $this.v1j_1.le(0, .6);
+                tmp = tmp_0 / Math.max(1, b) + $this.d1k_1.le(0, .6);
             }
             var at = tmp;
-            var tmp$ret$18 = new Spawn(item, at, $this.v1j_1.le(40, 562 - 40));
+            var tmp$ret$18 = new Spawn(item, at, $this.d1k_1.le(40, 562 - 40));
             destination_1.i(tmp$ret$18);
         }
         var tmp_1 = FortressGame$makeWave$lambda;
         var tmp$ret$21 = new sam$kotlin_Comparator$0_1(tmp_1);
         return sortedWith(destination_1, tmp$ret$21);
     }
-    function Body(id, kind, owner, level, x, y, maxHp, radius, bornMs) {
-        this.t1k_1 = id;
-        this.u1k_1 = kind;
-        this.v1k_1 = owner;
-        this.w1k_1 = level;
-        this.x1k_1 = x;
-        this.y1k_1 = y;
-        this.z1k_1 = maxHp;
-        this.a1l_1 = radius;
-        this.b1l_1 = bornMs;
-        this.c1l_1 = this.z1k_1;
-        this.d1l_1 = 0;
-        this.e1l_1 = 0;
-        this.f1l_1 = -1;
+    function Body(id, kind, owner, level, x, y, maxHp, radius, bornMs, unit, foe) {
+        unit = unit === VOID ? null : unit;
+        foe = foe === VOID ? null : foe;
+        this.b1l_1 = id;
+        this.c1l_1 = kind;
+        this.d1l_1 = owner;
+        this.e1l_1 = level;
+        this.f1l_1 = x;
+        this.g1l_1 = y;
+        this.h1l_1 = maxHp;
+        this.i1l_1 = radius;
+        this.j1l_1 = bornMs;
+        this.k1l_1 = unit;
+        this.l1l_1 = foe;
+        this.m1l_1 = this.h1l_1;
+        this.n1l_1 = 0;
+        this.o1l_1 = 0;
+        this.p1l_1 = -1;
         var tmp = this;
-        tmp.g1l_1 = ArrayList_init_$Create$();
+        tmp.q1l_1 = ArrayList_init_$Create$();
         var tmp_0 = this;
-        tmp_0.h1l_1 = ArrayList_init_$Create$();
-        this.i1l_1 = this.x1k_1;
-        this.j1l_1 = this.y1k_1;
-        this.k1l_1 = null;
+        tmp_0.r1l_1 = ArrayList_init_$Create$();
+        this.s1l_1 = this.f1l_1;
+        this.t1l_1 = this.g1l_1;
+        this.u1l_1 = null;
     }
-    protoOf(Body).b1m = function() {
-        return this.f1l_1 < 0;
+    protoOf(Body).k1m = function() {
+        return this.p1l_1 < 0;
     };
-    protoOf(Body).c1m = function() {
-        return this.v1k_1 < 0;
+    protoOf(Body).l1m = function() {
+        return this.d1l_1 < 0;
     };
-    function Barracks(owner, kind, level, lane, nextAt) {
-        this.o1j_1 = owner;
-        this.p1j_1 = kind;
-        this.q1j_1 = level;
-        this.r1j_1 = lane;
-        this.s1j_1 = nextAt;
-        this.t1j_1 = 0;
+    function Barracks(piece, owner, kind, level, lane, nextAt, every) {
+        this.t1j_1 = piece;
+        this.u1j_1 = owner;
+        this.v1j_1 = kind;
+        this.w1j_1 = level;
+        this.x1j_1 = lane;
+        this.y1j_1 = nextAt;
+        this.z1j_1 = every;
+        this.a1k_1 = 0;
+        var tmp = this;
+        tmp.b1k_1 = ArrayList_init_$Create$();
     }
     function Turret(piece, kind, level, x, y, gunner) {
-        this.d1m_1 = piece;
-        this.e1m_1 = kind;
-        this.f1m_1 = level;
-        this.g1m_1 = x;
-        this.h1m_1 = y;
-        this.i1m_1 = gunner;
-        this.j1m_1 = 0;
+        this.m1m_1 = piece;
+        this.n1m_1 = kind;
+        this.o1m_1 = level;
+        this.p1m_1 = x;
+        this.q1m_1 = y;
+        this.r1m_1 = gunner;
+        this.s1m_1 = 0;
     }
     function Hit(at, from, target, x, y, damage, splash, freeze, kind) {
-        this.q1m_1 = at;
-        this.r1m_1 = from;
-        this.s1m_1 = target;
-        this.t1m_1 = x;
-        this.u1m_1 = y;
-        this.v1m_1 = damage;
-        this.w1m_1 = splash;
-        this.x1m_1 = freeze;
-        this.y1m_1 = kind;
+        this.z1m_1 = at;
+        this.a1n_1 = from;
+        this.b1n_1 = target;
+        this.c1n_1 = x;
+        this.d1n_1 = y;
+        this.e1n_1 = damage;
+        this.f1n_1 = splash;
+        this.g1n_1 = freeze;
+        this.h1n_1 = kind;
     }
     function Battle($outer, spawns) {
-        this.n1g_1 = $outer;
+        this.o1g_1 = $outer;
         this.y1f_1 = spawns;
         var tmp = this;
         tmp.z1f_1 = ArrayList_init_$Create$();
@@ -23193,27 +23269,51 @@ if (typeof String.prototype.startsWith === 'undefined') {
         tmp_4.e1g_1 = ArrayList_init_$Create$();
         var tmp_5 = this;
         tmp_5.f1g_1 = ArrayList_init_$Create$();
+        this.g1g_1 = this.o1g_1.i1k_1;
+        this.h1g_1 = 0;
+        this.i1g_1 = armorRate(this.o1g_1);
         var tmp_6 = this;
-        tmp_6.g1g_1 = ArrayList_init_$Create$();
-        this.h1g_1 = new Int32Array(this.n1g_1.u1j_1.m());
-        this.i1g_1 = this.n1g_1.a1k_1;
-        this.j1g_1 = armor(this.n1g_1);
-        this.k1g_1 = 1;
-        this.l1g_1 = 0;
-        this.m1g_1 = yards(this.n1g_1);
+        var sum = 0;
+        var _iterator__ex2g4s = this.o1g_1.g1k_1.j();
+        while (_iterator__ex2g4s.k()) {
+            var element = _iterator__ex2g4s.l();
+            var tmp_7 = sum;
+            var tmp0 = element.y1n();
+            var destination = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_0 = tmp0.j();
+            while (_iterator__ex2g4s_0.k()) {
+                var element_0 = _iterator__ex2g4s_0.l();
+                if (element_0.j1n_1 === 'forge') {
+                    destination.i(element_0);
+                }
+            }
+            var sum_0 = 0;
+            var _iterator__ex2g4s_1 = destination.j();
+            while (_iterator__ex2g4s_1.k()) {
+                var element_1 = _iterator__ex2g4s_1.l();
+                var tmp_8 = sum_0;
+                sum_0 = tmp_8 + Companion_getInstance_29().n1j_1.p(element_1.k1n_1 - 1 | 0) | 0;
+            }
+            sum = tmp_7 + sum_0 | 0;
+        }
+        tmp_6.j1g_1 = sum;
+        this.k1g_1 = roundToInt(5 / .1);
+        this.l1g_1 = 1;
+        this.m1g_1 = 0;
+        this.n1g_1 = yards(this.o1g_1);
     }
-    protoOf(Battle).v1n = function() {
-        var tmp0 = this.n1g_1.y1j_1;
+    protoOf(Battle).d1o = function() {
+        var tmp0 = this.o1g_1.g1k_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            var tmp0_0 = element.p1n();
+            var tmp0_0 = element.y1n();
             var destination_0 = ArrayList_init_$Create$();
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (!(getValue(Companion_getInstance_29().l1j_1, element_0.a1n_1).q1g_1 == null)) {
+                if (!(getValue(Companion_getInstance_29().p1j_1, element_0.j1n_1).r1g_1 == null)) {
                     destination_0.i(element_0);
                 }
             }
@@ -23221,7 +23321,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = destination_0.j();
             while (_iterator__ex2g4s_1.k()) {
                 var item = _iterator__ex2g4s_1.l();
-                var cells = cover(this.n1g_1, item.a1n_1, item.c1n_1, item.d1n_1, item.e1n_1);
+                var cells = cover(this.o1g_1, item.j1n_1, item.l1n_1, item.m1n_1, item.n1n_1);
                 var sum = 0;
                 var _iterator__ex2g4s_2 = cells.j();
                 while (_iterator__ex2g4s_2.k()) {
@@ -23230,38 +23330,35 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     sum = tmp + element_1.sb_1 | 0;
                 }
                 var col = sum / cells.m();
-                var unit = ensureNotNull(getValue(Companion_getInstance_29().l1j_1, item.a1n_1).q1g_1);
-                var band = this.m1g_1.p(element.g1n_1).y1n_1;
-                var tmp$ret$8 = new Barracks(element.g1n_1, item.a1n_1, item.b1n_1, band.sb_1 + (col + .5) / 6 * (band.tb_1 - band.sb_1), this.n1g_1.v1j_1.le(.5, .5 + unit.m1k_1));
+                var unit = ensureNotNull(getValue(Companion_getInstance_29().p1j_1, item.j1n_1).r1g_1);
+                var band = this.n1g_1.p(element.p1n_1).g1o_1;
+                var tmp$ret$8 = new Barracks(item.i1n_1, element.p1n_1, item.j1n_1, item.k1n_1, band.sb_1 + (col + .5) / 6 * (band.tb_1 - band.sb_1), this.o1g_1.d1k_1.le(.5, .5 + unit.v1k_1), unit.v1k_1 * Companion_getInstance_29().l1j_1.p(item.k1n_1 - 1 | 0));
                 destination_1.i(tmp$ret$8);
             }
             var list = destination_1;
             addAll(destination, list);
         }
         var barracks = destination;
-        var this_0 = engines(this.n1g_1);
+        var this_0 = engines(this.o1g_1);
         var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s_3 = this_0.j();
         while (_iterator__ex2g4s_3.k()) {
             var item_0 = _iterator__ex2g4s_3.l();
-            var gunner = new Body(0, item_0.a1o_1, item_0.c1o_1, item_0.b1o_1, item_0.d1o_1, item_0.e1o_1, 1, 0, 0);
-            var this_1 = new Turret(item_0.z1n_1, item_0.a1o_1, item_0.b1o_1, item_0.d1o_1, item_0.e1o_1, gunner);
-            this_1.j1m_1 = this.n1g_1.v1j_1.le(.3, 1.2);
+            var gunner = new Body(0, item_0.i1o_1, item_0.k1o_1, item_0.j1o_1, item_0.l1o_1, item_0.m1o_1, 1, 0, 0);
+            var this_1 = new Turret(item_0.h1o_1, item_0.i1o_1, item_0.j1o_1, item_0.l1o_1, item_0.m1o_1, gunner);
+            this_1.s1m_1 = this.o1g_1.d1k_1.le(.3, 1.2);
             destination_2.i(this_1);
         }
         var turrets = destination_2;
-        this.e1g_1.i(0);
-        var tmp0_1 = this.e1g_1;
-        var element_2 = roundToInt(this.i1g_1);
-        tmp0_1.i(element_2);
+        logWall(this);
         var pending = toMutableList_0(this.y1f_1);
         var step = 0;
         var endAt = 150;
-        while (this.l1g_1 < endAt) {
+        while (this.m1g_1 < endAt) {
             $l$loop: while (true) {
                 var tmp_0;
                 if (!pending.n()) {
-                    tmp_0 = first(pending).m1l_1 <= this.l1g_1;
+                    tmp_0 = first(pending).w1l_1 <= this.m1g_1;
                 } else {
                     tmp_0 = false;
                 }
@@ -23275,273 +23372,320 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (!pending.n()) {
                 tmp_1 = true;
             } else {
-                var tmp0_2 = this.z1f_1;
-                var tmp$ret$20;
+                var tmp0_1 = this.z1f_1;
+                var tmp$ret$18;
                 $l$block_0: {
                     var tmp_2;
-                    if (isInterface(tmp0_2, Collection)) {
-                        tmp_2 = tmp0_2.n();
+                    if (isInterface(tmp0_1, Collection)) {
+                        tmp_2 = tmp0_1.n();
                     } else {
                         tmp_2 = false;
                     }
                     if (tmp_2) {
-                        tmp$ret$20 = false;
+                        tmp$ret$18 = false;
                         break $l$block_0;
                     }
-                    var _iterator__ex2g4s_4 = tmp0_2.j();
+                    var _iterator__ex2g4s_4 = tmp0_1.j();
                     while (_iterator__ex2g4s_4.k()) {
-                        var element_3 = _iterator__ex2g4s_4.l();
-                        if (element_3.b1m() && element_3.c1m()) {
-                            tmp$ret$20 = true;
+                        var element_2 = _iterator__ex2g4s_4.l();
+                        if (element_2.k1m() && element_2.l1m()) {
+                            tmp$ret$18 = true;
                             break $l$block_0;
                         }
                     }
-                    tmp$ret$20 = false;
+                    tmp$ret$18 = false;
                 }
-                tmp_1 = tmp$ret$20;
+                tmp_1 = tmp$ret$18;
             }
             var fighting = tmp_1;
             var _iterator__ex2g4s_5 = barracks.j();
             $l$loop_0: while (_iterator__ex2g4s_5.k()) {
                 var b = _iterator__ex2g4s_5.l();
-                if (!fighting || this.l1g_1 < b.s1j_1) continue $l$loop_0;
-                var unit_0 = ensureNotNull(getValue(Companion_getInstance_29().l1j_1, b.p1j_1).q1g_1);
-                b.s1j_1 = this.l1g_1 + unit_0.m1k_1 * Companion_getInstance_29().h1j_1.p(b.q1j_1 - 1 | 0);
-                if (b.t1j_1 < unit_0.n1k_1) {
+                if (!fighting || this.m1g_1 < b.y1j_1) continue $l$loop_0;
+                b.y1j_1 = this.m1g_1 + b.z1j_1;
+                var room = b.a1k_1 < Companion_getInstance_29().k1j_1.p(b.w1j_1 - 1 | 0);
+                if (room) {
                     soldier(this, b);
                 }
+                var tmp0_2 = b.b1k_1;
+                var element_3 = _get_ms__ndc6g5(this);
+                tmp0_2.i(element_3);
+                var tmp0_3 = b.b1k_1;
+                var element_4 = room ? 1 : 0;
+                tmp0_3.i(element_4);
             }
-            var tmp0_3 = this.z1f_1;
+            var tmp0_4 = this.z1f_1;
             var destination_3 = ArrayList_init_$Create$();
-            var _iterator__ex2g4s_6 = tmp0_3.j();
+            var _iterator__ex2g4s_6 = tmp0_4.j();
             while (_iterator__ex2g4s_6.k()) {
-                var element_4 = _iterator__ex2g4s_6.l();
-                if (element_4.b1m()) {
-                    destination_3.i(element_4);
+                var element_5 = _iterator__ex2g4s_6.l();
+                if (element_5.k1m()) {
+                    destination_3.i(element_5);
                 }
             }
             var living = destination_3;
+            var destination_4 = ArrayList_init_$Create$();
             var _iterator__ex2g4s_7 = living.j();
             while (_iterator__ex2g4s_7.k()) {
-                var body = _iterator__ex2g4s_7.l();
-                if (body.b1m()) {
-                    act(this, body, living);
+                var element_6 = _iterator__ex2g4s_7.l();
+                if (element_6.l1m() && element_6.f1l_1 < 1e3) {
+                    destination_4.i(element_6);
                 }
             }
-            var _iterator__ex2g4s_8 = turrets.j();
+            var foes = destination_4;
+            var destination_5 = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_8 = living.j();
             while (_iterator__ex2g4s_8.k()) {
-                var turret = _iterator__ex2g4s_8.l();
-                shoot_0(this, turret, living);
+                var element_7 = _iterator__ex2g4s_8.l();
+                if (!element_7.l1m()) {
+                    destination_5.i(element_7);
+                }
+            }
+            var soldiers = destination_5;
+            var _iterator__ex2g4s_9 = living.j();
+            while (_iterator__ex2g4s_9.k()) {
+                var body = _iterator__ex2g4s_9.l();
+                if (body.k1m()) {
+                    act(this, body, foes, soldiers);
+                }
+            }
+            var _iterator__ex2g4s_10 = turrets.j();
+            while (_iterator__ex2g4s_10.k()) {
+                var turret = _iterator__ex2g4s_10.l();
+                shoot_0(this, turret, foes);
             }
             land(this);
             separate(this, living);
-            if ((step % 4 | 0) === 0) {
+            if ((step % 2 | 0) === 0) {
                 record(this);
             }
+            if ((this.i1g_1 > 0 || this.j1g_1 > 0) && step > 0 && (step % this.k1g_1 | 0) === 0 && fighting && this.g1g_1 > 0) {
+                var tmp_3 = this;
+                var b_0 = this.h1g_1 + this.i1g_1;
+                tmp_3.h1g_1 = Math.min(1e3, b_0);
+                var tmp_4 = this;
+                var b_1 = this.g1g_1 + this.j1g_1;
+                tmp_4.g1g_1 = Math.min(1e3, b_1);
+                logWall(this);
+            }
             step = step + 1 | 0;
-            this.l1g_1 = this.l1g_1 + .05;
-            var tmp_3;
-            if (this.i1g_1 <= 0) {
-                tmp_3 = true;
+            this.m1g_1 = this.m1g_1 + .1;
+            var tmp_5;
+            if (this.g1g_1 <= 0) {
+                tmp_5 = true;
             } else {
-                var tmp_4;
+                var tmp_6;
                 if (pending.n()) {
-                    var tmp0_4 = this.z1f_1;
-                    var tmp$ret$25;
+                    var tmp0_5 = this.z1f_1;
+                    var tmp$ret$33;
                     $l$block_2: {
-                        var tmp_5;
-                        if (isInterface(tmp0_4, Collection)) {
-                            tmp_5 = tmp0_4.n();
+                        var tmp_7;
+                        if (isInterface(tmp0_5, Collection)) {
+                            tmp_7 = tmp0_5.n();
                         } else {
-                            tmp_5 = false;
+                            tmp_7 = false;
                         }
-                        if (tmp_5) {
-                            tmp$ret$25 = true;
+                        if (tmp_7) {
+                            tmp$ret$33 = true;
                             break $l$block_2;
                         }
-                        var _iterator__ex2g4s_9 = tmp0_4.j();
-                        while (_iterator__ex2g4s_9.k()) {
-                            var element_5 = _iterator__ex2g4s_9.l();
-                            if (element_5.b1m() && element_5.c1m()) {
-                                tmp$ret$25 = false;
+                        var _iterator__ex2g4s_11 = tmp0_5.j();
+                        while (_iterator__ex2g4s_11.k()) {
+                            var element_8 = _iterator__ex2g4s_11.l();
+                            if (element_8.k1m() && element_8.l1m()) {
+                                tmp$ret$33 = false;
                                 break $l$block_2;
                             }
                         }
-                        tmp$ret$25 = true;
+                        tmp$ret$33 = true;
                     }
-                    tmp_4 = tmp$ret$25;
+                    tmp_6 = tmp$ret$33;
                 } else {
-                    tmp_4 = false;
+                    tmp_6 = false;
                 }
-                tmp_3 = tmp_4;
+                tmp_5 = tmp_6;
             }
-            var done = tmp_3;
-            if (done && endAt === 150) endAt = this.l1g_1 + (this.i1g_1 <= 0 ? 2 : 1.2);
+            var done = tmp_5;
+            if (done && endAt === 150) endAt = this.m1g_1 + (this.g1g_1 <= 0 ? 2 : 1.2);
         }
-        var tmp_6;
-        var tmp0_5 = this.z1f_1;
-        var tmp$ret$27;
+        var tmp_8;
+        var tmp0_6 = this.z1f_1;
+        var tmp$ret$35;
         $l$block_4: {
-            var tmp_7;
-            if (isInterface(tmp0_5, Collection)) {
-                tmp_7 = tmp0_5.n();
+            var tmp_9;
+            if (isInterface(tmp0_6, Collection)) {
+                tmp_9 = tmp0_6.n();
             } else {
-                tmp_7 = false;
+                tmp_9 = false;
             }
-            if (tmp_7) {
-                tmp$ret$27 = false;
+            if (tmp_9) {
+                tmp$ret$35 = false;
                 break $l$block_4;
             }
-            var _iterator__ex2g4s_10 = tmp0_5.j();
-            while (_iterator__ex2g4s_10.k()) {
-                var element_6 = _iterator__ex2g4s_10.l();
-                if (element_6.b1m() && element_6.c1m()) {
-                    tmp$ret$27 = true;
+            var _iterator__ex2g4s_12 = tmp0_6.j();
+            while (_iterator__ex2g4s_12.k()) {
+                var element_9 = _iterator__ex2g4s_12.l();
+                if (element_9.k1m() && element_9.l1m()) {
+                    tmp$ret$35 = true;
                     break $l$block_4;
                 }
             }
-            tmp$ret$27 = false;
+            tmp$ret$35 = false;
         }
-        if (tmp$ret$27) {
-            tmp_6 = this.i1g_1 > 0;
+        if (tmp$ret$35) {
+            tmp_8 = this.g1g_1 > 0;
         } else {
-            tmp_6 = false;
+            tmp_8 = false;
         }
-        if (tmp_6) {
-            var tmp_8 = this;
-            var tmp_9 = this.i1g_1;
-            var tmp0_6 = this.z1f_1;
-            var destination_4 = ArrayList_init_$Create$();
-            var _iterator__ex2g4s_11 = tmp0_6.j();
-            while (_iterator__ex2g4s_11.k()) {
-                var element_7 = _iterator__ex2g4s_11.l();
-                if (element_7.b1m() && element_7.c1m()) {
-                    destination_4.i(element_7);
+        if (tmp_8) {
+            var tmp0_7 = this.z1f_1;
+            var destination_6 = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_13 = tmp0_7.j();
+            while (_iterator__ex2g4s_13.k()) {
+                var element_10 = _iterator__ex2g4s_13.l();
+                if (element_10.k1m() && element_10.l1m()) {
+                    destination_6.i(element_10);
                 }
             }
             var sum_0 = 0;
-            var _iterator__ex2g4s_12 = destination_4.j();
-            while (_iterator__ex2g4s_12.k()) {
-                var element_8 = _iterator__ex2g4s_12.l();
+            var _iterator__ex2g4s_14 = destination_6.j();
+            while (_iterator__ex2g4s_14.k()) {
+                var element_11 = _iterator__ex2g4s_14.l();
                 var tmp_10 = sum_0;
-                sum_0 = tmp_10 + getValue(Companion_getInstance_29().n1j_1, element_8.u1k_1).t1l_1 * 10;
+                sum_0 = tmp_10 + ensureNotNull(element_11.l1l_1).d1m_1 * 10;
             }
-            tmp_8.i1g_1 = tmp_9 - sum_0 * (1 - this.j1g_1);
-            var tmp0_7 = this.e1g_1;
-            var element_9 = _get_ms__ndc6g5(this);
-            tmp0_7.i(element_9);
-            var tmp0_8 = this.e1g_1;
-            var b_0 = this.i1g_1;
-            var tmp$ret$35 = Math.max(0, b_0);
-            var element_10 = roundToInt(tmp$ret$35);
-            tmp0_8.i(element_10);
+            var tmp$ret$40 = sum_0;
+            strikeWall(this, tmp$ret$40);
         }
         var builder = new JsonObjectBuilder;
         put(builder, 'ms', _get_ms__ndc6g5(this));
         put(builder, 'step', roundToInt(.2 * 1e3));
         var this_2 = this.z1f_1;
-        var destination_5 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_2, 10));
-        var _iterator__ex2g4s_13 = this_2.j();
-        while (_iterator__ex2g4s_13.k()) {
-            var item_1 = _iterator__ex2g4s_13.l();
+        var destination_7 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_2, 10));
+        var _iterator__ex2g4s_15 = this_2.j();
+        while (_iterator__ex2g4s_15.k()) {
+            var item_1 = _iterator__ex2g4s_15.l();
             var builder_0 = new JsonObjectBuilder;
-            put(builder_0, 'id', item_1.t1k_1);
-            put_0(builder_0, 'k', item_1.u1k_1);
-            put(builder_0, 'side', item_1.v1k_1);
-            put(builder_0, 'lv', item_1.w1k_1);
-            put(builder_0, 'born', item_1.b1l_1);
-            put(builder_0, 'died', item_1.f1l_1);
-            put(builder_0, 'max', roundToInt(item_1.z1k_1));
-            var this_3 = item_1.g1l_1;
-            var destination_6 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_3, 10));
-            var _iterator__ex2g4s_14 = this_3.j();
-            while (_iterator__ex2g4s_14.k()) {
-                var item_2 = _iterator__ex2g4s_14.l();
-                var tmp$ret$46 = JsonPrimitive_0(item_2);
-                destination_6.i(tmp$ret$46);
-            }
-            builder_0.fy('track', new JsonArray(destination_6));
-            var this_4 = item_1.h1l_1;
-            var destination_7 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_4, 10));
-            var _iterator__ex2g4s_15 = this_4.j();
-            while (_iterator__ex2g4s_15.k()) {
-                var item_3 = _iterator__ex2g4s_15.l();
-                var tmp$ret$49 = JsonPrimitive_0(item_3);
-                destination_7.i(tmp$ret$49);
-            }
-            builder_0.fy('hp', new JsonArray(destination_7));
-            var tmp$ret$41 = builder_0.gy();
-            destination_5.i(tmp$ret$41);
+            put(builder_0, 'id', item_1.b1l_1);
+            put_0(builder_0, 'k', item_1.c1l_1);
+            put(builder_0, 'side', item_1.d1l_1);
+            put(builder_0, 'lv', item_1.e1l_1);
+            put(builder_0, 'born', item_1.j1l_1);
+            put(builder_0, 'died', item_1.p1l_1);
+            put(builder_0, 'max', roundToInt(item_1.h1l_1));
+            put_0(builder_0, 'track', joinToString_0(item_1.q1l_1, ','));
+            put_0(builder_0, 'hp', joinToString_0(item_1.r1l_1, ','));
+            var tmp$ret$46 = builder_0.gy();
+            destination_7.i(tmp$ret$46);
         }
-        builder.fy('bodies', new JsonArray(destination_5));
-        builder.fy('shots', new JsonArray(this.b1g_1));
-        builder.fy('booms', new JsonArray(this.c1g_1));
-        builder.fy('kills', new JsonArray(this.d1g_1));
-        var this_5 = this.f1g_1;
-        var destination_8 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_5, 10));
-        var _iterator__ex2g4s_16 = this_5.j();
+        builder.fy('bodies', new JsonArray(destination_7));
+        put_0(builder, 'shots', joinToString_0(this.b1g_1, ','));
+        put_0(builder, 'booms', joinToString_0(this.c1g_1, ','));
+        put_0(builder, 'swings', joinToString_0(this.e1g_1, ','));
+        put_0(builder, 'volleys', joinToString_0(this.f1g_1, ','));
+        put_0(builder, 'wall', joinToString_0(this.d1g_1, ','));
+        var destination_8 = ArrayList_init_$Create$_0(collectionSizeOrDefault(barracks, 10));
+        var _iterator__ex2g4s_16 = barracks.j();
         while (_iterator__ex2g4s_16.k()) {
-            var item_4 = _iterator__ex2g4s_16.l();
-            var tmp$ret$52 = JsonPrimitive_0(item_4);
-            destination_8.i(tmp$ret$52);
+            var item_2 = _iterator__ex2g4s_16.l();
+            var builder_1 = new JsonObjectBuilder;
+            put(builder_1, 'id', item_2.t1j_1);
+            var tmp0_elvis_lhs = firstOrNull(item_2.b1k_1);
+            put(builder_1, 'first', tmp0_elvis_lhs == null ? _get_ms__ndc6g5(this) : tmp0_elvis_lhs);
+            put(builder_1, 'every', roundToInt(item_2.z1j_1 * 1e3));
+            put_0(builder_1, 'turns', joinToString_0(item_2.b1k_1, ','));
+            var tmp$ret$51 = builder_1.gy();
+            destination_8.i(tmp$ret$51);
         }
-        builder.fy('swings', new JsonArray(destination_8));
-        var this_6 = this.g1g_1;
-        var destination_9 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_6, 10));
-        var _iterator__ex2g4s_17 = this_6.j();
+        builder.fy('barracks', new JsonArray(destination_8));
+        var tmp0_8 = this.o1g_1.g1k_1;
+        var destination_9 = ArrayList_init_$Create$();
+        var _iterator__ex2g4s_17 = tmp0_8.j();
         while (_iterator__ex2g4s_17.k()) {
-            var item_5 = _iterator__ex2g4s_17.l();
-            var tmp$ret$55 = JsonPrimitive_0(item_5);
-            destination_9.i(tmp$ret$55);
+            var element_12 = _iterator__ex2g4s_17.l();
+            var tmp0_9 = element_12.y1n();
+            var destination_10 = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_18 = tmp0_9.j();
+            while (_iterator__ex2g4s_18.k()) {
+                var element_13 = _iterator__ex2g4s_18.l();
+                if (element_13.j1n_1 === 'forge') {
+                    destination_10.i(element_13);
+                }
+            }
+            var destination_11 = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_19 = destination_10.j();
+            while (_iterator__ex2g4s_19.k()) {
+                var element_14 = _iterator__ex2g4s_19.l();
+                var list_0 = listOf_0([ element_14.i1n_1, Companion_getInstance_29().n1j_1.p(element_14.k1n_1 - 1 | 0) ]);
+                addAll(destination_11, list_0);
+            }
+            var list_1 = destination_11;
+            addAll(destination_9, list_1);
         }
-        builder.fy('volleys', new JsonArray(destination_9));
-        var this_7 = this.e1g_1;
-        var destination_10 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_7, 10));
-        var _iterator__ex2g4s_18 = this_7.j();
-        while (_iterator__ex2g4s_18.k()) {
-            var item_6 = _iterator__ex2g4s_18.l();
-            var tmp$ret$58 = JsonPrimitive_0(item_6);
-            destination_10.i(tmp$ret$58);
+        put_0(builder, 'forges', joinToString_0(destination_9, ','));
+        var tmp0_10 = this.o1g_1.g1k_1;
+        var destination_12 = ArrayList_init_$Create$();
+        var _iterator__ex2g4s_20 = tmp0_10.j();
+        while (_iterator__ex2g4s_20.k()) {
+            var element_15 = _iterator__ex2g4s_20.l();
+            var tmp0_11 = element_15.y1n();
+            var destination_13 = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_21 = tmp0_11.j();
+            while (_iterator__ex2g4s_21.k()) {
+                var element_16 = _iterator__ex2g4s_21.l();
+                if (element_16.j1n_1 === 'bastion') {
+                    destination_13.i(element_16);
+                }
+            }
+            var destination_14 = ArrayList_init_$Create$();
+            var _iterator__ex2g4s_22 = destination_13.j();
+            while (_iterator__ex2g4s_22.k()) {
+                var element_17 = _iterator__ex2g4s_22.l();
+                var list_2 = listOf_0([ element_17.i1n_1, Companion_getInstance_29().o1j_1.p(element_17.k1n_1 - 1 | 0) ]);
+                addAll(destination_14, list_2);
+            }
+            var list_3 = destination_14;
+            addAll(destination_12, list_3);
         }
-        builder.fy('wall', new JsonArray(destination_10));
-        put_1(builder, 'fell', this.i1g_1 <= 0);
+        put_0(builder, 'bastions', joinToString_0(destination_12, ','));
+        put_1(builder, 'fell', this.g1g_1 <= 0);
         var shown = builder.gy();
-        var b_1 = this.i1g_1;
-        var tmp$ret$59 = Math.max(0, b_1);
-        return new Triple(shown, new Outcome(tmp$ret$59, this.h1g_1), _get_ms__ndc6g5(this));
+        var b_2 = this.g1g_1;
+        var tmp$ret$72 = Math.max(0, b_2);
+        return new Triple(shown, new Outcome(tmp$ret$72), _get_ms__ndc6g5(this));
     };
     function Yard(x, y, band) {
-        this.w1n_1 = x;
-        this.x1n_1 = y;
-        this.y1n_1 = band;
+        this.e1o_1 = x;
+        this.f1o_1 = y;
+        this.g1o_1 = band;
     }
     function yardGrid($this) {
-        return $this.u1j_1.m() <= 2 ? 1 : 2;
+        return $this.c1k_1.m() <= 2 ? 1 : 2;
     }
     function yardRows($this) {
-        return (($this.u1j_1.m() + yardGrid($this) | 0) - 1 | 0) / yardGrid($this) | 0;
+        return (($this.c1k_1.m() + yardGrid($this) | 0) - 1 | 0) / yardGrid($this) | 0;
     }
     function Engine(piece, kind, level, side, x, y) {
-        this.z1n_1 = piece;
-        this.a1o_1 = kind;
-        this.b1o_1 = level;
-        this.c1o_1 = side;
-        this.d1o_1 = x;
-        this.e1o_1 = y;
+        this.h1o_1 = piece;
+        this.i1o_1 = kind;
+        this.j1o_1 = level;
+        this.k1o_1 = side;
+        this.l1o_1 = x;
+        this.m1o_1 = y;
     }
     function engines($this) {
         var yards_0 = yards($this);
-        var tmp0 = $this.y1j_1;
+        var tmp0 = $this.g1k_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            var tmp0_0 = element.p1n();
+            var tmp0_0 = element.y1n();
             var destination_0 = ArrayList_init_$Create$();
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (!(getValue(Companion_getInstance_29().l1j_1, element_0.a1n_1).r1g_1 == null)) {
+                if (!(getValue(Companion_getInstance_29().p1j_1, element_0.j1n_1).s1g_1 == null)) {
                     destination_0.i(element_0);
                 }
             }
@@ -23549,7 +23693,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = destination_0.j();
             while (_iterator__ex2g4s_1.k()) {
                 var item = _iterator__ex2g4s_1.l();
-                var cells = cover($this, item.a1n_1, item.c1n_1, item.d1n_1, item.e1n_1);
+                var cells = cover($this, item.j1n_1, item.l1n_1, item.m1n_1, item.n1n_1);
                 var sum = 0;
                 var _iterator__ex2g4s_2 = cells.j();
                 while (_iterator__ex2g4s_2.k()) {
@@ -23558,10 +23702,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     sum = tmp + element_1.sb_1 | 0;
                 }
                 var col = sum / cells.m();
-                var band = yards_0.p(element.g1n_1).y1n_1;
-                var nudge = yardGrid($this) === 2 ? (imul(element.g1n_1 % 2 | 0, 2) - 1 | 0) * 24 : 0;
+                var band = yards_0.p(element.p1n_1).g1o_1;
+                var nudge = yardGrid($this) === 2 ? (imul(element.p1n_1 % 2 | 0, 2) - 1 | 0) * 24 : 0;
                 var y = coerceIn(band.sb_1 + (col + .5) / 6 * (band.tb_1 - band.sb_1) + nudge, 24, 562 - 24);
-                var tmp$ret$8 = new Engine(item.z1m_1, item.a1n_1, item.b1n_1, element.g1n_1, 420 - 6, y);
+                var tmp$ret$8 = new Engine(item.i1n_1, item.j1n_1, item.k1n_1, element.p1n_1, 420 - 6, y);
                 destination_1.i(tmp$ret$8);
             }
             var list = destination_1;
@@ -23573,7 +23717,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var boxWidth = (420 - 24) / yardGrid($this);
         var boxHeight = 562 / yardRows($this);
         var tmp0 = (boxWidth - 22) / 6;
-        var b = (boxHeight - 30) / 7;
+        var b = (boxHeight - 30 - 12) / 7;
         var b_0 = Math.min(tmp0, b);
         return Math.min(44, b_0);
     }
@@ -23581,7 +23725,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var cell = cellPx($this);
         var boxWidth = (420 - 24) / yardGrid($this);
         var boxHeight = 562 / yardRows($this);
-        var this_0 = get_indices_1($this.u1j_1);
+        var this_0 = get_indices_1($this.c1k_1);
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var inductionVariable = this_0.w_1;
         var last = this_0.x_1;
@@ -23591,24 +23735,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var i = item;
             var row = i / yardGrid($this) | 0;
             var tmp0 = yardGrid($this);
-            var b = $this.u1j_1.m() - imul(row, yardGrid($this)) | 0;
+            var b = $this.c1k_1.m() - imul(row, yardGrid($this)) | 0;
             var inRow = Math.min(tmp0, b);
             var left = 24 / 2 + (420 - 24 - inRow * boxWidth) / 2 + (i % yardGrid($this) | 0) * boxWidth;
-            var tmp$ret$2 = new Yard(left + (boxWidth - 6 * cell) / 2, row * boxHeight + 30 + (boxHeight - 30 - 7 * cell) / 2, to(row * boxHeight, (row + 1 | 0) * boxHeight));
+            var tmp$ret$2 = new Yard(left + (boxWidth - 6 * cell) / 2, row * boxHeight + 30 + (boxHeight - 30 - 12 - 7 * cell) / 2, to(row * boxHeight, (row + 1 | 0) * boxHeight));
             destination.i(tmp$ret$2);
         } while (!(item === last));
         return destination;
     }
     function pieceJson($this, piece) {
         var builder = new JsonObjectBuilder;
-        put(builder, 'id', piece.z1m_1);
-        put_0(builder, 'k', piece.a1n_1);
-        put(builder, 'lv', piece.b1n_1);
-        if (piece.f1n()) {
-            put(builder, 'x', piece.c1n_1);
-            put(builder, 'y', piece.d1n_1);
-            put(builder, 'turn', piece.e1n_1);
-            var this_0 = cover($this, piece.a1n_1, piece.c1n_1, piece.d1n_1, piece.e1n_1);
+        put(builder, 'id', piece.i1n_1);
+        put_0(builder, 'k', piece.j1n_1);
+        put(builder, 'lv', piece.k1n_1);
+        if (piece.o1n()) {
+            put(builder, 'x', piece.l1n_1);
+            put(builder, 'y', piece.m1n_1);
+            put(builder, 'turn', piece.n1n_1);
+            var this_0 = cover($this, piece.j1n_1, piece.l1n_1, piece.m1n_1, piece.n1n_1);
             var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
             var _iterator__ex2g4s = this_0.j();
             while (_iterator__ex2g4s.k()) {
@@ -23623,9 +23767,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return builder.gy();
     }
     function common_1($this, $receiver) {
-        put_0($receiver, 'game', Fortress_getInstance().f1o_1);
-        put_0($receiver, 'phase', !($this.g1k_1 == null) ? 'over' : $this.c1k_1 > 0 ? 'battle' : 'build');
-        var this_0 = $this.u1j_1;
+        put_0($receiver, 'game', Fortress_getInstance().n1o_1);
+        put_0($receiver, 'phase', !($this.p1k_1 == null) ? 'over' : $this.k1k_1 > 0 ? 'battle' : 'build');
+        var this_0 = $this.c1k_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.j();
         while (_iterator__ex2g4s.k()) {
@@ -23634,15 +23778,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination.i(tmp$ret$2);
         }
         $receiver.fy('sides', new JsonArray(destination));
-        put($receiver, 'wave', $this.z1j_1);
-        put($receiver, 'waves', $this.w1j_1);
-        put($receiver, 'clock', $this.c1k_1 > 0 || !($this.g1k_1 == null) ? 0 : $this.b1k_1);
-        put($receiver, 'wall', roundToInt($this.a1k_1));
+        put($receiver, 'wave', $this.h1k_1);
+        put($receiver, 'waves', $this.e1k_1);
+        put($receiver, 'clock', $this.k1k_1 > 0 || !($this.p1k_1 == null) ? 0 : $this.j1k_1);
+        put($receiver, 'wall', roundToInt($this.i1k_1));
         put($receiver, 'wallMax', 1e3);
-        put($receiver, 'armor', roundToInt(armor($this) * 100));
+        put($receiver, 'armorRate', armorRate($this));
+        put($receiver, 'armorEvery', roundToInt(5));
         put($receiver, 'cols', 6);
         put($receiver, 'rows', 7);
-        var this_1 = $this.f1k_1;
+        var this_1 = $this.o1k_1;
         var tmp$ret$3 = new FortressGame$common$$inlined$groupingBy$1(this_1);
         var this_2 = eachCount(tmp$ret$3);
         var destination_0 = LinkedHashMap_init_$Create$_0(mapCapacity(this_2.m()));
@@ -23654,13 +23799,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_0.x1(tmp, tmp$ret$8);
         }
         $receiver.fy('coming', new JsonObject(destination_0));
-        var this_3 = $this.y1j_1;
+        var this_3 = $this.g1k_1;
         var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_3, 10));
         var _iterator__ex2g4s_1 = this_3.j();
         while (_iterator__ex2g4s_1.k()) {
             var item_0 = _iterator__ex2g4s_1.l();
             var builder = new JsonObjectBuilder;
-            var this_4 = sorted(item_0.h1n_1);
+            var this_4 = sorted(item_0.q1n_1);
             var destination_2 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_4, 10));
             var _iterator__ex2g4s_2 = this_4.j();
             while (_iterator__ex2g4s_2.k()) {
@@ -23669,7 +23814,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 destination_2.i(tmp$ret$16);
             }
             builder.fy('cells', new JsonArray(destination_2));
-            var this_5 = item_0.p1n();
+            var this_5 = item_0.y1n();
             var destination_3 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_5, 10));
             var _iterator__ex2g4s_3 = this_5.j();
             while (_iterator__ex2g4s_3.k()) {
@@ -23678,7 +23823,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 destination_3.i(tmp$ret$19);
             }
             builder.fy('pieces', new JsonArray(destination_3));
-            var this_6 = item_0.o1n();
+            var this_6 = item_0.x1n();
             var destination_4 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_6, 10));
             var _iterator__ex2g4s_4 = this_6.j();
             while (_iterator__ex2g4s_4.k()) {
@@ -23687,144 +23832,146 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 destination_4.i(tmp$ret$22);
             }
             builder.fy('hand', new JsonArray(destination_4));
-            put(builder, 'coins', item_0.j1n_1);
-            put_1(builder, 'ready', item_0.m1n_1);
+            put(builder, 'coins', item_0.s1n_1);
+            put_1(builder, 'ready', item_0.v1n_1);
             var tmp$ret$11 = builder.gy();
             destination_1.i(tmp$ret$11);
         }
         $receiver.fy('fields', new JsonArray(destination_1));
-        put_0($receiver, 'winner', $this.g1k_1);
+        put_0($receiver, 'winner', $this.p1k_1);
     }
-    function UnitStats(hp, damage, cooldown, speed, range, every, cap, radius, splash, freeze, shot, shotSpeed) {
+    function UnitStats(hp, damage, cooldown, speed, range, every, radius, splash, freeze, shot, shotSpeed) {
         radius = radius === VOID ? 7 : radius;
         splash = splash === VOID ? 0 : splash;
         freeze = freeze === VOID ? 0 : freeze;
         shot = shot === VOID ? '' : shot;
         shotSpeed = shotSpeed === VOID ? 0 : shotSpeed;
-        this.h1k_1 = hp;
-        this.i1k_1 = damage;
-        this.j1k_1 = cooldown;
-        this.k1k_1 = speed;
-        this.l1k_1 = range;
-        this.m1k_1 = every;
-        this.n1k_1 = cap;
-        this.o1k_1 = radius;
-        this.p1k_1 = splash;
-        this.q1k_1 = freeze;
-        this.r1k_1 = shot;
-        this.s1k_1 = shotSpeed;
+        this.q1k_1 = hp;
+        this.r1k_1 = damage;
+        this.s1k_1 = cooldown;
+        this.t1k_1 = speed;
+        this.u1k_1 = range;
+        this.v1k_1 = every;
+        this.w1k_1 = radius;
+        this.x1k_1 = splash;
+        this.y1k_1 = freeze;
+        this.z1k_1 = shot;
+        this.a1l_1 = shotSpeed;
     }
     function TurretStats(damage, cooldown, range, shot, shotSpeed, splash) {
         splash = splash === VOID ? 0 : splash;
-        this.k1m_1 = damage;
-        this.l1m_1 = cooldown;
-        this.m1m_1 = range;
-        this.n1m_1 = shot;
-        this.o1m_1 = shotSpeed;
-        this.p1m_1 = splash;
+        this.t1m_1 = damage;
+        this.u1m_1 = cooldown;
+        this.v1m_1 = range;
+        this.w1m_1 = shot;
+        this.x1m_1 = shotSpeed;
+        this.y1m_1 = splash;
     }
     function Building(shape, price, unit, turret) {
         unit = unit === VOID ? null : unit;
         turret = turret === VOID ? null : turret;
-        this.o1g_1 = shape;
-        this.p1g_1 = price;
-        this.q1g_1 = unit;
-        this.r1g_1 = turret;
+        this.p1g_1 = shape;
+        this.q1g_1 = price;
+        this.r1g_1 = unit;
+        this.s1g_1 = turret;
     }
-    function EnemyStats(hp, damage, cooldown, speed, range, wallDamage, radius, cost, from, bounty, splash, arrowResist, ignoresSoldiers) {
+    function EnemyStats(hp, damage, cooldown, speed, range, wallDamage, radius, cost, from, splash, arrowResist, ignoresSoldiers) {
         splash = splash === VOID ? 0 : splash;
         arrowResist = arrowResist === VOID ? 1 : arrowResist;
         ignoresSoldiers = ignoresSoldiers === VOID ? false : ignoresSoldiers;
-        this.o1l_1 = hp;
-        this.p1l_1 = damage;
-        this.q1l_1 = cooldown;
-        this.r1l_1 = speed;
-        this.s1l_1 = range;
-        this.t1l_1 = wallDamage;
-        this.u1l_1 = radius;
-        this.v1l_1 = cost;
-        this.w1l_1 = from;
-        this.x1l_1 = bounty;
-        this.y1l_1 = splash;
-        this.z1l_1 = arrowResist;
-        this.a1m_1 = ignoresSoldiers;
+        this.y1l_1 = hp;
+        this.z1l_1 = damage;
+        this.a1m_1 = cooldown;
+        this.b1m_1 = speed;
+        this.c1m_1 = range;
+        this.d1m_1 = wallDamage;
+        this.e1m_1 = radius;
+        this.f1m_1 = cost;
+        this.g1m_1 = from;
+        this.h1m_1 = splash;
+        this.i1m_1 = arrowResist;
+        this.j1m_1 = ignoresSoldiers;
     }
     function Companion_29() {
         Companion_instance_29 = this;
-        this.s1g_1 = 'won';
-        this.t1g_1 = 'lost';
-        this.u1g_1 = 'sword';
-        this.v1g_1 = 'knight';
-        this.w1g_1 = 'archer';
-        this.x1g_1 = 'fire';
-        this.y1g_1 = 'ice';
-        this.z1g_1 = 'ballista';
-        this.a1h_1 = 'catapult';
-        this.b1h_1 = 'mint';
-        this.c1h_1 = 'forge';
-        this.d1h_1 = 'bastion';
-        this.e1h_1 = 'cell';
-        this.f1h_1 = 'grunt';
-        this.g1h_1 = 'runner';
-        this.h1h_1 = 'brute';
-        this.i1h_1 = 'ram';
-        this.j1h_1 = 'boss';
-        this.k1h_1 = 1e3;
-        this.l1h_1 = 562;
-        this.m1h_1 = 420;
-        this.n1h_1 = 44;
-        this.o1h_1 = 24;
-        this.p1h_1 = 22;
-        this.q1h_1 = 30;
-        this.r1h_1 = 6;
-        this.s1h_1 = 24;
+        this.t1g_1 = 'won';
+        this.u1g_1 = 'lost';
+        this.v1g_1 = 'sword';
+        this.w1g_1 = 'knight';
+        this.x1g_1 = 'archer';
+        this.y1g_1 = 'fire';
+        this.z1g_1 = 'ice';
+        this.a1h_1 = 'ballista';
+        this.b1h_1 = 'catapult';
+        this.c1h_1 = 'mint';
+        this.d1h_1 = 'forge';
+        this.e1h_1 = 'bastion';
+        this.f1h_1 = 'cell';
+        this.g1h_1 = 'grunt';
+        this.h1h_1 = 'runner';
+        this.i1h_1 = 'brute';
+        this.j1h_1 = 'ram';
+        this.k1h_1 = 'boss';
+        this.l1h_1 = 1e3;
+        this.m1h_1 = 562;
+        this.n1h_1 = 420;
+        this.o1h_1 = 44;
+        this.p1h_1 = 24;
+        this.q1h_1 = 22;
+        this.r1h_1 = 30;
+        this.s1h_1 = 12;
         this.t1h_1 = 6;
-        this.u1h_1 = 7;
-        this.v1h_1 = 5;
-        this.w1h_1 = 40;
-        this.x1h_1 = 8;
-        this.y1h_1 = 1e3;
-        this.z1h_1 = 12;
-        this.a1i_1 = 5;
-        this.b1i_1 = 3;
-        this.c1i_1 = 5;
-        this.d1i_1 = 2;
+        this.u1h_1 = 24;
+        this.v1h_1 = 6;
+        this.w1h_1 = 7;
+        this.x1h_1 = 5;
+        this.y1h_1 = 40;
+        this.z1h_1 = 8;
+        this.a1i_1 = 1e3;
+        this.b1i_1 = 12;
+        this.c1i_1 = 6;
+        this.d1i_1 = 4;
         this.e1i_1 = 3;
-        this.f1i_1 = 3;
-        this.g1i_1 = 60;
-        this.h1i_1 = 40;
-        this.i1i_1 = 200;
-        this.j1i_1 = 1500;
-        this.k1i_1 = .05;
-        this.l1i_1 = 4;
-        this.m1i_1 = .2;
-        this.n1i_1 = 150;
-        this.o1i_1 = 1.2;
-        this.p1i_1 = 2;
-        this.q1i_1 = .5;
-        this.r1i_1 = 60;
-        this.s1i_1 = 30;
-        this.t1i_1 = 120;
-        this.u1i_1 = 170;
-        this.v1i_1 = 34;
-        this.w1i_1 = .4;
-        this.x1i_1 = .35;
-        this.y1i_1 = .9;
-        this.z1i_1 = .6;
-        this.a1j_1 = .6;
-        this.b1j_1 = 6;
-        this.c1j_1 = 5.5;
-        this.d1j_1 = .4;
-        this.e1j_1 = 8;
-        this.f1j_1 = 1.5;
-        this.g1j_1 = listOf_0([ 1, 1.9, 3.4 ]);
-        this.h1j_1 = listOf_0([ 1, .8, .65 ]);
-        this.i1j_1 = listOf_0([ 3, 7, 12 ]);
-        this.j1j_1 = listOf_0([ 60, 140, 240 ]);
-        this.k1j_1 = listOf_0([ .1, .22, .36 ]);
-        this.l1j_1 = mapOf_0([ to('sword', new Building(listOf_0([ to(0, 0), to(1, 0) ]), 3, new UnitStats(70, 14, .8, 64, 6, 4.5, 3))), to('knight', new Building(listOf_0([ to(0, 0), to(1, 0), to(0, 1), to(1, 1) ]), 5, new UnitStats(280, 8, 1, 34, 7, 8, 1, 10))), to('archer', new Building(listOf_0([ to(0, 0), to(0, 1), to(0, 2) ]), 4, new UnitStats(32, 10, 1.1, 52, 190, 4.5, 3, 6, VOID, VOID, 'arrow', 460))), to('fire', new Building(listOf_0([ to(0, 0), to(0, 1), to(1, 1) ]), 5, new UnitStats(34, 15, 2.2, 46, 165, 7, 2, 6, 42, VOID, 'fire', 300))), to('ice', new Building(listOf_0([ to(0, 0), to(1, 0), to(0, 1) ]), 5, new UnitStats(34, 8, 1.8, 46, 165, 7, 2, 6, 34, 2.5, 'ice', 320))), to('ballista', new Building(listOf_0([ to(0, 0), to(1, 0), to(2, 0), to(1, 1) ]), 7, VOID, new TurretStats(40, 2.2, 300, 'bolt', 700))), to('catapult', new Building(listOf_0([ to(0, 0), to(1, 0), to(1, 1), to(2, 1) ]), 8, VOID, new TurretStats(30, 3.6, 380, 'rock', 320, 50))), to('mint', new Building(listOf(to(0, 0)), 4)), to('forge', new Building(listOf(to(0, 0)), 4)), to('bastion', new Building(listOf_0([ to(0, 0), to(1, 0) ]), 4)) ]);
-        this.m1j_1 = mapOf_0([ to('sword', 18), to('archer', 18), to('knight', 12), to('fire', 10), to('ice', 10), to('ballista', 7), to('catapult', 7), to('mint', 10), to('forge', 8), to('bastion', 8) ]);
-        this.n1j_1 = mapOf_0([ to('grunt', new EnemyStats(45, 6, 1, 42, 4, 2, 7, 1, 1, 1)), to('runner', new EnemyStats(22, 4, .7, 90, 4, 1.5, 6, 1, 2, 1)), to('brute', new EnemyStats(150, 12, 1.2, 27, 5, 4, 10, 3, 3, 2, VOID, .4)), to('ram', new EnemyStats(300, 0, 2, 20, 0, 14, 14, 5, 4, 3, VOID, VOID, true)), to('boss', new EnemyStats(1600, 30, 1.5, 18, 8, 30, 22, 0, 99, 10, 30)) ]);
+        this.f1i_1 = 5;
+        this.g1i_1 = 2;
+        this.h1i_1 = 3;
+        this.i1i_1 = 4;
+        this.j1i_1 = 60;
+        this.k1i_1 = 40;
+        this.l1i_1 = 200;
+        this.m1i_1 = 1500;
+        this.n1i_1 = .1;
+        this.o1i_1 = 2;
+        this.p1i_1 = .2;
+        this.q1i_1 = 150;
+        this.r1i_1 = 1.2;
+        this.s1i_1 = 2;
+        this.t1i_1 = .5;
+        this.u1i_1 = 60;
+        this.v1i_1 = 30;
+        this.w1i_1 = 120;
+        this.x1i_1 = 170;
+        this.y1i_1 = 34;
+        this.z1i_1 = .4;
+        this.a1j_1 = .35;
+        this.b1j_1 = .9;
+        this.c1j_1 = .6;
+        this.d1j_1 = 1e3;
+        this.e1j_1 = 5;
+        this.f1j_1 = 6;
+        this.g1j_1 = 6.5;
+        this.h1j_1 = .4;
+        this.i1j_1 = 8;
+        this.j1j_1 = 1.5;
+        this.k1j_1 = listOf_0([ 2, 4, 8, 16 ]);
+        this.l1j_1 = listOf_0([ 1, .75, .55, .4 ]);
+        this.m1j_1 = listOf_0([ 4, 9, 15, 24 ]);
+        this.n1j_1 = listOf_0([ 6, 14, 24, 40 ]);
+        this.o1j_1 = listOf_0([ 8, 18, 30, 50 ]);
+        this.p1j_1 = mapOf_0([ to('sword', new Building(listOf_0([ to(0, 0), to(0, 1) ]), 3, new UnitStats(70, 14, .8, 64, 6, 4.5))), to('knight', new Building(listOf_0([ to(0, 0), to(1, 0) ]), 5, new UnitStats(280, 8, 1, 34, 7, 8, 10))), to('archer', new Building(listOf_0([ to(0, 0), to(1, 0), to(0, 1) ]), 4, new UnitStats(32, 10, 1.1, 52, 190, 4.5, 6, VOID, VOID, 'arrow', 460))), to('fire', new Building(listOf_0([ to(0, 0), to(1, 0), to(2, 0) ]), 5, new UnitStats(34, 15, 2.2, 46, 165, 7, 6, 42, VOID, 'fire', 300))), to('ice', new Building(listOf_0([ to(0, 0), to(1, 0), to(2, 0) ]), 5, new UnitStats(34, 8, 1.8, 46, 165, 7, 6, 34, 2.5, 'ice', 320))), to('ballista', new Building(listOf(to(0, 0)), 7, VOID, new TurretStats(40, 2.2, 300, 'bolt', 700))), to('catapult', new Building(listOf_0([ to(0, 0), to(1, 0), to(0, 1), to(1, 1) ]), 8, VOID, new TurretStats(30, 3.6, 380, 'rock', 320, 50))), to('mint', new Building(listOf(to(0, 0)), 4)), to('forge', new Building(listOf_0([ to(0, 0), to(1, 0) ]), 4)), to('bastion', new Building(listOf(to(0, 0)), 4)) ]);
+        this.q1j_1 = mapOf_0([ to('sword', 18), to('archer', 18), to('knight', 12), to('fire', 10), to('ice', 10), to('ballista', 7), to('catapult', 7), to('mint', 10), to('forge', 8), to('bastion', 8) ]);
+        this.r1j_1 = mapOf_0([ to('grunt', new EnemyStats(45, 6, 1, 42, 4, 2, 7, 1, 1)), to('runner', new EnemyStats(22, 4, .7, 90, 4, 1.5, 6, 1, 2)), to('brute', new EnemyStats(150, 12, 1.2, 27, 5, 4, 10, 3, 3, VOID, .4)), to('ram', new EnemyStats(300, 0, 2, 20, 0, 14, 14, 5, 4, VOID, VOID, true)), to('boss', new EnemyStats(1600, 30, 1.5, 18, 8, 30, 22, 0, 99, 30)) ]);
+        this.s1j_1 = listOf_0([ 'arrow', 'fire', 'ice', 'bolt', 'rock', 'stomp' ]);
     }
     var Companion_instance_29;
     function Companion_getInstance_29() {
@@ -23832,16 +23979,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Companion_instance_29;
     }
     function sam$kotlin_Comparator$0_1(function_0) {
-        this.h1o_1 = function_0;
+        this.p1o_1 = function_0;
     }
     protoOf(sam$kotlin_Comparator$0_1).na = function(a, b) {
-        return this.h1o_1(a, b);
+        return this.p1o_1(a, b);
     };
     protoOf(sam$kotlin_Comparator$0_1).compare = function(a, b) {
         return this.na(a, b);
     };
     protoOf(sam$kotlin_Comparator$0_1).l2 = function() {
-        return this.h1o_1;
+        return this.p1o_1;
     };
     protoOf(sam$kotlin_Comparator$0_1).equals = function(other) {
         var tmp;
@@ -23869,31 +24016,31 @@ if (typeof String.prototype.startsWith === 'undefined') {
         };
     }
     function FortressGame$makeWave$lambda(a, b) {
-        var tmp = a.m1l_1;
-        var tmp$ret$2 = b.m1l_1;
+        var tmp = a.w1l_1;
+        var tmp$ret$2 = b.w1l_1;
         return compareValues(tmp, tmp$ret$2);
     }
     function FortressGame$common$$inlined$groupingBy$1($this) {
-        this.i1o_1 = $this;
+        this.q1o_1 = $this;
     }
     protoOf(FortressGame$common$$inlined$groupingBy$1).y2 = function() {
-        return this.i1o_1.j();
+        return this.q1o_1.j();
     };
-    protoOf(FortressGame$common$$inlined$groupingBy$1).j1o = function(element) {
-        return element.l1l_1;
+    protoOf(FortressGame$common$$inlined$groupingBy$1).r1o = function(element) {
+        return element.v1l_1;
     };
     protoOf(FortressGame$common$$inlined$groupingBy$1).z2 = function(element) {
-        return this.j1o(element);
+        return this.r1o(element);
     };
     function FortressGame(players, random, waves) {
         Companion_getInstance_29();
         waves = waves === VOID ? 8 : waves;
-        this.u1j_1 = players;
-        this.v1j_1 = random;
-        this.w1j_1 = waves;
-        this.x1j_1 = 1;
+        this.c1k_1 = players;
+        this.d1k_1 = random;
+        this.e1k_1 = waves;
+        this.f1k_1 = 1;
         var tmp = this;
-        var this_0 = get_indices_1(this.u1j_1);
+        var this_0 = get_indices_1(this.c1k_1);
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var inductionVariable = this_0.w_1;
         var last = this_0.x_1;
@@ -23904,27 +24051,28 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var tmp$ret$2 = new Side(this, it);
             destination.i(tmp$ret$2);
         } while (!(item === last));
-        tmp.y1j_1 = destination;
-        this.z1j_1 = 1;
-        this.a1k_1 = 1e3;
-        this.b1k_1 = 60;
-        this.c1k_1 = 0;
-        this.d1k_1 = null;
-        this.e1k_1 = null;
-        this.f1k_1 = emptyList();
-        this.g1k_1 = null;
-        var _iterator__ex2g4s = this.y1j_1.j();
+        tmp.g1k_1 = destination;
+        this.h1k_1 = 1;
+        this.i1k_1 = 1e3;
+        this.j1k_1 = 60;
+        this.k1k_1 = 0;
+        this.l1k_1 = null;
+        this.m1k_1 = null;
+        this.n1k_1 = null;
+        this.o1k_1 = emptyList();
+        this.p1k_1 = null;
+        var _iterator__ex2g4s = this.g1k_1.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
-            element.s1n();
+            element.b1o();
         }
-        this.f1k_1 = makeWave(this, this.z1j_1);
+        this.o1k_1 = makeWave(this, this.h1k_1);
     }
     protoOf(FortressGame).g1c = function() {
-        return this.g1k_1;
+        return this.p1k_1;
     };
     protoOf(FortressGame).h1c = function(player, action) {
-        var tmp0_elvis_lhs = getOrNull(this.y1j_1, this.u1j_1.o1(player));
+        var tmp0_elvis_lhs = getOrNull(this.g1k_1, this.c1k_1.o1(player));
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return false;
@@ -23932,7 +24080,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var side = tmp;
-        if (!(this.g1k_1 == null) || this.c1k_1 > 0) return false;
+        if (!(this.p1k_1 == null) || this.k1k_1 > 0) return false;
         var int = FortressGame$act$lambda(action);
         var tmp1_safe_receiver = action.ux('do');
         var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
@@ -23951,7 +24099,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'place':
-            var tmp_1 = side.q1n(int('piece'));
+            var tmp_1 = side.z1n(int('piece'));
             var tmp_2 = int('x');
             var tmp_3 = int('y');
             var tmp4_elvis_lhs = int('turn');
@@ -23959,15 +24107,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'merge':
-            tmp_0 = merge(this, side, side.q1n(int('piece')), side.q1n(int('into')));
+            tmp_0 = merge(this, side, side.z1n(int('piece')), side.z1n(int('into')));
             break;
 
           case 'stow':
-            tmp_0 = stow(this, side, side.q1n(int('piece')));
+            tmp_0 = stow(this, side, side.z1n(int('piece')));
             break;
 
           case 'sell':
-            tmp_0 = sell(this, side, side.q1n(int('piece')));
+            tmp_0 = sell(this, side, side.z1n(int('piece')));
             break;
 
           case 'ready':
@@ -23985,7 +24133,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var done = tmp_0;
         var tmp_4;
         if (done) {
-            var tmp0 = this.y1j_1;
+            var tmp0 = this.g1k_1;
             var tmp$ret$0;
             $l$block_0: {
                 var tmp_5;
@@ -24001,7 +24149,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s = tmp0.j();
                 while (_iterator__ex2g4s.k()) {
                     var element = _iterator__ex2g4s.l();
-                    if (!element.m1n_1) {
+                    if (!element.v1n_1) {
                         tmp$ret$0 = false;
                         break $l$block_0;
                     }
@@ -24018,17 +24166,17 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return done;
     };
     protoOf(FortressGame).i1c = function() {
-        if (!(this.g1k_1 == null) || this.c1k_1 > 0) return false;
-        this.b1k_1 = this.b1k_1 - 1 | 0;
-        if (this.b1k_1 > 0) return true;
+        if (!(this.p1k_1 == null) || this.k1k_1 > 0) return false;
+        this.j1k_1 = this.j1k_1 - 1 | 0;
+        if (this.j1k_1 > 0) return true;
         startBattle(this);
         return true;
     };
     protoOf(FortressGame).j1c = function() {
-        if (this.c1k_1 <= 0) return Frame_NONE_getInstance();
-        this.c1k_1 = this.c1k_1 - 200 | 0;
-        if (this.c1k_1 > 0) return Frame_NONE_getInstance();
-        this.c1k_1 = 0;
+        if (this.k1k_1 <= 0) return Frame_NONE_getInstance();
+        this.k1k_1 = this.k1k_1 - 200 | 0;
+        if (this.k1k_1 > 0) return Frame_NONE_getInstance();
+        this.k1k_1 = 0;
         endBattle(this);
         return Frame_EVERYONE_getInstance();
     };
@@ -24045,8 +24193,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
             var builder_0 = new JsonObjectBuilder;
-            put(builder_0, 'x', item.w1n_1);
-            put(builder_0, 'y', item.x1n_1);
+            put(builder_0, 'x', item.e1o_1);
+            put(builder_0, 'y', item.f1o_1);
             var tmp$ret$4 = builder_0.gy();
             destination.i(tmp$ret$4);
         }
@@ -24057,26 +24205,30 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s_0.k()) {
             var item_0 = _iterator__ex2g4s_0.l();
             var builder_1 = new JsonObjectBuilder;
-            put(builder_1, 'id', item_0.z1n_1);
-            put_0(builder_1, 'k', item_0.a1o_1);
-            put(builder_1, 'lv', item_0.b1o_1);
-            put(builder_1, 'side', item_0.c1o_1);
-            put(builder_1, 'x', item_0.d1o_1);
-            put(builder_1, 'y', item_0.e1o_1);
+            put(builder_1, 'id', item_0.h1o_1);
+            put_0(builder_1, 'k', item_0.i1o_1);
+            put(builder_1, 'lv', item_0.j1o_1);
+            put(builder_1, 'side', item_0.k1o_1);
+            put(builder_1, 'x', item_0.l1o_1);
+            put(builder_1, 'y', item_0.m1o_1);
             var tmp$ret$9 = builder_1.gy();
             destination_0.i(tmp$ret$9);
         }
         builder.fy('engines', new JsonArray(destination_0));
-        var tmp0_elvis_lhs = this.d1k_1;
+        var tmp0_elvis_lhs = this.l1k_1;
         builder.fy('battle', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
+        var tmp1_elvis_lhs = this.n1k_1;
+        builder.fy('payday', tmp1_elvis_lhs == null ? JsonNull_getInstance() : tmp1_elvis_lhs);
         return builder.gy();
     };
     protoOf(FortressGame).l1c = function(player) {
         var builder = new JsonObjectBuilder;
-        var side = this.y1j_1.p(this.u1j_1.o1(player));
+        var side = this.g1k_1.p(this.c1k_1.o1(player));
         common_1(this, builder);
-        put(builder, 'side', side.g1n_1);
-        var this_0 = side.l1n_1;
+        put(builder, 'side', side.p1n_1);
+        var tmp0_elvis_lhs = this.n1k_1;
+        builder.fy('payday', tmp0_elvis_lhs == null ? JsonNull_getInstance() : tmp0_elvis_lhs);
+        var this_0 = side.u1n_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.j();
         while (_iterator__ex2g4s.k()) {
@@ -24087,7 +24239,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             } else {
                 var builder_0 = new JsonObjectBuilder;
                 put_0(builder_0, 'k', item);
-                put(builder_0, 'price', getValue(Companion_getInstance_29().l1j_1, item).p1g_1);
+                put(builder_0, 'price', getValue(Companion_getInstance_29().p1j_1, item).q1g_1);
                 tmp = builder_0.gy();
             }
             var tmp$ret$4 = tmp;
@@ -24095,16 +24247,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         builder.fy('offers', new JsonArray(destination));
         put(builder, 'rerollPrice', 2);
-        put(builder, 'cellPrice', side.r1n());
+        put(builder, 'cellPrice', side.a1o());
         put(builder, 'handMax', 5);
-        var this_1 = Companion_getInstance_29().l1j_1;
+        var this_1 = Companion_getInstance_29().p1j_1;
         var destination_0 = LinkedHashMap_init_$Create$_0(mapCapacity(this_1.m()));
         var _iterator__ex2g4s_0 = this_1.w1().j();
         while (_iterator__ex2g4s_0.k()) {
             var element = _iterator__ex2g4s_0.l();
             var tmp_0 = element.p1();
             var b = element.q1();
-            var this_2 = b.o1g_1;
+            var this_2 = b.p1g_1;
             var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_2, 10));
             var _iterator__ex2g4s_1 = this_2.j();
             while (_iterator__ex2g4s_1.k()) {
@@ -24118,12 +24270,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_0.x1(tmp_0, tmp$ret$11);
         }
         builder.fy('shapes', new JsonObject(destination_0));
-        var tmp0 = side.i1n_1;
+        var tmp0 = side.r1n_1;
         var destination_2 = ArrayList_init_$Create$();
         var _iterator__ex2g4s_2 = tmp0.j();
         while (_iterator__ex2g4s_2.k()) {
             var element_0 = _iterator__ex2g4s_2.l();
-            if (!(element_0.a1n_1 === 'cell')) {
+            if (!(element_0.j1n_1 === 'cell')) {
                 destination_2.i(element_0);
             }
         }
@@ -24132,7 +24284,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_3 = destination_2.j();
         while (_iterator__ex2g4s_3.k()) {
             var element_1 = _iterator__ex2g4s_3.l();
-            var pair = to(element_1.z1m_1.toString(), JsonPrimitive_0(worth(this, element_1)));
+            var pair = to(element_1.i1n_1.toString(), JsonPrimitive_0(worth(this, element_1)));
             destination_3.x1(pair.sb_1, pair.tb_1);
         }
         builder.fy('worth', new JsonObject(destination_3));
@@ -24140,14 +24292,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
     };
     function Fortress() {
         Fortress_instance = this;
-        this.f1o_1 = 'fortress';
-        this.g1o_1 = numberRangeToNumber(1, 4);
+        this.n1o_1 = 'fortress';
+        this.o1o_1 = numberRangeToNumber(1, 4);
     }
     protoOf(Fortress).m1c = function() {
-        return this.f1o_1;
+        return this.n1o_1;
     };
     protoOf(Fortress).n1c = function() {
-        return this.g1o_1;
+        return this.o1o_1;
     };
     protoOf(Fortress).o1c = function(players, random) {
         return new FortressGame(players, random);
@@ -24193,25 +24345,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
     }
     function Body_0(blobs, x, y) {
-        this.k1o_1 = blobs;
-        this.l1o_1 = x;
-        this.m1o_1 = y;
-        this.n1o_1 = 0;
-        this.o1o_1 = 0;
-        this.p1o_1 = 0;
-        this.q1o_1 = 0;
-        this.r1o_1 = this.k1o_1.m();
+        this.s1o_1 = blobs;
+        this.t1o_1 = x;
+        this.u1o_1 = y;
+        this.v1o_1 = 0;
+        this.w1o_1 = 0;
+        this.x1o_1 = 0;
+        this.y1o_1 = 0;
+        this.z1o_1 = this.s1o_1.m();
         var tmp = this;
         var sum = 0;
-        var _iterator__ex2g4s = this.k1o_1.j();
+        var _iterator__ex2g4s = this.s1o_1.j();
         while (_iterator__ex2g4s.k()) {
             var element = _iterator__ex2g4s.l();
             var tmp_0 = sum;
             sum = tmp_0 + (element.z1d_1 * element.z1d_1 + element.a1e_1 * element.a1e_1 + 8 * 8 / 2);
         }
-        tmp.s1o_1 = sum;
+        tmp.a1p_1 = sum;
         var tmp_1 = this;
-        var iterator = this.k1o_1.j();
+        var iterator = this.s1o_1.j();
         if (!iterator.k()) throw NoSuchElementException_init_$Create$();
         var it = iterator.l();
         var tmp0 = it.z1d_1;
@@ -24225,36 +24377,36 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var a = maxValue;
             maxValue = Math.max(a, v);
         }
-        tmp_1.t1o_1 = maxValue + 8;
-        this.u1o_1 = null;
+        tmp_1.b1p_1 = maxValue + 8;
+        this.c1p_1 = null;
     }
-    protoOf(Body_0).v1o = function(blob) {
-        var x = this.n1o_1;
+    protoOf(Body_0).d1p = function(blob) {
+        var x = this.v1o_1;
         var tmp$ret$0 = Math.cos(x);
         var tmp = blob.z1d_1 * tmp$ret$0;
-        var x_0 = this.n1o_1;
+        var x_0 = this.v1o_1;
         var tmp$ret$1 = Math.sin(x_0);
         return tmp - blob.a1e_1 * tmp$ret$1;
     };
-    protoOf(Body_0).w1o = function(blob) {
-        var x = this.n1o_1;
+    protoOf(Body_0).e1p = function(blob) {
+        var x = this.v1o_1;
         var tmp$ret$0 = Math.sin(x);
         var tmp = blob.z1d_1 * tmp$ret$0;
-        var x_0 = this.n1o_1;
+        var x_0 = this.v1o_1;
         var tmp$ret$1 = Math.cos(x_0);
         return tmp + blob.a1e_1 * tmp$ret$1;
     };
-    protoOf(Body_0).x1o = function(jx, jy, rx, ry) {
-        this.o1o_1 = this.o1o_1 + jx / this.r1o_1;
-        this.p1o_1 = this.p1o_1 + jy / this.r1o_1;
-        this.q1o_1 = this.q1o_1 + (rx * jy - ry * jx) / this.s1o_1;
+    protoOf(Body_0).f1p = function(jx, jy, rx, ry) {
+        this.w1o_1 = this.w1o_1 + jx / this.z1o_1;
+        this.x1o_1 = this.x1o_1 + jy / this.z1o_1;
+        this.y1o_1 = this.y1o_1 + (rx * jy - ry * jx) / this.a1p_1;
     };
     function Shape(body, lines) {
-        this.y1o_1 = body;
-        this.z1o_1 = lines;
+        this.g1p_1 = body;
+        this.h1p_1 = lines;
     }
     function shape($this, side) {
-        var tmp0 = $this.p1p_1[side];
+        var tmp0 = $this.x1p_1[side];
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = tmp0.j();
         while (_iterator__ex2g4s.k()) {
@@ -24265,7 +24417,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var tmp;
         if (destination.n()) {
-            tmp = listOf(Companion_getInstance_30().y1q_1);
+            tmp = listOf(Companion_getInstance_30().g1r_1);
         } else {
             tmp = destination;
         }
@@ -24353,13 +24505,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function onFloor($this, body, half) {
         var deepest = 0;
-        var _iterator__ex2g4s = body.k1o_1.j();
+        var _iterator__ex2g4s = body.s1o_1.j();
         $l$loop: while (_iterator__ex2g4s.k()) {
             var blob = _iterator__ex2g4s.l();
-            var rx = body.v1o(blob);
-            var ry = body.w1o(blob);
-            var wx = body.l1o_1 + rx;
-            var wy = body.m1o_1 + ry;
+            var rx = body.d1p(blob);
+            var ry = body.e1p(blob);
+            var wx = body.t1o_1 + rx;
+            var wy = body.u1o_1 + ry;
             var depth = 170 + 8 - wy;
             var tmp;
             if (depth <= 0 || depth > 40) {
@@ -24371,42 +24523,42 @@ if (typeof String.prototype.startsWith === 'undefined') {
             if (tmp) continue $l$loop;
             var a = deepest;
             deepest = Math.max(a, depth);
-            var pointVx = body.o1o_1 - body.q1o_1 * ry;
-            var pointVy = body.p1o_1 + body.q1o_1 * rx;
+            var pointVx = body.w1o_1 - body.y1o_1 * ry;
+            var pointVy = body.x1o_1 + body.y1o_1 * rx;
             if (pointVy < 0) {
-                var j = -(1 + .2) * pointVy / (1 / body.r1o_1 + rx * rx / body.s1o_1);
-                body.x1o(0, j, rx, ry);
-                var slide = body.o1o_1 - body.q1o_1 * ry;
-                var friction = coerceIn(-slide / (1 / body.r1o_1 + ry * ry / body.s1o_1), -.25 * j, .25 * j);
-                body.x1o(friction, 0, rx, ry);
+                var j = -(1 + .2) * pointVy / (1 / body.z1o_1 + rx * rx / body.a1p_1);
+                body.f1p(0, j, rx, ry);
+                var slide = body.w1o_1 - body.y1o_1 * ry;
+                var friction = coerceIn(-slide / (1 / body.z1o_1 + ry * ry / body.a1p_1), -.25 * j, .25 * j);
+                body.f1p(friction, 0, rx, ry);
             }
         }
         if (deepest > 0) {
-            body.m1o_1 = body.m1o_1 + deepest * .6;
+            body.u1o_1 = body.u1o_1 + deepest * .6;
         }
         return deepest > 0;
     }
     function clash($this, a, b) {
-        var tmp0 = a.l1o_1 - b.l1o_1;
-        var y = a.m1o_1 - b.m1o_1;
-        if (hypot(tmp0, y) > a.t1o_1 + b.t1o_1) return null;
+        var tmp0 = a.t1o_1 - b.t1o_1;
+        var y = a.u1o_1 - b.u1o_1;
+        if (hypot(tmp0, y) > a.b1p_1 + b.b1p_1) return null;
         var deepest = 0;
         var deepX = 0;
         var deepY = 0;
         var hardest = 0;
         var at = null;
-        var _iterator__ex2g4s = a.k1o_1.j();
+        var _iterator__ex2g4s = a.s1o_1.j();
         while (_iterator__ex2g4s.k()) {
             var first = _iterator__ex2g4s.l();
-            var ax = a.v1o(first);
-            var ay = a.w1o(first);
-            var _iterator__ex2g4s_0 = b.k1o_1.j();
+            var ax = a.d1p(first);
+            var ay = a.e1p(first);
+            var _iterator__ex2g4s_0 = b.s1o_1.j();
             $l$loop_0: while (_iterator__ex2g4s_0.k()) {
                 var second = _iterator__ex2g4s_0.l();
-                var bx = b.v1o(second);
-                var by = b.w1o(second);
-                var dx = b.l1o_1 + bx - a.l1o_1 - ax;
-                var dy = b.m1o_1 + by - a.m1o_1 - ay;
+                var bx = b.d1p(second);
+                var by = b.e1p(second);
+                var dx = b.t1o_1 + bx - a.t1o_1 - ax;
+                var dy = b.u1o_1 + by - a.u1o_1 - ay;
                 var distance = hypot(dx, dy);
                 if (distance >= 2 * 8 || distance === 0) continue $l$loop_0;
                 var nx = dx / distance;
@@ -24417,25 +24569,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     deepX = nx;
                     deepY = ny;
                 }
-                var closing = (a.o1o_1 - a.q1o_1 * ay - b.o1o_1 + b.q1o_1 * by) * nx + (a.p1o_1 + a.q1o_1 * ax - b.p1o_1 - b.q1o_1 * bx) * ny;
+                var closing = (a.w1o_1 - a.y1o_1 * ay - b.w1o_1 + b.y1o_1 * by) * nx + (a.x1o_1 + a.y1o_1 * ax - b.x1o_1 - b.y1o_1 * bx) * ny;
                 if (closing <= 0) continue $l$loop_0;
                 var turnA = ax * ny - ay * nx;
                 var turnB = bx * ny - by * nx;
-                var j = (1 + 1) * closing / (1 / a.r1o_1 + 1 / b.r1o_1 + turnA * turnA / a.s1o_1 + turnB * turnB / b.s1o_1);
-                a.x1o(-j * nx, -j * ny, ax, ay);
-                b.x1o(j * nx, j * ny, bx, by);
+                var j = (1 + 1) * closing / (1 / a.z1o_1 + 1 / b.z1o_1 + turnA * turnA / a.a1p_1 + turnB * turnB / b.a1p_1);
+                a.f1p(-j * nx, -j * ny, ax, ay);
+                b.f1p(j * nx, j * ny, bx, by);
                 if (closing > hardest) {
                     hardest = closing;
-                    at = to(a.l1o_1 + ax + nx * 8, a.m1o_1 + ay + ny * 8);
+                    at = to(a.t1o_1 + ax + nx * 8, a.u1o_1 + ay + ny * 8);
                 }
             }
         }
         if (deepest > 0) {
-            var share = b.r1o_1 / (a.r1o_1 + b.r1o_1);
-            a.l1o_1 = a.l1o_1 - deepX * deepest * share * .6;
-            a.m1o_1 = a.m1o_1 - deepY * deepest * share * .6;
-            b.l1o_1 = b.l1o_1 + deepX * deepest * (1 - share) * .6;
-            b.m1o_1 = b.m1o_1 + deepY * deepest * (1 - share) * .6;
+            var share = b.z1o_1 / (a.z1o_1 + b.z1o_1);
+            a.t1o_1 = a.t1o_1 - deepX * deepest * share * .6;
+            a.u1o_1 = a.u1o_1 - deepY * deepest * share * .6;
+            b.t1o_1 = b.t1o_1 + deepX * deepest * (1 - share) * .6;
+            b.u1o_1 = b.u1o_1 + deepY * deepest * (1 - share) * .6;
         }
         var tmp0_safe_receiver = at;
         var tmp;
@@ -24448,41 +24600,41 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_30() {
         Companion_instance_30 = this;
-        this.q1p_1 = 300;
-        this.r1p_1 = 800;
-        this.s1p_1 = 25;
-        this.t1p_1 = .62;
-        this.u1p_1 = 13;
-        this.v1p_1 = 8;
-        this.w1p_1 = 170;
-        this.x1p_1 = 280;
-        this.y1p_1 = 40;
-        this.z1p_1 = 40;
-        this.a1q_1 = 340;
-        this.b1q_1 = 620;
-        this.c1q_1 = .008333333333333333;
-        this.d1q_1 = 6;
-        this.e1q_1 = .05;
-        this.f1q_1 = 1;
-        this.g1q_1 = .2;
-        this.h1q_1 = .25;
-        this.i1q_1 = .998;
-        this.j1q_1 = 1300;
-        this.k1q_1 = .7;
-        this.l1q_1 = 1;
-        this.m1q_1 = 320;
-        this.n1q_1 = 120;
-        this.o1q_1 = 1.4;
-        this.p1q_1 = 70;
-        this.q1q_1 = .18;
-        this.r1q_1 = 9;
-        this.s1q_1 = 50;
-        this.t1q_1 = 18;
-        this.u1q_1 = 1.2;
-        this.v1q_1 = .94;
-        this.w1q_1 = 1800;
-        this.x1q_1 = 1300;
-        this.y1q_1 = listOf_0([ new Dot(110, 260), new Dot(190, 260) ]);
+        this.y1p_1 = 300;
+        this.z1p_1 = 800;
+        this.a1q_1 = 25;
+        this.b1q_1 = .62;
+        this.c1q_1 = 13;
+        this.d1q_1 = 8;
+        this.e1q_1 = 170;
+        this.f1q_1 = 280;
+        this.g1q_1 = 40;
+        this.h1q_1 = 40;
+        this.i1q_1 = 340;
+        this.j1q_1 = 620;
+        this.k1q_1 = .008333333333333333;
+        this.l1q_1 = 6;
+        this.m1q_1 = .05;
+        this.n1q_1 = 1;
+        this.o1q_1 = .2;
+        this.p1q_1 = .25;
+        this.q1q_1 = .998;
+        this.r1q_1 = 1300;
+        this.s1q_1 = .7;
+        this.t1q_1 = 1;
+        this.u1q_1 = 320;
+        this.v1q_1 = 120;
+        this.w1q_1 = 1.4;
+        this.x1q_1 = 70;
+        this.y1q_1 = .18;
+        this.z1q_1 = 9;
+        this.a1r_1 = 50;
+        this.b1r_1 = 18;
+        this.c1r_1 = 1.2;
+        this.d1r_1 = .94;
+        this.e1r_1 = 1800;
+        this.f1r_1 = 1300;
+        this.g1r_1 = listOf_0([ new Dot(110, 260), new Dot(190, 260) ]);
     }
     var Companion_instance_30;
     function Companion_getInstance_30() {
@@ -24496,7 +24648,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_getInstance_30();
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.o1p_1 = Ram_getInstance().z1q_1;
+        this.w1p_1 = Ram_getInstance().h1r_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -24504,11 +24656,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.p1p_1 = tmp_1;
+        tmp.x1p_1 = tmp_1;
         this.m1f();
     }
     protoOf(RamGame).n1f = function() {
-        return this.o1p_1;
+        return this.w1p_1;
     };
     protoOf(RamGame).o1f = function() {
         return 25;
@@ -24521,10 +24673,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.p1p_1 = tmp_1;
+        tmp.x1p_1 = tmp_1;
     };
     protoOf(RamGame).q1f = function(side, action) {
-        var tmp = this.p1p_1;
+        var tmp = this.x1p_1;
         var tmp0_elvis_lhs = readStrokes(action.ux('strokes'), 300, 300, 800);
         var tmp_0;
         if (tmp0_elvis_lhs == null) {
@@ -24541,7 +24693,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = shapes.j();
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
-            var tmp$ret$2 = item.y1o_1;
+            var tmp$ret$2 = item.g1p_1;
             destination.i(tmp$ret$2);
         }
         var bodies = destination;
@@ -24572,7 +24724,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var _iterator__ex2g4s_0 = bodies.j();
                     while (_iterator__ex2g4s_0.k()) {
                         var element = _iterator__ex2g4s_0.l();
-                        if (!(element.u1o_1 == null)) {
+                        if (!(element.c1p_1 == null)) {
                             tmp$ret$6 = false;
                             break $l$block_0;
                         }
@@ -24591,12 +24743,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     var side = index;
                     index = index + 1 | 0;
                     var body = iterator.l();
-                    if (!(body.u1o_1 == null)) continue $l$loop;
+                    if (!(body.c1p_1 == null)) continue $l$loop;
                     var rival = bodies.p(1 - side | 0);
-                    var toward = rival.l1o_1 >= body.l1o_1 ? 1 : -1;
-                    body.o1o_1 = body.o1o_1 + toward * 320;
-                    body.p1o_1 = body.p1o_1 + 120;
-                    body.q1o_1 = body.q1o_1 + this.m1d_1.le(-1.4, 1.4);
+                    var toward = rival.t1o_1 >= body.t1o_1 ? 1 : -1;
+                    body.w1o_1 = body.w1o_1 + toward * 320;
+                    body.x1o_1 = body.x1o_1 + 120;
+                    body.y1o_1 = body.y1o_1 + this.m1d_1.le(-1.4, 1.4);
                     var builder = new JsonObjectBuilder;
                     put(builder, 't', round(time * 1e3));
                     put(builder, 'side', side);
@@ -24619,7 +24771,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_1 = bodies.j();
                 while (_iterator__ex2g4s_1.k()) {
                     var element_1 = _iterator__ex2g4s_1.l();
-                    if (!(element_1.u1o_1 == null)) {
+                    if (!(element_1.c1p_1 == null)) {
                         tmp$ret$11 = true;
                         break $l$block_2;
                     }
@@ -24630,21 +24782,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_2 = bodies.j();
             while (_iterator__ex2g4s_2.k()) {
                 var body_0 = _iterator__ex2g4s_2.l();
-                if (decided && body_0.u1o_1 == null) {
-                    body_0.o1o_1 = body_0.o1o_1 * .94;
-                    body_0.q1o_1 = body_0.q1o_1 * .94;
+                if (decided && body_0.c1p_1 == null) {
+                    body_0.w1o_1 = body_0.w1o_1 * .94;
+                    body_0.y1o_1 = body_0.y1o_1 * .94;
                 }
-                body_0.p1o_1 = body_0.p1o_1 - 620 * .008333333333333333;
-                body_0.l1o_1 = body_0.l1o_1 + body_0.o1o_1 * .008333333333333333;
-                body_0.m1o_1 = body_0.m1o_1 + body_0.p1o_1 * .008333333333333333;
-                body_0.n1o_1 = body_0.n1o_1 + body_0.q1o_1 * .008333333333333333;
-                body_0.q1o_1 = body_0.q1o_1 * .998;
-                var tmp0 = body_0.o1o_1;
-                var y = body_0.p1o_1;
+                body_0.x1o_1 = body_0.x1o_1 - 620 * .008333333333333333;
+                body_0.t1o_1 = body_0.t1o_1 + body_0.w1o_1 * .008333333333333333;
+                body_0.u1o_1 = body_0.u1o_1 + body_0.x1o_1 * .008333333333333333;
+                body_0.v1o_1 = body_0.v1o_1 + body_0.y1o_1 * .008333333333333333;
+                body_0.y1o_1 = body_0.y1o_1 * .998;
+                var tmp0 = body_0.w1o_1;
+                var y = body_0.x1o_1;
                 var speed = hypot(tmp0, y);
                 if (speed > 1300) {
-                    body_0.o1o_1 = body_0.o1o_1 * (1300 / speed);
-                    body_0.p1o_1 = body_0.p1o_1 * (1300 / speed);
+                    body_0.w1o_1 = body_0.w1o_1 * (1300 / speed);
+                    body_0.x1o_1 = body_0.x1o_1 * (1300 / speed);
                 }
                 onFloor(this, body_0, half);
             }
@@ -24662,8 +24814,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_3 = bodies.j();
             while (_iterator__ex2g4s_3.k()) {
                 var body_1 = _iterator__ex2g4s_3.l();
-                if (body_1.u1o_1 == null && body_1.m1o_1 < 40) {
-                    body_1.u1o_1 = time;
+                if (body_1.c1p_1 == null && body_1.u1o_1 < 40) {
+                    body_1.c1p_1 = time;
                     var tmp0_0 = endAt;
                     var b = time + 1.2;
                     endAt = Math.min(tmp0_0, b);
@@ -24675,11 +24827,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_4 = bodies.j();
                 while (_iterator__ex2g4s_4.k()) {
                     var body_2 = _iterator__ex2g4s_4.l();
-                    var element_3 = JsonPrimitive_0(round(body_2.l1o_1));
+                    var element_3 = JsonPrimitive_0(round(body_2.t1o_1));
                     frames.i(element_3);
-                    var element_4 = JsonPrimitive_0(round(body_2.m1o_1));
+                    var element_4 = JsonPrimitive_0(round(body_2.u1o_1));
                     frames.i(element_4);
-                    var element_5 = JsonPrimitive_0(round(body_2.n1o_1 * 100) / 100);
+                    var element_5 = JsonPrimitive_0(round(body_2.v1o_1 * 100) / 100);
                     frames.i(element_5);
                 }
             }
@@ -24689,11 +24841,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_5 = bodies.j();
         while (_iterator__ex2g4s_5.k()) {
             var item_0 = _iterator__ex2g4s_5.l();
-            var tmp$ret$23 = item_0.u1o_1;
+            var tmp$ret$23 = item_0.c1p_1;
             destination_0.i(tmp$ret$23);
         }
         var falls = destination_0;
-        var loser = falls.p(0) == null && falls.p(1) == null ? bodies.p(0).m1o_1 < bodies.p(1).m1o_1 ? 0 : bodies.p(1).m1o_1 < bodies.p(0).m1o_1 ? 1 : null : falls.p(1) == null ? 0 : falls.p(0) == null ? 1 : ensureNotNull(falls.p(0)) < ensureNotNull(falls.p(1)) ? 0 : ensureNotNull(falls.p(1)) < ensureNotNull(falls.p(0)) ? 1 : null;
+        var loser = falls.p(0) == null && falls.p(1) == null ? bodies.p(0).u1o_1 < bodies.p(1).u1o_1 ? 0 : bodies.p(1).u1o_1 < bodies.p(0).u1o_1 ? 1 : null : falls.p(1) == null ? 0 : falls.p(0) == null ? 1 : ensureNotNull(falls.p(0)) < ensureNotNull(falls.p(1)) ? 0 : ensureNotNull(falls.p(1)) < ensureNotNull(falls.p(0)) ? 1 : null;
         if (!(loser == null)) {
             var _array__4zh2yp = this.q1d_1;
             var _index_0__fvwizt = 1 - loser | 0;
@@ -24710,7 +24862,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_6 = shapes.j();
         while (_iterator__ex2g4s_6.k()) {
             var item_1 = _iterator__ex2g4s_6.l();
-            var tmp$ret$28 = linesToJson(item_1.z1o_1);
+            var tmp$ret$28 = linesToJson(item_1.h1p_1);
             destination_1.i(tmp$ret$28);
         }
         builder_1.fy('shapes', new JsonArray(destination_1));
@@ -24737,18 +24889,18 @@ if (typeof String.prototype.startsWith === 'undefined') {
     protoOf(RamGame).u1f = function(_this__u8e3s4, side) {
         put(_this__u8e3s4, 'ink', 800);
         put(_this__u8e3s4, 'pad', 300);
-        _this__u8e3s4.fy('mine', linesToJson(this.p1p_1[side]));
+        _this__u8e3s4.fy('mine', linesToJson(this.x1p_1[side]));
     };
     function Ram() {
         Ram_instance = this;
-        this.z1q_1 = 'ram';
-        this.a1r_1 = numberRangeToNumber(2, 2);
+        this.h1r_1 = 'ram';
+        this.i1r_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Ram).m1c = function() {
-        return this.z1q_1;
+        return this.h1r_1;
     };
     protoOf(Ram).n1c = function() {
-        return this.a1r_1;
+        return this.i1r_1;
     };
     protoOf(Ram).o1c = function(players, random) {
         return new RamGame(players, random);
@@ -24797,15 +24949,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
     }
     function Companion_31() {
         Companion_instance_31 = this;
-        this.b1r_1 = 300;
-        this.c1r_1 = 3e3;
-        this.d1r_1 = 3e3;
-        this.e1r_1 = 15;
-        this.f1r_1 = 7e3;
-        this.g1r_1 = 42;
-        this.h1r_1 = mapOf_0([ to('star', listOf(line(this, new Int32Array([ 150, 30, 185, 115, 275, 120, 205, 180, 230, 270, 150, 220, 70, 270, 95, 180, 25, 120, 115, 115, 150, 30 ])))), to('house', listOf_0([ line(this, new Int32Array([ 60, 270, 60, 130, 150, 40, 240, 130, 240, 270, 60, 270 ])), line(this, new Int32Array([ 125, 270, 125, 190, 175, 190, 175, 270 ])) ])), to('heart', listOf(line(this, new Int32Array([ 150, 270, 50, 165, 30, 105, 60, 55, 110, 50, 150, 95, 190, 50, 240, 55, 270, 105, 250, 165, 150, 270 ])))), to('zigzag', listOf(line(this, new Int32Array([ 30, 240, 80, 60, 130, 240, 180, 60, 230, 240, 270, 90 ])))), to('fish', listOf(line(this, new Int32Array([ 30, 150, 80, 90, 160, 80, 220, 140, 275, 90, 275, 210, 220, 160, 160, 220, 80, 210, 30, 150 ])))), to('arrow', listOf(line(this, new Int32Array([ 30, 120, 170, 120, 170, 60, 275, 150, 170, 240, 170, 180, 30, 180, 30, 120 ])))), to('bolt', listOf(line(this, new Int32Array([ 180, 25, 80, 165, 145, 165, 110, 275, 225, 120, 160, 120, 180, 25 ])))), to('crown', listOf(line(this, new Int32Array([ 40, 240, 30, 80, 95, 150, 150, 50, 205, 150, 270, 80, 260, 240, 40, 240 ])))), to('boat', listOf_0([ line(this, new Int32Array([ 30, 190, 270, 190, 225, 260, 75, 260, 30, 190 ])), line(this, new Int32Array([ 150, 190, 150, 40, 235, 150, 150, 150 ])) ])), to('tree', listOf_0([ line(this, new Int32Array([ 150, 25, 225, 115, 190, 115, 255, 205, 45, 205, 110, 115, 75, 115, 150, 25 ])), line(this, new Int32Array([ 130, 205, 130, 275, 170, 275, 170, 205 ])) ])), to('letter', listOf_0([ line(this, new Int32Array([ 30, 80, 270, 80, 270, 225, 30, 225, 30, 80 ])), line(this, new Int32Array([ 30, 80, 150, 170, 270, 80 ])) ])), to('spiral', listOf(line(this, new Int32Array([ 150, 150, 175, 150, 175, 120, 125, 120, 115, 180, 200, 190, 215, 90, 90, 80, 70, 215, 240, 235, 260, 45, 50, 40 ])))) ]);
+        this.j1r_1 = 300;
+        this.k1r_1 = 3e3;
+        this.l1r_1 = 3e3;
+        this.m1r_1 = 15;
+        this.n1r_1 = 7e3;
+        this.o1r_1 = 42;
+        this.p1r_1 = mapOf_0([ to('star', listOf(line(this, new Int32Array([ 150, 30, 185, 115, 275, 120, 205, 180, 230, 270, 150, 220, 70, 270, 95, 180, 25, 120, 115, 115, 150, 30 ])))), to('house', listOf_0([ line(this, new Int32Array([ 60, 270, 60, 130, 150, 40, 240, 130, 240, 270, 60, 270 ])), line(this, new Int32Array([ 125, 270, 125, 190, 175, 190, 175, 270 ])) ])), to('heart', listOf(line(this, new Int32Array([ 150, 270, 50, 165, 30, 105, 60, 55, 110, 50, 150, 95, 190, 50, 240, 55, 270, 105, 250, 165, 150, 270 ])))), to('zigzag', listOf(line(this, new Int32Array([ 30, 240, 80, 60, 130, 240, 180, 60, 230, 240, 270, 90 ])))), to('fish', listOf(line(this, new Int32Array([ 30, 150, 80, 90, 160, 80, 220, 140, 275, 90, 275, 210, 220, 160, 160, 220, 80, 210, 30, 150 ])))), to('arrow', listOf(line(this, new Int32Array([ 30, 120, 170, 120, 170, 60, 275, 150, 170, 240, 170, 180, 30, 180, 30, 120 ])))), to('bolt', listOf(line(this, new Int32Array([ 180, 25, 80, 165, 145, 165, 110, 275, 225, 120, 160, 120, 180, 25 ])))), to('crown', listOf(line(this, new Int32Array([ 40, 240, 30, 80, 95, 150, 150, 50, 205, 150, 270, 80, 260, 240, 40, 240 ])))), to('boat', listOf_0([ line(this, new Int32Array([ 30, 190, 270, 190, 225, 260, 75, 260, 30, 190 ])), line(this, new Int32Array([ 150, 190, 150, 40, 235, 150, 150, 150 ])) ])), to('tree', listOf_0([ line(this, new Int32Array([ 150, 25, 225, 115, 190, 115, 255, 205, 45, 205, 110, 115, 75, 115, 150, 25 ])), line(this, new Int32Array([ 130, 205, 130, 275, 170, 275, 170, 205 ])) ])), to('letter', listOf_0([ line(this, new Int32Array([ 30, 80, 270, 80, 270, 225, 30, 225, 30, 80 ])), line(this, new Int32Array([ 30, 80, 150, 170, 270, 80 ])) ])), to('spiral', listOf(line(this, new Int32Array([ 150, 150, 175, 150, 175, 120, 125, 120, 115, 180, 200, 190, 215, 90, 90, 80, 70, 215, 240, 235, 260, 45, 50, 40 ])))) ]);
     }
-    protoOf(Companion_31).i1r = function(drawing, target) {
+    protoOf(Companion_31).q1r = function(drawing, target) {
         var drawn = flatten(drawing);
         if (drawn.m() < 2) return emptyList();
         var wanted = flatten(target);
@@ -24976,7 +25128,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         return destination;
     };
-    protoOf(Companion_31).j1r = function(drawing, target) {
+    protoOf(Companion_31).r1r = function(drawing, target) {
         if (drawing.n()) return 0;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s = drawing.j();
@@ -25013,7 +25165,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         Companion_getInstance_31();
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.y1r_1 = Recall_getInstance().c1s_1;
+        this.g1s_1 = Recall_getInstance().k1s_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -25021,13 +25173,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.z1r_1 = tmp_1;
-        this.a1s_1 = toMutableList_0(shuffled(Companion_getInstance_31().h1r_1.u1(), random));
-        this.b1s_1 = '';
+        tmp.h1s_1 = tmp_1;
+        this.i1s_1 = toMutableList_0(shuffled(Companion_getInstance_31().p1r_1.u1(), random));
+        this.j1s_1 = '';
         this.m1f();
     }
     protoOf(RecallGame).n1f = function() {
-        return this.y1r_1;
+        return this.g1s_1;
     };
     protoOf(RecallGame).o1f = function() {
         return 15;
@@ -25043,16 +25195,16 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.z1r_1 = tmp_1;
-        if (this.a1s_1.n()) {
-            var tmp0 = this.a1s_1;
-            var elements = shuffled(Companion_getInstance_31().h1r_1.u1(), this.m1d_1);
+        tmp.h1s_1 = tmp_1;
+        if (this.i1s_1.n()) {
+            var tmp0 = this.i1s_1;
+            var elements = shuffled(Companion_getInstance_31().p1r_1.u1(), this.m1d_1);
             addAll(tmp0, elements);
         }
-        this.b1s_1 = this.a1s_1.h3(0);
+        this.j1s_1 = this.i1s_1.h3(0);
     };
     protoOf(RecallGame).q1f = function(side, action) {
-        var tmp = this.z1r_1;
+        var tmp = this.h1s_1;
         var tmp0_elvis_lhs = readStrokes(action.ux('strokes'), 300, 300, 3e3);
         var tmp_0;
         if (tmp0_elvis_lhs == null) {
@@ -25064,15 +25216,15 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return true;
     };
     protoOf(RecallGame).s1f = function() {
-        var target = getValue(Companion_getInstance_31().h1r_1, this.b1s_1);
-        var this_0 = this.z1r_1;
+        var target = getValue(Companion_getInstance_31().p1r_1, this.j1s_1);
+        var this_0 = this.h1s_1;
         var destination = ArrayList_init_$Create$_0(this_0.length);
         var inductionVariable = 0;
         var last = this_0.length;
         while (inductionVariable < last) {
             var item = this_0[inductionVariable];
             inductionVariable = inductionVariable + 1 | 0;
-            var tmp$ret$2 = Companion_getInstance_31().i1r(item, target);
+            var tmp$ret$2 = Companion_getInstance_31().q1r(item, target);
             destination.i(tmp$ret$2);
         }
         var fitted = destination;
@@ -25080,7 +25232,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = fitted.j();
         while (_iterator__ex2g4s.k()) {
             var item_0 = _iterator__ex2g4s.l();
-            var tmp$ret$5 = Companion_getInstance_31().j1r(item_0, target);
+            var tmp$ret$5 = Companion_getInstance_31().r1r(item_0, target);
             destination_0.i(tmp$ret$5);
         }
         var scores = destination_0;
@@ -25094,7 +25246,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var builder = new JsonObjectBuilder;
         put(builder, 'ms', 7e3);
-        put_0(builder, 'shape', this.b1s_1);
+        put_0(builder, 'shape', this.j1s_1);
         builder.fy('target', linesToJson(target));
         var destination_1 = ArrayList_init_$Create$_0(collectionSizeOrDefault(fitted, 10));
         var _iterator__ex2g4s_0 = fitted.j();
@@ -25117,24 +25269,24 @@ if (typeof String.prototype.startsWith === 'undefined') {
     };
     protoOf(RecallGame).t1f = function(_this__u8e3s4) {
         put(_this__u8e3s4, 'pad', 300);
-        _this__u8e3s4.fy('flash', this.o1d_1 === 'prelude' ? linesToJson(getValue(Companion_getInstance_31().h1r_1, this.b1s_1)) : JsonNull_getInstance());
+        _this__u8e3s4.fy('flash', this.o1d_1 === 'prelude' ? linesToJson(getValue(Companion_getInstance_31().p1r_1, this.j1s_1)) : JsonNull_getInstance());
         put(_this__u8e3s4, 'flashMs', 3e3);
     };
     protoOf(RecallGame).u1f = function(_this__u8e3s4, side) {
         put(_this__u8e3s4, 'pad', 300);
         put(_this__u8e3s4, 'ink', 3e3);
-        _this__u8e3s4.fy('mine', linesToJson(this.z1r_1[side]));
+        _this__u8e3s4.fy('mine', linesToJson(this.h1s_1[side]));
     };
     function Recall() {
         Recall_instance = this;
-        this.c1s_1 = 'recall';
-        this.d1s_1 = numberRangeToNumber(2, 2);
+        this.k1s_1 = 'recall';
+        this.l1s_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Recall).m1c = function() {
-        return this.c1s_1;
+        return this.k1s_1;
     };
     protoOf(Recall).n1c = function() {
-        return this.d1s_1;
+        return this.l1s_1;
     };
     protoOf(Recall).o1c = function(players, random) {
         return new RecallGame(players, random);
@@ -25164,53 +25316,53 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return tmp;
     }
     function Flyer(side, path) {
-        this.e1s_1 = side;
-        this.f1s_1 = path;
-        this.g1s_1 = lineLength(this.f1s_1);
-        this.h1s_1 = 0;
-        this.i1s_1 = 0;
+        this.m1s_1 = side;
+        this.n1s_1 = path;
+        this.o1s_1 = lineLength(this.n1s_1);
+        this.p1s_1 = 0;
+        this.q1s_1 = 0;
         var tmp = this;
-        var tmp0_safe_receiver = firstOrNull(this.f1s_1);
+        var tmp0_safe_receiver = firstOrNull(this.n1s_1);
         var tmp1_elvis_lhs = tmp0_safe_receiver == null ? null : tmp0_safe_receiver.z1d_1;
-        tmp.j1s_1 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
+        tmp.r1s_1 = tmp1_elvis_lhs == null ? 0 : tmp1_elvis_lhs;
         var tmp_0 = this;
-        var tmp0_safe_receiver_0 = firstOrNull(this.f1s_1);
+        var tmp0_safe_receiver_0 = firstOrNull(this.n1s_1);
         var tmp1_elvis_lhs_0 = tmp0_safe_receiver_0 == null ? null : tmp0_safe_receiver_0.a1e_1;
-        tmp_0.k1s_1 = tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0;
-        this.l1s_1 = null;
-        this.m1s_1 = 0;
+        tmp_0.s1s_1 = tmp1_elvis_lhs_0 == null ? 0 : tmp1_elvis_lhs_0;
+        this.t1s_1 = null;
+        this.u1s_1 = 0;
     }
-    protoOf(Flyer).n1s = function(distance) {
+    protoOf(Flyer).v1s = function(distance) {
         var left = distance;
-        while (left > 0 && this.h1s_1 < (this.f1s_1.m() - 1 | 0)) {
-            var from = this.f1s_1.p(this.h1s_1);
-            var to = this.f1s_1.p(this.h1s_1 + 1 | 0);
+        while (left > 0 && this.p1s_1 < (this.n1s_1.m() - 1 | 0)) {
+            var from = this.n1s_1.p(this.p1s_1);
+            var to = this.n1s_1.p(this.p1s_1 + 1 | 0);
             var tmp0 = to.z1d_1 - from.z1d_1;
             var y = to.a1e_1 - from.a1e_1;
             var step = hypot(tmp0, y);
-            if (this.i1s_1 + left < step) {
-                this.i1s_1 = this.i1s_1 + left;
-                this.m1s_1 = this.m1s_1 + left;
+            if (this.q1s_1 + left < step) {
+                this.q1s_1 = this.q1s_1 + left;
+                this.u1s_1 = this.u1s_1 + left;
                 left = 0;
             } else {
-                left = left - (step - this.i1s_1);
-                this.m1s_1 = this.m1s_1 + (step - this.i1s_1);
-                this.i1s_1 = 0;
-                this.h1s_1 = this.h1s_1 + 1 | 0;
+                left = left - (step - this.q1s_1);
+                this.u1s_1 = this.u1s_1 + (step - this.q1s_1);
+                this.q1s_1 = 0;
+                this.p1s_1 = this.p1s_1 + 1 | 0;
             }
         }
-        if (this.h1s_1 >= (this.f1s_1.m() - 1 | 0)) {
-            this.j1s_1 = last(this.f1s_1).z1d_1;
-            this.k1s_1 = last(this.f1s_1).a1e_1;
+        if (this.p1s_1 >= (this.n1s_1.m() - 1 | 0)) {
+            this.r1s_1 = last(this.n1s_1).z1d_1;
+            this.s1s_1 = last(this.n1s_1).a1e_1;
             return false;
         }
-        var from_0 = this.f1s_1.p(this.h1s_1);
-        var to_0 = this.f1s_1.p(this.h1s_1 + 1 | 0);
+        var from_0 = this.n1s_1.p(this.p1s_1);
+        var to_0 = this.n1s_1.p(this.p1s_1 + 1 | 0);
         var tmp0_0 = to_0.z1d_1 - from_0.z1d_1;
         var y_0 = to_0.a1e_1 - from_0.a1e_1;
         var step_0 = hypot(tmp0_0, y_0);
-        this.j1s_1 = from_0.z1d_1 + (to_0.z1d_1 - from_0.z1d_1) * this.i1s_1 / step_0;
-        this.k1s_1 = from_0.a1e_1 + (to_0.a1e_1 - from_0.a1e_1) * this.i1s_1 / step_0;
+        this.r1s_1 = from_0.z1d_1 + (to_0.z1d_1 - from_0.z1d_1) * this.q1s_1 / step_0;
+        this.s1s_1 = from_0.a1e_1 + (to_0.a1e_1 - from_0.a1e_1) * this.q1s_1 / step_0;
         return true;
     };
     function distanceToLine($this, x, y, line) {
@@ -25235,19 +25387,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return best;
     }
     function Companion_32() {
-        this.o1s_1 = 800;
-        this.p1s_1 = 562;
-        this.q1s_1 = 60;
-        this.r1s_1 = 46;
-        this.s1s_1 = 1050;
-        this.t1s_1 = 340;
-        this.u1s_1 = 240;
-        this.v1s_1 = .016666666666666666;
-        this.w1s_1 = 8;
-        this.x1s_1 = 24;
-        this.y1s_1 = 30;
-        this.z1s_1 = 20;
-        this.a1t_1 = 2200;
+        this.w1s_1 = 800;
+        this.x1s_1 = 562;
+        this.y1s_1 = 60;
+        this.z1s_1 = 46;
+        this.a1t_1 = 1050;
+        this.b1t_1 = 340;
+        this.c1t_1 = 240;
+        this.d1t_1 = .016666666666666666;
+        this.e1t_1 = 8;
+        this.f1t_1 = 24;
+        this.g1t_1 = 30;
+        this.h1t_1 = 20;
+        this.i1t_1 = 2200;
     }
     var Companion_instance_32;
     function Companion_getInstance_32() {
@@ -25256,7 +25408,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function RocketsGame(players, random, pointsToWin) {
         pointsToWin = pointsToWin === VOID ? 3 : pointsToWin;
         DoodleGame.call(this, players, random, pointsToWin);
-        this.p1t_1 = Rockets_getInstance().s1t_1;
+        this.x1t_1 = Rockets_getInstance().a1u_1;
         var tmp = this;
         var tmp_0 = 0;
         var tmp_1 = Array(2);
@@ -25264,7 +25416,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1[tmp_0] = emptyList();
             tmp_0 = tmp_0 + 1 | 0;
         }
-        tmp.q1t_1 = tmp_1;
+        tmp.y1t_1 = tmp_1;
         var tmp_2 = this;
         var tmp_3 = 0;
         var tmp_4 = Array(2);
@@ -25272,25 +25424,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_4[tmp_3] = emptyList();
             tmp_3 = tmp_3 + 1 | 0;
         }
-        tmp_2.r1t_1 = tmp_4;
+        tmp_2.z1t_1 = tmp_4;
         this.m1f();
     }
     protoOf(RocketsGame).n1f = function() {
-        return this.p1t_1;
+        return this.x1t_1;
     };
     protoOf(RocketsGame).o1f = function() {
         return 20;
     };
     protoOf(RocketsGame).p1f = function() {
-        var progression = get_indices(this.q1t_1);
+        var progression = get_indices(this.y1t_1);
         var inductionVariable = progression.w_1;
         var last = progression.x_1;
         if (inductionVariable <= last) do {
             var element = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var it = element;
-            this.q1t_1[it] = emptyList();
-            this.r1t_1[it] = emptyList();
+            this.y1t_1[it] = emptyList();
+            this.z1t_1[it] = emptyList();
         } while (!(element === last));
     };
     protoOf(RocketsGame).q1f = function(side, action) {
@@ -25298,7 +25450,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = tmp0_safe_receiver == null ? null : get_jsonPrimitive(tmp0_safe_receiver);
         var layer = tmp1_safe_receiver == null ? null : get_contentOrNull(tmp1_safe_receiver);
         if (layer === 'rocket') {
-            var b = 1050 - lineLength(this.r1t_1[side]);
+            var b = 1050 - lineLength(this.z1t_1[side]);
             var inkLeft = Math.max(0, b);
             var tmp2_elvis_lhs = readStrokes(action.ux('strokes'), 800, 562, 1050);
             var tmp;
@@ -25309,7 +25461,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             }
             var tmp3_elvis_lhs = firstOrNull(tmp);
             var line = tmp3_elvis_lhs == null ? emptyList() : tmp3_elvis_lhs;
-            this.q1t_1[side] = drop(cutToInk(routeWithBase(this, line), inkLeft), 1);
+            this.y1t_1[side] = drop(cutToInk(routeWithBase(this, line), inkLeft), 1);
             return true;
         }
         if (layer === 'wall') {
@@ -25330,9 +25482,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 list.i(item);
             }
             var own = list;
-            var b_0 = 1050 - lineLength(routeWithBase(this, this.q1t_1[side]));
+            var b_0 = 1050 - lineLength(routeWithBase(this, this.y1t_1[side]));
             var inkLeft_0 = Math.max(0, b_0);
-            this.r1t_1[side] = cutToInk(own, inkLeft_0);
+            this.z1t_1[side] = cutToInk(own, inkLeft_0);
             return true;
         }
         return false;
@@ -25346,7 +25498,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var item = inductionVariable;
             inductionVariable = inductionVariable + 1 | 0;
             var it = item;
-            var tmp$ret$2 = turned(this, it, this.r1t_1[it]);
+            var tmp$ret$2 = turned(this, it, this.z1t_1[it]);
             destination.i(tmp$ret$2);
         } while (!(item === last));
         var fieldWalls = destination;
@@ -25358,7 +25510,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var item_0 = inductionVariable_0;
             inductionVariable_0 = inductionVariable_0 + 1 | 0;
             var side = item_0;
-            var tmp$ret$5 = new Flyer(side, turned(this, side, routeWithBase(this, this.q1t_1[side])));
+            var tmp$ret$5 = new Flyer(side, turned(this, side, routeWithBase(this, this.y1t_1[side])));
             destination_0.i(tmp$ret$5);
         } while (!(item_0 === last_0));
         var flyers = destination_0;
@@ -25367,9 +25519,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s = flyers.j();
         while (_iterator__ex2g4s.k()) {
             var flyer = _iterator__ex2g4s.l();
-            if (flyer.f1s_1.m() < 2) {
-                flyer.l1s_1 = 'none';
-                ends[flyer.e1s_1] = 0;
+            if (flyer.n1s_1.m() < 2) {
+                flyer.t1s_1 = 'none';
+                ends[flyer.m1s_1] = 0;
             }
         }
         $l$loop: while (true) {
@@ -25388,7 +25540,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s_0 = flyers.j();
                 while (_iterator__ex2g4s_0.k()) {
                     var element = _iterator__ex2g4s_0.l();
-                    if (element.l1s_1 == null) {
+                    if (element.t1s_1 == null) {
                         tmp$ret$7 = true;
                         break $l$block_0;
                     }
@@ -25402,14 +25554,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_1 = flyers.j();
             $l$loop_0: while (_iterator__ex2g4s_1.k()) {
                 var flyer_0 = _iterator__ex2g4s_1.l();
-                if (!(flyer_0.l1s_1 == null)) continue $l$loop_0;
-                var flying = flyer_0.n1s(240 * .016666666666666666);
-                var rivalBaseX = flyer_0.e1s_1 === 0 ? 800 - 60 : 60;
-                var tmp0 = flyer_0.j1s_1 - rivalBaseX;
-                var y = flyer_0.k1s_1 - 562 / 2;
-                if (hypot(tmp0, y) <= 46) flyer_0.l1s_1 = 'base'; else {
+                if (!(flyer_0.t1s_1 == null)) continue $l$loop_0;
+                var flying = flyer_0.v1s(240 * .016666666666666666);
+                var rivalBaseX = flyer_0.m1s_1 === 0 ? 800 - 60 : 60;
+                var tmp0 = flyer_0.r1s_1 - rivalBaseX;
+                var y = flyer_0.s1s_1 - 562 / 2;
+                if (hypot(tmp0, y) <= 46) flyer_0.t1s_1 = 'base'; else {
                     var tmp_0;
-                    if (flyer_0.m1s_1 > 30) {
+                    if (flyer_0.u1s_1 > 30) {
                         var tmp$ret$10;
                         $l$block_2: {
                             var tmp_1;
@@ -25425,7 +25577,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                             var _iterator__ex2g4s_2 = fieldWalls.j();
                             while (_iterator__ex2g4s_2.k()) {
                                 var element_0 = _iterator__ex2g4s_2.l();
-                                if (element_0.m() >= 2 && distanceToLine(this, flyer_0.j1s_1, flyer_0.k1s_1, element_0) <= 8) {
+                                if (element_0.m() >= 2 && distanceToLine(this, flyer_0.r1s_1, flyer_0.s1s_1, element_0) <= 8) {
                                     tmp$ret$10 = true;
                                     break $l$block_2;
                                 }
@@ -25436,27 +25588,27 @@ if (typeof String.prototype.startsWith === 'undefined') {
                     } else {
                         tmp_0 = false;
                     }
-                    if (tmp_0) flyer_0.l1s_1 = 'wall'; else {
-                        if (!flying) flyer_0.l1s_1 = 'fuel';
+                    if (tmp_0) flyer_0.t1s_1 = 'wall'; else {
+                        if (!flying) flyer_0.t1s_1 = 'fuel';
                     }
                 }
-                if (!(flyer_0.l1s_1 == null)) {
-                    ends[flyer_0.e1s_1] = time;
+                if (!(flyer_0.t1s_1 == null)) {
+                    ends[flyer_0.m1s_1] = time;
                 }
             }
             var a = flyers.p(0);
             var b = flyers.p(1);
             var tmp_2;
-            if (a.l1s_1 == null && b.l1s_1 == null) {
-                var tmp0_0 = a.j1s_1 - b.j1s_1;
-                var y_0 = a.k1s_1 - b.k1s_1;
+            if (a.t1s_1 == null && b.t1s_1 == null) {
+                var tmp0_0 = a.r1s_1 - b.r1s_1;
+                var y_0 = a.s1s_1 - b.s1s_1;
                 tmp_2 = hypot(tmp0_0, y_0) <= 24;
             } else {
                 tmp_2 = false;
             }
             if (tmp_2) {
-                a.l1s_1 = 'rocket';
-                b.l1s_1 = 'rocket';
+                a.t1s_1 = 'rocket';
+                b.t1s_1 = 'rocket';
                 ends[0] = time;
                 ends[1] = time;
             }
@@ -25464,9 +25616,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_3 = flyers.j();
         while (_iterator__ex2g4s_3.k()) {
             var flyer_1 = _iterator__ex2g4s_3.l();
-            if (flyer_1.l1s_1 === 'base') {
+            if (flyer_1.t1s_1 === 'base') {
                 var _array__4zh2yp = this.q1d_1;
-                var _index_0__fvwizt = flyer_1.e1s_1;
+                var _index_0__fvwizt = flyer_1.m1s_1;
                 _array__4zh2yp[_index_0__fvwizt] = _array__4zh2yp[_index_0__fvwizt] + 1 | 0;
             }
         }
@@ -25479,14 +25631,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s_4.k()) {
             var item_1 = _iterator__ex2g4s_4.l();
             var builder_0 = new JsonObjectBuilder;
-            put(builder_0, 'side', item_1.e1s_1);
-            put_0(builder_0, 'end', item_1.l1s_1);
-            put(builder_0, 'x', round(item_1.j1s_1));
-            put(builder_0, 'y', round(item_1.k1s_1));
-            var tmp0_elvis_lhs = ends[item_1.e1s_1];
+            put(builder_0, 'side', item_1.m1s_1);
+            put_0(builder_0, 'end', item_1.t1s_1);
+            put(builder_0, 'x', round(item_1.r1s_1));
+            put(builder_0, 'y', round(item_1.s1s_1));
+            var tmp0_elvis_lhs = ends[item_1.m1s_1];
             put(builder_0, 'ms', round((tmp0_elvis_lhs == null ? 0 : tmp0_elvis_lhs) * 1e3));
-            put(builder_0, 'flown', round(item_1.m1s_1));
-            builder_0.fy('path', lineToJson(item_1.f1s_1));
+            put(builder_0, 'flown', round(item_1.u1s_1));
+            builder_0.fy('path', lineToJson(item_1.n1s_1));
             var tmp$ret$19 = builder_0.gy();
             destination_1.i(tmp$ret$19);
         }
@@ -25507,19 +25659,19 @@ if (typeof String.prototype.startsWith === 'undefined') {
         put(_this__u8e3s4, 'wallInk', 340);
         put(_this__u8e3s4, 'baseX', 60);
         put(_this__u8e3s4, 'baseRadius', 46);
-        _this__u8e3s4.fy('rocket', lineToJson(this.q1t_1[side]));
-        _this__u8e3s4.fy('wall', lineToJson(this.r1t_1[side]));
+        _this__u8e3s4.fy('rocket', lineToJson(this.y1t_1[side]));
+        _this__u8e3s4.fy('wall', lineToJson(this.z1t_1[side]));
     };
     function Rockets() {
         Rockets_instance = this;
-        this.s1t_1 = 'rockets';
-        this.t1t_1 = numberRangeToNumber(2, 2);
+        this.a1u_1 = 'rockets';
+        this.b1u_1 = numberRangeToNumber(2, 2);
     }
     protoOf(Rockets).m1c = function() {
-        return this.s1t_1;
+        return this.a1u_1;
     };
     protoOf(Rockets).n1c = function() {
-        return this.t1t_1;
+        return this.b1u_1;
     };
     protoOf(Rockets).o1c = function(players, random) {
         return new RocketsGame(players, random);
@@ -25530,38 +25682,38 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return Rockets_instance;
     }
     function Delivery(to, message) {
-        this.u1t_1 = to;
-        this.v1t_1 = message;
+        this.c1u_1 = to;
+        this.d1u_1 = message;
     }
     protoOf(Delivery).toString = function() {
-        return 'Delivery(to=' + this.u1t_1 + ', message=' + this.v1t_1.toString() + ')';
+        return 'Delivery(to=' + this.c1u_1 + ', message=' + this.d1u_1.toString() + ')';
     };
     protoOf(Delivery).hashCode = function() {
-        var result = getStringHashCode(this.u1t_1);
-        result = imul(result, 31) + this.v1t_1.hashCode() | 0;
+        var result = getStringHashCode(this.c1u_1);
+        result = imul(result, 31) + this.d1u_1.hashCode() | 0;
         return result;
     };
     protoOf(Delivery).equals = function(other) {
         if (this === other) return true;
         if (!(other instanceof Delivery)) return false;
-        if (!(this.u1t_1 === other.u1t_1)) return false;
-        if (!this.v1t_1.equals(other.v1t_1)) return false;
+        if (!(this.c1u_1 === other.c1u_1)) return false;
+        if (!this.d1u_1.equals(other.d1u_1)) return false;
         return true;
     };
     function Player(id, name, online) {
         online = online === VOID ? true : online;
-        this.w1t_1 = id;
-        this.x1t_1 = name;
-        this.y1t_1 = online;
+        this.e1u_1 = id;
+        this.f1u_1 = name;
+        this.g1u_1 = online;
     }
     function host($this) {
-        var tmp0 = $this.b1u_1;
+        var tmp0 = $this.j1u_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.y1t_1) {
+                if (element.g1u_1) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -25580,13 +25732,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = this_0;
         }
         var shown = tmp;
-        var tmp0 = $this.b1u_1;
+        var tmp0 = $this.j1u_1;
         var tmp$ret$4;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.w1t_1 === id) {
+                if (element.e1u_1 === id) {
                     tmp$ret$4 = element;
                     break $l$block;
                 }
@@ -25595,25 +25747,25 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var player = tmp$ret$4;
         if (!(player == null)) {
-            player.x1t_1 = shown;
-            player.y1t_1 = true;
+            player.f1u_1 = shown;
+            player.g1u_1 = true;
         } else {
-            var tmp0_0 = $this.b1u_1;
+            var tmp0_0 = $this.j1u_1;
             var element_0 = new Player(id, shown);
             tmp0_0.i(element_0);
         }
         return true;
     }
     function leave($this, player) {
-        $this.b1u_1.a3(player);
-        $this.h1u_1.y1(player.w1t_1);
-        if ($this.e1u_1.m1(player.w1t_1)) {
+        $this.j1u_1.a3(player);
+        $this.p1u_1.y1(player.e1u_1);
+        if ($this.m1u_1.m1(player.e1u_1)) {
             endGame($this);
         }
         return true;
     }
     function browse($this, id) {
-        if (!($this.c1u_1 == null) || id == null || id === $this.g1u_1) return false;
+        if (!($this.k1u_1 == null) || id == null || id === $this.o1u_1) return false;
         var tmp0 = get_GAMES();
         var tmp$ret$0;
         $l$block_0: {
@@ -25638,12 +25790,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$0 = true;
         }
         if (tmp$ret$0) return false;
-        $this.g1u_1 = id;
+        $this.o1u_1 = id;
         return true;
     }
     function vote($this, player, id) {
         var tmp;
-        if (!($this.c1u_1 == null) || id == null) {
+        if (!($this.k1u_1 == null) || id == null) {
             tmp = true;
         } else {
             var tmp0 = get_GAMES();
@@ -25672,9 +25824,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp$ret$0;
         }
         if (tmp) return false;
-        if ($this.h1u_1.t1(player.w1t_1) == id) $this.h1u_1.y1(player.w1t_1); else {
-            var tmp0_0 = $this.h1u_1;
-            var key = player.w1t_1;
+        if ($this.p1u_1.t1(player.e1u_1) == id) $this.p1u_1.y1(player.e1u_1); else {
+            var tmp0_0 = $this.p1u_1;
+            var key = player.e1u_1;
             tmp0_0.x1(key, id);
         }
         return true;
@@ -25701,12 +25853,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var kind = tmp;
-        var tmp0_0 = $this.b1u_1;
+        var tmp0_0 = $this.j1u_1;
         var destination = ArrayList_init_$Create$();
         var _iterator__ex2g4s_0 = tmp0_0.j();
         while (_iterator__ex2g4s_0.k()) {
             var element_0 = _iterator__ex2g4s_0.l();
-            if (element_0.y1t_1) {
+            if (element_0.g1u_1) {
                 destination.i(element_0);
             }
         }
@@ -25714,12 +25866,12 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var _iterator__ex2g4s_1 = destination.j();
         while (_iterator__ex2g4s_1.k()) {
             var item = _iterator__ex2g4s_1.l();
-            var tmp$ret$7 = item.w1t_1;
+            var tmp$ret$7 = item.e1u_1;
             destination_0.i(tmp$ret$7);
         }
         var sitting = take(destination_0, kind.n1c().x_1);
         var tmp_0;
-        if (!($this.c1u_1 == null)) {
+        if (!($this.k1u_1 == null)) {
             tmp_0 = true;
         } else {
             var progression = kind.n1c();
@@ -25729,29 +25881,29 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_0 = !(containsLower <= containsArg ? containsArg <= containsUpper : false);
         }
         if (tmp_0) return false;
-        $this.c1u_1 = kind.o1c(sitting, $this.z1t_1);
-        $this.d1u_1 = kind.m1c();
-        $this.g1u_1 = kind.m1c();
-        $this.e1u_1 = toSet_0(sitting);
-        $this.i1u_1 = $this.a1u_1;
-        $this.h1u_1.a2();
+        $this.k1u_1 = kind.o1c(sitting, $this.h1u_1);
+        $this.l1u_1 = kind.m1c();
+        $this.o1u_1 = kind.m1c();
+        $this.m1u_1 = toSet_0(sitting);
+        $this.q1u_1 = $this.i1u_1;
+        $this.p1u_1.a2();
         return true;
     }
     function rematch($this, player) {
         var tmp;
-        var tmp0_safe_receiver = $this.c1u_1;
+        var tmp0_safe_receiver = $this.k1u_1;
         if ((tmp0_safe_receiver == null ? null : tmp0_safe_receiver.g1c()) == null) {
             tmp = true;
         } else {
-            tmp = !$this.e1u_1.m1(player.w1t_1);
+            tmp = !$this.m1u_1.m1(player.e1u_1);
         }
         if (tmp) return false;
         if (!equals(player, host($this))) {
-            if ($this.f1u_1 === player.w1t_1) return false;
-            $this.f1u_1 = player.w1t_1;
+            if ($this.n1u_1 === player.e1u_1) return false;
+            $this.n1u_1 = player.e1u_1;
             return true;
         }
-        var tmp0 = $this.b1u_1;
+        var tmp0 = $this.j1u_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -25767,7 +25919,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if ($this.e1u_1.m1(element.w1t_1) && !element.y1t_1) {
+                if ($this.m1u_1.m1(element.e1u_1) && !element.g1u_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -25782,43 +25934,43 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.m1c() === $this.d1u_1) {
+                if (element_0.m1c() === $this.l1u_1) {
                     tmp$ret$2 = element_0;
                     break $l$block_1;
                 }
             }
             throw NoSuchElementException_init_$Create$_0('Collection contains no element matching the predicate.');
         }
-        tmp_1.c1u_1 = tmp$ret$2.o1c(toList_1($this.e1u_1), $this.z1t_1);
-        $this.f1u_1 = null;
-        $this.i1u_1 = $this.a1u_1;
+        tmp_1.k1u_1 = tmp$ret$2.o1c(toList_1($this.m1u_1), $this.h1u_1);
+        $this.n1u_1 = null;
+        $this.q1u_1 = $this.i1u_1;
         return true;
     }
     function endGame($this) {
-        $this.i1u_1 = 0;
-        $this.c1u_1 = null;
-        $this.d1u_1 = null;
-        $this.e1u_1 = emptySet();
-        $this.f1u_1 = null;
+        $this.q1u_1 = 0;
+        $this.k1u_1 = null;
+        $this.l1u_1 = null;
+        $this.m1u_1 = emptySet();
+        $this.n1u_1 = null;
         return true;
     }
     function picture($this) {
         var builder = new JsonObjectBuilder;
-        var this_0 = $this.b1u_1;
+        var this_0 = $this.j1u_1;
         var destination = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_0, 10));
         var _iterator__ex2g4s = this_0.j();
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
             var builder_0 = new JsonObjectBuilder;
-            put_0(builder_0, 'id', item.w1t_1);
-            put_0(builder_0, 'name', item.x1t_1);
-            put_1(builder_0, 'online', item.y1t_1);
+            put_0(builder_0, 'id', item.e1u_1);
+            put_0(builder_0, 'name', item.f1u_1);
+            put_1(builder_0, 'online', item.g1u_1);
             var tmp$ret$4 = builder_0.gy();
             destination.i(tmp$ret$4);
         }
         builder.fy('players', new JsonArray(destination));
         var tmp0_safe_receiver = host($this);
-        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.w1t_1);
+        put_0(builder, 'host', tmp0_safe_receiver == null ? null : tmp0_safe_receiver.e1u_1);
         var this_1 = get_GAMES();
         var destination_0 = ArrayList_init_$Create$_0(collectionSizeOrDefault(this_1, 10));
         var _iterator__ex2g4s_0 = this_1.j();
@@ -25832,8 +25984,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_0.i(tmp$ret$9);
         }
         builder.fy('games', new JsonArray(destination_0));
-        put_0(builder, 'browsing', $this.g1u_1);
-        var this_2 = $this.h1u_1;
+        put_0(builder, 'browsing', $this.o1u_1);
+        var this_2 = $this.p1u_1;
         var destination_1 = LinkedHashMap_init_$Create$_0(mapCapacity(this_2.m()));
         var _iterator__ex2g4s_1 = this_2.w1().j();
         while (_iterator__ex2g4s_1.k()) {
@@ -25843,13 +25995,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
             destination_1.x1(tmp, tmp$ret$16);
         }
         builder.fy('votes', new JsonObject(destination_1));
-        put_0(builder, 'playing', $this.d1u_1);
-        put_0(builder, 'rematchOffer', $this.f1u_1);
-        if ($this.i1u_1 > 0) {
-            put(builder, 'countdown', $this.i1u_1);
+        put_0(builder, 'playing', $this.l1u_1);
+        put_0(builder, 'rematchOffer', $this.n1u_1);
+        if ($this.q1u_1 > 0) {
+            put(builder, 'countdown', $this.q1u_1);
         }
         var room = builder.gy();
-        var current = $this.c1u_1;
+        var current = $this.k1u_1;
         var this_3 = ArrayList_init_$Create$();
         var tmp_0 = plus_2(room, to('type', JsonPrimitive_1('state')));
         var tmp_1;
@@ -25859,7 +26011,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp_1 = to('view', current.k1c());
         }
         this_3.i(new Delivery('tv', new JsonObject(plus_3(tmp_0, listOfNotNull(tmp_1)))));
-        var _iterator__ex2g4s_2 = $this.b1u_1.j();
+        var _iterator__ex2g4s_2 = $this.j1u_1.j();
         while (_iterator__ex2g4s_2.k()) {
             var player = _iterator__ex2g4s_2.l();
             var tmp_2;
@@ -25867,7 +26019,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = null;
             } else {
                 var tmp_3;
-                if ($this.e1u_1.m1(player.w1t_1)) {
+                if ($this.m1u_1.m1(player.e1u_1)) {
                     tmp_3 = current;
                 } else {
                     tmp_3 = null;
@@ -25875,21 +26027,21 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 tmp_2 = tmp_3;
             }
             var tmp2_safe_receiver = tmp_2;
-            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.l1c(player.w1t_1);
-            var tmp_4 = plus_2(plus_2(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.w1t_1)));
+            var view = tmp2_safe_receiver == null ? null : tmp2_safe_receiver.l1c(player.e1u_1);
+            var tmp_4 = plus_2(plus_2(room, to('type', JsonPrimitive_1('state'))), to('you', JsonPrimitive_1(player.e1u_1)));
             var tmp_5;
             if (view == null) {
                 tmp_5 = null;
             } else {
                 tmp_5 = to('view', view);
             }
-            this_3.i(new Delivery(player.w1t_1, new JsonObject(plus_3(tmp_4, listOfNotNull(tmp_5)))));
+            this_3.i(new Delivery(player.e1u_1, new JsonObject(plus_3(tmp_4, listOfNotNull(tmp_5)))));
         }
         return this_3.f4();
     }
     function Companion_33() {
-        this.j1u_1 = 16;
-        this.k1u_1 = 200;
+        this.r1u_1 = 16;
+        this.s1u_1 = 200;
     }
     var Companion_instance_33;
     function Companion_getInstance_33() {
@@ -25898,20 +26050,20 @@ if (typeof String.prototype.startsWith === 'undefined') {
     function Table(random, countdownMs) {
         random = random === VOID ? Default_getInstance() : random;
         countdownMs = countdownMs === VOID ? 0 : countdownMs;
-        this.z1t_1 = random;
-        this.a1u_1 = countdownMs;
+        this.h1u_1 = random;
+        this.i1u_1 = countdownMs;
         var tmp = this;
-        tmp.b1u_1 = ArrayList_init_$Create$();
-        this.c1u_1 = null;
-        this.d1u_1 = null;
-        this.e1u_1 = emptySet();
-        this.f1u_1 = null;
-        this.g1u_1 = first(get_GAMES()).m1c();
+        tmp.j1u_1 = ArrayList_init_$Create$();
+        this.k1u_1 = null;
+        this.l1u_1 = null;
+        this.m1u_1 = emptySet();
+        this.n1u_1 = null;
+        this.o1u_1 = first(get_GAMES()).m1c();
         var tmp_0 = this;
-        tmp_0.h1u_1 = LinkedHashMap_init_$Create$();
-        this.i1u_1 = 0;
+        tmp_0.p1u_1 = LinkedHashMap_init_$Create$();
+        this.q1u_1 = 0;
     }
-    protoOf(Table).l1u = function(from, text) {
+    protoOf(Table).t1u = function(from, text) {
         var tmp;
         try {
             var value = get_jsonObject(Default_getInstance_0().iw(text));
@@ -25938,13 +26090,13 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var tmp1_safe_receiver = message.ux('type');
         var tmp2_safe_receiver = tmp1_safe_receiver == null ? null : get_jsonPrimitive(tmp1_safe_receiver);
         var type = tmp2_safe_receiver == null ? null : get_contentOrNull(tmp2_safe_receiver);
-        var tmp0 = this.b1u_1;
+        var tmp0 = this.j1u_1;
         var tmp$ret$5;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.w1t_1 === from) {
+                if (element.e1u_1 === from) {
                     tmp$ret$5 = element;
                     break $l$block;
                 }
@@ -26003,7 +26155,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             break;
 
           case 'lobby':
-            tmp_2 = equals(player, host(this)) && !(this.c1u_1 == null) && endGame(this);
+            tmp_2 = equals(player, host(this)) && !(this.k1u_1 == null) && endGame(this);
             break;
 
           case 'rematch':
@@ -26012,8 +26164,8 @@ if (typeof String.prototype.startsWith === 'undefined') {
 
           case 'act':
             var tmp_6;
-            if (!(player == null) && this.e1u_1.m1(from) && this.i1u_1 <= 0) {
-                var tmp12_safe_receiver = this.c1u_1;
+            if (!(player == null) && this.m1u_1.m1(from) && this.q1u_1 <= 0) {
+                var tmp12_safe_receiver = this.k1u_1;
                 tmp_6 = (tmp12_safe_receiver == null ? null : tmp12_safe_receiver.h1c(from, message)) === true;
             } else {
                 tmp_6 = false;
@@ -26028,14 +26180,14 @@ if (typeof String.prototype.startsWith === 'undefined') {
         var changed = tmp_2;
         return changed ? picture(this) : emptyList();
     };
-    protoOf(Table).m1u = function(id) {
-        var tmp0 = this.b1u_1;
+    protoOf(Table).u1u = function(id) {
+        var tmp0 = this.j1u_1;
         var tmp$ret$0;
         $l$block: {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (element.w1t_1 === id) {
+                if (element.e1u_1 === id) {
                     tmp$ret$0 = element;
                     break $l$block;
                 }
@@ -26050,11 +26202,11 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var player = tmp;
-        player.y1t_1 = false;
+        player.g1u_1 = false;
         return picture(this);
     };
     protoOf(Table).i1c = function() {
-        var tmp0_elvis_lhs = this.c1u_1;
+        var tmp0_elvis_lhs = this.k1u_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -26063,10 +26215,10 @@ if (typeof String.prototype.startsWith === 'undefined') {
         }
         var current = tmp;
         var tmp_0;
-        if (this.i1u_1 > 0) {
+        if (this.q1u_1 > 0) {
             tmp_0 = true;
         } else {
-            var tmp0 = this.b1u_1;
+            var tmp0 = this.j1u_1;
             var tmp$ret$0;
             $l$block_0: {
                 var tmp_1;
@@ -26082,7 +26234,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
                 var _iterator__ex2g4s = tmp0.j();
                 while (_iterator__ex2g4s.k()) {
                     var element = _iterator__ex2g4s.l();
-                    if (this.e1u_1.m1(element.w1t_1) && !element.y1t_1) {
+                    if (this.m1u_1.m1(element.e1u_1) && !element.g1u_1) {
                         tmp$ret$0 = true;
                         break $l$block_0;
                     }
@@ -26095,7 +26247,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
         return current.i1c() ? picture(this) : emptyList();
     };
     protoOf(Table).j1c = function() {
-        var tmp0_elvis_lhs = this.c1u_1;
+        var tmp0_elvis_lhs = this.k1u_1;
         var tmp;
         if (tmp0_elvis_lhs == null) {
             return emptyList();
@@ -26103,7 +26255,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp = tmp0_elvis_lhs;
         }
         var current = tmp;
-        var tmp0 = this.b1u_1;
+        var tmp0 = this.j1u_1;
         var tmp$ret$0;
         $l$block_0: {
             var tmp_0;
@@ -26119,7 +26271,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s = tmp0.j();
             while (_iterator__ex2g4s.k()) {
                 var element = _iterator__ex2g4s.l();
-                if (this.e1u_1.m1(element.w1t_1) && !element.y1t_1) {
+                if (this.m1u_1.m1(element.e1u_1) && !element.g1u_1) {
                     tmp$ret$0 = true;
                     break $l$block_0;
                 }
@@ -26127,9 +26279,9 @@ if (typeof String.prototype.startsWith === 'undefined') {
             tmp$ret$0 = false;
         }
         if (tmp$ret$0) return emptyList();
-        if (this.i1u_1 > 0) {
-            this.i1u_1 = this.i1u_1 - 200 | 0;
-            return this.i1u_1 <= 0 ? picture(this) : emptyList();
+        if (this.q1u_1 > 0) {
+            this.q1u_1 = this.q1u_1 - 200 | 0;
+            return this.q1u_1 <= 0 ? picture(this) : emptyList();
         }
         var tmp_1;
         switch (current.j1c().c2_1) {
@@ -26143,7 +26295,7 @@ if (typeof String.prototype.startsWith === 'undefined') {
             var _iterator__ex2g4s_0 = tmp0_0.j();
             while (_iterator__ex2g4s_0.k()) {
                 var element_0 = _iterator__ex2g4s_0.l();
-                if (element_0.u1t_1 === 'tv') {
+                if (element_0.c1u_1 === 'tv') {
                     destination.i(element_0);
                 }
             }
@@ -26166,34 +26318,34 @@ if (typeof String.prototype.startsWith === 'undefined') {
         while (_iterator__ex2g4s.k()) {
             var item = _iterator__ex2g4s.l();
             var builder = new JsonObjectBuilder;
-            put_0(builder, 'to', item.u1t_1);
-            builder.fy('message', item.v1t_1);
+            put_0(builder, 'to', item.c1u_1);
+            builder.fy('message', item.d1u_1);
             var tmp$ret$2 = builder.gy();
             destination.i(tmp$ret$2);
         }
         return new JsonArray(destination).toString();
     }
     function Companion_34() {
-        this.n1u_1 = 2600;
+        this.v1u_1 = 2600;
     }
     var Companion_instance_34;
     function Companion_getInstance_34() {
         return Companion_instance_34;
     }
     function Engine_0() {
-        this.o1u_1 = new Table(VOID, 2600);
+        this.w1u_1 = new Table(VOID, 2600);
     }
     protoOf(Engine_0).receive = function(from, text) {
-        return encode(this, this.o1u_1.l1u(from, text));
+        return encode(this, this.w1u_1.t1u(from, text));
     };
     protoOf(Engine_0).offline = function(id) {
-        return encode(this, this.o1u_1.m1u(id));
+        return encode(this, this.w1u_1.u1u(id));
     };
     protoOf(Engine_0).tick = function() {
-        return encode(this, this.o1u_1.i1c());
+        return encode(this, this.w1u_1.i1c());
     };
     protoOf(Engine_0).frame = function() {
-        return encode(this, this.o1u_1.j1c());
+        return encode(this, this.w1u_1.j1c());
     };
     protoOf(InternalHashMap).i5 = containsAllEntries;
     protoOf(SerialDescriptorImpl).uj = get_isNullable;
