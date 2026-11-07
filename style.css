@@ -824,10 +824,11 @@ body > .callout { z-index: 7; }
 .ft-building, .ft-extra { position: absolute; object-fit: contain; object-position: 50% 100%; filter: drop-shadow(0 .4vh 0 rgba(91, 67, 40, .35)); }
 .ft-extra { padding: 8%; }
 .ft-fence { position: absolute; }
-.ft-progress { position: absolute; z-index: 2; left: 12%; right: 12%; bottom: -1.2vh; height: 1vh; border-radius: .5vh; background: #fbf3df; border: .2vh solid #5b4328; overflow: hidden; display: none; }
+.ft-progress { position: absolute; z-index: 40; left: 12%; right: 12%; bottom: 1.3vh; height: 1vh; border-radius: .5vh; background: #fbf3df; border: .2vh solid #5b4328; overflow: hidden; display: none; }
 .ft-progress i { display: block; height: 100%; background: #7ed957; transform-origin: 0 50%; transform: scaleX(0); }
 .ft-progress.full i { background: #ffc93c; }
 #fortress.fighting .ft-progress { display: block; }
+#fortress.fighting .ft-block.barracks { z-index: 30 !important; }
 .ft-coin { width: 1em; height: 1em; vertical-align: -.12em; }
 .ft-float { position: absolute; z-index: 8; pointer-events: none; white-space: nowrap; font-family: 'Russo One', Nunito, sans-serif; font-weight: 400; font-size: 3vh; color: #fff;
   text-shadow: -.25vh 0 #5b4328, .25vh 0 #5b4328, 0 -.25vh #5b4328, 0 .3vh #5b4328; animation: ft-float 1.5s ease-out both; }

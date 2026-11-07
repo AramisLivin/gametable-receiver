@@ -271,6 +271,7 @@ function ftPiece(piece, size, tint, cards) {
     block.style.zIndex = Math.max(...ys) + 1;
     if (cards) block.appendChild(div('ft-cardmark', `✦${cards > 1 ? cards : ''}`));
     if (FT_UNITS.includes(piece.k)) {
+        block.classList.add('barracks');
         const bar = div('ft-progress');
         bar.appendChild(document.createElement('i'));
         block.appendChild(bar);
