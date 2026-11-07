@@ -13,7 +13,7 @@ const FT_ART = {
     grunt: () => `\n    <path d="M30 16 Q16 36 22 58" stroke="${FT_INK}" stroke-width="15" stroke-linecap="round"/><path d="M30 16 Q16 36 22 58" stroke="#a0672e" stroke-width="9" stroke-linecap="round"/>\n    <path d="M30 94 Q30 58 50 58 Q70 58 70 94 Z" fill="#9a6a3c"/>\n    <path d="M22 34 L4 26 L26 46 Z M78 34 L96 26 L74 46 Z" fill="${FT_GOBLIN}"/>\n    <circle cx="50" cy="40" r="20" fill="${FT_GOBLIN}"/>\n    <circle cx="41" cy="38" r="3.5" fill="${FT_INK}"/><circle cx="55" cy="38" r="3.5" fill="${FT_INK}"/>\n    <path d="M40 50 Q48 56 56 50" fill="none"/><path d="M42 50 L44 56 L46 51 M52 51 L54 56 L56 50" fill="#ffffff" stroke-width="2"/>`,
     runner: () => `\n    <path d="M72 60 H96 M74 72 H92" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity=".8"/>\n    <path d="M12 66 L32 62" stroke="${FT_INK}" stroke-width="8" stroke-linecap="round"/><path d="M12 66 L32 62" stroke="#dfe5ea" stroke-width="4" stroke-linecap="round"/>\n    <path d="M34 94 Q34 62 50 62 Q66 62 66 94 Z" fill="#7a5232"/>\n    <circle cx="50" cy="44" r="18" fill="#b9c95a"/>\n    <path d="M32 40 Q32 24 50 24 Q68 24 68 40 Z" fill="#d9483f"/><path d="M66 32 L80 38 L66 40 Z" fill="#d9483f"/>\n    <circle cx="42" cy="46" r="3" fill="${FT_INK}"/><circle cx="54" cy="46" r="3" fill="${FT_INK}"/>`,
     brute: () => `\n    <path d="M24 94 Q22 50 50 50 Q78 50 76 94 Z" fill="#b8604a"/>\n    <rect x="25" y="74" width="50" height="8" fill="#5b3a26"/>\n    <circle cx="52" cy="34" r="21" fill="#b8604a"/>\n    <path d="M30 30 Q30 10 52 10 Q74 10 74 30 Z" fill="#aab3bc"/>\n    <path d="M32 18 Q18 14 16 2 Q28 6 36 14 Z M72 18 Q86 14 88 2 Q76 6 68 14 Z" fill="#f2ead6"/>\n    <circle cx="44" cy="38" r="3.5" fill="${FT_INK}"/><circle cx="58" cy="38" r="3.5" fill="${FT_INK}"/>\n    <circle cx="20" cy="66" r="19" fill="#9aa3ad"/><circle cx="20" cy="66" r="6" fill="#dfe5ea"/>`,
-    ram: () => `\n    <rect x="18" y="40" width="74" height="26" rx="12" fill="#b07a48"/>\n    <path d="M38 40 V66 M58 40 V66 M78 40 V66" stroke-width="3"/>\n    <path d="M4 40 Q4 53 18 66 V40 Z" fill="#9aa3ad"/><rect x="2" y="40" width="18" height="26" rx="8" fill="#9aa3ad"/>\n    <path d="M26 40 L34 22 H78 L86 40 Z" fill="#8a5a2b"/>\n    <circle cx="34" cy="76" r="10" fill="#6b5a4a"/><circle cx="76" cy="76" r="10" fill="#6b5a4a"/>`,
+    ram: () => `\n    <path d="M30 60 V44 M86 60 V44" stroke-width="6" stroke-linecap="round"/><path d="M30 60 V44 M86 60 V44" stroke="#8a5a2b" stroke-width="2.5" stroke-linecap="round"/>\n    <circle cx="36" cy="72" r="11" fill="#6b5a4a"/><path d="M36 61 V83 M25 72 H47" stroke="#c9b58c" stroke-width="2"/><circle cx="36" cy="72" r="3" fill="#c9b58c"/>\n    <circle cx="80" cy="72" r="11" fill="#6b5a4a"/><path d="M80 61 V83 M69 72 H91" stroke="#c9b58c" stroke-width="2"/><circle cx="80" cy="72" r="3" fill="#c9b58c"/>\n    <rect x="14" y="52" width="80" height="16" rx="8" fill="#b07a48"/>\n    <path d="M40 52 V68 M62 52 V68 M80 52 V68" stroke="#6f7780" stroke-width="5"/>\n    <path d="M24 50 Q20 46 12 48 Q2 52 3 61 Q4 70 12 71 Q20 72 24 68 Z" fill="#9aa3ad"/>\n    <path d="M4 62 Q2 66 6 68" fill="none" stroke-width="2.5"/>\n    <circle cx="18" cy="48" r="9" fill="#c9d1d9"/><path d="M18 48 m-4 0 a4 4 0 1 1 4 4" fill="none" stroke-width="2.5"/>\n    <circle cx="12" cy="57" r="2.2" fill="#5b4328" stroke="none"/>\n    <path d="M22 44 L40 18 H82 L96 44 Z" fill="#a0672e"/>\n    <path d="M36 23 L30 44 M52 18 V44 M68 18 V44 M84 23 L88 44" stroke-width="2.5" opacity=".5"/>\n    <path d="M22 44 H96" stroke-width="5" stroke-linecap="round"/>\n`,
     boss: () => `\n    <path d="M24 4 V70" stroke="${FT_INK}" stroke-width="11" stroke-linecap="round"/><path d="M24 4 V70" stroke="#8a5a2b" stroke-width="6" stroke-linecap="round"/>\n    <rect x="6" y="2" width="36" height="20" rx="5" fill="#9aa3ad"/>\n    <path d="M26 96 Q24 50 54 50 Q84 50 82 96 Z" fill="#5b3a7a"/>\n    <circle cx="54" cy="36" r="22" fill="#9a62c4"/>\n    <path d="M36 18 L38 2 L46 12 L54 0 L62 12 L70 2 L72 18 Z" fill="#ffd24a"/>\n    <circle cx="46" cy="38" r="4.5" fill="#ff3b3b"/><circle cx="62" cy="38" r="4.5" fill="#ff3b3b"/>\n    <path d="M44 50 L48 56 L52 50 L56 56 L60 50" fill="none" stroke-width="3"/>`,
     gob_archer: () => `\n    <path d="M28 12 Q6 50 28 88" fill="none" stroke-width="6"/><path d="M28 12 Q6 50 28 88" fill="none" stroke="#a0672e" stroke-width="2.5"/><path d="M28 12 V88" stroke="#ffffff" stroke-width="2"/>\n    <rect x="70" y="52" width="11" height="28" rx="3" fill="#a0672e" transform="rotate(14 75 66)"/>\n    <path d="M32 94 Q32 60 50 60 Q68 60 68 94 Z" fill="#6f8a3c"/>\n    <path d="M24 36 L6 28 L28 48 Z M76 36 L94 28 L72 48 Z" fill="${FT_GOBLIN}"/>\n    <circle cx="50" cy="42" r="19" fill="${FT_GOBLIN}"/>\n    <path d="M30 40 Q30 20 50 20 Q70 20 70 40 L62 36 Q50 30 38 36 Z" fill="#4f6a2c"/>\n    <circle cx="42" cy="44" r="3.5" fill="${FT_INK}"/><circle cx="55" cy="44" r="3.5" fill="${FT_INK}"/>`,
     shaman: () => `\n    <circle cx="22" cy="18" r="13" fill="#b6f28a" stroke="none" opacity=".55"/>\n    <path d="M22 26 Q26 60 20 94" fill="none" stroke-width="6"/><path d="M22 26 Q26 60 20 94" fill="none" stroke="#8a5a2b" stroke-width="2.5"/>\n    <circle cx="22" cy="18" r="8" fill="#f2ead6"/><circle cx="19" cy="17" r="1.8" fill="${FT_INK}"/><circle cx="25" cy="17" r="1.8" fill="${FT_INK}"/>\n    <path d="M28 96 L36 58 H64 L72 96 Z" fill="#7a5ab0"/>\n    <path d="M40 60 L50 76 L60 60" fill="none" stroke="#f2ead6" stroke-width="3"/>\n    <circle cx="50" cy="44" r="18" fill="${FT_GOBLIN}"/>\n    <path d="M34 30 L30 8 L42 26 L48 4 L54 26 L66 8 L64 30 Z" fill="#e85d5d"/><path d="M33 31 H67" stroke-width="5"/>\n    <circle cx="43" cy="46" r="3.5" fill="${FT_INK}"/><circle cx="56" cy="46" r="3.5" fill="${FT_INK}"/>`,
@@ -35,6 +35,8 @@ const FT_ART = {
 };
 
 const FT_ART_WIDE = {
+    b_archer: (tint, lv) => `\n    <path d="M14 92 V44 M70 92 V44" stroke-width="6" stroke-linecap="round"/><path d="M14 92 V44 M70 92 V44" stroke="#a0672e" stroke-width="2.5" stroke-linecap="round"/>\n    <path d="M4 46 L20 22 H66 L80 46 Z" fill="${ftTrim(lv, '#a0672e')}"/>\n    <path d="M24 56 Q34 70 24 86 M42 56 Q52 70 42 86" fill="none" stroke-width="4"/>\n    <path d="M24 56 V86 M42 56 V86" stroke="#ffffff" stroke-width="1.5"/>\n    <path d="M18 88 H66" stroke-width="5" stroke-linecap="round"/>\n    <path d="M98 92 L106 62 M130 92 L122 62 M152 92 L160 62 M184 92 L176 62" stroke-width="5" stroke-linecap="round"/>\n    <circle cx="114" cy="58" r="20" fill="#f2ead6"/><circle cx="114" cy="58" r="13" fill="${tint}"/><circle cx="114" cy="58" r="6" fill="${ftTrim(lv, '#ffffff')}"/>\n    <circle cx="168" cy="58" r="20" fill="#f2ead6"/><circle cx="168" cy="58" r="13" fill="${tint}"/><circle cx="168" cy="58" r="6" fill="${ftTrim(lv, '#ffffff')}"/>\n    <path d="M124 48 L140 40 M176 52 L192 46" stroke-width="3"/><path d="M140 40 L144 36 M192 46 L196 42" stroke="#ffffff" stroke-width="2"/>`,
+    b_knight: (tint, lv) => `\n    <path d="M12 90 V58 Q12 30 46 28 H154 Q188 30 188 58 V90 Z" fill="#f2ead6"/>\n    <path d="M14 56 Q14 32 46 30 H154 Q186 32 186 56 Q100 44 14 56 Z" fill="${tint}"/>\n    <path d="M44 30 L50 8 L56 30 Z M144 30 L150 8 L156 30 Z" fill="${ftTrim(lv, '#f2ead6')}"/>\n    <path d="M86 90 V70 Q100 58 114 70 V90 Z" fill="#6b5a4a"/>\n    <path d="M50 58 H70 V68 Q70 78 60 82 Q50 78 50 68 Z M130 58 H150 V68 Q150 78 140 82 Q130 78 130 68 Z" fill="${ftTrim(lv, '#9aa3ad')}"/>`,
     b_sword: (tint, lv) => `\n    <path d="M10 90 L52 26 H148 L190 90 Z" fill="${tint}"/>\n    <path d="M52 26 L70 90 M148 26 L130 90" stroke-width="3" opacity=".5"/>\n    <path d="M10 90 L52 26 H148 L190 90" fill="none" stroke="${ftTrim(lv, 'none')}" stroke-width="5" opacity="${lv > 1 ? 1 : 0}"/>\n    <path d="M86 90 Q86 58 100 58 Q114 58 114 90 Z" fill="${ftTrim(lv, '#6b4a2a')}"/>\n    <path d="M52 26 V10 M148 26 V10" stroke-width="4"/><path d="M52 10 L66 15 L52 20 Z M148 10 L162 15 L148 20 Z" fill="${ftTrim(lv, '#ffffff')}"/>`,
     b_bastion: (tint, lv) => `\n    <path d="M8 90 V34 H26 V46 H46 V34 H66 V46 H86 V34 H114 V46 H134 V34 H154 V46 H174 V34 H192 V90 Z" fill="#c9c2b5"/>\n    <path d="M8 62 H192 M8 76 H192 M36 46 V62 M76 46 V62 M124 46 V62 M164 46 V62 M22 62 V76 M60 62 V76 M140 62 V76 M178 62 V76 M40 76 V90 M160 76 V90" stroke-width="2.5" opacity=".55"/>\n    <path d="M86 48 H114 V64 Q114 80 100 86 Q86 80 86 64 Z" fill="${ftTrim(lv, '#8fa3b8')}"/><path d="M86 58 H114" stroke-width="3"/>`,
     b_forge: (tint, lv) => `\n    <path d="M108 90 V40 Q108 22 136 22 Q164 22 164 40 V90 Z" fill="#a8a196"/>\n    <path d="M124 90 V62 Q124 50 136 50 Q148 50 148 62 V90 Z" fill="#ff9a3d"/><path d="M130 90 Q130 72 136 66 Q142 72 142 90 Z" fill="#ffe27a" stroke="none"/>\n    <path d="M128 22 V8 H144 V22" fill="#8f897e"/>\n    <path d="M20 50 H84 Q84 62 70 64 V76 H80 V88 H28 V76 H38 V64 Q22 62 20 50 Z" fill="${ftTrim(lv, '#6f7780')}"/>\n    <path d="M52 44 L72 18" stroke-width="7" stroke-linecap="round"/><path d="M52 44 L72 18" stroke="#a0672e" stroke-width="3" stroke-linecap="round"/>\n    <rect x="62" y="10" width="22" height="12" rx="3" fill="#9aa3ad" transform="rotate(38 73 16)"/>`,
@@ -42,8 +44,22 @@ const FT_ART_WIDE = {
     b_catapult: (tint, lv) => `\n    <rect x="30" y="60" width="140" height="14" rx="4" fill="${ftTrim(lv, '#a0672e')}"/>\n    <path d="M100 60 L80 30" stroke-width="5"/><path d="M96 66 L150 14" stroke-width="7" stroke-linecap="round"/><path d="M96 66 L150 14" stroke="#a0672e" stroke-width="3" stroke-linecap="round"/>\n    <path d="M140 14 Q152 28 166 12 Z" fill="#6b4a2a"/><circle cx="156" cy="10" r="7" fill="#9a958c"/>\n    <circle cx="56" cy="82" r="9" fill="#6b5a4a"/><circle cx="144" cy="82" r="9" fill="#6b5a4a"/>\n    <path d="M36 60 V38" stroke-width="3"/><path d="M36 38 L52 43 L36 48 Z" fill="${tint}"/>`
 };
 
+const FT_ART_LONG = {
+    b_fire: (tint, lv) => `\n    <rect x="96" y="50" width="130" height="42" fill="#d7d0c4"/>\n    <path d="M96 64 H226 M96 78 H226" stroke-width="2.5" opacity=".45"/>\n    <path d="M88 52 L104 30 H218 L234 52 Z" fill="#8a5cc4"/><path d="M92 48 H230" stroke="${tint}" stroke-width="5"/>\n    <path d="M118 84 V70 Q118 62 126 62 Q134 62 134 70 V84 Z" fill="#ff9a3d"/>\n    <path d="M150 92 V72 Q150 62 160 62 Q170 62 170 72 V92 Z" fill="${ftTrim(lv, '#6b4a2a')}"/>\n    <path d="M186 84 V70 Q186 62 194 62 Q202 62 202 70 V84 Z" fill="#ff9a3d"/>\n    <rect x="198" y="18" width="12" height="16" fill="#a8a196"/>\n    <rect x="22" y="40" width="64" height="52" fill="#d7d0c4"/>\n    <path d="M22 58 H86 M22 74 H86" stroke-width="2.5" opacity=".5"/>\n    <path d="M12 42 L54 2 L96 42 Z" fill="#8a5cc4"/><path d="M18 38 H90" stroke="${tint}" stroke-width="5"/>\n    <circle cx="54" cy="5" r="6" fill="${ftTrim(lv, '#8a5cc4')}"/>\n    <path d="M44 72 Q44 58 54 58 Q64 58 64 72 V82 H44 Z" fill="#ff9a3d"/>\n    <path d="M250 92 L256 66 H284 L290 92" fill="none" stroke-width="5"/><path d="M250 66 H290" stroke-width="5"/>\n    <path d="M252 66 Q252 50 262 40 Q264 52 270 46 Q272 32 282 26 Q286 44 288 66 Z" fill="#ff9a3d"/>\n    <path d="M262 66 Q262 56 268 50 Q272 58 278 54 Q280 60 280 66 Z" fill="#ffe27a" stroke="none"/>`,
+    b_ice: (tint, lv) => `\n    <rect x="96" y="50" width="130" height="42" fill="#d7d0c4"/>\n    <path d="M96 64 H226 M96 78 H226" stroke-width="2.5" opacity=".45"/>\n    <path d="M88 52 L104 30 H218 L234 52 Z" fill="#4a8ad4"/><path d="M92 48 H230" stroke="${tint}" stroke-width="5"/>\n    <path d="M106 52 L110 62 L114 52 M140 52 L144 64 L148 52 M176 52 L180 60 L184 52 M206 52 L210 63 L214 52" fill="#dff6ff" stroke-width="2.5"/>\n    <path d="M118 84 V70 Q118 62 126 62 Q134 62 134 70 V84 Z" fill="#9fe4ff"/>\n    <path d="M150 92 V72 Q150 62 160 62 Q170 62 170 72 V92 Z" fill="${ftTrim(lv, '#6b4a2a')}"/>\n    <path d="M186 84 V70 Q186 62 194 62 Q202 62 202 70 V84 Z" fill="#9fe4ff"/>\n    <rect x="22" y="40" width="64" height="52" fill="#d7d0c4"/>\n    <path d="M22 58 H86 M22 74 H86" stroke-width="2.5" opacity=".5"/>\n    <path d="M12 42 L54 2 L96 42 Z" fill="#4a8ad4"/><path d="M18 38 H90" stroke="${tint}" stroke-width="5"/>\n    <circle cx="54" cy="5" r="6" fill="${ftTrim(lv, '#4a8ad4')}"/>\n    <path d="M44 72 Q44 58 54 58 Q64 58 64 72 V82 H44 Z" fill="#9fe4ff"/>\n    <path d="M244 92 L250 56 L260 34 L268 60 L276 44 L284 92 Z" fill="#bfeeff"/>\n    <path d="M260 34 L262 92 M276 44 L274 92" stroke-width="2.5" opacity=".5"/>\n    <path d="M280 92 L286 70 L294 92 Z" fill="#dff6ff"/>`
+};
+
+const FT_ART_TALL = {
+    b_sword: (tint, lv) => `\n    <path d="M10 104 L50 30 L90 104 Z" fill="${tint}"/>\n    <path d="M50 30 L36 104 M50 30 L64 104" stroke-width="3" opacity=".5"/>\n    <path d="M10 104 L50 30 L90 104" fill="none" stroke="${ftTrim(lv, 'none')}" stroke-width="5" opacity="${lv > 1 ? 1 : 0}"/>\n    <path d="M40 104 L50 70 L60 104 Z" fill="${ftTrim(lv, '#6b4a2a')}"/>\n    <path d="M50 30 V14" stroke-width="4"/><path d="M50 14 L66 19 L50 24 Z" fill="${ftTrim(lv, '#ffffff')}"/>\n    <path d="M22 190 V140 M78 190 V140 M16 144 H84" stroke-width="5"/><path d="M22 190 V140 M78 190 V140 M16 144 H84" stroke="#a0672e" stroke-width="2"/>\n    <path d="M38 130 V182" stroke-width="7"/><path d="M38 130 V182" stroke="#e9eef2" stroke-width="3"/><path d="M30 172 H46" stroke="#e3b341" stroke-width="5"/>\n    <path d="M52 152 H72 V166 Q72 178 62 184 Q52 178 52 166 Z" fill="${tint}"/>`,
+    b_knight: (tint, lv) => `\n    <path d="M12 104 V72 Q12 38 50 38 Q88 38 88 72 V104 Z" fill="#f2ead6"/>\n    <path d="M14 70 Q14 40 50 40 Q86 40 86 70 Q50 58 14 70 Z" fill="${tint}"/>\n    <path d="M44 40 L50 16 L56 40 Z" fill="${ftTrim(lv, '#f2ead6')}"/>\n    <path d="M38 104 V84 Q50 74 62 84 V104 Z" fill="#6b5a4a"/>\n    <path d="M30 190 L50 128 L70 190" fill="none" stroke-width="6" stroke-linecap="round"/><path d="M30 190 L50 128 L70 190" fill="none" stroke="#a0672e" stroke-width="2.5"/>\n    <path d="M34 134 H66 V154 Q66 172 50 180 Q34 172 34 154 Z" fill="${ftTrim(lv, '#9aa3ad')}"/>\n    <path d="M50 138 V174 M38 152 H62" stroke="${tint}" stroke-width="5"/>`,
+    b_forge: (tint, lv) => `\n    <path d="M18 106 V46 Q18 24 50 24 Q82 24 82 46 V106 Z" fill="#a8a196"/>\n    <path d="M36 106 V74 Q36 62 50 62 Q64 62 64 74 V106 Z" fill="#ff9a3d"/><path d="M42 106 Q42 86 50 80 Q58 86 58 106 Z" fill="#ffe27a" stroke="none"/>\n    <path d="M42 24 V8 H58 V24" fill="#8f897e"/>\n    <path d="M14 150 H78 Q78 162 64 164 V176 H74 V188 H22 V176 H32 V164 Q16 162 14 150 Z" fill="${ftTrim(lv, '#6f7780')}"/>\n    <path d="M46 144 L66 118" stroke-width="7" stroke-linecap="round"/><path d="M46 144 L66 118" stroke="#a0672e" stroke-width="3" stroke-linecap="round"/>\n    <rect x="56" y="110" width="22" height="12" rx="3" fill="#9aa3ad" transform="rotate(38 67 116)"/>`,
+    b_fire: (tint, lv) => `\n    <rect x="24" y="64" width="52" height="224" fill="#d7d0c4"/>\n    <path d="M24 100 H76 M24 140 H76 M24 180 H76 M24 220 H76 M24 260 H76" stroke-width="2.5" opacity=".45"/>\n    <path d="M14 66 L50 6 L86 66 Z" fill="#8a5cc4"/><path d="M20 60 H80" stroke="${tint}" stroke-width="6"/>\n    <circle cx="50" cy="8" r="6" fill="${ftTrim(lv, '#8a5cc4')}"/>\n    <path d="M24 64 H76" stroke="${ftTrim(lv, '#d7d0c4')}" stroke-width="7" opacity="${lv > 1 ? 1 : 0}"/>\n    <path d="M40 120 Q40 104 50 104 Q60 104 60 120 V132 H40 Z" fill="#ff9a3d"/>\n    <path d="M40 196 Q40 180 50 180 Q60 180 60 196 V208 H40 Z" fill="#ff9a3d"/>\n    <path d="M38 288 V262 Q38 248 50 248 Q62 248 62 262 V288 Z" fill="${ftTrim(lv, '#6b4a2a')}"/>\n    <path d="M4 288 Q6 270 14 262 Q16 272 20 268 Q22 256 28 252 Q30 270 28 288 Z" fill="#ff9a3d"/>`,
+    b_ice: (tint, lv) => `\n    <rect x="24" y="64" width="52" height="224" fill="#d7d0c4"/>\n    <path d="M24 100 H76 M24 140 H76 M24 180 H76 M24 220 H76 M24 260 H76" stroke-width="2.5" opacity=".45"/>\n    <path d="M14 66 L50 6 L86 66 Z" fill="#4a8ad4"/><path d="M20 60 H80" stroke="${tint}" stroke-width="6"/>\n    <path d="M22 66 L26 78 L30 66 M44 66 L48 80 L52 66 M68 66 L72 76 L76 66" fill="#dff6ff" stroke-width="2.5"/>\n    <circle cx="50" cy="8" r="6" fill="${ftTrim(lv, '#4a8ad4')}"/>\n    <path d="M40 120 Q40 104 50 104 Q60 104 60 120 V132 H40 Z" fill="#9fe4ff"/>\n    <path d="M40 196 Q40 180 50 180 Q60 180 60 196 V208 H40 Z" fill="#9fe4ff"/>\n    <path d="M38 288 V262 Q38 248 50 248 Q62 248 62 262 V288 Z" fill="${ftTrim(lv, '#6b4a2a')}"/>\n    <path d="M2 288 L8 256 L16 240 L22 262 L28 288 Z M72 288 L80 250 L88 266 L96 288 Z" fill="#bfeeff"/>`
+};
+
 const FT_EXTRAS = {
     x_rack: tint => `\n    <path d="M24 88 V40 M76 88 V40 M18 44 H82" stroke-width="5"/><path d="M24 88 V40 M76 88 V40 M18 44 H82" stroke="#a0672e" stroke-width="2"/>\n    <path d="M38 30 V80" stroke-width="7"/><path d="M38 30 V80" stroke="#e9eef2" stroke-width="3"/><path d="M30 70 H46" stroke="#e3b341" stroke-width="5"/>\n    <path d="M52 52 H72 V66 Q72 78 62 84 Q52 78 52 66 Z" fill="${tint}"/>`,
+    x_quiver: () => `\n    <path d="M30 48 Q26 70 30 90 H70 Q74 70 70 48 Z" fill="#b07a48"/>\n    <path d="M28 58 H72 M28 80 H72" stroke="#6f7780" stroke-width="4"/>\n    <path d="M38 48 L34 20 M50 48 V16 M62 48 L66 20" stroke-width="3"/>\n    <path d="M34 20 L30 12 L38 14 Z M50 16 L46 8 L54 8 Z M66 20 L62 14 L70 12 Z" fill="#ffffff" stroke-width="2"/>`,
     x_hay: () => `<rect x="16" y="46" width="68" height="40" rx="8" fill="#e8c35a"/><path d="M16 60 H84 M16 72 H84" stroke-width="2.5" opacity=".6"/><path d="M38 46 V86 M62 46 V86" stroke="#a0672e" stroke-width="4"/>`,
     x_cauldron: () => `\n    <path d="M30 88 Q38 74 50 80 Q62 74 70 88 Z" fill="#ff9a3d"/>\n    <path d="M22 46 H78 Q78 80 50 80 Q22 80 22 46 Z" fill="#5c5f66"/><path d="M26 46 H74" stroke-width="5"/>\n    <circle cx="40" cy="36" r="6" fill="#c08cf0"/><circle cx="56" cy="30" r="4" fill="#c08cf0"/>`,
     x_crystal: () => `<path d="M30 88 L36 46 L48 24 L58 50 L66 36 L72 88 Z" fill="#bfeeff"/><path d="M48 24 L50 88 M66 36 L62 88" stroke-width="2.5" opacity=".5"/>`,
@@ -54,7 +70,7 @@ const FT_EXTRAS = {
 const FT_EXTRA_OF = {
     sword: 'x_rack',
     knight: 'x_rack',
-    archer: 'x_hay',
+    archer: 'x_quiver',
     fire: 'x_cauldron',
     ice: 'x_crystal',
     ballista: 'x_bolts',
@@ -66,27 +82,31 @@ const FT_EXTRA_OF = {
 
 const ftArtCache = new Map;
 
-const FT_LEVEL_TRIM = [ null, '#a9bccf', '#ffc93c', '#b57cf0' ];
+const FT_LEVEL_TRIM = [ null, '#a9bccf', '#b57cf0', '#ffc93c' ];
 
 const ftTrim = (lv, base) => lv > 1 ? FT_LEVEL_TRIM[lv - 1] : base;
 
 const ftSparkle = (x, y, r, colour) => `<path d="M${x} ${y - r} Q${x} ${y} ${x + r} ${y} Q${x} ${y} ${x} ${y + r} Q${x} ${y} ${x - r} ${y} Q${x} ${y} ${x} ${y - r} Z" fill="${colour}" stroke-width="2.5"/>`;
 
 function ftArt(kind, tint = '#7db7f0', wide = false, lv = 1) {
-    const key = kind + tint + wide + lv;
+    const ratio = wide === true ? 2 : wide || 1;
+    const key = kind + tint + ratio + lv;
     if (!ftArtCache.has(key)) {
-        const draw = (wide ? FT_ART_WIDE : kind.startsWith('x_') ? FT_EXTRAS : FT_ART)[kind];
+        const book = ratio === 3 ? FT_ART_LONG : ratio === 2 ? FT_ART_WIDE : ratio < 1 ? FT_ART_TALL : kind.startsWith('x_') ? FT_EXTRAS : FT_ART;
+        const draw = book[kind];
         let body = draw ? draw(tint, lv) : '';
         if (kind.startsWith('b_') && lv >= 3) {
-            const w = wide ? 200 : 100;
-            body += ftSparkle(w - 12, 14, 9, '#fff6c8');
-            if (lv >= 4) body += ftSparkle(12, 22, 7, '#f3dcff');
+            const w = ratio >= 1 ? ratio * 100 : 100;
+            body += ftSparkle(w - 12, 14, 9, lv >= 4 ? '#fff6c8' : '#f3dcff');
+            if (lv >= 4) body += ftSparkle(12, 22, 7, '#fff6c8');
         }
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${wide ? 200 : 100} 100" fill="none" stroke="${FT_INK}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">${body}</svg>`;
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${ratio >= 1 ? ratio * 100 : 100} ${ratio >= 1 ? 100 : Math.round(100 / ratio)}" fill="none" stroke="${FT_INK}" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">${body}</svg>`;
         ftArtCache.set(key, 'data:image/svg+xml,' + encodeURIComponent(svg));
     }
     return ftArtCache.get(key);
 }
+
+const ftTallFits = (kind, cells) => kind === 'fire' || kind === 'ice' ? cells === 3 : cells === 2;
 
 function ftBuildingLayout(kind, cells) {
     const left = Math.min(...cells.map((c => c[0]))), top = Math.min(...cells.map((c => c[1])));
@@ -96,10 +116,11 @@ function ftBuildingLayout(kind, cells) {
         for (let i = 0; i < rw; i++) for (let j = 0; j < rh; j++) if (!own.has(`${x + i},${y + j}`)) return false;
         return true;
     };
-    const longOne = !!FT_ART_WIDE['b_' + kind];
+    const twice = !!FT_ART_WIDE['b_' + kind], thrice = !!FT_ART_LONG['b_' + kind];
     let best = null;
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) for (let rh = 1; y + rh <= h; rh++) for (let rw = 1; x + rw <= w; rw++) {
-        const fits = rw === rh || longOne && rw === 2 * rh;
+        const tall = FT_ART_TALL['b_' + kind];
+        const fits = rw === rh || twice && rw === 2 * rh || thrice && rw === 3 * rh || tall && rw === 1 && (rh === 2 || rh === 3) && ftTallFits(kind, rh);
         if (!fits || !covered(x, y, rw, rh)) continue;
         const score = rw * rh * 10 + (rw === rh ? 1 : 0);
         if (!best || score > best.score) best = {
@@ -112,7 +133,7 @@ function ftBuildingLayout(kind, cells) {
     }
     const main = {
         art: 'b_' + kind,
-        wide: best.w !== best.h,
+        wide: best.w / best.h,
         x: best.x,
         y: best.y,
         w: best.w,
@@ -147,8 +168,47 @@ function ftCoin(cls = 'ft-coin') {
     return ftArtImage('coin', undefined, cls);
 }
 
+const ftFenceCache = new Map;
+
+function ftFence(cells) {
+    const left = Math.min(...cells.map((c => c[0]))), top = Math.min(...cells.map((c => c[1])));
+    const own = cells.map((([x, y]) => [ x - left, y - top ]));
+    const key = own.map((c => c.join())).sort().join(';');
+    if (!ftFenceCache.has(key)) {
+        const has = new Set(own.map((c => c.join())));
+        const w = Math.max(...own.map((c => c[0]))) + 1, h = Math.max(...own.map((c => c[1]))) + 1;
+        let edges = '';
+        for (const [x, y] of own) {
+            const X = x * 100, Y = y * 100;
+            if (!has.has(`${x},${y - 1}`)) edges += `M${X} ${Y} H${X + 100}`;
+            if (!has.has(`${x},${y + 1}`)) edges += `M${X} ${Y + 100} H${X + 100}`;
+            if (!has.has(`${x - 1},${y}`)) edges += `M${X} ${Y} V${Y + 100}`;
+            if (!has.has(`${x + 1},${y}`)) edges += `M${X + 100} ${Y} V${Y + 100}`;
+        }
+        const clip = own.map((([x, y]) => `<rect x="${x * 100}" y="${y * 100}" width="100" height="100"/>`)).join('');
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w * 100} ${h * 100}" fill="none" stroke-linecap="butt">\n      <defs><clipPath id="c">${clip}</clipPath></defs><g clip-path="url(#c)">\n      <path d="${edges}" stroke="${FT_INK}" stroke-width="9" opacity=".6"/>\n      <path d="${edges}" stroke="${FT_INK}" stroke-width="26" stroke-dasharray="10 7" opacity=".75"/>\n      <path d="${edges}" stroke="#c48a4e" stroke-width="20" stroke-dasharray="7 10" stroke-dashoffset="-1.5"/></g></svg>`;
+        ftFenceCache.set(key, 'data:image/svg+xml,' + encodeURIComponent(svg));
+    }
+    return ftFenceCache.get(key);
+}
+
 function ftBuildingImages(kind, cells, tint, size, unit, lv = 1) {
-    return ftBuildingLayout(kind, cells).map((part => {
+    const fence = [];
+    if (cells.length > 1 && kind !== 'catapult') {
+        const xs = cells.map((c => c[0])), ys = cells.map((c => c[1]));
+        const image = document.createElement('img');
+        image.className = 'ft-fence';
+        image.alt = '';
+        image.draggable = false;
+        image.src = ftFence(cells);
+        image.style.left = '0';
+        image.style.top = '0';
+        image.style.width = `${(Math.max(...xs) - Math.min(...xs) + 1) * size}${unit}`;
+        image.style.height = `${(Math.max(...ys) - Math.min(...ys) + 1) * size}${unit}`;
+        image.style.zIndex = 0;
+        fence.push(image);
+    }
+    return fence.concat(ftBuildingLayout(kind, cells).map((part => {
         const image = ftArtImage(part.art, tint, part.art.startsWith('x_') ? 'ft-extra' : 'ft-building', part.wide, part.art.startsWith('x_') ? 1 : lv);
         image.style.left = `${part.x * size}${unit}`;
         image.style.top = `${(part.y - .12 * part.h) * size}${unit}`;
@@ -156,5 +216,5 @@ function ftBuildingImages(kind, cells, tint, size, unit, lv = 1) {
         image.style.height = `${part.h * 1.12 * size}${unit}`;
         image.style.zIndex = 1 + part.y + part.h;
         return image;
-    }));
+    })));
 }

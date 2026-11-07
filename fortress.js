@@ -107,20 +107,20 @@ function ftOpenGate(y) {
     const gate = gates.reduce(((a, b) => Math.abs(a.y - y) <= Math.abs(b.y - y) ? a : b));
     const now = performance.now();
     if (now < gate.openUntil) return;
-    gate.openUntil = now + 900;
+    gate.openUntil = now + 1500;
     for (const leaf of gate.leaves) {
         leaf.animate([ {
             transform: 'none'
         }, {
             transform: 'scaleY(.12)',
-            offset: .2
+            offset: .15
         }, {
             transform: 'scaleY(.12)',
-            offset: .8
+            offset: .85
         }, {
             transform: 'none'
         } ], {
-            duration: 900,
+            duration: 1500,
             easing: 'ease-in-out'
         });
     }
@@ -200,6 +200,7 @@ function buildFortress(view) {
         clock: clock,
         banner: banner,
         gates: gates,
+        wallX: view.wallX,
         figures: new Map,
         shownWall: null,
         wallShownAt: 0,
@@ -428,16 +429,13 @@ function ftRead(raw) {
     const moments = [];
     for (const body of bodies) {
         for (let i = 2; i < body.hp.length; i += 2) moments.push([ body.hp[i], 0, body.id, body.hp[i + 1] ]);
-        let facing = 1;
-        const points = body.track.length / 2;
-        for (let i = 0; i < points - 1; i++) {
-            const dx = body.track[(i + 1) * 2] - body.track[i * 2];
-            if (Math.abs(dx) <= .5) continue;
-            const now = (body.side < 0 ? dx > 0 : dx < 0) ? -1 : 1;
-            if (now !== facing) moments.push([ body.born + i * raw.step, 2, body.id, now ]);
-            facing = now;
-        }
         if (body.died >= 0) moments.push([ body.died, 3, body.id, 0 ]);
+    }
+    const sideOf = new Map(bodies.map((b => [ b.id, b.side ])));
+    const faces = ftNums(raw.faces);
+    for (let i = 0; i < faces.length; i += 3) {
+        const enemy = sideOf.get(faces[i + 1]) < 0, dir = faces[i + 2];
+        moments.push([ faces[i], 2, faces[i + 1], (enemy ? dir > 0 : dir < 0) ? -1 : 1 ]);
     }
     const chills = ftNums(raw.chills);
     for (let i = 0; i < chills.length; i += 3) {
@@ -629,22 +627,23 @@ function ftSpawn(data, body, t) {
     const life = div('ft-life');
     const fig = ftArtImage(body.k, foe ? undefined : FT_COLOURS[body.side], 'ft-fig');
     life.appendChild(fig);
-    const bar = div('ft-hp');
-    const fill = document.createElement('i');
-    bar.appendChild(fill);
-    node.append(life, bar);
+    node.appendChild(life);
     node.style.zIndex = Math.round(body.track[1] || 0);
     ftNodes.bodies.appendChild(node);
     ftNodes.figures.set(body.id, {
         node: node,
         life: life,
         fig: fig,
-        bar: bar,
-        fill: fill,
         body: body,
         flashedAt: -1e3
     });
-    if (!foe && t - body.born < 300) ftOpenGate(body.track[1]);
+    if (!foe) {
+        const step = data.step;
+        let i = 0;
+        while (i * 2 < body.track.length && body.track[i * 2] < ftNodes.wallX - 30) i++;
+        const delay = body.born + i * step - t;
+        if (i * 2 < body.track.length && delay > -300) setTimeout((() => ftNodes && ftOpenGate(body.track[i * 2 + 1])), Math.max(0, delay - 150));
+    }
     if (body.k === 'boss') {
         ftBanner(ftWords('ft_boss', 'Here comes the boss!'), 'boss');
         playSound('ft_boss');
@@ -675,8 +674,6 @@ function ftMoment([at, what, id, value], t) {
     const figure = ftNodes.figures.get(id);
     if (!figure) return;
     if (what === 0) {
-        figure.fill.style.transform = `scaleX(${Math.max(0, value) / figure.body.max})`;
-        figure.bar.style.opacity = value > 0 ? 1 : 0;
         if (at - figure.flashedAt > 160 && t - at < 100) {
             figure.flashedAt = at;
             figure.fig.animate([ {
@@ -728,7 +725,6 @@ function ftMoment([at, what, id, value], t) {
     } else if (what === 5) {
         if (at >= (figure.chilledUntil || 0)) figure.node.classList.remove('chilled');
     } else {
-        figure.bar.style.opacity = 0;
         const fall = figure.fig.animate([ {
             opacity: 1,
             transform: 'none'
