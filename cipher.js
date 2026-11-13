@@ -16,6 +16,8 @@ const CI_TYPE_STEP = 45;
 
 const CI_SPIN = 4;
 
+const CI_TICK_FROM = 30;
+
 const CI_LETTERS = {
     ru: 'абвгдежзиклмнопрстуфхцчшщыэюя',
     en: 'abcdefghijklmnopqrstuvwxyz'
@@ -83,7 +85,7 @@ function ciShow(tile, char) {
     for (const fold of [ f.foldUp, f.foldDown ]) fold.getAnimations().forEach((a => a.cancel()));
 }
 
-function ciFlip(tile, path, step, wait, done) {
+function ciFlip(tile, path, step, wait, done, quiet = false) {
     const f = tile.flap;
     const run = ++f.run;
     path.forEach(((next, i) => ciLater(wait + i * step, (() => {
@@ -116,7 +118,7 @@ function ciFlip(tile, path, step, wait, done) {
             easing: 'ease-out',
             fill: 'both'
         });
-        ciClack();
+        if (!quiet) ciClack();
         if (i === path.length - 1 && done) ciLater(step, (() => {
             if (f.run === run) done();
         }));
@@ -170,8 +172,16 @@ function buildCipher(view) {
     const clockTiles = [ ciTile('digit'), ciTile('digit') ];
     clock.append(...clockTiles);
     const away = div('ci-away');
+    const hints = div('ci-hints');
+    const hintsHead = div('ci-hints-head');
+    const hintsLabel = div('ci-hints-label');
+    const votes = div('ci-votes');
+    const price = div('ci-hints-price');
+    hintsHead.append(hintsLabel, votes, price);
+    const hintsBody = div('ci-hints-body');
+    hints.append(hintsHead, hintsBody);
     const history = div('ci-history');
-    right.append(clock, away, history);
+    right.append(clock, away, hints, history);
     const effects = div('ci-effects');
     const flash = div('ci-flash');
     root.append(left, middle, right, flash, effects);
@@ -182,6 +192,14 @@ function buildCipher(view) {
         hearts: hearts,
         livesTiles: livesTiles,
         lamps: lamps,
+        hints: hints,
+        hintsLabel: hintsLabel,
+        votes: votes,
+        price: price,
+        hintsBody: hintsBody,
+        hintsKey: null,
+        votesKey: null,
+        hintsGiven: null,
         table: table,
         seats: new Map,
         housing: housing,
@@ -261,7 +279,7 @@ function ciTag(tag, id, view, nameOf) {
     tag.style.setProperty('--tint', CI_TINTS[index % CI_TINTS.length]);
 }
 
-function ciHearts(view, wait) {
+function ciHearts(view, wait, target) {
     const ui = ciNodes;
     const before = ui.heartsShown;
     if (before === view.hearts) return;
@@ -291,7 +309,7 @@ function ciHearts(view, wait) {
         if (before !== null && on && i >= before) lamp.classList.add('waking');
         lamp.classList.toggle('on', on);
     }));
-    if (dying) ciLater(wait, (() => ciHeartLost(view, dying)));
+    if (dying) ciLater(wait, (() => ciHeartLost(view, dying, target)));
     if (before !== null && view.hearts > before) {
         ciLater(wait, (() => {
             if (!ui.hearts.isConnected) return;
@@ -303,7 +321,7 @@ function ciHearts(view, wait) {
     }
 }
 
-function ciHeartLost(view, lamp) {
+function ciHeartLost(view, lamp, target) {
     const ui = ciNodes;
     if (!ui) return;
     playSound('cipher_heart');
@@ -319,15 +337,16 @@ function ciHeartLost(view, lamp) {
         easing: 'ease-out'
     });
     const row = ui.rows.get(view.rows.length);
-    if (!row || !row.cost || !lamp.isConnected) return;
+    const goal = target || row && row.cost;
+    if (!goal || !goal.isConnected || !lamp.isConnected) return;
     const vh = innerHeight / 100;
-    const from = onStage(lamp.getBoundingClientRect()), to = onStage(row.cost.getBoundingClientRect());
+    const from = onStage(lamp.getBoundingClientRect()), to = onStage(goal.getBoundingClientRect());
     const dx = (from.x - to.x) / vh, dy = (from.y - to.y) / vh;
     const spark = div('ci-spark');
     spark.style.left = `${to.x / vh}vh`;
     spark.style.top = `${to.y / vh}vh`;
     ui.effects.appendChild(spark);
-    row.cost.style.opacity = '0';
+    if (!target) goal.style.opacity = '0';
     spark.animate([ {
         transform: `translate(-50%, -50%) translate(${dx}vh, ${dy}vh) scale(1.4)`
     }, {
@@ -341,8 +360,9 @@ function ciHeartLost(view, lamp) {
         fill: 'both'
     }).onfinish = () => {
         spark.remove();
-        row.cost.style.opacity = '';
-        row.cost.animate([ {
+        if (target) return;
+        goal.style.opacity = '';
+        goal.animate([ {
             transform: 'translateY(-50%) scale(1.8)'
         }, {
             transform: 'translateY(-50%) scale(1)'
@@ -353,6 +373,54 @@ function ciHeartLost(view, lamp) {
     };
 }
 
+function ciHints(view, taken) {
+    const ui = ciNodes;
+    const hint = view.hint;
+    const guessing = view.phase === 'guessing';
+    ui.hintsLabel.textContent = word('cp_hints', 'Hint');
+    const votesKey = JSON.stringify([ view.sides, hint.votes, hint.price, guessing ]);
+    if (votesKey !== ui.votesKey) {
+        const before = ui.votesKey ? JSON.parse(ui.votesKey)[1] : [];
+        ui.votesKey = votesKey;
+        ui.votes.textContent = '';
+        view.sides.forEach(((id, i) => {
+            const lamp = div('ci-vote' + (hint.votes.includes(id) ? ' on' : ''));
+            lamp.style.setProperty('--tint', CI_TINTS[i % CI_TINTS.length]);
+            ui.votes.appendChild(lamp);
+        }));
+        ui.price.textContent = guessing && hint.price !== null ? `♥${hint.price}` : '—';
+        if (hint.votes.some((id => !before.includes(id)))) playSound('cipher_vote');
+        ui.hints.classList.toggle('asking', guessing && hint.votes.length > 0);
+    }
+    const placed = Object.entries(hint.placed);
+    const hintsKey = JSON.stringify([ view.round, hint.absent, hint.present, placed ]);
+    if (hintsKey !== ui.hintsKey) {
+        ui.hintsKey = hintsKey;
+        ui.hintsBody.textContent = '';
+        if (hint.absent) {
+            const line = div('ci-hint-line');
+            for (const letter of hint.absent) line.appendChild(div('ci-mini out', letter));
+            ui.hintsBody.appendChild(line);
+        }
+        if (hint.present) {
+            const line = div('ci-hint-line');
+            for (const letter of hint.present) line.appendChild(div('ci-mini here', letter));
+            ui.hintsBody.appendChild(line);
+        }
+        if (placed.length) {
+            const line = div('ci-hint-line');
+            for (let i = 0; i < view.length; i++) line.appendChild(div('ci-mini' + (hint.placed[i] ? ' place' : ' blank'), hint.placed[i] || ''));
+            ui.hintsBody.appendChild(line);
+        }
+        if (taken) {
+            const fresh = ui.hintsBody.lastChild;
+            if (fresh) fresh.classList.add('fresh');
+            playSound('cipher_hint');
+        }
+    }
+    ui.hintsGiven = hint.given;
+}
+
 function ciClock(view, guessing, away, nameOf) {
     const ui = ciNodes;
     const text = guessing && !away ? String(view.clock).padStart(2, ' ') : '  ';
@@ -360,8 +428,9 @@ function ciClock(view, guessing, away, nameOf) {
         ui.clockShown = text;
         ui.clockTiles.forEach(((tile, i) => {
             const char = text[i] === ' ' ? '' : text[i];
-            if (tile.flap.char !== char) ciFlip(tile, [ char ], 140, 0);
+            if (tile.flap.char !== char) ciFlip(tile, [ char ], 140, 0, null, true);
         }));
+        if (guessing && !away && view.clock < view.turnSeconds) playSound('cipher_tick', view.clock > CI_TICK_FROM ? 0 : 1 - view.clock / CI_TICK_FROM);
     }
     ui.clock.classList.toggle('urgent', guessing && !away && view.clock <= 10);
     ui.away.textContent = away ? word('siege_away', 'Waiting for {name}').replace('{name}', nameOf(away)) : '';
@@ -433,7 +502,9 @@ function drawCipher(state) {
     }
     for (let r = first; r <= last; r++) ciRow(view, r, r === view.rows.length ? opening : 0);
     ui.scramble = 0;
-    ciHearts(view, opening ? Math.max(0, opening - 250) : 0);
+    const hintTaken = ui.hintsGiven !== null && !fresh && view.hint.given > ui.hintsGiven;
+    ciHearts(view, opening ? Math.max(0, opening - 250) : 0, hintTaken ? ui.hints : null);
+    ciHints(view, hintTaken);
     view.rows.forEach(((sent, r) => {
         if (r < first || r < ui.shownRows) return;
         const {tag: tag, cells: cells} = ui.rows.get(r);

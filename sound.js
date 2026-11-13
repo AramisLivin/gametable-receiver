@@ -613,6 +613,17 @@ const SOUNDS = {
         noise(0, .018, .32, 'bandpass', 3200 + Math.random() * 900, 2600);
         thump(0, 420, 180, .03, .18);
     },
+    cipher_tick(level = 0) {
+        const volume = .04 + .5 * level * level;
+        noise(0, .02, volume, 'bandpass', 2600 + 1400 * level, 2e3);
+        thump(0, 380, 170, .035, volume * .6);
+    },
+    cipher_vote() {
+        glide(0, 1046.5, 1046.5, .003, .25, .05);
+    },
+    cipher_hint() {
+        [ 523.3, 784, 1046.5, 1568 ].forEach(((frequency, i) => glide(i * .06, frequency, frequency, .003, .3, .06)));
+    },
     cipher_whoosh() {
         noise(0, .5, .25, 'bandpass', 900, 3200);
     },
