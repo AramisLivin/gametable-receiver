@@ -366,7 +366,8 @@ function drawFortress(state) {
         n: view.wave,
         all: view.waves
     });
-    ftNodes.armor.textContent = view.phase === 'build' && view.armorRate ? `🛡 +${view.armorRate} / ${view.armorEvery}s` : '';
+    const gives = [ view.armorRate ? `🛡 +${view.armorRate}` : '', view.repairRate ? `♥ +${view.repairRate}` : '' ].filter(Boolean);
+    ftNodes.armor.textContent = view.phase === 'build' && gives.length ? `${gives.join('  ')} / ${view.armorEvery}s` : '';
     ftNodes.clock.textContent = away ? word('siege_away', 'Waiting for {name}').replace('{name}', nameOf(away)) : '';
     drawEngines(view);
     if (view.battle && (!ftBattle || ftBattle.raw !== view.battle)) {
@@ -475,6 +476,7 @@ function ftRead(raw) {
         barracks: raw.barracks,
         bastions: chunk(ftNums(raw.bastions), 2),
         forges: chunk(ftNums(raw.forges), 2),
+        calm: raw.calm >= 0 ? raw.calm : Infinity,
         exits: bodies.filter((b => b.died >= 0)).map((b => [ b.died, b ])).sort(((a, b) => a[0] - b[0]))
     };
 }
@@ -498,7 +500,8 @@ function playBattle(view) {
         wall: 0,
         max: view.wallMax,
         armor: 0,
-        hp: null
+        hp: null,
+        calmed: false
     };
     for (const b of data.barracks) ftFillBar(b.id, b.first, false);
     const opening = data.wall[0] || [ 0, view.wall, 0 ];
@@ -519,9 +522,7 @@ function playBattle(view) {
     ftFrame = requestAnimationFrame(loop);
 }
 
-function endBattle() {
-    cancelAnimationFrame(ftFrame);
-    ftBattle = null;
+function ftEmptyBars() {
     ftNodes.blocks.forEach((block => {
         const bar = block.querySelector('.ft-progress');
         if (!bar) return;
@@ -529,6 +530,12 @@ function endBattle() {
         bar.firstChild.getAnimations().forEach((a => a.cancel()));
         bar.firstChild.style.transform = '';
     }));
+}
+
+function endBattle() {
+    cancelAnimationFrame(ftFrame);
+    ftBattle = null;
+    ftEmptyBars();
     const left = [ ...ftNodes.figures.values() ].map((figure => figure.node));
     ftNodes.figures.clear();
     left.forEach((node => node.animate([ {
@@ -583,6 +590,10 @@ function stepBattle(battle, t) {
             duration: 260,
             easing: 'ease-out'
         });
+    }
+    if (!b.calmed && data.calm <= t) {
+        b.calmed = true;
+        ftEmptyBars();
     }
     while (b.wall < data.wall.length && data.wall[b.wall][0] <= t) {
         const [, hp, armor] = data.wall[b.wall++];

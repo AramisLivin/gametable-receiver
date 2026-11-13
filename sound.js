@@ -176,7 +176,11 @@ const DUCK_SECONDS = {
     ft_boss: 1.8,
     ft_merge: .5,
     ft_fire: .3,
-    ft_lost: 3.5
+    ft_lost: 3.5,
+    go_cipher: 1,
+    cipher_wrong: .5,
+    cipher_crack: 2,
+    cipher_fail: 1.6
 };
 
 let musicTheme = null;
@@ -432,6 +436,29 @@ const THEMES = {
             }
         }
     },
+    cipher: {
+        beat: mood => mood === 'fight' ? .46 : .62,
+        volume: .85,
+        bar(at, n, mood, beat) {
+            const chords = [ [ 57, 60, 64, 69 ], [ 53, 57, 60, 65 ], [ 55, 59, 62, 67 ], [ 52, 56, 59, 64 ] ];
+            const chord = chords[Math.floor(n / 2) % 4];
+            const echo = echoFor(beat * .75);
+            const order = n % 2 ? [ 0, 2, 1, 3, 2, 1, 3, 2 ] : [ 0, 1, 2, 3, 2, 3, 1, 2 ];
+            musicRun(order.map((i => chord[i] + 12)), at, beat / 2, ((note, when) => {
+                musicNote(musicTrack, 'sine', note, when, .004, 0, .35, .045);
+                musicNote(echo, 'sine', note, when, .004, 0, .35, .03);
+            }));
+            musicNote(musicTrack, 'triangle', chord[0] - 12, at, .08, beat * 3, .5, .11);
+            if (mood === 'fight') {
+                for (let i = 0; i < 8; i++) musicHat(at + i * beat / 2, i % 2 ? .02 : .035);
+                musicKick(at, .12, 70, 40);
+                musicKick(at + 2 * beat, .1, 70, 40);
+            } else {
+                musicBlock(at + beat, .035, 81);
+                musicBlock(at + 3 * beat, .03, 76);
+            }
+        }
+    },
     fortress: {
         beat: mood => mood === 'fight' ? .42 : .6,
         volume: 1,
@@ -575,6 +602,49 @@ const SOUNDS = {
     },
     go_recall() {
         SOUNDS.ding();
+    },
+    go_cipher() {
+        [ [ 0, 784 ], [ .32, 659.3 ], [ .64, 523.3 ] ].forEach((([at, frequency]) => {
+            glide(at, frequency, frequency, .004, 1.1, .09);
+            glide(at, frequency * 2, frequency * 2, .004, .5, .025);
+        }));
+    },
+    cipher_flap() {
+        noise(0, .018, .32, 'bandpass', 3200 + Math.random() * 900, 2600);
+        thump(0, 420, 180, .03, .18);
+    },
+    cipher_whoosh() {
+        noise(0, .5, .25, 'bandpass', 900, 3200);
+    },
+    cipher_key() {
+        noise(0, .03, .25, 'bandpass', 2400, 1800);
+        thump(0, 220, 120, .05, .25);
+    },
+    cipher_flip(mark) {
+        const frequency = mark === 'g' ? 880 : mark === 'y' ? 659.3 : 392;
+        glide(0, frequency, frequency, .003, mark === '-' ? .12 : .25, mark === '-' ? .05 : .08);
+        noise(0, .04, .15, 'highpass', 4e3, 3e3);
+    },
+    cipher_wrong() {
+        glide(0, 196, 160, .01, .16, .09);
+        glide(.17, 196, 150, .01, .22, .09);
+    },
+    cipher_crack() {
+        [ 523.3, 659.3, 784, 1046.5, 1318.5 ].forEach(((frequency, i) => glide(i * .08, frequency, frequency, .003, .5, .09)));
+        chord([ 261.6, 329.6, 392 ], .4, .9, .07);
+    },
+    cipher_fail() {
+        [ 392, 349.2, 311.1, 261.6 ].forEach(((frequency, i) => glide(i * .18, frequency, frequency * .98, .01, .3, .08)));
+    },
+    cipher_heart() {
+        glide(0, 330, 196, .005, .35, .09);
+        thump(0, 120, 60, .25, .5);
+    },
+    cipher_gift() {
+        [ 659.3, 830.6, 987.8 ].forEach(((frequency, i) => glide(i * .09, frequency, frequency, .003, .35, .07)));
+    },
+    cipher_new() {
+        for (const [at, frequency] of [ [ 0, 659.3 ], [ .28, 523.3 ] ]) glide(at, frequency, frequency, .004, .9, .08);
     },
     go_fortress() {
         horn(293.7, 0, .25, .1);
