@@ -79,6 +79,25 @@ function menuNodesFor(games) {
     }
 }
 
+let menuModesKey = null;
+
+function drawMenuModes(game) {
+    const bots = game.botsNow || 0;
+    const key = game.modes || bots ? `${game.id}|${game.mode}|${bots}` : '';
+    if (key === menuModesKey) return;
+    const changed = menuModesKey && menuModesKey.split('|')[0] === game.id;
+    menuModesKey = key;
+    const box = $('menu-modes');
+    box.textContent = '';
+    for (const mode of game.modes || []) {
+        const pill = div('menu-mode' + (mode === game.mode ? ' on' : ''), word(`mode_${game.id}_${mode}`, mode));
+        if (changed && mode === game.mode) pill.classList.add('fresh');
+        box.appendChild(pill);
+    }
+    if (bots) box.appendChild(div('menu-mode bots', word('bots_count', 'Bots: {n}').replace('{n}', bots)));
+    if (changed) playSound('browse');
+}
+
 function drawMenu(state) {
     const game = state.games.find((g => g.id === state.browsing)) || state.games[0];
     const title = word('game_' + game.id, game.id);
@@ -94,9 +113,10 @@ function drawMenu(state) {
     $('menu-title').textContent = title;
     $('menu-meta').textContent = [ playersText(game), word('length_' + game.id, '') ].filter(Boolean).join(' · ');
     $('menu-about').textContent = word('about_' + game.id, '');
+    drawMenuModes(game);
     const wanting = state.players.filter((p => (state.votes || {})[p.id] === game.id)).map((p => p.name));
     $('menu-votes').textContent = wanting.length ? '♥ ' + word('votes_want', 'Want to play: {names}').replace('{names}', wanting.join(', ')) : '';
-    $('lobby-hint').textContent = online < game.min ? word($('join').classList.contains('on') ? 'need_more_scan' : 'need_more', 'Waiting for one more player') : word('host_picks_name', '{name} picks a game on the phone').replace('{name}', host ? host.name : '');
+    $('lobby-hint').textContent = online + (game.botsNow || 0) < game.min ? word($('join').classList.contains('on') ? 'need_more_scan' : 'need_more', 'Waiting for one more player') : word('host_picks_name', '{name} picks a game on the phone').replace('{name}', host ? host.name : '');
     const votes = state.votes || {};
     const votersOf = id => state.players.filter((p => votes[p.id] === id));
     let newVote = false;
@@ -159,7 +179,8 @@ function countMark(text, cls) {
     stage.classList.add('hit');
 }
 
-function startCountdown(playing) {
+function startCountdown(playing, mode) {
+    if (playing === 'durak') dkUseDeck(word('dk_deck_file', 'durak-deck-en.webp'));
     counting = true;
     countTimers.forEach(clearTimeout);
     const box = $('countdown');
@@ -167,7 +188,7 @@ function startCountdown(playing) {
     box.classList.remove('leaving');
     box.classList.add('on');
     $('cd-art').src = posterUrl(playing);
-    $('cd-title').textContent = word('game_' + playing, playing);
+    $('cd-title').textContent = word('game_' + playing, playing) + (mode ? ` · ${word(`mode_${playing}_${mode}`, mode)}` : '');
     $('cd-stage').textContent = '';
     [ 3, 2, 1 ].forEach(((number, i) => countTimers.push(setTimeout((() => {
         countMark(String(number), `cd-number cd-${number}`);

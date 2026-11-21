@@ -180,7 +180,12 @@ const DUCK_SECONDS = {
     go_cipher: 1,
     cipher_wrong: .5,
     cipher_crack: 2,
-    cipher_fail: 1.6
+    cipher_fail: 1.6,
+    go_durak: .9,
+    dk_take: .8,
+    dk_beaten: .6,
+    dk_transfer: .6,
+    dk_fool: 3.2
 };
 
 let musicTheme = null;
@@ -436,6 +441,29 @@ const THEMES = {
             }
         }
     },
+    durak: {
+        beat: mood => mood === 'fight' ? .4 : .52,
+        volume: .9,
+        bar(at, n, mood, beat) {
+            const chords = [ [ 57, 60, 64 ], [ 50, 53, 57 ], [ 52, 56, 59 ], [ 57, 60, 64 ], [ 50, 53, 57 ], [ 53, 57, 60 ], [ 52, 56, 59 ], [ 52, 56, 59 ] ];
+            const chord = chords[n % 8];
+            const root = chord[0] - 12;
+            const walk = [ root, root + 3, root + 7, root + 5 ];
+            walk.forEach(((note, i) => musicNote(musicTrack, 'triangle', note - 12, at + i * beat, .01, beat * .5, .2, .13)));
+            for (const when of [ 1, 3 ]) for (const note of chord) musicNote(musicTrack, 'square', note, at + when * beat, .02, beat * .25, .15, .012, 1400);
+            for (let i = 0; i < 4; i++) musicNoise(at + i * beat + (i % 2 ? beat * .66 : 0), .08, .02, 'highpass', 5e3);
+            if (mood === 'fight') {
+                musicKick(at, .13, 80, 40);
+                musicKick(at + 2 * beat, .11, 80, 40);
+                musicSnare(at + beat, .04);
+                musicSnare(at + 3 * beat, .05);
+            }
+            if (n % 4 === 3) {
+                const tune = [ chord[2] + 12, chord[1] + 12, chord[0] + 12, null ];
+                musicRun(tune, at, beat, ((note, when) => musicNote(musicTrack, 'sine', note, when, .01, beat * .4, .3, .04)));
+            }
+        }
+    },
     cipher: {
         beat: mood => mood === 'fight' ? .46 : .62,
         volume: .85,
@@ -602,6 +630,61 @@ const SOUNDS = {
     },
     go_recall() {
         SOUNDS.ding();
+    },
+    go_durak() {
+        for (let i = 0; i < 6; i++) noise(i * .06, .03, .25, 'bandpass', 3e3, 1800);
+        chord([ 220, 277.2, 329.6 ], .36, .5, .08);
+    },
+    dk_card() {
+        noise(0, .05, .35, 'bandpass', 2600, 1200);
+        thump(0, 180, 90, .06, .3);
+    },
+    dk_cover() {
+        noise(0, .04, .3, 'bandpass', 3400, 1800);
+        thump(0, 240, 120, .05, .22);
+    },
+    dk_deal() {
+        noise(0, .025, .12, 'bandpass', 4200, 2600);
+    },
+    dk_trump() {
+        glide(0, 659.3, 659.3, .004, .3, .06);
+        glide(.1, 987.8, 987.8, .004, .45, .06);
+    },
+    dk_take_call() {
+        glide(0, 330, 220, .01, .35, .08);
+    },
+    dk_take() {
+        noise(0, .45, .3, 'bandpass', 2200, 500);
+        glide(0, 330, 196, .01, .4, .08);
+        thump(.35, 120, 50, .3, .5);
+    },
+    dk_beaten() {
+        noise(0, .4, .28, 'bandpass', 900, 3600);
+        glide(.05, 523.3, 784, .01, .3, .06);
+    },
+    dk_transfer() {
+        noise(0, .3, .22, 'bandpass', 1200, 4200);
+        [ 523.3, 659.3, 784 ].forEach(((frequency, i) => glide(i * .06, frequency, frequency, .004, .25, .06)));
+    },
+    dk_fool() {
+        [ [ 0, 311.1 ], [ .42, 293.7 ], [ .84, 277.2 ] ].forEach((([at, frequency]) => horn(frequency, at, .38, .09)));
+        const start = audio.currentTime + 1.26;
+        const oscillator = audio.createOscillator();
+        oscillator.type = 'sawtooth';
+        oscillator.frequency.setValueAtTime(261.6, start);
+        const wobble = audio.createOscillator();
+        wobble.frequency.value = 6;
+        const depth = audio.createGain();
+        depth.gain.value = 6;
+        wobble.connect(depth).connect(oscillator.frequency);
+        const filter = audio.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 900;
+        oscillator.connect(filter).connect(envelope(1.26, .05, 1.1, .5, .09)).connect(bus);
+        for (const node of [ oscillator, wobble ]) {
+            node.start(start);
+            node.stop(start + 1.8);
+        }
     },
     go_cipher() {
         [ [ 0, 784 ], [ .32, 659.3 ], [ .64, 523.3 ] ].forEach((([at, frequency]) => {

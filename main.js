@@ -81,6 +81,10 @@ const GAME_SCREENS = {
         draw: drawCipher,
         stop: stopCipher
     },
+    durak: {
+        draw: drawDurak,
+        stop: stopDurak
+    },
     ram: RAM_SCREEN,
     carpet: CARPET_SCREEN,
     rockets: ROCKETS_SCREEN,
@@ -95,6 +99,7 @@ function musicFor(state) {
     if (state.playing === 'artillery') return [ 'artillery', view.phase === 'flying' ? 'fight' : 'calm' ];
     if (state.playing === 'fortress') return [ 'fortress', view.phase === 'battle' ? 'fight' : 'calm' ];
     if (state.playing === 'cipher') return [ 'cipher', view.phase === 'guessing' && view.rows && view.rows.length >= view.free - 1 ? 'fight' : 'calm' ];
+    if (state.playing === 'durak') return [ 'durak', view.deck === 0 && view.phase !== 'over' ? 'fight' : 'calm' ];
     return [ 'battleship', view.phase !== 'placing' && !view.winner ? 'fight' : 'calm' ];
 }
 
@@ -111,7 +116,7 @@ function draw(state) {
     setMusic(...musicFor(state));
     if (state.playing || !players) playMenuVideo(null);
     if (state.countdown) {
-        if (!counting) startCountdown(state.playing);
+        if (!counting) startCountdown(state.playing, state.playingMode);
         return;
     }
     liftCountdown();
